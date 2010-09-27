@@ -74,3 +74,5 @@ informations
       -s SETTINGS, --settings SETTINGS
                             the settings of the application. Default to None.
       -b, --debug
+
+Enjoy :)
