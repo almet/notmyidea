@@ -4,12 +4,12 @@ Pelican, a simple static blog generator in python
 Those days, I've wrote a little python application to fit my blogging needs.
 I'm an occasional blogger, a vim lover, I like restructured text and DVCSes.
 
-Pelican (for calepin) is just a simple tool to generate your blog as static 
-files, letting you using your editor of choice (vim!). It's easy to extend, 
+Pelican (for calepin) is just a simple tool to generate your blog as static
+files, letting you using your editor of choice (vim!). It's easy to extend,
 and has a template support.
 
-I've made it to fit *my* needs. I mean that I hope it will fit yours, but maybe
-it wont.
+I've made it to fit *my* needs. I hope it will fit yours, but maybe it wont, and
+it have not be designed to feet everyone's needs.
 
 Need an example ? You're looking at it ! This weblog is using pelican to be
 generated, also for the atom feeds.
@@ -49,7 +49,7 @@ informations
 
 .. code-block:: bash
 
-    $pelican --help 
+    $pelican --help
     usage: pelican [-h] [-t TEMPLATES] [-o OUTPUT] [-m MARKUP] [-s SETTINGS] [-b]
                    path
 
