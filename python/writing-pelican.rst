@@ -2,7 +2,7 @@ Pelican, a simple static blog generator in python
 #################################################
 
 Those days, I've wrote a little python application to fit my blogging needs.
-I'm an occasional blogger, loving vim, restructured text and the DVCSes.
+I'm an occasional blogger, a vim lover, I like restructured text and DVCSes.
 
 Pelican (for calepin) is just a simple tool to generate your blog as static 
 files, letting you using your editor of choice (vim!). It's easy to extend, 
