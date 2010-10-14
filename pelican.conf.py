@@ -3,7 +3,7 @@ THEME = '/usr/local/www/hg/repos/pelican/samples/themes/notmyidea'
 AUTHOR = u'Alexis Métaireau'
 
 BLOGNAME = u"Alexis' log" 
-# BLOGURL = 'http://blog.notmyidea.org'
+BLOGURL = 'http://blog.notmyidea.org'
 
 BLOGROLL = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
