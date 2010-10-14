@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-THEME = '/home/alexis/dev/python/pelican/samples/themes/notmyidea' 
+THEME = '/usr/local/www/hg/repos/pelican/samples/themes/notmyidea'
 AUTHOR = u'Alexis Métaireau'
 
 BLOGNAME = u"Alexis' log" 
