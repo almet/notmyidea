@@ -1,6 +1,8 @@
 Pelican, a simple static blog generator in python
 #################################################
 
+:date: 2010-10-06
+
 Those days, I've wrote a little python application to fit my blogging needs.
 I'm an occasional blogger, a vim lover, I like restructured text and DVCSes, so
 I've made a little tool that makes good use of all that.
