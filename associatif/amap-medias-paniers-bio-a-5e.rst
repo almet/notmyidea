@@ -1,7 +1,7 @@
 AMAP + Média = Paniers bio à 5€ ?!
 ##################################
 
-:Date: 2009-11-11
+:date: 2009-11-11
 
 Le raccourci me semble un peu rapide. Et pourtant, il est emprunté
 bien trop souvent. La dernière *mes-utilisation* que j'ai à décrier

@@ -1,7 +1,7 @@
 Use Restructured Text (ReST) to power your presentations
 #########################################################
 
-:Date: 2010-06-25
+:date: 2010-06-25
 
 Wednesday, we give a presentation, with some friends, about the
 CouchDB Database, to

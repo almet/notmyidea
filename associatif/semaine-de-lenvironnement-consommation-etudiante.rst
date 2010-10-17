@@ -1,7 +1,7 @@
 Semaine de l’environnement: La consommation étudiante
 #####################################################
 
-:Date: 2010-02-24
+:date: 2010-02-24
 
 *Les acteurs associatifs sont bien souvent moteurs des critiques de nos sociétés. Je pense à `Framasoft <http://www.framasoft.net/>`_, à `la Quadrature du net <http://www.laquadrature.net/>`_ ou à `Ars Industrialis <http://www.arsindustrialis.org/>`_ (dans le domaine de la science et de l'informatique), mais aussi `aux Amis de la Terre <http://www.amisdelaterre.org/>`_, à `ATTAC <http://www.attac.org/>`_ (dans le domaine de l'environnement entres autres), et a tout un tas d'autres associations que je ne peux pas citer ici exhaustivement... Ce sont eux qui sont porteurs de messages alternatifs, et qui sont les initiateurs de débats publics, qui permettent de faire avancer des thématiques aussi importantes que le logiciel libre ou la protection de l'environnement.*
 
