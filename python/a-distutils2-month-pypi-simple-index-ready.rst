@@ -1,7 +1,7 @@
 Introducing the distutils2 index crawlers
 ##########################################
 
-:Date: 2010-07-06
+:date: 2010-07-06
 
 I'm working for about a month for distutils2, even if I was being a
 bit busy (as I had some class courses and exams to work on)

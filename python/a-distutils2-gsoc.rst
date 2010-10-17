@@ -1,7 +1,7 @@
 A Distutils2 GSoC
 #################
 
-:Date: 2010-05-01
+:date: 2010-05-01
 
 WOW. I've been accepted to be a part of the
 `Google Summer Of Code <http://code.google.com/intl/fr/soc/>`_

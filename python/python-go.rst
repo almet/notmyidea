@@ -12,6 +12,7 @@ me viennent à l'esprit à propos de Python, sont "logique" et
 "simple". Et pourtant puissant pour autant. Je ne manque d'ailleurs
 pas une occasion pour faire un peu d'*évangélisation* auprès des
 quelques personnes qui veulent bien m'écouter.
+
 The Zen of Python
 ~~~~~~~~~~~~~~~~~
 

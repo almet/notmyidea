@@ -1,7 +1,7 @@
 Sprinting on distutils2 in Tours
 ################################
 
-:Date: 2010-07-06
+:date: 2010-07-06
 
 Yesterday, as I was traveling to Tours, I've took some time to
 visit Éric, another student who's working on distutils2 this

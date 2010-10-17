@@ -1,7 +1,7 @@
 An amazing summer of code working on distutils2
 ###############################################
 
-:Date: 2010-08-16
+:date: 2010-08-16
 
 The `Google Summer of Code <http://code.google.com/soc/>`_ I've
 spent working on `distutils2 <http://hg.python.org/distutils2/>`_
