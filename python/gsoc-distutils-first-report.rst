@@ -1,7 +1,7 @@
 first week working on distutils2
 #################################
 
-:date: 2010-06-04 
+:date: 2010-06-04
 
 As I've been working on
 `Distutils2 <http://hg.python.org/distutils2/>`_ during the past
