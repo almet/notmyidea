@@ -8,6 +8,7 @@ reminder about how to install php on NGINX, for FreeBSD. Nothing hard, but
 that's worse to have the piece of configuration somewhere !
 
 ::
+
     # update the ports
     $ portsnap fetch update
 
