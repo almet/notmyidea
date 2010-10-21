@@ -9,7 +9,8 @@ I've made a little tool that makes good use of all that.
 
 Pelican (for calepin) is just a simple tool to generate your blog as static
 files, letting you using your editor of choice (vim!). It's easy to extend,
-and has a template support.
+and has a template support (via jinja2). This blog is currently powered by
+pelican, if you want to have an overview.
 
 I've made it to fit *my* needs. I hope it will fit yours, but maybe it wont, and
 it have not be designed to feet everyone's needs.
