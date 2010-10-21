@@ -7,7 +7,7 @@ Those days, I've wrote a little python application to fit my blogging needs.
 I'm an occasional blogger, a vim lover, I like restructured text and DVCSes, so
 I've made a little tool that makes good use of all that.
 
-Pelican (for calepin) is just a simple tool to generate your blog as static
+Pelican_ (for calepin) is just a simple tool to generate your blog as static
 files, letting you using your editor of choice (vim!). It's easy to extend,
 and has a template support (via jinja2). 
 
@@ -79,3 +79,5 @@ informations
       -b, --debug
 
 Enjoy :)
+
+.. _Pelican: http://alexis.notmyidea.org/pelican/
