@@ -7,7 +7,7 @@ In gnome, you can can use a XML file to have a dynamic wallpaper.
 It's not so easy, and you can't just tell: use the pictures in this folder to do
 so.
 
-You can have a look to the `git repository`_ if you want: http://github.com/ametaireau/gnome-background-generator
+You can have a look to the git repository if you want: http://github.com/ametaireau/gnome-background-generator
 
 Some time ago, I've made a little python script to ease that, and you can now
 use it too. It's named "gnome-background-generator", and you can install it via
