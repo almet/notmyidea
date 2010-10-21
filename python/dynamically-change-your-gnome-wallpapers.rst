@@ -1,7 +1,7 @@
 Dynamically change your gnome desktop wallpaper
 ###############################################
 
-:date: 21-10-2010
+:date: 2010-10-11
 
 In gnome, you can can use a XML file to have a dynamic wallpaper.
 It's not so easy, and you can't just tell: use the pictures in this folder to do
