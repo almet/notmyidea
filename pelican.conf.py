@@ -13,4 +13,5 @@ SITEROLL = (('Biologeek', 'http://biologeek.org'),
             ('Zubin Mithra', "http://zubin71.wordpress.com/"),)
 
 SOCIAL = (('twitter', 'http://twitter.com/ametaireau'),
-          ('lastfm', 'http://lastfm.com/user/akounet'),)
+          ('lastfm', 'http://lastfm.com/user/akounet'),
+          ('github', 'http://github.com/ametaireau'),)
