@@ -15,11 +15,7 @@ command line tools curl, grep and tail (but really harder to read).
 
 .. code-block:: bash
 
-   curl -X POST -u joel:joel
-   http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART -d
-   "0=17&2=`curl -u joel:joel
-   http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART |
-   grep -o "name='2' value='[0-9]\+" | grep -o "[0-9]\+" | tail -n 1`&1"
+   curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART -d "0=17&2=`curl -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART | grep -o "name='2' value='[0-9]\+" | grep -o "[0-9]\+" | tail -n 1`&1"
 
 The Python version
 ==================

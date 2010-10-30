@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-THEME = '/usr/local/www/hg/repos/pelican/samples/themes/notmyidea'
+GITHUB_URL = 'http://github.com/ametaireau/'
 AUTHOR = u'Alexis Métaireau'
 
 BLOGNAME = u"Alexis' log" 
