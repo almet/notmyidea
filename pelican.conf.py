@@ -2,10 +2,10 @@
 GITHUB_URL = 'http://github.com/ametaireau/'
 AUTHOR = u'Alexis Métaireau'
 
-BLOGNAME = u"Alexis' log" 
-BLOGURL = 'http://blog.notmyidea.org'
+SITENAME = u"Alexis' log" 
+SITEURL = 'http://blog.notmyidea.org'
 
-BLOGROLL = (('Biologeek', 'http://biologeek.org'),
+SITEROLL = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
             ('Libert-fr', "http://www.libert-fr.com"),
             ('N1k0', "http://prendreuncafe.com/blog/"),
