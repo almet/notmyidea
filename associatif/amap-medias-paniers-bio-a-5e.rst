@@ -1,4 +1,4 @@
-AMAP + Média = Paniers bio à 5€ ?!
+AMAP + Média = Paniers bio à 5e ?!
 ##################################
 
 :date: 2009-11-11
