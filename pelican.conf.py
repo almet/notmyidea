@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 GITHUB_URL = 'http://github.com/ametaireau/'
+DISQUS_SITENAME = "blog-notmyidea"
 AUTHOR = u'Alexis Métaireau'
 
 SITENAME = u"Alexis' log" 
