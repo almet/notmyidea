@@ -6,8 +6,6 @@ AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Alexis' log" 
 SITEURL = 'http://blog.notmyidea.org'
 
-PAGES = (('projects', 'pages/projects.html'),)
-
 LINKS = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
             ('Libert-fr', "http://www.libert-fr.com"),
