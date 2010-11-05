@@ -131,3 +131,8 @@ If you're not using them right now, maybe you should do so: have a
 look on how the programs you're using are made, consider publishing your
 experimentations, and share them with others, you will see, it's kind of
 addictive ! 
+
+.. _github: http://github.com
+.. _bitbucket: http://www.bitbucket.org
+.. _DVCS: http://en.wikipedia.org/wiki/Distributed_revision_control
+.. _FOSS: http://en.wikipedia.org/wiki/Free_and_open_source_software
