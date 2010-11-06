@@ -17,7 +17,7 @@ retrouve de nouveau sur ces mêms réflexions, grâce aux journées
 organisées par
 `France Nature Environnement <http://www.fne.asso.fr/>`_, qui
 proposaient ce jeudi soir une projection de "Le temps des grâces",
-un documentaire sur l'agriculture. |affiche-le-temps-des-graces|
+un documentaire sur l'agriculture. 
 
 Parce que depuis 60 ans, il est pratiqué le remembrement des
 parcelles à gogo, parce que nos sols deviennent completement morts
@@ -69,5 +69,3 @@ trouvé sur allocine.fr (oui, vous savez, ce site rempli de pubs).
     la main des lobbys. Passionnant, vraiment. 
 
 Courrez-y, je vous dis.
-
-.. |affiche-le-temps-des-graces| image:: http://www.notmyidea.org/wp-content/uploads/2010/03/affiche-le-temps-des-graces-225x300.jpg

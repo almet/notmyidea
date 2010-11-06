@@ -18,10 +18,9 @@ program, and will work on `python <http://python.org/>`_
     packaging stuff interoperable, as pointed out by
     the `PEP 376 <http://www.python.org/dev/peps/pep-0376/>`_.
 
-|The current state of packaging| In more details, I'm going to work
-on the Installer / Uninstaller features of Distutils2, and on a
-PyPI XML-RPC client for distutils2. Here are the already defined
-tasks:
+In more details, I'm going to work on the Installer / Uninstaller 
+features of Distutils2, and on a PyPI XML-RPC client for distutils2. 
+Here are the already defined tasks:
 
 -  Implement Distutils2 APIs described in PEP 376.
 -  Add the uninstall command.
@@ -36,5 +35,3 @@ As I'm relatively new to python, I'll need some extra work in order
 to apply all good practice, among other things that can make a
 developper-life joyful. I'll post here, each week, my advancement,
 and my tought about python and especialy python packaging world.
-
-.. |The current state of packaging| image:: http://www.notmyidea.org/wp-content/uploads/2010/05/state_of_packaging-300x171.jpg
