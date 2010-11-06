@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-GITHUB_URL = 'http://github.com/ametaireau/'
-DISQUS_SITENAME = "blog-notmyidea"
 AUTHOR = u'Alexis Métaireau'
-PDF_PROCESSOR = True
-
 SITENAME = u"Alexis' log" 
 SITEURL = 'http://blog.notmyidea.org'
+
+GITHUB_URL = 'http://github.com/ametaireau/'
+DISQUS_SITENAME = "blog-notmyidea"
+PDF_PROCESSOR = True
 
 LINKS = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
