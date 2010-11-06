@@ -92,7 +92,7 @@ bouche:
    = 1,2,3 par exemple)
 -  `Les listes <http://docs.python.org/tutorial/datastructures.html>`_
    sont simples à manipuler !
--  Les`list comprehension <http://docs.python.org/tutorial/datastructures.html#list-comprehensions>`_,
+-  Les `list comprehension <http://docs.python.org/tutorial/datastructures.html#list-comprehensions>`_,
    ou comment faire des opérations complexes sur les listes, de
    manière simple.
 -  Les
