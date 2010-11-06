@@ -2,6 +2,7 @@
 GITHUB_URL = 'http://github.com/ametaireau/'
 DISQUS_SITENAME = "blog-notmyidea"
 AUTHOR = u'Alexis Métaireau'
+PDF_PROCESSOR = True
 
 SITENAME = u"Alexis' log" 
 SITEURL = 'http://blog.notmyidea.org'
