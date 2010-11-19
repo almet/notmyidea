@@ -2,11 +2,11 @@
 AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Alexis' log" 
 SITEURL = 'http://blog.notmyidea.org'
+CSS_FILE = "wide.css"
 
-GITHUB_URL = 'http://github.com/ametaireau/'
 DISQUS_SITENAME = "blog-notmyidea"
-PDF_PROCESSOR = True
 
+MENUITEMS = (('github', 'http://github.com/ametaireau'),)
 LINKS = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
             ('Libert-fr', "http://www.libert-fr.com"),
