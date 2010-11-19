@@ -6,7 +6,6 @@ CSS_FILE = "wide.css"
 
 DISQUS_SITENAME = "blog-notmyidea"
 
-MENUITEMS = (('github', 'http://github.com/ametaireau'),)
 LINKS = (('Biologeek', 'http://biologeek.org'),
             ('Filyb', "http://filyb.info/"),
             ('Libert-fr', "http://www.libert-fr.com"),

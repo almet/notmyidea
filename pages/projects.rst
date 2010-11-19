@@ -4,6 +4,9 @@ Projects
 On my spare time, I contribute to open source projets, and hack a bit python,
 django and php.
 
+You can find all the projects I am involoved with 
+`on my github page <http://github.com/ametaireau>`_
+
 Python
 ======
 
