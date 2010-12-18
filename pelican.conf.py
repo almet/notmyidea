@@ -4,6 +4,7 @@ AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Alexis' log" 
 
 DISQUS_SITENAME = "blog-notmyidea"
+SITEURL = 'http://blog.notmyidea.org'
 
 LINKS = (('Biologeek', 'http://biologeek.org'),
          ('Filyb', "http://filyb.info/"),
