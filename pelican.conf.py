@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Alexis' log" 
-SITEURL = 'http://blog.notmyidea.org'
-CSS_FILE = "wide.css"
 
 DISQUS_SITENAME = "blog-notmyidea"
 
