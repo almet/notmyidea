@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Alexis' log" 
 
