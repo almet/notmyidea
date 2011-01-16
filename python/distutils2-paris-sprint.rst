@@ -1,8 +1,8 @@
 Help me to go to the distutils2 paris' sprint
 #############################################
 
-** Edit: Thanks to logilab and some amazing people, I can make it to paris for the
-sprint. Many thanks to them for the support! **
+**Edit: Thanks to logilab and some amazing people, I can make it to paris for the
+sprint. Many thanks to them for the support!**
 
 There will be a distutils2 sprint from the 27th to the 30th of january, thanks
 to logilab which will host the event.
