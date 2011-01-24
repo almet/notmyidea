@@ -38,7 +38,9 @@ generate records in the CouchDB instance.
 
 The final goal is to avoid to rely on this "simple" API, and rely on a REST
 insterface instead. I have set up a couchdb server on my server, which is
-available at http://couchdb.notmyidea.org/_utils/pypi/. There is not a lot to
+available at http://couchdb.notmyidea.org/_utils/database.html?pypi. 
+
+There is not a lot to
 see there for now, but I've done the first import from PyPI yesterday and all
 went fine: it's possible to access the metadata of all PyPI projects via a REST
 interface. Next step is to write a client for this REST interface in
