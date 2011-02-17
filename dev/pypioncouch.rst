@@ -2,6 +2,7 @@ PyPI on CouchDB
 ###############
 
 :date: 2010-01-20
+
 By now, there are two ways to retrieve data from PyPI (the Python Package
 Index). You can both rely on xml/rpc or on the "simple" API. The simple
 API is not so simple to use as the name suggest, and have several existing
