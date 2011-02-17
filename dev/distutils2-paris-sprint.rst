@@ -1,6 +1,8 @@
 Help me to go to the distutils2 paris' sprint
 #############################################
 
+:date: 2011-01-15
+
 **Edit: Thanks to logilab and some amazing people, I can make it to paris for the
 sprint. Many thanks to them for the support!**
 
