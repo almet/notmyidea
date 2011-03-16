@@ -189,7 +189,3 @@ And it comes from `here <http://ubuntuforums.org/showthread.php?p=10148738#post1
 
 A sync takes about 20s + the upload time on my machine, which stay acceptable for 
 all of my developments.
-
-.. image:: images/unison.png
-    :alt: the notify osd notification
-
