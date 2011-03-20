@@ -6,6 +6,7 @@ SITENAME = u"Alexis' log"
 DISQUS_SITENAME = "blog-notmyidea"
 SITEURL = 'http://blog.notmyidea.org'
 GITHUB_URL = "http://github.com/ametaireau/"
+CSS_FILE = "wide.css"
 
 LINKS = (('Biologeek', 'http://biologeek.org'),
          ('Filyb', "http://filyb.info/"),
