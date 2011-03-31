@@ -17,7 +17,7 @@ new. After all, that's the good time to learn.
 Since a long time, I'm being impressed by the `last.fm <http://last.fm>`_
 recommender system. They're *scrobbling* the music I listen to since something
 like 5 years now and the recommendations they're doing  are really nice and
-accurate (I discover **a lot** of new artists in my tastes listening to the 
+accurate (I discovered **a lot** of great artists listening to the 
 "neighbour radio".) (by the way, `here is <http://lastfm.com/user/akounet/>`_ 
 my lastfm account)
 
