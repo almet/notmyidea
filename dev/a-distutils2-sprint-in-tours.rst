@@ -13,6 +13,7 @@ good practices, and I'm eager to learn about those. So, we have
 discussed about things, have not wrote so much code, but have some
 things to propose so far, about documentation, and I also provides
 here some bribes of conversations we had.
+
 Documentation
 ~~~~~~~~~~~~~
 
@@ -35,6 +36,7 @@ documentation. How many parts do we need ? Where to put the API
 description ? etc. That's maybe seems to be not so important, but I
 guess the readers would appreciate to have the same structure all
 along distutils2 documentation.
+
 Mercurial
 ~~~~~~~~~
 
@@ -54,6 +56,7 @@ These things make me say I **need** to read
 `the hg book <http://hgbook.red-bean.com/read/>`_, and will do as
 soon as I got some spare time: mercurial seems to be simply great.
 So ... Great. I'm a powerful merger now !
+
 On using tools
 ~~~~~~~~~~~~~~
 
@@ -66,6 +69,7 @@ have learned from each other about vim tips. You can find
 if it could help. They're not perfect, and not intended to be,
 because changing all the time, as I learn. Don't hesitate to have a
 look, and to propose enhancements if you have !
+
 On being pythonic
 ~~~~~~~~~~~~~~~~~
 
@@ -77,6 +81,7 @@ solution is to read code, and to re-read import this from times to
 times !
 `Coding like a pythonista <http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html>`_
 seems to be a must-read, so, I know what to do.
+
 Conclusion
 ~~~~~~~~~~
 
