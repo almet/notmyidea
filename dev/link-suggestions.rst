@@ -18,7 +18,7 @@ Since a long time, I'm being impressed by the `last.fm <http://last.fm>`_
 recommender system. They're *scrobbling* the music I listen to since something
 like 5 years now and the recommendations they're doing  are really nice and
 accurate (I discover **a lot** of new artists in my tastes listening to the 
-"neighbour radio".) (by the way, `here is <http://lastfm.com/user/akounet/`_ 
+"neighbour radio".) (by the way, `here is <http://lastfm.com/user/akounet/>`_ 
 my lastfm account)
 
 So I decided to work on recommender systems, to better understand what is it
@@ -32,7 +32,7 @@ Actually, the most simple thing I thought of was the web: I'm browsing it quite
 every day and each time new content appears. I've stopped to follow `my feed
 reader <https://bitbucket.org/bruno/aspirator/>`_ because of the
 information overload, and reduced drastically the number of people I follow `on
-twitter <http://twitter.com/ametaireau/`_. 
+twitter <http://twitter.com/ametaireau/>`_. 
 
 Too much information kills the information.
 
