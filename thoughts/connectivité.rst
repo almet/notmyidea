@@ -1,0 +1,55 @@
+Travailler moins pour mieux travailler ?
+########################################
+
+:date: 2011-05-19
+
+Je viens de passer une semaine et demi quasiment hors-ligne et je dois dire que
+je suis assez impressionné du résultat: je suis de retour chez mes parents pour
+le "easter break" et j'en ai profité pour donner un coup aux travaux de la
+maison (et pour me reposer un brin!).
+
+Bosser en extérieur est un réel plaisir et faire quelque chose de manuel
+également. Je n'ai pas pour habitude de bricoler autre chose que du logiciel et
+c'est vraiment quelque chose que j'apprécie.
+
+J'avoue, je mens un peu quand je dis que j'étais complètement déconnecté:
+j'ai vérifié mes mails assez régulièrement en utilisant mon téléphone 
+(merci Arnaud pour le prêt du gadget!) et j'ai limité ma présence web au strict
+minimum. Je veux dire par là pas de twitter, pas d'IRC et autres mailing-lists.
+
+Quand je dis hors-ligne, je ne dis pas que je n'ai pas travaillé sur mon
+ordinateur. J'ai à fournir beaucoup plus de travail que ce que je ne pensait en
+premier lieu pour la rédaction de mon mémoire et j'ai passé quelques heures par 
+ci par là à lire des articles et livres sur le sujet ainsi que rédigé une bonne
+partie de mon mémoire durant ces 10 jours. Résultat ? Les heures que j'ai passées à travailler ont 
+été étonnement plus productives que celles que j'ai l'habitude de passer derrière 
+un écran. Je ne parles pas uniquement du fait de procrastiner; évidemment c'est 
+une des causes principales de ma perte de productivité, mais je pense également 
+au fait de laisser le cerveau reposer, au moins en ce qui concerne la partie 
+informatique. Bricoler demande de la concentration et de la réflexion mais
+permet également de laisser son esprit vagabonder. J'ai pu donc avancer mes
+sur certaines parties de mon mémoire alors que j'étais en train de poser le
+bardage sur la garage par exemple.
+
+Passer du temps sur autre chose (qui demandait également de la concentration
+par ailleurs) m'a permis d'être réellement plus efficace lors de mes phases de
+rédaction et de lecture.
+
+Je me demande depuis quelques temps quel sera mon futur travail et quelle forme
+il prendra. Éééh oui, la fin des études arrive pour la fin de l'année, c'est
+pas une blague. Et je me pose sérieusement la question du travail aux 3/4
+temps. La raison principale étant que je ne souhaites pas passer la majeure
+partie de mon temps à travailler derrière un écran et que la formation que j'ai
+m'y rattache beaucoup. Ne me comprenez pas de travers: j'aime ce que je fais;
+mais j'aime aussi ce que je fais à coté de l'informatique: associatif, projets
+alternatifs, permaculture et autres.
+
+Viens s'ajouter à ça le fait d'avoir une qualité de vie qui me semble pouvoir
+passer par le fait de travailler moins ("il est marant ce gamin, il à pas encore commencé
+à travailler qu'il veut bosser moins, regarde moi cette feignasse!") et
+travailler plus efficacement. Bien sur, on n'est jamais 100% productif et c'est
+d'autant plus vrai pour moi, alors si gagner en productivité peut passer par
+travailler moins, pourquoi pas s'y essayer !
+
+Peut être que vous pratiquez déjà le travail au 3/4 temps, que vous avez des
+retours d'expérience à faire : fausse bonne idée ? Vraie bonne idée ?
