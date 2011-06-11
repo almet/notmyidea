@@ -81,7 +81,7 @@ Let's try something similar, but from python
     jpype.startJVM(jpype.getDefaultJVMPath(), "-Djava.class.path=%s" % classpath)
 
     # get the Java classes we want to use
-    DefaultExtractor = JPype.JPackage("de").l3s.boilerpipe.extractors.DefaultExtractor
+    DefaultExtractor = jpype.JPackage("de").l3s.boilerpipe.extractors.DefaultExtractor
 
     # call them !
     print DefaultExtractor.INSTANCE.getText(jpype.java.net.URL("http://blog.notmyidea.org"))
