@@ -15,7 +15,7 @@ reimplement boilerpipe in python. I will let you guess which one I chosen, meh.
 JPype allows to bridge python project with java libraries. It takes another
 point of view than Jython: rather than reimplementing python in Java, both 
 languages are interfacing at the VM level. This means you need to start a VM 
-fro your python script, but it does the job and stay fully compatible with
+from your python script, but it does the job and stay fully compatible with
 Cpython and its C extensions.
 
 First steps with JPype
