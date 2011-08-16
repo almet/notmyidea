@@ -3,6 +3,7 @@ Pelican, 9 months later
 
 :tags: pelican, python, open source, nice story
 :date: 25/07/2011
+:description: or why I like opensource so much
 
 Back in October, I released `pelican <http://docs.notmyidea.org/alexis/pelican>`_, 
 a little piece of code I wrote to power this weblog. I had simple needs: I wanted
