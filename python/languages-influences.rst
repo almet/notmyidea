@@ -45,7 +45,6 @@ The result is the following graph (`see it directly here
 .. image:: http://files.lolnet.org/alexis/influences.png
     :width: 800px
 
-Interestingly enough, it's stated that Java was an influence for Python (!!)
 While reading this diagram, keep in mind that it is a) not listing all the 
 languages and b) keeping a python perspective.
 
