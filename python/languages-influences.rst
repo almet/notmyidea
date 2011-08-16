@@ -46,6 +46,16 @@ The result is the following graph (`see it directly here
     :width: 800px
 
 Interestingly enough, it's stated that Java was an influence for Python (!!)
+While reading this diagram, keep in mind that it is a) not listing all the 
+languages and b) keeping a python perspective.
+
+This means that you can trust the scheme by following the arrows from python to
+something and from something to python, it is not trying to get the matching
+between all the languages at the same time to keep stuff readable.
+
+It would certainly be possible to have all the connections between all
+languages (and the resulting script would be easier) to do so, but the resulting 
+graph would probably be way less readable.
 
 You can find the script `on my github account
 <https://github.com/ametaireau/experiments>`_. Feel free to adapt it for
