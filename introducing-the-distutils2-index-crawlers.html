@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Introducing the distutils2 index crawlers</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis' log ATOM Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="http://github.com/ametaireau/">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">Alexis' log </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/projects.html">projects</a></li>
+                
+                
+                
+                    <li ><a href="./category/asso.html">asso</a></li>
+                
+                    <li class="active"><a href="./category/dev.html">dev</a></li>
+                
+                    <li ><a href="./category/python.html">python</a></li>
+                
+                    <li ><a href="./category/system.html">system</a></li>
+                
+                    <li ><a href="./category/thoughts.html">thoughts</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to Introducing the distutils2 index crawlers">Introducing the distutils2 index crawlers</a></h1>  </header>
+        <div class="entry-content">
+        <footer class="post-info">
+        <abbr class="published" title="2010-07-06T00:00:00">
+                Tue 06 July 2010
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Alexis Métaireau.html">Alexis Métaireau</a>
+        </address>
+        
+<p>In <a href="./category/dev.html">dev</a>. </p>
+
+
+
+</footer><!-- /.post-info -->
+        <p>I'm working for about a month for distutils2, even if I was being a
+bit busy (as I had some class courses and exams to work on)</p>
+<p>I'll try do sum-up my general feelings here, and the work I've made
+so far. You can also find, if you're interested, my weekly
+summaries in
+<a class="reference external" href="http://wiki.notmyidea.org/distutils2_schedule">a dedicated wiki page</a>.</p>
+<div class="section" id="general-feelings">
+<h2>General feelings</h2>
+<p>First, and it's a really important point, the GSoC is going very
+well, for me as for other students, at least from my perspective.
+It's a pleasure to work with such enthusiast people, as this make
+the global atmosphere very pleasant to live.</p>
+<p>First of all, I've spent time to read the existing codebase, and to
+understand what we're going to do, and what's the rationale to do
+so.</p>
+<p>It's really clear for me now: what we're building is the
+foundations of a packaging infrastructure in python. The fact is
+that many projects co-exists, and comes all with their good
+concepts. Distutils2 tries to take the interesting parts of all,
+and to provide it in the python standard libs, respecting the
+recently written PEP about packaging.</p>
+<p>With distutils2, it will be simpler to make &quot;things&quot; compatible. So
+if you think about a new way to deal with distributions and
+packaging in python, you can use the Distutils2 APIs to do so.</p>
+</div>
+<div class="section" id="tasks">
+<h2>Tasks</h2>
+<p>My main task while working on distutils2 is to provide an
+installation and an un-installation command, as described in PEP
+376. For this, I first need to get informations about the existing
+distributions (what's their version, name, metadata, dependencies,
+etc.)</p>
+<p>The main index, you probably know and use, is PyPI. You can access
+it at <a class="reference external" href="http://pypi.python.org">http://pypi.python.org</a>.</p>
+</div>
+<div class="section" id="pypi-index-crawling">
+<h2>PyPI index crawling</h2>
+<p>There is two ways to get these informations from PyPI: using the
+simple API, or via xml-rpc calls.</p>
+<p>A goal was to use the version specifiers defined
+in`PEP 345 &lt;<a class="reference external" href="http://www.python.org/dev/peps/pep-0345/">http://www.python.org/dev/peps/pep-0345/</a>&gt;`_ and to
+provides a way to sort the grabbed distributions depending our
+needs, to pick the version we want/need.</p>
+<div class="section" id="using-the-simple-api">
+<h3>Using the simple API</h3>
+<p>The simple API is composed of HTML pages you can access at
+<a class="reference external" href="http://pypi.python.org/simple/">http://pypi.python.org/simple/</a>.</p>
+<p>Distribute and Setuptools already provides a crawler for that, but
+it deals with their internal mechanisms, and I found that the code
+was not so clear as I want, that's why I've preferred to pick up
+the good ideas, and some implementation details, plus re-thinking
+the global architecture.</p>
+<p>The rules are simple: each project have a dedicated page, which
+allows us to get informations about:</p>
+<ul class="simple">
+<li>the distribution download locations (for some versions)</li>
+<li>homepage links</li>
+<li>some other useful informations, as the bugtracker address, for
+instance.</li>
+</ul>
+<p>If you want to find all the distributions of the &quot;EggsAndSpam&quot;
+project, you could do the following (do not take so attention to
+the names here, as the API will probably change a bit):</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="n">SimpleIndex</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;EggsAndSpam&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.3</span><span class="p">]</span>
+</pre></div>
+<p>We also could use version specifiers:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;EggsAndSpam (&lt; =1.2)&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">]</span>
+</pre></div>
+<p>Internally, what's done here is the following:</p>
+<ul class="simple">
+<li>it process the
+<a class="reference external" href="http://pypi.python.org/simple/FooBar/">http://pypi.python.org/simple/FooBar/</a>
+page, searching for download URLs.</li>
+<li>for each found distribution download URL, it creates an object,
+containing informations about the project name, the version and the
+URL where the archive remains.</li>
+<li>it sort the found distributions, using version numbers. The
+default behavior here is to prefer source distributions (over
+binary ones), and to rely on the last &quot;final&quot; distribution (rather
+than beta, alpha etc. ones)</li>
+</ul>
+<p>So, nothing hard or difficult here.</p>
+<p>We provides a bunch of other features, like relying on the new PyPI
+mirroring infrastructure or filter the found distributions by some
+criterias. If you're curious, please browse the
+<a class="reference external" href="http://distutils2.notmyidea.org/">distutils2 documentation</a>.</p>
+</div>
+<div class="section" id="using-xml-rpc">
+<h3>Using xml-rpc</h3>
+<p>We also can make some xmlrpc calls to retreive informations from
+PyPI. It's a really more reliable way to get informations from from
+the index (as it's just the index that provides the informations),
+but cost processes on the PyPI distant server.</p>
+<p>For now, this way of querying the xmlrpc client is not available on
+Distutils2, as I'm working on it. The main pieces are already
+present (I'll reuse some work I've made from the SimpleIndex
+querying, and
+<a class="reference external" href="http://github.com/ametaireau/pypiclient">some code already set up</a>),
+what I need to do is to provide a xml-rpc PyPI mock server, and
+that's on what I'm actually working on.</p>
+</div>
+</div>
+<div class="section" id="processes">
+<h2>Processes</h2>
+<p>For now, I'm trying to follow the &quot;documentation, then test, then
+code&quot; path, and that seems to be really needed while working with a
+community. Code is hard to read/understand, compared to
+documentation, and it's easier to change.</p>
+<p>While writing the simple index crawling work, I must have done this
+to avoid some changes on the API, and some loss of time.</p>
+<p>Also, I've set up
+<a class="reference external" href="http://wiki.notmyidea.org/distutils2_schedule">a schedule</a>, and
+the goal is to be sure everything will be ready in time, for the
+end of the summer. (And now, I need to learn to follow schedules
+...)</p>
+</div>
+
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "introducing-the-distutils2-index-crawlers.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://blog-notmyidea.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
+
+</article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://biologeek.org">Biologeek</a></li>
+                        
+                            <li><a href="http://filyb.info/">Filyb</a></li>
+                        
+                            <li><a href="http://www.libert-fr.com">Libert-fr</a></li>
+                        
+                            <li><a href="http://prendreuncafe.com/blog/">N1k0</a></li>
+                        
+                            <li><a href="http://ziade.org/blog">Tarek Ziadé</a></li>
+                        
+                            <li><a href="http://zubin71.wordpress.com/">Zubin Mithra</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/ametaireau">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/akounet">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/ametaireau">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'blog-notmyidea';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

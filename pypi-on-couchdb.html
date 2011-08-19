@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>PyPI on CouchDB</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis' log ATOM Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="http://github.com/ametaireau/">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">Alexis' log </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/projects.html">projects</a></li>
+                
+                
+                
+                    <li ><a href="./category/asso.html">asso</a></li>
+                
+                    <li class="active"><a href="./category/dev.html">dev</a></li>
+                
+                    <li ><a href="./category/python.html">python</a></li>
+                
+                    <li ><a href="./category/system.html">system</a></li>
+                
+                    <li ><a href="./category/thoughts.html">thoughts</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to PyPI on CouchDB">PyPI on CouchDB</a></h1>  </header>
+        <div class="entry-content">
+        <footer class="post-info">
+        <abbr class="published" title="2011-01-20T00:00:00">
+                Thu 20 January 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Alexis Métaireau.html">Alexis Métaireau</a>
+        </address>
+        
+<p>In <a href="./category/dev.html">dev</a>. </p>
+
+
+
+</footer><!-- /.post-info -->
+        <p>By now, there are two ways to retrieve data from PyPI (the Python Package
+Index). You can both rely on xml/rpc or on the &quot;simple&quot; API. The simple
+API is not so simple to use as the name suggest, and have several existing
+drawbacks.</p>
+<p>Basically, if you want to use informations coming from the simple API, you will
+have to parse web pages manually, to extract informations using some black
+vodoo magic. Badly, magic have a price, and it's sometimes impossible to get
+exactly the informations you want to get from this index. That's the technique
+currently being used by distutils2, setuptools and pip.</p>
+<p>On the other side, while XML/RPC is working fine, it's requiring extra work
+to the python servers each time you request something, which can lead to
+some outages from time to time. Also, it's important to point out that, even if
+PyPI have a mirroring infrastructure, it's only for the so-called <em>simple</em> API,
+and not for the XML/RPC.</p>
+<div class="section" id="couchdb">
+<h2>CouchDB</h2>
+<p>Here comes CouchDB. CouchDB is a document oriented database, that
+knows how to speak REST and JSON. It's easy to use, and provides out of the box
+a replication mechanism.</p>
+</div>
+<div class="section" id="so-what">
+<h2>So, what ?</h2>
+<p>Hmm, I'm sure you got it. I've wrote a piece of software to link informations from
+PyPI to a CouchDB instance. Then you can replicate all the PyPI index with only
+one HTTP request on the CouchDB server. You can also access the informations
+from the index directly using a REST API, speaking json. Handy.</p>
+<p>So PyPIonCouch is using the PyPI XML/RPC API to get data from PyPI, and
+generate records in the CouchDB instance.</p>
+<p>The final goal is to avoid to rely on this &quot;simple&quot; API, and rely on a REST
+insterface instead. I have set up a couchdb server on my server, which is
+available at <a class="reference external" href="http://couchdb.notmyidea.org/_utils/database.html?pypi">http://couchdb.notmyidea.org/_utils/database.html?pypi</a>.</p>
+<p>There is not a lot to
+see there for now, but I've done the first import from PyPI yesterday and all
+went fine: it's possible to access the metadata of all PyPI projects via a REST
+interface. Next step is to write a client for this REST interface in
+distutils2.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>For now, you can use pypioncouch via the command line, or via the python API.</p>
+<div class="section" id="using-the-command-line">
+<h3>Using the command line</h3>
+<p>You can do something like that for a full import. This <strong>will</strong> take long,
+because it's fetching all the projects at pypi and importing their metadata:</p>
+<pre class="literal-block">
+$ pypioncouch --fullimport http://your.couchdb.instance/
+</pre>
+<p>If you already have the data on your couchdb instance, you can just update it
+with the last informations from pypi. <strong>However, I recommend to just replicate
+the principal node, hosted at http://couchdb.notmyidea.org/pypi/</strong>, to avoid
+the duplication of nodes:</p>
+<pre class="literal-block">
+$ pypioncouch --update http://your.couchdb.instance/
+</pre>
+<p>The principal node is updated once a day by now, I'll try to see if it's
+enough, and ajust with the time.</p>
+</div>
+<div class="section" id="using-the-python-api">
+<h3>Using the python API</h3>
+<p>You can also use the python API to interact with pypioncouch:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from pypioncouch import XmlRpcImporter, import_all, update
+&gt;&gt;&gt; full_import()
+&gt;&gt;&gt; update()
+</pre>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next ?</h2>
+<p>I want to make a couchapp, in order to navigate PyPI easily. Here are some of
+the features I want to propose:</p>
+<ul class="simple">
+<li>List all the available projects</li>
+<li>List all the projects, filtered by specifiers</li>
+<li>List all the projects by author/maintainer</li>
+<li>List all the projects by keywords</li>
+<li>Page for each project.</li>
+<li>Provide a PyPI &quot;Simple&quot; API equivalent, even if I want to replace it, I do
+think it will be really easy to setup mirrors that way, with the out of the
+box couchdb replication</li>
+</ul>
+<p>I also still need to polish the import mechanism, so I can directly store in
+couchdb:</p>
+<ul class="simple">
+<li>The OPML files for each project</li>
+<li>The upload_time as couchdb friendly format (list of int)</li>
+<li>The tags as lists (currently it's only a string separated by spaces</li>
+</ul>
+<p>The work I've done by now is available on
+<a class="reference external" href="https://bitbucket.org/ametaireau/pypioncouch/">https://bitbucket.org/ametaireau/pypioncouch/</a>. Keep in mind that it's still
+a work in progress, and everything can break at any time. However, any feedback
+will be appreciated !</p>
+</div>
+
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "pypi-on-couchdb.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://blog-notmyidea.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
+
+</article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://biologeek.org">Biologeek</a></li>
+                        
+                            <li><a href="http://filyb.info/">Filyb</a></li>
+                        
+                            <li><a href="http://www.libert-fr.com">Libert-fr</a></li>
+                        
+                            <li><a href="http://prendreuncafe.com/blog/">N1k0</a></li>
+                        
+                            <li><a href="http://ziade.org/blog">Tarek Ziadé</a></li>
+                        
+                            <li><a href="http://zubin71.wordpress.com/">Zubin Mithra</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/ametaireau">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/akounet">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/ametaireau">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'blog-notmyidea';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

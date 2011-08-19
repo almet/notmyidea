@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/python.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-08-16T00:00:00Z</updated><entry><title>Using dbpedia to get languages influences</title><link href="http://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="alternate"></link><updated>2011-08-16T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-16:/using-dbpedia-to-get-languages-influences.html/</id><summary type="html">&lt;p&gt;While browsing the Python's wikipedia page, I found information about the languages
+influenced by python, and the languages that influenced python itself.&lt;/p&gt;
+&lt;p&gt;Well, that's kind of interesting to know which languages influenced others,
+it could even be more interesting to have an overview of the connexion between
+them, keeping python as the main focus.&lt;/p&gt;
+&lt;p&gt;This information is available on the wikipedia page, but not in a really
+exploitable format. Hopefully, this information is provided into the
+information box present on the majority of wikipedia pages. And… guess what?
+there is project with the goal to scrap and index all this information in
+a more queriable way, using the semantic web technologies.&lt;/p&gt;
+&lt;p&gt;Well, you may have guessed it, the project in question in dbpedia, and exposes
+information in the form of RDF triples, which are way more easy to work with
+than simple HTML.&lt;/p&gt;
+&lt;p&gt;For instance, let's take the page about python:
+&lt;a class="reference external" href="http://dbpedia.org/page/Python_%28programming_language%29"&gt;http://dbpedia.org/page/Python_%28programming_language%29&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The interesting properties here are &amp;quot;Influenced&amp;quot; and &amp;quot;InfluencedBy&amp;quot;, which
+allows us to get a list of languages. Unfortunately, they are not really using
+all the power of the Semantic Web here, and the list is actually a string with
+coma separated values in it.&lt;/p&gt;
+&lt;p&gt;Anyway, we can use a simple rule: All wikipedia pages of programming languages
+are either named after the name of the language itself, or suffixed with &amp;quot;(
+programming language)&amp;quot;, which is the case for python.&lt;/p&gt;
+&lt;p&gt;So I've built &lt;a class="reference external" href="https://github.com/ametaireau/experiments/blob/master/influences/get_influences.py"&gt;a tiny script to extract the information from dbpedia&lt;/a&gt; and transform them into a shiny graph using graphviz.&lt;/p&gt;
+&lt;p&gt;After a nice:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ python get_influences.py python dot | dot -Tpng &amp;gt; influences.png
+&lt;/pre&gt;
+&lt;p&gt;The result is the following graph (&lt;a class="reference external" href="http://files.lolnet.org/alexis/influences.png"&gt;see it directly here&lt;/a&gt;)&lt;/p&gt;
+&lt;img alt="http://files.lolnet.org/alexis/influences.png" src="http://files.lolnet.org/alexis/influences.png" style="width: 800px;" /&gt;
+&lt;p&gt;While reading this diagram, keep in mind that it is a) not listing all the
+languages and b) keeping a python perspective.&lt;/p&gt;
+&lt;p&gt;This means that you can trust the scheme by following the arrows from python to
+something and from something to python, it is not trying to get the matching
+between all the languages at the same time to keep stuff readable.&lt;/p&gt;
+&lt;p&gt;It would certainly be possible to have all the connections between all
+languages (and the resulting script would be easier) to do so, but the resulting
+graph would probably be way less readable.&lt;/p&gt;
+&lt;p&gt;You can find the script &lt;a class="reference external" href="https://github.com/ametaireau/experiments"&gt;on my github account&lt;/a&gt;. Feel free to adapt it for
+whatever you want if you feel hackish.&lt;/p&gt;
+</summary><category term="dbpedia"></category><category term="sparql"></category><category term="python"></category></entry></feed>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Using dbpedia to get languages influences</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis' log ATOM Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="http://github.com/ametaireau/">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">Alexis' log </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/projects.html">projects</a></li>
+                
+                
+                
+                    <li ><a href="./category/asso.html">asso</a></li>
+                
+                    <li ><a href="./category/dev.html">dev</a></li>
+                
+                    <li class="active"><a href="./category/python.html">python</a></li>
+                
+                    <li ><a href="./category/system.html">system</a></li>
+                
+                    <li ><a href="./category/thoughts.html">thoughts</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to Using dbpedia to get languages influences">Using dbpedia to get languages influences</a></h1>  </header>
+        <div class="entry-content">
+        <footer class="post-info">
+        <abbr class="published" title="2011-08-16T00:00:00">
+                Tue 16 August 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Alexis Métaireau.html">Alexis Métaireau</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/dbpedia.html">dbpedia</a><a href="./tag/sparql.html">sparql</a><a href="./tag/python.html">python</a></p>
+
+
+</footer><!-- /.post-info -->
+        <p>While browsing the Python's wikipedia page, I found information about the languages
+influenced by python, and the languages that influenced python itself.</p>
+<p>Well, that's kind of interesting to know which languages influenced others,
+it could even be more interesting to have an overview of the connexion between
+them, keeping python as the main focus.</p>
+<p>This information is available on the wikipedia page, but not in a really
+exploitable format. Hopefully, this information is provided into the
+information box present on the majority of wikipedia pages. And… guess what?
+there is project with the goal to scrap and index all this information in
+a more queriable way, using the semantic web technologies.</p>
+<p>Well, you may have guessed it, the project in question in dbpedia, and exposes
+information in the form of RDF triples, which are way more easy to work with
+than simple HTML.</p>
+<p>For instance, let's take the page about python:
+<a class="reference external" href="http://dbpedia.org/page/Python_%28programming_language%29">http://dbpedia.org/page/Python_%28programming_language%29</a></p>
+<p>The interesting properties here are &quot;Influenced&quot; and &quot;InfluencedBy&quot;, which
+allows us to get a list of languages. Unfortunately, they are not really using
+all the power of the Semantic Web here, and the list is actually a string with
+coma separated values in it.</p>
+<p>Anyway, we can use a simple rule: All wikipedia pages of programming languages
+are either named after the name of the language itself, or suffixed with &quot;(
+programming language)&quot;, which is the case for python.</p>
+<p>So I've built <a class="reference external" href="https://github.com/ametaireau/experiments/blob/master/influences/get_influences.py">a tiny script to extract the information from dbpedia</a> and transform them into a shiny graph using graphviz.</p>
+<p>After a nice:</p>
+<pre class="literal-block">
+$ python get_influences.py python dot | dot -Tpng &gt; influences.png
+</pre>
+<p>The result is the following graph (<a class="reference external" href="http://files.lolnet.org/alexis/influences.png">see it directly here</a>)</p>
+<img alt="http://files.lolnet.org/alexis/influences.png" src="http://files.lolnet.org/alexis/influences.png" style="width: 800px;" />
+<p>While reading this diagram, keep in mind that it is a) not listing all the
+languages and b) keeping a python perspective.</p>
+<p>This means that you can trust the scheme by following the arrows from python to
+something and from something to python, it is not trying to get the matching
+between all the languages at the same time to keep stuff readable.</p>
+<p>It would certainly be possible to have all the connections between all
+languages (and the resulting script would be easier) to do so, but the resulting
+graph would probably be way less readable.</p>
+<p>You can find the script <a class="reference external" href="https://github.com/ametaireau/experiments">on my github account</a>. Feel free to adapt it for
+whatever you want if you feel hackish.</p>
+
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "using-dbpedia-to-get-languages-influences.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://blog-notmyidea.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
+
+</article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://biologeek.org">Biologeek</a></li>
+                        
+                            <li><a href="http://filyb.info/">Filyb</a></li>
+                        
+                            <li><a href="http://www.libert-fr.com">Libert-fr</a></li>
+                        
+                            <li><a href="http://prendreuncafe.com/blog/">N1k0</a></li>
+                        
+                            <li><a href="http://ziade.org/blog">Tarek Ziadé</a></li>
+                        
+                            <li><a href="http://zubin71.wordpress.com/">Zubin Mithra</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/ametaireau">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/akounet">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/ametaireau">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'blog-notmyidea';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
