@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" media="screen" charset="utf-8">
+        <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
+    <title>Alexis Métaireau</title>
+</head>
+<body>
+    <div id="top">
+        <p class="author"><a href="{{ SITEURL }}/about.html">{{ AUTHOR }}</a>'s thoughs</p>
+        <ul class="links">{% block links %}{% endblock %}</ul>
+    </div>
+    <div class="content clear">{% block content %}{% endblock %}</div>
+</body>
+</html>

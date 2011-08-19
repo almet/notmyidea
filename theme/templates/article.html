@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block links %}
+<li><a href="{{ SITEURL }}">↵ </a></li>
+{% endblock %}
+{% block content %}
+    <h1>{{ article.title }}</h1>
+    <p class="date">Published on {{ article.locale_date }}</p>
+    {{ article.content }}
+{% endblock %}
