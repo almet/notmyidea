@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-08-19T00:00:00Z</updated><entry><title>Simple test page</title><link href="http://blog.notmyidea.org/simple-test-page.html" rel="alternate"></link><updated>2011-08-19T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-19:/simple-test-page.html/</id><summary type="html">&lt;p&gt;Simple test for ghp-import + post commit hook
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-08-19T00:00:00+02:00</updated><entry><title>Simple test page</title><link href="http://blog.notmyidea.org/simple-test-page.html" rel="alternate"></link><updated>2011-08-19T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-19:/simple-test-page.html/</id><summary type="html">&lt;p&gt;Simple test for ghp-import + post commit hook
 Yeah ?&lt;/p&gt;
-</summary><category term="bleh"></category></entry><entry><title>Using dbpedia to get languages influences</title><link href="http://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="alternate"></link><updated>2011-08-16T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-16:/using-dbpedia-to-get-languages-influences.html/</id><summary type="html">&lt;p&gt;While browsing the Python's wikipedia page, I found information about the languages
+</summary><category term="bleh"></category></entry><entry><title>Using dbpedia to get languages influences</title><link href="http://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="alternate"></link><updated>2011-08-16T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-16:/using-dbpedia-to-get-languages-influences.html/</id><summary type="html">&lt;p&gt;While browsing the Python's wikipedia page, I found information about the languages
 influenced by python, and the languages that influenced python itself.&lt;/p&gt;
 &lt;p&gt;Well, that's kind of interesting to know which languages influenced others,
 it could even be more interesting to have an overview of the connexion between
@@ -40,7 +40,7 @@ languages (and the resulting script would be easier) to do so, but the resulting
 graph would probably be way less readable.&lt;/p&gt;
 &lt;p&gt;You can find the script &lt;a class="reference external" href="https://github.com/ametaireau/experiments"&gt;on my github account&lt;/a&gt;. Feel free to adapt it for
 whatever you want if you feel hackish.&lt;/p&gt;
-</summary><category term="dbpedia"></category><category term="sparql"></category><category term="python"></category></entry><entry><title>Pelican, 9 months later</title><link href="http://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><updated>2011-07-25T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html/</id><summary type="html">&lt;p&gt;Back in October, I released &lt;a class="reference external" href="http://docs.notmyidea.org/alexis/pelican"&gt;pelican&lt;/a&gt;,
+</summary><category term="dbpedia"></category><category term="sparql"></category><category term="python"></category></entry><entry><title>Pelican, 9 months later</title><link href="http://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><updated>2011-07-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html/</id><summary type="html">&lt;p&gt;Back in October, I released &lt;a class="reference external" href="http://docs.notmyidea.org/alexis/pelican"&gt;pelican&lt;/a&gt;,
 a little piece of code I wrote to power this weblog. I had simple needs: I wanted
 to be able to use my text editor of choice (vim), a vcs (mercurial) and
 restructured text. I started to write a really simple blog engine
@@ -57,7 +57,7 @@ a number of mistakes and improved a lot the codebase. This was a proof that
 there is a bunch of people that are willing to make better softwares just for
 the sake of fun.&lt;/p&gt;
 &lt;p&gt;Thank you, guys, you're why I like open source so much.&lt;/p&gt;
-</summary><category term="pelican"></category><category term="python"></category><category term="open source"></category><category term="nice story"></category></entry><entry><title>Using JPype to bridge python and Java</title><link href="http://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><updated>2011-06-11T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html/</id><summary type="html">&lt;p&gt;Java provides some interesting libraries that have no exact equivalent in
+</summary><category term="pelican"></category><category term="python"></category><category term="open source"></category><category term="nice story"></category></entry><entry><title>Using JPype to bridge python and Java</title><link href="http://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><updated>2011-06-11T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html/</id><summary type="html">&lt;p&gt;Java provides some interesting libraries that have no exact equivalent in
 python. In my case, the awesome boilerpipe library allows me to remove
 uninteresting parts of HTML pages, like menus, footers and other &amp;quot;boilerplate&amp;quot;
 contents.&lt;/p&gt;
@@ -127,7 +127,7 @@ Let's try something similar, but from python&lt;/p&gt;
 extract text content from URLs and remove the &lt;em&gt;boilerplate&lt;/em&gt; text easily
 for infuse (my master thesis project), without having to write java code, nice!&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category><category term="java"></category></entry><entry><title>Un coup de main pour mon mémoire!</title><link href="http://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><updated>2011-05-25T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html/</id><summary type="html">&lt;p&gt;Ça y est, bientôt la fin. LA FIN. La fin des études, et le début du reste.
+</summary><category term="python"></category><category term="java"></category></entry><entry><title>Un coup de main pour mon mémoire!</title><link href="http://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><updated>2011-05-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html/</id><summary type="html">&lt;p&gt;Ça y est, bientôt la fin. LA FIN. La fin des études, et le début du reste.
 En attendant je bosse sur mon mémoire de fin d'études et j'aurais besoin d'un petit
 coup de main.&lt;/p&gt;
 &lt;p&gt;Mon mémoire porte sur les systèmes de recommandation. Pour ceux qui connaissent
@@ -153,7 +153,7 @@ question, et c'est tout!&lt;/p&gt;
 &lt;p&gt;A votre bon cœur ! Je récupérerais probablement des données durant les 2
 prochains mois pour ensuite les analyser correctement.&lt;/p&gt;
 &lt;p&gt;Merci pour votre aide !&lt;/p&gt;
-</summary></entry><entry><title>Travailler moins pour mieux travailler ?</title><link href="http://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html" rel="alternate"></link><updated>2011-05-19T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-05-19:/travailler-moins-pour-mieux-travailler.html/</id><summary type="html">&lt;p&gt;Je viens de passer une semaine et demi quasiment hors-ligne et je dois dire que
+</summary></entry><entry><title>Travailler moins pour mieux travailler ?</title><link href="http://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html" rel="alternate"></link><updated>2011-05-19T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-05-19:/travailler-moins-pour-mieux-travailler.html/</id><summary type="html">&lt;p&gt;Je viens de passer une semaine et demi quasiment hors-ligne et je dois dire que
 je suis assez impressionné du résultat: je suis de retour chez mes parents pour
 le &amp;quot;easter break&amp;quot; et j'en ai profité pour donner un coup aux travaux de la
 maison (et pour me reposer un brin!).&lt;/p&gt;
@@ -196,7 +196,7 @@ d'autant plus vrai pour moi, alors si gagner en productivité peut passer par
 travailler moins, pourquoi pas s'y essayer !&lt;/p&gt;
 &lt;p&gt;Peut être que vous pratiquez déjà le travail au 3/4 temps, que vous avez des
 retours d'expérience à faire : fausse bonne idée ? Vraie bonne idée ?&lt;/p&gt;
-</summary></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="http://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><updated>2011-04-01T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html/</id><summary type="html">&lt;p&gt;No, this is not an april's fool ;)&lt;/p&gt;
+</summary></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="http://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><updated>2011-04-01T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html/</id><summary type="html">&lt;p&gt;No, this is not an april's fool ;)&lt;/p&gt;
 &lt;p&gt;Wow, it's been a long time. My year in Oxford is going really well. I realized
 few days ago that the end of the year is approaching really quickly.
 Exams are coming in one month or such and then I'll be working full time on my dissertation topic.&lt;/p&gt;
@@ -374,7 +374,7 @@ contents as well, to do some keyword based classification will be done.&lt;/li&g
 &lt;/ul&gt;
 &lt;p&gt;Lot of work on its way, yay !&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="recommendations"></category><category term="browsers"></category><category term="users"></category></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="http://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><updated>2011-03-16T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html/</id><summary type="html">&lt;p&gt;I have a server running freebsd since some time now, and was wondering about
+</summary><category term="recommendations"></category><category term="browsers"></category><category term="users"></category></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="http://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><updated>2011-03-16T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html/</id><summary type="html">&lt;p&gt;I have a server running freebsd since some time now, and was wondering about
 the possibility to directly have a development environment ready to use when
 I get a internet connexion, even if I'm not on my computer.&lt;/p&gt;
 &lt;p&gt;Since I use vim to code, and spend most of my time in a console while
@@ -525,7 +525,7 @@ content.&lt;/p&gt;
 &lt;p&gt;A sync takes about 20s + the upload time on my machine, which stay acceptable for
 all of my developments.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="freebsd"></category><category term="unison"></category></entry><entry><title>Wrap up of the distutils2 paris' sprint</title><link href="http://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><updated>2011-02-08T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html/</id><summary type="html">&lt;p&gt;Finally, thanks to a bunch of people that helped me to pay my train and bus
+</summary><category term="freebsd"></category><category term="unison"></category></entry><entry><title>Wrap up of the distutils2 paris' sprint</title><link href="http://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><updated>2011-02-08T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html/</id><summary type="html">&lt;p&gt;Finally, thanks to a bunch of people that helped me to pay my train and bus
 tickets, I've made it to paris for the distutils2 sprint.&lt;/p&gt;
 &lt;p&gt;They have been a bit more than 10 people to come during the sprint, and it was
 very productive. Here's a taste of what we've been working on:&lt;/p&gt;
@@ -562,7 +562,7 @@ providing us food, and to bearstech for providing some money for breakfast and
 bears^Wbeers.&lt;/p&gt;
 &lt;p&gt;Again, a big thanks to all the people who gave me money to pay the transport,
 I really wasn't expecting such thing to happen :-)&lt;/p&gt;
-</summary></entry><entry><title>PyPI on CouchDB</title><link href="http://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><updated>2011-01-20T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html/</id><summary type="html">&lt;p&gt;By now, there are two ways to retrieve data from PyPI (the Python Package
+</summary></entry><entry><title>PyPI on CouchDB</title><link href="http://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><updated>2011-01-20T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html/</id><summary type="html">&lt;p&gt;By now, there are two ways to retrieve data from PyPI (the Python Package
 Index). You can both rely on xml/rpc or on the &amp;quot;simple&amp;quot; API. The simple
 API is not so simple to use as the name suggest, and have several existing
 drawbacks.&lt;/p&gt;
@@ -655,7 +655,7 @@ couchdb:&lt;/p&gt;
 a work in progress, and everything can break at any time. However, any feedback
 will be appreciated !&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Help me to go to the distutils2 paris' sprint</title><link href="http://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><updated>2011-01-15T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit: Thanks to logilab and some amazing people, I can make it to paris for the
+</summary></entry><entry><title>Help me to go to the distutils2 paris' sprint</title><link href="http://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><updated>2011-01-15T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Edit: Thanks to logilab and some amazing people, I can make it to paris for the
 sprint. Many thanks to them for the support!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;There will be a distutils2 sprint from the 27th to the 30th of january, thanks
 to logilab which will host the event.&lt;/p&gt;
@@ -673,7 +673,7 @@ while needed.&lt;/p&gt;
 &lt;p&gt;If you want to contribute some money to help me go there, feel free to use this
 chipin page: &lt;a class="reference external" href="http://ametaireau.chipin.com/distutils2-sprint-in-paris"&gt;http://ametaireau.chipin.com/distutils2-sprint-in-paris&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Thanks for your support !&lt;/p&gt;
-</summary></entry><entry><title>Fork you ! or how the social coding can help you</title><link href="http://blog.notmyidea.org/fork-you-or-how-the-social-coding-can-help-you.html" rel="alternate"></link><updated>2010-11-05T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-11-05:/fork-you-or-how-the-social-coding-can-help-you.html/</id><summary type="html">&lt;p&gt;With &lt;a class="reference external" href="http://github.com"&gt;github&lt;/a&gt; and &lt;a class="reference external" href="http://www.bitbucket.org"&gt;bitbucket&lt;/a&gt; coming around, a lot of new usages appears for the
+</summary></entry><entry><title>Fork you ! or how the social coding can help you</title><link href="http://blog.notmyidea.org/fork-you-or-how-the-social-coding-can-help-you.html" rel="alternate"></link><updated>2010-11-05T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-11-05:/fork-you-or-how-the-social-coding-can-help-you.html/</id><summary type="html">&lt;p&gt;With &lt;a class="reference external" href="http://github.com"&gt;github&lt;/a&gt; and &lt;a class="reference external" href="http://www.bitbucket.org"&gt;bitbucket&lt;/a&gt; coming around, a lot of new usages appears for the
 developpers: it's now easy to get feedback on your code/modifications, and to get
 help from others by, for instance, forking repositories.&lt;/p&gt;
 &lt;p&gt;Eeach time I see people helping others, I'm amazed by how we like to share
@@ -774,7 +774,7 @@ look on how the programs you're using are made, consider publishing your
 experimentations, and share them with others, you will see, it's kind of
 addictive !&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>How to reboot your bebox using the CLI</title><link href="http://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><updated>2010-10-21T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html/</id><summary type="html">&lt;p&gt;I've an internet connection which, for some obscure reasons, tend to be very
+</summary></entry><entry><title>How to reboot your bebox using the CLI</title><link href="http://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><updated>2010-10-21T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html/</id><summary type="html">&lt;p&gt;I've an internet connection which, for some obscure reasons, tend to be very
 slow from time to time. After rebooting the box (yes, that's a hard solution),
 all the things seems to go fine again.&lt;/p&gt;
 &lt;div class="section" id="edit-using-grep"&gt;
@@ -823,7 +823,7 @@ command line tools curl, grep and tail (but really harder to read).&lt;/p&gt;
     &lt;span class="n"&gt;reboot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="http://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><updated>2010-10-11T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html/</id><summary type="html">&lt;p&gt;In gnome, you can can use a XML file to have a dynamic wallpaper.
+</summary></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="http://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><updated>2010-10-11T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html/</id><summary type="html">&lt;p&gt;In gnome, you can can use a XML file to have a dynamic wallpaper.
 It's not so easy, and you can't just tell: use the pictures in this folder to do
 so.&lt;/p&gt;
 &lt;p&gt;You can have a look to the git repository if you want: &lt;a class="reference external" href="http://github.com/ametaireau/gnome-background-generator"&gt;http://github.com/ametaireau/gnome-background-generator&lt;/a&gt;&lt;/p&gt;
@@ -866,7 +866,7 @@ optional arguments:
                         properties
   -b, --debug
 &lt;/pre&gt;&lt;/div&gt;
-</summary></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="http://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><updated>2010-10-10T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html/</id><summary type="html">&lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
+</summary></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="http://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><updated>2010-10-10T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html/</id><summary type="html">&lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard, but
 that's worse to have the piece of configuration somewhere !&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -913,7 +913,7 @@ upstream backend {
 }
 &lt;/pre&gt;
 &lt;p&gt;And that's it !&lt;/p&gt;
-</summary></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="http://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><updated>2010-10-06T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html/</id><summary type="html">&lt;p&gt;Those days, I've wrote a little python application to fit my blogging needs.
+</summary></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="http://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><updated>2010-10-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html/</id><summary type="html">&lt;p&gt;Those days, I've wrote a little python application to fit my blogging needs.
 I'm an occasional blogger, a vim lover, I like restructured text and DVCSes, so
 I've made a little tool that makes good use of all that.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://alexis.notmyidea.org/pelican/"&gt;Pelican&lt;/a&gt; (for calepin) is just a simple tool to generate your blog as static
@@ -974,7 +974,7 @@ optional arguments:
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Enjoy :)&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>An amazing summer of code working on distutils2</title><link href="http://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><updated>2010-08-16T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html/</id><summary type="html">&lt;p&gt;The &lt;a class="reference external" href="http://code.google.com/soc/"&gt;Google Summer of Code&lt;/a&gt; I've
+</summary></entry><entry><title>An amazing summer of code working on distutils2</title><link href="http://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><updated>2010-08-16T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html/</id><summary type="html">&lt;p&gt;The &lt;a class="reference external" href="http://code.google.com/soc/"&gt;Google Summer of Code&lt;/a&gt; I've
 spent working on &lt;a class="reference external" href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt;
 is over. It was a really amazing experience, for many reasons.&lt;/p&gt;
 &lt;p&gt;First of all, we had a very good team, we were 5 students working
@@ -1117,7 +1117,7 @@ for setting up such an initiative. If you're a student, if you're
 interested about FOSS, dont hesitate any second, it's a really good
 opportunity to work on interesting projects!&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="http://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><updated>2010-07-06T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html/</id><summary type="html">&lt;p&gt;I'm working for about a month for distutils2, even if I was being a
+</summary></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="http://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><updated>2010-07-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html/</id><summary type="html">&lt;p&gt;I'm working for about a month for distutils2, even if I was being a
 bit busy (as I had some class courses and exams to work on)&lt;/p&gt;
 &lt;p&gt;I'll try do sum-up my general feelings here, and the work I've made
 so far. You can also find, if you're interested, my weekly
@@ -1236,7 +1236,7 @@ the goal is to be sure everything will be ready in time, for the
 end of the summer. (And now, I need to learn to follow schedules
 ...)&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="http://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><updated>2010-07-06T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-06:/sprinting-on-distutils2-in-tours.html/</id><summary type="html">&lt;p&gt;Yesterday, as I was traveling to Tours, I've took some time to
+</summary></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="http://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><updated>2010-07-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-06:/sprinting-on-distutils2-in-tours.html/</id><summary type="html">&lt;p&gt;Yesterday, as I was traveling to Tours, I've took some time to
 visit Éric, another student who's working on distutils2 this
 summer, as a part of the GSoC. Basically, it was to take a drink,
 discuss a bit about distutils2, our respective tasks and general
@@ -1317,7 +1317,7 @@ distutils2, and to have a bullet list of things to do, but days
 like this one are opportunities to catch ! We'll probably do
 another sprint in a few weeks, stay tuned !&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="http://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><updated>2010-06-25T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html/</id><summary type="html">&lt;p&gt;Wednesday, we give a presentation, with some friends, about the
+</summary></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="http://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><updated>2010-06-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html/</id><summary type="html">&lt;p&gt;Wednesday, we give a presentation, with some friends, about the
 CouchDB Database, to
 &lt;a class="reference external" href="http://www.toulibre.org"&gt;the Toulouse local LUG&lt;/a&gt;. Thanks a lot
 to all the presents for being there, it was a pleasure to talk
@@ -1344,7 +1344,7 @@ and the command line to generate the PDF:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 rst2pdf couchdb.rst -b1 -s ../slides.style
 &lt;/pre&gt;
-</summary></entry><entry><title>first week working on distutils2</title><link href="http://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><updated>2010-06-04T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html/</id><summary type="html">&lt;p&gt;As I've been working on
+</summary></entry><entry><title>first week working on distutils2</title><link href="http://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><updated>2010-06-04T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html/</id><summary type="html">&lt;p&gt;As I've been working on
 &lt;a class="reference external" href="http://hg.python.org/distutils2/"&gt;Distutils2&lt;/a&gt; during the past
 week, taking part of the
 &lt;a class="reference external" href="http://code.google.com/intl/fr/soc/"&gt;GSOC&lt;/a&gt; program, here is a
@@ -1415,7 +1415,7 @@ to make this clear.&lt;/p&gt;
 &lt;a class="reference external" href="http://github.com/ametaireau/pypiclient"&gt;already started here&lt;/a&gt;
 I'll take you updated !&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>A Distutils2 GSoC</title><link href="http://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><updated>2010-05-01T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html/</id><summary type="html">&lt;p&gt;WOW. I've been accepted to be a part of the
+</summary></entry><entry><title>A Distutils2 GSoC</title><link href="http://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><updated>2010-05-01T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html/</id><summary type="html">&lt;p&gt;WOW. I've been accepted to be a part of the
 &lt;a class="reference external" href="http://code.google.com/intl/fr/soc/"&gt;Google Summer Of Code&lt;/a&gt;
 program, and will work on &lt;a class="reference external" href="http://python.org/"&gt;python&lt;/a&gt;
 &lt;a class="reference external" href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt;, with
@@ -1446,7 +1446,7 @@ Here are the already defined tasks:&lt;/p&gt;
 to apply all good practice, among other things that can make a
 developper-life joyful. I'll post here, each week, my advancement,
 and my tought about python and especialy python packaging world.&lt;/p&gt;
-</summary></entry><entry><title>Le temps des grâces, courrez-y !</title><link href="http://blog.notmyidea.org/le-temps-des-graces-courrez-y.html" rel="alternate"></link><updated>2010-03-28T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-03-28:/le-temps-des-graces-courrez-y.html/</id><summary type="html">&lt;p&gt;Ouf, notre
+</summary></entry><entry><title>Le temps des grâces, courrez-y !</title><link href="http://blog.notmyidea.org/le-temps-des-graces-courrez-y.html" rel="alternate"></link><updated>2010-03-28T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-03-28:/le-temps-des-graces-courrez-y.html/</id><summary type="html">&lt;p&gt;Ouf, notre
 &lt;a class="reference external" href="http://www.reseaugrappe.org"&gt;semaine de l'environnement&lt;/a&gt; s'est
 terminée, après un peu de neige et un brin de soleil quand il en
 fallait.&lt;/p&gt;
@@ -1506,7 +1506,7 @@ monde agricole français, tout en proposant des alternatives qui
 pourraient être utilisée, si les pouvoirs publics lâchaient un peu
 la main des lobbys. Passionnant, vraiment.&lt;/blockquote&gt;
 &lt;p&gt;Courrez-y, je vous dis.&lt;/p&gt;
-</summary></entry><entry><title>Semaine de l’environnement: La consommation étudiante</title><link href="http://blog.notmyidea.org/semaine-de-lenvironnement-la-consommation-etudiante.html" rel="alternate"></link><updated>2010-02-24T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-02-24:/semaine-de-lenvironnement-la-consommation-etudiante.html/</id><summary type="html">&lt;p&gt;Les acteurs associatifs sont bien souvent moteurs des critiques de nos sociétés. Je pense à &lt;a class="reference external" href="http://www.framasoft.net/"&gt;Framasoft&lt;/a&gt;, à &lt;a class="reference external" href="http://www.laquadrature.net/"&gt;la Quadrature du net&lt;/a&gt; ou à &lt;a class="reference external" href="http://www.arsindustrialis.org/"&gt;Ars Industrialis&lt;/a&gt; (dans le domaine de la science et de l'informatique), mais aussi &lt;a class="reference external" href="http://www.amisdelaterre.org/"&gt;aux Amis de la Terre&lt;/a&gt;, à &lt;a class="reference external" href="http://www.attac.org/"&gt;ATTAC&lt;/a&gt; (dans le domaine de l'environnement entres autres), et a tout un tas d'autres associations que je ne peux pas citer ici exhaustivement... Ce sont eux qui sont porteurs de messages alternatifs, et qui sont les initiateurs de débats publics, qui permettent de faire avancer des thématiques aussi importantes que le logiciel libre ou la protection de l'environnement.&lt;/p&gt;
+</summary></entry><entry><title>Semaine de l’environnement: La consommation étudiante</title><link href="http://blog.notmyidea.org/semaine-de-lenvironnement-la-consommation-etudiante.html" rel="alternate"></link><updated>2010-02-24T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-02-24:/semaine-de-lenvironnement-la-consommation-etudiante.html/</id><summary type="html">&lt;p&gt;Les acteurs associatifs sont bien souvent moteurs des critiques de nos sociétés. Je pense à &lt;a class="reference external" href="http://www.framasoft.net/"&gt;Framasoft&lt;/a&gt;, à &lt;a class="reference external" href="http://www.laquadrature.net/"&gt;la Quadrature du net&lt;/a&gt; ou à &lt;a class="reference external" href="http://www.arsindustrialis.org/"&gt;Ars Industrialis&lt;/a&gt; (dans le domaine de la science et de l'informatique), mais aussi &lt;a class="reference external" href="http://www.amisdelaterre.org/"&gt;aux Amis de la Terre&lt;/a&gt;, à &lt;a class="reference external" href="http://www.attac.org/"&gt;ATTAC&lt;/a&gt; (dans le domaine de l'environnement entres autres), et a tout un tas d'autres associations que je ne peux pas citer ici exhaustivement... Ce sont eux qui sont porteurs de messages alternatifs, et qui sont les initiateurs de débats publics, qui permettent de faire avancer des thématiques aussi importantes que le logiciel libre ou la protection de l'environnement.&lt;/p&gt;
 &lt;p&gt;Dans cette optique, depuis près de 3 ans (déjà !), au sein du
 &lt;a class="reference external" href="http://www.reseaugrappe.org"&gt;réseau GRAPPE&lt;/a&gt;, on &lt;em&gt;essaye&lt;/em&gt;
 d'aborder des thématiques qui touchent de près ou de loin à
@@ -1546,7 +1546,7 @@ que vous pouvez compléter en une petite 10aine de minutes,
 n'hésitez pas !
 &lt;a class="reference external" href="http://www.reseaugrappe.org/consommation/"&gt;La page sur la consommation étudiante sur le site du GRAPPE&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>Python ? go !</title><link href="http://blog.notmyidea.org/python-go.html" rel="alternate"></link><updated>2009-12-17T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html/</id><summary type="html">&lt;p&gt;Cela fait maintenant un peu plus d'un mois que je travaille sur un
+</summary></entry><entry><title>Python ? go !</title><link href="http://blog.notmyidea.org/python-go.html" rel="alternate"></link><updated>2009-12-17T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html/</id><summary type="html">&lt;p&gt;Cela fait maintenant un peu plus d'un mois que je travaille sur un
 projet en &lt;a class="reference external" href="http://www.djangoproject.org"&gt;django&lt;/a&gt;, et que,
 nécessairement, je me forme à &lt;a class="reference external" href="http://python.org/"&gt;Python&lt;/a&gt;. Je
 prends un plaisir non dissimulé à découvrir ce langage (et à
@@ -1647,7 +1647,7 @@ dynamique.&lt;/li&gt;
 &lt;a class="reference external" href="http://video.pycon.fr/videos/free/53/"&gt;l'atelier donné par Victor Stinner durant le Pyconfr 09&lt;/a&gt;.
 Have fun !&lt;/p&gt;
 &lt;/div&gt;
-</summary></entry><entry><title>AMAP + Média = Paniers bio à 5e ?!</title><link href="http://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="alternate"></link><updated>2009-11-11T00:00:00Z</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2009-11-11:/amap-media-paniers-bio-a-5e.html/</id><summary type="html">&lt;p&gt;Le raccourci me semble un peu rapide. Et pourtant, il est emprunté
+</summary></entry><entry><title>AMAP + Média = Paniers bio à 5e ?!</title><link href="http://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="alternate"></link><updated>2009-11-11T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2009-11-11:/amap-media-paniers-bio-a-5e.html/</id><summary type="html">&lt;p&gt;Le raccourci me semble un peu rapide. Et pourtant, il est emprunté
 bien trop souvent. La dernière &lt;em&gt;mes-utilisation&lt;/em&gt; que j'ai à décrier
 est celle d'un reportage télé, passé sur France 2 vendredi 23
 Octobre
