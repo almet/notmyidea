@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-12-01T00:00:00+01:00</updated><entry><title>Quels usages pour l'informatique ?</title><link href="http://blog.notmyidea.org/quels-usages-pour-linformatique-fr.html" rel="alternate"></link><updated>2011-12-01T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-01:/quels-usages-pour-linformatique-fr.html/</id><summary type="html">&lt;p&gt;Quand on termine ses études, on s'en pose un tas, des questions. Sur le métier
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-12-06T00:00:00+01:00</updated><entry><title>Introducing cornice</title><link href="http://blog.notmyidea.org/introducing-cornice.html" rel="alternate"></link><updated>2011-12-06T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-06:/introducing-cornice.html/</id><summary type="html">&lt;p&gt;Wow, this is my second working day at mozilla. I've been working, yesterday and
+today, on a pyramid REST-ish toolkit, &lt;a class="reference external" href="https://github.com/mozilla-services/cornice"&gt;cornice&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cornice allows you to take out from you all the repetitive stuff you do when
+writing a web service. I'm mainly thinking about different kinds of validation.&lt;/p&gt;
+&lt;p&gt;To describe a web service in &lt;em&gt;cornice&lt;/em&gt;, you have to write something like this&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./content/mozilla/introducing-cornice.rst&lt;/tt&gt;, line 14)&lt;/p&gt;
+&lt;p&gt;Content block expected for the &amp;quot;code-block&amp;quot; directive; none found.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. code-block:: python
+
+
+&lt;/pre&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>Quels usages pour l'informatique ?</title><link href="http://blog.notmyidea.org/quels-usages-pour-linformatique-fr.html" rel="alternate"></link><updated>2011-12-01T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-01:/quels-usages-pour-linformatique-fr.html/</id><summary type="html">&lt;p&gt;Quand on termine ses études, on s'en pose un tas, des questions. Sur le métier
 que l'on veut faire, sur ce que ça signifie, sur le sens et la valeur du
 travail. Et j'en suis arrivé à faire un constat simple: l'informatique, c'est
 utile, tant que ça ne viens pas vous pourrir la vie. Oui, parce que de
