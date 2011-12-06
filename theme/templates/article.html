@@ -1,9 +1,21 @@
 {% extends "base.html" %}
-{% block links %}
-<li><a href="{{ SITEURL }}">↵ </a></li>
-{% endblock %}
 {% block content %}
     <h1>{{ article.title }}</h1>
     <p class="date">Published on {{ article.locale_date }}</p>
     {{ article.content }}
+
+    {% if DISQUS_SITENAME %}
+    <div class="comments">
+    <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "{{ article.url }}";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+    {% endif %}
 {% endblock %}

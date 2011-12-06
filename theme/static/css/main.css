@@ -8,6 +8,19 @@ body {
     font-family: "Georgia", serif;
 }
 
+a{
+    color: #000;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    float: right;
+    margin-left: 10px;
+}
+
 #top {}
     #top .author {
         float: left;
@@ -73,9 +86,11 @@ body {
     .content blockquote {
         margin: 0px;
         margin-right: 40px;
+        margin-left: 20px;
         padding-left: 20px;
         text-align: left;
         border-left: 3px black solid;
         letter-spacing: 2px;
         font-style: italic;
+        text-align: justify;
     }

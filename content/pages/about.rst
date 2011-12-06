@@ -1,11 +1,18 @@
-projects
-########
+Hey !
+#####
+
+Hi, I'm Alexis and this is my web log. I like to put here some thoughts, both
+in french and english.
 
 On my spare time, I contribute to open source projets, and hack a bit python,
 django and php.
 
-You can find all the projects I am involoved (sic!) with 
-`on my github page <http://github.com/ametaireau>`_
+You can find all the computer related projects I am involved with 
+`on my github page <http://github.com/ametaireau>`_. 
+
+I'm also interested by meeting real people and doing real things, out of 
+the scope of computer science. My interest goes mainly to alternative 
+trading mechanisms, agriculture and alternative in general.
 
 Python
 ======

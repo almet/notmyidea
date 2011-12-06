@@ -20,3 +20,4 @@ SOCIAL = (('twitter', 'http://twitter.com/ametaireau'),
           ('github', 'http://github.com/ametaireau'),)
 
 TIMEZONE = "Europe/Paris"
+LOCALE = "en_US"
