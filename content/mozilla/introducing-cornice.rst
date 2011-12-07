@@ -4,19 +4,20 @@ Introducing Cornice
 :date: 07/12/2011
 
 Wow, already my third working day at Mozilla. Since Monday, I've been working with
-Tarek Ziadé, on a pyramid REST-ish toolkit named `Cornice <https://github.com/mozilla-services/Cornice>`_.
+`Tarek Ziadé <http://ziade.org>`_, on a pyramid REST-ish toolkit named `Cornice <https://github.com/mozilla-services/Cornice>`_.
 
 Its goal is to take care for you of what you're usually missing so you can 
 focus on what's important. Cornice provides you facilities
 for validation of any kind.
 
 The goal is to simplify your work, but we don't want to reinvent the wheel, so
-it is easily pluggable with validations frameworks, such as Colander.
+it is easily pluggable with validations frameworks, such as `Colander
+<http://docs.pylonsproject.org/projects/colander/en/latest/>`_.
 
 Handling errors and validation
 ==============================
 
-We have changed the way errors are handled. Here is how it works:
+Here is how it works:
 
 .. code-block:: python
 
@@ -165,10 +166,9 @@ What's next?
 ============
 
 We try to make our best to find how Cornice can help you build better
-web services. Cool features we want for the future include:
-
-* Automatically publish a static definition of the services, so it can be
-  used by clients to discover services in a nice way.
+web services. Cool features we want for the future include the automatic
+publication of a static definition of the services, so it can be used by clients 
+to discover services in a nice way.
 
 Of course, we are open to all your ideas and patches! If you feel haskish and 
 want to see the sources, `go grab them on github <https://github.com/mozilla-services/cornice>`_
