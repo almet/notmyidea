@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="./theme/css/main.css" type="text/css" media="screen" charset="utf-8">
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis' log ATOM Feed" />
+    <title>Alexis Métaireau</title>
+</head>
+<body>
+    <div id="top">
+        <p class="author"><a href=".">Alexis Métaireau</a>'s thougths</p>
+        <ul class="links"></ul>
+    </div>
+    <div class="content clear">
+    <h1>Pelican, a simple static blog generator in python</h1>
+    <p class="date">Published on Wed 06 October 2010</p>
+    <p>Those days, I've wrote a little python application to fit my blogging needs.
+I'm an occasional blogger, a vim lover, I like restructured text and DVCSes, so
+I've made a little tool that makes good use of all that.</p>
+<p><a class="reference external" href="http://alexis.notmyidea.org/pelican/">Pelican</a> (for calepin) is just a simple tool to generate your blog as static
+files, letting you using your editor of choice (vim!). It's easy to extend,
+and has a template support (via jinja2).</p>
+<p>I've made it to fit <em>my</em> needs. I hope it will fit yours, but maybe it wont, and
+it have not be designed to feet everyone's needs.</p>
+<p>Need an example ? You're looking at it ! This weblog is using pelican to be
+generated, also for the atom feeds.</p>
+<p>I've released it under AGPL, since I want all the modifications to be profitable
+to all the users.</p>
+<p>You can find a mercurial repository to fork at <a class="reference external" href="http://hg.lolnet.org/pelican/">http://hg.lolnet.org/pelican/</a>,
+feel free to hack it !</p>
+<p>If you just want to get started, use your installer of choice (pip, easy_install, …)
+And then have a look to the help (<cite>pelican --help</cite>)</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install pelican
+</pre></div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>Here's a sample usage of pelican</p>
+<div class="highlight"><pre><span class="nv">$ </span>pelican .
+writing /home/alexis/projets/notmyidea.org/output/index.html
+writing /home/alexis/projets/notmyidea.org/output/tags.html
+writing /home/alexis/projets/notmyidea.org/output/categories.html
+writing /home/alexis/projets/notmyidea.org/output/archives.html
+writing /home/alexis/projets/notmyidea.org/output/category/python.html
+writing
+/home/alexis/projets/notmyidea.org/output/pelican-a-simple-static-blog-generator-in-python.html
+Done !
+</pre></div>
+<p>You also can use the <cite>--help</cite> option for the command line to get more
+informations</p>
+<div class="highlight"><pre><span class="nv">$pelican</span> --help
+usage: pelican <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-t TEMPLATES<span class="o">]</span> <span class="o">[</span>-o OUTPUT<span class="o">]</span> <span class="o">[</span>-m MARKUP<span class="o">]</span> <span class="o">[</span>-s SETTINGS<span class="o">]</span> <span class="o">[</span>-b<span class="o">]</span>
+               path
+
+A tool to generate a static blog, with restructured text input files.
+
+positional arguments:
+  path                  Path where to find the content files <span class="o">(</span>default is
+                        <span class="s2">&quot;content&quot;</span><span class="o">)</span>.
+
+optional arguments:
+  -h, --help            show this <span class="nb">help </span>message and <span class="nb">exit</span>
+  -t TEMPLATES, --templates-path TEMPLATES
+                        Path where to find the templates. If not specified,
+                        will uses the ones included with pelican.
+  -o OUTPUT, --output OUTPUT
+                        Where to output the generated files. If not specified,
+                        a directory will be created, named <span class="s2">&quot;output&quot;</span> in the
+                        current path.
+  -m MARKUP, --markup MARKUP
+                        the markup language to use. Currently only
+                        ReSTreucturedtext is available.
+  -s SETTINGS, --settings SETTINGS
+                        the settings of the application. Default to None.
+  -b, --debug
+</pre></div>
+<p>Enjoy :)</p>
+</div>
+
+
+    
+    <div class="comments">
+    <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "pelican-a-simple-static-blog-generator-in-python.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://blog-notmyidea.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+    
+</div>
+</body>
+</html>

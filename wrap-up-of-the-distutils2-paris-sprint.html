@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="./theme/css/main.css" type="text/css" media="screen" charset="utf-8">
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis' log ATOM Feed" />
+    <title>Alexis Métaireau</title>
+</head>
+<body>
+    <div id="top">
+        <p class="author"><a href=".">Alexis Métaireau</a>'s thougths</p>
+        <ul class="links"></ul>
+    </div>
+    <div class="content clear">
+    <h1>Wrap up of the distutils2 paris' sprint</h1>
+    <p class="date">Published on Tue 08 February 2011</p>
+    <p>Finally, thanks to a bunch of people that helped me to pay my train and bus
+tickets, I've made it to paris for the distutils2 sprint.</p>
+<p>They have been a bit more than 10 people to come during the sprint, and it was
+very productive. Here's a taste of what we've been working on:</p>
+<ul class="simple">
+<li>the <cite>datafiles</cite>, a way to specify and to handle the installation of files which
+are not python-related (pictures, manpages and so on).</li>
+<li><cite>mkgcfg</cite>, a tool to help you to create a setup.cfg in minutes (and with funny
+examples)</li>
+<li>converters from setup.py scripts. We do now have a piece of code which
+reads your current <cite>setup.py</cite> file and fill in some fields in the <cite>setup.cfg</cite>
+for you.</li>
+<li>a compatibility layer for distutils1, so it can read the <cite>setup.cfg</cite> you will
+wrote for distutils2 :-)</li>
+<li>the uninstaller, so it's now possible to uninstall what have been installed
+by distutils2 (see PEP 376)</li>
+<li>the installer, and the setuptools compatibility layer, which will allow you
+to rely on setuptools' based distributions (and there are plenty of them!)</li>
+<li>The compilers, so they are more flexible than they were. Since that's an
+obscure part of the code for distutils2 commiters (it comes directly from the
+distutils1 ages), having some guys who understood the problematics here was
+a must.</li>
+</ul>
+<p>Some people have also tried to port their packaging from distutils1 to
+distutils2. They have spotted a number of bugs and made some improvements
+to the code, to make it more friendly to use.</p>
+<p>I'm really pleased to see how newcomers went trough the code, and started
+hacking so fast. I must say it wasn't the case when we started to work on
+distutils1 so that's a very good point: people now can hack the code quicker
+than they could before.</p>
+<p>Some of the features here are not <em>completely</em> finished yet, but are on the
+tubes, and will be ready for a release (hopefully) at the end of the week.</p>
+<p>Big thanks to logilab for hosting (and sponsoring my train ticket) and
+providing us food, and to bearstech for providing some money for breakfast and
+bears^Wbeers.</p>
+<p>Again, a big thanks to all the people who gave me money to pay the transport,
+I really wasn't expecting such thing to happen :-)</p>
+
+
+    
+    <div class="comments">
+    <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+           var disqus_identifier = "wrap-up-of-the-distutils2-paris-sprint.html";
+           (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://blog-notmyidea.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+    </div>
+    
+</div>
+</body>
+</html>

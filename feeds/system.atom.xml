@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/system.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-03-16T00:00:00+01:00</updated><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="http://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><updated>2011-03-16T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html/</id><summary type="html">&lt;p&gt;I have a server running freebsd since some time now, and was wondering about
+the possibility to directly have a development environment ready to use when
+I get a internet connexion, even if I'm not on my computer.&lt;/p&gt;
+&lt;p&gt;Since I use vim to code, and spend most of my time in a console while
+developing, it's possible to work via ssh, from everywhere.&lt;/p&gt;
+&lt;p&gt;The only problem is the synchronisation of the source code, config files etc.
+from my machine to the server.&lt;/p&gt;
+&lt;p&gt;Unison provides an interesting way to synchronise two folders, even over
+a network. So let's do it !&lt;/p&gt;
+&lt;div class="section" id="creating-the-jail"&gt;
+&lt;h2&gt;Creating the jail&lt;/h2&gt;
+&lt;p&gt;In case you don't use FreeBSD, you can skip this section.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# I have a flavour jail named default&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;ezjail-admin -f default workspace.notmyidea.org 172.19.1.6
+&lt;span class="nv"&gt;$ &lt;/span&gt;ezjail-admin start workspace.notmyidea.org
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In my case, because the &amp;quot;default&amp;quot; flavour contains already a lot of interesting
+things, my jail come already setup with ssh, bash and vim for instance, but
+maybe you'll need it in your case.&lt;/p&gt;
+&lt;p&gt;I want to be redirected to the ssh of the jail when I connect to the host with
+the 20006 port. Add lines in &lt;cite&gt;/etc/pf.conf&lt;/cite&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+workspace_jail=&amp;quot;172.19.1.6&amp;quot;
+rdr on $ext_if proto tcp from any to $ext_ip port 20006 -&amp;gt; $workspace_jail port 22
+&lt;/pre&gt;
+&lt;p&gt;Reload packet filter rules&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/etc/rc.d/pf reload
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="working-with-unison"&gt;
+&lt;h2&gt;Working with unison&lt;/h2&gt;
+&lt;p&gt;Now that we've set up the jail. Set up unison on the server and on your client.
+Unison is available on the freebsd ports so just install it&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh notmyidea.org -p 20006
+&lt;span class="nv"&gt;$ &lt;/span&gt;make -C /usr/ports/net/unison-nox11 config-recursive
+&lt;span class="nv"&gt;$ &lt;/span&gt;make -C /usr/ports/net/unison-nox11 package-recursive
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Install as well unison on your local machine. Double check to install the same
+version on the client and on the server. Ubuntu contains the 2.27.57 as well as
+the 2.32.52.&lt;/p&gt;
+&lt;p&gt;Check that unison is installed and reachable via ssh from your machine&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ssh notmyidea.org -p 20006 unison -version
+unison version 2.27.157
+&lt;span class="nv"&gt;$ &lt;/span&gt;unison -version
+unison version 2.27.57
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="let-sync-our-folders"&gt;
+&lt;h2&gt;Let sync our folders&lt;/h2&gt;
+&lt;p&gt;The first thing I want to sync is my vim configuration. Well, it's already &lt;a class="reference external" href="http://github.com/ametaireau/dotfiles/"&gt;in
+a git repository&lt;/a&gt; but let's try to use
+unison for it right now.&lt;/p&gt;
+&lt;p&gt;I have two machines then: &lt;cite&gt;workspace&lt;/cite&gt;, the jail, and &lt;cite&gt;ecureuil&lt;/cite&gt; my laptop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;unison .vim ssh://notmyidea.org:20006/.vim
+unison .vimrc ssh://notmyidea.org:20006/.vimrc
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is also possible to put all the informations in a config file, and then to
+only run &lt;cite&gt;unison&lt;/cite&gt;. (fire up &lt;cite&gt;vim ~/.unison/default.prf&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;Here is my config:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+root = /home/alexis
+root = ssh://notmyidea.org:20006
+
+path = .vimrc
+path = dotfiles
+path = dev
+
+follow = Name *
+&lt;/pre&gt;
+&lt;p&gt;My vimrc is in fact a symbolic link on my laptop, but I don't want to specify
+each of the links to unison. That's why the &lt;cite&gt;follow = Name *&lt;/cite&gt; is for.&lt;/p&gt;
+&lt;p&gt;The folders you want to synchronize are maybe a bit large. If so, considering
+others options such as rsync for the first import may be a good idea (I enjoyed
+my university huge upload bandwith to upload 2GB in 20mn ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="run-the-script-frequently"&gt;
+&lt;h2&gt;Run the script frequently&lt;/h2&gt;
+&lt;p&gt;Once that done, you just need to run the unison command line some times when
+you want to sync your two machines. I've wrote a tiny script to get some
+feedback from the sync:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_LOGFILE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;~/unison.log&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;PROGRAM_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Unison syncer&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sync&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;DEFAULT_LOGFILE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;program_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;PROGRAM_NAME&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;# init&lt;/span&gt;
+    &lt;span class="n"&gt;display_message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+    &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+
+    &lt;span class="n"&gt;before&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="c"&gt;# call unison to make the sync&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;unison -batch &amp;gt; {0}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logfile&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="c"&gt;# get the duration of the operation&lt;/span&gt;
+    &lt;span class="n"&gt;td&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;before&lt;/span&gt;
+    &lt;span class="n"&gt;delta&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;td&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;microseconds&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;td&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;td&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;days&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;3600&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
+
+    &lt;span class="c"&gt;# check what was the last entry in the log&lt;/span&gt;
+    &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;expanduser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logfile&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;No updates to propagate&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+        &lt;span class="n"&gt;display_message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Synchronization&amp;quot;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; It took {0}s.&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;display_message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;notify-send -i {2} &amp;quot;{0}&amp;quot; &amp;quot;{1}&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;program_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s"&gt;&amp;#39;error&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;info&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;sync&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is probably perfectible, but that does the job.&lt;/p&gt;
+&lt;p&gt;Last step is to tell you machine to run that frequently. That's what &lt;cite&gt;crontab&lt;/cite&gt;
+is made for, so let's &lt;cite&gt;crontab -e&lt;/cite&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
+&lt;/pre&gt;
+&lt;p&gt;The &lt;cite&gt;~/.Xdbus&lt;/cite&gt; allows cron to communicate with your X11 session. Here is its
+content.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="c"&gt;# Get the pid of nautilus&lt;/span&gt;
+&lt;span class="nv"&gt;nautilus_pid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;pgrep -u &lt;span class="nv"&gt;$LOGNAME&lt;/span&gt; -n nautilus&lt;span class="k"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# If nautilus isn&amp;#39;t running, just exit silently&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; -z &lt;span class="s2"&gt;&amp;quot;$nautilus_pid&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="nb"&gt;exit &lt;/span&gt;0
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c"&gt;# Grab the DBUS_SESSION_BUS_ADDRESS variable from nautilus&amp;#39;s environment&lt;/span&gt;
+&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;tr &lt;span class="s1"&gt;&amp;#39;\0&amp;#39;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &amp;lt; /proc/&lt;span class="nv"&gt;$nautilus_pid&lt;/span&gt;/environ | grep &lt;span class="s1"&gt;&amp;#39;^DBUS_SESSION_BUS_ADDRESS=&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Check that we actually found it&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; -z &lt;span class="s2"&gt;&amp;quot;$DBUS_SESSION_BUS_ADDRESS&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Failed to find bus address&amp;quot;&lt;/span&gt; &amp;gt;&amp;amp;2
+&lt;span class="nb"&gt;exit &lt;/span&gt;1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="c"&gt;# export it so that child processes will inherit it&lt;/span&gt;
+&lt;span class="nb"&gt;export &lt;/span&gt;DBUS_SESSION_BUS_ADDRESS
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And it comes from &lt;a class="reference external" href="http://ubuntuforums.org/showthread.php?p=10148738#post10148738"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A sync takes about 20s + the upload time on my machine, which stay acceptable for
+all of my developments.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="freebsd"></category><category term="unison"></category></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="http://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><updated>2010-10-10T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html/</id><summary type="html">&lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
+reminder about how to install php on NGINX, for FreeBSD. Nothing hard, but
+that's worse to have the piece of configuration somewhere !&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# update the ports
+$ portsnap fetch update
+
+# install php5 port
+$ make config-recursive -C /usr/ports/lang/php5-extensions
+$ make package-recursive -C /usr/ports/lang/php5-extensions
+
+# install nginx
+$ make config-recursive -C /usr/ports/www/nginx-devel
+$ make package-recursive -C /usr/ports/www/nginx-devel
+&lt;/pre&gt;
+&lt;p&gt;Now we have all the dependencies installed, we need to configure a bit the
+server.&lt;/p&gt;
+&lt;p&gt;That's a simple thing in fact, but it could be good to have something that will
+work without effort over time.&lt;/p&gt;
+&lt;p&gt;Here's a sample of my configuration:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+server {
+    server_name ndd;
+    set $path /path/to/your/files;
+    root   $path;
+
+    location / {
+        index  index.php;
+    }
+
+    location ~* ^.+.(jpg|jpeg|gif|css|png|js|ico|xml)$ {
+      access_log        off;
+      expires           30d;
+    }
+
+    location ~ .php$ {
+        fastcgi_param  SCRIPT_FILENAME  $path$fastcgi_script_name;
+        fastcgi_pass   backend;
+        include fastcgi_params;
+    }
+}
+
+upstream backend {
+        server 127.0.0.1:9000;
+}
+&lt;/pre&gt;
+&lt;p&gt;And that's it !&lt;/p&gt;
+</summary></entry></feed>
