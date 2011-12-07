@@ -47,9 +47,7 @@ or "path". **name** is the name of the variable causing problem, if any, and
 **description** contains a more detailled message.
 
 Let's run this simple service, with `bin/paster serve` and send some queries to
-it:
-
-.. code-block:: shell
+it::
 
     $ curl -v http://127.0.0.1:5000/service
     > GET /service HTTP/1.1
@@ -114,7 +112,7 @@ content-types they can deal with, and this will be checked against the
 Let's refine a bit our previous example, by specifying which content-types are
 supported, using the `accept` parameter:
 
-.. code-block::
+.. code-block:: python
 
     @service.get(validator=is_awesome, accept=("application/json", "text/json"))
     def get1(request):
