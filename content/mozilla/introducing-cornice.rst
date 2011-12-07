@@ -1,9 +1,9 @@
 Introducing Cornice
 ###################
 
-:date: 06/12/2011
+:date: 07/12/2011
 
-Wow, already my third working day at mozilla. Since Monday, I've been working with
+Wow, already my third working day at Mozilla. Since Monday, I've been working with
 Tarek Ziadé, on a pyramid REST-ish toolkit named `Cornice <https://github.com/mozilla-services/Cornice>`_.
 
 Its goal is to take care for you of what you're usually missing so you can 
@@ -44,7 +44,7 @@ As you might have seen, `request.errors.add` takes three parameters: **location*
 
 **location** is where the error is located in the request. It can either be "body", 
 "query", "headers" or "path". **name** is the name of the variable causing 
-problem, if any, and **description** contains a more detailled message.
+problem, if any, and **description** contains a more detailed message.
 
 Let's run this simple service and send some queries to it::
 
@@ -137,10 +137,39 @@ accepted `Content-Type` values::
 Building your documentation automatically
 =========================================
 
-XXX
+writing documentation for web services can be painful, especially when your
+services evolve. Cornice provides a sphinx directive to automatically document
+your API in your docs.
 
-Yay, how can I get it?
+.. code-block:: rst
+
+    .. services::
+       :package: coolapp
+       :service: quote
+
+Here is an example of what a generated page looks like: http://packages.python.org/cornice/exampledoc.html
+
+
+Yay! How can I get it?
 ======================
 
-What's next
-===========
+We just cut a 0.4 release, so it's available at http://pypi.python.org/pypi/Cornice
+You can install it easily using `pip`, for instance::
+
+    $ pip install cornice
+
+You can also have a look at the documentation at
+http://packages.python.org/cornice/
+
+What's next?
+============
+
+We try to make our best to find how Cornice can help you build better
+web services. Cool features we want for the future include:
+
+* Automatically publish a static definition of the services, so it can be
+  used by clients to discover services in a nice way.
+
+Of course, we are open to all your ideas and patches! If you feel haskish and 
+want to see the sources, `go grab them on github <https://github.com/mozilla-services/cornice>`_
+, commit and send us a pull request!
