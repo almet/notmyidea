@@ -14,12 +14,13 @@ it is easily pluggable with validations frameworks, such as Collander.&lt;/p&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;You lack awesomeness!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="s"&gt;&amp;#39;the awesome parameter is required&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-&lt;span class="nd"&gt;@service.get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;validator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nd"&gt;@service.get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;validator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;succeeded&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;yay!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;All the errors collected during the validation process, or after, are collected
 before returning the request. If any, a error 400 is fired up, with the list of
@@ -30,18 +31,90 @@ formats in the future)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;location&lt;/strong&gt; is where the error arised. It can either be &amp;quot;body&amp;quot;, &amp;quot;query&amp;quot;, &amp;quot;headers&amp;quot;
 or &amp;quot;path&amp;quot;. &lt;strong&gt;name&lt;/strong&gt; is the name of the variable causing problem, if any, and
 &lt;strong&gt;description&lt;/strong&gt; contains a more detailled message.&lt;/p&gt;
-&lt;p&gt;Here is an example of a malformed request:&lt;/p&gt;
+&lt;p&gt;Let's run this simple service, with &lt;cite&gt;bin/paster serve&lt;/cite&gt; and send some queries to
+it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ curl -v http://127.0.0.1:5000/service
+&amp;gt; GET /service HTTP/1.1
+&amp;gt; Host: 127.0.0.1:5000
+&amp;gt; Accept: */*
+&amp;gt;
+* HTTP 1.0, assume close after body
+&amp;lt; HTTP/1.0 400 Bad Request
+&amp;lt; Content-Type: application/json; charset=UTF-8
+[{&amp;quot;location&amp;quot;: &amp;quot;body&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;awesome&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;You lack awesomeness!&amp;quot;}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I've removed the extra clutter from the curl's output, but you got the general idea.&lt;/p&gt;
+&lt;p&gt;The content returned is in JSON, and I know exactly what I have to do: add an
+&amp;quot;awesome&amp;quot; parameter in my query. Let's do it again:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-$ # run a demo app
+$ curl http://127.0.0.1:5000/service?awesome=yeah
+{&amp;quot;test&amp;quot;: &amp;quot;yay!&amp;quot;}
 &lt;/pre&gt;
-&lt;p&gt;To describe a web service in &lt;em&gt;cornice&lt;/em&gt;, you have to write something like this&lt;/p&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./content/mozilla/introducing-cornice.rst&lt;/tt&gt;, line 54)&lt;/p&gt;
-&lt;p&gt;Content block expected for the &amp;quot;code-block&amp;quot; directive; none found.&lt;/p&gt;
+&lt;p&gt;Validators can also attach extra information about validations to the request,
+using &lt;cite&gt;request.validated&lt;/cite&gt;. It is a standard dict automatically attached to the
+requests.&lt;/p&gt;
+&lt;p&gt;For instance, in our validator, we can chose to validate the parameter passed
+and use it in the body of the webservice:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Service&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;service&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/service&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="s"&gt;&amp;#39;the awesome parameter is required&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;validated&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+
+&lt;span class="nd"&gt;@service.get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;validator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;validated&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;pre class="literal-block"&gt;
-.. code-block:: python
+curl http://127.0.0.1:5000/service?awesome=yeah
+{&amp;quot;test&amp;quot;: &amp;quot;awesome yeah&amp;quot;}
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dealing-with-accept-headers"&gt;
+&lt;h2&gt;Dealing with &amp;quot;Accept&amp;quot; headers&lt;/h2&gt;
+&lt;p&gt;The HTTP spec defines a &lt;strong&gt;Accept&lt;/strong&gt; header the client can send so the response
+is encoded the right way. A resource, available at an URL, can be available in
+different formats. This is especially true for web services.&lt;/p&gt;
+&lt;p&gt;Cornice can help you to deal with this. The services you define can tell which
+content-types they can deal with, and this will be checked against the
+&lt;strong&gt;Accept&lt;/strong&gt; headers sent by the client.&lt;/p&gt;
+&lt;p&gt;Let's refine a bit our previous example, by specifying which content-types are
+supported, using the &lt;cite&gt;accept&lt;/cite&gt; parameter:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./content/mozilla/introducing-cornice.rst&lt;/tt&gt;, line 117)&lt;/p&gt;
+&lt;p&gt;Error in &amp;quot;code-block&amp;quot; directive:
+1 argument(s) required, 0 supplied.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. code-block::
+
+    &amp;#64;service.get(validator=is_awesome, accept=(&amp;quot;application/json&amp;quot;, &amp;quot;text/json&amp;quot;))
+    def get1(request):
+        return {&amp;quot;test&amp;quot;: &amp;quot;yay!&amp;quot;}
 
 &lt;/pre&gt;
 &lt;/div&gt;
+&lt;p&gt;Now, if you specifically ask for XML, for instance, cornice will throw a 406
+with the list of accepted content-types:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ curl -vH &amp;quot;Accept: application/xml&amp;quot; http://127.0.0.1:5000/service
+&amp;gt; GET /service HTTP/1.1
+&amp;gt; Host: 127.0.0.1:5000
+&amp;gt; Accept: application/xml
+&amp;gt;
+&amp;lt; HTTP/1.0 406 Not Acceptable
+&amp;lt; Content-Type: application/json; charset=UTF-8
+&amp;lt; Content-Length: 33
+&amp;lt;
+[&amp;quot;application/json&amp;quot;, &amp;quot;text/json&amp;quot;]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="building-your-documentation-automatically"&gt;
+&lt;h2&gt;Building your documentation automatically&lt;/h2&gt;
+&lt;p&gt;XXX&lt;/p&gt;
 &lt;/div&gt;
 </summary></entry></feed>

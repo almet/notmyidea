@@ -29,12 +29,13 @@ it is easily pluggable with validations frameworks, such as Collander.</p>
 
 <span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="s">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">,</span> <span class="s">&#39;awesome&#39;</span><span class="p">,</span> <span class="s">&#39;You lack awesomeness!&#39;</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">,</span> <span class="s">&#39;awesome&#39;</span><span class="p">,</span>
+                            <span class="s">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
 
 
-<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="p">(</span><span class="n">is_awesome</span><span class="p">))</span>
+<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="s">&quot;succeeded&quot;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="s">&quot;yay!&quot;</span><span class="p">}</span>
 </pre></div>
 <p>All the errors collected during the validation process, or after, are collected
 before returning the request. If any, a error 400 is fired up, with the list of
@@ -45,19 +46,91 @@ formats in the future)</p>
 <p><strong>location</strong> is where the error arised. It can either be &quot;body&quot;, &quot;query&quot;, &quot;headers&quot;
 or &quot;path&quot;. <strong>name</strong> is the name of the variable causing problem, if any, and
 <strong>description</strong> contains a more detailled message.</p>
-<p>Here is an example of a malformed request:</p>
+<p>Let's run this simple service, with <cite>bin/paster serve</cite> and send some queries to
+it:</p>
+<div class="highlight"><pre>$ curl -v http://127.0.0.1:5000/service
+&gt; GET /service HTTP/1.1
+&gt; Host: 127.0.0.1:5000
+&gt; Accept: */*
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 400 Bad Request
+&lt; Content-Type: application/json; charset=UTF-8
+[{&quot;location&quot;: &quot;body&quot;, &quot;name&quot;: &quot;awesome&quot;, &quot;description&quot;: &quot;You lack awesomeness!&quot;}
+</pre></div>
+<p>I've removed the extra clutter from the curl's output, but you got the general idea.</p>
+<p>The content returned is in JSON, and I know exactly what I have to do: add an
+&quot;awesome&quot; parameter in my query. Let's do it again:</p>
 <pre class="literal-block">
-$ # run a demo app
+$ curl http://127.0.0.1:5000/service?awesome=yeah
+{&quot;test&quot;: &quot;yay!&quot;}
 </pre>
-<p>To describe a web service in <em>cornice</em>, you have to write something like this</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">./content/mozilla/introducing-cornice.rst</tt>, line 54)</p>
-<p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
+<p>Validators can also attach extra information about validations to the request,
+using <cite>request.validated</cite>. It is a standard dict automatically attached to the
+requests.</p>
+<p>For instance, in our validator, we can chose to validate the parameter passed
+and use it in the body of the webservice:</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;/service&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">,</span> <span class="s">&#39;awesome&#39;</span><span class="p">,</span>
+                            <span class="s">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s">&#39;awesome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;awesome &#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s">&#39;awesome&#39;</span><span class="p">]</span>
+
+
+<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s">&#39;awesome&#39;</span><span class="p">]}</span>
+</pre></div>
 <pre class="literal-block">
-.. code-block:: python
+curl http://127.0.0.1:5000/service?awesome=yeah
+{&quot;test&quot;: &quot;awesome yeah&quot;}
+</pre>
+</div>
+<div class="section" id="dealing-with-accept-headers">
+<h2>Dealing with &quot;Accept&quot; headers</h2>
+<p>The HTTP spec defines a <strong>Accept</strong> header the client can send so the response
+is encoded the right way. A resource, available at an URL, can be available in
+different formats. This is especially true for web services.</p>
+<p>Cornice can help you to deal with this. The services you define can tell which
+content-types they can deal with, and this will be checked against the
+<strong>Accept</strong> headers sent by the client.</p>
+<p>Let's refine a bit our previous example, by specifying which content-types are
+supported, using the <cite>accept</cite> parameter:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">./content/mozilla/introducing-cornice.rst</tt>, line 117)</p>
+<p>Error in &quot;code-block&quot; directive:
+1 argument(s) required, 0 supplied.</p>
+<pre class="literal-block">
+.. code-block::
+
+    &#64;service.get(validator=is_awesome, accept=(&quot;application/json&quot;, &quot;text/json&quot;))
+    def get1(request):
+        return {&quot;test&quot;: &quot;yay!&quot;}
 
 </pre>
 </div>
+<p>Now, if you specifically ask for XML, for instance, cornice will throw a 406
+with the list of accepted content-types:</p>
+<pre class="literal-block">
+$ curl -vH &quot;Accept: application/xml&quot; http://127.0.0.1:5000/service
+&gt; GET /service HTTP/1.1
+&gt; Host: 127.0.0.1:5000
+&gt; Accept: application/xml
+&gt;
+&lt; HTTP/1.0 406 Not Acceptable
+&lt; Content-Type: application/json; charset=UTF-8
+&lt; Content-Length: 33
+&lt;
+[&quot;application/json&quot;, &quot;text/json&quot;]
+</pre>
+</div>
+<div class="section" id="building-your-documentation-automatically">
+<h2>Building your documentation automatically</h2>
+<p>XXX</p>
 </div>
 
 
