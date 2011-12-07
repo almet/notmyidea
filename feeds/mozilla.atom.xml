@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/mozilla.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-12-06T00:00:00+01:00</updated><entry><title>Introducing cornice</title><link href="http://blog.notmyidea.org/introducing-cornice.html" rel="alternate"></link><updated>2011-12-06T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-06:/introducing-cornice.html/</id><summary type="html">&lt;p&gt;Wow, this is my second working day at mozilla. I've been working, yesterday and
-today, on a pyramid REST-ish toolkit, &lt;a class="reference external" href="https://github.com/mozilla-services/cornice"&gt;cornice&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Cornice allows you to take out from you all the repetitive stuff you do when
-writing a web service. I'm mainly thinking about different kinds of validation.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis' log</title><link href="http://blog.notmyidea.org" rel="alternate"></link><link href="http://blog.notmyidea.org/feeds/mozilla.atom.xml" rel="self"></link><id>http://blog.notmyidea.org</id><updated>2011-12-06T00:00:00+01:00</updated><entry><title>Introducing cornice</title><link href="http://blog.notmyidea.org/introducing-cornice.html" rel="alternate"></link><updated>2011-12-06T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-06:/introducing-cornice.html/</id><summary type="html">&lt;p&gt;Wow, already my third working day at mozilla. Since Monday, I've been working with
+Tarek Ziadé, on a pyramid REST-ish toolkit named &lt;a class="reference external" href="https://github.com/mozilla-services/cornice"&gt;cornice&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Its goal is to take all the hard bits appart from you when implementing a web
+service, so you can focus on what's important. Cornice provides you facilities
+for validation of any kind.&lt;/p&gt;
+&lt;p&gt;The goal is to simplify your work, but we don't want to reinvent the wheel, so
+it is easily pluggable with validations frameworks, such as Collander.&lt;/p&gt;
+&lt;div class="section" id="handling-errors-and-validation"&gt;
+&lt;h2&gt;Handling errors and validation&lt;/h2&gt;
+&lt;p&gt;We have changed the way errors are handled. Here is how it works:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Service&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;service&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/service&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;body&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;awesome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;You lack awesomeness!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="nd"&gt;@service.get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;validator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;is_awesome&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;succeeded&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All the errors collected during the validation process, or after, are collected
+before returning the request. If any, a error 400 is fired up, with the list of
+problems encoutred encoded as a nice json list (we plan to support multiple
+formats in the future)&lt;/p&gt;
+&lt;p&gt;As you might have seen, &lt;cite&gt;request.errors.add&lt;/cite&gt; takes three parameters: &lt;strong&gt;location&lt;/strong&gt;,
+&lt;strong&gt;name&lt;/strong&gt; and &lt;strong&gt;description&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;location&lt;/strong&gt; is where the error arised. It can either be &amp;quot;body&amp;quot;, &amp;quot;query&amp;quot;, &amp;quot;headers&amp;quot;
+or &amp;quot;path&amp;quot;. &lt;strong&gt;name&lt;/strong&gt; is the name of the variable causing problem, if any, and
+&lt;strong&gt;description&lt;/strong&gt; contains a more detailled message.&lt;/p&gt;
+&lt;p&gt;Here is an example of a malformed request:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ # run a demo app
+&lt;/pre&gt;
 &lt;p&gt;To describe a web service in &lt;em&gt;cornice&lt;/em&gt;, you have to write something like this&lt;/p&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./content/mozilla/introducing-cornice.rst&lt;/tt&gt;, line 14)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./content/mozilla/introducing-cornice.rst&lt;/tt&gt;, line 54)&lt;/p&gt;
 &lt;p&gt;Content block expected for the &amp;quot;code-block&amp;quot; directive; none found.&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 .. code-block:: python
 
-
 &lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </summary></entry></feed>

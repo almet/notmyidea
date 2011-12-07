@@ -14,19 +14,50 @@
     <div class="content clear">
     <h1>Introducing cornice</h1>
     <p class="date">Published on Tue 06 December 2011</p>
-    <p>Wow, this is my second working day at mozilla. I've been working, yesterday and
-today, on a pyramid REST-ish toolkit, <a class="reference external" href="https://github.com/mozilla-services/cornice">cornice</a>.</p>
-<p>Cornice allows you to take out from you all the repetitive stuff you do when
-writing a web service. I'm mainly thinking about different kinds of validation.</p>
+    <p>Wow, already my third working day at mozilla. Since Monday, I've been working with
+Tarek Ziadé, on a pyramid REST-ish toolkit named <a class="reference external" href="https://github.com/mozilla-services/cornice">cornice</a>.</p>
+<p>Its goal is to take all the hard bits appart from you when implementing a web
+service, so you can focus on what's important. Cornice provides you facilities
+for validation of any kind.</p>
+<p>The goal is to simplify your work, but we don't want to reinvent the wheel, so
+it is easily pluggable with validations frameworks, such as Collander.</p>
+<div class="section" id="handling-errors-and-validation">
+<h2>Handling errors and validation</h2>
+<p>We have changed the way errors are handled. Here is how it works:</p>
+<div class="highlight"><pre><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;/service&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">,</span> <span class="s">&#39;awesome&#39;</span><span class="p">,</span> <span class="s">&#39;You lack awesomeness!&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="p">(</span><span class="n">is_awesome</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;test&quot;</span><span class="p">:</span> <span class="s">&quot;succeeded&quot;</span><span class="p">}</span>
+</pre></div>
+<p>All the errors collected during the validation process, or after, are collected
+before returning the request. If any, a error 400 is fired up, with the list of
+problems encoutred encoded as a nice json list (we plan to support multiple
+formats in the future)</p>
+<p>As you might have seen, <cite>request.errors.add</cite> takes three parameters: <strong>location</strong>,
+<strong>name</strong> and <strong>description</strong>.</p>
+<p><strong>location</strong> is where the error arised. It can either be &quot;body&quot;, &quot;query&quot;, &quot;headers&quot;
+or &quot;path&quot;. <strong>name</strong> is the name of the variable causing problem, if any, and
+<strong>description</strong> contains a more detailled message.</p>
+<p>Here is an example of a malformed request:</p>
+<pre class="literal-block">
+$ # run a demo app
+</pre>
 <p>To describe a web service in <em>cornice</em>, you have to write something like this</p>
 <div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">./content/mozilla/introducing-cornice.rst</tt>, line 14)</p>
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">./content/mozilla/introducing-cornice.rst</tt>, line 54)</p>
 <p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
 <pre class="literal-block">
 .. code-block:: python
 
-
 </pre>
+</div>
 </div>
 
 
