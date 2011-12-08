@@ -4,7 +4,7 @@ Introducing Cornice
 :date: 07/12/2011
 
 Wow, already my third working day at Mozilla. Since Monday, I've been working with
-`Tarek Ziadé <http://ziade.org>`_, on a pyramid REST-ish toolkit named `Cornice <https://github.com/mozilla-services/Cornice>`_.
+`Tarek Ziadé <http://ziade.org>`_, on a pyramid REST-ish toolkit named `Cornice <https://github.com/mozilla-services/cornice>`_.
 
 Its goal is to take care for you of what you're usually missing so you can 
 focus on what's important. Cornice provides you facilities
@@ -108,7 +108,7 @@ is encoded the right way. A resource, available at an URL, can be available in
 different formats. This is especially true for web services.
 
 Cornice can help you dealing with this. The services you define can tell which
-`Content-Types` values they can deal with and this will be checked against the
+`Content-Type` values they can deal with and this will be checked against the
 **Accept** headers sent by the client.
 
 Let's refine a bit our previous example, by specifying which content-types are
@@ -154,7 +154,7 @@ Here is an example of what a generated page looks like: http://packages.python.o
 Yay! How can I get it?
 ======================
 
-We just cut a 0.4 release, so it's available at http://pypi.python.org/pypi/Cornice
+We just cut a 0.4 release, so it's available at http://pypi.python.org/pypi/cornice
 You can install it easily using `pip`, for instance::
 
     $ pip install cornice
