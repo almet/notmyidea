@@ -82,6 +82,8 @@ nav ul li {
         padding: 15px;
         background-color: black;
         color: white;
+        overflow: scroll;
+
     }
 
     .content blockquote {
