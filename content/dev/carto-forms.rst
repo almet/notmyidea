@@ -2,7 +2,7 @@ Carto-forms
 ###########
 
 :date: 30-03-2012
-:author: Alexis Métaireau, Mathieur Leplatre
+:author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
 
 The idea
@@ -38,10 +38,10 @@ facet filtering. Let's draw the user flow here:
     * Date: the date of the event (a datepicker could do the trick)
 
 * Once finished, he gets an url (says http://forms.notmyidea.org/bearhugging)
-* He can communicate the adress by the means he wants to his community and they
+* He can communicate the address by the means he wants to his community and they
   can go to the page and fill it.
 
-So, as youmay have notice, It would allow us to create interactive maps realy
+So, as you may have notice, It would allow us to create interactive maps really
 easily, just a matter of some clicks for the users. and if we also think about
 a nice Web API for this, we could do server-side validation and built even
 phone applications easily. To push the cursor a bit further, if we can come
