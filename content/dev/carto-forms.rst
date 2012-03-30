@@ -4,6 +4,7 @@ Carto-forms
 :date: 30-03-2012
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
+:status: draft
 
 The idea
 ========
