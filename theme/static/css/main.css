@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Rosario);
 @import url("pygment.css");
+@import url("typogrify.css");
 
 body { 
     width: 800px; 
@@ -97,3 +98,8 @@ nav ul li {
         font-style: italic;
         text-align: justify;
     }
+
+.description {
+    margin-top: -15px;
+    font-style: italic;
+}

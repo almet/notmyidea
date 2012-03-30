@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
-SITENAME = u"Alexis' log" 
+SITENAME = u"Alexis' log"
 THEME = "theme"
 
-DISQUS_SITENAME = "blog-notmyidea"
+TYPOGRIFY = True
+
 SITEURL = 'http://blog.notmyidea.org'
 GITHUB_URL = "http://github.com/ametaireau/"
 
