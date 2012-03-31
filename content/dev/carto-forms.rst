@@ -19,7 +19,7 @@ with something a little bit more flexible and useful. I've named it
 *carto-forms* for now, but that's only the "codename".
 
 To put it shortly: what if we had a way to build forms, ala google forms, but
-with geographic informations in them?
+with geographic information in them?
 
 If you don't know google forms, it means having an user-friendly way to build
 forms and to use them to gather information from different users.
@@ -27,10 +27,11 @@ forms and to use them to gather information from different users.
 In my opinion, Google forms is missing two important things: first, it's not
 open-source, so it's not possible to hack it or even to run it on your own
 server.  Second, it doesn't really know how to deal with geographic data, and
-there isn't any way to filter the information more than in a spreadshit.
+there is no way to filter the information more than in a spreadsheet.
 
-I knew that Mathieu would be interested in this, so I started a discussion with
-him on IRC and we refined the details of the project and its objectives.
+I knew that `Mathieu`_ and some folks at `Makina Corpus`_  would be interested
+in this, so I started a discussion with him on IRC and we refined the details
+of the project and its objectives.
 
 Some use cases
 ==============
@@ -66,7 +67,7 @@ facet filtering. Let's draw a potential user flow:
   This can be done via API calls (useful for third parties) or via a nice
   interface in the browser.
 
-So, as you may have notice, It would allow us to create interactive maps really
+So, as you may have notice, it would allow us to create interactive maps really
 easily. It's almost just a matter of some clicks for the users. If we also come
 up with a nice Web API for this, we could do server-side validation and built
 even phone applications easily.
@@ -97,7 +98,7 @@ Simple GIS storage backend
 --------------------------
 
 Let's say you are a mobile developper, you don't want to bother with PostGIS
-nor writing custom and unsecure code to insert and retrieve your GIS data! You
+nor write a custom and unsecure code to insert and retrieve your GIS data! You
 need carto-forms! A simple API helps you to design your models/forms and the
 same API allows you to CRUD and query your data. Thus, you only need to focus
 on your application, not on how GIS data will be handled.  Distinguish storage
@@ -151,5 +152,9 @@ Here is the etherpad document we worked on so far:
 http://framapad.org/carto-forms. Don't hesitate to add your thoughts and edit
 it, that's what it's made for!
 
+Thanks to `Arnaud`_ for proof-reading and typo fixing.
+
 .. _Djangocong:  http://rencontres.django-fr.org
 .. _Mathieu: http://blog.mathieu-leplatre.info/
+.. _Arnaud: http://sneakernet.fr/
+.. _Makina Corpus: http://makina-corpus.com

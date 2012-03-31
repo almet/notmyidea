@@ -43,44 +43,44 @@ objectifs et autres détails.
 Quelques cas d'utilisation
 ==========================
 
-J'arrive à imaginer differents cas d'utilisation pour cet outil. Le premier est
+J'arrive à imaginer différents cas d'utilisation pour cet outil. Le premier est
 celui que j'ai approximativement décrit plus haut: la génération de cartes de
 manière collaborative, avec du "facet filtering". Voici un flux d'utilisation:
 
 * Un "administrateur" se rends sur le site web et créé un nouveau formulaire
   pour l'ensemble des évènements alternatifs. Il crée les champs suivants:
   
-  * Nom: le champ qui contiens le nom de l'évènement.
+  * Nom: le champ qui contient le nom de l'évènement.
 
   * Categorie: la catégorie de l'évènement (marche, concert, manifestation…).
-    Il peut s'agir d'un champ à multiples occurances.
+    Il peut s'agir d'un champ à multiples occurences.
 
-  * Le lieu de l'évènement. Celui ci peut être donné soit par une adresse soit
+  * Le lieu de l'évènement. Celui-ci peut être donné soit par une adresse soit
     en selectionnant un point sur une carte.
 
   * Date: la date de l'évènement (un "date picker" peut permettre cela
     facilement)
 
-  Chaque champ dans le formulaire à des informations sémentiques associées
-  (oui/non, multiple selection, date, heure, champ géocodé, selection carto,
+  Chaque champ dans le formulaire a des informations sémantiques associées
+  (oui/non, multiple selection, date, heure, champ géocodé, sélection carto,
   etc.)
 
-* Une fois terminé, le formulaire est généré et une URL permet d'y acceder. 
+* Une fois terminé, le formulaire est généré et une URL permet d'y accéder. 
   (par exemple http://forms.notmyidea.org/alternatives).
 
-* Une API REST permet d'autres applications d'accéder aux informations et d'en
+* Une API REST permet à d'autres applications d'accéder aux informations et d'en
   ajouter / modifier de nouvelles.
 
 * Il est maintenant possible de donner l'URL à qui voudra en faire bon usage.
-  Nimporte qui peut ajouter des informations. On peut également imaginer une
+  N'importe qui peut ajouter des informations. On peut également imaginer une
   manière de modérer les modifications si besoin est.
 
-* Bien sur, la dernière phase est la plus interessante: il est possible de
+* Bien sur, la dernière phase est la plus intéressante: il est possible de
   filtrer les informations par lieu, catégorie ou date, le tout soit via une
   API REST, soit via une jolie carte et quelques controles bien placés, dans le
   navigateur.
 
-Vous avez du remarquer que le processus de création d'un formulaire est
+Vous avez dû remarquer que le processus de création d'un formulaire est
 volontairement très simple. L'idée est que n'importe qui puisse créer des
 cartes facilement, en quelques clics. Si une API bien pensée suit, on peut
 imaginer faire de la validation coté serveur et même faire des applications
@@ -91,7 +91,7 @@ pour le formulaire, il sera possible de construire les formulaires de manière
 automatisée sur différentes plateformes et également sur des clients
 génériques.
 
-Voici quelques autres exemples d'ou ce projet pourrait être utile:
+Voici quelques autres exemples d'où ce projet pourrait être utile:
 
 Designer des formulaires spécialisés pour les applications mobiles OSM
 ----------------------------------------------------------------------
@@ -100,8 +100,8 @@ Designer des formulaires spécialisés pour les applications mobiles OSM
    on design un formulaire (liste des champs (tags) a remplir + description +
    le type d'information)
 2. Sur place, les utilisateurs remplissent les champs du formulaire avec ce
-   qu'ils voient. Les champs géolocalisé peuvent être remplis automatiquement
-   avec la geolocalisation du téléphone.
+   qu'ils voient. Les champs géolocalisés peuvent être remplis automatiquement
+   avec la géolocalisation du téléphone.
 3. À la fin de la journée, il est possible de voir une carte des contributions,
    avec le formulaire choisi.
 4. Un script peut importer les resultats et les publier vers Open Street Map.
@@ -113,19 +113,19 @@ la publicité (la plupart des villes ne les recensent pas!) etc.
 Un backend SIG simple à utiliser
 --------------------------------
 
-Disons que vous êtes developeur mobile. vous ne voulez pas vous encombrer avec
-PostGIS ou écrire du code specifique pour récupérer et insérer des données SIG!
+Disons que vous êtes dévelopeur mobile. Vous ne voulez pas vous encombrer avec
+PostGIS ou écrire du code spécifique pour récupérer et insérer des données SIG!
 Vous avez besoin de *Carto-Forms*! Une API simple vous aide à penser vos
 modèles et vos formulaires, et cette même API vous permet d'insérer et de
 récupérer des données. Vous pouvez vous concentrer sur votre application et non
-pas surla manière dont les données géographiques sont stockées et gérées.
+pas sur la manière dont les données géographiques sont stockées et gérées.
 
 En d'autres termes, vous faites une distinciton entre le stockage des
 informations et leur affichage.
 
-Si vous êtes un developeur django, plomino, drupal etc. vous pouvez developer
+Si vous êtes un dévelopeur django, plomino, drupal etc. vous pouvez développer
 un module pour "plugger" votre interface utilisateur avec celle de
-*Carto-Forms*. De cette manière, il est possibnle d'exposer les formulaires aux
+*Carto-Forms*. De cette manière, il est possible d'exposer les formulaires aux
 utilisateurs de vos backoffices. De la même manière, il est possible d'écrire
 des widgets qui consomment des données et les affichent (en utilisant par
 exemple une bibliothèque javascript de webmapping).
@@ -134,15 +134,15 @@ Un outil de visualisation
 -------------------------
 
 Il est possible d'explorer mon jeu de données en utilisant des filtres sur
-chacun de mes champs. Le faceting peut etre une idée pour faciliter ce
-filtrage. Une carte affiche le resultat et il est possible de télécharger les
+chacun de mes champs. Le faceting peut être une idée pour faciliter ce
+filtrage. Une carte affiche le résultat et il est possible de télécharger les
 données brutes (geojson, xml). Idéalement, le mieux serait d'obtenir ces
 données filtrées directement depuis une API Web.
 
 Ça n'existe pas déjà tout ça ?
 ===============================
 
-Bien sur, il y à google forms, wui vous permet de faire ce genre de choses,
+Bien sur, il y a google forms, qui vous permet de faire ce genre de choses,
 mais comme je l'ai précisé plus haut, il ne s'agit pas exactement de la même
 chose.
 
@@ -158,26 +158,30 @@ On est parti ?!
 ===============
 
 Comme vous avez pu vous en rendre compte, il ne s'agit pas d'un problème
-outrageusement complexe. On à pas mal disucté avec Mathieu, à propos de ce
-qu'on souhaite faire et du comment. Il se trouve qu'on peut surement s'en
+outrageusement complexe. On a pas mal discuté avec Mathieu, à propos de ce
+qu'on souhaite faire et du comment. Il se trouve qu'on peut sûrement s'en
 sortir avec une solution élégante sans trop de problèmes. Mathieu est habitué à
 travailler autour des projets de SIG (ce qui est parfait parce que ce n'est pas
 mon cas) et connaît son sujet. Une bonne opportunité d'apprendre!
 
 On sera tous les deux à `Djangocong`_ le 14 et 15 Avril, et on prévoit une
 session de *tempête de cerveau* et un sprint sur ce projet. Si vous êtes dans
-le coin et que vous souhaitez discuter ou nous filer un coup de pate, n'hésitez
-pas!
+le coin et que vous souhaitez discuter ou nous filer un coup de patte,
+n'hésitez pas!
 
-On ne sait pas encore si on utiliser django ou quelque chose d'autre. On à
+On ne sait pas encore si on utilisera django ou quelque chose d'autre. On a
 pensé un peu à CouchDB, son système de couchapps et geocouch, mais rien n'est
-encore gravé dans le roc! N'hésitez pas à proposer vos solutions ou
+encore gravé dans le marbre ! N'hésitez pas à proposer vos solutions ou
 suggestions.
 
-Voici le document etherpad sur lequel on à travaillé jusqu'à maintenant:
+Voici le document etherpad sur lequel on a travaillé jusqu'à maintenant:
 http://framapad.org/carto-forms. N'hésitez pas à l'éditer et à ajouter vos
 commentaires, c'est son objectif!
 
+Merci à `Arnaud`_ pour la relecture et la correction de quelques typos dans le
+texte :)
+
 .. _Djangocong:  http://rencontres.django-fr.org
 .. _Mathieu: http://blog.mathieu-leplatre.info/
+.. _Arnaud: http://sneakernet.fr/
 .. _Makina Corpus: http://makina-corpus.com
