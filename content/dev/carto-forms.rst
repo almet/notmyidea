@@ -1,40 +1,49 @@
 Carto-forms
 ###########
 
+:slug: carto-forms
 :date: 30-03-2012
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
+:lang: en
 :status: draft
 
-The idea
-========
+We  have a plan.
 
-This idea is walking in my head since some time and I've been talking with a
-bunch of people about it in the last few months. to put it shortly: what if we
-had a way to build forms, ala google forms, but with geographic informations in
-them?
+A bunch of friends asked me twice for quite the same thing: a webpage with a
+form, tied to a map generation with some information filtering. They didn't
+explicitely asked that but that's the grasp of it.
+
+This idea is walking in my head since and I even think that we can come out
+with something a little bit more flexible and useful. I've named it
+*carto-forms* for now, but that's only the "codename".
+
+To put it shortly: what if we had a way to build forms, ala google forms, but
+with geographic informations in them?
 
 If you don't know google forms, it means having an user-friendly way to build
-forms, for the users. The form can then be used to submit data to a server,
-which will do something with it.
+forms and to use them to gather information from different users.
 
-Google forms is missing two important things: first, it's not open-source, so
-it's not possible to hack it, or even to run it on your server. Second, it
-doesn't *really* know how to deal with geographic data.
+In my opinion, Google forms is missing two important things: first, it's not
+open-source, so it's not possible to hack it or even to run it on your own
+server.  Second, it doesn't really know how to deal with geographic data, and
+there isn't any way to filter the information more than in a spreadshit.
 
-The use cases
-=============
+I knew that Mathieu would be interested in this, so I started a discussion with
+him on IRC and we refined the details of the project and its objectives.
 
-I can see many use cases for this. The first one is a collaborative map, with
-facet filtering. Let's draw the user flow here:
+Some use cases
+==============
 
-* An "administrator" goes to the website and create a form to list all the bear
-  hugging events in the world. He creates the following fields:
+I can see some use cases for this. The first one is a collaborative map, with
+facet filtering. Let's draw a potential user flow:
+
+* An "administrator" goes to the website and create a form to list all the
+  alternative-related events. He creates the following fields:
   
   * Name: a plain text field containing the name of the event.
 
-  * Category: the category of the event. Can be a finite list (only brown
-    bears, polar bears, female bears)
+  * Category: the category of the event. Can be a finite list.
 
   * Location: The location of the event. It could be provided by selecting a
     point on a map or by typing an address.
@@ -45,20 +54,28 @@ facet filtering. Let's draw the user flow here:
   multiple selection, date-time, geocoding carto, carto selection etc)
 
 * Once finished, the form is generated and the user gets an url (says
-  http://forms.notmyidea.org/bearhugging) for it.
+  http://forms.notmyidea.org/alternatives) for it.
 
 * REST APIs allow thrid parties to get the form description and to
   push/edit/get information from there.
 
-* He can communicate the address by the means he wants to his community and
-  they can go to the page and fill it.
+* He can communicate the address by the means he wants to his community so they
+  can go to the page and add information to it.
+
+* Then, it is possible to filter the results per location / date or category.
+  This can be done via API calls (useful for third parties) or via a nice
+  interface in the browser.
 
 So, as you may have notice, It would allow us to create interactive maps really
-easily, just a matter of some clicks for the users. and if we also think about
-a nice Web API for this, we could do server-side validation and built even
-phone applications easily. To push the cursor a bit further, if we can come
-with a cool description format for the data, we could even build the forms
-dynamically on different platforms, with generic clients.
+easily. It's almost just a matter of some clicks for the users. If we also come
+up with a nice Web API for this, we could do server-side validation and built
+even phone applications easily.
+
+To push the cursor a bit further, if we can come with a cool description format
+for the forms, we could even build the forms dynamically on different platforms,
+with generic clients.
+
+Here are some other examples of where *carto-forms* could be useful:
 
 Designing dedicated forms for OSM mobile apps
 ---------------------------------------------
@@ -70,47 +87,27 @@ Designing dedicated forms for OSM mobile apps
    prepopulated using device geolocation
 3. At the end of the day, we can see a map with all users contributions using
    this particular form. 
-4. A script can import the resulting dataset and publish/merge with OSM
+4. A script can import the resulting dataset and publish/merge with Open Street
+   Map
 
-Examples:
-~~~~~~~~~
-
-recycling spots, accessible spots (wheelchairs, etc.), map advertisement
-boards (most cities do not track them!)…
+Example uses for this include recycling spots, accessible spots (wheelchairs,
+etc.), map advertisement boards (most cities do not track them!)…
 
 Simple GIS storage backend
 --------------------------
 
-For example, you are a mobile developper, you don't want to bother with PostGIS
+Let's say you are a mobile developper, you don't want to bother with PostGIS
 nor writing custom and unsecure code to insert and retrieve your GIS data! You
-need carto-forms! A simple API helps you to design your models/forms. A simple
-API allows you to CRUD and query your data. Thus, you only need to focus on
-your application, not on how GIS data will be handled.  Distinguish storage
-from widgets
+need carto-forms! A simple API helps you to design your models/forms and the
+same API allows you to CRUD and query your data. Thus, you only need to focus
+on your application, not on how GIS data will be handled.  Distinguish storage
+from widgets.
 
-Besides, if you are a django/plomino/drupal/... maintainer : you
+Besides, if you are a django / plomino / drupal/... maintainer : you
 can develop a module to "plug" your UI to carto-forms! That's how you will
 expose carto forms to your backoffice users (ex: drupal admin UI, django
 adminsite). Likewise, you can write widgets that consume datasets in frontend
 views (using any webmapping js library)
-
-Examples:
-~~~~~~~~~
-
-- communities of users, consumers, ...
-- directory of places
-
-Integration with a template service
------------------------------------
-
-You could connect the output of a form service (fields => values) to the input
-of a template service (variables => values).  A "template service" could be
-some API where you post a dictionnary (keys and values) and obtain some
-generated content.  As examples, template services could be used to generate
-configuration files, email messages, HTML pages...  To build a web interface of
-a template service, you need to display a form where the user can assign values
-to variables.  Variable list, type, options, validation... a form service would
-be really useful.
 
 Visualization tool
 ------------------
@@ -134,20 +131,25 @@ geolocation information.
 So… Let's get it real!
 ======================
 
-As you may have understood, this isn't a really complicated problem. I've
-started `an etherpad document <http://framapad.org/carto-forms>`_ and we've
-been chatting about that with `Mathieu`_ some times. I think we can come with
-an elegant solution without too much pain. Mathieu is used to work with GIS
-systems (which is really cool because I'm not at all) and knows his subject, so
-that's an opportunity to learn ;-)
+As you may have understood, this isn't a really complicated problem. We have
+been chatting about that with `Mathieu`_ sometimes about what we would need and
+how we could achieve this.
 
-We will be at `Djangocong`_ on april 14 and 15 and we will probably have
-a brainstorming session and a sprint on this, so if you want to help us, or
-just to discuss, feel free to join!
+We probably can come with an elegant solution without too much pain. Mathieu is
+used to work with GIS systems (which is really cool because I'm not at all) and
+knows his subject, so that's an opportunity to learn ;-)
+
+We will be at `Djangocong`_ on April 14 and 15 and will probably have
+a brainstorming session and a sprint on this, so if you are around and want to
+help us, or just to discuss, feel free to join!
 
 We don't know yet if we will be using django for this or something else. We
 have been thinking about couchdb, couchapps and geocouch but nothing is written
 in stone yet. Comments and propositions are welcome!
+
+Here is the etherpad document we worked on so far:
+http://framapad.org/carto-forms. Don't hesitate to add your thoughts and edit
+it, that's what it's made for!
 
 .. _Djangocong:  http://rencontres.django-fr.org
 .. _Mathieu: http://blog.mathieu-leplatre.info/
