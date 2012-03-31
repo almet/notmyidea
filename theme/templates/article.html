@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>{{ article.title }}</h1>
-    <p class="date">Published on {{ article.locale_date }}</p>
+    <p class="date">{% if article.lang == "fr" %}Publié le{% else %}Published
+    on{% endif%} {{ article.locale_date }}.
+    {% if article.translations %}
+    {% if article.lang == "fr" %}Vous pouvez aussi lire cet article en {% else %}You can also read this article in {% endif %}
+    {% for tr in article.translations %}
+    <a href="{{ SITEURL }}/{{ tr.url}}">{{ tr.lang }}</a>
+    {% endfor %}
+    {% endif %}
+    </p>
     {{ article.content }}
 
     {% if DISQUS_SITENAME %}

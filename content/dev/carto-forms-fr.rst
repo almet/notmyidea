@@ -6,7 +6,6 @@ Carto-forms
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
 :lang: fr
-:status: draft
 
 On a un plan. Un "truc de ouf".
 

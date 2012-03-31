@@ -2,11 +2,15 @@
 {% block content %}
 
     <p>Hey, I'm Alexis and this is my blog. I try to talk about freedom, free
-    software and activistm. I'm currently spending my days in Paris, doing
-    python for the mozilla services team.</p>
+    software and activism. I'm currently spending my days in Paris, doing
+    python at mozilla, on the services team.</p>
 
     {% for article in articles %}
-    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        {% if article.translations %}
+        <small>(also in {% for article in article.translations %}<a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang }}</a>{% endfor %})</small>
+        {% endif %}
+    </h2>
         <p class="date">{{ article.locale_date }}</p>
         {% if article.description %}
         <p class="description">{{ article.description }}</p>
