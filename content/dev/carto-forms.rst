@@ -30,16 +30,19 @@ facet filtering. Let's draw the user flow here:
 
 * An "administrator" goes to the website and create a form to list all the bear
   hugging events in the world. He creates the following fields:
+  
+  * Name: a plain text field containing the name of the event.
 
-    * Name: a plain text field containing the name of the event.
-    * Category: the category of the event. Can be a finite list (only brown
-      bears, polar bears, female bears)
-    * Location: The location of the event. It could be provided by selecting a
-      point on a map or by typing an address.
-    * Date: the date of the event (a datepicker could do the trick)
+  * Category: the category of the event. Can be a finite list (only brown
+    bears, polar bears, female bears)
 
-    Each field in the form has semantic information associated with it (yes/no,
-    multiple selection, date-time, geocoding carto, carto selection etc)
+  * Location: The location of the event. It could be provided by selecting a
+    point on a map or by typing an address.
+
+  * Date: the date of the event (a datepicker could do the trick)
+
+  Each field in the form has semantic information associated with it (yes/no,
+  multiple selection, date-time, geocoding carto, carto selection etc)
 
 * Once finished, the form is generated and the user gets an url (says
   http://forms.notmyidea.org/bearhugging) for it.
@@ -94,8 +97,8 @@ views (using any webmapping js library)
 Examples:
 ~~~~~~~~~
 
- - communities of users, consumers, ...
- - directory of places
+- communities of users, consumers, ...
+- directory of places
 
 Integration with a template service
 -----------------------------------
