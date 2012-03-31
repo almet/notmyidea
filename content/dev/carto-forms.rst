@@ -6,6 +6,7 @@ Carto-forms
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
 :lang: en
+:status: draft
 
 We have a plan. A "fucking good" one.
 
