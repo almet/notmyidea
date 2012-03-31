@@ -69,9 +69,11 @@ Designing dedicated forms for OSM mobile apps
    this particular form. 
 4. A script can import the resulting dataset and publish/merge with OSM
 
-Examples: 
- - recycling spots, accessible spots (wheelchairs, etc.), map advertisement
-boards (most cities do not track them!)... 
+Examples:
+~~~~~~~~~
+
+recycling spots, accessible spots (wheelchairs, etc.), map advertisement
+boards (most cities do not track them!)…
 
 Simple GIS storage backend
 --------------------------
@@ -90,6 +92,8 @@ adminsite). Likewise, you can write widgets that consume datasets in frontend
 views (using any webmapping js library)
 
 Examples:
+~~~~~~~~~
+
  - communities of users, consumers, ...
  - directory of places
 
