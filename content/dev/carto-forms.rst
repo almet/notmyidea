@@ -33,6 +33,22 @@ I knew that `Mathieu`_ and some folks at `Makina Corpus`_  would be interested
 in this, so I started a discussion with him on IRC and we refined the details
 of the project and its objectives.
 
+Imagine the following:
+
+1. For a mapping party, we choose a specific topic to map and design the form
+   (list of fields (i.e. tags) to be filled + description + type of the
+   information)
+2. In situ, users fill the form fields with what they see. Geo fields can be
+   prepopulated using device geolocation
+3. At the end of the day, we can see a map with all user contributions using
+   this particular form. 
+4. A script can import the resulting dataset and publish/merge with Open Street
+   Map
+
+Example uses for this include recycling spots, accessible spots (wheelchairs,
+etc.), map advertisement boards (most cities do not track them!)…
+
+
 Some use cases
 ==============
 
@@ -77,22 +93,6 @@ for the forms, we could even build the forms dynamically on different platforms,
 with generic clients.
 
 Here are some other examples of where *carto-forms* could be useful:
-
-Designing dedicated forms for OSM mobile apps
----------------------------------------------
-
-1. For a mapping party, we choose a specific topic to map and design the form
-   (list of fields (i.e. tags) to be filled + description + type of the
-   information)
-2. In situ, users fill the form fields with what they see. Geo fields can be
-   prepopulated using device geolocation
-3. At the end of the day, we can see a map with all user contributions using
-   this particular form. 
-4. A script can import the resulting dataset and publish/merge with Open Street
-   Map
-
-Example uses for this include recycling spots, accessible spots (wheelchairs,
-etc.), map advertisement boards (most cities do not track them!)…
 
 Simple GIS storage backend
 --------------------------
