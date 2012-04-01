@@ -12,10 +12,10 @@ We have a plan. A "fucking good" one.
 
 A bunch of friends asked me twice for quite the same thing: a webpage with a
 form, tied to a map generation with some information filtering. They didn't
-explicitely asked that but that's the grasp of it.
+explicitly ask that but that's the gist of it.
 
-This idea is walking in my head since and I even think that we can come out
-with something a little bit more flexible and useful. I've named it
+This idea has been stuck in my head since then and I even think that we can
+come out with something a little bit more flexible and useful. I've named it
 *carto-forms* for now, but that's only the "codename".
 
 To put it shortly: what if we had a way to build forms, ala google forms, but
@@ -39,7 +39,7 @@ Some use cases
 I can see some use cases for this. The first one is a collaborative map, with
 facet filtering. Let's draw a potential user flow:
 
-* An "administrator" goes to the website and create a form to list all the
+* An "administrator" goes to the website and creates a form to list all the
   alternative-related events. He creates the following fields:
   
   * Name: a plain text field containing the name of the event.
@@ -54,22 +54,22 @@ facet filtering. Let's draw a potential user flow:
   Each field in the form has semantic information associated with it (yes/no,
   multiple selection, date-time, geocoding carto, carto selection etc)
 
-* Once finished, the form is generated and the user gets an url (says
+* Once finished, the form is generated and the user gets an url (say
   http://forms.notmyidea.org/alternatives) for it.
 
-* REST APIs allow thrid parties to get the form description and to
+* REST APIs allow third parties to get the form description and to
   push/edit/get information from there.
 
-* He can communicate the address by the means he wants to his community so they
+* He can communicate the address in any way he wants to his community so they
   can go to the page and add information to it.
 
 * Then, it is possible to filter the results per location / date or category.
   This can be done via API calls (useful for third parties) or via a nice
   interface in the browser.
 
-So, as you may have notice, it would allow us to create interactive maps really
-easily. It's almost just a matter of some clicks for the users. If we also come
-up with a nice Web API for this, we could do server-side validation and built
+So, as you may have noticed, this would allow us to create interactive maps really
+easily. It's almost just a matter of some clicks to the users. If we also come
+up with a nice Web API for this, we could do server-side validation and build
 even phone applications easily.
 
 To push the cursor a bit further, if we can come with a cool description format
@@ -86,7 +86,7 @@ Designing dedicated forms for OSM mobile apps
    information)
 2. In situ, users fill the form fields with what they see. Geo fields can be
    prepopulated using device geolocation
-3. At the end of the day, we can see a map with all users contributions using
+3. At the end of the day, we can see a map with all user contributions using
    this particular form. 
 4. A script can import the resulting dataset and publish/merge with Open Street
    Map
@@ -97,9 +97,9 @@ etc.), map advertisement boards (most cities do not track them!)…
 Simple GIS storage backend
 --------------------------
 
-Let's say you are a mobile developper, you don't want to bother with PostGIS
-nor write a custom and unsecure code to insert and retrieve your GIS data! You
-need carto-forms! A simple API helps you to design your models/forms and the
+Let's say you are a mobile developer, you don't want to bother with PostGIS
+nor write a custom and insecure code to insert and retrieve your GIS data! You
+need carto-forms! A simple API helps you design your models/forms and the
 same API allows you to CRUD and query your data. Thus, you only need to focus
 on your application, not on how GIS data will be handled.  Distinguish storage
 from widgets.
@@ -114,29 +114,29 @@ Visualization tool
 ------------------
 
 I can explore my dataset content using filters related to each form field.
-Faceting can be an idea in order to ease filtering.  A map shows the resulting
-features set, and raw data can be downloaded (geojson, xml) Ideally, I would
+Faceting can be an idea in order to ease filtering. A map shows the resulting
+features set, and raw data can be downloaded (geojson, xml). Ideally, I would
 like to obtain a filtered dataset using a Web API.
 
 What's out in the wild already?
 ===============================
 
-Of course, there is google forms, which allows you to do this kind of things,
+Of course, there is google forms, which allows you to do these kind of things,
 but it's closed and not exactly what we are describing here.
 
-We've discovered the interesting https://webform.com/ which allows to create
+We've discovered the interesting https://webform.com/ which allows one to create
 forms with a nice drag-n-drop flow. I would love to reproduce something similar
-for the user experience. However, the project doesn't handles APIs and
+for the user experience. However, the project doesn't handle APIs and
 geolocation information.
 
 So… Let's get it real!
 ======================
 
 As you may have understood, this isn't a really complicated problem. We have
-been chatting about that with `Mathieu`_ sometimes about what we would need and
+been sometimes chatting about that with Mathieu about what we would need and
 how we could achieve this.
 
-We probably can come with an elegant solution without too much pain. Mathieu is
+We can probably come with an elegant solution without too much pain. Mathieu is
 used to work with GIS systems (which is really cool because I'm not at all) and
 knows his subject, so that's an opportunity to learn ;-)
 
@@ -146,15 +146,16 @@ help us, or just to discuss, feel free to join!
 
 We don't know yet if we will be using django for this or something else. We
 have been thinking about couchdb, couchapps and geocouch but nothing is written
-in stone yet. Comments and propositions are welcome!
+in stone yet. Comments and proposals are welcome!
 
 Here is the etherpad document we worked on so far:
 http://framapad.org/carto-forms. Don't hesitate to add your thoughts and edit
 it, that's what it's made for!
 
-Thanks to `Arnaud`_ for proof-reading and typo fixing.
+Thanks to `Arnaud`_ and `Fuzzmz`_ for proof-reading and typo fixing.
 
 .. _Djangocong:  http://rencontres.django-fr.org
 .. _Mathieu: http://blog.mathieu-leplatre.info/
 .. _Arnaud: http://sneakernet.fr/
+.. _Fuzzmz: http://qwerty.fuzz.me.uk/
 .. _Makina Corpus: http://makina-corpus.com
