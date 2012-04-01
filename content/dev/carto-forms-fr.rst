@@ -36,16 +36,31 @@ l'utilisation de leur système de feuilles de calcul.
 
 Après avoir réfléchi un petit peu à ça, j'ai contacté `Mathieu`_ et les anciens
 collègues de chez `Makina Corpus`_, puisque les projets libres à base de carto
-sont à même de les intéresser. Et j'ai bien eu raison, j'ai récupéré pas mal de
-feedback, et nous sommes en train, avec Mathieu, de définir plus clairement les
-objectifs et autres détails.
+sont à même de les intéresser.
+
+Imaginez le cas suivant:
+
+1. Dans une "mapping party", on choisit un sujet particulier à cartographier et
+   on design un formulaire (liste des champs (tags) a remplir + description +
+   le type d'information)
+2. Sur place, les utilisateurs remplissent les champs du formulaire avec ce
+   qu'ils voient. Les champs géolocalisés peuvent être remplis automatiquement
+   avec la géolocalisation du téléphone.
+3. À la fin de la journée, il est possible de voir une carte des contributions,
+   avec le formulaire choisi.
+4. Un script peut importer les resultats et les publier vers Open Street Map.
+
+Quelques exemples incluent le recensement des points de recyclage, des endroits
+accessibles (pour les fauteuils roulants par exemple), des points ou il y à de
+la publicité (la plupart des villes ne les recensent pas!) etc.
 
 Quelques cas d'utilisation
 ==========================
 
 J'arrive à imaginer différents cas d'utilisation pour cet outil. Le premier est
 celui que j'ai approximativement décrit plus haut: la génération de cartes de
-manière collaborative, avec du "facet filtering". Voici un flux d'utilisation:
+manière collaborative, avec du "facet filtering". Voici un flux d'utilisation
+général:
 
 * Un "administrateur" se rends sur le site web et créé un nouveau formulaire
   pour l'ensemble des évènements alternatifs. Il crée les champs suivants:
@@ -91,24 +106,8 @@ pour le formulaire, il sera possible de construire les formulaires de manière
 automatisée sur différentes plateformes et également sur des clients
 génériques.
 
-Voici quelques autres exemples d'où ce projet pourrait être utile:
-
-Designer des formulaires spécialisés pour les applications mobiles OSM
-----------------------------------------------------------------------
-
-1. Dans une "mapping party", on choisit un sujet particulier à cartographier et
-   on design un formulaire (liste des champs (tags) a remplir + description +
-   le type d'information)
-2. Sur place, les utilisateurs remplissent les champs du formulaire avec ce
-   qu'ils voient. Les champs géolocalisés peuvent être remplis automatiquement
-   avec la géolocalisation du téléphone.
-3. À la fin de la journée, il est possible de voir une carte des contributions,
-   avec le formulaire choisi.
-4. Un script peut importer les resultats et les publier vers Open Street Map.
-
-Quelques exemples incluent le recensement des points de recyclage, des endroits
-accessibles (pour les fauteuils roulants par exemple), des points ou il y à de
-la publicité (la plupart des villes ne les recensent pas!) etc.
+Voici quelques autres exemples d'où ce projet pourrait être utile (la liste
+n'est pas exaustive):
 
 Un backend SIG simple à utiliser
 --------------------------------
