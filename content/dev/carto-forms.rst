@@ -18,10 +18,10 @@ This idea has been stuck in my head since then and I even think that we can
 come out with something a little bit more flexible and useful. I've named it
 *carto-forms* for now, but that's only the "codename".
 
-To put it shortly: what if we had a way to build forms, ala google forms, but
+To put it shortly: what if we had a way to build forms, ala Google forms, but
 with geographic information in them?
 
-If you don't know google forms, it means having an user-friendly way to build
+If you don't know Google forms, it means having an user-friendly way to build
 forms and to use them to gather information from different users.
 
 In my opinion, Google forms is missing two important things: first, it's not
@@ -37,16 +37,13 @@ Imagine the following:
 
 1. For a mapping party, we choose a specific topic to map and design the form
    (list of fields (i.e. tags) to be filled + description + type of the
-   information)
+   information) ;
 2. In situ, users fill the form fields with what they see. Geo fields can be
-   prepopulated using device geolocation
-3. At the end of the day, we can see a map with all user contributions using
-   this particular form. 
-4. A script can import the resulting dataset and publish/merge with Open Street
-   Map
-
-Example uses for this include recycling spots, accessible spots (wheelchairs,
-etc.), map advertisement boards (most cities do not track them!)…
+   prepopulated using device geolocation ;
+3. At the end of the day, we can see a map with all user contributions seized
+   through this particular form ;
+4. If relevant, a script could eventually import the resulting dataset and 
+   publish/merge with OpenStreetMap.
 
 
 Some use cases
@@ -92,6 +89,17 @@ To push the cursor a bit further, if we can come with a cool description format
 for the forms, we could even build the forms dynamically on different platforms,
 with generic clients.
 
+
+As mentioned before, the idea of a simple tool to support collaborative mapping 
+fullfils a recurring necessity ! 
+
+We envision a lot of example uses for this : recycling spots, accessible spots (wheelchairs,
+etc.), trees identification, mushrooms picking areas, tracking of endangered species 
+(e.g. Bonelli's Eagle is currently tracked by sharing a spreadsheet), spotting of dangerous
+species (e.g. asian predatory wasps), map advertisement boards (most cities do not track them!),
+citizen reporting (e.g. graffiti, potholes, garbage, lightning like http://fixmystreet.ca),
+geocaching, trajectories (e.g hiking, runners, cyclists)...
+
 Here are some other examples of where *carto-forms* could be useful:
 
 Simple GIS storage backend
@@ -101,33 +109,64 @@ Let's say you are a mobile developer, you don't want to bother with PostGIS
 nor write a custom and insecure code to insert and retrieve your GIS data! You
 need carto-forms! A simple API helps you design your models/forms and the
 same API allows you to CRUD and query your data. Thus, you only need to focus
-on your application, not on how GIS data will be handled.  Distinguish storage
-from widgets.
+on your application, not on how GIS data will be handled. 
 
-Besides, if you are a django / plomino / drupal/... maintainer : you
-can develop a module to "plug" your UI to carto-forms! That's how you will
-expose carto forms to your backoffice users (ex: drupal admin UI, django
-adminsite). Likewise, you can write widgets that consume datasets in frontend
-views (using any webmapping js library)
+We make a distinction between storage and widgets.
+
+Besides, if you are a django / drupal / plomino... maintainer : you
+can develop a module to "plug" your models (content types) and UI to carto-forms! 
+Carto forms are then exposed to your backoffice users (ex: drupal admin UI, django
+adminsite), and likewise you can write your own HTML widgets that consume datasets
+in frontend views (facets in JSON/XML, and map data in GeoJSON).
+
 
 Visualization tool
 ------------------
 
-I can explore my dataset content using filters related to each form field.
-Faceting can be an idea in order to ease filtering. A map shows the resulting
-features set, and raw data can be downloaded (geojson, xml). Ideally, I would
-like to obtain a filtered dataset using a Web API.
+Since data submission can be done programmatically using the API, you could use Carto-forms
+results page as a visualization tool. 
+
+You can explore my dataset content using filters related to each form field. Facets filtering
+is a great advantage, and a map shows the resulting features set. You feel like you're in 
+front of a decision support system ! 
+
+Of course, filtered raw data can be downloaded (GeoJSON, XML) and a permalink allows to
+share the page with the state of the filters and the zoom/location of the map.
+
+
+Generic forms service
+---------------------
+
+If you want to generate a configuration file (or whatever, email messages, ...),
+you will need a form and a template to inlay user submitted values and get the result.
+
+A form service would be really useful to create forms programmatically and retrieve 
+cleaned and validated input values. 
+
+You could run a dedicated template service based on *carto-forms*! Parsing a template
+content, this external service could create a form dynamically and bind them together.
+The output of the form service (fields => values) would be bound to the input of a template 
+engine (variables => final result).
+
+Note that for this use-case, there is no specific need of GIS data nor storage of records 
+for further retrieval.
+
 
 What's out in the wild already?
 ===============================
 
-Of course, there is google forms, which allows you to do these kind of things,
+Of course, there is Google forms, which allows you to do these kind of things,
 but it's closed and not exactly what we are describing here.
 
 We've discovered the interesting https://webform.com/ which allows one to create
 forms with a nice drag-n-drop flow. I would love to reproduce something similar
 for the user experience. However, the project doesn't handle APIs and
 geolocation information.
+
+The idea of http://thoth.io is very attractive : an extremely simple web API to store
+and retrieve data. In addition, *carto-forms* would do datatype validation and have
+basic GIS fields (point, line, polygon).
+
 
 So… Let's get it real!
 ======================
