@@ -2,11 +2,10 @@ Carto-forms
 ###########
 
 :slug: carto-forms
-:date: 30-03-2012
+:date: 02-04-2012
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
 :lang: en
-:status: draft
 
 We have a plan. A "fucking good" one.
 
@@ -39,7 +38,7 @@ Imagine the following:
    (list of fields (i.e. tags) to be filled + description + type of the
    information) ;
 2. In situ, users fill the form fields with what they see. Geo fields can be
-   prepopulated using device geolocation ;
+   pre-populated using device geolocation ;
 3. At the end of the day, we can see a map with all user contributions seized
    through this particular form ;
 4. If relevant, a script could eventually import the resulting dataset and 
@@ -89,7 +88,6 @@ To push the cursor a bit further, if we can come with a cool description format
 for the forms, we could even build the forms dynamically on different platforms,
 with generic clients.
 
-
 As mentioned before, the idea of a simple tool to support collaborative mapping 
 fullfils a recurring necessity ! 
 
@@ -128,7 +126,7 @@ results page as a visualization tool.
 
 You can explore my dataset content using filters related to each form field. Facets filtering
 is a great advantage, and a map shows the resulting features set. You feel like you're in 
-front of a decision support system ! 
+front of a decision support system! 
 
 Of course, filtered raw data can be downloaded (GeoJSON, XML) and a permalink allows to
 share the page with the state of the filters and the zoom/location of the map.
@@ -167,6 +165,8 @@ The idea of http://thoth.io is very attractive : an extremely simple web API to 
 and retrieve data. In addition, *carto-forms* would do datatype validation and have
 basic GIS fields (point, line, polygon).
 
+http://mapbox.com also did an awesome work on cartography, but didn't take into
+account the form aspect we're leveraging here.
 
 So… Let's get it real!
 ======================

@@ -2,27 +2,26 @@ Carto-forms
 ###########
 
 :slug: carto-forms
-:date: 30-03-2012
+:date: 02-04-2012
 :author: Alexis Métaireau, Mathieu Leplatre
 :tags: GIS, forms
 :lang: fr
-:status: draft
 
 On a un plan. Un "truc de ouf".
 
-À plusieur reprises, des amis m'ont demandé de leur coder la même chose, à
-quelques details près: une page web avec un formulaire qui permettrait de
+À plusieurs reprises, des amis m'ont demandé de leur coder la même chose, à
+quelques détails près: une page web avec un formulaire qui permettrait de
 soumettre des informations géographiques, lié à une carte et des manières de
 filtrer l'information.
 
 L'idée fait son bout de chemin, et je commence à penser qu'on peut même avoir
-quelque chose de vraiment flexible et utile. J'ai nommé le projet "carto-forms"
+quelque chose de vraiment flexible et utile. J'ai nommé le projet *carto-forms*
 pour l'instant (mais c'est uniquement un nom de code).
 
 Pour résumer: et si on avait un moyen de construire des formulaires, un peu
-comme google forms, mais avec des informations géographiques en plus?
+comme Google forms, mais avec des informations géographiques en plus?
 
-Si vous ne connaissez pas google forms, il s'agit d'une interface simple
+Si vous ne connaissez pas Google forms, il s'agit d'une interface simple
 d'utilisation pour générer des formulaires et récupérer des informations depuis
 ces derniers.
 
@@ -42,17 +41,13 @@ Imaginez le cas suivant:
 
 1. Dans une "mapping party", on choisit un sujet particulier à cartographier et
    on design un formulaire (liste des champs (tags) a remplir + description +
-   le type d'information)
+   le type d'information) ;
 2. Sur place, les utilisateurs remplissent les champs du formulaire avec ce
    qu'ils voient. Les champs géolocalisés peuvent être remplis automatiquement
-   avec la géolocalisation du téléphone.
+   avec la géolocalisation du téléphone ;
 3. À la fin de la journée, il est possible de voir une carte des contributions,
-   avec le formulaire choisi.
-4. Un script peut importer les resultats et les publier vers Open Street Map.
-
-Quelques exemples incluent le recensement des points de recyclage, des endroits
-accessibles (pour les fauteuils roulants par exemple), des points ou il y à de
-la publicité (la plupart des villes ne les recensent pas!) etc.
+   avec le formulaire choisi ;
+4. Un script peut importer les résultats et les publier vers Open Street Map.
 
 Quelques cas d'utilisation
 ==========================
@@ -67,17 +62,17 @@ général:
   
   * Nom: le champ qui contient le nom de l'évènement.
 
-  * Categorie: la catégorie de l'évènement (marche, concert, manifestation…).
-    Il peut s'agir d'un champ à multiples occurences.
+  * Catégorie: la catégorie de l'évènement (marche, concert, manifestation…).
+    Il peut s'agir d'un champ à multiples occurrences.
 
   * Le lieu de l'évènement. Celui-ci peut être donné soit par une adresse soit
-    en selectionnant un point sur une carte.
+    en sélectionnant un point sur une carte.
 
   * Date: la date de l'évènement (un "date picker" peut permettre cela
     facilement)
 
   Chaque champ dans le formulaire a des informations sémantiques associées
-  (oui/non, multiple selection, date, heure, champ géocodé, sélection carto,
+  (oui/non, multiple sélection, date, heure, champ géocodé, sélection carto,
   etc.)
 
 * Une fois terminé, le formulaire est généré et une URL permet d'y accéder. 
@@ -92,7 +87,7 @@ général:
 
 * Bien sur, la dernière phase est la plus intéressante: il est possible de
   filtrer les informations par lieu, catégorie ou date, le tout soit via une
-  API REST, soit via une jolie carte et quelques controles bien placés, dans le
+  API REST, soit via une jolie carte et quelques contrôles bien placés, dans le
   navigateur.
 
 Vous avez dû remarquer que le processus de création d'un formulaire est
@@ -106,42 +101,77 @@ pour le formulaire, il sera possible de construire les formulaires de manière
 automatisée sur différentes plateformes et également sur des clients
 génériques.
 
-Voici quelques autres exemples d'où ce projet pourrait être utile (la liste
-n'est pas exaustive):
+On imagine pas mal d'exemples pour ce projet: des points de recyclage, les
+endroits accessibles (pour fauteuils roulants etc.), identification des arbres,
+bons coins à champignons, recensement des espèces en voie de disparition
+(l'aigle de Bonelli est actuellement suivi en utilisant une feuille de calcul
+partagée !), suivi des espèces dangereuses (le frelon asiatique par exemple),
+cartographier les points d'affichage publicitaires, participation citoyenne 
+(graffitis, nids de poule, voir http://fixmystreet.ca), geocaching,
+trajectoires (randonnées, coureurs, cyclistes)…
+
+Voici quelques exemples où ce projet pourrait être utile (la liste n'est pas
+exhaustive):
 
 Un backend SIG simple à utiliser
 --------------------------------
 
-Disons que vous êtes dévelopeur mobile. Vous ne voulez pas vous encombrer avec
+Disons que vous êtes développeur mobile. Vous ne voulez pas vous encombrer avec
 PostGIS ou écrire du code spécifique pour récupérer et insérer des données SIG!
 Vous avez besoin de *Carto-Forms*! Une API simple vous aide à penser vos
 modèles et vos formulaires, et cette même API vous permet d'insérer et de
 récupérer des données. Vous pouvez vous concentrer sur votre application et non
 pas sur la manière dont les données géographiques sont stockées et gérées.
 
-En d'autres termes, vous faites une distinciton entre le stockage des
+En d'autres termes, vous faites une distinction entre le stockage des
 informations et leur affichage.
 
-Si vous êtes un dévelopeur django, plomino, drupal etc. vous pouvez développer
-un module pour "plugger" votre interface utilisateur avec celle de
-*Carto-Forms*. De cette manière, il est possible d'exposer les formulaires aux
-utilisateurs de vos backoffices. De la même manière, il est possible d'écrire
-des widgets qui consomment des données et les affichent (en utilisant par
-exemple une bibliothèque javascript de webmapping).
+Si vous êtes un développeur django, plomino, drupal etc. vous pouvez développer
+un module pour "plugger" vos modèles et votre  interface utilisateur avec celle
+de *Carto-Forms*. De cette manière, il est possible d'exposer les formulaires
+aux utilisateurs de vos backoffices. De la même manière, il est possible
+d'écrire des widgets qui consomment des données et les affichent (en utilisant
+par exemple une bibliothèque javascript de webmapping).
 
 Un outil de visualisation
 -------------------------
 
+Puisque les données peuvent être proposées de manière automatisée en utilisant
+l'API, vous pouvez utiliser la page de résultat de Carto-forms comme un outil
+de visualisation.
+
 Il est possible d'explorer mon jeu de données en utilisant des filtres sur
-chacun de mes champs. Le faceting peut être une idée pour faciliter ce
-filtrage. Une carte affiche le résultat et il est possible de télécharger les
-données brutes (geojson, xml). Idéalement, le mieux serait d'obtenir ces
-données filtrées directement depuis une API Web.
+chacun des champs. Le faceting peut être une idée pour faciliter ce
+filtrage. Une carte affiche le résultat. Vous avez l'impressoin d'être en face
+d'un système d'aide à la décision !
+
+Évidemment, il est possible de télécharger les données brutes (geojson, xml).
+Idéalement, le mieux serait d'obtenir ces données filtrées directement depuis
+une API Web, et un lien permet de partager la page avec l'état des filtres et
+le niveau de zoom / la localisation de la carte.
+
+Un service générique pour gérer les formulaires
+-----------------------------------------------
+
+Si vous souhaitez générer un fichier de configuration (ou ce que vous voulez,
+messages emails, …) vous aurez besoin d'un formulaire et d'un template pour
+récupérer les données proposées par les utilisateurs et récupérer un résultat.
+
+A service de gestion des formulaires pourrait être utile pour créer des
+formulaires de manière automatique et récupérer les données "nettoyées" et
+"validées".
+
+On peut imaginer par exemple l'utilisation d'un système de templates basé sur
+*carto-forms*. Celui-ci "parserait" le contenu des templates et pourrait le
+lier aux informations ajoutées par les utilisateurs via un formulaire.
+
+Pour ce cas particulier, il n'y à pas besoin d'informations géographiques
+(SIG). Il s'agit quasiment du service proposé actuellement par Google forms.
 
 Ça n'existe pas déjà tout ça ?
 ===============================
 
-Bien sur, il y a google forms, qui vous permet de faire ce genre de choses,
+Bien sur, il y a Google forms, qui vous permet de faire ce genre de choses,
 mais comme je l'ai précisé plus haut, il ne s'agit pas exactement de la même
 chose.
 
@@ -150,8 +180,13 @@ avec un système de drag'n'drop. J'adorerais reproduire quelque chose de
 similaire pour l'interface utilisateur. Par contre ce projet ne gère pas les
 appels via API et les informations de géolocalisation …
 
+L'idée de http://thoth.io est également assez sympathique: une api très 
+simple pour stocker et récupérer des données. En plus de ça, *carto-forms*
+proposerait de la validation de données et proposerait un support des points
+SIG (point, ligne, polygone).
+
 http://mapbox.com fait également un superbe travail autour de la cartographie,
-mais ne prends pas en compte le coté autogénération de formulaires…
+mais ne prends pas en compte le coté auto-génération de formulaires…
 
 On est parti ?!
 ===============
