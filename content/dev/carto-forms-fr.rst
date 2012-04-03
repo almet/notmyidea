@@ -47,17 +47,17 @@ Imaginez le cas suivant:
    avec la géolocalisation du téléphone ;
 3. À la fin de la journée, il est possible de voir une carte des contributions,
    avec le formulaire choisi ;
-4. Un script peut importer les résultats et les publier vers Open Street Map.
+4. Un script peut importer les résultats et les publier vers OpenStreetMap.
 
 Quelques cas d'utilisation
 ==========================
 
 J'arrive à imaginer différents cas d'utilisation pour cet outil. Le premier est
 celui que j'ai approximativement décrit plus haut: la génération de cartes de
-manière collaborative, avec du "facet filtering". Voici un flux d'utilisation
+manière collaborative, avec des filtres à facettes. Voici un flux d'utilisation
 général:
 
-* Un "administrateur" se rends sur le site web et créé un nouveau formulaire
+* Un "administrateur" se rend sur le site web et crée un nouveau formulaire
   pour l'ensemble des évènements alternatifs. Il crée les champs suivants:
   
   * Nom: le champ qui contient le nom de l'évènement.
@@ -141,7 +141,7 @@ l'API, vous pouvez utiliser la page de résultat de Carto-forms comme un outil
 de visualisation.
 
 Il est possible d'explorer mon jeu de données en utilisant des filtres sur
-chacun des champs. Le faceting peut être une idée pour faciliter ce
+chacun des champs. La recherche à facettes peut être une idée pour faciliter ce
 filtrage. Une carte affiche le résultat. Vous avez l'impressoin d'être en face
 d'un système d'aide à la décision !
 
@@ -155,17 +155,17 @@ Un service générique pour gérer les formulaires
 
 Si vous souhaitez générer un fichier de configuration (ou ce que vous voulez,
 messages emails, …) vous aurez besoin d'un formulaire et d'un template pour
-récupérer les données proposées par les utilisateurs et récupérer un résultat.
+injecter les données proposées par les utilisateurs et récupérer un résultat.
 
-A service de gestion des formulaires pourrait être utile pour créer des
+Un service de gestion des formulaires pourrait être utile pour créer des
 formulaires de manière automatique et récupérer les données "nettoyées" et
 "validées".
 
-On peut imaginer par exemple l'utilisation d'un système de templates basé sur
-*carto-forms*. Celui-ci "parserait" le contenu des templates et pourrait le
-lier aux informations ajoutées par les utilisateurs via un formulaire.
+On peut imaginer par exemple l'utilisation d'un système de templates externe
+reposant sur *carto-forms*. Celui-ci "parserait" le contenu des templates et 
+pourrait le lier aux informations ajoutées par les utilisateurs via un formulaire.
 
-Pour ce cas particulier, il n'y à pas besoin d'informations géographiques
+Pour ce cas particulier, il n'y a pas besoin d'informations géographiques
 (SIG). Il s'agit quasiment du service proposé actuellement par Google forms.
 
 Ça n'existe pas déjà tout ça ?
