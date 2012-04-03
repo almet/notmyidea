@@ -124,7 +124,7 @@ Visualization tool
 Since data submission can be done programmatically using the API, you could use Carto-forms
 results page as a visualization tool. 
 
-You can explore my dataset content using filters related to each form field. Facets filtering
+You can explore your dataset content using filters related to each form field. Facets filtering
 is a great advantage, and a map shows the resulting features set. You feel like you're in 
 front of a decision support system! 
 
