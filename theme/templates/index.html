@@ -1,19 +1,35 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+{% if articles %}
+    {% for article in articles_page.object_list %}        
 
-    <p>Hey, I'm Alexis and this is my blog. I try to talk about freedom, free
-    software and activism. I'm currently spending my days in Paris, doing
-    python at mozilla, on the services team.</p>
-
-    {% for article in articles %}
-    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-        {% if article.translations %}
-        <small>(also in {% for article in article.translations %}<a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang }}</a>{% endfor %})</small>
+        {% if loop.first and articles_page.has_previous %}
+            <section id="content" class="body">
+                <ol id="posts-list" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
         {% endif %}
-    </h2>
-        <p class="date">{{ article.locale_date }}</p>
-        {% if article.description %}
-        <p class="description">{{ article.description }}</p>
+        <li><article class="hentry">    
+            <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                    title="Permalink to {{ article.title}}">{{ article.title
+                    }}</a></h1> {{ article.locale_date }}, in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.
+            </div><!-- /.entry-content -->
+        </article></li>
+
+        {% if loop.last and (articles_page.has_previous() 
+           or not articles_page.has_previous() and loop.length > 1) %}
+            {% include 'pagination.html' %}
+        {% endif %}
+        {% if loop.last %}
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         {% endif %}
     {% endfor %}
-{% endblock %}
+{% else %}
+<section id="content" class="body">    
+<h2>Pages</h2>
+    {% for page in PAGES %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</section>
+{% endif %}
+{% endblock content %}
