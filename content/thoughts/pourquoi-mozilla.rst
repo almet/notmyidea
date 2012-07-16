@@ -14,9 +14,9 @@ les aboutissants, aussi je me suis dit que ça pouvait avoir du sens de l'écrir
 quelque part.
 
 Ça parle bien sur de logiciel libre, de protection de la vie privée et de
-contres pouvoirs.
+contre-pouvoirs.
 
-Je ne m'adresse pas ici aux officionados du logiciel libre et du non contrôle
+Je ne m'adresse pas ici aux afficionados du logiciel libre et du non contrôle
 du web, mais aux potentiels intéressés, qui souhaitent comprendre ce qu'on fait
 à Mozilla, pourquoi et comment, et plus particulièrement quel est le rôle que
 je joue la dedans.
@@ -35,7 +35,7 @@ l'idée de la collaboration. "Plutôt que de travailler chacun dans son coin,
 construisons ensemble quelque chose qui nous sera utile à tous". Ça marche dans
 le domaine de l'informatique parce qu'on est exposé à un bien commun non
 matériel. Ce n'est pas parce que je te donne un logiciel que je ne l'ai plus.
-La duplication est possible et elle rends la collaboration plus facile.
+La duplication est possible et elle rend la collaboration plus facile.
 
 Euh, oui mais…
 --------------
@@ -47,7 +47,7 @@ travaillent pour faire en sorte que Firefox soit disponible dans près de 100
 langues et dialectes par exemple.
 
 J'aime beaucoup penser que le logiciel libre réussit à réunir des personnes
-avec des objectifs differents. Linux, qui est un logiciel libre est par exemple
+avec des objectifs differents. Linux, qui est un logiciel libre, est par exemple
 utilisé dans beaucoup de domaines très différents tels que la médecine,
 l'automobile ou l'énergie.
 
@@ -80,12 +80,12 @@ Heureusement, les données qui sont stockées sur les serveurs Sync sont
 chifrées, et seul l'utilisateur a accès a la clé de chiffrement et de
 déchiffrement. En d'autres termes, en ayant accès aux serveurs de Mozilla, même
 de l'intérieur, je pourrais avoir accès à vos données mais je ne pourrais rien
-en faire car celles-cis me sont impossible à déchiffrer.
+en faire car celles-ci me sont impossibles à déchiffrer.
 
-Mozilla essaye de mettre le doigt la ou ça fait mal dans l'innovation web: la
+Mozilla essaye de mettre le doigt là où ça fait mal dans l'innovation web : la
 publicité et le respect de la vie privée des utilisateurs. Facebook, Google,
 Twitter sont autant d'entreprises qui gagnent de l'argent grâce à leurs
-utilisateurs et à leurs données privées. 
+utilisateurs et à leurs données privées.
 
 Cela n'est pas *nécessairement* un mal mais il me semble important d'informer
 les utilisateurs d'Internet la dessus, et de leur proposer des méthodes qui
@@ -108,14 +108,15 @@ Mozilla (j'en parle un peu plus bas) travaille aussi sur un système
 d'exploitation pour téléphone portable, nommé Firefox OS (anciennement Boot 2
 Gecko), et sur l'écosystème qui va avec.
 
-Actuallement, si vous souhaitez synchroniser vos contacts par exemple, vous
+Actuellement, si vous souhaitez synchroniser vos contacts par exemple, vous
 dépendez quasiment toujours d'une autorité à qui vous ne faites peut être pas
 confiance: Apple, Microsoft ou bien Google.
 
 On ne vous propose pas simplement de nous faire confiance, on vous propose la
-possibilité de ne faire confiance à qui vous souhaitez, et ça peut être vous si
-vous souhaitez. La décentralisation à ceci de bon qu'elle vous laisse le choix
-d'où vous souhaitez stocker vos données.
+possibilité de ne faire confiance qu'à ceux à qui vous souhaitez accorder votre confiance,
+et ça peut être vous si vous le souhaitez.
+La décentralisation à ceci de bon qu'elle vous laisse le choix d'où vous
+souhaitez stocker vos données.
 
 Innovation et standardisation
 =============================
@@ -131,7 +132,7 @@ tout l'écosystème qui existe déjà autour de celui-ci.
 C'est bien que ça bouge mais il faut qu'on se mette d'accord sur comment on
 veut faire bouger les choses. La guerre des navigateurs a eu lieu. Ne pas
 reproduire ça est parfois un challenge. La standardisation, tout le monde s'y
-mets.
+met.
 
 On a gagné une guerre: aux utilisateurs de choisir les outils qu'ils souhaitent
 et non pas aux développeurs d'imposer leurs choix.
@@ -147,10 +148,10 @@ Ce travail a plusieurs objectifs:
 
 * Mettre à disposition des outils pour les développeurs, leur permettant de
   créer des services de bonne qualité rapidement;
-* Permettre aux utilisateurs d'héberger eux mêmes leurs propres serveurs si ils
+* Permettre aux utilisateurs d'héberger eux mêmes leurs propres serveurs s'ils
   le souhaitent, réduisant leur dépendance a des services externes.
 * Écrire les services en question de telle manière que les utilisateurs (vous
-  !) puissent les utiliser sans trop de tracas :)
+  !) puissent les utiliser sans laisser trop de tracas :)
 
 Ça semble peu. mais j'aime ce boulot. Éthiquement et techniquement. C'est ça,
 pour moi, la mission de Mozilla. Si vous avez des suggestions sur ce qui
