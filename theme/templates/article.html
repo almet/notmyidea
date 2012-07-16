@@ -3,13 +3,15 @@
 {% block content %}        
 <section id="content" class="body">    
 <article>
-<header> <h1 class="entry-title"><a href="{{ pagename }}" rel="bookmark" title="Permalink to {{ article.title }}">
-        {{ article.title }}</a></h1> {% include 'twitter.html' %} </header>
-        <div class="entry-content">
-
+<header>
         <abbr class="published" title="{{ article.date.isoformat() }}">
                 {{ article.locale_date }}
         </abbr>
+<h1 class="entry-title"><a href="{{ pagename }}" rel="bookmark" title="Permalink to {{ article.title }}">
+        {{ article.title }}</a></h1>
+        {% include 'twitter.html' %} </header>
+        <div class="entry-content">
+
         {{ article.content }}
 
         <div class="info">
