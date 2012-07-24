@@ -123,7 +123,8 @@ Innovation et standardisation
 
 Mozilla, dès ses débuts, a été un laboratoire. Firefox (si je ne me trompe pas)
 a été le premier navigateur à avoir des onglets. Le web, c'est cool parce que
-ça bouge tout le temps !
+ça bouge tout le temps ! (Edit: en fait, `ce n'était pas le premier
+<http://en.wikipedia.org/wiki/Tabbed_document_interface>`_ …)
 
 La dernière innovation en date est Firefox OS: utilisons les technologies du
 web pour créer un téléphone: utilisons le web comme plateforme, et profitons de
