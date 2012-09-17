@@ -9,8 +9,8 @@ Paris. It was the opportunity to meet a lot of people and to talk about python
 awesomness in general.
 
 We had three tracks this year, plus sprints the two first days. We sprinted on
-Circus, the process and socket manager we're being using at Mozilla for some of
-our setups.
+`Circus <http://circus.io>`_, the process and socket manager we're being using
+at Mozilla for some of our setups.
 
 The project gathered some interest, and we ended up with 5 persons working on
 it. Of course, we spent some time explaining what is Circus, how it had been
