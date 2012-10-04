@@ -45,7 +45,7 @@ h3, h4, h5, h6 { margin-top: .8em; }
 	
 hr { border: 2px solid #EEEEEE; }
 
-img { border: 10px black solid; display: block; margin: 20px auto;}
+#content img { border: 10px black solid; display: block; margin: 20px auto;}
 
 /* Anchors */
 a {outline: 0;}
