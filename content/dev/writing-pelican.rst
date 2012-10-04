@@ -20,7 +20,7 @@ generated, also for the atom feeds.
 I've released it under AGPL, since I want all the modifications to be profitable
 to all the users.
 
-You can find a mercurial repository to fork at http://hg.lolnet.org/pelican/,
+You can find a repository to fork at https://github.com/getpelican/pelican/.
 feel free to hack it !
 
 If you just want to get started, use your installer of choice (pip, easy_install, …)
@@ -80,4 +80,4 @@ informations
 
 Enjoy :)
 
-.. _Pelican: http://alexis.notmyidea.org/pelican/
+.. _Pelican: http://docs.getpelican.com
