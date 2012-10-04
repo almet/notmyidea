@@ -5,7 +5,7 @@ Bière maison !
 :lang: fr
 
 Et voilà, c'est notre troisième brassin. On a commencé à faire notre propre
-bière (avec un ami, Fred) il y  aquasiment un an maintenant, et après quelques
+bière (avec un ami, Fred) il y a quasiment un an maintenant, et après quelques
 dératés, même s'il nous reste encore bien du chemin à parcourir pour avoir
 quelque chose qui nous convienne réellement… c'est pas si pire comme on dit !
 
@@ -24,12 +24,12 @@ d'abord ?
 
 En fin de compte, les quelques étapes nécessaire à la confection de la bière ne
 sont pas bien sorcières; concassage de l'orge maltée, cuisson (libération de
-l'amidon dans l'eau), infusion du houblon, refroidissage, première
+l'amidon dans l'eau), infusion du houblon, refroidissement, première
 fermentation, embouteillage et seconde fermentation.
 
 L'idée principale est transformer l'amidon d'orge maltée en sucre, pour le
 "donner à manger" à des levures. Vous ajoutez un peu de houblon au milieu pour
-donner un petit goùt amer et le tour est joué. Enfin presque.
+donner un petit goût amer et le tour est joué. Enfin presque.
 
 Étape par étape
 ===============
@@ -43,7 +43,7 @@ exactement 6kg de malt pâle *7EDC* et 500g de malt cara *50EDC*).
 Attention, pas trop fin dis donc ! On ne veut pas de la poudre, on veut
 simplement permettre à l'amidon de se dissoudre dans l'eau. Si on concasse le
 malt trop fin, on se retrouve avec un dépôt dégeulasse au fond de toutes les
-bouteilles (c'est l'expérience qui parle, notre première bière avait plus goùt
+bouteilles (c'est l'expérience qui parle, notre première bière avait plus goût
 de céréale que de bière…)
 
 Contrairement aux fois précédentes où nous avions utilisé la technique du
@@ -129,13 +129,13 @@ Et voilà ! Il ne reste plus qu'à mettre les bouteilles de coté durant deux
 semaines de plus et… à déguster le moment venu.
 
 On a donc pu tester notre bière la semaine dernière et, ma foi, elle est pas
-mal du tout. Elle ne mousse pas trop et à un goùt un peu amer. Malheureusement
-pas assez à mon goùt, mais ça viendra. En comparaison à nos précédents essais,
+mal du tout. Elle ne mousse pas trop et à un goût un peu amer. Malheureusement
+pas assez à mon goût, mais ça viendra. En comparaison à nos précédents essais,
 c'est plutôt positif: la première était ratée puisque trop de pression et trop
-de dépôt (et donc un fort goùt de levures) alors que la seconde (on avait tenté
-d'ajouter de la lavande) avait un goùt de lavande amère, pour ne pas dire de
+de dépôt (et donc un fort goût de levures) alors que la seconde (on avait tenté
+d'ajouter de la lavande) avait un goût de lavande amère, pour ne pas dire de
 savon.
 
-Cette dernière bière a un goùt de… de bière ! Il nous reste encore à comprendre
+Cette dernière bière a un goût de… de bière ! Il nous reste encore à comprendre
 comment faire pour lui donner la saveur que l'on souhaite, mais c'est déjà un
 grand pas en avant. Prochaine étape... La bière de Noël !
