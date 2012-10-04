@@ -4,12 +4,12 @@ Bière maison !
 :date: 04-10-2012
 :lang: fr
 
-Et voila, c'est notre troisième brassin. On à commencé à faire notre propre
-bière (avec un ami, Fred) il y à quasiment un an maintenant, et après quelques
-dératés, même si il nous reste encore bien du chemin à parcourir pour avoir
+Et voilà, c'est notre troisième brassin. On a commencé à faire notre propre
+bière (avec un ami, Fred) il y  aquasiment un an maintenant, et après quelques
+dératés, même s'il nous reste encore bien du chemin à parcourir pour avoir
 quelque chose qui nous convienne réellement… c'est pas si pire comme on dit !
 
-Cette fois ci, on s'est penché sur la confection d'une IPA (Indian Pale Ale, une
+Cette fois-çi, on s'est penché sur la confection d'une IPA (Indian Pale Ale, une
 bière un peu plus amère que celle qu'on à l'habitude de trouver en France).
 
 Elle est plus amère car elle comporte plus de houblon que les autres, et
@@ -29,7 +29,7 @@ fermentation, embouteillage et seconde fermentation.
 
 L'idée principale est transformer l'amidon d'orge maltée en sucre, pour le
 "donner à manger" à des levures. Vous ajoutez un peu de houblon au milieu pour
-donner un petit gout amer et le tour est joué. Enfin presque.
+donner un petit goùt amer et le tour est joué. Enfin presque.
 
 Étape par étape
 ===============
@@ -43,12 +43,12 @@ exactement 6kg de malt pâle *7EDC* et 500g de malt cara *50EDC*).
 Attention, pas trop fin dis donc ! On ne veut pas de la poudre, on veut
 simplement permettre à l'amidon de se dissoudre dans l'eau. Si on concasse le
 malt trop fin, on se retrouve avec un dépôt dégeulasse au fond de toutes les
-bouteilles (c'est l'expérience qui parle, notre première bière avait plus gout
+bouteilles (c'est l'expérience qui parle, notre première bière avait plus goùt
 de céréale que de bière…)
 
-Contrairement aux fois précédentes ou nous avions utilisé la technique du
+Contrairement aux fois précédentes où nous avions utilisé la technique du
 marteau et du torchon (oui, comme vous pouvez l'imaginer, c'est assez long et
-fastidieux), On à utilisé… un moulin à malt ! Qui nous à permis de concasser les
+fastidieux), On a utilisé… un moulin à malt ! Qui nous à permis de concasser les
 6kg en 30 minutes (heureusement qu'on était trois pour se relayer sur le
 moulin, parce que nos petits muscles fatiguaient assez vite; vous pouvez
 envisager de faire ça tout seul si vous êtes un tennisman).
@@ -74,11 +74,11 @@ Une fois l'eau à température (54°C), il faut ajouter le malt et le laisser
 durant 30mn à cette température, puis augmenter jusqu'à 65°C durant 1h.
 
 La troisième étape, c'est **le rinçage**, l'idée est de récupérer l'amidon qui
-s'est dissout dans l'eau et de mettre de coté l'orge maltée (la partie solide).
-Pour ça, il faut faire chauffer de l'eau de rinçage. On à utilisé 10L d'eau de
-rinçage qu'on à fait chauffer à 78°C, en contant qu'elle perdra de sa
-température (20°C à peu près) en étant utilisée. On à filtré deux fois pour
-être sur de ne rien perdre.
+s'est dissout dans l'eau et de mettre de côté l'orge maltée (la partie solide).
+Pour ça, il faut faire chauffer de l'eau de rinçage. On a utilisé 10L d'eau de
+rinçage qu'on a fait chauffer à 78°C, en comptant sur le fait qu'elle perdra de sa
+température (20°C à peu près) en étant utilisée. On a filtré deux fois pour
+être sûr de ne rien perdre.
 
 .. image:: images/filtrage.jpg
     :width: 700px
@@ -87,17 +87,17 @@ L'étape d'après (la quatrième, vous suivez), c'est **le houblonnage**.
 On va faire infuser notre "solution aqueuse" (wouah, on dirait de la chimie !)
 avec du houblon. Il faut porter l'eau à ébullition et laisser faire durant 1h.
 
-Dernière étape: **le refroidissage**. On dirait que c'est tranquilou comme
+Dernière étape: **le refroidissement**. On dirait que c'est tranquilou comme
 ça, mais en fait ça ne l'est pas tant que ça: il faut réussir à passer notre
 liquide qui était en ébullition à 54°C en un temps acceptable. Pour ça, on
-à utilisé un serpentin confectionné main.
+a utilisé un serpentin confectionné main.
 
 .. image:: images/refroidisseur.jpg
     :width: 400px
 
-Ça nous à permis de passer de 100°C à 54°C en… 35 minutes quand même ! (Les
-fois précédentes nous avaient vu essayer de gérer ça à coup de baignoire et de
-glaçons, les temps n'étaient absolument pas au rendez-vous).
+Ça nous a permis de passer de 100°C à 54°C en… 35 minutes quand même ! (Nous avions essayé les fois précédentes 
+de gérer ça à coup de baignoire et de glaçons, les temps n'étaient absolument 
+pas au rendez-vous).
 
 
 .. image:: images/refroidissement.jpg
@@ -106,7 +106,7 @@ glaçons, les temps n'étaient absolument pas au rendez-vous).
 Je disais dernière étape, mais il ne faut pas oublier de rajouter les
 levures, qui elles vont faire tout le travail et transformer tout ça en… alcool
 ! Dans notre cas, on ajoute aussi dans la cuve de fermentation du houblon
-question de donner l'amertume dont on à envie.
+question de donner l'amertume dont on a envie.
 
 On à mesuré une densité de 1046, ce qui veut dire 6° d'alcool. La cuve est
 maintenant en train de buller tranquillement (les levures produisent du gaz qui
@@ -117,25 +117,25 @@ Mise en bouteille
 
 Une fois ces deux semaines passées, il faut mettre en bouteille. Dans notre cas
 nous avons récupéré des bouteilles à bouchon mécanique (vous savez, les
-bouteilles de limonades) qu'on à bien rincées et nettoyées.
+bouteilles de limonades) qu'on à bien rincé et nettoyé.
 
-On s'équipe d'un syphon (pensez à prendre un tuyau avec un diamètre assez
+On s'équipe d'un siphon (pensez à prendre un tuyau avec un diamètre assez
 important, le notre était petit et c'était assez long) et après avoir ajouté du
 sucre dans le mélange (pour réactiver les levures), on remplit les bouteilles
 ! Il s'agit de la seconde fermentation, celle qui va faire les bulles (la
 première fermentation se charge de l'alcool, la seconde des bulles).
 
-Et voila ! Il ne reste plus qu'à mettre les bouteilles de coté durant deux
+Et voilà ! Il ne reste plus qu'à mettre les bouteilles de coté durant deux
 semaines de plus et… à déguster le moment venu.
 
-On à donc pu tester notre bière la semaine dernière et, ma foi, elle est pas
-mal du tout. Elle ne mousse pas trop et à un gout un peu amer. Malheureusement
-pas assez à mon gout, mais ça viendra. En comparaison à nos précédents essais,
+On a donc pu tester notre bière la semaine dernière et, ma foi, elle est pas
+mal du tout. Elle ne mousse pas trop et à un goùt un peu amer. Malheureusement
+pas assez à mon goùt, mais ça viendra. En comparaison à nos précédents essais,
 c'est plutôt positif: la première était ratée puisque trop de pression et trop
-de dépôt (et donc un fort gout de levures) alors que la seconde (on avait tenté
-d'ajouter de la lavande) avait un gout de lavande amère, pour ne pas dire de
+de dépôt (et donc un fort goùt de levures) alors que la seconde (on avait tenté
+d'ajouter de la lavande) avait un goùt de lavande amère, pour ne pas dire de
 savon.
 
-Cette dernière bière à un gout de… de bière ! Il nous reste encore à comprendre
-comment faire pour lui donner le gout que l'on souhaite, mais c'est déjà un
-grand pas en avant. La prochaine étape c'est la bière de Noël !
+Cette dernière bière a un goùt de… de bière ! Il nous reste encore à comprendre
+comment faire pour lui donner la saveur que l'on souhaite, mais c'est déjà un
+grand pas en avant. Prochaine étape... La bière de Noël !
