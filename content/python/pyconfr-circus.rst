@@ -2,14 +2,13 @@ Circus sprint at PyconFR
 ########################
 
 :date: 17/09/2012
-:status: draft
 
 Last Thursday to Sunday, `Pycon France <http://pycon.fr>`_ took place, in
 Paris. It was the opportunity to meet a lot of people and to talk about python
 awesomness in general.
 
 We had three tracks this year, plus sprints the two first days. We sprinted on
-`Circus <http://circus.io>`_, the process and socket manager we're being using
+`Circus <http://circus.io>`_, the process and socket manager we're using
 at Mozilla for some of our setups.
 
 The project gathered some interest, and we ended up with 5 persons working on
@@ -18,10 +17,10 @@ built, a lot of time talking about use-cases and possible improvements, but we
 also managed to add new features.
 
 Having people wanting to sprint on our projects is exciting because that's
-when making things in the open makes sence. You can't imagine how happy I was
-to have some friends come and work on this with us :)
+when making things in the open unleashes its full potential. You can't imagine
+how happy I was to have some friends come and work on this with us :)
 
-Here is a wra-up of the sprint:
+Here is a wrap-up of the sprint:
 
 Autocompletion on the command-line
 ==================================
@@ -68,7 +67,7 @@ One feature I wanted to work on during this sprint was the clustering abilities
 of Circus. Nick Pellegrino made an internship on this topic at Mozilla so we
 spent some time to review his pull requests.
 
-A lot of code had been wrote for this so we discussed a bunch of things
+A lot of code was written for this so we discussed a bunch of things
 regarding all of this. It took us more time than expected (and I still need to
 spend more time on this to provide appropriate feedback), but it allowed us to
 have a starting-point about what this clustering thing could be.
@@ -82,7 +81,7 @@ Project management
 ==================
 
 We've had some inquiries telling us that's not as easy as it should to get
-started with the Circus project. This is because, into other things, we don't
+started with the Circus project. Some of the reasons are that we don't
 have any release schedule, and that the documentation is hairy enough to lost
 people, at some point :) 
 
