@@ -25,7 +25,7 @@ sensibilisation, c'est le syndrome du jeune con, du donneur de leçons.
 
 On dirait qu'on parle de sauver le monde. "Nous qui avons tout compris, on peut
 vous aider à aller dans la *bonne direction*", mais c'est en oubliant que 
-la bonne direction pour l'un ne l'est pas necessairement pour les autres…
+la bonne direction pour l'un ne l'est pas nécessairement pour les autres…
 
 Just do it !
 ============
@@ -41,7 +41,7 @@ clair: toute initiative compte, aussi petite et insignifiante qu'elle puisse
 sembler.
 
 Des initiatives locales, il y en à, plein. Et si ce que nous avons dans notre
-quotidien nous pèse (aller au supermarché, subir la surmédiatisation
+quotidien nous pèse (aller au supermarché, subir la sur-médiatisation
 télévisuelle, ne pas parler à nos voisins de quartier…), qu'est-ce qui nous
 empêche d'y substituer des modèles alternatifs ?
 
