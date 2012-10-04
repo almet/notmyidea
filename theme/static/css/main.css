@@ -45,6 +45,8 @@ h3, h4, h5, h6 { margin-top: .8em; }
 	
 hr { border: 2px solid #EEEEEE; }
 
+img { border: 10px black solid; display: block; margin: 20px auto;}
+
 /* Anchors */
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
@@ -65,7 +67,7 @@ h1 a:hover {
 }
 	
 /* Paragraphs */
-p {margin-bottom: 1.143em;}
+p {margin-bottom: 1.143em; text-align: justify}
 
 strong, b {font-weight: bold;}
 em, i {font-style: italic;}

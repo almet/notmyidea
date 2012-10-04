@@ -5,7 +5,8 @@ body {
 }
 
 .published{
-    float: right;
+    display: block;
+    font-style: italic;
     margin-bottom: 10px;
 }
 
