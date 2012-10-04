@@ -43,7 +43,7 @@ exactement 6kg de malt pâle *7EDC* et 500g de malt cara *50EDC*).
 Attention, pas trop fin dis donc ! On ne veut pas de la poudre, on veut
 simplement permettre à l'amidon de se dissoudre dans l'eau. Si on concasse le
 malt trop fin, on se retrouve avec un dépôt dégeulasse au fond de toutes les
-bouteilles (c'est l'experience qui parle, notre première bière avait plus gout
+bouteilles (c'est l'expérience qui parle, notre première bière avait plus gout
 de céréale que de bière…)
 
 Contrairement aux fois précédentes ou nous avions utilisé la technique du
@@ -116,7 +116,7 @@ Mise en bouteille
 =================
 
 Une fois ces deux semaines passées, il faut mettre en bouteille. Dans notre cas
-nous avons récupéré des bouteilles à bouchon méchanique (vous savez, les
+nous avons récupéré des bouteilles à bouchon mécanique (vous savez, les
 bouteilles de limonades) qu'on à bien rincées et nettoyées.
 
 On s'équipe d'un syphon (pensez à prendre un tuyau avec un diamètre assez
@@ -130,9 +130,9 @@ semaines de plus et… à déguster le moment venu.
 
 On à donc pu tester notre bière la semaine dernière et, ma foi, elle est pas
 mal du tout. Elle ne mousse pas trop et à un gout un peu amer. Malheureusement
-pas assez à mon gout, mais ça viendra. En comparaison à nos précedents essais,
+pas assez à mon gout, mais ça viendra. En comparaison à nos précédents essais,
 c'est plutôt positif: la première était ratée puisque trop de pression et trop
-de dépot (et donc un fort gout de levures) alors que la seconde (on avait tenté
+de dépôt (et donc un fort gout de levures) alors que la seconde (on avait tenté
 d'ajouter de la lavande) avait un gout de lavande amère, pour ne pas dire de
 savon.
 
