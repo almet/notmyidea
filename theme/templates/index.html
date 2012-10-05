@@ -5,10 +5,11 @@
     <section id="content" class="body">
     <ol id="posts-list" class="hfeed">
     {% for article in articles_page.object_list %}        
-        <li><article class="hentry">    
+        <li><article class="hentry {{ article.category }}">    
+        <span class='category'>{{ article.category }}</span>
         <h1>
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title}}"> {{ article.title }} </a>
-        </h1> {{ article.locale_date }}, in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.
+        </h1>
         </article></li>
     {% endfor %}
     </ol><!-- /#posts-list -->
