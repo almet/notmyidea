@@ -4,10 +4,14 @@
 {% if articles %}
     <section id="content" class="body">
     <ol id="posts-list" class="hfeed">
+    {% set category = None %}
     {% for article in articles_page.object_list %}        
         <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title}}">
             <li><article class="hentry {{ article.category }}">    
-            <span class='category {{ article.category }}'>{{ article.category }}</span>
+            {% if article.category.name != category %}
+                <span class='category {{ article.category }}'>{{ article.category }}</span>
+                {% set category = article.category.name %}
+            {% endif %}
             <h1> {{ article.title }} </h1>
             </article></li>
         </a>
