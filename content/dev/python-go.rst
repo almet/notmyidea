@@ -2,6 +2,7 @@ Python ? go !
 ##############
 
 :date: 2009-12-17
+:lang: fr
 
 Cela fait maintenant un peu plus d'un mois que je travaille sur un
 projet en `django <http://www.djangoproject.org>`_, et que,

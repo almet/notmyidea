@@ -2,6 +2,7 @@ Le temps des grâces, courrez-y !
 ################################
 
 :date: 2010-03-28
+:lang: fr
 
 Ouf, notre
 `semaine de l'environnement <http://www.reseaugrappe.org>`_ s'est

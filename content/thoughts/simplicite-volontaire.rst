@@ -2,6 +2,7 @@ La simplicité volontaire contre le mythe de l'abondance
 #######################################################
 
 :date: 2011-10-14
+:lang: fr
 
 Paul Ariès dans la préface de "`La simplicité volontaire contre le mythe de 
 l'abondance

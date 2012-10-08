@@ -258,6 +258,15 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	-webkit-border-radius: 10px;
 }
 
+#lang-selector {
+    float: right;
+    font-style: italic;
+    color: #bbb;
+}
+
+#lang-selector a{ color: #bbb; }
+#lang-selector a.deactivated { text-decoration: none; }
+
 /*
 	Extras
 *****************/

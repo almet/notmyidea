@@ -2,6 +2,7 @@ Un coup de main pour mon mémoire!
 #################################
 
 :date: 2011-05-25
+:lang: fr
 
 Ça y est, bientôt la fin. LA FIN. La fin des études, et le début du reste. 
 En attendant je bosse sur mon mémoire de fin d'études et j'aurais besoin d'un petit 

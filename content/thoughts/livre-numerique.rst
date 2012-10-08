@@ -2,6 +2,7 @@ Les dangers du livre numérique
 ##############################
 
 :date: 23-01-2012
+:lang: fr
 
 Le framablog vient de publier `une traduction de l'article de RMS à propos des dangers du livre électronique <http://www.framablog.org/index.php/post/2012/01/22/stallman-ebook-livre-electronique>`_. Intéressant, même si il faut faire attention à ne pas confondre livre électronique et risques liés au format de distribution.
 
