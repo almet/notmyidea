@@ -43,7 +43,7 @@
 {% block content %}        
 {% if articles %}
     <section id="content" class="body">
-    <div id="lang-selector"><a href="#" lang='en'>english</a> <a href="#" lang='fr'>french</a></div>
+    <div id="lang-selector">filter by language: <a href="#" lang='en'>english</a> <a href="#" lang='fr'>french</a></div>
     <ol id="posts-list" class="hfeed">
     {% set category = None %}
     {% for article in articles_page.object_list %}        
