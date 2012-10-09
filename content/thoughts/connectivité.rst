@@ -2,6 +2,7 @@ Travailler moins pour mieux travailler ?
 ########################################
 
 :date: 2011-05-19
+:lang: fr
 
 Je viens de passer une semaine et demi quasiment hors-ligne et je dois dire que
 je suis assez impressionné du résultat: je suis de retour chez mes parents pour

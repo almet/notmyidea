@@ -12,10 +12,7 @@
         {{ article.content }}
 
         <div class="info">
-            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url
-                }}">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a
-                href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the
-                pdf</a>{% endif %}{% include 'taglist.html' %}</p>
+            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% include 'taglist.html' %}</p>
         </div>
         </div><!-- /.entry-content -->
         {% if DISQUS_SITENAME %}
