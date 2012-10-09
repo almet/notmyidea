@@ -27,7 +27,8 @@ article .category {
 }
 
 #posts-list .hentry:hover{
-    margin-left: 2px;
+    border-color: black;
+    transition-duration: 1200ms;
 }
 
 .dev, .python {
