@@ -10,3 +10,5 @@ GITHUB_URL = "http://github.com/ametaireau/"
 
 TIMEZONE = "Europe/Paris"
 LOCALE = "en_US.utf8"
+
+DEFAULT_DATE_FORMAT = ('%B %Y')

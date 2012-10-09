@@ -7,10 +7,20 @@
     $(document).ready(function(){
         $('#lang-selector a').each(function(i, item){
             $(item).click(function(){
-                $(item).toggleClass('deactivated');
 
-                $('a[class="' + item.lang +'"]').each(function(i, article){
-                    $(article).toggle();
+                $('#posts-list a[class="' + item.lang + '"]').each(function(i, article){
+                    $(article).show();
+                });
+
+                $('#posts-list a[class!="' + item.lang + '"]').each(function(i, article){
+                    $(article).hide();
+                });
+
+                // set this link as activated and all the other ones as deactivated
+                $(item).addClass('activated');
+
+                $('#lang-selector a[lang!="' + item.lang + '"]').each(function(i, otherLink){
+                    $(otherLink).removeClass('activated');
                 });
 
                 return false;
@@ -23,7 +33,7 @@
 {% block content %}        
 {% if articles %}
     <section id="content" class="body">
-    <div id="lang-selector">filter by language: <a href="#" lang='en'>english</a>, <a href="#" lang='fr'>french</a></div>
+    <div id="lang-selector"><a href="#" lang='en'>english</a> <a href="#" lang='fr'>french</a></div>
     <ol id="posts-list" class="hfeed">
     {% set category = None %}
     {% for article in articles_page.object_list %}        

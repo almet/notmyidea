@@ -264,8 +264,18 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     color: #bbb;
 }
 
-#lang-selector a{ color: #bbb; }
-#lang-selector a.deactivated { text-decoration: none; }
+#lang-selector a {
+    color: #bbb;
+    text-decoration: none;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+#lang-selector a.activated {
+    text-decoration: none;
+    background-color: #bbb; 
+    color: #fff
+}
 
 /*
 	Extras
