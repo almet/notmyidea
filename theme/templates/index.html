@@ -5,11 +5,21 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script language="javascript">
     $(document).ready(function(){
+        var cat = '';
         $('#lang-selector a').each(function(i, item){
             $(item).click(function(){
-
                 $('#posts-list a[class="' + item.lang + '"]').each(function(i, article){
                     $(article).show();
+                    var catDiv = $($(article).find('span[class*="category"]'))[0];
+                    if (catDiv != undefined){
+                        console.log(catDiv.innerText);
+                        console.log(cat);
+
+                        if (catDiv.innerText == cat){
+                            $(catDiv).hide();
+                        }
+                        cat = catDiv.innerText;
+                    }
                 });
 
                 $('#posts-list a[class!="' + item.lang + '"]').each(function(i, article){
