@@ -3,9 +3,33 @@ How to cache Elastic Seach Queries?
 
 :status: other
 
+These days, I'm working on Marketplace, the Mozilla's Appstore. Internally,
+we're doing Elastic Search to do search, and after some load tests, we
+eventually found out that Elastic Search was our bottleneck.
+
+So we want to reduce the number of requests we do to this server. Currently,
+the requests are done trough HTTP.
+
 The first thing to realize is what do we want to cache exactly? There is a fair
 bit of things we might want to cache. Let's start by the most queried pages:
 the home and the list of apps per category.
+
+Different approaches
+====================
+
+You can put the cache in many different locations. The code powering
+Marketplace is kinda fuzzy sometimes. The requests to Elastic Search are done
+in a number of different parts of the code. They're done sometimes directly
+with HTTP calls, sometimes using the ElasticUtils library, sometimes using some
+other lib…
+
+That's kind of hard to get where and how to add the caching layer here. What
+did we do? We started to work on an HTTP caching proxy. This proxy could
+
+Find a key
+==========
+
+
 
 Caching things
 ==============
@@ -23,7 +47,6 @@ Back to business logic: I want to cache the request that are done on the
 homepage. The code currently looks like this::
 
     popular = Webapp.popular(region=region, gaia=request.GAIA)[:10]
-    latest = Webapp.latest(region=region, gaia=request.GAIA)[:10]
 
 Nothing fancy going on here, we're displaying the list of popular and latest
 apps on the marketplace. I can cache the results for each region, and depending
@@ -50,8 +73,8 @@ Which I can use like this::
     popular = cache(Webapp.popular(region=region, gaia=request.GAIA)[:10],
                     'popular', *keys)
 
-Caching is easy, invalidation is hard
-=====================================
+Invalidation is hard?
+=====================
 
 Right, we got this cached, good. But what happens when the data we cached
 changes? Currently, nothing, we return the same data over and over again.
@@ -65,8 +88,5 @@ We can use different strategies for this:
 * Invalidate manually the cache when something changes, for instance using
   signals.
 
-Here, obviously, we don't want to invalidate the cache each time we're adding
-a new rating; what we'll do is to invalidate the cache manually, when we
-compute the new popularity of the addons.
-
-In this case, this is done by a command.
+I started by having a look at how I wanted to invalidate all of this, case by
+case. The problem
