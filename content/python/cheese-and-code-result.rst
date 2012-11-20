@@ -1,7 +1,6 @@
 Cheese & code - Wrap-up
 #######################
 
-:status: draft
 :date: 2012-10-22
 
 This week-end I hosted a *cheese & code* session in the country-side of Angers,
