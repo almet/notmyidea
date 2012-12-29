@@ -116,6 +116,10 @@ vers CURL lorsque les autres méthodes échouent
 <https://github.com/ametaireau/whiskerboard/blob/master/board/tasks.py#L17>`_.
 Pas super propre, mais ça fonctionne.
 
+**EDIT** Finalement, il se trouve que mon serveur était mal configuré.
+J'utilisais haproxy + stunnel, et la négiciation SSL se passait mal. Une fois
+SSL et TLS activés, et SSLv2 désactivé, tout fonctionne mieux.
+
 Et voilà
 ========
 
