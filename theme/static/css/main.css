@@ -51,7 +51,7 @@ hr { border: 2px solid #EEEEEE; }
 /* Anchors */
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
-.body a:link, .body a:visited {
+article a:link, article a:visited {
     border-radius: 5px 5px 5px 5px;
     padding: 0px 5px;
     background-color: rgb(234, 234, 234);
@@ -59,7 +59,7 @@ a img {border: 0px; text-decoration: none;}
     text-decoration: none;
 }
 
-.body a:hover, .body a:active {
+article a:hover, article a:active {
 	color: #fff;
     background-color: #000;
 }
