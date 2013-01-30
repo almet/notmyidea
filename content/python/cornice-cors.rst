@@ -102,7 +102,7 @@ How this is different from JSONP?
 =================================
 
 You may know the `JSONP <http://en.wikipedia.org/wiki/JSONP>`_ protocol. JSONP
-Allows to do cross origin, but for a particular use case, and do have some
+Allows to do cross origin, but for a particular use case, and does have some
 drawbacks (for instance, it's not possible to do DELETEs or PUTs with JSONP.
 
 JSONP exploits the fact that's possible to get information from another domain
