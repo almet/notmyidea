@@ -14,7 +14,7 @@ Well, it's possible, using tricks and techniques like `JSONP
 `the section below <#how-this-is-different-from-jsonp>`_). I remember myself
 doing some simple proxies on my domain server to be able to query other's API.
 
-Hopefuly, there is a nicer way to do this, namely, "Cross Origin
+Thankfully, there is a nicer way to do this, namely, "Cross Origin
 Resource-Sharing", or `CORS <http://www.w3.org/TR/cors/>`_.
 
 You want an icecream? Go ask your dad first.
@@ -87,15 +87,15 @@ build a feed reader and access the feeds on different domains, you can be
 pretty much sure that the servers will not implement CORS, so you'll need to
 write a proxy yourself, to provide this.
 
-Secondly, CORS, if misunderstood, can be unsecure, and cause some security
-problems. Because the rules apply when a client want to do a request to
+Secondly, if misunderstood, CORS can be insecure, and cause 
+problems. Because the rules apply when a client wants to do a request to
 a server, you need to be extra careful about who you're authorizing.
 
-A CORS uncorrectly-secured server can be accessed by a client very easily,
-bypassing the network security. For instance, if a service runs on an intranet,
-only available from behind a VPN, and accepts every cross-origin call, then
-anyone service javascript files to the browser of an user with access to this
-service could make calls there, which is probably not what you want.
+An incorrectly secured CORS server can be accessed by a malicious client very easily,
+bypassing network security. For instance, if you host a server on an intranet
+that is only available from behind a VPN but accepts every cross-origin call. A bad guy
+can inject javascript into the browser of a user who has access to your
+protected server and make calls to your service, which is probably not what you want.
 
 
 How this is different from JSONP?
@@ -145,7 +145,7 @@ To add CORS support to this resource, you can go this way, with the
     
     foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))
 
-Tadam, you have enabled CORS for your service. **Be aware that here, you're
+Ta-da! You have enabled CORS for your service. **Be aware that here, you're
 authorizing anyone to query your server, that may not be what you want.**
 
 Of course, you can specify a list of origins you trust, and you don't need
@@ -168,7 +168,7 @@ I've done some testing and it wasn't working on Chrome because I wasn't
 handling the headers the right way (The missing one was `Content-Type`, that
 chrome was asking for). With my first version of the implementation, I needed
 the service implementers to explicitely list all the headers that should be
-exposed. And of course this is not what we want.
+exposed. While this improves security, it can be frustrating while developing.
 
 So I introduced an `expose_all_headers` flag, which is set to `True` by
 default, if the service supports CORS.
@@ -177,7 +177,7 @@ Cookies / Credentials
 ---------------------
 
 By default, the requests you do to your API endpoint don't include the
-credential information, ,for security reasons. If you really want to do that,
+credential information for security reasons. If you really want to do that,
 you need to enable it using the `cors_credentials` parameter. You can activate
 this one on a per-service basis, or on a per-method basis.
 
@@ -224,12 +224,11 @@ depending on the request.
 While this approach works, It's not implementing the specification completely:
 you need to add support for all the resources at once.
 
-We can think about a nice way to implement this, with definition of what's
-supposed to be exposed via CORS and what shouldn't, directly in your settings,
-but CORS support should in my opinion be handled at the service definition level,
-and not anywhere else (for instance in the settings), appart for the list of
-authorized hosts, because you don't know exactly what's going on when you look
-at the definition of the service.
+We can think about a nice way to implement specifying a definition of what's
+supposed to be exposed via CORS and what shouldn't directly in your settings. 
+In my opinion, however, CORS support should be handled at the service definition level, 
+except for the list of authorized hosts. 
+Otherwise, you don't know exactly what's going on when you look at the definition of the service.
 
 Resources
 =========
