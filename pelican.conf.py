@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+
 PATH = "content"
-AUTHOR = u'Alexis Métaireau'
-SITENAME = u"Alexis' log"
+AUTHOR = 'Alexis Métaireau'
+SITENAME = "Alexis' log"
 THEME = "theme"
 CSS_FILE = "wide.css"
 
