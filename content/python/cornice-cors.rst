@@ -102,10 +102,10 @@ How this is different from JSONP?
 =================================
 
 You may know the `JSONP <http://en.wikipedia.org/wiki/JSONP>`_ protocol. JSONP
-Allows to do cross origin, but for a particular use case, and does have some
-drawbacks (for instance, it's not possible to do DELETEs or PUTs with JSONP.
+allows cross origin, but for a particular use case, and does have some
+drawbacks (for instance, it's not possible to do DELETEs or PUTs with JSONP).
 
-JSONP exploits the fact that's possible to get information from another domain
+JSONP exploits the fact that it is possible to get information from another domain
 when you are asking for javascript code, using the `<script>` element.
 
     Exploiting the open policy for <script> elements, some pages use them to
