@@ -247,6 +247,8 @@ either understand how CORS work, or if you want to implement it yourself.
   <http://caniuse.com/#search=cors>`_.
 - About security, `check out this page
   <https://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity>`_
+- If you want to have a look at the implementation code, check `on github
+  <https://github.com/mozilla-services/cornice/pull/98/files>`_
 
 Of course, the W3C specification is the best resource to rely on. This
 specification isn't hard to read, so you may want to go through it. Especially
