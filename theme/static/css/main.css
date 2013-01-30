@@ -108,7 +108,6 @@ pre{background-color: #eee; padding: 10px; color: #000; margin: 10px; overflow: 
 /* Quotes */
 blockquote {
     margin: 20px;
-    font-style: italic;
     border-left: 10px #eaeaea solid;
     padding-left: 10px;
 }
