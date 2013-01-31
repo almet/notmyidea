@@ -118,10 +118,10 @@ when you are asking for javascript code, using the `<script>` element.
 Using CORS in Cornice
 =====================
 
-Okay, things are hopefully clearer by now about CORS, so let's see how we
+Okay, things are hopefully clearer about CORS, let's see how we
 implemented it on the server-side.
 
-Cornice is a toolkit that let you define resources in python, and takes care of
+Cornice is a toolkit that lets you define resources in python and takes care of
 the heavy lifting for you, so I wanted it to take care of the CORS support as
 well.
 
@@ -145,7 +145,7 @@ To add CORS support to this resource, you can go this way, with the
     
     foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))
 
-Ta-da! You have enabled CORS for your service. **Be aware that here, you're
+Ta-da! You have enabled CORS for your service. **Be aware that you're
 authorizing anyone to query your server, that may not be what you want.**
 
 Of course, you can specify a list of origins you trust, and you don't need
@@ -166,7 +166,7 @@ You can define the headers you want to expose for the service:
 
 I've done some testing and it wasn't working on Chrome because I wasn't
 handling the headers the right way (The missing one was `Content-Type`, that
-chrome was asking for). With my first version of the implementation, I needed
+Chrome was asking for). With my first version of the implementation, I needed
 the service implementers to explicitely list all the headers that should be
 exposed. While this improves security, it can be frustrating while developing.
 
@@ -179,7 +179,7 @@ Cookies / Credentials
 By default, the requests you do to your API endpoint don't include the
 credential information for security reasons. If you really want to do that,
 you need to enable it using the `cors_credentials` parameter. You can activate
-this one on a per-service basis, or on a per-method basis.
+this one on a per-service basis or on a per-method basis.
 
 Caching
 -------
@@ -194,7 +194,7 @@ Simplifying the API
 -------------------
 
 We have cors_headers, cors_enabled, cors_origins, cors_credentials,
-cors_max_age, cors_expose_all_headers … It start to be a fair number of
+cors_max_age, cors_expose_all_headers … a fair number of
 parameters. If you want to have a specific CORS-policy for your services, that
 can be a bit tedious to pass these to your services all the time.
 
@@ -214,27 +214,27 @@ that:
 Comparison with other implementations
 =====================================
 
-I was curious enough to have a look at the other implementations of CORS for
-django, for instance, and I found `a gist about it
+I was curious to have a look at other implementations of CORS, in
+django for instance, and I found `a gist about it
 <https://gist.github.com/426829.js>`_.
 
 Basically, this adds a middleware that adds the "rights" headers to the answer,
 depending on the request.
 
-While this approach works, It's not implementing the specification completely:
-you need to add support for all the resources at once.
+While this approach works, it's not implementing the specification completely.
+You need to add support for all the resources at once.
 
-We can think about a nice way to implement specifying a definition of what's
+We can think about a nice way to implement this specifying a definition of what's
 supposed to be exposed via CORS and what shouldn't directly in your settings. 
-In my opinion, however, CORS support should be handled at the service definition level, 
+In my opinion, CORS support should be handled at the service definition level, 
 except for the list of authorized hosts. 
 Otherwise, you don't know exactly what's going on when you look at the definition of the service.
 
 Resources
 =========
 
-There is a number of good resources that can be useful to you if you want to
-either understand how CORS work, or if you want to implement it yourself.
+There are a number of good resources that can be useful to you if you want to
+either understand how CORS works, or if you want to implement it yourself.
 
 - http://enable-cors.org/ is useful to get started when you don't know anything
   about CORS.
