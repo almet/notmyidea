@@ -6,7 +6,7 @@ Implementing CORS in Cornice
 
 .. note:: 
 
-    Cross posting this here and `on the mozilla services weblog
+    I'm cross-posting this here and `on the mozilla services weblog
     <https://blog.mozilla.org/services/>`_, since this is the
     first time we're doing that, I though it could be useful to point you out
     there, check it out, and expext more technical articles there in the future.
