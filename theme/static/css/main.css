@@ -122,6 +122,9 @@ div.note {
    font-style: italic;
 }
 
+.admonition-title { display: none }
+ 
+
 /* Tables */
 table {margin: .5em auto 1.5em auto; width: 98%;}
 	
