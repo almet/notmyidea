@@ -117,10 +117,9 @@ cite {}
 q {}
 
 div.note {
-   float: right;
    margin: 5px;
    font-size: 85%;
-   max-width: 300px;
+   font-style: italic;
 }
 
 /* Tables */
