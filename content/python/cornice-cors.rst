@@ -6,10 +6,10 @@ Implementing CORS in Cornice
 
 .. note:: 
 
-    I'm cross-posting this here and `on the mozilla services weblog
-    <https://blog.mozilla.org/services/>`_, since this is the
-    first time we're doing that, I though it could be useful to point you out
-    there, check it out, and expext more technical articles there in the future.
+    I'm cross-posting `on the mozilla services weblog
+    <https://blog.mozilla.org/services/>`_. Since this is the
+    first time we're doing that, I though it could be useful to point you
+    there. Check it out and expect more technical articles there in the future.
 
 For security reasons, it's not possible to do cross-domain requests. In other
 words, if you have a page served from the domain `lolnet.org`, it will not be
