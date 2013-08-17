@@ -6,7 +6,7 @@
 
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
-SITENAME = "Des carnets"
+SITENAME = "Alexis' log"
 THEME = "theme"
 CSS_FILE = "wide.css"
 
