@@ -59,7 +59,7 @@ Protection de la vie privée
 Mozilla en fait un peu sa devise. Nous ne sommes pas une entreprise, nous
 n'avons aucun intérêt à enfermer les utilisateurs chez nous, et surtout nous
 n'exploitons et n'exploiterons pas les données utilisateurs à des fins
-commerciales. Point.
+commerciales. Jamais.
 
 Stockage des données
 --------------------
@@ -113,8 +113,8 @@ dépendez quasiment toujours d'une autorité à qui vous ne faites peut être pa
 confiance: Apple, Microsoft ou bien Google.
 
 On ne vous propose pas simplement de nous faire confiance, on vous propose la
-possibilité de ne faire confiance qu'à ceux à qui vous souhaitez accorder votre confiance,
-et ça peut être vous si vous le souhaitez.
+possibilité de ne faire confiance qu'à ceux à qui vous souhaitez accorder votre confiance, et ça peut être vous si vous le souhaitez.
+
 La décentralisation à ceci de bon qu'elle vous laisse le choix d'où vous
 souhaitez stocker vos données.
 
@@ -124,7 +124,7 @@ Innovation et standardisation
 Mozilla, dès ses débuts, a été un laboratoire. Firefox (si je ne me trompe pas)
 a été le premier navigateur à avoir des onglets. Le web, c'est cool parce que
 ça bouge tout le temps ! (Edit: en fait, `ce n'était pas le premier
-<http://en.wikipedia.org/wiki/Tabbed_document_interface>`_ …)
+<http://en.wikipedia.org/wiki/Tabbed_document_interface>`_, mais l'idée est là)
 
 La dernière innovation en date est Firefox OS: utilisons les technologies du
 web pour créer un téléphone: utilisons le web comme plateforme, et profitons de
@@ -141,7 +141,7 @@ et non pas aux développeurs d'imposer leurs choix.
 Et moi, qu'est-ce que je fais la dedans ?
 =========================================
 
-Je travaille donc dans l'équipe nommée Services. On travaille à la mise en
+Je travaille dans l'équipe nommée Services. On travaille à la mise en
 place de services web qui sont capables de tenir la charge, de fonctionner de
 manière décentralisée.
 
@@ -152,9 +152,9 @@ Ce travail a plusieurs objectifs:
 * Permettre aux utilisateurs d'héberger eux mêmes leurs propres serveurs s'ils
   le souhaitent, réduisant leur dépendance a des services externes.
 * Écrire les services en question de telle manière que les utilisateurs (vous
-  !) puissent les utiliser sans laisser trop de tracas :)
+  !) puissent les utiliser sans avoir trop de tracas :)
 
-Ça semble peu. mais j'aime ce boulot. Éthiquement et techniquement. C'est ça,
+Ça semble peu, mais j'aime ce boulot. Éthiquement et techniquement. C'est ça,
 pour moi, la mission de Mozilla. Si vous avez des suggestions sur ce qui
 pourrait être amélioré dans les services de Mozilla en termes de protection de
 la vie privée, de décentralisation et de haute disponibilité, vous savez vers

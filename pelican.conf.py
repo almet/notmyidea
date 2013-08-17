@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
+#import sys
+#sys.path.append('plugins')
+
+#PLUGINS = ['touch', ]
 
 PATH = "content"
-AUTHOR = 'Alexis Métaireau'
-SITENAME = "Alexis' log"
+AUTHOR = u'Alexis Métaireau'
+SITENAME = "Des carnets"
 THEME = "theme"
 CSS_FILE = "wide.css"
 
-SITEURL = 'http://blog.notmyidea.org'
-GITHUB_URL = "http://github.com/ametaireau/"
+SITEURL = ''
+#SITEURL = 'http://blog.notmyidea.org'
+RELATIVE_URLS = True
 
 TIMEZONE = "Europe/Paris"
 LOCALE = "en_US.utf8"

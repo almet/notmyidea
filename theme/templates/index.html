@@ -43,19 +43,25 @@
 {% block content %}        
 {% if articles %}
     <section id="content" class="body">
+    {% if category and category.name == 'notes' %}
+    <p><em>Voici quelques notes, probablement prises à la va-vite dans un train alors que je visualisais un documentaire / écoutait une émission ou lisait un texte. Ces notes sont susceptibles d'évoluer, prenez les tel quel!</em></p>
+    {% else %}
     <div id="lang-selector">filter by language: <a href="#" lang='en'>english</a> <a href="#" lang='fr'>french</a></div>
+    {% endif %}
     <ol id="posts-list" class="hfeed">
-    {% set category = None %}
+    {% set current_category = None %}
     {% for article in articles_page.object_list %}        
+    {% if article.category.name != 'notes' or category and category.name == 'notes' %}
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title}}" class='{{ article.lang }}'>
             <li><article class="hentry {{ article.category }}">    
-            {% if article.category.name != category %}
+            {% if article.category.name != current_category %}
                 <span class='category {{ article.category }}'>{{ article.category }}</span>
-                {% set category = article.category.name %}
+                {% set current_category = article.category.name %}
             {% endif %}
-            <h1> {{ article.title }} </h1>
+            <h1> {% if article.category == 'notes' %} Notes: {% endif %} {{ article.title }} </h1>
             </article></li>
         </a>
+    {% endif %}
     {% endfor %}
     </ol><!-- /#posts-list -->
     </section><!-- /#content -->

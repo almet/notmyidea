@@ -3,7 +3,6 @@ Bière maison !
 
 :date: 04-10-2012
 :lang: fr
-:category: bidouille
 
 Et voilà, c'est notre troisième brassin. On a commencé à faire notre propre
 bière (avec un ami, Fred) il y a quasiment un an maintenant, et après quelques

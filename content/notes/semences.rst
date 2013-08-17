@@ -1,0 +1,22 @@
+Semences paysannes
+##################
+
+:date: 20-12-2012
+
+http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed
+
+A l'heure actuelle, il est interdit pour deux agriculteurs de s'échangers des semences dans le but d'en revendre la production.
+
+Les états ont crée la propriété interellectuelle pour relancer l'industrie après les dégats de la guerre et les selectionneurs en ont profité en 1960 au sein de l'UPOV pour faire des textes pour s'approprié les selections qu'ils ont fait. Les textes ont été votés par les députés depuis: bien prové au lieu de bien collectif.
+
+Les semenciers n'existent que depuis 150 ans. Ils revendiquent maintenant le monopole de selection.
+
+Un catalogue est prévu pour les semences dites "de conservation" (alors qu'elles évoluent, conservation n'est pas un terme adapté). C'est la voie qui est possible pour pouvoir échanger des semences entre agriculteurs.
+
+→ Quelles sont les semences de conservation depuis 2002 ? → Quid des semences paysannes, qui évoluent et que l'on garde d'année en année, en selectionnant les meilleures especes. → Existe-il un autre catalogue ? → Au niveau européen, quelles sontles contraintes d'inscription ? Gratuité demandée, qu'en est il ?
+
+→ Relocalistion sur les terroirs des échanges.
+
+→ Biodiversité serait tué par l'utilisation d'espèces inscrites.
+
+Série de vidéos sur la paysannerie: http://www.latelevisionpaysanne.fr/video.php?lirevideo=86#86

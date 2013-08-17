@@ -5,14 +5,19 @@
 <article>
 <header>
 <h1 class="entry-title">{{ article.title }}</h2>
-        <abbr class="published" title="{{ article.date.isoformat() }}"> {{ article.locale_date }} </abbr>
-        {% include 'twitter.html' %} </header>
+<abbr class="published" title="{{ article.date.isoformat() }}">
+    {{ article.locale_date }} </abbr>
+        
+        </header>
         <div class="entry-content">
+        {% if article.category == 'notes' %}
+        <p><em>Vous êtes sur le point de lire une note, probablement prise à la va-vite dans un train alors que je visualisais un documentaire / écoutait une émission. Ces notes sont susceptibles d'évoluer, prenez les tel quel!</em></p>
+        {% endif %}
 
         {{ article.content }}
 
         <div class="info">
-            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% include 'taglist.html' %}</p>
+            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> by {% for author in article.authors %}{{ author }}{% endfor%}. {% include 'taglist.html' %}</p>
         </div>
         </div><!-- /.entry-content -->
         {% if DISQUS_SITENAME %}
