@@ -9,6 +9,7 @@ AUTHOR = u'Alexis Métaireau'
 SITENAME = "Alexis' log"
 THEME = "theme"
 CSS_FILE = "wide.css"
+DISQUS_SITENAME = 'notmyidea'
 
 SITEURL = ''
 #SITEURL = 'http://blog.notmyidea.org'

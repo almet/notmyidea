@@ -17,7 +17,7 @@
         {{ article.content }}
 
         <div class="info">
-            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> by {% for author in article.authors %}{{ author }}{% endfor%}. {% include 'taglist.html' %}</p>
+            <p>Published in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> by <a href="{{ article.author.url }}">{{ article.author }}</a>. {% include 'taglist.html' %}</p>
         </div>
         </div><!-- /.entry-content -->
         {% if DISQUS_SITENAME %}
