@@ -2,6 +2,7 @@
 ########
 
 :date: 27-12-2012
+:tags: note
 
 “Groovy”, c'est comme ça que je l'aime la musique: peut importe le style
 finalement, la bonne musique c'est celle qui sonne, celle qui groove, celle qui

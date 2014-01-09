@@ -2,6 +2,7 @@ Astuces SSH
 ###########
 
 :date: 27-12-2012
+:tags: note
 
 Tunelling
 =========

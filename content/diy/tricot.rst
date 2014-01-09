@@ -2,6 +2,7 @@ Tricot
 ######
 
 :date: 28-12-2012
+:tags: note
 
 Puisque j'ai décidé d'apprendre à faire les trucs moi-même, je me mets au
 tricot.  Et puis y'a aussi tout un symbole derrière: le tricot, c'est pour les

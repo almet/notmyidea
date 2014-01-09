@@ -3,6 +3,7 @@ Selection musicale
 
 :date: 04/05/2013
 :status: draft
+:tags: note
 
 Une petite selection de mes morceaux coup de cœur du moment.
 

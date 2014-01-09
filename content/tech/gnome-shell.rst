@@ -2,6 +2,7 @@ Gnome 3, extensions
 ###################
 
 :date: 27-12-2012
+:tags: note
 
 Après avoir tenté pendant un bout de temps unity, le bureau par defaut de
 ubuntu, j'ai eu envie de changements, et j'ai donc essayé un peu de regarder du

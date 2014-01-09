@@ -1,9 +1,7 @@
-Hey !
-#####
+Hi, I'm Alexis,
+###############
 
 :slug: about
-
-Hi, I'm Alexis.
 
 I'm a software developer with interests ranging from software development to
 ecology, education, agriculture and do it yourself.
@@ -35,8 +33,9 @@ Je travaille actuellement pour la fondation Mozilla, dans l'équipe "Services".
 Nous construisons des services qui visent à protéger la vie privée de nos
 utilisateurs, ainsi qu'un ensemble d'outils qui nous permettent de nous
 faciliter la tache. Tout ce qu'on fait est publié librement sur internet, et
-vous êtes libres de les réutiliser et les améliorer. `Je pense que la
-collaboration est meilleure que la compétition
+vous êtes libres de les réutiliser et les améliorer.
+
+`Je pense que la collaboration est meilleure que la compétition
 <http://blog.notmyidea.org/quels-usages-pour-linformatique-fr.html>`_.
 
 Vous êtes en train de lire mes carnets. Il s'agit de réflexions (techniques ou

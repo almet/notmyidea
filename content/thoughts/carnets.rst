@@ -1,4 +1,4 @@
-Ceci n'est pas un blog
+Des carnets d'esquisse
 ######################
 
 :date: 16/08/2013

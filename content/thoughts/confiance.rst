@@ -54,6 +54,8 @@ et que donc il en deviendrait un outil pour vérifier que la confiance est bien
 légitime, et non pas créée de toute pièce sur le profil de la personne en
 question.
 
+Plu 
+
 Plus exactement, ce qui est dit est que le paiement en ligne permet de
 justifier qu'il y a bien eu transaction entre deux personnes, et que donc les
 commentaires et "notations" effectuées sont donc légitimes.

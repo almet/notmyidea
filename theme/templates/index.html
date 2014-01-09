@@ -51,7 +51,7 @@
     <ol id="posts-list" class="hfeed">
     {% set current_category = None %}
     {% for article in articles_page.object_list %}        
-    {% if article.category.name != 'notes' or category and category.name == 'notes' %}
+    {% if (not 'note'in article.tags or tag and tag.name == 'note') and article.category.name != 'notes' or category and category.name == 'notes' %}
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title}}" class='{{ article.lang }}'>
             <li><article class="hentry {{ article.category }}">    
             {% if article.category.name != current_category %}

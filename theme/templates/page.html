@@ -2,9 +2,11 @@
 {% block title %}{{ page.title }}{% endblock %}
 {% block content %}        
 <section id="content" class="body">    
+<article>
     <h1 class="entry-title">{{ page.title }}</h1>
     {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
     the pdf</a>{% endif %}
     {{ page.content }}
+</article>
 </section>
 {% endblock %}
