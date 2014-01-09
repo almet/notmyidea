@@ -3,6 +3,11 @@ Le revenu de base
 
 :date: 10/03/2013
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="http://www.youtube.com/embed/-cwdVDcm-Z0"
+  frameborder="0" allowfullscreen></iframe>
+
 Quelques notes prises en visualisant le documentaire "le revenu de base".
 
 - 4 Allemands sur 10 travaillent. 
