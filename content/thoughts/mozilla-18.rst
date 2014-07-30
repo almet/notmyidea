@@ -84,7 +84,8 @@ deux outils qui semblent utiles à la communauté. J'ai eu des retours très
 positifs sur Cornice, et j'essaye de le faire évoluer dans la direction qui me
 semble propice.
 
-D'ailleurs, cornice est utilisé (par `Mathieu L. <http://leplatrem.github.io/>`_
+D'ailleurs, cornice est utilisé (par `Mathieu L.
+<http://blog.mathieu-leplatre.info/pages/about.html>`_
 — encore un —, `Rémy <http://ionyse.com>`_ et moi) actuellement pour coder
 `Daybed <https://github.com/spiral-project/daybed>`_ un service de validation
 de formulaires, mais ça sera l'objet d'un futur billet.
