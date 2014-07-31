@@ -75,8 +75,8 @@ Web, relèvent du culte de la personnalité, de l'individualisme, et ce n'est pa
 ce développement que je souhaite pour notre société.
 
 L'idée de base du Web, le fait de faire une toile de connaissances ouverte et
-partagée entre tous est en train, petit à petit, de glisser vers un l'idée d'un
-outil de relai de l'information, ou tout va vite, ou l'on ne prends guère
+partagée entre tous est en train, petit à petit, de glisser vers l'idée d'un
+outil de relai de l'information, où tout va vite, où l'on ne prends guère
 plus le temps de lire autre chose que les titres des quotidiens, ou des
 "tweets" de cent vingt caractères…
 

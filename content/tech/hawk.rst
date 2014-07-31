@@ -175,9 +175,9 @@ Some reference implementations
 As a reference, here is how we're using the libraries I'm talking about, in
 case that helps you to integrate with your projects.
 
-- The Mozilla Loop server uses hawk as authentication once you're logged in with
-  a valid BrowserID assertion;
-- The Mozilla phone number verification server uses hawk after the first
+- The Mozilla Loop server `uses hawk as authentication once you're logged in with
+  a valid BrowserID assertion
+  <https://github.com/mozilla-services/loop-server/blob/master/loop/index.js#L70-L133>`_;
   request, to keep a session between client and server;
 - `I recently added hawk support on the Daybed project
   <https://github.com/spiral-project/daybed/commit/f178b4e43015fa077430798dcd3d0886c7611caf>`_
