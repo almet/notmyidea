@@ -56,7 +56,9 @@ Then, the key material you'll get out of the HKDF need to be separated into two
 parts, the first 32 hex caracters are the hawk id, and the next 32 ones are the
 hawk key.
 
-Credentials::
+Credentials:
+
+.. code-block:: javascript
 
     credentials = {
         'id': keyMaterial[0:32],
@@ -80,7 +82,10 @@ Doing hawk requests in your terminal is now as simple as::
     $ pip install requests-hawk httpie
     $ http GET localhost:5000/registration --auth-type=hawk --auth='id:key'
 
-In addition, it will help you to craft requests using the requests library::
+In addition, it will help you to craft requests using the requests library:
+
+
+.. code-block:: python
   
     import requests
     from requests_hawk import HawkAuth
@@ -92,7 +97,9 @@ In addition, it will help you to craft requests using the requests library::
 
 Alternatively, if you don't have the token id and secret, you can pass the hawk
 session token I talked about earlier and the lib will take care of the
-derivation for you::
+derivation for you:
+
+.. code-block:: python
 
     hawk_auth = HawkAuth(
         hawk_session=resp.headers['hawk-session-token'],
@@ -108,7 +115,9 @@ Kelly <https://www.rfk.id.au/blog/>`_ put together a library that makes Hawk
 work as an Authentication provider for them. I'm chocked how simple it
 is to use it.
 
-Here is a demo of how we implemented it for Daybed::
+Here is a demo of how we implemented it for Daybed:
+
+.. code-block:: python
 
   from pyramid_hawkauth import HawkAuthenticationPolicy
   
@@ -131,7 +140,9 @@ came up factorizing everything in a library for express, named `express-hawkauth
 <https://github.com/mozilla-services/express-hawkauth>`_.
 
 In order to plug it in your application, you'll need to use it as
-a middleware::
+a middleware:
+
+.. code-block:: javascript
 
     var express = require("express");
     var hawk = require("express-hawkauth");
@@ -158,7 +169,7 @@ a middleware::
       }
     });
 
-    app.get('/hawk-enabled-endpoint', hawkMiddleware);
+    app.get("/hawk-enabled-endpoint", hawkMiddleware);
 
 
 If you pass the `createSession` parameter, all non-authenticated requests will
