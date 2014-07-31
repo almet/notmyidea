@@ -22,7 +22,7 @@ Deux ans ça parait énorme, c'est le temps le plus long que j'ai passé
 un peu ces carnets, vous savez surement que j'ai beaucoup travaillé avec `Tarek
 <ziade.org>`_ par exemple.
 
-Ça à été (et c'est toujours) un réel plaisir de bosser avec la personne dont
+Ça a été (et c'est toujours) un réel plaisir de bosser avec la personne dont
 j'avais lu les livres pour apprendre le python, merci !
 
 Services
@@ -43,12 +43,12 @@ désolidariser l'authentification des services web des services eux mêmes.
 
 L'idée est (je pense) bonne mais le service n'a pas été utilisé durant plus de
 deux ans. La raison étant principalement que Sync, pour lequel le serveur de
-tokens à été écrit, a subi des changements majeurs (qui sont rentrés en
+tokens a été écrit, a subi des changements majeurs (qui sont rentrés en
 production il y a quelques semaines)
 
 Circus est né de besoins découverts via le token server, et il m'a
 personnellement beaucoup appris. Le token server est finalement utilisé dans la
-nouvelle version de Sync qui est rentrée en production il y à peu.
+nouvelle version de Sync qui est rentrée en production il y a peu.
 
 Marketplace ("chouette, on va casser du serveur")
 -------------------------------------------------
@@ -62,17 +62,17 @@ m'avait alors pas mal refroidi. La raison principale étant que le code est
 utilisé à la fois par `addons.mozilla.org` et par `marketplace.firefox.com`,
 rendant les choses souvent un peu plus compliquées qu'il ne faudrait.
 
-Cet "audit" à été l'occasion de travailler sur des outils de montée en charge
+Cet "audit" a été l'occasion de travailler sur des outils de montée en charge
 assez sympa, qui ont donné naissance à un projet qu'on utilise assez souvent
 maintenant, `Loads`_.
 
-Énormement d'efforts sont fait pour aller dans la bonne direction et faire en
+Énormément d'efforts sont fait pour aller dans la bonne direction et faire en
 sorte que le code soit plus facile à maintenir et que le projet soit plus
 facile à aborder. D'ailleurs, pas mal de copains djangonautes français
 travaillent dessus (salut `Mathieu <http://virgule.net>`_, Yohan, `David
-<http://larlet.fr>`_ et `Mathieu Agopian <http://mathieu.agopian.com>`_!)
+<http://larlet.fr>`_ et `Mathieu Agopian <http://mathieu.agopian.info>`_!)
 
-Une partie de notre plan à été de sortir certaines fonctionnalités du code
+Une partie de notre plan a été de sortir certaines fonctionnalités du code
 actuel, pour en faire quelque chose de plus facile à maintenir et de moins
 imbriqué. 
 
@@ -84,7 +84,7 @@ deux outils qui semblent utiles à la communauté. J'ai eu des retours très
 positifs sur Cornice, et j'essaye de le faire évoluer dans la direction qui me
 semble propice.
 
-D'ailleurs, cornice est utilisé (par `Mathieu L.
+D'ailleurs, Cornice est utilisé (par `Mathieu L.
 <http://blog.mathieu-leplatre.info/pages/about.html>`_
 — encore un —, `Rémy <http://ionyse.com>`_ et moi) actuellement pour coder
 `Daybed <https://github.com/spiral-project/daybed>`_ un service de validation
@@ -120,28 +120,28 @@ d'autres termes, c'est un peu transformer votre firefox en téléphone, sauf que
 personne ne peut espionner ce qui se passe entre vous et l'autre bout du fil.
 
 A peine arrivé dans le projet (peut-être un mois et quelques après mon
-débarquement) le choix à été fait de tout réécrire depuis zero, dans un projet
+débarquement) le choix a été fait de tout réécrire depuis zéro, dans un projet
 qui se nomme actuellement "Loop", qui veut proposer la même chose, mais inclus
 directement dans Firefox.
 
-C'est en bonne voie, on à quelque chose qui fonctionne dans nightly, et le code
+C'est en bonne voie, on a quelque chose qui fonctionne dans nightly, et le code
 du serveur fonctionne pas mal. Le code du serveur est ici:
 https://github.com/mozilla-services/loop-server.
 
 Un client est en train d'être implémenté dans Firefox et un autre en tant
 qu'application pour FirefoxOS. Le boulot ne s'arrête pas de pleuvoir, mais je
-pense qu'on va dans une direction interessante.
+pense qu'on va dans une direction intéressante.
 
-Pour être completment terminé, il faudrait qu'on soit capable de se passer
-completement de notre provider, TokBox (que l'on utilise en tant que relai
+Pour être complètement terminé, il faudrait qu'on soit capable de se passer
+complètement de notre provider, TokBox (que l'on utilise en tant que relai
 média), pour que n'importe qui puisse choisir d'utiliser son propre serveur
-STUN / TURN et installe son server loop chez lui.
+STUN / TURN et installe son serveur loop chez lui.
 
 Le travail à distance
 =====================
 
 Quand j'ai commencé à travailler à Mozilla, j'ai décidé de venir m'installer
-à Paris. La plupart des personnes de mon entourage ont d'ailleur sfait des gros
+à Paris. La plupart des personnes de mon entourage ont d'ailleurs fait des gros
 yeux, parce qu'ils connaissaient mon avis sur la ville en question, mais casser
 des préjugés n'est jamais une mauvaise chose.
 
@@ -154,11 +154,11 @@ n'importe où.
 Ce qui fonctionne pour moi, c'est de ne quasiment jamais travailler depuis la
 maison. J'utilise `un espace de coworking <http://www.lacantine-rennes.net/>`_
 qui est un moyen de garder ma vie perso séparée de ma vie privée et de
-rencontrer des gens passionés par ce qu'ils font.
+rencontrer des gens passionnés par ce qu'ils font.
 
-Depuis que je suis arrivé à Rennes, Rémy à commencé à travailler avec moi, et
+Depuis que je suis arrivé à Rennes, Rémy a commencé à travailler avec moi, et
 c'est un réel bonheur que de pouvoir partager des journées de travail. On
-"pair-prog" énormement et j'ai l'impression d'avoir un boost dans ma
+"pair-prog" énormément et j'ai l'impression d'avoir un boost dans ma
 productivité quotidienne.
 
 Enseignements
@@ -169,14 +169,14 @@ manque nécessairement de recul sur ce qui est acceptable et ce qui ne l'est
 pas. D'une manière générale, avoir un environnement de travail basé sur la
 confiance est réellement appréciable (La première réaction des gens quand je
 dis que je peux travailler à distance, c'est de me demander comment ils font
-pour être sur que je travaille. Et la réponse est… il n'y en à pas).
+pour être sur que je travaille. Et la réponse est… il n'y en a pas).
 
 J'ai encore un peu de mal à savoir quels indicateurs utiliser pour savoir si je
 suis "productif" ou non, mais j'ai globalement l'impression que je manque de
 concentration et de discipline: beaucoup d'interruptions n'aident pas à se
 concentrer.
 
-La motivation fluctue aussi énormement: un jour on est super motivé, un autre
+La motivation fluctue aussi énormément: un jour on est super motivé, un autre
 c'est juste impossible de la trouver. Après quelques expérimentations, le mieux
 (pour moi) est d'avoir des horaires fixes, pour pouvoir séparer le travail du
 reste, de ne pas hésiter à faire des pauses et d'écouter un peu ses envies et
@@ -206,10 +206,10 @@ Je réalise donc que mon travail n'est pas uniquement de savoir écrire du code
 propre, mais également de réussir à comprendre du code que je considère comme
 "sale" (quitte à l'améliorer au passage !).
 
-Et c'est pas du gateau; je m'attendais à réussir à comprendre des projets
+Et c'est pas du gâteau; je m'attendais à réussir à comprendre des projets
 complexes facilement, mais aucun miracle de ce coté là. Il faut réussir
-à rester concentré pendant suffisement longtemps pour pouvoir tirer tous les
-fils et commencer à déméler… Pas facile !
+à rester concentré pendant suffisamment longtemps pour pouvoir tirer tous les
+fils et commencer à démêler… Pas facile !
 
 Apprendre est un processus actif
 --------------------------------
@@ -221,7 +221,7 @@ Savoir reconnaitre un échec est nécessaire. Dire que l'on comprends pour évit
 de passer pour un idiot est un biais qui se prends assez rapidement, et qu'il
 faut éviter à tout prix.
 
-Surtout au début, c'était une erreur que je faisais énormement, une question
+Surtout au début, c'était une erreur que je faisais énormément, une question
 d'égo probablement.
 
 Il y a une espèce de honte de ne pas savoir, alors que tout le monde autour
@@ -231,9 +231,9 @@ non plus, ce qui mène à des discussions de comptoir, sans trop savoir pourquoi
 Connaître ses limites techniques est un bon début pour pouvoir les surpasser.
 Chercher à les rencontrer est un processus actif.
 
-Le manque de temps m'empèche bien souvent de pouvoir prendre un livre technique
-et de pouvoir l'apprecier. Je ne sais pas exactement pourquoi, peut être par
-surdose, mais je n'ai ouvert que quelques rares livres techniques durant ces
+Le manque de temps m'empêche bien souvent de pouvoir prendre un livre technique
+et de pouvoir l'apprécier. Je ne sais pas exactement pourquoi, peut être par
+sur-dose, mais je n'ai ouvert que quelques rares livres techniques durant ces
 deux années. Et j'aimerais bien que ça change !
 
 
@@ -247,8 +247,8 @@ Rien ne sert de faire des commits parfaits tout le temps. Quand j'ai besoin de
 "hacker" sur un projet, je ne voulais d'abord pas tout péter, par peur de ne
 plus m'y retrouver.
 
-Mon approche actuelle est bien differente: on mets les mains dans le camboui
-jusqu'à ce que ça marche, et ensuite on répare les dégats. Enfin… dans une
+Mon approche actuelle est bien différente: on mets les mains dans le cambouis
+jusqu'à ce que ça marche, et ensuite on répare les dégâts. Enfin… dans une
 certaine mesure hein !
 
 
@@ -256,14 +256,14 @@ certaine mesure hein !
 ----------------------------------------------------
 
 Écrire des frameworks force les utilisateurs à les utiliser, et à les connaitre
-dans les moindres recoins. Heureusement, il existe déjà énormement de
+dans les moindres recoins. Heureusement, il existe déjà énormément de
 frameworks qui pour la plupart font très bien leur travail. Ce qui nous manque
 ce n'est pas plus de frameworks, mais bel et bien plus de boites à outils.
 
 Une boite à outil prends un problème bien défini et propose une solution pour
-ce problème. Une boite à outils est, en mon sens, ce qu'on apelle une
+ce problème. Une boite à outils est, en mon sens, ce qu'on appelle une
 bibliothèque. Pas besoin de réécrire tout votre projet pour utiliser ma
-nouvelle bibliothèque afin de profiter des fonctionalités qu'elle apporte
+nouvelle bibliothèque afin de profiter des fonctionnalités qu'elle apporte
 (alors que c'est le cas avec un framework, justement).
 
 
@@ -271,24 +271,24 @@ nouvelle bibliothèque afin de profiter des fonctionalités qu'elle apporte
 ---------------------------------------
 
 Facile à dire, héhé ! D'une manière générale, je me rends compte qu'il est
-facile de se pleindre sans pour autant être moteur du changement que l'on
+facile de se plaindre sans pour autant être moteur du changement que l'on
 souhaite voir arriver.
 
 Ça vaut le coup de se donner la peine de faire changer les choses, surtout
 à Mozilla, parce que le changement n'est pas seulement vu d'un mauvais œil.
 
-Pour que les choses évoluent, il faut être force de proposition. Se pleindre
+Pour que les choses évoluent, il faut être force de proposition. Se plaindre
 n'a jamais servi à rien si ce n'est pas suivi d'actes ;)
 
 Je dis de temps en temps que Mozilla est une "do-o-cratie" (celui qui fait
-à raison), et je le penes de plus en plus. Quand j'ai envie que quelque chose
+à raison), et je le pense de plus en plus. Quand j'ai envie que quelque chose
 soit fait, et bah… il faut le faire !
 
 
 Ne pas chercher à avoir raison
 ------------------------------
 
-Peu importe qui à raison, l'important n'est pas de chercher à montrer que tu
+Peu importe qui a raison, l'important n'est pas de chercher à montrer que tu
 sais, mais de trouver ce qui est juste. Ça parait peut être évident, mais bien
 souvent on cherche à se mettre en avant, au détriment du projet… Allez, gardons
 nos égos de coté ;)
@@ -296,26 +296,26 @@ nos égos de coté ;)
 Arrêter le négativisme
 ----------------------
 
-Il est très facile de se laisser embarquer dans le négativisme. Il y à toujours
+Il est très facile de se laisser embarquer dans le négativisme. Il y a toujours
 des choses qui ne vont pas, et probablement il y en aura toujours. Ce ne sont
 pas des raisons suffisantes pour perdre le moral. Identifier les points faibles
-est important est permet de savoir ce qu'il est necessaire d'améliorer, mais
-regarder les choses du coté positif (et il y en à necessairement un !) est
+est important est permet de savoir ce qu'il est nécessaire d'améliorer, mais
+regarder les choses du coté positif (et il y en a nécessairement un !) est
 indispensable !
 
 À plusieurs reprises je me suis retrouvé dans des crises de négativisme, pour
-un tas de raisons differentes. La meilleure manière de s'en sortir: en causer
+un tas de raisons différentes. La meilleure manière de s'en sortir: en causer
 et trouver des solutions, prendre le problème à bras le corps, et ne pas
-considérer que c'est un problème sur lequel on à aucune prise possible.
+considérer que c'est un problème sur lequel on a aucune prise possible.
 
 La suite ?
 ==========
 
 Je n'ai aucune idée d'à quoi va ressembler la suite, et c'est justement ce que
-j'apprecie et qui m'effraie en même temps…
+j'apprécie et qui m'effraie en même temps…
 
-Je fais actuellement énormement de Javascript et je travaille sur des
-projets qui semblent avoir plus de sens qu'auparavant (même si je vois déjà des
+Je fais actuellement énormément de Javascript et je travaille sur des
+projets qui semblent avoir plus de sens qu'avant (même si je vois déjà des
 choses que je souhaiterais améliorer, mais chaque chose en son temps). Donc
 techniquement j'apprends et dans ma quête de faire des produits qui touchent un
 utilisateur.

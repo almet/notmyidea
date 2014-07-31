@@ -7,7 +7,7 @@ Aujourd'hui, mon métier est d'être développeur d'applications. Imaginer des
 solutions techniques pour faire marcher des logiciels, puis écrire les lignes
 de code nécessaires.
 
-Être Développeur n'est pas un métier qui à du sens en lui même (comme peut
+Être Développeur n'est pas un métier qui a du sens en lui même (comme peut
 l'être le métier d'instituteur/rice par exemple). Tout comme lorsque l'on est
 écrivain il est important de se poser des questions sur les textes que l'on
 produit, pour qui et dans quel but; il est important de se questionner sur
@@ -104,7 +104,7 @@ Les outils sur lesquels j'ai envie d'être amené à travailler sont des outils
 qui favorisent et questionnent la collaboration.
 
 Des outils comme etherpad par exemple, révolutionnent la manière de prendre des
-notes en commun, et il reste énormement à faire sur le web à ce propos.
+notes en commun, et il reste énormément à faire sur le web à ce propos.
 
 Nombre d'associations me demandent de plus en plus souvent ce qu'il en est de
 Daybed, et de quand est-ce qu'on va pouvoir utiliser un système de génération
