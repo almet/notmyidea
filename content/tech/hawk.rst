@@ -8,11 +8,12 @@ We recently had to implement `the Hawk authentication scheme
 creating two libraries to ease integration into pyramid and node.js apps.
 
 But maybe you don't know Hawk. Hawk is a relatively new technology, crafted by
-one of the original OAuth specification authors, that intends to replace the
-2-legged OAuth authentication scheme using a simpler approach.
+one of the original `OAuth <https://en.wikipedia.org/wiki/OAuth>`_
+specification authors, that intends to replace the 2-legged OAuth
+authentication scheme using a simpler approach.
 
-It is an authentication scheme for HTTP, built around HMAC digests of
-requests and responses.
+It is an authentication scheme for HTTP, built around `HMAC digests
+<https://en.wikipedia.org/wiki/Hmac>`_ of requests and responses.
 
 Every authenticated client request has an Authorization header containing a MAC
 and some additional metadata, and each server response to authenticated
