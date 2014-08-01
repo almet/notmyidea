@@ -194,3 +194,5 @@ case that helps you to integrate with your projects.
 - `I recently added hawk support on the Daybed project
   <https://github.com/spiral-project/daybed/commit/f178b4e43015fa077430798dcd3d0886c7611caf>`_
   (that's a pyramid / cornice) app.
+- It's also interesting to note that Kumar put together `hawkrest, for the
+  django rest framework <http://hawkrest.readthedocs.org/en/latest/>`_
