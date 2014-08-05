@@ -86,7 +86,7 @@ semble propice.
 
 D'ailleurs, Cornice est utilisé (par `Mathieu L.
 <http://blog.mathieu-leplatre.info/pages/about.html>`_
-— encore un —, `Rémy <http://ionyse.com>`_ et moi) actuellement pour coder
+— encore un —, `Rémy <http://twitter.com/natim>`_ et moi) actuellement pour coder
 `Daybed <https://github.com/spiral-project/daybed>`_ un service de validation
 de formulaires, mais ça sera l'objet d'un futur billet.
 
