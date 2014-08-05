@@ -326,5 +326,5 @@ L'objectif est de faire en sorte que le projet avance et soit utilisé au sein
 de mozilla.
 
 Avant toute autre chose, il faudra faire des changements de "pitch" pour qu'il
-soit pus simple d'expliquer ce que Daybed souhaite faire, mais… c'est une autre
+soit plus simple d'expliquer ce que Daybed souhaite faire, mais… c'est une autre
 histoire.
