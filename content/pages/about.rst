@@ -42,7 +42,8 @@ Vous êtes en train de lire mes carnets. Il s'agit de réflexions (techniques ou
 non) que je souhaite partager. Elles sont des fois en Anglais des fois en
 Français (j'ai du mal à faire un choix !).
 
-Vous pouvez également consulter `mes notes <|category|notes>`_, prises
+Vous pouvez également consulter `mes notes
+<http://blog.notmyidea.org/category/notes.html>_`_, prises
 (uniquement en français ce coup ci) au détour d'une lecture, écoute ou
 visualisation.
 
