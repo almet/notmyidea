@@ -43,7 +43,8 @@ like the following:
 
 When your server application needs to send you the credentials, it will return
 it inside a specific `Hawk-Session-Token` header. This token can be derived to
-get back the credentials (hawk id and hawk key).
+split this string in two values (hawk id and hawk key) that you will use to
+sign your next requests.
 
 In order to get the hawk credentials, you'll need to:
 
