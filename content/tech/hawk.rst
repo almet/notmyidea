@@ -3,31 +3,32 @@ What's Hawk and how to use it?
 
 :date: 2014-07-31
 
-We recently had to implement `the Hawk authentication scheme
+At Mozilla, we recently had to implement `the Hawk authentication scheme
 <https://github.com/hueniverse/hawk>`_ for a number of projects, and we came up
 creating two libraries to ease integration into pyramid and node.js apps.
 
-But maybe you don't know Hawk. Hawk is a relatively new technology, crafted by
-one of the original `OAuth <https://en.wikipedia.org/wiki/OAuth>`_
-specification authors, that intends to replace the 2-legged OAuth
-authentication scheme using a simpler approach.
+But maybe you don't know Hawk.
+
+Hawk is a relatively new technology, crafted by one of the original `OAuth
+<https://en.wikipedia.org/wiki/OAuth>`_ specification authors, that intends to
+replace the 2-legged OAuth authentication scheme using a simpler approach.
 
 It is an authentication scheme for HTTP, built around `HMAC digests
 <https://en.wikipedia.org/wiki/Hmac>`_ of requests and responses.
 
 Every authenticated client request has an Authorization header containing a MAC
-and some additional metadata, and each server response to authenticated
-requests contains a Server-Authorization header that authenticates the
-response, so the client is sure it comes from the right server.
-
-
-Exchange of the hawk id and hawk secret
-=======================================
-
-To sign the requests, a client needs to retrieve a token id and secret from the
+(Message Authentication Code) and some additional metadata, then each server
+response to authenticated requests contains a Server-Authorization header that
+authenticates the response, so the client is sure it comes from the right
 server.
 
-Hawk itself does not define how the hawk id and secret should be exchanged
+Exchange of the hawk id and hawk key
+====================================
+
+To sign the requests, a client needs to retrieve a token id and a token key
+from the server.
+
+Hawk itself does not define how these credentials should be exchanged
 between the server and the client. The excellent team behind `Firefox Accounts
 <http://accounts.firefox.com>`_ put together a scheme to do that, which acts
 like the following:
@@ -41,17 +42,20 @@ like the following:
   next section to see how to use the libraries.
 
 When your server application needs to send you the credentials, it will return
-it inside a specific `Hawk-Session-Token` header.
+it inside a specific `Hawk-Session-Token` header. This token can be derived to
+get back the credentials (hawk id and hawk key).
 
-In order to get the hawk credentials to use on the client you will need to:
+In order to get the hawk credentials, you'll need to:
 
 First, do an `HKDF derivation <http://en.wikipedia.org/wiki/HKDF>`_ on the
 given session token. You'll need to use the following parameters::
 
     key_material = HKDF(hawk_session, "", 'identity.mozilla.com/picl/v1/sessionToken', 32*2)
 
-The "identity.mozilla.com/picl/v1/sessionToken" is a reference to this way of
-deriving the credentials, not an actual URL.
+.. note:: 
+
+   The ``identity.mozilla.com/picl/v1/sessionToken`` is a reference to this way of
+   deriving the credentials, not an actual URL.
 
 Then, the key material you'll get out of the HKDF need to be separated into two
 parts, the first 32 hex caracters are the hawk id, and the next 32 ones are the
@@ -96,7 +100,7 @@ In addition, it will help you to craft requests using the requests library:
 
     requests.post("/url", auth=hawk_auth)
 
-Alternatively, if you don't have the token id and secret, you can pass the hawk
+Alternatively, if you don't have the token id and key, you can pass the hawk
 session token I talked about earlier and the lib will take care of the
 derivation for you:
 
@@ -126,11 +130,11 @@ Here is a demo of how we implemented it for Daybed:
   config.set_authentication_policy(authn_policy)
 
 The `get_hawk_id` function is a function that takes a request and
-a tokenid and returns a tuple of `(token_id, token_secret)`.
+a tokenid and returns a tuple of `(token_id, token_key)`.
 
 How you want to store the tokens and retrieve them is up to you. The default
 implementation (e.g. if you don't pass a `decode_hawk_id` function) decodes the
-secret from the token itself, using a master secret on the server (so you don't
+key from the token itself, using a master secret on the server (so you don't
 need to store anything).
 
 Integrate with node.js Express apps
