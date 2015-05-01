@@ -6,8 +6,9 @@
 
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
-SITENAME = "Alexis' log"
-THEME = "theme"
+SITENAME = u"Alexis, pensées partagées"
+THEME = "pelicanyan"
+# THEME = "theme"
 CSS_FILE = "wide.css"
 DISQUS_SITENAME = 'notmyidea'
 
@@ -16,6 +17,11 @@ SITEURL = ''
 RELATIVE_URLS = True
 
 TIMEZONE = "Europe/Paris"
-LOCALE = "en_US.utf8"
+LOCALE = "fr_FR.utf8"
 
 DEFAULT_DATE_FORMAT = ('%B %Y')
+LINKS = [
+    ('Code', 'https://github.com/ametaireau'),
+    ('Messages courts', 'https://twitter.com/ametaireau'),
+    ('A propos', 'http://blog.notmyidea.org/pages/about.html')
+]

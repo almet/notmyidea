@@ -1,11 +1,9 @@
-Hi, I'm Alexis,
-###############
+Bonjour, je suis Alexis
+#######################
 
 :slug: about
 
 (english version below)
-
-Bonjour, je suis Alexis.
 
 Je suis un développeur logiciel intéressé par l'écologie, l'éducation
 (populaire !), la thématique agricole et le *Do It Yourself* (DIY).
