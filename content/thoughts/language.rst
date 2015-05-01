@@ -20,10 +20,10 @@ Language
       -- M. Boutros Boutros-Ghali, ancien secrétaire général des Nations Unies
 
 Je me surprends à préférer le français pour m'exprimer au lieu de l'anglais,
-notemment au niveau des articles non-techniques.
+notamment au niveau des articles non techniques.
 
-Il y a quelques années, alors que je terminais mes études en angleterre et que
-je commançais à travailler pour Mozilla, on me proposait de venir aux
+Il y a quelques années, alors que je terminais mes études en Angleterre et que
+je commençais à travailler pour Mozilla, on me proposait de venir aux
 États-Unis, ce que j'ai refusé parce qu'exprimer mes points de vue de manière
 fine m'était trop difficile dans une langue qui n'était pas la mienne.
 
@@ -31,14 +31,14 @@ fine m'était trop difficile dans une langue qui n'était pas la mienne.
   argumentaire "fin", ce qui me serait beaucoup plus difficile dans une langue
   que je maitrise moins;
 - Sans même parler d'argumentaire, les mots utilisés dans ma langue maternelle
-  me permettent de maneuvrer plus finement et de faire passer des idées de
+  me permettent de manœuvrer plus finement et de faire passer des idées de
   manière plus efficace;
 - J'ai l'impression de pouvoir engager plus facilement avec les gens qui
   m'entourent géographiquement, par exemple par rapport à la communauté
   technophile / pythoniste francophone.
-- Même si mon niveau d'anglais à progressé, ce n'est pas necessairement le cas
+- Même si mon niveau d'anglais à progressé, ce n'est pas nécessairement le cas
   de mes interlocuteurs.
 
 Par contre, cela nuit clairement à engager avec d'autres personnes dont la
-langue n'est pas la mienne, dans tels cas, traduire les contenus interessants
+langue n'est pas la mienne, dans tels cas, traduire les contenus intéressants
 vers l'anglais semble une solution (chronophage).
