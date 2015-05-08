@@ -19,7 +19,7 @@ RELATIVE_URLS = True
 TIMEZONE = "Europe/Paris"
 LOCALE = "fr_FR.utf8"
 
-DEFAULT_DATE_FORMAT = ('%B %Y')
+DEFAULT_DATE_FORMAT = ('%d %B %Y')
 LINKS = [
     ('Code', 'https://github.com/ametaireau'),
     ('Messages courts', 'https://twitter.com/ametaireau'),
