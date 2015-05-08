@@ -561,3 +561,7 @@ a.pagination-item:hover {
 blockquote {
   padding-right: 15px !important;
 }
+
+.content-title {
+  margin-bottom: 70px;
+}
