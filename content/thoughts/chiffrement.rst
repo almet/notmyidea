@@ -68,3 +68,24 @@ des échanges chiffrés. `Référez vous à ce guide
 La clé publique pour me contacter est `0x078805D867F56F12
 <http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x078805D867F56F12>`_. Et
 vous ?
+
+Je vous invite à aller voir le documentaire Citizen Four, qui passe en salles.
+Si vous ni avez pas accès, vous pouvez le visionner ici, et éventuellement
+faire un don aux auteurs ou associations qui gravitent autour (`Electronic
+Fronteer Fondation <https://supporters.eff.org/donate>`_, `Tails
+<https://tails.boum.org/contribute/how/donate/index.fr.html>`_, `La quadrature
+du net <https://support.laquadrature.net/>`_ en france ou d'autres…)
+
+.. raw:: html
+
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+  <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls
+   preload="auto" width="640" height="264" poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}">
+     <source src="https://citizenfour.thecthulhu.com/citizenfour.mp4" type='video/mp4'>
+     <p class="vjs-no-js">To view this video please enable JavaScript, and
+     consider upgrading to a web browser that <a
+     href="http://videojs.com/html5-video-support/" target="_blank">supports
+     HTML5 video</a></p>
+  </video>
