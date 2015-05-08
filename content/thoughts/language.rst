@@ -2,8 +2,7 @@ Language
 ########
 
 :date: 2015-05-01
-:headline: Je me surprends à préférer le français à l'anglais pour m'exprimer
-           ici.
+:headline: Nos langues peuvent être autant de frontières que de ponts...
 
 .. epigraph::
 
