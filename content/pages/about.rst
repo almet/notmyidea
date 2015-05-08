@@ -27,7 +27,8 @@ Vous pouvez également consulter `mes notes
 visualisation.
 
 N'hésitez pas à me contacter si vous souhaitez: `alexis@notmyidea.org`.
-La clé publique associée est **0x078805D867F56F12**.
+La clé publique associée est `0x078805D867F56F12
+</static/alexis.notmyidea.org.asc>`_.
 
 ----
 
@@ -52,4 +53,4 @@ github page <https://github.com/mozilla-services>`_ or on `the Spiral project
 page <http://github.com/spiral-project/>`_ 
 
 Don't hesitate to contact me at `alexis at notmyidea org`. The associated
-public key is **0x078805D867F56F12**.
+public key is `0x078805D867F56F12 </static/alexis.notmyidea.org.asc>`_.

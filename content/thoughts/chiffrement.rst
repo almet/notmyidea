@@ -66,7 +66,7 @@ des échanges chiffrés. `Référez vous à ce guide
 <https://emailselfdefense.fsf.org/fr/>`_ pour des instructions pas à pas.
 
 La clé publique pour me contacter est `0x078805D867F56F12
-<http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x078805D867F56F12>`_. Et
+</static/alexis.notmyidea.org.asc>`_. Et
 vous ?
 
 Je vous invite à aller voir le documentaire Citizen Four, qui passe en salles.

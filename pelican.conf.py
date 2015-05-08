@@ -11,6 +11,7 @@ THEME = "pelicanyan"
 # THEME = "theme"
 CSS_FILE = "wide.css"
 DISQUS_SITENAME = 'notmyidea'
+STATIC_PATHS = ['static']
 
 SITEURL = ''
 #SITEURL = 'http://blog.notmyidea.org'
