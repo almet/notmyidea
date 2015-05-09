@@ -2,7 +2,7 @@ Phrases de passe et bonnes pratiques
 ####################################
 
 :date: 2015-05-09
-:headline: Communiquer de manière chiffrée n'est pas aisée, et necessite de
+:headline: Communiquer de manière chiffrée n'est pas aisée, et nécessite de
            mémoriser des phrases de passes complexes. Comment s'en sortir ?
 
 
@@ -19,7 +19,7 @@ Phrases de passe et bonnes pratiques
     -- `The Electronic Frontier Foundation
     <https://www.eff.org/wp/defending-privacy-us-border-guide-travelers-carrying-digital-devices>`_ (traduction de mon fait)
 
-Comprendre les concepts et l'éco-système qui permettent d'avoir une vie
+Comprendre les concepts et l'écosystème qui permettent d'avoir une vie
 numérique chiffrée n'est pas quelque chose d'aisé. `Plusieurs
 <https://emailselfdefense.fsf.org/fr/>`_ `guides
 <http://www.controle-tes-donnees.net/outils/GnuPG.html>`_ ont été écrits à ce
@@ -36,13 +36,13 @@ mal utiliser les outils existants.
 
 Une phrase de passe devrait:
 
-- Être uffisement longue pour être difficile à deviner;
+- Être suffisamment longue pour être difficile à deviner;
 - Ne pas être une citation connue (littérature, livres sacrés etc);
 - Difficile à deviner même pour vos proches;
 - Facile à se souvenir et à taper;
 - être unique et non partagée entre différents sites / applications etc.
 
-Une des techniques consiste à utiliser des mots du dictionnaire, séléctionés de
+Une des techniques consiste à utiliser des mots du dictionnaire, sélectionnés de
 manière aléatoire, puis modifiés.
 
 .. figure:: https://imgs.xkcd.com/comics/password_strength.png
@@ -60,9 +60,9 @@ Oui, ce n'est pas aussi simple que ce qu'il y parait. Pour ma part, j'ai une
 copie en local de mes clés, dans un fichier chiffré avec une autre clé que j'ai
 généré pour l'occasion et que je ne partagerait pas. J'ai par ailleurs
 `configuré <https://github.com/jamessan/vim-gnupg>`_ mon éditeur de texte pour
-pouvoir chiffrer les documents textes par defaut.
+pouvoir chiffrer les documents textes par défaut.
 
-J'ai donc regénéré une nouvelle fois mes clés de travail et personelles, en
+J'ai donc regénéré une nouvelle fois mes clés de travail et personnelles, en
 utilisant des phrases de passe plus complexes.
 
 Reste encore la question de la sauvegarde de ces clés privées de manière
