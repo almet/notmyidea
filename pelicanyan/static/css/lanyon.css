@@ -565,3 +565,12 @@ blockquote {
 .content-title {
   margin-bottom: 70px;
 }
+
+
+div.note {
+   margin: 5px;
+   font-size: 85%;
+   font-style: italic;
+}
+
+.admonition-title { display: none }
