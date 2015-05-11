@@ -84,5 +84,5 @@ Bref, une initiative quand même importante et utile, même si elle soulève des
 questions qui méritent qu'on s'y attarde un brin.
 
 Par ailleurs, `d'autres projets qui visent des objectifs similaires
-<https://leap.se/nicknym>` existent, via le projet LEAP, mais je n'ai pas
+<https://leap.se/nicknym>`_ existent, via le projet LEAP, mais je n'ai pas
 encore creusé.
