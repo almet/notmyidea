@@ -3,7 +3,7 @@ Bonjour, je suis Alexis
 
 :slug: about
 
-(english version below)
+.. note:: There is an english version of this page below.
 
 Je suis un développeur logiciel intéressé par l'écologie, l'éducation
 (populaire !), la thématique agricole et le *Do It Yourself* (DIY).
@@ -50,7 +50,7 @@ english.
 You can find most of the computer related projects I am involved with 
 `on my github page <http://github.com/ametaireau>`_, on `the Mozilla services
 github page <https://github.com/mozilla-services>`_ or on `the Spiral project
-page <http://github.com/spiral-project/>`_ 
+page <http://github.com/spiral-project/>`_.
 
 Don't hesitate to contact me at `alexis at notmyidea org`. The associated
 public key is `0x078805D867F56F12 </static/alexis.notmyidea.org.asc>`_.

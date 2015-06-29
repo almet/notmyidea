@@ -5,6 +5,9 @@ Je pense que l'informatique est un fabuleux moyen de répondre à des besoins
 existants, en terme de collaboration notamment. Voici quelques logiciels dont
 je suis l'auteur ou un des contributeurs.
 
+Projets personnels
+==================
+
 Pelican
   `Pelican <http://getpelican.com>`_ est un générateur de site statique. Son
   objectif est de permettre de trasformer des fichiers sur votre disque en blog
@@ -44,6 +47,42 @@ Formbuilder
   web. Il est basé sur React.  Mon objectif est de pouvoir faire un remplaçant
   libre et gratuit à Google forms.
 
+
+Projets professionnels
+======================
+
+Kinto et Cliquet
+  `Kinto <https://github.com/mozilla-services/kinto>`_ et `Cliquet
+  <https://github.com/mozilla-services/cliquet>`_ sont les successeurs
+  spirituels de Daybed. L'idée est toujours la même: stocker des données en
+  ligne, les partager et les synchroniser.
+
+  Rémy, Mathieu, Nicolas et moi travaillons en ce moment sur ce projet pour
+  Mozilla.
+
+Firefox Hello
+  `Firefox Hello <https://firefox.com/hello>`_ est un moyen d'établir des
+  communications pair à pair en utilisant Firefox. Contrairement à d'autres
+  solutions, les communications ne passent par un tiers que lorsque cela est
+  absolument necessaire.
+
+  J'ai écrit avec Rémy `le serveur de mise en relation
+  <https://github.com/mozilla-services/loop-server>`_.
+
+Circus
+  `Circus <https://github.com/circus-tent/circus>`_ est un gestionnaire de
+  processus. C'est un logiciel *coté serveur* dont l'objectif est de veiller
+  sur les programmes qui s'executent afin de les relancer en cas d'échec.
+
+  J'ai rejoint Tarek et Benoit sur le projet après qu'ils aient entammé le plus
+  gros du travail.
+
+Cornice
+  `Cornice <http://github.com/mozilla-services/cornice>`_ tente de rendre plus
+  simple la création de services web en mutualisant les bonnes pratiques.
+
+  Tarek à écrit la première version du logiciel que j'ai ensuite retravaillé
+  pour rendre les évolutions plus simples.
 
 Je n'indique ici que certains des projets auquels je contribue, vous pouvez en
 trouver d'autres sur `mon profil GitHub  <https://github.com/ametaireau>`_.
