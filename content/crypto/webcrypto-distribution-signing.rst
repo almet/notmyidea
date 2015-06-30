@@ -15,6 +15,9 @@ to trust online software distributions. Put differently, you don't actually
 trust the software authors but are rather trusting the software distributors
 and certificate authorities (CAs).
 
+I've been talking with Richard Barnes last week about that and he suggested
+I publish something to actually discuss this further, so here it is!
+
 Attack vectors
 ==============
 
