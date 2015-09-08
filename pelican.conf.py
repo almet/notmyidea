@@ -26,3 +26,6 @@ LINKS = [
     ('Messages courts', 'https://twitter.com/ametaireau'),
     ('A propos', 'http://blog.notmyidea.org/pages/about.html')
 ]
+
+PIWIK_SERVER_URL = "//piwik.notmyidea.org/"
+PIWIK_SITE_ID = 3

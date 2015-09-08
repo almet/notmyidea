@@ -4,6 +4,7 @@ Web distribution signing
 :lang: en
 :date: 2015-06-29
 :headline: Bringing trust back between software authors and user agents.
+:status: draft
 
 .. note:: I'm not a crypto expert, nor pretend to be one. These are thoughts
           I want to share with the crypto community to actually see if any
