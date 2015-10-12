@@ -23,6 +23,9 @@
     <h1 class="post-title">
       {{ article.title }}
     </h1>
+    {% if article.headline %}
+    <h2 class="post-title">{{ article.headline }}</h2>
+    {% endif %}
     <span class="post-date">{{ article.locale_date | capitalize }}</span>
 
     {{ article.content }}
