@@ -117,3 +117,15 @@ this design has many security problems attached to it.
 However, that's a problem I would really like to see solved one day, so here
 the start of the discussion, don't hesitate to `get in touch
 </pages/about.html>`_!
+
+Addendum
+========
+
+It seems possible to increase the level a user has in a Web Application by
+adding indicators in the User-Agent. For instance, when using an application
+that's actually signed by someone considered trustful by the User-Agent (or the
+distributor of the User-Agent), a little green icon could be presented to the
+User, so they know that they can be confident about this.
+
+A bit like User-Agents do for SSL, but for the actual signature of the files
+being viewed.
