@@ -10,6 +10,7 @@ l'apprentissage, le partage et la souveraineté populaire.</p>
 </div>
 <div class="posts">
   {% for article in articles_page.object_list %}
+  {% if not article.unlisted or article.category == category %}
   <div class="post">
     <h1 class="post-title" style="display: inline">
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
@@ -17,6 +18,7 @@ l'apprentissage, le partage et la souveraineté populaire.</p>
     <span class="post-date" style="display: inline">{{ article.locale_date }}</span>
     <span class="headline" style="display: block">{{ article.headline }}</span>
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 {% include 'pagination.html' %}
