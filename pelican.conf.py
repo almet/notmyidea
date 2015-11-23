@@ -22,7 +22,7 @@ LOCALE = "fr_FR.utf8"
 
 DEFAULT_DATE_FORMAT = ('%d %B %Y')
 LINKS = [
-    ('Code', 'https://github.com/ametaireau'),
+    ('Code', 'https://github.com/almet'),
     ('Messages courts', 'https://twitter.com/ametaireau'),
     ('A propos', 'http://blog.notmyidea.org/pages/about.html')
 ]
