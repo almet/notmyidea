@@ -2,6 +2,7 @@ Rencontres python francophones, 2015
 ####################################
 
 :date: 2015.11.02
+:headline: Retours sur les rencontres python francophones de 2015.
 
 J'ai pris quelques notes durant la conférence annuelle de PyconFR, qui avait
 lieu à Pau cette année, et les ai publiées entre deux étapes des vacances qui

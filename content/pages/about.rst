@@ -27,8 +27,7 @@ Vous pouvez également consulter `mes notes
 visualisation.
 
 N'hésitez pas à me contacter si vous souhaitez: `alexis@notmyidea.org`.
-La clé publique associée est `0x078805D867F56F12
-</static/alexis.notmyidea.org.asc>`_.
+La signature de ma clé publique associée est ``9226 A601 000E C314 5061 1B36 1EDF 5A7A 485D 4A11``. Vous pouvez aussi directement la trouver en pièce jointe de mes mails ou `la télécharger ici </static/alexis.notmyidea.org.asc>`_.
 
 ----
 
