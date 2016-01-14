@@ -52,4 +52,4 @@ github page <https://github.com/mozilla-services>`_ or on `the Spiral project
 page <http://github.com/spiral-project/>`_.
 
 Don't hesitate to contact me at `alexis at notmyidea org`. The associated
-public key is `0x078805D867F56F12 </static/alexis.notmyidea.org.asc>`_.
+public key is ``9226 A601 000E C314 5061 1B36 1EDF 5A7A 485D 4A11``. You can find it attached in all my emails or `download it here </static/alexis.notmyidea.org.asc>`_.
