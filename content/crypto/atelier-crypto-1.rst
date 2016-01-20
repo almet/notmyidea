@@ -26,7 +26,7 @@ J'ai mis un peu de temps à mettre le pied à l'étrier, mais je ressors
 finalement du premier atelier que j'ai co-animé avec geb, auprès d'un public de
 journalistes.
 
-Pour cette première édition l'idée est à la fois d'aller à la rencontre d'un
+Pour cette première édition l'idée était à la fois d'aller à la rencontre d'un
 public que je connais mal, de leur donner des outils pour solutionner les
 problèmes auxquels ils font parfois face, et de me faire une idée de ce que
 pouvait être un atelier sur l'autodéfense numérique.
@@ -63,8 +63,8 @@ De ces *GIMs* nous avons pu ressortir quelques histoires, gravitant autour de:
 - **Le chiffrement de ses données**: Comment éviter de faire "fuiter" des données
   importantes lors d'une perquisition de matériel ?
 
-Faire peur
-==========
+2. Faire peur
+=============
 
 Un des premiers objectifs est de faire peur, afin que tout le monde se rende
 compte à quel point il est facile d'accéder à certaines données. `Grégoire
@@ -86,8 +86,8 @@ Pour continuer à leur faire peur, après une brève explication de ce qu'est SS
 nous avons montré comment il était facile de scruter le réseau à la recherche
 de mots de passe en clair.
 
-Proposer des solutions concrêtes
-================================
+3. Proposer des solutions concrêtes
+===================================
 
 Une fois que tout le monde avait pleinement pris sonscience des problématiques
 et n'osait plus utiliser son ordinateur ou son téléphone, on à commencé
@@ -95,13 +95,13 @@ et n'osait plus utiliser son ordinateur ou son téléphone, on à commencé
 Plusieurs approches étaient possibles ici, nous avons choisi de présenter
 quelques outils qui nous semblaient répondre aux attentes:
 
-- On a expliqué ce qu'était `TAILS <https://tails.boum.org>`_, et comment
+- On a expliqué ce qu'était `Tails <https://tails.boum.org>`_, et comment
   l'utiliser et le dupliquer.
 - On a pu faire un tour des outils existants sur Tails, notamment autour de
   l'*anonymisation* de fichiers et la suppression effective de contenus.
 - Certaines personnes ont pu créer une clé tails avec la persistance de
   configurée.
-- Nous nous sommes connectés au réseau `Tor <https://www.torproject.org>` et testé
+- Nous nous sommes connectés au réseau `Tor <https://www.torproject.org>`_ et testé
   que nos adresses IP changeaient bien à la demande.
 - Nous avons utilisé `CryptoCat <https://crypto.cat>`_ par dessus Tor, afin de
   voir comment avoir une conversation confidentielle dans laquelle il est
@@ -129,9 +129,10 @@ avoir une partie théorique le matin et une partie pratique l'après-midi par
 exemple).
 
 J'ai choisi volontairement de ne pas aborder le chiffrement des messages via
-PGP parce que je pense que la protection que ce média propose n'est pas
-suffisante, mais je suis en train de revenir sur ma décision: il pourrait être
-utile de présenter l'outil, à minima.
+PGP parce que `je pense que la protection que ce média propose n'est pas
+suffisante <{filename}/crypto/pgp-problemes.rst>`_, mais je suis en train de
+revenir sur ma décision: il pourrait être utile de présenter l'outil, à minima,
+en insistant sur certaines de ses faiblesses.
 
 Un compte twitter à été créé recemment autour des crypto-party à Rennes, si
 vous êtes interessés, `allez jeter un coup d'œil <https://twitter.com/CryptoPartyRNS>`_!
