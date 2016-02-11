@@ -14,7 +14,7 @@ Let's Encrypt + HAProxy
 
     -- `Let's Encrypt <https://letsencrypt.org/>`_
 
-Depuis début Décembre, la nouvelle *authorité de certification* Let's Encrypt
+Depuis début Décembre, la nouvelle *autorité de certification* Let's Encrypt
 est passée en version *Beta*. Les certificats SSL sont un moyen de 1. chiffrer la
 communication entre votre navigateur et le serveur et 2. un moyen d'être sur
 que le site Web auquel vous accédez est celui auquel vous pensez vous connecter
