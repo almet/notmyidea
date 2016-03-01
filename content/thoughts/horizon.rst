@@ -1,0 +1,59 @@
+L'horizon
+#########
+
+:date: 2016-03-02
+:headline: Temps de changer d'horizon. Mon départ de Mozilla et le début d'une
+           nouvelle histoire.
+
+.. epigraph::
+
+  L'Utopie, c'est l'horizon. C'est ce qui permet d'avoir une direction, de
+  mettre un pied devant l'autre, de savoir vers ou marcher.
+
+Il y a presque 4 ans et demi, je commençais à travailler, en décembre, pour
+Mozilla. Je me rappelle bien de ces premiers instants un peu magiques, qui ont
+eu lieu juste avant une descente de cave en bourgogne avec Tarek pour
+y déguster quelques saveurs de vins différentes.
+
+Quatre ans plus tard, je me retrouve à coder sur Daybed, mon petit projet
+perso, devenu `Kinto <http://kinto.readthedocs.org/>`_ avec une équipe de
+personnes plus talentueuses et sympathiques les unes que les autres (Niko,
+Rémy, Mat, si vous me lisez…).
+
+Mozilla à bien évolué en quelques années: les petits bureaux ou j'avais atterri
+se sont transformés en palace ou il est possible d'accueillir des membres de la
+communauté du logiciel libre de manière quotidienne.
+
+De 14 personnes dans les
+bureaux Parisiens, nous sommes passés à une 40aine (et de ~500 salariés à 1700
+dans le monde).
+
+Grandir autant en si peu de temps est un challenge difficile à tenir, qui
+nécessite des réorganisations et bien souvent dans une structure de cette
+taille, de la hiérarchisation. En 4 ans j'ai eu au moins 5 changements de
+supérieurs, pour finalement arriver à une situation plutôt convenable (mais
+quand même !)
+
+J'ai choisi de rejoindre Mozilla parce que j'ai besoin de causes à défendre,
+qui me saisissent et qui me guident. Aujourd'hui, une des visions qui m'anime,
+c'est celle que d'autres ont déjà ouverte: celle de données et de vie privée
+qui sont rendues a leurs utilisateurs. 
+
+Et je veux faire en sorte de réaliser ces «rêves d'un monde meilleur», ce qui
+veut dire pour moi qu'il est temps de partir vers des horizons plus propices
+a cette vision.
+
+Lesquels ? Cela reste à construire (mais je vous le dis, y'à du Kinto dedans !)
+
+La suite ?
+==========
+
+Sans m'étaler, je veux prendre du temps pour quelques projets autour du
+stockage de données (via Kinto), de l'auto défense numérique (via des
+formations) et de la fabrication de bière artisanale (parce que bon, on se
+refait pas !)
+
+Évidemment, plein d'envies diverses et variées, envie de ma balader un peu et
+d'expérimenter des choses collectivement...
+
+On se recroisera surement :)
