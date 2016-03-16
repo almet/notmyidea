@@ -113,7 +113,8 @@ dépendez quasiment toujours d'une autorité à qui vous ne faites peut être pa
 confiance: Apple, Microsoft ou bien Google.
 
 On ne vous propose pas simplement de nous faire confiance, on vous propose la
-possibilité de ne faire confiance qu'à ceux à qui vous souhaitez accorder votre confiance, et ça peut être vous si vous le souhaitez.
+possibilité de ne faire confiance qu'à ceux à qui vous souhaitez accorder votre
+confiance, et ça peut être vous si vous le souhaitez.
 
 La décentralisation à ceci de bon qu'elle vous laisse le choix d'où vous
 souhaitez stocker vos données.

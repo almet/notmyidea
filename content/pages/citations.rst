@@ -1,4 +1,5 @@
 Citations
 #########
 
-"Plutôt périr que travailler sans joie" — Nietzsche
+- "Plutôt périr que travailler sans joie" — Nietzsche
+- 

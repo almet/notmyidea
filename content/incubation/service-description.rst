@@ -12,7 +12,7 @@ REST services are supposed to be discoverable, but in a lot of situations,
 that's not the case, and it can be a pain to implement a client for them, even
 if most of what is being done there is shared between a lot of web services.
 
-In cornice, we alreadygenerate some documentation, but this one is incomplete in
+In cornice, we already generate some documentation, but this one is incomplete in
 different ways. For instance, it is currently not possible to get information
 about the inputs you are waiting for, in the different locations (body,
 headers and query string).

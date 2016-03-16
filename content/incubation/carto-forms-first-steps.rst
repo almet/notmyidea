@@ -1,11 +1,12 @@
 Carto Forms - First steps
 #########################
 
+:date: 17-11-2012
 :status: draft
 
 For an introduction on carto forms, please see this blog post:
-http://blog.notmyidea.org/carto-forms.html (and its variant in french if you
-prefer: http://blog.notmyidea.org/carto-forms-fr.html)
+https://blog.notmyidea.org/carto-forms.html (and its variant in french if you
+prefer: https://blog.notmyidea.org/carto-forms-fr.html)
 
 So, let's not talk too much about what we want to do, and rather explain how we
 will do it instead ;)
@@ -70,29 +71,29 @@ and dump it with `json.dumps`::
 
     {
         "title": "Ads spots"
-        "description": "All the ads spots in paris", 
+        "description": "All the ads spots in paris",
         "fields": [
             {
-                "name": "location", 
+                "name": "location",
                 "type": "SIG point"
-            }, 
+            },
             {
                 "choices": [
-                    "small", 
-                    "medium", 
-                    "big", 
+                    "small",
+                    "medium",
+                    "big",
                     "huge"
-                ], 
-                "description": "the size of the ad", 
-                "name": "size", 
+                ],
+                "description": "the size of the ad",
+                "name": "size",
                 "type": "choice"
-            }, 
+            },
             {
-                "desciption": "is there light on it?", 
-                "name": "light", 
+                "desciption": "is there light on it?",
+                "name": "light",
                 "type": "bool"
             }
-        ], 
+        ],
     }
 
 Validating the form definition
@@ -157,13 +158,13 @@ PUT instead::
 
 Of course, we can already retrieve this with a GET::
 
-     curl -X GET localhost:5984/cartoforms/paris-ads -d "`python test.py`"                
+     curl -X GET localhost:5984/cartoforms/paris-ads -d "`python test.py`"
      {"_id":"paris-ads","_rev":"1-0462d0827e7cdad20b5703a923249220","fields":[{"type":"SIG
      point","name":"location"},{"choices":["small","medium","big","huge"],"type":"choice","name":"size","description":"the
      size of the ad"},{"type":"bool","desciption":"is there light on
      it?","name":"light"}],"description":"All the ads spots in
      paris","title":"Ads spots"}
-    
+
 Validation? Yes, you're completely right: we need validation for this. Because
 in this current state, anyone can just insert whatever data they want into this
 system, which could become a problem at some point.
