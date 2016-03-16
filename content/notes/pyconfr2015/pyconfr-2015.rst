@@ -2,7 +2,7 @@ Rencontres python francophones, 2015
 ####################################
 
 :date: 2015.11.02
-:category: pyconfr2015
+:category: conferences
 :headline: Retours sur les rencontres python francophones de 2015.
 
 J'ai pris quelques notes durant la conférence annuelle de PyconFR, qui avait
