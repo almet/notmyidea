@@ -46,6 +46,7 @@ Une des techniques consiste à utiliser des mots du dictionnaire, sélectionnés
 manière aléatoire, puis modifiés.
 
 .. figure:: https://imgs.xkcd.com/comics/password_strength.png
+    :alt: XKCD sur la force des mots de passe.
 
 Micah Lee `travaille également sur un outil
 <https://github.com/micahflee/passphrases>`_ qui vise à rendre la mémorisation

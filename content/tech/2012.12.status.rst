@@ -17,7 +17,8 @@ Heureusement, c'est open-source, et ça a été forké pour donner naissance
 à `whiskerboard <https://github.com/bfirsh/whiskerboard>`_ (la planche
 moustachue, pour les non anglophones).
 
-.. image:: |filename|/images/status_board.png
+.. image:: images/status_board.png
+  :alt: Capture d'écran du site.
 
 Vérifier le statut des services
 ===============================

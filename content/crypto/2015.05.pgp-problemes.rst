@@ -9,7 +9,7 @@ Les problèmes de PGP
   Flip a bit in the communication between sender and recipient and they will
   experience decryption or verification errors. How high are the chances they
   will start to exchange the data in the clear rather than trying to hunt down
-  the man in the middle? 
+  the man in the middle?
 
   -- http://secushare.org/PGP
 
@@ -70,6 +70,3 @@ chiffrement d'échanges de messages et de VPN simples à utiliser, encore quelqu
 chose à regarder.
 
 Enfin bref, y'a du taf.
-
-.. image:: {filename}/static/porte.jpg
-    :alt: Un peu d'ombre.

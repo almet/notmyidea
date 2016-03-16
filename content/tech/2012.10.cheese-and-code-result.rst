@@ -27,6 +27,7 @@ we're using **CouchDB** as a backend.
 
 .. image:: images/daybed.jpg
     :width: 400px
+    :alt: Daybed is a big couch!
 
 We mainly hacked on daybed and are pretty close to the release of the first
 version, meaning that we have something working.

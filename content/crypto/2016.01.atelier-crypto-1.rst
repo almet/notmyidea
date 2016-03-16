@@ -130,7 +130,7 @@ exemple).
 
 J'ai choisi volontairement de ne pas aborder le chiffrement des messages via
 PGP parce que `je pense que la protection que ce média propose n'est pas
-suffisante <{filename}/crypto/pgp-problemes.rst>`_, mais je suis en train de
+suffisante <{filename}2015.05.pgp-problemes.rst>`_, mais je suis en train de
 revenir sur ma décision: il pourrait être utile de présenter l'outil, à minima,
 en insistant sur certaines de ses faiblesses.
 
@@ -142,5 +142,5 @@ formation sur le sujet, j'ai donc décidé de publier les nôtres, afin de
 co-construire avec d'autres des plans de formation.
 
 Ils sont pour l'instant disponibles `sur Read The Docs
-<http://autodefense-numerique.readthedocs.org/en/latest/>`_. Tous les retours 
+<http://autodefense-numerique.readthedocs.org/en/latest/>`_. Tous les retours
 sont évidemment les bienvenus !

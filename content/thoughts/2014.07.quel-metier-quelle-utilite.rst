@@ -114,4 +114,4 @@ Allez, au boulot !
 
 PS: je me rends compte après relecture que ce billet fait echo à un billet que
 j'ai écris juste alors que je terminais mes études, `sur le sens du travail et
-de l'informatique <{filename}logiciel.rst>`_, ça fait du bien :)
+de l'informatique <{filename}2011.05.travailler-moins-mieux.rst>`_, ça fait du bien :)

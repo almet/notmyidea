@@ -4,7 +4,7 @@ Implementing CORS in Cornice
 :date: 04-02-2013
 :slug: cross-origin-in-cornice
 
-.. note:: 
+.. note::
 
     I'm cross-posting `on the mozilla services weblog
     <https://blog.mozilla.org/services/>`_. Since this is the
@@ -38,7 +38,7 @@ the time) asks the permission to the resource, with an `OPTIONS` call.
 
 The server answers, and tell what is available and what isn't:
 
-.. image:: |filename|/images/cors_flow.png
+.. image:: images/cors_flow.png
     :alt: The CORS flow (from the HTML5 CORS tutorial)
 
 - 1a. The User-Agent, rather than doing the call directly, asks the server, the
@@ -67,8 +67,8 @@ have the following flow::
 
     > OPTIONS /icecream
     > Access-Control-Request-Methods = PUT
-    > Origin: notmyidea.org 
-    < Access-Control-Allow-Origin = notmyidea.org 
+    > Origin: notmyidea.org
+    < Access-Control-Allow-Origin = notmyidea.org
     < Access-Control-Allow-Methods = PUT,GET,DELETE
     200 OK
 
@@ -93,7 +93,7 @@ build a feed reader and access the feeds on different domains, you can be
 pretty much sure that the servers will not implement CORS, so you'll need to
 write a proxy yourself, to provide this.
 
-Secondly, if misunderstood, CORS can be insecure, and cause 
+Secondly, if misunderstood, CORS can be insecure, and cause
 problems. Because the rules apply when a client wants to do a request to
 a server, you need to be extra careful about who you're authorizing.
 
@@ -148,7 +148,7 @@ To add CORS support to this resource, you can go this way, with the
 `cors_origins` parameter:
 
 .. code-block:: python
-    
+
     foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))
 
 Ta-da! You have enabled CORS for your service. **Be aware that you're
@@ -231,9 +231,9 @@ While this approach works, it's not implementing the specification completely.
 You need to add support for all the resources at once.
 
 We can think about a nice way to implement this specifying a definition of what's
-supposed to be exposed via CORS and what shouldn't directly in your settings. 
-In my opinion, CORS support should be handled at the service definition level, 
-except for the list of authorized hosts. 
+supposed to be exposed via CORS and what shouldn't directly in your settings.
+In my opinion, CORS support should be handled at the service definition level,
+except for the list of authorized hosts.
 Otherwise, you don't know exactly what's going on when you look at the definition of the service.
 
 Resources
