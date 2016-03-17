@@ -1,9 +1,9 @@
-Le mail doit mourir
-###################
+Le mail doit-il mourir ?
+########################
 
 :status: draft
 :date: 2015-11-24
-:headline: Le mail est un protocole qui bien établi qui souffre de nombreux
+:headline: Le mail est un protocole bien établi qui souffre de nombreux
            problèmes. Est-ce qu'il ne serait pas temps de préparer la suite ?
 
 
@@ -22,21 +22,21 @@ faire fuiter les metadonnées (au moins le destinataire) pour avoir un protocole
 mail fonctionnel.
 
 Le mail réponds à un besoin de communication asynchrone qui permet des
-conversations plus réfléchies qu'un simple chat. Il est tout à fait possible
-d'utiliser certaines technologies existantes afin de constuire le futur de
-l'email, pour lequel:
+conversations plus réfléchies qu'un simple chat (miaou). Il est tout à fait
+possible d'utiliser certaines technologies existantes afin de constuire le
+futur de l'email, pour lequel:
 
-- Les méta-données sont chiffrées — Il ne soit pas possible de savoir qui
+- Les méta-données seraient chiffrées — Il n'est pas possible de savoir qui
   communique avec qui, et quand;
-- Le chiffrement est fort et protégé d'une phrase de passe;
-- La saisie d'une clé utilisée dans un échange ne permette pas de déchiffrer
-  l'ensemble des échanges (forward secrecy);
-- Il ne soit pas possible de réutiliser les données pour incriminer l'emmeteur
-  ou le recepteur des messages (deniability);
+- Le chiffrement serait fort et protégé d'une phrase de passe;
+- La fuite d'une clé de chiffrement utilisée dans un échange ne permette pas de
+  déchiffrer l'ensemble des échanges (forward secrecy);
+- Il ne soit pas possible de réutiliser les données comme preuve pour
+  incriminer l'emmeteur du message (deniability);
 
 Avec au moins ces besoins en tête, il semble qu'une revue de l'ensemble des
 projets existants pointe du doigt vers `pond <https://github.com/agl/pond>`_,
-ou vers Signal.
+ou vers `Signal <https://www.whispersystems.org/>`_.
 
 Malheureusement, Pond est le projet d'une seule personne, qui veut plutôt
 utiliser ce code comme demonstration du concept en question.
@@ -47,7 +47,7 @@ comparaisons qui me semblaient utiles (Nombre de developeurs, date du dernier
 commit).
 
 ===========================  ======  ======  ====
-Project                      Pond    Signal  PGP  
+Project                      Pond    Signal  PGP
 ===========================  ======  ======  ====
 Forward secrecy
 ---------------------------  ------  ------  ----
@@ -56,6 +56,11 @@ Meta-data encryption
 Deniability
 ===========================  ======  ======  ====
 
+
+Axolotl v2
+==========
+
+Un des champions actuels (depuis quelques années déjà) dans
 Hi,
 
 As a prelude, let me say that I've been following this mailing-list since over

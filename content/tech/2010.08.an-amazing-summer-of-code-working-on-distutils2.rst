@@ -58,7 +58,7 @@ code on, that's `distutils2 <http://hg.python.org/distutils2/>`_.
 My job
 ------
 
-I had to provides a way to crawl the PyPI indexes in a simple way,
+I had to provide a way to crawl the PyPI indexes in a simple way,
 and do some installation / uninstallation scripts.
 
 All the work done is available in
@@ -172,5 +172,3 @@ cheerfulness ! Many thanks too to the Google Summer of Code program
 for setting up such an initiative. If you're a student, if you're
 interested about FOSS, dont hesitate any second, it's a really good
 opportunity to work on interesting projects!
-
-
