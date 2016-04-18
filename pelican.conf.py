@@ -29,3 +29,6 @@ LINKS = [
 
 PIWIK_SERVER_URL = "//piwik.notmyidea.org/"
 PIWIK_SITE_ID = 3
+
+PLUGIN_PATHS = ['.']
+PLUGINS = ['links',]
