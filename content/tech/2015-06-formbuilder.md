@@ -1,7 +1,6 @@
 Title: Comment est-ce que vous générez vos formulaires ?
 Headline: Présentation d'une solution pour gérer vos formulaires en gardant la main sur les données générées
 Date: 2016-05-31
-Status: draft
 
 TL; DR: Je viens à peine de *releaser* la première version d'un service de génération de formulaires.
 Allez jeter un coup d'œil sur [https://www.fourmilieres.net](https://www.fourmilieres.net)
