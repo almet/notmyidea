@@ -6,17 +6,17 @@ TL; DR: Je viens à peine de *releaser* la première version d'un service de gé
 Allez jeter un coup d'œil sur [https://www.fourmilieres.net](https://www.fourmilieres.net)
 
 *En février 2012, je parlais ici [d'un service de génération de formulaires](https://blog.notmyidea.org/carto-forms.html).
-Depuis, pas mal d'eau à coulé sous les ponts, on est passé par pas mal d'étapes pour
+Depuis, pas mal d'eau à coulée sous les ponts, on est passé par de nombreuses d'étapes pour
 finalement arriver à une première version de ce service de génération de
 formulaires (à la *google forms*).*
 
 En tant qu'organisateurs d'évènements (petits et gros), je me retrouve souvent
 dans une situation ou je dois créer des formulaires pour recueillir des
 informations. Actuellement, la meilleure solution disponible est *Google Forms*,
-mais celle ci à plusieurs problèmes, à commencer par le fait que le code n'est
+mais celle-ci à plusieurs problèmes, à commencer par le fait que le code n'est
 pas libre et que les données sont stockées chez Google.
 
-La plupart du temps, le besoin est assez simple: je veux spécifier quelques
+La plupart du temps, le besoin est assez simple : je veux poser quelques
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.
 
@@ -25,7 +25,7 @@ Je reviens ensuite plus tard pour voir la liste des réponses apportées.
 ## Fonctionnalités
 
 Il existe pas mal de solutions techniques qui essayent de répondre à la même
-problématique, mais la plupart d'entre elles sont assez souvent compliquées,
+problématique, mais la plupart d'entre elles sont souvent assez compliquées,
 nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
 les données générées, voire le code est assez difficile à faire évoluer ou à
 déployer.
@@ -87,7 +87,7 @@ retours](https://www.fourmilieres.net/#/form/cfd878264cec4ed2), n'hésitez pas !
 Le *formbuilder*, comme j'aime l'appeler se compose en fin de compte de deux
 parties distinctes:
 
-- [Kinto](https://kinto.readthedocs.org), un service qui stocke
+- [Kinto](https://kinto.readthedocs.org/), un service qui stocke
   des données coté serveur et qui les expose via des **APIs HTTP**
 - [Le formbuilder](https://github.com/kinto/formbuilder), une application
   JavaScript qui ne tourne que coté client (dans votre navigateur) qui permet
@@ -96,8 +96,7 @@ parties distinctes:
 
 Au niveau de la *stack* technique, le **formbuilder** est codé en ReactJS. Un
 des points techniques intéressants du projet est qu'il génère en fin de compte du
-[JSON Schema](https://github.com/spiral-project/formbuilder), un format de
-validation de données *JSON*.
+[JSON Schema](http://json-schema.org/), un format de validation de données *JSON*.
 
 Donc, reprenons! Vous arrivez sur la page d'accueil puis cliquez sur
 "Create a new form", puis vous vous retrouvez face à une interface ou vous pouvez
