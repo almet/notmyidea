@@ -47,7 +47,7 @@ These are my web logs. I like to put here my thoughts, in french or
 english.
 
 You can find most of the computer related projects I am involved with 
-`on my github page <http://github.com/ametaireau>`_, on `the Mozilla services
+`on my github page <http://github.com/almet>`_, on `the Mozilla services
 github page <https://github.com/mozilla-services>`_ or on `the Spiral project
 page <http://github.com/spiral-project/>`_.
 
