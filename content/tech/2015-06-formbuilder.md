@@ -10,13 +10,13 @@ Depuis, pas mal d'eau à coulé sous les ponts, on est passé par pas mal d'éta
 finalement arriver à une première version de ce service de génération de
 formulaires (à la *google forms*).*
 
-En tant qu'organisateurs d'évènements (petits et gros), je me retrouve souvent
+En tant qu'organisateur d'événements (petits et gros), je me retrouve souvent
 dans une situation ou je dois créer des formulaires pour recueillir des
 informations. Actuellement, la meilleure solution disponible est *Google Forms*,
 mais celle ci à plusieurs problèmes, à commencer par le fait que le code n'est
 pas libre et que les données sont stockées chez Google.
 
-La plupart du temps, le besoin est assez simple: je veux spécifier quelques
+La plupart du temps, le besoin est assez simple : je veux spécifier quelques
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.
 
@@ -26,7 +26,7 @@ Je reviens ensuite plus tard pour voir la liste des réponses apportées.
 
 Il existe pas mal de solutions techniques qui essayent de répondre à la même
 problématique, mais la plupart d'entre elles sont assez souvent compliquées,
-nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
+nécessitent de se créer un compte, et/ou ne vous laissent pas la main libre sur
 les données générées, voire le code est assez difficile à faire évoluer ou à
 déployer.
 
@@ -41,7 +41,7 @@ vues, et des URLs à sauvegarder une fois l'opération terminée.
 
 Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
-qu'eux puissent à leur tour le remplir.
+qu'ils puissent à leur tour le remplir.
 
 ![Capture de la page d'accueil, ou aucun compte n'est requis]({filename}/static/formbuilder-welcome.png)
 
@@ -100,7 +100,7 @@ des points techniques intéressants du projet est qu'il génère en fin de compt
 validation de données *JSON*.
 
 Donc, reprenons! Vous arrivez sur la page d'accueil puis cliquez sur
-"Create a new form", puis vous vous retrouvez face à une interface ou vous pouvez
+"Create a new form", puis vous vous retrouvez face à une interface où vous pouvez
 ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez sur
 "Create the form".
 
