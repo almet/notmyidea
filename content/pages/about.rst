@@ -14,7 +14,7 @@ visent à protéger la vie privée des utilisateurs du web, je me suis tourné v
 le brassage de bière (affaire à suivre !).
 
 `Je pense que la collaboration est meilleure que la compétition
-<http://blog.notmyidea.org/quels-usages-pour-linformatique-fr.html>`_.
+<http://blog.notmyidea.org/usages-informatique-fr.html>`_.
 
 Vous êtes en train de lire mes carnets. Il s'agit de réflexions (techniques ou
 non) que je souhaite partager. Elles sont des fois en Anglais des fois en
