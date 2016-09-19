@@ -96,8 +96,7 @@ parties distinctes:
 
 Au niveau de la *stack* technique, le **formbuilder** est codé en ReactJS. Un
 des points techniques intéressants du projet est qu'il génère en fin de compte du
-[JSON Schema](https://github.com/spiral-project/formbuilder), un format de
-validation de données *JSON*.
+[JSON Schema](http://jsonschema.net/), un format de validation de données *JSON*.
 
 Donc, reprenons! Vous arrivez sur la page d'accueil puis cliquez sur
 "Create a new form", puis vous vous retrouvez face à une interface ou vous pouvez

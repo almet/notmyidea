@@ -5,14 +5,13 @@ Bonjour, je suis Alexis
 
 .. note:: There is an english version of this page below.
 
-Je suis un développeur logiciel intéressé par l'écologie, l'éducation
-(populaire !), la thématique agricole et le *Do It Yourself* (DIY).
+Je suis un brasseur en cours d'installation et un ex-développeur logiciel
+intéressé par l'écologie, l'éducation (populaire !), la thématique agricole et
+le *Do It Yourself* (DIY).
 
-Je travaille actuellement pour la fondation Mozilla, dans l'équipe "Services".
-Nous construisons des services qui visent à protéger la vie privée de nos
-utilisateurs, ainsi qu'un ensemble d'outils qui nous permettent de nous
-faciliter la tache. Tout ce qu'on fait est publié librement sur internet, et
-vous êtes libres de les réutiliser et les améliorer.
+Après avoir travaillé quatre années pour Mozilla, à réaliser des logiciels qui
+visent à protéger la vie privée des utilisateurs du web, je me suis tourné vers
+le brassage de bière (affaire à suivre !).
 
 `Je pense que la collaboration est meilleure que la compétition
 <http://blog.notmyidea.org/quels-usages-pour-linformatique-fr.html>`_.
@@ -31,22 +30,18 @@ La signature de ma clé publique associée est ``9226 A601 000E C314 5061 1B36 1
 
 ----
 
-I'm a software developer with interests ranging from software development to
-ecology, education, agriculture and *do it yourself*.
+I'm an software developer reconverted to brewing, with interests ranging from
+software development to ecology, education, agriculture and *do it yourself*.
 
-I'm currently working at `Mozilla <http://mozilla.org>`_ on the *Services*
-team where I build services which aim to protect your privacy. We are also
-building a bunch of tools in this process.
-
-Everything we do is released with a free licence, meaning you can reuse it and
-improve it if you want.
+I was previously working at `Mozilla <http://mozilla.org>`_ on the *Services*
+team where I built services which aim to protect your privacy.
 
 I think collaboration is better than competition.
 
 These are my web logs. I like to put here my thoughts, in french or
 english.
 
-You can find most of the computer related projects I am involved with 
+You can find most of the computer related projects I am involved with
 `on my github page <http://github.com/ametaireau>`_, on `the Mozilla services
 github page <https://github.com/mozilla-services>`_ or on `the Spiral project
 page <http://github.com/spiral-project/>`_.
