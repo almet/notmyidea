@@ -5,7 +5,7 @@ Bonjour, je suis Alexis
 
 .. note:: There is an english version of this page below.
 
-Je suis un brasseur en cours d'installation et un ex-développeur logiciel
+Je suis `un brasseur en cours d'installation <http://www.vieuxsinge.com>`_ et un ex-développeur logiciel
 intéressé par l'écologie, l'éducation (populaire !), la thématique agricole et
 le *Do It Yourself* (DIY).
 
@@ -30,7 +30,7 @@ La signature de ma clé publique associée est ``9226 A601 000E C314 5061 1B36 1
 
 ----
 
-I'm an software developer reconverted to brewing, with interests ranging from
+I'm an ex-software developer `reconverted to brewing <http://www.vieuxsinge.com>`_, with interests ranging from
 software development to ecology, education, agriculture and *do it yourself*.
 
 I was previously working at `Mozilla <http://mozilla.org>`_ on the *Services*
