@@ -37,10 +37,11 @@ def fetch_bookmarks(path):
             return bookmarks
 
 
-def fetch_firefox_bookmarks(gen, metadata):
+def fetch_firefox_bookmarks(generators):
+    gen = generators[0]
     if 'FIREFOX_BOOKMARKS_PATH' in gen.settings:
         gen.context['bookmarks'] = fetch_bookmarks(gen.settings['FIREFOX_BOOKMARKS_PATH'])
 
 
 def register():
-    signals.article_generator_context.connect(fetch_firefox_bookmarks)
+    signals.all_generators_finalized.connect(fetch_firefox_bookmarks)
