@@ -23,7 +23,7 @@ LOCALE = "fr_FR.utf8"
 DEFAULT_DATE_FORMAT = ('%d %B %Y')
 LINKS = [
     ('Brasserie du Vieux Singe', 'https://www.vieuxsinge.com'),
-    ('A propos', 'http://blog.notmyidea.org/pages/about.html')
+    ('A propos', 'http://blog.notmyidea.org/pages/about.html'),
     ('Messages courts', 'https://twitter.com/ametaireau'),
     ('Code', 'https://github.com/almet'),
 ]
