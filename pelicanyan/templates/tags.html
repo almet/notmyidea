@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Tags{% endblock %}
+{% block title %}{{ SITENAME }} - Marques pages{% endblock %}
 
 {% block content %}
-    <h1>Tags for {{ SITENAME }}</h1>
-    {%- for tag, articles in tags|sort %}
-        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
+    <h1>Quelques marque pages</h1>
+    <ul>
+    {% for bookmark in bookmarks %}
+      <li><a href="{{ bookmark['uri'] }}">{{ bookmark['title']}} {% if 'tags' in bookmark %}{% for tag in bookmark['tags'].split(',') %}#{{tag}} {% endfor %}{% endif %}</a></li>
     {% endfor %}
+</ul>
 {% endblock %}

@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-#import sys
-#sys.path.append('plugins')
-
-#PLUGINS = ['touch', ]
 
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
@@ -14,7 +10,6 @@ DISQUS_SITENAME = 'notmyidea'
 STATIC_PATHS = ['static']
 
 SITEURL = ''
-#SITEURL = 'http://blog.notmyidea.org'
 RELATIVE_URLS = True
 
 TIMEZONE = "Europe/Paris"
@@ -29,4 +24,7 @@ LINKS = [
 ]
 
 PIWIK_SERVER_URL = "//tracker.notmyidea.org/"
+FIREFOX_BOOKMARKS_PATH = '/home/alexis/.mozilla/firefox/fymmscw3.default/bookmarkbackups/'
 PIWIK_SITE_ID = 3
+PLUGIN_PATHS = ['.']
+PLUGINS = ['firefox_bookmarks', ]
