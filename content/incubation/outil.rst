@@ -1,13 +1,15 @@
 L'outil roi
 ###########
 
+:date: 2013-10-01
 :status: draft
 
 Clochix publie de temps en temps de bons billets sur son carnet, un de ceux là
 parle de nos outils, et de la relation que l'on entretien avec eux.
 
 Ça fait longtemps que j'ai ce billet en cours de rédaction, et que ma réfléxion
-sur le sujet n'est pas aboutie. J'ai écris un billet il y à un an et demi sur 
+sur le sujet n'est pas aboutie. J'ai écris un billet il y à un an et demi sur
+le sujet sans jamais le publier.
 
 Je me rends compte que je n'ai pas vraiment la même utilisation des outils
 informatiques que des outils autres. Sur mon ordinateur, je souhaite toujours

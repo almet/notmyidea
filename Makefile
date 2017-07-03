@@ -1,10 +1,13 @@
 PELICAN=pelican
 
-build:
+html:
 	$(PELICAN) -s pelican.conf.py content
 
-upload: build
+upload: html
 	rsync -P -rvz --delete output/* artichaut:/home/www/blog.notmyidea.org
 
-serve: build
-	 cd output && python -m pelican.server 8000
+serve: html
+	cd output && python -m pelican.server 8000&
+
+regenerate: serve
+	$(PELICAN) -r -s pelican.conf.py content

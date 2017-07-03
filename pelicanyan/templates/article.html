@@ -12,14 +12,13 @@
   {% for tag in article.tags %}
     <meta name="tags" contents="{{tag}}" />
   {% endfor %}
-
 {% endblock %}
 
 {% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
 
 {% block content %}
 <div class="posts">
-<div class="post">
+<div class="post article">
     <h1 class="post-title">
       {{ article.title }}
     </h1>

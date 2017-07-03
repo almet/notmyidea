@@ -6,7 +6,7 @@
 
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
-SITENAME = u"Alexis, pensées partagées"
+SITENAME = u"Carnets Web"
 THEME = "pelicanyan"
 # THEME = "theme"
 CSS_FILE = "wide.css"
@@ -28,8 +28,5 @@ LINKS = [
     ('Code', 'https://github.com/almet'),
 ]
 
-PIWIK_SERVER_URL = "//piwik.notmyidea.org/"
+PIWIK_SERVER_URL = "//tracker.notmyidea.org/"
 PIWIK_SITE_ID = 3
-
-PLUGIN_PATHS = ['.']
-PLUGINS = ['links',]

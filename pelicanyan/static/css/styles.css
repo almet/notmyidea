@@ -32,3 +32,62 @@ td img {
 .muted {
   color: #9a9a9a !important;
 }
+
+ul#blog_index  {
+  margin: 1rem -3rem 10rem -3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ul#blog_index li {
+  margin: 1rem;
+  list-style: none;      /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  width: 15rem;
+  min-width: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+ul#blog_index time.updated {
+  color: rgba(0, 0, 0, 0.3);
+  padding: .2rem 1rem;
+  font-size: .9rem;
+  flex: 0 1 auto;
+}
+ul#blog_index li .post {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+ul#blog_index li span a {
+  flex: 1 auto;
+  line-height: 1.3;
+  padding: .6rem 1rem;
+  font-weight: 100;
+  font-family: "Helvetica Neue Light", Helvetica, sans-serif;
+  font-size: 1rem;
+}
+ul#blog_index time.updated::before {
+  content: "Publié : ";
+  color: rgba(0, 0, 0, 0.3);
+}
+.created {
+  padding: .6rem 1rem;
+  font-weight: 400;
+}
+ul#blog_index time.created::before {
+  content: " Écrit le ";
+  color: rgba(0, 0, 0, 0.3);
+}
+.headline {
+    padding: .6rem 1rem;
+}
+
+.post {
+  margin-bottom: 0 !important;
+}
+
+.container {
+  max-width: 70rem;
+}

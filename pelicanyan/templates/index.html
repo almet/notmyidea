@@ -1,26 +1,24 @@
 {% extends "base.html" %}
+{% block extrahead %}
+<style>
+
+</style>
+{% endblock %}
 {% block content %}
 <div class="content-title">
-{% block content_title %}
-{% endblock %}
-<p>Je suis <a href="/pages/about.html">Alexis Métaireau</a>, un développeur
+{% block content_title %}{% endblock %}
+<p>Bonjour,</p>
+<p>je suis <a href="/pages/about.html">Alexis</a>. Je vis à Rennes. Je suis
 intéressé par l'éducation, l'apprentissage, le partage et la souveraineté populaire.</p>
 
-<p>Vous pouvez jeter un oeil à <a href="/pages/projets.html">la liste de mes projets passés ou en cours</a>,
-ou à <a href="/category/links.html">quelques liens</a> glanés par ci par là.</p>
-</div>
 <div class="posts">
+  <ul id="blog_index">
   {% for article in articles_page.object_list %}
   {% if not article.unlisted or article.category == category %}
-  <div class="post">
-    <h1 class="post-title" style="display: inline">
-      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-    </h1>
-    <span class="post-date" style="display: inline">{{ article.locale_date }}</span>
-    <span class="headline" style="display: block">{{ article.headline }}</span>
-  </div>
+  <li><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></li>
   {% endif %}
   {% endfor %}
+  </ul>
 </div>
 {% include 'pagination.html' %}
 {% endblock content %}
