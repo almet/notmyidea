@@ -1,17 +1,5 @@
 from pelican import signals
 
-"""
-Author 	: Jay Rambhia
-email 	: jayrambhia777@gmail.com
-Git 	: https://github.com/jayrambhia
-gist 	: https://gist.github.com/jayrambhia
-=============================================
-Name	: bookmarkFirefox
-Repo    : Bookmark-Manager
-Git     : https://github.com/jayrambhia/Bookmark-Manager
-version	: 0.2
-"""
-
 import os
 import json
 import lz4
@@ -20,7 +8,11 @@ import lz4
 def fetch_bookmarks(path):
     '''
     Decodes browser bookmark backup files using json
-    Returns a dictionary with bookmark url as key and (title, tag, add_date) tuple as value
+    Returns a dictionary with bookmark url as key and (title, tag, add_date)
+    tuple as value.
+
+    The logic have been extracted and adapted from
+    https://github.com/jayrambhia/Bookmark-Manager
     '''
     files = os.listdir(path)
     files.sort()
