@@ -1,7 +1,7 @@
 How are you handling your shared expenses?
 ##########################################
 
-:tag: python, flask, budget-manager
+:tags: python, flask, budget-manager
 :date: 2011-10-15
 
 **TL;DR:** We're kick-starting a new application to manage your shared

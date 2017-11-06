@@ -27,4 +27,4 @@ PIWIK_SERVER_URL = "//tracker.notmyidea.org/"
 FIREFOX_BOOKMARKS_PATH = '/home/alexis/.mozilla/firefox/fymmscw3.default/bookmarkbackups/'
 PIWIK_SITE_ID = 3
 PLUGIN_PATHS = ['.']
-PLUGINS = ['firefox_bookmarks', ]
+#PLUGINS = ['firefox_bookmarks', ]

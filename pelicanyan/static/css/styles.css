@@ -87,7 +87,3 @@ ul#blog_index time.created::before {
 .post {
   margin-bottom: 0 !important;
 }
-
-.container {
-  max-width: 70rem;
-}
