@@ -5,6 +5,7 @@ L'horizon
 :headline: Temps de changer d'horizon. Mon départ de Mozilla et le début d'une
            nouvelle histoire.
 :category: thoughts
+:image: images/horizon.jpg
 
 .. epigraph::
 

@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <div class="container content">
+      <div class="{% block containerclass %}container{% endblock %} content">
         {% block content %}{% endblock %}
       </div>
 
@@ -123,7 +123,5 @@
       <!-- End Piwik Code -->
       {% endif %}
      </div>
-  <script src="{{ SITEURL }}/theme/js/instantclick.min.js" data-no-instant></script>
-  <script data-no-instant>InstantClick.init();</script>
   </body>
 </html>

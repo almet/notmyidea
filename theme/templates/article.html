@@ -14,19 +14,57 @@
   {% endfor %}
 {% endblock %}
 
+{% block extrahead %}
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+{% if article.image %}
+<style>
+#illustration {
+    max-width: 800px;
+    align: center;
+    margin: auto;
+}
+</style>
+{% endif %}
+{% endblock %}
+
 {% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<div class="posts">
+<div id="main" class="posts">
+<h1 class="post-title">{{ article.title }}</h1>
+<span class="post-date">{{ article.locale_date | capitalize }}</span>
+<img id="illustration" src="{{ article.image}}" />
 <div class="post article">
-    <h1 class="post-title">
-      {{ article.title }}
-    </h1>
     {% if article.headline %}
-    <h2 class="post-title">{{ article.headline }}</h2>
+    <h2 class="post-headline">{{ article.headline }}</h2>
     {% endif %}
-    <span class="post-date">{{ article.locale_date | capitalize }}</span>
-
+    <h1>🌟</h1>
     {{ article.content }}
   </div>
 </div>

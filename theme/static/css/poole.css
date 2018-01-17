@@ -212,13 +212,29 @@ pre code {
 
 /* Quotes */
 blockquote {
-  padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  background-color: #F2FBFE
+  background: #f9f9f9;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
 }
-blockquote p:last-child {
-  margin-bottom: 0;
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 1em;
+    vertical-align: -0.4em
+}
+blockquote p {
+  display: inline;
 }
 @media (min-width: 30em) {
   blockquote {
@@ -297,6 +313,12 @@ tbody tr:nth-child(odd) th {
   margin-right: auto;
 }
 
+.container-wide {
+  padding-left:  1rem;
+  padding-right: 1rem;
+  margin-left:  auto;
+  margin-right: auto;
+}
 
 /*
  * Masthead
@@ -354,6 +376,7 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  text-align: center;
 }
 
 /* Related posts */

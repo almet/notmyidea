@@ -5,7 +5,7 @@ AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Carnets Web"
 THEME = "theme"
 DISQUS_SITENAME = 'notmyidea'
-STATIC_PATHS = ['static']
+STATIC_PATHS = ['static', 'images']
 
 SITEURL = ''
 RELATIVE_URLS = True

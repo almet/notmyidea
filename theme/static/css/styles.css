@@ -61,11 +61,19 @@ ul#blog_index li .post {
   flex-direction: column;
 }
 ul#blog_index li span a {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 8px 5px;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    box-decoration-break: clone;
+    background-color: #fff;
+
   flex: 1 auto;
   line-height: 1.3;
   padding: .6rem 1rem;
   font-weight: 100;
-  font-family: "Helvetica Neue Light", Helvetica, sans-serif;
   font-size: 1rem;
 }
 ul#blog_index time.updated::before {
@@ -73,6 +81,7 @@ ul#blog_index time.updated::before {
   color: rgba(0, 0, 0, 0.3);
 }
 .created {
+  display: block;
   padding: .6rem 1rem;
   font-weight: 400;
 }
@@ -80,10 +89,16 @@ ul#blog_index time.created::before {
   content: " Écrit le ";
   color: rgba(0, 0, 0, 0.3);
 }
-.headline {
-    padding: .6rem 1rem;
-}
 
 .post {
   margin-bottom: 0 !important;
+}
+
+.description {
+    display: block;
+    background-color: #fff;
+    opacity: 0.9;
+    padding: 10px;
+    text-align: justify;
+    justify-content: center;
 }

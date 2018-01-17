@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block containerclass %}container-wide{% endblock %}
 {% block extrahead %}
 <style>
 
@@ -8,13 +9,13 @@
 <div class="content-title">
 {% block content_title %}{% endblock %}
 
-<p>Bonjour, et bienvenue sur mes (<a href="/pages/about.html">Alexis</a>) carnets. Il s'agit de réflexions que je souhaite partager, bonne lecture !</p>
+<p>Bonjour, et bienvenue sur mes (<a href="/pages/about.html">Alexis</a>) carnets. Il s'agit de réflexions que je souhaite partager, depuis 2009. Bonne lecture !</p>
 
 <div class="posts">
   <ul id="blog_index">
   {% for article in articles_page.object_list %}
   {% if not article.unlisted or article.category == category %}
-  <li><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></li>
+  <li style="background-image: url('{{ article.image }}') !important;"><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="description"><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span></li>
   {% endif %}
   {% endfor %}
   </ul>
