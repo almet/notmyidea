@@ -3,9 +3,7 @@
 PATH = "content"
 AUTHOR = u'Alexis Métaireau'
 SITENAME = u"Carnets Web"
-THEME = "pelicanyan"
-# THEME = "theme"
-CSS_FILE = "wide.css"
+THEME = "theme"
 DISQUS_SITENAME = 'notmyidea'
 STATIC_PATHS = ['static']
 
