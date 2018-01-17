@@ -1,0 +1,156 @@
+Rôles
+#####
+
+:category: thoughts
+:date: 2015-06-29
+:headline: De l'importance des rôles informels et de leur partage au sein d'un
+           groupe.
+
+.. epigraph::
+
+    Un […] dispositif consiste à tenter de faire bouger les rôles (pré)acquis
+    ou qui se fixent dans le groupe, les pousser ailleurs que là où ils ont
+    pris l’habitude de se réfugier suivant leur pente « naturelle ».
+
+    Pour ce faire, le groupe prendra du temps pour identifier les types de
+    positions qu’adoptent ses protagonistes et les affects qui y sont liés,
+    imaginer ensuite des questions à résoudre ou des propositions à travailler
+    qui soient susceptibles d’enrichir la palette, les couleurs de la fonction
+    de chacun dans le groupe et les manières qui sont les siennes d’intervenir
+    et de faire évoluer l’histoire.
+
+    -- David Vercauteren, `Micropolitiques des groupes
+      <http://micropolitiques.collectifs.net/Role>`_
+
+Réussir la transformation d'un espace compétitif vers un groupe soudé demande
+de réaliser quels sont les points forts de chacun au sein d'un groupe.
+
+Une solution évoquée par `StarHawk <http://www.starhawk.org/about/>`_, reprise
+par *David Vercauteren* repose sur l'existence de rôles informels au sein des
+groupes et la nécessité de les faire tourner (ainsi que les responsabilités
+attachées).
+
+Parmi les rôles principaux, quelques autres citations:
+
+.. note:: l'emphase est de mon fait, et je retravaillé très legèrement certains
+          passages afin d'avoir une lecture plus fluide. Je vous invite à suivre
+          les liens pour voir les "questions que chaque rôle fait exister", et
+          poursuivre la lecture du livre, qui est entièrement disponible en
+          ligne.
+
+`Les corbeaux <http://micropolitiques.collectifs.net/Role?artpage=2-5#outil_sommaire_0>`_
+=========================================================================================
+
+.. epigraph::
+
+  Les Corbeaux sont visionnaires […] Ils voient à long terme, et gardent en
+  ligne de mire les objectifs du groupe. Ils suggèrent de nouvelles directions,
+  dressent des plans, développent des stratégies et anticipent les problèmes et
+  les besoins.
+
+  Les Corbeaux ont souvent beaucoup d’influence sur le groupe. Si une ou deux
+  personnes pensent à des plans au long-terme, les autres acquiesceront,
+  simplement parce qu’ils n’ont pas amené d’autres propositions. **Le groupe
+  aurait intérêt à considérer ensemble les questions du Corbeau**
+
+`Les graces <http://micropolitiques.collectifs.net/Role?artpage=2-5#outil_sommaire_1>`_
+=======================================================================================
+
+.. epigraph::
+
+  Les Grâces sont toujours attentives à l’énergie du groupe, prêtes à la
+  renforcer au moment où elle faiblit, à la diriger et à la canaliser quand
+  elle est forte.
+
+  Elles apportent au groupe […] enthousiasme, énergie, capacité
+  à s’agrandir. **Elles font en sorte que les gens se sentent bien**, génèrent de
+  l’enthousiasme pour le groupe, accueillent les nouveaux venus, amènent de
+  nouvelles personnes. Elles offrent au groupe l’inspiration et génèrent de
+  nouvelles idées.
+
+`Les dragons <http://micropolitiques.collectifs.net/Role?artpage=2-5#outil_sommaire_2>`_
+========================================================================================
+
+.. epigraph::
+
+    Le dragon permet au groupe de rester connecté à […] l’aspect pratique et
+    réaliste des choses. […] Le dragon veille aux ressources du groupe, à ses
+    frontières et donne voix à ses limites.
+
+    Questions que fait exister le dragon:
+
+    - Notre manière de travailler est-elle viable ?
+    - Nos ressources sont-elles renouvelées ?
+    - Les gens s’épuisent-ils ? Pourquoi ?
+    - Pouvons-nous vraiment nous lancer dans ce projet et le mener à bien
+      convenablement ?
+    - De quelles frontières avec l’extérieur avons-nous besoin et voulons-nous
+      ?
+    - Comment établissons-nous ces frontières ? Comment nous protégeons-nous
+      des intrusions ? Invasions ? Distractions ? De ce qui épuise nos énergies
+      ?
+
+    **Les Dragons établissent des frontières qui donnent au groupe un sentiment
+    de sécurité et des limites qui le rendent viable dans le temps**. Ils peuvent
+    être perçus comme des rabat-joie, mais ils peuvent gagner l’estime de ceux
+    qui, dans le groupe, se sentent dépassés et ne peuvent partager l’énergie
+    des Corbeaux et des Grâces.
+
+    Nourrir les Dragons peut permettre au groupe de se maintenir dans le temps.
+    Mais une fois encore, si ce rôle ne tourne pas, même les Dragons risquent
+    de s’épuiser.
+
+`Les araignées <http://micropolitiques.collectifs.net/Role?artpage=2-5#outil_sommaire_3>`_
+==========================================================================================
+
+.. epigraph::
+
+  Le centre d’un groupe peut consister en un « cœur spirituel », **un but ou une
+  vision commune**, ou peut se manifester à travers une personne. Dans les modes
+  de pensée hiérarchique, le professeur ou le gourou occupe le centre du
+  réseau. […]
+
+  Dans les groupes non-hiérarchiques, certaines personnes peuvent être perçues
+  comme centrales : en disposant des informations dont les autres ont besoin,
+  en étant le point de contact pour les autres.
+
+  Une Araignée est toutefois plus efficace en ne monopolisant pas la
+  communication et les informations mais en posant les questions susceptibles
+  de créer et de renforcer un véritable réseau d’interactions complexes.
+
+`Les serpents <http://micropolitiques.collectifs.net/Role?artpage=2-5#outil_sommaire_4>`_
+=========================================================================================
+
+.. epigraph::
+
+  Les serpents cultivent une attention particulière à la manière dont les gens
+  se sentent. […]
+
+  Les serpents sont au courant de ce qui se murmure dans les couloirs, des
+  conflits naissants, et les mettent sur la place publique, là où ils
+  pourraient aider à une médiation, à une résolution du problème. […]
+
+  Les serpents transgressent les lois du Censeur, **parlent des non-dits, mettent
+  en évidence ce que d’autres ne voient pas ou préfèrent garder caché**. […]
+
+  Les serpents peuvent diminuer l’antipathie dont ils font l’objet s’ils
+  prennent la peine de poser des questions au groupe et non d’apporter des
+  analyses.
+
+Ainsi, il est possible de se rendre compte de la complexité et de l'importance
+d'une position ou d'une autre, et de les faire évoluer ensemble, en prenant en
+compte leur impact positif sur le groupe.
+
+Il est par exemple possible, après avoir expérimenté des rôles, de questionner
+leur pertinence et d'établir des pistes d'amélioration en enlevant une part
+importante d'affect personnel qui parfois empêche des discussions
+constructives.
+
+Je n'ai pour l'instant pas pu expérimenter l'évolution des rôles au sein d'un
+groupe donné, mais je peux d'ores et déjà me rendre compte que selon les
+groupes et selon les moments je n'ai pas le même rôle (tour à tour dragon,
+araignée et grace, parfois corbeau, rarement serpent)
+
+Aussi, il semble que le groupe doive souhaiter l'établissement d'un
+environnement *horizontal*, avec une considération partagée de la direction que
+le groupe souhaite prendre pour qu'un tel dispositif ait du sens.
