@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block containerclass %}container-wide{% endblock %}
+{% block containertitleclass %}container-wide{% endblock %}
 {% block extrahead %}
 <style>
 
@@ -15,7 +16,7 @@
   <ul id="blog_index">
   {% for article in articles_page.object_list %}
   {% if not article.unlisted or article.category == category %}
-  <li style="background-image: url('{{ article.image }}') !important;"><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="description"><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span></li>
+  <li style="background-image: url('{% if article.image %}{{ article.image }}{% else %}https://loremflickr.com/320/{{ 240 + loop.index }} {% endif %}') !important;"><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="description"><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span></li>
   {% endif %}
   {% endfor %}
   </ul>

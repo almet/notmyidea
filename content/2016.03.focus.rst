@@ -5,6 +5,10 @@ Focusing on what matters
 :date: 2016-03-17
 :tags: focus, time-management
 :category: thoughts
+:image: images/focus.jpg
+:image_link: https://www.flickr.com/photos/hansel5569/9397600663/in/photolist-fjragD-9EXcd5-oe2p14-23iTigF-7KBLmy-asVELm-V2rrkG-nDksc7-egrsJP-kbjM1t-iukTkY-dGKeMh-57E6to-6gH4sT-4ryLBG-78d9ro-7qr1BH-eLPdyP-NPN5q-4MPGmc-2CC4h6-97XaBc-aWRhkz-fmVQnq-bS2XY6-bUvhrL-Veeu3u-6p8SBC-c8Ppwm-57d3ZA-3fK6eh-mLrXp8-frHAzg-e8Tu86-6UH6FK-aUK8Zn-sqN8q-98bEdm-jbdFEj-TLTpDx-4Nxj1-9YfCgz-dhR16n-e2SELM-9JkbuY-WVomjJ-VSuCfC-iiapMh-gAjfm9-QVxcU2
+:image_author: 55Laney69
+:image_license: CC BY-NC 2.0
 
 I do have a problem with information.
 

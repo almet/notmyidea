@@ -2,6 +2,10 @@ Title: Comment est-ce que vous générez vos formulaires ?
 Headline: Présentation d'une solution pour gérer vos formulaires en gardant la main sur les données générées
 Date: 2016-05-31
 Category: tech
+Image: images/forms.jpg
+Image_link: https://www.flickr.com/photos/kurtfaler/2946570890/in/photolist-5unWSo-nxwHk4-fwjQ1b-Xk5F1e-2nyhfK-Wewupi-qRH2Xe-2XeevA-2nyiGe-VoQgbo-2nyh1z-rgyTKm-aPe8yB-9X8MXQ-5zmZi-Vmx4Qu-9X5V9P-5g5EkR-9erwKR-pfUuMZ-obTwRp-dsPpSz-ckgYNh-9X8Zvf-ASZGaH-7LTmLX-fuJpoW-dabtsC-e32SSu-jV9aSa-5vvCn5-9CAB7c-g6y6sK-8N5tB8-87iko3-dsPqmz-4PAkkC-9X67E8-dYGSEz-9X634n-a2GgEA-98kTPP-a6Lpcf-9X5YMk-jcUL1s-7QJYFF-axhDsE-p9vhA8-fA6GmA-5kZtaV
+Image_author: Kurt Faler
+Image_license: CC BY-NC-ND 2.0
 
 TL; DR: Je viens à peine de *releaser* la première version d'un service de génération de formulaires.
 Allez jeter un coup d'œil sur [https://www.fourmilieres.net](https://www.fourmilieres.net)

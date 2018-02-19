@@ -60,12 +60,21 @@ h1 {
 <h1 class="post-title">{{ article.title }}</h1>
 <span class="post-date">{{ article.locale_date | capitalize }}</span>
 <img id="illustration" src="{{ article.image}}" />
+
 <div class="post article">
     {% if article.headline %}
     <h2 class="post-headline">{{ article.headline }}</h2>
     {% endif %}
     <h1>🌟</h1>
     {{ article.content }}
+    {% if article.image and article.image_link and article.image_author and article.image_license %}
+    <em>L'image d'illustration utilisée est un travail de <a href="{{ article.image_link }}">{{ article.image_author}}</a> proposé sous license {{ article.image_license }}. Merci !</em>
+    {% endif %}
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
   </div>
 </div>
 {% endblock %}

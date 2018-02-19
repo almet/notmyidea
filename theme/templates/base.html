@@ -47,7 +47,7 @@
     {% include 'sidebar.html' %}
     <div class="wrap">
       <div class="masthead">
-        <div class="container">
+        <div class="{% block containertitleclass %}container{% endblock %}">
           <h3 class="masthead-title">
             <a href="{{ SITEURL }}/" title="Home">{{ SITENAME }}</a>
             {% if SITEDESCRIPTION %}
