@@ -25,5 +25,5 @@ compte, mais il s'agit nécessairement de projets non *commandités* par l'exté
 Encore un signal dans la direction du travailler moins, cette fois ci pour
 être plus créatif.
 
-.. image:: {filename}/static/soupasoups.jpg
+.. image:: {filename}/images/soupasoups.jpg
     :alt: Soupa'Soups.
