@@ -28,12 +28,8 @@ non) que je souhaite partager. Elles sont des fois en Anglais des fois en
 Français.
 
 Vous pouvez également consulter `mes notes de navigation
-<http://notes.notmyidea.org/>`_, des bouts de web que je voulais sauvegarder.
+<https://almet.github.com/webnotes>`_, des bouts de web que je voulais sauvegarder.
 
 Si vous souhaitez me contacter, utilisez le mail: `alexis@notmyidea.org`.
-
-Si ce n'est pas du charabia pour vous, préférez m'envoyer un email chiffré !
-La signature de ma clé publique est ``9226 A601 000E C314 5061 1B36 1EDF 5A7A 485D 4A11``.
-Vous pouvez aussi directement la trouver en pièce jointe de mes mails ou `la télécharger ici </static/alexis.notmyidea.org.asc>`_.
 
 Bonne lecture !
