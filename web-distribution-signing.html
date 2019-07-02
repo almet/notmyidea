@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Web distribution signing - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Web distribution signing</h1>
+<span class="post-date">12 octobre 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Bringing trust back between software authors and user agents.</h2>
+    <h1>🌟</h1>
+    <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">I'm not a crypto expert, nor pretend to be one. These are thoughts
+I want to share with the crypto community to actually see if any
+solution exists to solve this particular problem.</p>
+</div>
+<p>One <a class="reference external" href="http://www.tonyarcieri.com/whats-wrong-with-webcrypto">often pointed</a>
+flaw in web-based cryptographic applications is the fact that there is no way
+to trust online software distributions. Put differently, you don't actually
+trust the software authors but are rather trusting the software distributors
+and certificate authorities (CAs).</p>
+<p>I've been talking with a few folks in the past months about that and they
+suggested me to publish something to discuss the matter. So here I come!</p>
+<div class="section" id="the-problem-attack-vectors">
+<h2>The problem (Attack vectors)</h2>
+<p>Let's try to describe a few potential attacks:</p>
+<p><em>Application Authors</em> just released a new version of their open source web
+crypto messaging application. An <em>Indie Hoster</em> installs it on their servers so
+a wide audience can actually use it.</p>
+<p>Someone alters the files on <em>Indie Hoster</em> servers, effectively replacing them with
+other <em>altered files</em> with less security properties / a backdoor. This someone could either be
+an <em>Evil Attacker</em> which found its way trough, the <em>Indie Hoster</em> or a CDN
+which delivers the files,</p>
+<p>Trusted <em>Certificate Authorities</em> (&quot;governments&quot; or &quot;hacking team&quot;) can also
+trick the User Agents (i.e. Firefox) into thinking they're talking to <em>Indie
+Hoster</em> even though they're actually talking to a different server.</p>
+<p><strong>Altered files</strong> are then being served to the User Agents, and <em>Evil Attacker</em>
+now has a way to actually attack the end users.</p>
+</div>
+<div class="section" id="problem-mitigation">
+<h2>Problem Mitigation</h2>
+<p>Part of the problem is solved by the recently introduced <a class="reference external" href="https://w3c.github.io/webappsec/specs/subresourceintegrity/">Sub Resource
+Integrity</a>
+(SRI). To quote them: &quot;[it] defines a mechanism by which user agents may verify
+that a fetched resource has been delivered without unexpected manipulation.&quot;.</p>
+<p>SRI is a good start, but isn't enough: it ensures the assets (JavaScript files,
+mainly) loaded from a specific HTML page are the ones the author of the HTML
+page intends. However, SRI doesn't allow the User Agent to ensure the HTML page
+is the one he wants.</p>
+<p>In other words, we miss a way to create trust between <em>Application Authors</em> and
+<em>User Agents</em>. The User-Agent currently has to trust the <em>Certificate
+Authorities</em> and the delivery (<em>Indie Hoster</em>).</p>
+<p>For desktop software distribution: <em>Crypto Experts</em> audit the software, sign it
+somehow and then this signature can be checked locally during installation or
+runtime. It's not automated, but at least it's possible.</p>
+<p>For web applications, we don't have such a mechanism, but it should be
+possible. Consider the following:</p>
+<ul class="simple">
+<li><em>App Authors</em> publish a new version of their software; They provide a hash of
+each of their distributed files (including the HTML files);</li>
+<li><em>Crypto Experts</em> audit these files and sign the hashes somehow;</li>
+<li><em>User Agents</em> can chose to trust some specific <em>Crypto Experts</em>;</li>
+<li>When a <em>User Agent</em> downloads files, it checks if they're signed by a trusted
+party.</li>
+</ul>
+</div>
+<div class="section" id="chosing-who-you-trust">
+<h2>Chosing who you trust</h2>
+<p>In terms of user experience, handling certificates is hard, and that's where
+the community matters. Distributions such as <a class="reference external" href="https://tails.boom.org">Tails</a>
+could chose who they trust to verify the files, and issue warnings / refuse to
+run the application in case files aren't verified.</p>
+<p>But, as highligted earlier, CAs are hard to trust. A new instance of the same
+CA system wouldn't make that much differences, expect the fact that
+distributions could ship with a set of trusted authorities (for which
+revocation would still need to be taken care of).</p>
+<blockquote class="epigraph">
+<p>[...] users are vulnerable to MitM attacks by the authority, which can vouch
+for, or be coerced to vouch for, false keys. This weakness has been
+highlighted by recent CA scandals. Both schemes can also be attacked if the
+authority does not verify keys before vouching for them.</p>
+<p class="attribution">&mdash;<a class="reference external" href="http://cacr.uwaterloo.ca/techreports/2015/cacr2015-02.pdf">SoK : Secure Messaging</a>;</p>
+</blockquote>
+<p>It seems that some other systems could allow for something more reliable:</p>
+<blockquote class="epigraph">
+<p>Melara et al proposed CONIKS, using a series of chained commitments to Merkle
+prefix trees to build a key directory [...] for which individual users can
+efficiently verify the consistency of their own entry in the directory
+without relying on a third party.</p>
+<p>This “self- auditing log” approach makes the system partially have no
+auditing required (as general auditing of non-equivocation is still required)
+and also enables the system to be privacy preserving as the entries in the
+directory need not be made public. This comes at a mild bandwidth cost not
+reflected in our table, estimated to be about 10 kilobytes per client per day
+for self-auditing.</p>
+<p class="attribution">&mdash;<a class="reference external" href="http://cacr.uwaterloo.ca/techreports/2015/cacr2015-02.pdf">SoK : Secure Messaging</a>;</p>
+</blockquote>
+<p>Now, I honestly have no idea if this thing solves the whole problem, and I'm pretty sure
+this design has many security problems attached to it.</p>
+<p>However, that's a problem I would really like to see solved one day, so here
+the start of the discussion, don't hesitate to <a class="reference external" href="/pages/about.html">get in touch</a>!</p>
+</div>
+<div class="section" id="addendum">
+<h2>Addendum</h2>
+<p>It seems possible to increase the level a user has in a Web Application by
+adding indicators in the User-Agent. For instance, when using an application
+that's actually signed by someone considered trustful by the User-Agent (or the
+distributor of the User-Agent), a little green icon could be presented to the
+User, so they know that they can be confident about this.</p>
+<p>A bit like User-Agents do for SSL, but for the actual signature of the files
+being viewed.</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Génération de formulaires, geolocalisés ? - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+    <meta name="tags" contents="GIS" />
+    <meta name="tags" contents="forms" />
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Génération de formulaires, geolocalisés ?</h1>
+<span class="post-date">04 février 2012</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>On a un plan. Un &quot;truc de ouf&quot;.</p>
+<p>À plusieurs reprises, des amis m'ont demandé de leur coder la même chose, à
+quelques détails près: une page web avec un formulaire qui permettrait de
+soumettre des informations géographiques, lié à une carte et des manières de
+filtrer l'information.</p>
+<p>L'idée fait son bout de chemin, et je commence à penser qu'on peut même avoir
+quelque chose de vraiment flexible et utile. J'ai nommé le projet <em>carto-forms</em>
+pour l'instant (mais c'est uniquement un nom de code).</p>
+<p>Pour résumer: et si on avait un moyen de construire des formulaires, un peu
+comme Google forms, mais avec des informations géographiques en plus?</p>
+<p>Si vous ne connaissez pas Google forms, il s'agit d'une interface simple
+d'utilisation pour générer des formulaires et récupérer des informations depuis
+ces derniers.</p>
+<p>Google forms est un super outil mais à mon avis manque deux choses importantes:
+premièrement, il s'agit d'un outil propriétaire (oui, on peut aussi dire
+privateur) et il n'est donc pas possible de le hacker un peu pour le faire
+devenir ce qu'on souhaite, ni l'installer sur notre propre serveur.
+Deuxièmement, il ne sait pas vraiment fonctionner avec des informations
+géographiques, et il n'y à pas d'autre moyen de filtrer les informations que
+l'utilisation de leur système de feuilles de calcul.</p>
+<p>Après avoir réfléchi un petit peu à ça, j'ai contacté <a class="reference external" href="http://blog.mathieu-leplatre.info/">Mathieu</a> et les anciens
+collègues de chez <a class="reference external" href="http://makina-corpus.com">Makina Corpus</a>, puisque les projets libres à base de carto
+sont à même de les intéresser.</p>
+<p>Imaginez le cas suivant:</p>
+<ol class="arabic simple">
+<li>Dans une &quot;mapping party&quot;, on choisit un sujet particulier à cartographier et
+on design un formulaire (liste des champs (tags) a remplir + description +
+le type d'information) ;</li>
+<li>Sur place, les utilisateurs remplissent les champs du formulaire avec ce
+qu'ils voient. Les champs géolocalisés peuvent être remplis automatiquement
+avec la géolocalisation du téléphone ;</li>
+<li>À la fin de la journée, il est possible de voir une carte des contributions,
+avec le formulaire choisi ;</li>
+<li>Un script peut importer les résultats et les publier vers OpenStreetMap.</li>
+</ol>
+<div class="section" id="quelques-cas-d-utilisation">
+<h2>Quelques cas d'utilisation</h2>
+<p>J'arrive à imaginer différents cas d'utilisation pour cet outil. Le premier est
+celui que j'ai approximativement décrit plus haut: la génération de cartes de
+manière collaborative, avec des filtres à facettes. Voici un flux d'utilisation
+général:</p>
+<ul>
+<li><p class="first">Un &quot;administrateur&quot; se rend sur le site web et crée un nouveau formulaire
+pour l'ensemble des évènements alternatifs. Il crée les champs suivants:</p>
+<ul class="simple">
+<li>Nom: le champ qui contient le nom de l'évènement.</li>
+<li>Catégorie: la catégorie de l'évènement (marche, concert, manifestation…).
+Il peut s'agir d'un champ à multiples occurrences.</li>
+<li>Le lieu de l'évènement. Celui-ci peut être donné soit par une adresse soit
+en sélectionnant un point sur une carte.</li>
+<li>Date: la date de l'évènement (un &quot;date picker&quot; peut permettre cela
+facilement)</li>
+</ul>
+<p>Chaque champ dans le formulaire a des informations sémantiques associées
+(oui/non, multiple sélection, date, heure, champ géocodé, sélection carto,
+etc.)</p>
+</li>
+<li><p class="first">Une fois terminé, le formulaire est généré et une URL permet d'y accéder.
+(par exemple <a class="reference external" href="http://forms.notmyidea.org/alternatives">http://forms.notmyidea.org/alternatives</a>).</p>
+</li>
+<li><p class="first">Une API REST permet à d'autres applications d'accéder aux informations et d'en
+ajouter / modifier de nouvelles.</p>
+</li>
+<li><p class="first">Il est maintenant possible de donner l'URL à qui voudra en faire bon usage.
+N'importe qui peut ajouter des informations. On peut également imaginer une
+manière de modérer les modifications si besoin est.</p>
+</li>
+<li><p class="first">Bien sur, la dernière phase est la plus intéressante: il est possible de
+filtrer les informations par lieu, catégorie ou date, le tout soit via une
+API REST, soit via une jolie carte et quelques contrôles bien placés, dans le
+navigateur.</p>
+</li>
+</ul>
+<p>Vous avez dû remarquer que le processus de création d'un formulaire est
+volontairement très simple. L'idée est que n'importe qui puisse créer des
+cartes facilement, en quelques clics. Si une API bien pensée suit, on peut
+imaginer faire de la validation coté serveur et même faire des applications
+pour téléphone assez simplement.</p>
+<p>Pour aller un peu plus loin, si on arrive à penser un format de description
+pour le formulaire, il sera possible de construire les formulaires de manière
+automatisée sur différentes plateformes et également sur des clients
+génériques.</p>
+<p>On imagine pas mal d'exemples pour ce projet: des points de recyclage, les
+endroits accessibles (pour fauteuils roulants etc.), identification des arbres,
+bons coins à champignons, recensement des espèces en voie de disparition
+(l'aigle de Bonelli est actuellement suivi en utilisant une feuille de calcul
+partagée !), suivi des espèces dangereuses (le frelon asiatique par exemple),
+cartographier les points d'affichage publicitaires, participation citoyenne
+(graffitis, nids de poule, voir <a class="reference external" href="http://fixmystreet.ca">http://fixmystreet.ca</a>), geocaching,
+trajectoires (randonnées, coureurs, cyclistes)…</p>
+<p>Voici quelques exemples où ce projet pourrait être utile (la liste n'est pas
+exhaustive):</p>
+<div class="section" id="un-backend-sig-simple-a-utiliser">
+<h3>Un backend SIG simple à utiliser</h3>
+<p>Disons que vous êtes développeur mobile. Vous ne voulez pas vous encombrer avec
+PostGIS ou écrire du code spécifique pour récupérer et insérer des données SIG!
+Vous avez besoin de <em>Carto-Forms</em>! Une API simple vous aide à penser vos
+modèles et vos formulaires, et cette même API vous permet d'insérer et de
+récupérer des données. Vous pouvez vous concentrer sur votre application et non
+pas sur la manière dont les données géographiques sont stockées et gérées.</p>
+<p>En d'autres termes, vous faites une distinction entre le stockage des
+informations et leur affichage.</p>
+<p>Si vous êtes un développeur django, plomino, drupal etc. vous pouvez développer
+un module pour &quot;plugger&quot; vos modèles et votre  interface utilisateur avec celle
+de <em>Carto-Forms</em>. De cette manière, il est possible d'exposer les formulaires
+aux utilisateurs de vos backoffices. De la même manière, il est possible
+d'écrire des widgets qui consomment des données et les affichent (en utilisant
+par exemple une bibliothèque javascript de webmapping).</p>
+</div>
+<div class="section" id="un-outil-de-visualisation">
+<h3>Un outil de visualisation</h3>
+<p>Puisque les données peuvent être proposées de manière automatisée en utilisant
+l'API, vous pouvez utiliser la page de résultat de Carto-forms comme un outil
+de visualisation.</p>
+<p>Il est possible d'explorer mon jeu de données en utilisant des filtres sur
+chacun des champs. La recherche à facettes peut être une idée pour faciliter ce
+filtrage. Une carte affiche le résultat. Vous avez l'impressoin d'être en face
+d'un système d'aide à la décision !</p>
+<p>Évidemment, il est possible de télécharger les données brutes (geojson, xml).
+Idéalement, le mieux serait d'obtenir ces données filtrées directement depuis
+une API Web, et un lien permet de partager la page avec l'état des filtres et
+le niveau de zoom / la localisation de la carte.</p>
+</div>
+<div class="section" id="un-service-generique-pour-gerer-les-formulaires">
+<h3>Un service générique pour gérer les formulaires</h3>
+<p>Si vous souhaitez générer un fichier de configuration (ou ce que vous voulez,
+messages emails, …) vous aurez besoin d'un formulaire et d'un template pour
+injecter les données proposées par les utilisateurs et récupérer un résultat.</p>
+<p>Un service de gestion des formulaires pourrait être utile pour créer des
+formulaires de manière automatique et récupérer les données &quot;nettoyées&quot; et
+&quot;validées&quot;.</p>
+<p>On peut imaginer par exemple l'utilisation d'un système de templates externe
+reposant sur <em>carto-forms</em>. Celui-ci &quot;parserait&quot; le contenu des templates et
+pourrait le lier aux informations ajoutées par les utilisateurs via un formulaire.</p>
+<p>Pour ce cas particulier, il n'y a pas besoin d'informations géographiques
+(SIG). Il s'agit quasiment du service proposé actuellement par Google forms.</p>
+</div>
+</div>
+<div class="section" id="ca-n-existe-pas-deja-tout-ca">
+<h2>Ça n'existe pas déjà tout ça ?</h2>
+<p>Bien sur, il y a Google forms, qui vous permet de faire ce genre de choses,
+mais comme je l'ai précisé plus haut, il ne s'agit pas exactement de la même
+chose.</p>
+<p>Nous avons découvert <a class="reference external" href="https://webform.com">https://webform.com</a> qui permet de créer des formulaires
+avec un système de drag'n'drop. J'adorerais reproduire quelque chose de
+similaire pour l'interface utilisateur. Par contre ce projet ne gère pas les
+appels via API et les informations de géolocalisation …</p>
+<p>L'idée de <a class="reference external" href="http://thoth.io">http://thoth.io</a> est également assez sympathique: une api très
+simple pour stocker et récupérer des données. En plus de ça, <em>carto-forms</em>
+proposerait de la validation de données et proposerait un support des points
+SIG (point, ligne, polygone).</p>
+<p><a class="reference external" href="http://mapbox.com">http://mapbox.com</a> fait également un superbe travail autour de la cartographie,
+mais ne prends pas en compte le coté auto-génération de formulaires…</p>
+</div>
+<div class="section" id="on-est-parti">
+<h2>On est parti ?!</h2>
+<p>Comme vous avez pu vous en rendre compte, il ne s'agit pas d'un problème
+outrageusement complexe. On a pas mal discuté avec Mathieu, à propos de ce
+qu'on souhaite faire et du comment. Il se trouve qu'on peut sûrement s'en
+sortir avec une solution élégante sans trop de problèmes. Mathieu est habitué à
+travailler autour des projets de SIG (ce qui est parfait parce que ce n'est pas
+mon cas) et connaît son sujet. Une bonne opportunité d'apprendre!</p>
+<p>On sera tous les deux à <a class="reference external" href="http://rencontres.django-fr.org">Djangocong</a> le 14 et 15 Avril, et on prévoit une
+session de <em>tempête de cerveau</em> et un sprint sur ce projet. Si vous êtes dans
+le coin et que vous souhaitez discuter ou nous filer un coup de patte,
+n'hésitez pas!</p>
+<p>On ne sait pas encore si on utilisera django ou quelque chose d'autre. On a
+pensé un peu à CouchDB, son système de couchapps et geocouch, mais rien n'est
+encore gravé dans le marbre ! N'hésitez pas à proposer vos solutions ou
+suggestions.</p>
+<p>Voici le document etherpad sur lequel on a travaillé jusqu'à maintenant:
+<a class="reference external" href="http://framapad.org/carto-forms">http://framapad.org/carto-forms</a>. N'hésitez pas à l'éditer et à ajouter vos
+commentaires, c'est son objectif!</p>
+<p>Merci à <a class="reference external" href="http://sneakernet.fr/">Arnaud</a> pour la relecture et la correction de quelques typos dans le
+texte :)</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

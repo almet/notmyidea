@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Using JPype to bridge python and Java - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+    <meta name="tags" contents="python" />
+    <meta name="tags" contents="java" />
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Using JPype to bridge python and Java</h1>
+<span class="post-date">06 novembre 2011</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>Java provides some interesting libraries that have no exact equivalent in
+python. In my case, the awesome boilerpipe library allows me to remove
+uninteresting parts of HTML pages, like menus, footers and other &quot;boilerplate&quot;
+contents.</p>
+<p>Boilerpipe is written in Java. Two solutions then: using java from python or
+reimplement boilerpipe in python. I will let you guess which one I chosen, meh.</p>
+<p>JPype allows to bridge python project with java libraries. It takes another
+point of view than Jython: rather than reimplementing python in Java, both
+languages are interfacing at the VM level. This means you need to start a VM
+from your python script, but it does the job and stay fully compatible with
+Cpython and its C extensions.</p>
+<div class="section" id="first-steps-with-jpype">
+<h2>First steps with JPype</h2>
+<p>Once JPype installed (you'll have to hack a bit some files to integrate
+seamlessly with your system) you can access java classes by doing something
+like that:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jpype</span>
+<span class="n">jpype</span><span class="o">.</span><span class="n">startJVM</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">())</span>
+
+<span class="c1"># you can then access to the basic java functions</span>
+<span class="n">jpype</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+
+<span class="c1"># and you have to shutdown the VM at the end</span>
+<span class="n">jpype</span><span class="o">.</span><span class="n">shutdownJVM</span><span class="p">()</span>
+</pre></div>
+<p>Okay, now we have a hello world, but what we want seems somehow more complex.
+We want to interact with java classes, so we will have to load them.</p>
+</div>
+<div class="section" id="interfacing-with-boilerpipe">
+<h2>Interfacing with Boilerpipe</h2>
+<p>To install boilerpipe, you just have to run an ant script:</p>
+<pre class="literal-block">
+$ cd boilerpipe
+$ ant
+</pre>
+<p>Here is a simple example of how to use boilerpipe in Java, from their sources</p>
+<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">de.l3s.boilerpipe.demo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">de.l3s.boilerpipe.extractors.ArticleExtractor</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Oneliner</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;http://notmyidea.org&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ArticleExtractor</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">getText</span><span class="o">(</span><span class="n">url</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>To run it:</p>
+<div class="highlight"><pre><span></span>$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
+$ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner
+</pre></div>
+<p>Yes, this is kind of ugly, sorry for your eyes.
+Let's try something similar, but from python</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jpype</span>
+
+<span class="c1"># start the JVM with the good classpaths</span>
+<span class="n">classpath</span> <span class="o">=</span> <span class="s2">&quot;dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar&quot;</span>
+<span class="n">jpype</span><span class="o">.</span><span class="n">startJVM</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">(),</span> <span class="s2">&quot;-Djava.class.path=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">classpath</span><span class="p">)</span>
+
+<span class="c1"># get the Java classes we want to use</span>
+<span class="n">DefaultExtractor</span> <span class="o">=</span> <span class="n">jpype</span><span class="o">.</span><span class="n">JPackage</span><span class="p">(</span><span class="s2">&quot;de&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">l3s</span><span class="o">.</span><span class="n">boilerpipe</span><span class="o">.</span><span class="n">extractors</span><span class="o">.</span><span class="n">DefaultExtractor</span>
+
+<span class="c1"># call them !</span>
+<span class="k">print</span> <span class="n">DefaultExtractor</span><span class="o">.</span><span class="n">INSTANCE</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">URL</span><span class="p">(</span><span class="s2">&quot;http://blog.notmyidea.org&quot;</span><span class="p">))</span>
+</pre></div>
+<p>And you get what you want.</p>
+<p>I must say I didn't thought it could work so easily. This will allow me to
+extract text content from URLs and remove the <em>boilerplate</em> text easily
+for infuse (my master thesis project), without having to write java code, nice!</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

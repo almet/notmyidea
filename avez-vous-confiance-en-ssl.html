@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Avez vous confiance en SSL? - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+<style>
+#illustration {
+    max-width: 800px;
+    align: center;
+    margin: auto;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Avez vous confiance en SSL?</h1>
+<span class="post-date">25 mars 2016</span>
+<img id="illustration" src="images/illusion.jpg" />
+
+<div class="post article">
+    <h2 class="post-headline">Tour d'horizon du fonctionnement de SSL et des solutions pour le sécuriser.</h2>
+    <h1>🌟</h1>
+    <p>Dans le cadre <a href="http://autodefense-numerique.readthedocs.org/en/latest/">des ateliers d'autodéfense numérique</a>,
+j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
+contrairement à ce que la plupart des personnes ont encore tendance à croire,
+le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
+<strong>absolument</strong> pas suffisant.</p>
+<p>Allez hop, c'est parti pour:</p>
+<ul>
+<li>un tour d'horizon du fonctionnement de SSl</li>
+<li>quelques moyens contourner cette "protection" en faisant une attaque en pratique</li>
+<li>un tour des solutions existantes actuellement et de pourquoi je ne les trouve
+  pas vraiment satisfaisantes.</li>
+</ul>
+<h2>Comment fonctionne SSL?</h2>
+<p>Pour expliquer les problèmes de SSL, j'ai d'abord besoin d'expliquer comment
+tout ça fonctionne.</p>
+<p>SSL repose sur l'utilisation de certificats, qui sont générés par des autorités
+de certification (<em>Certificate Authority</em> que je nomme <em>CA</em> dans la suite de
+l'article).</p>
+<p>Les certificats SSL permettent deux choses:</p>
+<ul>
+<li>De garantir que les communications entre les navigateurs (vous) et les sites
+  Web ne sont connues que du détenteur du certificat du site et de vous même.</li>
+<li>De garantir que le site sur lequel vous vous connectez est bien celui que
+  vous imaginez.</li>
+</ul>
+<p>Le navigateur, lors d'une visite d'un site, va télécharger le certificat
+associé puis vérifier que le certificat en question a bien été généré par un
+des <em>CA</em> en qui il a confiance.</p>
+<p>Imaginons maintenant qu'une des <em>CA</em> essaye de savoir ce qui s'échange entre
+mon navigateur et le site de ma banque (protégé par SSL). Comment cela se
+passerait il ?</p>
+<p>N'importe quel <em>CA</em> peut donc générer des certificats pour n'importe quel site,
+et le navigateur vérifierait, lui, que le certificat a bien été généré par une
+<em>CA</em>.</p>
+<p>Tout cela ne poserait pas de soucis si les <em>CA</em> étaient gérés de manière fiable,
+mais il s'agit d'un travail compliqué, et certains <em>CA</em> ont par le passé montré
+des faiblesses.</p>
+<p>Par exemple, <a href="https://en.wikipedia.org/wiki/DigiNotar">DigiNotar</a> (un <em>CA</em> des Pays-Bas)
+a été compromise et les attaquant.e.s ont pu générer des certificats SSL
+frauduleux, ce qui leur a permis d'attaquer des sites tels que Facebook ou GMail.</p>
+<p>Vous pouvez retrouver une liste des risques et menaces autour des <em>CA</em> <a href="http://wiki.cacert.org/Risk/History">sur le
+wiki de CACert</a>.</p>
+<h2>Attaque de l'homme du milieu avec SSL</h2>
+<p>A force de dire que c'était très facile à faire, j'ai eu envie d'essayer
+d'espionner des connections protégées par SSL, et effectivement c'est
+carrément flippant tellement c'est simple.</p>
+<p>En l'espace de quelques minutes, il est possible de faire une <em>attaque de
+l'homme du milieu</em> en utilisant par exemple un outil nommé <a href="http://docs.mitmproxy.org/en/stable">mitm-proxy</a>.</p>
+<p>Pour déchiffrer l'ensemble du trafic SSL, j'ai simplement eu à lancer quelques
+commandes et avoir un <em>CA</em> dans lequel le navigateur de la victime a confiance.
+Je l'ai ajouté dans le navigateur cible pour simuler que je l'avais déjà
+(c'est le cas si un des 1200 CA se fait pirater, ce qui me semble une surface
+d'attaque assez large).</p>
+<p>Je les colle ici si ça vous intéresse:</p>
+<div class="highlight"><pre><span></span>$ sudo aptitude install mitmproxy
+$ mitm-proxy -T --host
+</pre></div>
+
+
+<p>Il faut faire croire à votre victime que vous êtes la passerelle vers
+l'extérieur et à la passerelle que vous êtes la victime:</p>
+<div class="highlight"><pre><span></span>arpspoof -i wlan0 -t victime gateway
+arpspoof -i wlan0 -t gateway victime
+</pre></div>
+
+
+<p>Puis dire à notre fausse passerelle de rediriger le trafic des ports 80 et 443
+vers notre proxy:</p>
+<div class="highlight"><pre><span></span>sudo sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">443</span> -j REDIRECT --to-port <span class="m">4443</span>
+sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">80</span> -j REDIRECT --to-port <span class="m">4443</span>
+</pre></div>
+
+
+<p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur SSL</strong>. On peut
+d'ailleurs même imaginer faire tourner ces quelques commandes sur un
+raspberry pi, pour aller encore plus vite…</p>
+<h3>Key-pinning dans les navigateurs</h3>
+<p>Actuellement, n'importe quel <em>CA</em> peut générer des certificats pour
+n'importe quel site, et c'est en grande partie ce qui pose souci. Une des
+manières de faire évoluer la situation est d'épingler les certificats de
+certains sites directement dans les navigateurs.</p>
+<p>Cette approche a le mérite de fonctionner très bien <a href="https://dxr.mozilla.org/mozilla-central/source/security/manager/ssl/StaticHPKPins.h?from=StaticHPKPins.h">pour un petit nombre de
+sites critiques (Google, Facebook, etc)</a>.</p>
+<h3>HTTP Public Key Pinning (HPKP)</h3>
+<p><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"><em>HTTP Public Key Pinning</em></a>
+est également une solution de <em>pinning</em> qui permet d'établir une confiance lors
+de la première connexion avec le site. C'est ce qu'on appelle du <em>Trust on First
+Use</em> ou <em>TOFU</em>.</p>
+<p>Le navigateur va alors mettre ces informations dans un cache et vérifiera que
+les certificats correspondent bien lors des prochaines visites.</p>
+<p><em>HPKP</em> est disponible dans Firefox depuis Janvier 2015 et dans Chrome
+depuis Octobre 2015.</p>
+<h3>Certificate transparency: des journaux auditables</h3>
+<p>Une autre approche est celle proposée par <em>certificate transparency</em>:</p>
+<blockquote>
+<p>Certificate Transparency aims to remedy these certificate-based threats by
+making the issuance and existence of SSL certificates open to scrutiny by
+domain owners, CAs, and domain users.</p>
+<p>-- <a href="https://www.certificate-transparency.org/what-is-ct">Certificate Transparency</a></p>
+</blockquote>
+<p>Autrement dit, avec ce système les <em>CA</em> doivent rendre public le fait qu'ils
+aient signé de nouveaux certificats intermédiaires. La signature est ajoutée à
+un journal sur lequel il n'est possible que d'écrire.</p>
+<p>Les navigateurs vont alors vérifier que les certificats utilisés sont bien des
+certificats qui ont été ajoutés au journal.</p>
+<p>Ici, toute l'intelligence est dans la vérification de ces journaux, qui
+permettent donc de valider/invalider des certificats racines ou intermédiaires.</p>
+<p>Il me semble donc qu'il serait possible d'ajouter un certificat frauduleux le
+temps d'une attaque (et celui ci serait détecté et supprimé ensuite).</p>
+<p><em>Certificate-Transparency</em> n'est donc pas une solution contre une écoute
+globale mise en place par les gouvernements par exemple.</p>
+<p>Si vous lisez bien l'anglais, je vous invite à aller lire
+<a href="http://security.stackexchange.com/a/52838">cette description du problème et de la solution</a>
+que je trouve très bien écrite.</p>
+<h3>DANE + DNSSEC</h3>
+<blockquote>
+<p>The DANE working group has developed a framework for securely
+retrieving keying information from the DNS [RFC6698]. This
+framework allows secure storing and looking up server public key
+information in the DNS. This provides a binding between a domain
+name providing a particular service and the key that can be used
+to establish encrypted connection to that service.</p>
+<p>-- <a href="https://datatracker.ietf.org/wg/dane/charter/">Dane WG</a></p>
+</blockquote>
+<p>Une autre solution est appelée "DANE" et repose par dessus le protocole
+<em>DNSSEC</em>.</p>
+<p>Je connais assez mal <em>DNSSEC</em> donc j'ai passé un peu de temps à lire des
+documents. L'impression finale que ça me laisse est que le problème est
+exactement le même que pour SSL: un certain nombre de personnes détiennent les
+clés et toute la sécurité repose sur cette confiance. Or il est possible que
+ces clés soient détenues par des personnes non dignes de confiance.</p>
+<blockquote>
+<p>Secure DNS (DNSSEC) uses cryptographic digital signatures signed with a
+trusted public key certificate to determine the authenticity of data.
+-- https://en.wikipedia.org/wiki/DNS_spoofing</p>
+</blockquote>
+<p>Et aussi:</p>
+<blockquote>
+<p>It is widely believed[1] that securing the DNS is critically important for
+securing the Internet as a whole, but deployment of DNSSEC specifically has
+been hampered (As of 22 January 2010) by several difficulties:</p>
+<ul>
+<li>The need to design a backward-compatible standard that can scale to the
+  size of the Internet</li>
+<li>Prevention of "zone enumeration" (see below) where desired</li>
+<li>Deployment of DNSSEC implementations across a wide variety of DNS servers
+  and resolvers (clients)</li>
+<li>Disagreement among implementers over who should own the top-level domain
+  root keys Overcoming the perceived complexity of DNSSEC and DNSSEC
+  deployment</li>
+</ul>
+</blockquote>
+<h2>Solutions basées sur la blockchain</h2>
+<p>Une dernière piste semble être l'utilisation de la <em>blockchain</em> pour distribuer
+des clés par site.</p>
+<p>La solution <em>DNSChain</em> me paraissait tout d'abord un bon point de départ mais
+la lecture de <a href="https://www.indolering.com/okturtles-dnschain-unblock-us">quelques critiques</a>
+et interventions du développeur du projet m'ont fait changer d'avis.</p>
+<p>Reste encore la piste de <em>Namecoin Control</em> que je n'ai pas encore creusée.
+Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
+bienvenue sur ces sujets!</p>
+    <em>L'image d'illustration utilisée est un travail de <a href="https://www.flickr.com/photos/tinou/133982614/in/photolist-cQGn5-9AtoAP-dpiR2X-baBc4e-5ZvGJj-8KrKoG-gg2XM4-9KgHee-6iB7C-4zUNee-9hj2zF-43REk-aoanQb-947pCM-aj1P6z-9tE3g-pq8kRk-qp6hK1-hp13Uh-7ywK7o-4F41Pw-72piQE-22a8kTc-ECJ2r6-6ufU4Y-7WLPTu-5bLdgB-ha8ByJ-jqvD3-LktPD-izBtN4-aa7ABY-pz4aLg-49jEZi-YGoRJ-aCuCH2-4muqSR-7ey33A-6nUDPT-ajeJbN-a89tyX-s3pjm1-9imyxV-WswqNm-aDHw9-cN7MWS-abdTEE-a89tAT-aeVpTf-oAuYHd">Tinou Bao</a> proposé sous license CC BY 2.0. Merci !</em>
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Phrases de passe et bonnes pratiques - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Phrases de passe et bonnes pratiques</h1>
+<span class="post-date">09 mai 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Communiquer de manière chiffrée n'est pas aisée, et nécessite de
+mémoriser des phrases de passes complexes. Comment s'en sortir ?</h2>
+    <h1>🌟</h1>
+    <blockquote class="epigraph">
+<p>Au contraire des autres mots de passe, les mots de passe cryptographiques
+ont specifiquement besoin d'être longs et extremement difficiles à deviner.
+La raison est qu'un ordinateur (ou un cluster de plusieurs ordinateurs)
+peut être programmé pour faire des trillions d'essais de manière
+automatique. Si le mot de passe choisi est trop faible ou construit d'une
+manière trop prédictible, cette attaque par la force pourrait se revéler
+fructueuse en essayant toutes les possibilités.</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://www.eff.org/wp/defending-privacy-us-border-guide-travelers-carrying-digital-devices">The Electronic Frontier Foundation</a> (traduction de mon fait)</p>
+</blockquote>
+<p>Comprendre les concepts et l'écosystème qui permettent d'avoir une vie
+numérique chiffrée n'est pas quelque chose d'aisé. <a class="reference external" href="https://emailselfdefense.fsf.org/fr/">Plusieurs</a> <a class="reference external" href="http://www.controle-tes-donnees.net/outils/GnuPG.html">guides</a> ont été écrits à ce
+propos, et pour autant je me rends compte que naïvement il est possible de
+mal utiliser les outils existants.</p>
+<blockquote class="epigraph">
+<p>Utilisez un <em>bon</em> mot de passe pour votre session utilisateur et une
+<em>bonne</em> phrase de passe pour proteger votre clé privée. Cette phrase de
+passe est la partie la plus fragile de tout le système.</p>
+<p class="attribution">&mdash;La page de manuel de GPG.</p>
+</blockquote>
+<p>Une phrase de passe devrait:</p>
+<ul class="simple">
+<li>Être suffisamment longue pour être difficile à deviner;</li>
+<li>Ne pas être une citation connue (littérature, livres sacrés etc);</li>
+<li>Difficile à deviner même pour vos proches;</li>
+<li>Facile à se souvenir et à taper;</li>
+<li>être unique et non partagée entre différents sites / applications etc.</li>
+</ul>
+<p>Une des techniques consiste à utiliser des mots du dictionnaire, sélectionnés de
+manière aléatoire, puis modifiés.</p>
+<div class="figure">
+<img alt="XKCD sur la force des mots de passe." src="https://imgs.xkcd.com/comics/password_strength.png" />
+</div>
+<p>Micah Lee <a class="reference external" href="https://github.com/micahflee/passphrases">travaille également sur un outil</a> qui vise à rendre la mémorisation
+des phrases de passe plus aisée, de par leur répétition avec des pauses de plus
+en plus longues.</p>
+<div class="figure">
+<img alt="Capture d'écran du logiciel de génération et de mémorisation des phrases de passe." src="{filename}/static/passphrases.png" />
+</div>
+<p>Oui, ce n'est pas aussi simple que ce qu'il y parait. Pour ma part, j'ai une
+copie en local de mes clés, dans un fichier chiffré avec une autre clé que j'ai
+généré pour l'occasion et que je ne partagerait pas. J'ai par ailleurs
+<a class="reference external" href="https://github.com/jamessan/vim-gnupg">configuré</a> mon éditeur de texte pour
+pouvoir chiffrer les documents textes par défaut.</p>
+<p>J'ai donc regénéré une nouvelle fois mes clés de travail et personnelles, en
+utilisant des phrases de passe plus complexes.</p>
+<p>Reste encore la question de la sauvegarde de ces clés privées de manière
+chiffrée, que je n'ai pas encore résolue. Bref, tout cela me semble bien
+compliqué pour réussir à l'expliquer à des novices, qui pour certains ne sont
+même pas sur de l'intérêt de la chose.</p>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

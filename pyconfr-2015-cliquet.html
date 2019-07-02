@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>PyconFR 2015 — Cliquet - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">PyconFR 2015 — Cliquet</h1>
+<span class="post-date">17 octobre 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.</p>
+</div>
+<p>Speaker: Mathieu Leplatre (&#64;leplatrem), Mozilla</p>
+<p>Toolkit HTTP, pour éventuellement faire des microservices.</p>
+<ol class="arabic simple">
+<li>Origines</li>
+<li>Protocole</li>
+<li>Toolkit</li>
+<li>Conversation</li>
+</ol>
+<div class="section" id="origines">
+<h2>Origines</h2>
+<p>Stockage de données, Cloud Services, Mozilla.
+Le boulot, c'est de faire des APIs. On nous demande de faire des APIs, tout
+le temps.</p>
+<p>Souvent, les mêmes questions sont à l'ordre du jour. Heartbeat, codes
+d'erreurs, etc. L'inventaire de tout ce qui est attendu d'une API, au dela de
+ce qui est la valeur ajoutée du service.</p>
+<p>Définition d'un protocole. Définir une API REST n'est pas aussi évident qu'il
+y parait. Il faut définir les formats de JSON, les status, etc.</p>
+<p>La réutilisation de certaines protocoles existants était possible (Sync, en
+production depuis quelques années).</p>
+<p>Réutiliser du code nous permettait et faire un template pour démarrer plus
+facilement, pour se concentrer sur le métier de l'API. Puisque les besoins ne
+sont pas toujours les mêmes, avoir une boite à outil permet de choisir ce que
+l'on souhaite.</p>
+</div>
+<div class="section" id="protocole">
+<h2>Protocole</h2>
+<ul class="simple">
+<li>Création d'un protocole qui respecte les bonnes pratiques. CORS, avoir les
+bons codes de status, arrêter de se poser toujours les mêmes questions.
+Contrairement à ce qu'on imagine, la spécification HTTP n'est pas si facile
+à suivre. Plutôt que d'écrire un document, un toolkit à été créé.</li>
+<li>Les ops ont besoin de quelques endpoints: un heartbeat (monitoring) des
+endpoints de batch, un endpoint &quot;hello&quot;, pour connaitre le type de service,
+ses URLs etc.</li>
+<li>La service renvoie toujours un JSON avec la description de l'erreur. Cela
+permet d'avoir tout le temps la même gestion des erreurs. Utilisation du
+header &quot;backoff&quot; qui permet de demander aux clients d'arreter de faire des
+requetes durant une durée spécifée par le serveur.</li>
+<li>Pour les resources &quot;REST&quot;, quelques règles sont définies: quel est le format
+du JSON, quel est la syntaxe du querystring pour filtrer, ordonner, gérer les
+opérations concurentes, etc.</li>
+<li>Comment la validation fonctionne ? La pagination ? La définition des
+permissions ? Les erreurs.</li>
+</ul>
+<p>Définir le protocole une seule fois permet de se mettre d'accord avec les Ops.
+On ne créé pas une RFC pour l'instant, il faut qu'on valide ce qu'on a fait,
+il est necessaire de valider notre approche.</p>
+</div>
+<div class="section" id="toolkit">
+<h2>Toolkit</h2>
+<p>La stack en place est basée sur Pyramid et Cornice. Autre chose aurait pu petre
+utilisé. Mais pyramid à été choisi pour son approche simpliste et qui permet de
+rajouter de la complexité au fur et à mesure.</p>
+<p>Cliquet propose de faire l'ensemble du boilerplate, la lecture du protocole, et
+vous permet de créer les backends souhaités.</p>
+<p>Il est possible de choisir les methodes HTTP acceptables, les URLs à utiliser
+etc. Tweaker l'API est possible, la chose qui reste toujouts stable est le
+protocole.</p>
+<p>le toolkit vise à faire quelque chose de pluggable. Tout est controllable
+depuis la configuration.</p>
+<p>Pour le deploiement, cela veut dire que le monitoring est déjà connecté, et il
+est possible de changer la configuration depuis un fichier <cite>.ini</cite>.</p>
+<p>Il est aussi possible de faire du profiling en ajoutant deux lignes de code,
+qui permet de générer des graphs qui permettent d'identifier les goulots
+d'étranglement.</p>
+</div>
+<div class="section" id="microservices">
+<h2>Microservices ?</h2>
+<ul class="simple">
+<li>Cliquet apporte une manière standard de surveiller, deployer, configurer des
+services.</li>
+<li>Il est possible de se focaliser sur la logique de l'application, en faisait
+une abstraction des backends, etc.</li>
+<li>Le fait de figer l'API permet d'avoir des clients génériques que l'on peu
+réutiliser d'une application à l'autre.</li>
+</ul>
+</div>
+<div class="section" id="cliquet-est-utilise-pour">
+<h2>Cliquet est utilisé pour</h2>
+<ul class="simple">
+<li>Kinto, un service générique de stpclage de données.</li>
+<li>Syncto, un proxy pour Sync en utilisant le protocole.</li>
+<li>La liste de lecture, service qui à été shutdown.</li>
+</ul>
+</div>
+<div class="section" id="questions">
+<h2>Questions</h2>
+<ul class="simple">
+<li><strong>Qu'est-ce qui est pluggable ?</strong> Les choix qui sont fait dans cliquet
+concernent le protocole. Le toolkit est lui fait de manière &quot;pluggable&quot;. Il
+est par exemple possible de changer le backend, l'authentification, le cache
+ou les permissions.</li>
+<li><strong>Quelles sont les parties non standard? Est-il prévu de representer ça via
+une RFC ?</strong> Le seul sujet qui pourrait etre utile dans une RFC serait de
+définir les headers attendus pour la validation et l'écriture
+concurrentielle. L'ensemble de ce qui est proposé est standard.</li>
+<li><strong>Existe-il un client JavaScript, comme pour Kinto ?</strong> Actuellement, non. Par
+contre, Kinto.js est prévu pour que la partie commune entre les APIs (le
+protocole) peut etre extrait.</li>
+</ul>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

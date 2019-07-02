@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Introducing Cornice - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Introducing Cornice</h1>
+<span class="post-date">12 juillet 2011</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>Wow, already my third working day at Mozilla. Since Monday, I've been working with
+<a class="reference external" href="http://ziade.org">Tarek Ziadé</a>, on a pyramid REST-ish toolkit named <a class="reference external" href="https://github.com/mozilla-services/cornice">Cornice</a>.</p>
+<p>Its goal is to take care for you of what you're usually missing so you can
+focus on what's important. Cornice provides you facilities
+for validation of any kind.</p>
+<p>The goal is to simplify your work, but we don't want to reinvent the wheel, so
+it is easily pluggable with validations frameworks, such as <a class="reference external" href="http://docs.pylonsproject.org/projects/colander/en/latest/">Colander</a>.</p>
+<div class="section" id="handling-errors-and-validation">
+<h2>Handling errors and validation</h2>
+<p>Here is how it works:</p>
+<div class="highlight"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/service&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;awesome&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;yay!&quot;</span><span class="p">}</span>
+</pre></div>
+<p>All the errors collected during the validation process, or after, are collected
+before returning the request. If any, a error 400 is fired up, with the list of
+problems encountered returned as a nice json list response (we plan to support
+multiple formats in the future)</p>
+<p>As you might have seen, <cite>request.errors.add</cite> takes three parameters: <strong>location</strong>,
+<strong>name</strong> and <strong>description</strong>.</p>
+<p><strong>location</strong> is where the error is located in the request. It can either be &quot;body&quot;,
+&quot;query&quot;, &quot;headers&quot; or &quot;path&quot;. <strong>name</strong> is the name of the variable causing
+problem, if any, and <strong>description</strong> contains a more detailed message.</p>
+<p>Let's run this simple service and send some queries to it:</p>
+<pre class="literal-block">
+$ curl -v http://127.0.0.1:5000/service
+&gt; GET /service HTTP/1.1
+&gt; Host: 127.0.0.1:5000
+&gt; Accept: */*
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 400 Bad Request
+&lt; Content-Type: application/json; charset=UTF-8
+[{&quot;location&quot;: &quot;query&quot;, &quot;name&quot;: &quot;awesome&quot;, &quot;description&quot;: &quot;You lack awesomeness!&quot;}
+</pre>
+<p>I've removed the extra clutter from the curl's output, but you got the general idea.</p>
+<p>The content returned is in JSON, and I know exactly what I have to do: add an
+&quot;awesome&quot; parameter in my query. Let's do it again:</p>
+<pre class="literal-block">
+$ curl http://127.0.0.1:5000/service?awesome=yeah
+{&quot;test&quot;: &quot;yay!&quot;}
+</pre>
+<p>Validators can also convert parts of the request and store the converted value
+in <cite>request.validated</cite>. It is a standard dict automatically attached to the
+requests.</p>
+<p>For instance, in our validator, we can chose to validate the parameter passed
+and use it in the body of the webservice:</p>
+<div class="highlight"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/service&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;awesome&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;awesome &#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]</span>
+
+
+<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]}</span>
+</pre></div>
+<p>The output would look like this:</p>
+<pre class="literal-block">
+curl http://127.0.0.1:5000/service?awesome=yeah
+{&quot;test&quot;: &quot;awesome yeah&quot;}
+</pre>
+</div>
+<div class="section" id="dealing-with-accept-headers">
+<h2>Dealing with &quot;Accept&quot; headers</h2>
+<p>The HTTP spec defines a <strong>Accept</strong> header the client can send so the response
+is encoded the right way. A resource, available at an URL, can be available in
+different formats. This is especially true for web services.</p>
+<p>Cornice can help you dealing with this. The services you define can tell which
+<cite>Content-Type</cite> values they can deal with and this will be checked against the
+<strong>Accept</strong> headers sent by the client.</p>
+<p>Let's refine a bit our previous example, by specifying which content-types are
+supported, using the <cite>accept</cite> parameter:</p>
+<div class="highlight"><pre><span></span><span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="s2">&quot;text/json&quot;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;yay!&quot;</span><span class="p">}</span>
+</pre></div>
+<p>Now, if you specifically ask for XML, Cornice will throw a 406 with the list of
+accepted <cite>Content-Type</cite> values:</p>
+<pre class="literal-block">
+$ curl -vH &quot;Accept: application/xml&quot; http://127.0.0.1:5000/service
+&gt; GET /service HTTP/1.1
+&gt; Host: 127.0.0.1:5000
+&gt; Accept: application/xml
+&gt;
+&lt; HTTP/1.0 406 Not Acceptable
+&lt; Content-Type: application/json; charset=UTF-8
+&lt; Content-Length: 33
+&lt;
+[&quot;application/json&quot;, &quot;text/json&quot;]
+</pre>
+</div>
+<div class="section" id="building-your-documentation-automatically">
+<h2>Building your documentation automatically</h2>
+<p>writing documentation for web services can be painful, especially when your
+services evolve. Cornice provides a sphinx directive to automatically document
+your API in your docs.</p>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">services</span><span class="p">::</span>
+   <span class="nc">:package:</span> <span class="nf">coolapp</span>
+   <span class="nc">:service:</span> <span class="nf">quote</span>
+</pre></div>
+<p>Here is an example of what a generated page looks like: <a class="reference external" href="http://packages.python.org/cornice/exampledoc.html">http://packages.python.org/cornice/exampledoc.html</a></p>
+</div>
+<div class="section" id="yay-how-can-i-get-it">
+<h2>Yay! How can I get it?</h2>
+<p>We just cut a 0.4 release, so it's available at <a class="reference external" href="http://pypi.python.org/pypi/cornice">http://pypi.python.org/pypi/cornice</a>
+You can install it easily using <cite>pip</cite>, for instance:</p>
+<pre class="literal-block">
+$ pip install cornice
+</pre>
+<p>You can also have a look at the documentation at
+<a class="reference external" href="http://packages.python.org/cornice/">http://packages.python.org/cornice/</a></p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>We try to make our best to find how Cornice can help you build better
+web services. Cool features we want for the future include the automatic
+publication of a static definition of the services, so it can be used by clients
+to discover services in a nice way.</p>
+<p>Of course, we are open to all your ideas and patches! If you feel haskish and
+want to see the sources, <a class="reference external" href="https://github.com/mozilla-services/cornice">go grab them on github</a>
+, commit and send us a pull request!</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

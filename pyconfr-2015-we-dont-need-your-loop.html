@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>PyconFR 2015 — We don't need your loop - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">PyconFR 2015 — We don't need your loop</h1>
+<span class="post-date">18 octobre 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.</p>
+</div>
+<p>Speaker: serge_sans_paille.</p>
+<p>Retour sur le passé des boucles: ASM, fortran, C. Avec APL, la boucle est
+cachée au fur et à mesure des évolutions. Écrire une boucle ne devrait pas etre
+exprimer comment atteindre le resultat.</p>
+<p>En python, par exemple, il vaut mieux utiliser <cite>sum</cite> plutôt que de faire
+l'addition nous même (pour faire une addition des elements d'une liste).</p>
+<p>Actuellement, le compilateur python est lent si on utilise numpy.sum sur des
+matrices complexes.</p>
+<div class="section" id="comment-aller-plus-vite">
+<h2>Comment aller plus vite?</h2>
+<p>Cython est assez compliqué, il faut savoir ce que l'on fait pour optimiser et
+écrire du bon code Cython.</p>
+<p>Avec pythran, l'intelligence est dans le compilateur, qui permet d'écrire
+notemment des boucles correctement.</p>
+<p>En donnant plus d'informaitons au compilateur, plutôt que de faire des boucles,
+cela lui permet d'avoir un contexte qui lui permet d'optimiser le code.</p>
+<p>Par contre, cela veut dire que plus de connaissances sont necessaire pour lire
+le code python.</p>
+<p>pythran permet de compiler directement vers du C++ sans avoir à changer son
+code de base (python). C'est utile pour du code numpy notemment.</p>
+</div>
+<div class="section" id="questions">
+<h2>Questions</h2>
+<p>Possible de paralelliser de manière explicite <strong>ou</strong> implicite.</p>
+<p><strong>C'est très utile pour les gens qui font du &quot;number crunching&quot;. Est-ce que
+c'est utile pour d'autres domaines d'application (Web)?</strong></p>
+<p>Pas vraiment. CPython est déjà bien fait pour ces cas d'utilisation.</p>
+<p><strong>Est-il possible de lancer pythran sans faire de commentaires ?</strong></p>
+<p>C'est possible mais cela ne servira pas à grand chose. Il est necessaire de
+connaitre le type des objets qui sont utilisés lors des boucles.</p>
+<p><strong>Est-ce que vous songez à un compilateur à la volée ?</strong></p>
+<p>De gros efforts ont été faits dernièrement pour diminuer le temps de
+compilation. Mais pour une fonction qui renvoie None prends de l'ordre d'une
+seconde ou une demi seconde. Ce n'est pas très utile pour un compilateur à la
+volée puisqu'il faudrait des gains de perfs supérieurs à cela.</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets Web - pyconfr2015</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/pyconfr2015.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2015-10-18T00:00:00+02:00</updated><entry><title>PyconFR 2015 — Assemblée générale</title><link href="https://blog.notmyidea.org/pyconfr-2015-assemblee-generale.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-assemblee-generale.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Mot de feth sur Nelle, qui était une présidente très présente. Merci !&lt;/p&gt;
+&lt;div class="section" id="passe"&gt;
+&lt;h2&gt;Passé&lt;/h2&gt;
+&lt;p&gt;Il existe des communautés locales à Lyon Grenoble, Nantes.
+Des Afpyro ont été organisés dans toutes ces villes + Rennes …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Mot de feth sur Nelle, qui était une présidente très présente. Merci !&lt;/p&gt;
+&lt;div class="section" id="passe"&gt;
+&lt;h2&gt;Passé&lt;/h2&gt;
+&lt;p&gt;Il existe des communautés locales à Lyon Grenoble, Nantes.
+Des Afpyro ont été organisés dans toutes ces villes + Rennes + Marseille
+Support pour 2 Django Carrots.
+Par rapport au mentoring, très peu de retours, peut etre de nouvelles choses
+à faire.&lt;/p&gt;
+&lt;p&gt;FOSDEM 2015 était complet. Il y avait une salle python tojours pleine.
+Dsicussions sur la diversité.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="futur"&gt;
+&lt;h2&gt;Futur&lt;/h2&gt;
+&lt;p&gt;Amandine propose d'organiser des soirées à NUMA l'an prochain.
+Global code retreat: participation
+Migrer le serveur de l'AFPY
+Reboot des status: nos pratiques ne sont pas en ligne avec nos status.
+Mise en place de mentoring pour python.&lt;/p&gt;
+&lt;div class="section" id="status"&gt;
+&lt;h3&gt;Status&lt;/h3&gt;
+&lt;p&gt;Comité directeur renouvelé par tiers. Il est composé de 18 personnes. Les
+discussions qui sont dans le CD n'en sortent pas, et les discussions sont donc
+effectuées en priuvées.&lt;/p&gt;
+&lt;p&gt;L'idée actuelle serait de réduire le CD de 18 à 9 personnes. Tout le travail
+serait fait en dehors du CD. Il est possible de mettre en place un groupe de
+travail pour travailler sur l'évolution de la charte.&lt;/p&gt;
+&lt;p&gt;Il faut faire évoluer les status: ils ne sont pas actuellement bien faits par
+rapport à notre utilisation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content></entry><entry><title>PyconFR 2015 — Hospital - des tests en prod</title><link href="https://blog.notmyidea.org/pyconfr-2015-hospital-des-tests-en-prod.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-hospital-des-tests-en-prod.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Benoit Bryon, Peopledoc.&lt;/p&gt;
+&lt;p&gt;Pour une procédure de déploiement, comment est-ce qu'on valide que tout va bien
+une fois que tout est dépoyé ? Si on a une application très simple (upload et …&lt;/p&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Benoit Bryon, Peopledoc.&lt;/p&gt;
+&lt;p&gt;Pour une procédure de déploiement, comment est-ce qu'on valide que tout va bien
+une fois que tout est dépoyé ? Si on a une application très simple (upload et
+envoi de fichiers).&lt;/p&gt;
+&lt;p&gt;Pour des applications plus complexes, il y a beaucoup de choses à tester (base
+de données, cache, email, etc). Beaucoup de parties sont utiles: reverse
+proxy, django, base de données etc.&lt;/p&gt;
+&lt;p&gt;Lors d'un déploiement, comment faire pour vérifier que tout tourne lorsque tout
+est déployé ?&lt;/p&gt;
+&lt;div class="section" id="comment-faire"&gt;
+&lt;h2&gt;Comment faire ?&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Les tests permettent de tester hors sol.&lt;/li&gt;
+&lt;li&gt;Le provisionning permet de valider que tout tourne correctement, mais&lt;/li&gt;
+&lt;li&gt;simplement au démarrage. Les pannes ne sont pas détectées.&lt;/li&gt;
+&lt;li&gt;Le logging va permettre de detecter les erreurs, mais trop tard.&lt;/li&gt;
+&lt;li&gt;Le monitoring permet d'avoir une vue de l'exterieur.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hostpital propose de faire des assertions sur la configuration,
+l'environnement, &lt;em&gt;en cours de fonctionnement&lt;/em&gt;. Ce sont les developeurs qui
+ajoutent ces assertions.&lt;/p&gt;
+&lt;p&gt;Cela peut servir à valider un déploiement, pour etre rassuré une fois que le
+déploiement effectué. Cela peut aussi service à surveiller un service et
+diagnostiquer les problèmes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hospital"&gt;
+&lt;h2&gt;Hospital&lt;/h2&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;::&lt;/dt&gt;
+&lt;dd&gt;pip install hospital&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Hospital est un outil en python. On définit des tests, de la même manière que
+l'on définit des tests unitaires. On fait des assertions, comme pour les tests
+unitaires. Hospital propose des helpers pour les cas courants:
+&lt;cite&gt;assert_http_response&lt;/cite&gt; ou &lt;cite&gt;assert_ping&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;La vue est une vue de l'intérieur. La différence avec le monitoring est que
+l'on teste la connectivité entre les services (exemple d'une requete
+elasticsearch qui échoue depuis un service django).&lt;/p&gt;
+&lt;p&gt;Pour la supervision, les healthchecks sont lancés avec une ligne de commande
+&lt;cite&gt;hospital-cli&lt;/cite&gt;. Il est possible de lancer également ces tests avec nose ou
+py.test.&lt;/p&gt;
+&lt;p&gt;Il est aussi possible de faire le monitoring avec une API HTTP &lt;cite&gt;hospital
+serve&lt;/cite&gt;.&lt;/p&gt;
+&lt;div class="section" id="les-lacunes-de-hospital"&gt;
+&lt;h3&gt;Les lacunes de hospital&lt;/h3&gt;
+&lt;p&gt;Les healthchecks sont fait actuellement en synchrone. Cela peut prendre du
+temps. Il pourrait etre interessant de lancer des taches de manière distribuée
+/ en paralelle.&lt;/p&gt;
+&lt;p&gt;Il pourrait etre utile de faire la distinction entre les smoketests et les
+diagnostiques: les premiers sont des petits checks qui permettent de dire si ça
+marche, de manière très simple. De l'autre coté, les diagnostiques seraient eux
+plus fins.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wrap-up"&gt;
+&lt;h2&gt;Wrap up&lt;/h2&gt;
+&lt;p&gt;Validez votre configuration, la connectivité avec les services externes. Faites
+des tests souvent !&lt;/p&gt;
+&lt;/div&gt;
+</content></entry><entry><title>PyconFR 2015 — We don't need your loop</title><link href="https://blog.notmyidea.org/pyconfr-2015-we-dont-need-your-loop.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-we-dont-need-your-loop.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: serge_sans_paille.&lt;/p&gt;
+&lt;p&gt;Retour sur le passé des boucles: ASM, fortran, C. Avec APL, la boucle est
+cachée au fur et à mesure des évolutions. Écrire une boucle ne devrait pas etre
+exprimer …&lt;/p&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: serge_sans_paille.&lt;/p&gt;
+&lt;p&gt;Retour sur le passé des boucles: ASM, fortran, C. Avec APL, la boucle est
+cachée au fur et à mesure des évolutions. Écrire une boucle ne devrait pas etre
+exprimer comment atteindre le resultat.&lt;/p&gt;
+&lt;p&gt;En python, par exemple, il vaut mieux utiliser &lt;cite&gt;sum&lt;/cite&gt; plutôt que de faire
+l'addition nous même (pour faire une addition des elements d'une liste).&lt;/p&gt;
+&lt;p&gt;Actuellement, le compilateur python est lent si on utilise numpy.sum sur des
+matrices complexes.&lt;/p&gt;
+&lt;div class="section" id="comment-aller-plus-vite"&gt;
+&lt;h2&gt;Comment aller plus vite?&lt;/h2&gt;
+&lt;p&gt;Cython est assez compliqué, il faut savoir ce que l'on fait pour optimiser et
+écrire du bon code Cython.&lt;/p&gt;
+&lt;p&gt;Avec pythran, l'intelligence est dans le compilateur, qui permet d'écrire
+notemment des boucles correctement.&lt;/p&gt;
+&lt;p&gt;En donnant plus d'informaitons au compilateur, plutôt que de faire des boucles,
+cela lui permet d'avoir un contexte qui lui permet d'optimiser le code.&lt;/p&gt;
+&lt;p&gt;Par contre, cela veut dire que plus de connaissances sont necessaire pour lire
+le code python.&lt;/p&gt;
+&lt;p&gt;pythran permet de compiler directement vers du C++ sans avoir à changer son
+code de base (python). C'est utile pour du code numpy notemment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="questions"&gt;
+&lt;h2&gt;Questions&lt;/h2&gt;
+&lt;p&gt;Possible de paralelliser de manière explicite &lt;strong&gt;ou&lt;/strong&gt; implicite.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C'est très utile pour les gens qui font du &amp;quot;number crunching&amp;quot;. Est-ce que
+c'est utile pour d'autres domaines d'application (Web)?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pas vraiment. CPython est déjà bien fait pour ces cas d'utilisation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Est-il possible de lancer pythran sans faire de commentaires ?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C'est possible mais cela ne servira pas à grand chose. Il est necessaire de
+connaitre le type des objets qui sont utilisés lors des boucles.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Est-ce que vous songez à un compilateur à la volée ?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;De gros efforts ont été faits dernièrement pour diminuer le temps de
+compilation. Mais pour une fonction qui renvoie None prends de l'ordre d'une
+seconde ou une demi seconde. Ce n'est pas très utile pour un compilateur à la
+volée puisqu'il faudrait des gains de perfs supérieurs à cela.&lt;/p&gt;
+&lt;/div&gt;
+</content></entry><entry><title>PyconFR 2015 — Cliquet</title><link href="https://blog.notmyidea.org/pyconfr-2015-cliquet.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-cliquet.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Mathieu Leplatre (&amp;#64;leplatrem), Mozilla&lt;/p&gt;
+&lt;p&gt;Toolkit HTTP, pour éventuellement faire des microservices.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Origines&lt;/li&gt;
+&lt;li&gt;Protocole&lt;/li&gt;
+&lt;li&gt;Toolkit&lt;/li&gt;
+&lt;li&gt;Conversation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="origines"&gt;
+&lt;h2&gt;Origines&lt;/h2&gt;
+&lt;p&gt;Stockage de données, Cloud Services, Mozilla.
+Le boulot, c'est de faire des APIs. On nous …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Mathieu Leplatre (&amp;#64;leplatrem), Mozilla&lt;/p&gt;
+&lt;p&gt;Toolkit HTTP, pour éventuellement faire des microservices.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Origines&lt;/li&gt;
+&lt;li&gt;Protocole&lt;/li&gt;
+&lt;li&gt;Toolkit&lt;/li&gt;
+&lt;li&gt;Conversation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="origines"&gt;
+&lt;h2&gt;Origines&lt;/h2&gt;
+&lt;p&gt;Stockage de données, Cloud Services, Mozilla.
+Le boulot, c'est de faire des APIs. On nous demande de faire des APIs, tout
+le temps.&lt;/p&gt;
+&lt;p&gt;Souvent, les mêmes questions sont à l'ordre du jour. Heartbeat, codes
+d'erreurs, etc. L'inventaire de tout ce qui est attendu d'une API, au dela de
+ce qui est la valeur ajoutée du service.&lt;/p&gt;
+&lt;p&gt;Définition d'un protocole. Définir une API REST n'est pas aussi évident qu'il
+y parait. Il faut définir les formats de JSON, les status, etc.&lt;/p&gt;
+&lt;p&gt;La réutilisation de certaines protocoles existants était possible (Sync, en
+production depuis quelques années).&lt;/p&gt;
+&lt;p&gt;Réutiliser du code nous permettait et faire un template pour démarrer plus
+facilement, pour se concentrer sur le métier de l'API. Puisque les besoins ne
+sont pas toujours les mêmes, avoir une boite à outil permet de choisir ce que
+l'on souhaite.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="protocole"&gt;
+&lt;h2&gt;Protocole&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Création d'un protocole qui respecte les bonnes pratiques. CORS, avoir les
+bons codes de status, arrêter de se poser toujours les mêmes questions.
+Contrairement à ce qu'on imagine, la spécification HTTP n'est pas si facile
+à suivre. Plutôt que d'écrire un document, un toolkit à été créé.&lt;/li&gt;
+&lt;li&gt;Les ops ont besoin de quelques endpoints: un heartbeat (monitoring) des
+endpoints de batch, un endpoint &amp;quot;hello&amp;quot;, pour connaitre le type de service,
+ses URLs etc.&lt;/li&gt;
+&lt;li&gt;La service renvoie toujours un JSON avec la description de l'erreur. Cela
+permet d'avoir tout le temps la même gestion des erreurs. Utilisation du
+header &amp;quot;backoff&amp;quot; qui permet de demander aux clients d'arreter de faire des
+requetes durant une durée spécifée par le serveur.&lt;/li&gt;
+&lt;li&gt;Pour les resources &amp;quot;REST&amp;quot;, quelques règles sont définies: quel est le format
+du JSON, quel est la syntaxe du querystring pour filtrer, ordonner, gérer les
+opérations concurentes, etc.&lt;/li&gt;
+&lt;li&gt;Comment la validation fonctionne ? La pagination ? La définition des
+permissions ? Les erreurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Définir le protocole une seule fois permet de se mettre d'accord avec les Ops.
+On ne créé pas une RFC pour l'instant, il faut qu'on valide ce qu'on a fait,
+il est necessaire de valider notre approche.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="toolkit"&gt;
+&lt;h2&gt;Toolkit&lt;/h2&gt;
+&lt;p&gt;La stack en place est basée sur Pyramid et Cornice. Autre chose aurait pu petre
+utilisé. Mais pyramid à été choisi pour son approche simpliste et qui permet de
+rajouter de la complexité au fur et à mesure.&lt;/p&gt;
+&lt;p&gt;Cliquet propose de faire l'ensemble du boilerplate, la lecture du protocole, et
+vous permet de créer les backends souhaités.&lt;/p&gt;
+&lt;p&gt;Il est possible de choisir les methodes HTTP acceptables, les URLs à utiliser
+etc. Tweaker l'API est possible, la chose qui reste toujouts stable est le
+protocole.&lt;/p&gt;
+&lt;p&gt;le toolkit vise à faire quelque chose de pluggable. Tout est controllable
+depuis la configuration.&lt;/p&gt;
+&lt;p&gt;Pour le deploiement, cela veut dire que le monitoring est déjà connecté, et il
+est possible de changer la configuration depuis un fichier &lt;cite&gt;.ini&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;Il est aussi possible de faire du profiling en ajoutant deux lignes de code,
+qui permet de générer des graphs qui permettent d'identifier les goulots
+d'étranglement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="microservices"&gt;
+&lt;h2&gt;Microservices ?&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Cliquet apporte une manière standard de surveiller, deployer, configurer des
+services.&lt;/li&gt;
+&lt;li&gt;Il est possible de se focaliser sur la logique de l'application, en faisait
+une abstraction des backends, etc.&lt;/li&gt;
+&lt;li&gt;Le fait de figer l'API permet d'avoir des clients génériques que l'on peu
+réutiliser d'une application à l'autre.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cliquet-est-utilise-pour"&gt;
+&lt;h2&gt;Cliquet est utilisé pour&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Kinto, un service générique de stpclage de données.&lt;/li&gt;
+&lt;li&gt;Syncto, un proxy pour Sync en utilisant le protocole.&lt;/li&gt;
+&lt;li&gt;La liste de lecture, service qui à été shutdown.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="questions"&gt;
+&lt;h2&gt;Questions&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Qu'est-ce qui est pluggable ?&lt;/strong&gt; Les choix qui sont fait dans cliquet
+concernent le protocole. Le toolkit est lui fait de manière &amp;quot;pluggable&amp;quot;. Il
+est par exemple possible de changer le backend, l'authentification, le cache
+ou les permissions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quelles sont les parties non standard? Est-il prévu de representer ça via
+une RFC ?&lt;/strong&gt; Le seul sujet qui pourrait etre utile dans une RFC serait de
+définir les headers attendus pour la validation et l'écriture
+concurrentielle. L'ensemble de ce qui est proposé est standard.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Existe-il un client JavaScript, comme pour Kinto ?&lt;/strong&gt; Actuellement, non. Par
+contre, Kinto.js est prévu pour que la partie commune entre les APIs (le
+protocole) peut etre extrait.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content></entry><entry><title>PyconFR 2015 — Geoalchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-geoalchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-geoalchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Eric Lemoine, Camp to camp. (&amp;#64;elemoine)&lt;/p&gt;
+&lt;p&gt;Bibliothèque python basée sur SQL alchemy, pour interagir avec des bases de
+données geographiques / spatiales.&lt;/p&gt;
+&lt;p&gt;Une base de donnée optimisée pour representer et rechercher des …&lt;/p&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: Eric Lemoine, Camp to camp. (&amp;#64;elemoine)&lt;/p&gt;
+&lt;p&gt;Bibliothèque python basée sur SQL alchemy, pour interagir avec des bases de
+données geographiques / spatiales.&lt;/p&gt;
+&lt;p&gt;Une base de donnée optimisée pour representer et rechercher des données qui
+representent des objets dans un espace géométrique.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Il est possible d estocker des ligne,s de polygones, des points. Il y a une
+colonne géometrie pour stocker ces données.&lt;/li&gt;
+&lt;li&gt;Il y a aussi des fonctions qui permettent de travailler sur ces données
+(transfomrations, projections, etc).&lt;/li&gt;
+&lt;li&gt;Indexs géographiques qui permettent de faire des recherches de manière
+performante.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="postgis"&gt;
+&lt;h2&gt;POSTGIS&lt;/h2&gt;
+&lt;p&gt;POSTGIS s'appuie sur postres pour offrir des types géographiques, des fonctions
+et des indexes (R-Tree), qui permettent de ranger les géométries dans des
+&amp;quot;boites englobantes&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Pour créer une base de données postgis, il faut faire un &amp;quot;create extension
+postgis&amp;quot;, ce qui installe tout ce dont on a besoin.&lt;/p&gt;
+&lt;p&gt;il est possible d'apeller &lt;cite&gt;GEOMETRY(POINT)&lt;/cite&gt; par exemple.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;ST_GeomFromText('POINT(lat long)')&lt;/cite&gt; permet de convertir un point dans un objet
+geometrie interne à postgres.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;ST_DWithin&lt;/cite&gt; permet de trouver les personnes qui sont autour d'un rayon donné.&lt;/p&gt;
+&lt;p&gt;L'ensemble des fonctions proposées par postgres commencent par &lt;cite&gt;ST_*&lt;/cite&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sqlalchemy"&gt;
+&lt;h2&gt;SQLAlchemy&lt;/h2&gt;
+&lt;p&gt;Il s'agit d'une bote à outil qui permet de faire des requetes de manière
+simple. Il y a une philosophie forte.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Il ne sohaite pas cacher la base de données&lt;/li&gt;
+&lt;li&gt;C'est un language pour faire du SQL en python&lt;/li&gt;
+&lt;li&gt;Rien n'est caché.&lt;/li&gt;
+&lt;li&gt;Fourni un vocabulaire riche pour générer le SQL&lt;/li&gt;
+&lt;li&gt;L'objectif est de changer la manière dont on pense à SQL, redonner le gout du
+SQL aux developeurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Deux parties:
+- ORM
+- CORE&lt;/p&gt;
+&lt;p&gt;Il est possible d'utiliser simplement le core si l'on sohaite (sans utiliser
+l'ORM)&lt;/p&gt;
+&lt;div class="section" id="core"&gt;
+&lt;h3&gt;Core&lt;/h3&gt;
+&lt;p&gt;Il est possible d'utiliser SQL Alchemy pour générer les tables à l'origine.
+Core permet d'utiliser des tables, et d'executer une insertion, depuis python.
+Il est possible de representer les requetes avec des methodes chainées
+&lt;cite&gt;select().where()&lt;/cite&gt; etc.&lt;/p&gt;
+&lt;p&gt;Le &amp;quot;core&amp;quot; ne fait pas de mapping du tout, il manipule des Tables SQLA
+directement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="orm"&gt;
+&lt;h3&gt;ORM&lt;/h3&gt;
+&lt;p&gt;L'ORM fait, lui, du mapping. C'est cette couche que l'on va utiliser dans une
+application Web complexe par exemple.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;il est possible de travailler avec une session &lt;cite&gt;Session()&lt;/cite&gt; puis on effectue
+des opérations et on &lt;cite&gt;commit()&lt;/cite&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="geoalchemy"&gt;
+&lt;h4&gt;GeoAlchemy&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Créé en 2009, pour supporter uniquement postgis.&lt;/li&gt;
+&lt;li&gt;Depuis, d'autres bases de données (MySQL, Spatialite, MySQL server) etc.&lt;/li&gt;
+&lt;li&gt;Réécriture depuis grace à la nouvelle API de SQLAlechemy, mais perte du
+support d'autres backends.&lt;/li&gt;
+&lt;li&gt;Finalement, retour sur POSTGIS uniquement, pour évite d'avoir à supporter les
+différences de tous les backends.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="features"&gt;
+&lt;h2&gt;Features&lt;/h2&gt;
+&lt;p&gt;Très simple de s'intégrer avec les features de POSTGIS, par exemple en
+déclarant une colonne en tant que &amp;quot;Géometrie&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Exemple: session.query(Lake).filter(Lake.geom.ST_Buffer(2).ST_Area) permet de
+lister l'ensemble des lacs avec une aire de 2 au moins.&lt;/p&gt;
+&lt;p&gt;S'intègre bien avec des services existants (shapely, pyramid, etc).&lt;/p&gt;
+&lt;p&gt;Utilisation de geojsondumps pour representer des features en geojson.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="status"&gt;
+&lt;h2&gt;Status&lt;/h2&gt;
+&lt;p&gt;Le projet est completement documenté sur read the docs. La documentation est
+assez complete et solide. Il est intégralement testé, sur differentes versions
+de python, sqlalchemy et postgres.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;3 ou 4 developeurs actifs sur le projet, ça fonctionne plutôt bien. Pour&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;contribuer, il est possible de faire cela sur github.&lt;/p&gt;
+&lt;p class="last"&gt;Slides de la presentation sur &lt;a class="reference external" href="http://erliem.net/talks/pyconfr2015"&gt;http://erliem.net/talks/pyconfr2015&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Resources:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/Shapely"&gt;https://pypi.python.org/pypi/Shapely&lt;/a&gt; - Manipulation and analysis of geometric
+objects in the Cartesian plane.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Question:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Dans les exemples geoalchemy, les données geométriques sont passées sous
+forme de chaine. Est-ce normal ? Oui.&lt;/li&gt;
+&lt;li&gt;Les rasters sont également supportés.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content></entry><entry><title>PyconFR 2015 — SQL Alchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-sql-alchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-sql-alchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: David Allouche&lt;/p&gt;
+&lt;p&gt;SQL Alchemy vous permet de produire le SQL que vous voulez. Il faut que vous
+souhaitiez comprendre ce que va etre produit.&lt;/p&gt;
+&lt;p&gt;Déclaratif:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;On créé des classes qui representent …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Speaker: David Allouche&lt;/p&gt;
+&lt;p&gt;SQL Alchemy vous permet de produire le SQL que vous voulez. Il faut que vous
+souhaitiez comprendre ce que va etre produit.&lt;/p&gt;
+&lt;p&gt;Déclaratif:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;On créé des classes qui representent nos tables, et les liaisons entre les
+tables, en utilisant &lt;cite&gt;relationship&lt;/cite&gt; (qui à énormement d'attributs).&lt;/li&gt;
+&lt;li&gt;On définit quelles osnt les clés étrangères entre les tables.&lt;/li&gt;
+&lt;li&gt;Puis on va définir les attributs qui sont liés entre les tables
+(relationship).&lt;/li&gt;
+&lt;li&gt;Pour définir des relations entre les Tables, il est possible d'utiliser des
+chaines de caractère &lt;cite&gt;relationship('OtherTable')&lt;/cite&gt;.&lt;/li&gt;
+&lt;li&gt;La session es tun concept important.&lt;/li&gt;
+&lt;li&gt;Lire efficacement. Attention à ne pas faire énormement de requetes avec
+L'ORM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Performance SQL&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Générer le SQL (python)&lt;/li&gt;
+&lt;li&gt;Ne pas faire énormement de petites requetes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il est possible de demander à la session de charger les données qui sont
+associées. (avec un joinedload). Par defaut, cela risque de charger
+l'ensemble des colonnes.&lt;/p&gt;
+&lt;p&gt;Pour la générer avec SQLAlchemy, il est possible de faire un
+&lt;cite&gt;.query(Table).join(Table).join(Table2).filter_by(field=value)&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;En pratique, le mieux est de lister clairemnet le nom des tables&lt;/p&gt;
+&lt;p&gt;2ème partie:&lt;/p&gt;
+&lt;p&gt;Pour de l'import de données,&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;first() fait une requete SQL. A éviter dans les boucles&lt;/li&gt;
+&lt;li&gt;session.flush() c'est quand la session écrit en base tout ce qui est en cours
+dans la transaction. Par default, la session fait un flush avant chaque
+requete.&lt;/li&gt;
+&lt;li&gt;une option backçpopulates mets à jour la liste des documents associés à une
+table qui à une foreign key.
+backref modifie implicitement la classe associée. Il est recommandé
+d'utiliser &lt;cite&gt;back_populates&lt;/cite&gt; et non pas &lt;cite&gt;backref&lt;/cite&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;subqueryload&lt;/cite&gt; permet de générer une requete séparée plutôt qu'une jointure.&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><title>PyconFR 2015 — Table ronde diversité</title><link href="https://blog.notmyidea.org/pyconfr-2015-table-ronde-diversite.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-table-ronde-diversite.html</id><summary type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Prise de notes: Gordon et Alexis&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Présent·e·s: Jean Phillipe, Laurence (Directrice de l'école qui acueille la
+Pycon), Amandine, Vivianne, Anna (de django carrots) + representes de django
+girls bordeaux (Laurenne et …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Prise de notes: Gordon et Alexis&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Présent·e·s: Jean Phillipe, Laurence (Directrice de l'école qui acueille la
+Pycon), Amandine, Vivianne, Anna (de django carrots) + representes de django
+girls bordeaux (Laurenne et Alexia).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JP — Pourquoi&lt;/strong&gt;:On a eu une discussion sur la ML de l'AFPy suite à une décision
+de l'afpy de ne pas financer un évènement qui n'était pas ouvert à tous-tes
+(restreint aux femmes et personnes trans). Cette décision à été prise
+conformément a la charte de l'AFPY qui dit que les evènements promus sont
+ouverts à tous. Ce qui veut dire que cela n'inclue pas les évènement exclusifs.
+(Je n'ai jamais demandé de financement à l'AFPY. J'ai juste demandé la
+diffusion sur la mailing interne de la création de Pyladies Paris. Je ne sais
+pas d'où vient cette histoire de financement! Pyladies Paris)&lt;/p&gt;
+&lt;p&gt;Suite à ça, une modification de la charte à été proposée. Demain matin, la
+modification de la charte sera proposée lors de l'AG. Suite à la proposition de
+modification, les discussions se sont enchainées, avec des points de vue
+divergents. Cette table ronde vient donc dans ce contexte.
+I
+BD d'introduction:
+&lt;a class="reference external" href="http://www.commitstrip.com/fr/2015/09/17/meanwhile-in-a-parallel-universe-2/"&gt;http://www.commitstrip.com/fr/2015/09/17/meanwhile-in-a-parallel-universe-2/&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="tour-de-presentation"&gt;
+&lt;h2&gt;Tour de présentation:&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Laurence directrice de l'école qui accueille d'évènement, docteure en Maths.
+Contente de voir que la tendance s'inverse un peu (de plus en plus de filles).&lt;/li&gt;
+&lt;li&gt;Vivianne, maitre de conférence en informatique à paris sud. Études dans un
+milieu assez masculin. Dans le domaine du developpement pour la recherche, ou
+des environnements techniques, c'est très masculin. Essaye de voir comment
+faire pour que les filles s'intéressent plus a l'informatique.&lt;/li&gt;
+&lt;li&gt;Amandine Neyrolle, diplomée d'école de commerce (plutot 50% fille/garcon dans
+ces fillières). Intégrée le monde de l'informatique par la suite en autodidacte
+et formations. Rencontré la créatrice de pyladies et discuté de ces questions.&lt;/li&gt;
+&lt;li&gt;Laurenne Chelan, organistrice des django girls bdx. Nouvelle dans cet
+univers. Travaille dans des musées de science depuis quelques années. L'idée de
+dj girs bdx part de l'idée de découvrir le code. Les djangogirls viennent de
+berlin, créé par  ???.&lt;/li&gt;
+&lt;li&gt;Alexia Sumois. organisatrice de django girls bdx. Nouvelle dans le milieu du
+code. Les conférences d'aujourd'hui on donné envie d'apprendre.&lt;/li&gt;
+&lt;li&gt;Anna, créatrice de 4ideas. Essaye de faire en sorte que plus de femmes
+viennent dans l'IT. En reconversion pro. Choisi ce domaine il ya un an. Trouve
+que ce sujet est vraiment extremement important, et sur lequel il est possible
+de faire quelque chose, et d'influencer positivement. L'idée étant de
+démystifier l'IT, et laisser le choix aux femmes de choisir cette profession.&lt;/li&gt;
+&lt;li&gt;Jean Phillipe Campguillhem, secrétaire de l'AFPY&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pourquoi-django-girls"&gt;
+&lt;h2&gt;Pourquoi Django Girls ?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Alexia&lt;/strong&gt; — Le déclencheur de cette aventure vient des goodies (!). La décoration
+de l'évènement a attiré l'attention et donné envie de creuser.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laurenne&lt;/strong&gt; — C’est pour ça qu’on se pose la question « comment attirer ces
+publics, ces personnes-là ? », importance de l’image qu’on renvoie. Ce n’est
+pas tant une question de genre, mais d’initié·e·s : on a souvent peur d’entrer
+dans ce milieu. Django-girls vise une plus grande bienveillancet Carte de la
+convivialité, chaleureux, et facile d'accès pour les débutants. Tout est livré
+clé en main, et l'évènement est facile à prendre en main. Le 28 oct à bordeau,
+recherche de coachs / sponsors pour l'évènement.
+&lt;a class="reference external" href="http://djangogirls.com/bordeaux"&gt;http://djangogirls.com/bordeaux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laurence&lt;/strong&gt; — Aspect macho présent dans la communication de l’école (pas
+forcément explicite). « On a toujours dessiné des symboles de métiers
+identifiés par des garçons »&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laurenceu&lt;/strong&gt; — Il y a une partie d'inconscient dans l'ensemble de
+l'enseignement qui est donné. Il y a peu de candidates qui essayent.  Pas
+question de discrimination positive puisque cela a des effets indésirables
+(communautarisme). La question est tout de meme posée, mais il est impensable
+d'accepter des gens grace / a cause de leur genre. L'ambiance change lorsqu'il
+y a de la mixité. À la recherche d’idées pour faire venir plus de candidates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Viviane&lt;/strong&gt; — En tant que femme, on reçoit en permanence le message que ce
+métier n’est pas fait pour nous. Ces messages ont un impact, le résultat est
+que les filles ne vont pas dans les écoles d’informatiques. Il faut aller
+convaincre les jeunes filles que c’est aussi fait pour elles. Ça passe par
+changer les plaquettes. Il faut réussir à changer l'image existante des confs /
+communautés. Un développeur peut aussi etre une développeuse. Dans l'assemblée,
+on se rend compte que certaines femmes sont en dehors du parcours. Il faut
+qu'en tant que communauté on soit capables d'accueillir les nouvelles /
+nouveaux. C’est en ayant une diversité qu’on parviendra à changer l’image du
+métier. Les rencontres pyladies permettent aussi de rencontrer d'autres femmes
+qui ont les mêmes problématiques. Accompagner les nouvelles entrantes pour
+trouver du boulot, découvrir l'AFPY et les initatives existantes. Les
+initiatives existantes django girls / pyladies est très important.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Amandine&lt;/strong&gt; — C’est pourquoi ce genre d’évènements non-mixtes permet de faire
+des séances de rattrapage pour permettre d’intégrer la communauté dans son
+ensemble. C’est le point clé pour faire accepter ce genre d’initiatives.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laurenne&lt;/strong&gt; — DjangoGirls et Django Carrots ne sont pas des évènements
+excluants. Ils sont simplement orientés en priorité aux femmes. Sur la question
+de « comment amener des jeunes filles vers ces études-là », ça se joue bien
+avant, dans l’enfance, bien avant l’école. cf les jeux genrés. Il faut
+travailler à ce niveau-là.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Anna&lt;/strong&gt; — Pour illustrer ce que dit Laurenne, l'importance des clichés
+existants. Avant le mi-80s, il y avait autant de femmes que dans d'autres
+domaines. Si on regarde les stats, dans tousles autres domaines, le pourcentage
+de femmes augmente. Et en IT, en 84 il y a un pic qui inverse la tendance. Ce
+sont des stats américaines. A priori cela s'applique aussi en Europe. En IT, la
+culture qui à été créé autour des hackers qui ont des super pouvoirs, mangent
+des pizzas, etc. Ces clichés ont influencé le monde. Nous ne sommes pas
+complètement autonomes, et nous sommes influencés par la culture autour de
+nous. Les dommages qui ont été fait dans le domaine de l'IT sont graves, et il
+est important de renverser la tendance. La question de l'image est centrale.
+Les personnes ont besoin de place pour faire leurs évènements. Il est important
+de comprendre et respecter que les autres veuillent faire de la discrimination
+positive. Ce sont des actions qui sont supportées par la France. Ce sont des
+valeurs qui sont beaucoup lus fortes en France qu'ailleurs (Anna souligne
+qu'elle est Polonaise). On devrait respecter ce droit.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vivianne&lt;/strong&gt; — Certaines evènements sont non-mixtes (pour les personnes qui
+s'identifient comme des femmes). Ce ne doit pas etre les seules initiatives.
+Elle est pour la mixté. PyLadies est assez spécifique : ce n’est pas de la
+formation, mais principalement des évènements tournés autour du réseau. Il est
+important d'avoir un endroit ou les jeunes femmes seront moins imprésionnées.
+Les situations exposées dans la BD sont réelles. De se retrouver dans un
+environnement où elles sont sûres qu’elles ne subiront pas de micro-agressions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laurence&lt;/strong&gt; — Témoignage d'une mère qui dit à sa fille, en passant devant un
+panneau de l'école, mentionnant maths et informatique, et qui dit à sa fille «
+oh non, c'est pas pour toi ça » . On dit « attention les garçons, vous devez
+être sympas avec les filles ». Les garçons ont envie que ça se passe bien avec
+les filles.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JP&lt;/strong&gt; — Sans revenir sur les décisions qui ont été prises, nous n'avons pas
+dit que nous étions contre ces évènements (à l'AFPY). A plusieurs reprises,
+j'ai du faire des blagues sexistes. Évidemment qu'on est mieux ensemble. Pour
+revenir sur la discussion de la mailing-list, je me suis rendu compte que
+j'avais un regard biaisé. Si on en est la, c'est quil y a énormement de
+travail. Que faire, du coup ? En tant qu'hommes ? Qu'association ? Si il est
+necessaire de créer une zone de confort / sécurité, c'est qu'il y a une zone
+d'inconfort / insécurité qui est forte. Les couleurs, les jolis goodies, sont
+le sommet de l’iceberg. Rappel de l'éxistence du Code of Conduct : il y a déjà
+eu des incidents par le passé. On passe la parole à Florent, qui est à
+l’origine du CoC. Remerciement envers les intervenantes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Florent (vice secrétaire de l'AFPY)&lt;/strong&gt; — Comme le dit JP, un code of conduct
+est affiché devant toutes les portes et à l'entrée. Tout le monde n’aimait pas
+forcément l’idée d’en avoir, on a fini par trancher. Le but est d’avoir des
+endroits safes. Avant d’avoir un CoC,  on ne peut pas dire qu’on soit safes,
+envers l'ensemble des minorités. On a écrit le CoC en conséquence des
+agressions. Aujourd’hui, pas de tolérance pour des comportements qui n’ont pas
+lieu d’être (qu’on a définis comme tels). Ça fonctionne sur la dénonciation
+lorsque l’on est témoin de ça. On n’a pas vraiment de mal à rencontrer des
+femmes, mais plus de mal à faire comprendre qu’elles sont bienvenues. Impact
+important de blagues sexistes, qu’on défend comme « c’est pour rire ». Merci de
+lire le Code of Conduct. Les blagues sexistes etc. ne sont pas les bienvenues.
+Merci de réagir lors de ces cas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="questions"&gt;
+&lt;h2&gt;Questions.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Questiond de Gawel&lt;/strong&gt;: Question pour Amandine. Est-ce que tu te sens bien à l'AFPY ?  Si non, que faire pour que tu te sente mieux ?&lt;/p&gt;
+&lt;p&gt;Amandine — Oui je me sens bien, est-ce qu’il y a eu des évènements ? oui, sans
+doute mais j’y suis aguerrie, donc je me rends peu compte. Qu’est-ce qu’on peut
+faire ? L’idée du CoC est d’aller à l’encontre des comportements négatifs, mais
+l’idée derrière est une ouverture à la différence dans son ensemble, promouvoir
+l’ouverture à l’autre et à la différence. L’enjeu culturel est d’arriver à
+changer d’état d’esprit et d’identifier ces biais cognitifs. Il faudrait pas
+qu’on se dise « ho là là, il y a une fille, faut rien dire sinon je vais me
+faire taper » Il faut cultiver la différence. et être curieux/se.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Question&lt;/strong&gt; : « c’est pas fait pour moi », mais plutôt « je suis mauvais, donc
+je dois travailler », on en revient à l’importance de l’éducation. Il faut
+continuer de pointer du doigt les problèmes. Je suis aussi membre d’un LUG,
+nous sommes entre hommes diplomés blancs de 30 à 40 ans. La réflexion sur les
+plaquettes pas accueillantes est pertinente : le site de l’asso est très
+masculin.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Question de Bruno&lt;/strong&gt;. Pour l’école: quand j’étais étudiant, 20% de filles.
+(Aujourd’hui on est partis de 7/8% pour arriver à 15%). Est-ce que les filles
+réussissent plus ?&lt;/p&gt;
+&lt;p&gt;Laurence — on n’a pas de stats, mais elles posent moins de problèmes. Les
+filles sont favorisées par les employeurs.&lt;/p&gt;
+&lt;p&gt;Vivianne — la motivation des filles à la sortie est identique aux garçons, mais
+tout n’est pas rose. En entretien par exemple, ils sont faits par des hommes,
+mais au niveau des stats, le nombre de femmes qui quittent le milieu est
+important. Effort à faire au niveau de la communauté, des entreprises. Schémas
+masculins, mais sur le long terme, on subit des agressions. Difficile de rester
+dans le métier et faire une carrière intéressante, à compétences/motivation
+identiques aux hommes. Il faut en avoir conscience&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Question de Benoit&lt;/strong&gt;: il y a peut-être une façon de créer des
+lieux/évènements protégés, en utilisant ceux qui existent déjà. Est-ce qu’on
+peut aller organiser des évènements dans des écoles/lycées, des endroits où les
+gens se sentent déjà à l’aise, où les populations sont plus représentées ?&lt;/p&gt;
+&lt;p&gt;Vivianne — ça se fait. En tant qu’enseignante, dès que j’ai une occasion, que
+ce soit pour aller chercher des JF ou des étudiants maths/infos, même si c’est
+ouvert à tous, je le fais. Si c’est que des hommes, les femmes n’ont pas envie
+d’y aller.&lt;/p&gt;
+&lt;p&gt;Laurenne — c’est quelque chose qui se fait beaucoup. On met en avant des femmes
+chercheuses dès qu’on le peut.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Question d'Alexis&lt;/strong&gt; : je suis très content qu’il y ait cette discussion qui
+se fasse. Question par rapport aux discriminations positives, qu’on a pu voir
+par le passé (notamment lors de conférences). Difficile de dire « on va
+préférer des femmes ». Question irrésolue, parce que pour faire évoluer, on a
+besoin d'initier quelque chose, d’essayer. Mais ça a un côté dérangeant.&lt;/p&gt;
+&lt;p&gt;Vivianne — à la PyCon (US), j’ai été impressionnée du nombre de femmes qui
+parlaient. On va pas mettre un quota, ça serait stupide, on va forcer personne.
+Mais il faut en avoir conscience. Cette année, on est 4 oratrices, y’a du
+travail à faire. En tant qu’hommes, il faut aussi se mettre en retrait et
+inviter des femmes à en parler à notre place. Faire le pas d'aller faire un
+exposé dans une communauté où on ne se sent pas à sa place (même si on lutte
+contre) est difficile. Inviter des gens, sans forcément passer par un énorme
+processus. Ça passe par des events comme PyLadies.&lt;/p&gt;
+&lt;p&gt;Anna — pour les personnes par encore convaincues, juste apres le droit de vote
+des femmes en 46, à l'assemblée nationale il y avait très peu de femmes. Puis
+en 93, 6.1% apres que des mesures aient été prises. Ensuite de femmes puis vers
+20% Les choses ne vont pas se changer toutes seules. Il est necessaire d'avoir
+du temps pour faire évoluer les choses. Il est important de noter que PyconFR
+fait déjà des choses. Et lors de django carrots, je me suis sentie très
+accueillie. J'ai eu beaucoup de très bonnes expériences avec des personnes qui
+étaient prêtes à aider.&lt;/p&gt;
+&lt;p&gt;JP — Remerciement pour Rémy qui abat un travail de ouf. C'est grace à Rémy si
+il y a django carrots demain. Il faut faire des choses. :-) Merci !&lt;/p&gt;
+&lt;/div&gt;
+</content></entry></feed>

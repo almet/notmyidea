@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Let's Encrypt + HAProxy - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Let's Encrypt + HAProxy</h1>
+<span class="post-date">11 février 2016</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Comment j'ai mis en place des certificats SSL avec Let's Encrypt
+derrière haproxy.</h2>
+    <h1>🌟</h1>
+    <blockquote class="epigraph">
+<p>It’s time for the Web to take a big step forward in terms of security and
+privacy. We want to see HTTPS become the default. Let’s Encrypt was built
+to enable that by making it as easy as possible to get and manage
+certificates.</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://letsencrypt.org/">Let's Encrypt</a></p>
+</blockquote>
+<p>Depuis début Décembre, la nouvelle <em>autorité de certification</em> Let's Encrypt
+est passée en version <em>Beta</em>. Les certificats SSL sont un moyen de 1. chiffrer la
+communication entre votre navigateur et le serveur et 2. un moyen d'être sur
+que le site Web auquel vous accédez est celui auquel vous pensez vous connecter
+(pour éviter des <a class="reference external" href="https://fr.wikipedia.org/wiki/Attaque_de_l'homme_du_milieu">attaques de l'homme du milieu</a>).</p>
+<p>Jusqu'à maintenant, il était nécessaire de payer une entreprise pour faire en
+sorte d'avoir des certificats qui évitent d'avoir ce genre d'erreurs dans vos
+navigateurs:</p>
+<img alt="Message de firefox lorsque une connexion n'est pas sécurisée." src="{filename}/static/unsecure-connection.png" />
+<p>Maintenant, grâce à Let's Encrypt il est possible d'avoir des certificats SSL
+<strong>gratuits</strong>, ce qui représente un grand pas en avant pour la sécurité de nos
+communications.</p>
+<p>Je viens de mettre en place un procédé (assez simple) qui permet de configurer
+votre serveur pour générer des certificats SSL valides avec Let's Encrypt et
+le répartiteur de charge <a class="reference external" href="http://www.haproxy.org/">HAProxy</a>.</p>
+<p>Je me suis basé pour cet article sur d'<a class="reference external" href="https://blog.infomee.fr/p/letsencrypt-haproxy">autres</a> <a class="reference external" href="http://blog.victor-hery.com/article22/utiliser-let-s-encrypt-avec-haproxy">articles</a>, dont je
+vous recommande la lecture pour un complément d'information.</p>
+<div class="section" id="validation-des-domaines-par-let-s-encrypt">
+<h2>Validation des domaines par Let's Encrypt</h2>
+<p>Je vous passe les détails d'installation du client de Let's Encrypt, qui sont
+<a class="reference external" href="https://github.com/letsencrypt/letsencrypt#installation">très bien expliqués sur leur documentation</a>.</p>
+<p>Une fois installé, vous allez taper une commande qui va ressembler à:</p>
+<pre class="literal-block">
+letsencrypt-auto certonly --renew-by-default
+--webroot -w /home/www/letsencrypt-requests/ \
+-d hurl.kinto-storage.org \
+-d forums.kinto-storage.org
+</pre>
+<p>Le <em>webroot</em> est l'endroit ou les preuves de détention du domaine vont être
+déposées.</p>
+<p>Lorsque les serveurs de Let's Encrypt vont vouloir vérifier que vous êtes bien
+à l'origine des demandes de certificats, ils vont envoyer une requête HTTP sur
+<tt class="docutils literal"><span class="pre">http://domaine.org/.well-known/acme-challenge</span></tt>, ou il voudra trouver des
+informations qu'il aura généré via la commande <tt class="docutils literal"><span class="pre">letsencrypt-auto</span></tt>.</p>
+<p>J'ai choisi de faire une règle dans haproxy pour diriger toutes les requêtes
+avec le chemin <tt class="docutils literal"><span class="pre">.well-known/acme-challenge</span></tt> vers un <em>backend</em> nginx qui sert
+des fichiers statiques (ceux contenus dans
+<tt class="docutils literal"><span class="pre">/home/www/letsencrypt-requests/</span></tt>).</p>
+<p>Voici la section de la configuration de HAProxy (et <a class="reference external" href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72">la configuration
+complete</a>
+si ça peut être utile):</p>
+<pre class="literal-block">
+frontend http
+    bind 0.0.0.0:80
+    mode http
+    default_backend nginx_server
+
+    acl letsencrypt_check path_beg /.well-known/acme-challenge
+    use_backend letsencrypt_backend if letsencrypt_check
+
+    redirect scheme https code 301 if !{ ssl_fc } !letsencrypt_check
+
+backend letsencrypt_backend
+    http-request set-header Host letsencrypt.requests
+    dispatch 127.0.0.1:8000
+</pre>
+<p>Et celle de NGINX:</p>
+<pre class="literal-block">
+server {
+    listen 8000;
+    server_name letsencrypt.requests;
+    root /home/www/letsencrypt-requests;
+}
+</pre>
+</div>
+<div class="section" id="installation-des-certificats-dans-haproxy">
+<h2>Installation des certificats dans HAProxy</h2>
+<p>Vos certificats SSL devraient être générés dans <tt class="docutils literal">/etc/letsencrypt/live</tt>, mais
+ils ne sont pas au format attendu par haproxy.  Rien de grave, la commande
+suivant convertit l'ensemble des certificats en une version compatible avec
+HAProxy:</p>
+<pre class="literal-block">
+cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &gt; /etc/ssl/letsencrypt/domaine.org.pem
+</pre>
+<p>Et ensuite dans la configuration de haproxy, pour le (nouveau) <em>frontend</em> https:</p>
+<pre class="literal-block">
+bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt
+</pre>
+<p>Faites bien attention à avoir un <em>frontend</em> <cite>https</cite> pour tous vos sites en HTTPS.
+<a class="reference external" href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L38-L60">Pour moi cela ressemble à ça</a>.</p>
+<p>Une fois tout ceci fait, redémarrez votre service haproxy et zou !</p>
+</div>
+<div class="section" id="automatisation">
+<h2>Automatisation</h2>
+<p>Pour automatiser un peu tout ça, j'ai choisi de faire ça comme suit:</p>
+<ul class="simple">
+<li>Un fichier domaine dans <tt class="docutils literal">letsencrypt/domains/domain.org</tt> qui contient le script <tt class="docutils literal">letsencrypt</tt>.</li>
+<li>Un fichier d'installation de certificats dans
+<tt class="docutils literal"><span class="pre">letsencrypt/install-certs.sh</span></tt> qui s'occupe d'installer les certificats
+déjà générés.</li>
+</ul>
+<p>Et voila ! <a class="reference external" href="https://github.com/almet/infra/">Le tout est dans un dépot github</a>, si jamais ça peut vous servir, tant mieux !</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>How to reboot your bebox using the CLI - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">How to reboot your bebox using the CLI</h1>
+<span class="post-date">21 octobre 2010</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>I've an internet connection which, for some obscure reasons, tend to be very
+slow from time to time. After rebooting the box (yes, that's a hard solution),
+all the things seems to go fine again.</p>
+<div class="section" id="edit-using-grep">
+<h2>EDIT : Using grep</h2>
+<p>After a bit of reflexion, that's also really easy to do using directly the
+command line tools curl, grep and tail (but really harder to read).</p>
+<div class="highlight"><pre><span></span>curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/<span class="se">\?</span>be<span class="se">\=</span><span class="m">0</span><span class="se">\&amp;</span>l0<span class="se">\=</span><span class="m">1</span><span class="se">\&amp;</span>l1<span class="se">\=</span><span class="m">0</span><span class="se">\&amp;</span>tid<span class="se">\=</span>RESTART -d <span class="s2">&quot;0=17&amp;2=`curl -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&amp;l0\=1\&amp;l1\=0\&amp;tid\=RESTART | grep -o &quot;</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;2&#39;</span> <span class="nv">value</span><span class="o">=</span><span class="err">&#39;</span><span class="o">[</span><span class="m">0</span>-9<span class="o">]</span><span class="se">\+</span><span class="s2">&quot; | grep -o &quot;</span><span class="o">[</span><span class="m">0</span>-9<span class="o">]</span><span class="se">\+</span><span class="s2">&quot; | tail -n 1`&amp;1&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="the-python-version">
+<h2>The Python version</h2>
+<p>Well, that's not the optimal solution, that's a bit &quot;gruik&quot;, but it works.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">urlparse</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">REBOOT_URL</span> <span class="o">=</span> <span class="s1">&#39;/b/info/restart/?be=0&amp;l0=1&amp;l1=0&amp;tid=RESTART&#39;</span>
+<span class="n">BOX_URL</span> <span class="o">=</span> <span class="s1">&#39;http://bebox.config/cgi&#39;</span>
+
+<span class="k">def</span> <span class="nf">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">passman</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPPasswordMgrWithDefaultRealm</span><span class="p">()</span>
+    <span class="n">passman</span><span class="o">.</span><span class="n">add_password</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="n">authhandler</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPBasicAuthHandler</span><span class="p">(</span><span class="n">passman</span><span class="p">)</span>
+
+    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">authhandler</span><span class="p">)</span>
+
+    <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">open_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;name\=</span><span class="se">\\</span><span class="s2">&#39;2</span><span class="se">\\</span><span class="s2">&#39; value=</span><span class="se">\\</span><span class="s2">&#39;([0-9]+)</span><span class="se">\\</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;0=17&amp;2=</span><span class="si">%s</span><span class="s1">&amp;1&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__file__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Reboot your bebox !&quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="n">boxurl</span><span class="o">=</span><span class="s1">&#39;boxurl&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">BOX_URL</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Base box url.  Default is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">BOX_URL</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">boxurl</span><span class="p">,</span> <span class="n">REBOOT_URL</span><span class="p">)</span>
+    <span class="n">reboot</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</pre></div>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

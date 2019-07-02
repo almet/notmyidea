@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Simplifier les preuves d'identités - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Simplifier les preuves d'identités</h1>
+<span class="post-date">11 mai 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Qu'est-ce que Keybase.io et comment essayent-ils de simplifier la
+création de preuves d'identité.</h2>
+    <h1>🌟</h1>
+    <p>L'un des problèmes non réellement résolu actuellement quant au chiffrement des
+échanges est lié à l'authenticité des clés. Si quelqu'un décide de publier une
+clé en mon nom, et en utilisant mon adresse email, cela lui est assez facile.</p>
+<p>Il est donc nécessaire d'avoir des moyens de prouver que la clé publique que
+j'utilise est réellement la mienne.</p>
+<p>Traditionnellement, il est nécessaire de faire signer ma clé publique par
+d'autres personnes, via une rencontre en personne ou des échanges hors du
+réseau. C'est par exemple ce qui est réalisé lors des <a class="reference external" href="https://fr.wikipedia.org/wiki/Key_signing_party">Key Signing parties</a>.</p>
+<p>Une manière simple d'effectuer ces vérifications serait, en plus de donner son
+adresse email, sa signature de clé, ou a minima de donner un mot clé pour
+valider que les échanges proviennent bien de la bonne personne.</p>
+<p>PGP propose un mécanisme de signature des clés d'autrui, une fois celles ci
+validées, ce qui permet de placer sa confiance dans les signataires de la clé.</p>
+<p><a class="reference external" href="https://keybase.io">Keybase.io</a> est un service qui vise à rendre la création
+de ces preuves plus facile, en partant du principe qu'il est possible
+d'utiliser différents moyens afin de prouver l'identité des personnes. Par
+exemple, leurs comptes Twitter, GitHub ou leurs noms de domaines. De la même
+manière qu'il est possible de signer (valider) les clés de nos amis, il est
+possible de les &quot;tracker&quot; selon le jargon de keybase.</p>
+<p>Donc, en somme, <em>Keybase.io</em> est un annuaire, qui tente de rendre plus facile la
+création de preuves. Bien.</p>
+<div class="section" id="quelques-points-d-ombre">
+<h2>Quelques points d'ombre</h2>
+<p>Il s'agit d'une <em>startup</em> américaine, domiciliée dans le Delaware, qui se trouve être
+un des paradis fiscaux qui <a class="reference external" href="https://fr.wikipedia.org/wiki/Delaware">est connu pour être un paradis fiscal au coeur
+même des États-Unis</a>. Je ne veux pas
+faire de raccourcis trop rapides, bien évidemment, alors <a class="reference external" href="https://github.com/keybase/keybase-issues/issues/1569">j'ai ouvert un ticket
+sur GitHub pour en savoir plus</a> (après tout, le fait
+d'être un paradis fiscal permet peut-être d'échapper à certaines lois sur la
+requêtes de données). D'autant plus étonnant, la startup n'a pour l'instant <a class="reference external" href="https://github.com/keybase/keybase-issues/issues/788">pas
+de *business model*</a>
+(ce qui en un sens est assez rassurant, même si on peut se poser la question de
+pourquoi faire une startup dans ces cas là).</p>
+<p>Le service (bien qu'en Alpha), n'est pas mis à disposition sous licence libre,
+ce qui pour l'instant empêche quiconque de créer son propre serveur Keybase.
+<a class="reference external" href="https://github.com/keybase/">Une partie des composants, cependant, le sont (open source)</a>.</p>
+<p>J'ai du mal à croire en des initiatives qui veulent sauver le monde, mais dans
+leur coin, je ne comprends pas pourquoi il n'y à pas de documentation sur
+comment monter son propre serveur, ou comment les aider à travailler sur la
+fédération. Mais bon, c'est pour l'instant une initiative encore fraîche, et je
+lui laisse le bénéfice du doute.</p>
+<p>Sur le long terme, une infrastructure comme <em>Keybase.io</em>, devra évidemment être
+<a class="reference external" href="https://github.com/keybase/keybase-issues/issues/162">distribuée</a>.</p>
+<blockquote class="epigraph">
+<p>We've been talking about a total decentralization, but we have to solve
+a couple things, synchronization in particular. Right now someone can
+mirror us and a client can trust a mirror just as easily as the server at
+keybase.io, but there needs to be a way of announcing proofs to any server
+and having them cooperate with each other. We'd be so happy to get this
+right.</p>
+<p class="attribution">&mdash;<a class="reference external" href="http://chris.beams.io/posts/keybase/">Chris Coyne, co-founder of Keybase</a></p>
+</blockquote>
+<p>Afin de se &quot;passer&quot; de leur service centralisé, les preuves générées (qui sont
+la force du système qu'ils mettent en place) pourraient être exportées sur des
+serveurs de clés existants. C'est quelque chose <a class="reference external" href="https://github.com/keybase/keybase-issues/issues/890">qu'ils souhaitent réaliser .</a>.</p>
+<p>Bref, une initiative quand même importante et utile, même si elle soulève des
+questions qui méritent qu'on s'y attarde un brin.</p>
+<p>Par ailleurs, <a class="reference external" href="https://leap.se/nicknym">d'autres projets qui visent des objectifs similaires</a> existent, via le projet LEAP, mais je n'ai pas
+encore creusé.</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

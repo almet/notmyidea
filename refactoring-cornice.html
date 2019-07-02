@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Refactoring Cornice - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+    <meta name="tags" contents="python" />
+    <meta name="tags" contents="Cornice" />
+    <meta name="tags" contents="refactoring" />
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Refactoring Cornice</h1>
+<span class="post-date">14 mai 2012</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>After working for a while with <a class="reference external" href="http://cornice.readthedocs.com">Cornice</a> to
+define our APIs at <a class="reference external" href="http://docs.services.mozilla.com">Services</a>, it turned
+out that the current implementation wasn't flexible enough to allow us to do
+what we wanted to do.</p>
+<p>Cornice started as a toolkit on top of the <a class="reference external" href="http://docs.pylonsproject.org/en/latest/docs/pyramid.html">pyramid</a> routing system,
+allowing to register services in a simpler way. Then we added some niceties
+such as the ability to automatically generate the services documentation or
+returning the correct HTTP headers <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">as defined by the HTTP specification</a> without the need
+from the developer to deal with them nor to know them.</p>
+<p>If you're not familiar with Cornice, here is how you define a simple service
+with it:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cornice.service</span> <span class="kn">import</span> <span class="n">Service</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/bar&quot;</span><span class="p">)</span>
+
+<span class="nd">@bar.get</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="n">validators</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_drink</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># do something with the request (with moderation).</span>
+</pre></div>
+<p>This external API is quite cool, as it allows to do a bunch of things quite
+easily. For instance, we've written our <a class="reference external" href="https://github.com/mozilla-services/tokenserver">token-server</a> code on top of this in a
+blast.</p>
+<div class="section" id="the-burden">
+<h2>The burden</h2>
+<p>The problem with this was that we were mixing internally the service
+description logic with the route registration one. The way we were doing this
+was via an extensive use of decorators internally.</p>
+<p>The API of the <cite>cornice.service.Service</cite> class was as following (simplified so
+you can get the gist of it).</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Service</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">service_kwargs</span><span class="p">):</span>
+        <span class="c1"># some information, such as the colander schemas (for validation),</span>
+        <span class="c1"># the defined methods that had been registered for this service and</span>
+        <span class="c1"># some other things were registered as instance variables.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schemas</span> <span class="o">=</span> <span class="n">service_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">schema</span><span class="s1">&#39;, None)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">view_kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method is a decorator that is being used by some alias</span>
+<span class="sd">        methods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+            <span class="c1"># all the logic goes here. And when I mean all the logic, I</span>
+            <span class="c1"># mean it.</span>
+            <span class="c1"># 1. we are registering a callback to the pyramid routing</span>
+            <span class="c1">#    system so it gets called whenever the module using the</span>
+            <span class="c1">#    decorator is used.</span>
+            <span class="c1"># 2. we are transforming the passed arguments so they conform</span>
+            <span class="c1">#    to what is expected by the pyramid routing system.</span>
+            <span class="c1"># 3. We are storing some of the passed arguments into the</span>
+            <span class="c1">#    object so we can retrieve them later on.</span>
+            <span class="c1"># 4. Also, we are transforming the passed view before</span>
+            <span class="c1">#    registering it in the pyramid routing system so that it</span>
+            <span class="c1">#    can do what Cornice wants it to do (checking some rules,</span>
+            <span class="c1">#    applying validators and filters etc.</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A shortcut of the api decorator&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="n">request_method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+<p>I encourage you to go read <a class="reference external" href="https://github.com/mozilla-services/cornice/blob/4e0392a2ae137b6a11690459bcafd7325e86fa9e/cornice/service.py#L44">the entire file</a>.
+on github so you can get a better opinion on how all of this was done.</p>
+<p>A bunch of things are wrong:</p>
+<ul class="simple">
+<li>first, we are not separating the description logic from the registration one.
+This causes problems when we need to access the parameters passed to the
+service, because the parameters you get are not exactly the ones you passed
+but the ones that the pyramid routing system is expecting. For instance, if
+you want to get the view <cite>get_drink</cite>, you will instead get a decorator which
+contains this view.</li>
+<li>second, we are using decorators as APIs we expose. Even if decorators are
+good as shortcuts, they shouldn't be the default way to deal with an API. A
+good example of this is <a class="reference external" href="https://github.com/mozilla-services/cornice/blob/4e0392a2ae137b6a11690459bcafd7325e86fa9e/cornice/resource.py#L56">how the resource module consumes this API</a>.
+This is quite hard to follow.</li>
+<li>Third, in the <cite>api</cite> method, a bunch of things are done regarding inheritance
+of parameters that are passed to the service or to its decorator methods.
+This leaves you with a really hard to follow path when it comes to add new
+parameters to your API.</li>
+</ul>
+</div>
+<div class="section" id="how-do-we-improve-this">
+<h2>How do we improve this?</h2>
+<p>Python is great because it allows you to refactor things in an easy way. What I
+did isn't breaking our APIs, but make things way simpler to hack-on. One
+example is that it allowed me to add features that we wanted to bring to
+Cornice really quickly (a matter of minutes), without touching the API that much.</p>
+<p>Here is the gist of the new architecture:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Service</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># we define class-level variables that will be the default values for</span>
+    <span class="c1"># this service. This makes things more extensible than it was before.</span>
+    <span class="n">renderer</span> <span class="o">=</span> <span class="s1">&#39;simplejson&#39;</span>
+    <span class="n">default_validators</span> <span class="o">=</span> <span class="n">DEFAULT_VALIDATORS</span>
+    <span class="n">default_filters</span> <span class="o">=</span> <span class="n">DEFAULT_FILTERS</span>
+
+    <span class="c1"># we also have some class-level parameters that are useful to know</span>
+    <span class="c1"># which parameters are supposed to be lists (and so converted as such)</span>
+    <span class="c1"># or which are mandatory.</span>
+    <span class="n">mandatory_arguments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,)</span>
+    <span class="n">list_arguments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;validators&#39;</span><span class="p">,</span> <span class="s1">&#39;filters&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="c1"># setup name, path and description as instance variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+
+        <span class="c1"># convert the arguments passed to something we want to store</span>
+        <span class="c1"># and then store them as attributes of the instance (because they</span>
+        <span class="c1"># were passed to the constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_arguments</span><span class="p">(</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="c1"># we keep having the defined_methods tuple and the list of</span>
+        <span class="c1"># definitions that are done for this service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">get_arguments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dict of arguments. It does all the conversions for</span>
+<span class="sd">        you, and uses the information that were defined at the instance</span>
+<span class="sd">        level as fallbacks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">add_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a view to this service.&quot;&quot;&quot;</span>
+        <span class="c1"># this is really simple and looks a lot like this</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">args</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is only another interface to the add_view method, exposing a</span>
+<span class="sd">    decorator interface&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">view</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+<p>So, the service is now only storing the information that's passed to it and
+nothing more. No more route registration logic goes here. Instead, I added this
+as another feature, even in a different module. The function is named
+<cite>register_service_views</cite> and has the following signature:</p>
+<div class="highlight"><pre><span></span><span class="n">register_service_views</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
+</pre></div>
+<p>To sum up, here are the changes I made:</p>
+<ol class="arabic simple">
+<li>Service description is now separated from the route registration.</li>
+<li><cite>cornice.service.Service</cite> now provides a <cite>hook_view</cite> method, which is not a
+decorator. decorators are still present but they are optional (you don't
+need to use them if you don't want to).</li>
+<li>Everything has been decoupled as much as possible, meaning that you really
+can use the <cite>Service</cite> class as a container of information about the services
+you are describing. This is especially useful when generating documentation.</li>
+</ol>
+<p>As a result, it is now possible to use Cornice with other frameworks. It means
+that you can stick with the service description but plug any other framework on
+top of it. <cite>cornice.services.Service</cite> is now only a description tool. To
+register routes, one would need to read the information contained into this
+service and inject the right parameters into their preferred routing system.</p>
+<p>However, no integration with other frameworks is done at the moment even if the
+design allows it.</p>
+<p>The same way, the sphinx description layer is now only a consumer of this
+service description tool: it looks at what's described and build-up the
+documentation from it.</p>
+<p>The resulting branch is not merged yet. Still, you can <a class="reference external" href="https://github.com/mozilla-services/cornice/tree/refactor-the-world">have a look at it</a>.</p>
+<p>Any suggestions are of course welcome :-)</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Retours sur un atelier ZeroNet - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Retours sur un atelier ZeroNet</h1>
+<span class="post-date">17 mars 2016</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Comment contourner la censure grâce à un Web pair-à-pair ?</h2>
+    <h1>🌟</h1>
+    <p>Mardi dernier se tenait <a href="http://biblio.insa-rennes.fr/crypto">une <em>cryptoparty</em></a>
+dans les locaux de l'INSA de Rennes.</p>
+<p>L'évènement s'étant rempli au delà de toutes les espérances, on m'a proposé de
+venir y tenir un atelier, que j'ai proposé sur <a href="https://zeronet.io">ZeroNet</a>, un
+petit projet fort sympathique qui pourrait devenir une nouvelle manière de
+distribuer le Web, permettant notamment d'éviter la censure.</p>
+<p>Avant toute autre chose, merci énormément à l'équipe de la bibliothèque de
+l'INSA pour l'organisation de cet évènement qui à une réelle portée politique.</p>
+<h2>Un peu d'histoire</h2>
+<p>Il me semble que Tim Bernes Lee (l'inventeur du Web) avait prévu le Web comme un
+protocole décentralisé. Chacun hébergerait ses données et les servirait aux
+autres, qui pourraient alors y accéder.</p>
+<p>Avec ce fonctionnement, impossible alors d'accéder à des sites si leur auteur
+n'est pas en ligne. Qu'à cela ne tienne, on s'est mis à avoir des machines qui
+restent connectées au réseau 24 heures par jour. Et puis une machine ne
+suffisant plus, on a eu des fermes de machines dans des <em>data centers</em> etc afin
+de supporter les milliers d'utilisateurs des sites.</p>
+<h2>Un Web décentralisé</h2>
+<p>ZeroNet permet (entre autres) de répondre à ce problème en proposant une manière
+alternative de <strong>distribuer le Web</strong>, en pair à pair. Lors d'une visite d'un
+site:</p>
+<ol>
+<li>Vous contactez un <em>tracker</em> BitTorrent pour connaitre la liste des autres
+   visiteurs du site (les <em>pairs</em>).</li>
+<li>Vous demandez aux <em>pairs</em> de vous donner les fichiers du site.</li>
+<li>Vous validez que les fichiers servis sont bien les bons (en vérifiant la
+   signature attachée).</li>
+</ol>
+<p>N'importe quel visiteur devient alors un <em>pair</em>, qui sert le site aux autres
+visiteurs.</p>
+<p>Parmi les nombreux avantages de cette approche, je note particulièrement que:</p>
+<ul>
+<li>Il est très difficile de censurer un site — Il est sur l'ensemble des machines
+  des visiteurs.</li>
+<li>Les attaques par <em>fingerprinting</em> sont impossibles: le navigateur Web se
+  connecte à un serveur <em>proxy</em> local.</li>
+<li>Vous détenez directement vos données et (par design) ne les donnez pas à des
+  silos (Facebook, Google, etc.)</li>
+</ul>
+<p>Si vous êtes interessés par une démonstration rapide, j'ai enregistré une vidéo
+de 10 minutes où je parle en anglais avec une voix très grave.</p>
+<video controls="" src="http://alexis.notmyidea.org/zeronet.webm" width=800></video>
+
+<h2>Atelier</h2>
+<p>Pour l'atelier, j'ai choisi de faire une présentation rapide du projet (<a href="{filename}/static/zeronet-presentation-fr.pdf">j'ai
+traduit les slides</a> anglais
+pour l'occasion — <a href="https://docs.google.com/presentation/d/158C_-V1ueNaaKHMBMBgGOVhunb9xrXzB3hC_g1N53c0/edit?usp=sharing">accès aux sources</a>)
+avant d'installer ZeroNet sur les machines et de l'utiliser pour publier un
+site.</p>
+<h3>Partager sur le réseau local</h3>
+<p>Nous avons eu des soucis à cause du réseau (un peu congestionné) sur lequel
+les ports utilisés pour la discussion entre <em>pairs</em> étaient fermés. Il est bien
+sur possible de faire tourner le tout de manière indépendante du reste du réseau,
+mais je n'avais pas prévu le coup.</p>
+<p>Voici donc comment faire pour contourner le souci:</p>
+<ol>
+<li>Installer et lancer un <em>tracker</em> BitTorrent (De manière surprenante,
+   <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=685575">rien n'est packagé pour debian pour l'instant</a>)
+   J'ai choisi d'installer <a href="http://erdgeist.org/arts/software/opentracker/#build-instructions">OpenTracker</a></li>
+<li>Ensuite lancer ZeroNet avec des options spécifiques.</li>
+</ol>
+<div class="highlight"><pre><span></span>$ python zeronet.py --trackers udp://localhost:6969 --ip_external <span class="m">192</span>.168.43.207
+$ python zeronet.py --trackers udp://192.168.43.207:6969 --ip_external <span class="m">192</span>.168.43.172
+</pre></div>
+
+
+<p>Il est nécessaire de spécifier l'adresse IP externe que chaque nœud expose pour
+éviter qu'elle n'essaye d'aller la trouver par elle même: nous voulons l'adresse
+du réseau local, et non pas l'adresse internet.</p>
+<p>La prochaine fois je tenterais de venir avec un HotSpot Wifi et un tracker
+BitTorrent dans la poche!</p>
+<h2>Questions / Réponses</h2>
+<p>Il y avait quelques questions intéressantes auxquelles je n'ai pas toujours su
+répondre sur le moment. Après quelques recherches, je rajoute des détails ici.</p>
+<h3>Torrent + Tor = brèche de sécu ?</h3>
+<p>Il me semblait avoir entendu parler de problèmes de <em>dé-anonymisation</em>
+<a href="https://hal.inria.fr/file/index/docid/471556/filename/TorBT.pdf">lors de l'utilisation de BitTorrent par dessus Tor</a>.</p>
+<blockquote>
+<p>Dans certains cas, certains clients torrents (uTorrent, BitSpirit, etc)
+écrivent directement votre adresse IP dans l'information qui est envoyée
+au tracker et/ou aux autres pairs.
+— https://blog.torproject.org/blog/bittorrent-over-tor-isnt-good-idea</p>
+</blockquote>
+<p><a href="https://github.com/HelloZeroNet/ZeroNet/issues/274">Ce n'est pas le cas de ZeroNet</a>, ce qui évacue le souci.</p>
+<h3>ZeroMail, c'est lent non ?</h3>
+<p>Une des applications de démo, <em>ZeroMail</em>, propose un mécanisme qui permet de
+s'envoyer des messages chiffrés sur un réseau pair à pair. L'approche choisie
+est de chiffrer les messages avec la clé du destinataire et de le mettre dans
+un <em>pot commun</em>. Tout le monde essaye de déchiffrer tous les messages, mais ne
+peut déchiffrer que les siens.</p>
+<p>Cela permet de ne <strong>pas</strong> fuiter de méta-données, <a href="{filename}../crypto/2015.05.pgp-problemes.rst">à l'inverse de PGP</a>.</p>
+<p>Je n'ai en fait pas de réponse claire à donner à cette question: l'auteur de
+ZeroNet me disait que 10MB (la limite de taille d'un site, par défaut)
+correspondait à beaucoup de place pour stocker des messages, et qu'il était
+possible de supprimer les anciens messages une fois qu'ils sont lus par exemple.</p>
+<p>Une autre solution à laquelle je pensait était de créer un <em>ZeroSite</em> pour
+chaque récipient, mais on connait à ce moment là le nombre de messages qu'un
+utilisateur peut recevoir.</p>
+<p>Je vois plusieurs problèmes avec le design actuel de ZeroMail (il me semble
+assez facile d'y faire un déni de service par exemple). A creuser.</p>
+<h3>Comment héberger des très gros sites ?</h3>
+<p>Par exemple, comment faire pour héberger Wikipedia ?</p>
+<p>Il semble que la meilleure manière de faire serait de séparer Wikipedia en
+un tas de petites ressources (par catégorie par ex.). Les gros médias pourraient
+être considérés optionnels (et donc téléchargés uniquement à la demande)</p>
+<h3>Est-ce qu'on à vraiment besoin d'un tracker ?</h3>
+<p>Le support d'une DHT <a href="https://github.com/HelloZeroNet/ZeroNet/issues/57">est souhaité</a>,
+mais pour l'instant pas encore implémenté. L'utilisation de la DHT BitTorrent
+n'est pas une option puisque <a href="https://github.com/HelloZeroNet/ZeroNet/issues/57">Tor ne supporte pas UDP</a>.</p>
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

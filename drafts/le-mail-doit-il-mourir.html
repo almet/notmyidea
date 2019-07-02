@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Le mail doit-il mourir ? - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Le mail doit-il mourir ?</h1>
+<span class="post-date">24 novembre 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h2 class="post-headline">Le mail est un protocole bien établi qui souffre de nombreux
+problèmes. Est-ce qu'il ne serait pas temps de préparer la suite ?</h2>
+    <h1>🌟</h1>
+    <p>J'utilise quotidiennent le protocole email, tant bien que mal, tout en sachant
+que l'ensemble de mes messages passent en clair sur le réseau pour la plupart
+de mes conversations, puisque trop peu de monde utilise le chiffrement des
+messages.</p>
+<p>Et même si j'arrive à convaincre certains de mes proches à installer PGP, je ne
+suis pas satisfait du résultat: les méta-données (qui contacte qui à quel
+moment, et pour lui dire quoi) transitent de toute manière, elles, en clair,
+à la vue de tous.</p>
+<p>Ce problème est lié directement au protocole email: il est <em>necessaire</em> de
+faire fuiter les metadonnées (au moins le destinataire) pour avoir un protocole
+mail fonctionnel.</p>
+<p>Le mail réponds à un besoin de communication asynchrone qui permet des
+conversations plus réfléchies qu'un simple chat (miaou). Il est tout à fait
+possible d'utiliser certaines technologies existantes afin de constuire le
+futur de l'email, pour lequel:</p>
+<ul class="simple">
+<li>Les méta-données seraient chiffrées — Il n'est pas possible de savoir qui
+communique avec qui, et quand;</li>
+<li>Le chiffrement serait fort et protégé d'une phrase de passe;</li>
+<li>La fuite d'une clé de chiffrement utilisée dans un échange ne permette pas de
+déchiffrer l'ensemble des échanges (forward secrecy);</li>
+<li>Il ne soit pas possible de réutiliser les données comme preuve pour
+incriminer l'emmeteur du message (deniability);</li>
+</ul>
+<p>Avec au moins ces besoins en tête, il semble qu'une revue de l'ensemble des
+projets existants pointe du doigt vers <a class="reference external" href="https://github.com/agl/pond">pond</a>,
+ou vers <a class="reference external" href="https://www.whispersystems.org/">Signal</a>.</p>
+<p>Malheureusement, Pond est le projet d'une seule personne, qui veut plutôt
+utiliser ce code comme demonstration du concept en question.</p>
+<p>Voici un tableau de certaines des solutions existantes. Je n'ai volontairement
+pas repris l'ensemble des outils existants, et indiqué quelques points de
+comparaisons qui me semblaient utiles (Nombre de developeurs, date du dernier
+commit).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="14%" />
+<col width="14%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Project</th>
+<th class="head">Pond</th>
+<th class="head">Signal</th>
+<th class="head">PGP</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Forward secrecy</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Meta-data encryption</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Deniability</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="axolotl-v2">
+<h2>Axolotl v2</h2>
+<p>Un des champions actuels (depuis quelques années déjà) dans
+Hi,</p>
+<p>As a prelude, let me say that I've been following this mailing-list since over
+a year now and I've learned a bunch of interesting things, so thanks to you
+all.</p>
+<p>If I understand correctly, the email protocol is badly broken, even if used
+with PGP on top of it, mainly because metadata are leaking, by design (at least
+for the emitters and recipients of the messages) and that it doesn't propose
+forward secrecy.</p>
+<p>I'm looking for a protocol that allows:</p>
+<ul class="simple">
+<li>Asynchronous messaging;</li>
+<li>Backup-able messages;</li>
+<li>Forward secrecy;</li>
+<li>Hiding of traffic information;</li>
+</ul>
+<p>This looks a lot like Pond [0], with the twist that messages are expiring in
+Pond (and I would like them not to). But, I could leave with expiration of
+messages, if only Pond was maintained and still worked on actively.</p>
+<p>So here are multiple questions:</p>
+<ul class="simple">
+<li>The ideas behind Pond looks great. Do you have any</li>
+</ul>
+<p>[0] <a class="reference external" href="https://pond.imperialviolet.org/">https://pond.imperialviolet.org/</a></p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

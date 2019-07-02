@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Cheese &amp; code - Wrap-up - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Cheese &amp; code - Wrap-up</h1>
+<span class="post-date">22 octobre 2012</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p>This week-end I hosted a <em>cheese &amp; code</em> session in the country-side of Angers,
+France.</p>
+<p>We were a bunch of python hackers and it rained a lot, wich forced us to stay
+inside and to code. Bad.</p>
+<p>We were not enough to get rid of all the cheese and the awesome meals, but
+well, we finally managed it pretty well.</p>
+<p>Here is a summary of what we worked on:</p>
+<div class="section" id="daybed">
+<h2>Daybed</h2>
+<p>Daybed started some time ago, and intend to be a replacement to google forms,
+in term of features, but backed as a REST web service, in python, and open
+source.</p>
+<p>In case you wonder, daybed is effectively the name of a couch. We chose this
+name because of the similarities (in the sound) with <strong>db</strong>, and because
+we're using <strong>CouchDB</strong> as a backend.</p>
+<img alt="Daybed is a big couch!" src="images/daybed.jpg" style="width: 400px;" />
+<p>We mainly hacked on daybed and are pretty close to the release of the first
+version, meaning that we have something working.</p>
+<p><a class="reference external" href="http://github.com/spiral-project/daybed">The code</a> is available on github,
+and we also wrote <a class="reference external" href="http://daybed.rtfd.org">a small documentation</a> for it.</p>
+<p>Mainly, we did a lot of cleanup, rewrote a bunch of tests so that it would be
+easier to continue to work on the project, and implemented some minor features.
+I'm pretty confidend that we now have really good basis for this project.</p>
+<p>Also, we will have a nice todolist application, with the backend <strong>and</strong> the
+frontend, in javascript / html / css, you'll know more when it'll be ready :-)</p>
+<p>Once we have something good enough, we'll release the first version and I'll
+host it somewhere so that people can play with it.</p>
+</div>
+<div class="section" id="cornice">
+<h2>Cornice</h2>
+<p>Daybed is built on top of <a class="reference external" href="http://cornice.rtfd.org">Cornice</a>, a framework to
+ease the creation of web-services.</p>
+<p>At Pycon France, we had the opportunity to attend a good presentation about <a class="reference external" href="https://github.com/SPORE/specifications">SPORE</a>.  SPORE is a way to describe your
+REST web services, as WSDL is for WS-* services. This allows to ease the
+creation of generic SPORE clients, which are able to consume any REST API with
+a SPORE endpoint.</p>
+<p>Here is how you can let cornice describe your web service for you</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cornice.ext.spore</span> <span class="kn">import</span> <span class="n">generate_spore_description</span>
+<span class="kn">from</span> <span class="nn">cornice.service</span> <span class="kn">import</span> <span class="n">Service</span><span class="p">,</span> <span class="n">get_services</span>
+
+<span class="n">spore</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="s1">&#39;spore&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/spore&#39;</span><span class="p">,</span> <span class="n">renderer</span><span class="o">=</span><span class="s1">&#39;jsonp&#39;</span><span class="p">)</span>
+<span class="nd">@spore.get</span>
+<span class="k">def</span> <span class="nf">get_spore</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">services</span> <span class="o">=</span> <span class="n">get_services</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">generate_spore_description</span><span class="p">(</span><span class="n">services</span><span class="p">,</span> <span class="s1">&#39;Service name&#39;</span><span class="p">,</span>
+                                      <span class="n">request</span><span class="o">.</span><span class="n">application_url</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+</pre></div>
+<p>And you'll get a definition of your service, in SPORE, available at <cite>/spore</cite>.</p>
+<p>Of course, you can use it to do other things, like generating the file locally
+and exporting it wherever it makes sense to you, etc.</p>
+<p>I released today <a class="reference external" href="http://crate.io/packages/cornice/">Cornice 0.11</a>, which adds
+into other things the support for SPORE, plus some other fixes we found on our
+way.</p>
+</div>
+<div class="section" id="respire">
+<h2>Respire</h2>
+<p>Once you have the description of the service, you can do generic clients
+consuming them!</p>
+<p>We first wanted to contribute to <a class="reference external" href="https://github.com/bl0b/spyre">spyre</a> but
+it was written in a way that wasn't supporting to <cite>POST</cite> data, and they
+were using their own stack to handle HTTP. A lot of code that already exists in
+other libraries.</p>
+<p>While waiting the train with <a class="reference external" href="http://natim.ionyse.com/">Rémy</a>, we hacked
+something together, named &quot;Respire&quot;, a thin layer on top of the awesome
+<a class="reference external" href="http://python-requests.org">Requests</a> library.</p>
+<p>We have a first version, feel free to have a look at it and provide
+enhancements if you feel like it. We're still hacking on it so it may break
+(for the better), but that had been working pretty well for us so far.</p>
+<p>You can <a class="reference external" href="http://github.com/spiral-project/respire">find the project on github</a>, but here is how to use it, really
+quickly (these examples are how to interact with daybed)</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">respire</span> <span class="kn">import</span> <span class="n">client_from_url</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># create the client from the SPORE definition</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cl</span> <span class="o">=</span> <span class="n">client_from_url</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/spore&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># in daybed, create a new definition</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">todo_def</span> <span class="o">=</span> <span class="p">{</span>
+<span class="o">...</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;todo&quot;</span><span class="p">,</span>
+<span class="o">...</span>    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A list of my stuff to do&quot;</span><span class="p">,</span>
+<span class="o">...</span>    <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">...</span>        <span class="p">{</span>
+<span class="o">...</span>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span>
+<span class="o">...</span>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="o">...</span>            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The item&quot;</span>
+<span class="o">...</span>        <span class="p">},</span>
+<span class="o">...</span>        <span class="p">{</span>
+<span class="o">...</span>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+<span class="o">...</span>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+<span class="o">...</span>            <span class="s2">&quot;choices&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="o">...</span>                <span class="s2">&quot;done&quot;</span><span class="p">,</span>
+<span class="o">...</span>                <span class="s2">&quot;todo&quot;</span>
+<span class="o">...</span>            <span class="p">],</span>
+<span class="o">...</span>            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;is it done or not&quot;</span>
+<span class="o">...</span>        <span class="p">}</span>
+<span class="o">...</span>    <span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cl</span><span class="o">.</span><span class="n">put_definition</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">todo_def</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cl</span><span class="o">.</span><span class="n">post_data</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="s1">&#39;make it work&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;todo&#39;</span><span class="p">))</span>
+<span class="p">{</span><span class="sa">u</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;9f2c90c0529a442cfdc03c191b022cf7&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cl</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;todo&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Finally, we were out of cheese so everyone headed back to their respective
+houses and cities.</p>
+<p>Until next time?</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

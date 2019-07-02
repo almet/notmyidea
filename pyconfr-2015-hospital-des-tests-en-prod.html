@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>PyconFR 2015 — Hospital - des tests en prod - Carnets Web</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">PyconFR 2015 — Hospital - des tests en prod</h1>
+<span class="post-date">18 octobre 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
+à les completer si besoin.</p>
+</div>
+<p>Speaker: Benoit Bryon, Peopledoc.</p>
+<p>Pour une procédure de déploiement, comment est-ce qu'on valide que tout va bien
+une fois que tout est dépoyé ? Si on a une application très simple (upload et
+envoi de fichiers).</p>
+<p>Pour des applications plus complexes, il y a beaucoup de choses à tester (base
+de données, cache, email, etc). Beaucoup de parties sont utiles: reverse
+proxy, django, base de données etc.</p>
+<p>Lors d'un déploiement, comment faire pour vérifier que tout tourne lorsque tout
+est déployé ?</p>
+<div class="section" id="comment-faire">
+<h2>Comment faire ?</h2>
+<ul class="simple">
+<li>Les tests permettent de tester hors sol.</li>
+<li>Le provisionning permet de valider que tout tourne correctement, mais</li>
+<li>simplement au démarrage. Les pannes ne sont pas détectées.</li>
+<li>Le logging va permettre de detecter les erreurs, mais trop tard.</li>
+<li>Le monitoring permet d'avoir une vue de l'exterieur.</li>
+</ul>
+<p>Hostpital propose de faire des assertions sur la configuration,
+l'environnement, <em>en cours de fonctionnement</em>. Ce sont les developeurs qui
+ajoutent ces assertions.</p>
+<p>Cela peut servir à valider un déploiement, pour etre rassuré une fois que le
+déploiement effectué. Cela peut aussi service à surveiller un service et
+diagnostiquer les problèmes.</p>
+</div>
+<div class="section" id="hospital">
+<h2>Hospital</h2>
+<dl class="docutils">
+<dt>::</dt>
+<dd>pip install hospital</dd>
+</dl>
+<p>Hospital est un outil en python. On définit des tests, de la même manière que
+l'on définit des tests unitaires. On fait des assertions, comme pour les tests
+unitaires. Hospital propose des helpers pour les cas courants:
+<cite>assert_http_response</cite> ou <cite>assert_ping</cite>.</p>
+<p>La vue est une vue de l'intérieur. La différence avec le monitoring est que
+l'on teste la connectivité entre les services (exemple d'une requete
+elasticsearch qui échoue depuis un service django).</p>
+<p>Pour la supervision, les healthchecks sont lancés avec une ligne de commande
+<cite>hospital-cli</cite>. Il est possible de lancer également ces tests avec nose ou
+py.test.</p>
+<p>Il est aussi possible de faire le monitoring avec une API HTTP <cite>hospital
+serve</cite>.</p>
+<div class="section" id="les-lacunes-de-hospital">
+<h3>Les lacunes de hospital</h3>
+<p>Les healthchecks sont fait actuellement en synchrone. Cela peut prendre du
+temps. Il pourrait etre interessant de lancer des taches de manière distribuée
+/ en paralelle.</p>
+<p>Il pourrait etre utile de faire la distinction entre les smoketests et les
+diagnostiques: les premiers sont des petits checks qui permettent de dire si ça
+marche, de manière très simple. De l'autre coté, les diagnostiques seraient eux
+plus fins.</p>
+</div>
+</div>
+<div class="section" id="wrap-up">
+<h2>Wrap up</h2>
+<p>Validez votre configuration, la connectivité avec les services externes. Faites
+des tests souvent !</p>
+</div>
+
+    Vous pouvez également <a onclick="(function(){
+      let here = document.location;
+      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
+      return false;
+    })();return false;">télécharger cet article en pdf</a>.
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

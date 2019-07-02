@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets Web - conferences</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/conferences.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2015-11-02T00:00:00+01:00</updated><entry><title>Rencontres python francophones, 2015</title><link href="https://blog.notmyidea.org/rencontres-python-francophones-2015.html" rel="alternate"></link><published>2015-11-02T00:00:00+01:00</published><updated>2015-11-02T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-11-02:/rencontres-python-francophones-2015.html</id><summary type="html">&lt;p&gt;J'ai pris quelques notes durant la conférence annuelle de PyconFR, qui avait
+lieu à Pau cette année, et les ai publiées entre deux étapes des vacances qui
+ont suivi. Je prends maintenant un peu plus de temps pour ranger toutes ces
+notes au bon endroit.&lt;/p&gt;
+&lt;p&gt;C'était un excellent cru: l'organisation …&lt;/p&gt;</summary><content type="html">&lt;p&gt;J'ai pris quelques notes durant la conférence annuelle de PyconFR, qui avait
+lieu à Pau cette année, et les ai publiées entre deux étapes des vacances qui
+ont suivi. Je prends maintenant un peu plus de temps pour ranger toutes ces
+notes au bon endroit.&lt;/p&gt;
+&lt;p&gt;C'était un excellent cru: l'organisation était vraiment impressionnante (merci
+, si vous me lisez !). Et puis comme toujours l'occasion de recroiser quelques
+copains, et d'en découvrir quelques autres...  J'en ai profité pour parler de
+Kinto (voici d'ailleurs &lt;a class="reference external" href="http://alexis.notmyidea.org/kinto-pycon/"&gt;les slides de la présentation que j'ai faite&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Parmis les conférences qui m'ont marquées, je vous conseille &lt;a class="reference external" href="https://blog.notmyidea.org/pyconfr-2015-hospital-des-tests-en-prod.html"&gt;celle de Benoit
+Bryon, sur Hospital&lt;/a&gt;, qui parle de
+heartbeat, ou de comment tester vos projets en prod, et celle &lt;a class="reference external" href="https://blog.notmyidea.org/pyconfr-2015-geoalchemy.html"&gt;sur Geo Alchemy,
+par Éric Lemoine&lt;/a&gt;. Et bien sur, &lt;a class="reference external" href="https://blog.notmyidea.org/pyconfr-2015-cliquet.html"&gt;celle
+de Mathieu Leplatre sur Cliquet&lt;/a&gt;, le
+toolkit qui rassemble les bonnes pratiques que nous souhaitons mettre en avant
+chez Mozilla services, mais là, je suis tout sauf impartial !&lt;/p&gt;
+&lt;p&gt;Sinon, il peut être interessant de jeter un coup d'oeil au &lt;a class="reference external" href="https://blog.notmyidea.org/pyconfr-2015-table-ronde-diversite.html"&gt;compte rendu de la
+table ronde sur la diversité&lt;/a&gt;, si c'est un sujet qui vous
+touche. Encore beaucoup de choses à faire sur le sujet, bien sur, mais cette table ronde
+était un pas nécessaire dans la bonne direction. Un groupe de travail sur le
+sujet est en train de se constituer au sein de l'association.&lt;/p&gt;
+&lt;p&gt;L'ensemble des notes que j'ai pu prendre sont disponibles dans la section &lt;a class="reference external" href="http://blog.notmyidea.org/category/pyconfr2015.html"&gt;PyconFR 2015&lt;/a&gt;.&lt;/p&gt;
+</content></entry></feed>
