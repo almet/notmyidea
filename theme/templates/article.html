@@ -58,7 +58,7 @@ h1 {
 {% block content %}
 <div id="main" class="posts">
 <h1 class="post-title">{{ article.title }}</h1>
-<span class="post-date">{{ article.locale_date | capitalize }}</span>
+<span class="post-date">{{ article.locale_date | capitalize }}, dans <a class="no-color" href="{{ article.category.url }}">{{ article.category }}</a></span>
 <img id="illustration" src="{{ article.image}}" />
 
 <div class="post article">

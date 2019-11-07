@@ -81,3 +81,7 @@ ul.articles_list li {
     text-align: justify;
     justify-content: center;
 }
+
+a.no-color {
+  color: inherit;
+}
