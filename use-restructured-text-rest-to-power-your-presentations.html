@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Use Restructured Text (ReST) to power your presentations - Carnets Web</title>
+    <title>Use Restructured Text (ReST) to power your presentations - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -71,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -84,39 +84,42 @@ styles, `#sidebar-checkbox` for behavior. -->
 
 <div class="post article">
     <h1>🌟</h1>
-    <p>Wednesday, we give a presentation, with some friends, about the
-CouchDB Database, to
-<a class="reference external" href="http://www.toulibre.org">the Toulouse local LUG</a>. Thanks a lot
-to all the presents for being there, it was a pleasure to talk
-about this topic with you. Too bad the season is over now an I quit
-Toulouse next year.</p>
-<p>During our brainstorming about the topic, we
-used some paper, and we wanted to make a presentation the simpler
-way. First thing that come to my mind was using
-<a class="reference external" href="http://docutils.sourceforge.net/rst.html">restructured text</a>, so
-I've wrote a simple file containing our different bullet points. In
-fact, there is quite nothing to do then, to have a working
-presentation.</p>
-<p>So far, I've used
-<a class="reference external" href="http://code.google.com/p/rst2pdf/">the rst2pdf program</a>, and a
-simple template, to generate output. It's probably simple to have
-similar results using latex + beamer, I'll try this next time, but
-as I'm not familiar with latex syntax, restructured text was a
-great option.</p>
-<p>Here are
-<a class="reference external" href="http://files.lolnet.org/alexis/rst-presentations/couchdb/couchdb.pdf">the final PDF output</a>,
-<a class="reference external" href="http://files.lolnet.org/alexis/rst-presentations/couchdb/couchdb.rst">Rhe ReST source</a>,
-<a class="reference external" href="http://files.lolnet.org/alexis/rst-presentations/slides.style">the theme used</a>,
+    
+<ul>
+<li>
+<p>date<br>
+    2010-06-25</p>
+</li>
+<li>
+<p>category<br>
+    tech</p>
+</li>
+</ul>
+<p>Wednesday, we give a presentation, with some friends, about the CouchDB
+Database, to <a href="http://www.toulibre.org">the Toulouse local LUG</a>. Thanks a
+lot to all the presents for being there, it was a pleasure to talk about
+this topic with you. Too bad the season is over now an I quit Toulouse
+next year.</p>
+<p>During our brainstorming about the topic, we used some paper, and we
+wanted to make a presentation the simpler way. First thing that come to
+my mind was using <a href="http://docutils.sourceforge.net/rst.html">restructured
+text</a>, so I've wrote a simple
+file containing our different bullet points. In fact, there is quite
+nothing to do then, to have a working presentation.</p>
+<p>So far, I've used <a href="http://code.google.com/p/rst2pdf/">the rst2pdf
+program</a>, and a simple template, to
+generate output. It's probably simple to have similar results using
+latex + beamer, I'll try this next time, but as I'm not familiar with
+latex syntax, restructured text was a great option.</p>
+<p>Here are <a href="http://files.lolnet.org/alexis/rst-presentations/couchdb/couchdb.pdf">the final PDF
+output</a>,
+<a href="http://files.lolnet.org/alexis/rst-presentations/couchdb/couchdb.rst">Rhe ReST
+source</a>,
+<a href="http://files.lolnet.org/alexis/rst-presentations/slides.style">the theme
+used</a>,
 and the command line to generate the PDF:</p>
-<pre class="literal-block">
-rst2pdf couchdb.rst -b1 -s ../slides.style
-</pre>
-
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+<div class="highlight"><pre><span></span><span class="n">rst2pdf</span> <span class="n">couchdb</span><span class="p">.</span><span class="n">rst</span> <span class="o">-</span><span class="n">b1</span> <span class="o">-</span><span class="n">s</span> <span class="p">..</span><span class="o">/</span><span class="n">slides</span><span class="p">.</span><span class="n">style</span>
+</pre></div>
   </div>
 </div>
       </div>

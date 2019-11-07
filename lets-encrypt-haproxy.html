@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Let's Encrypt + HAProxy - Carnets Web</title>
+    <title>Let's Encrypt + HAProxy - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -71,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -83,115 +83,121 @@ styles, `#sidebar-checkbox` for behavior. -->
 <img id="illustration" src="" />
 
 <div class="post article">
-    <h2 class="post-headline">Comment j'ai mis en place des certificats SSL avec Let's Encrypt
-derrière haproxy.</h2>
+    <h2 class="post-headline">Comment j'ai mis en place des certificats SSL avec Let's Encrypt derrière haproxy.</h2>
     <h1>🌟</h1>
-    <blockquote class="epigraph">
-<p>It’s time for the Web to take a big step forward in terms of security and
-privacy. We want to see HTTPS become the default. Let’s Encrypt was built
-to enable that by making it as easy as possible to get and manage
-certificates.</p>
-<p class="attribution">&mdash;<a class="reference external" href="https://letsencrypt.org/">Let's Encrypt</a></p>
+    <p><em>Note : Cet article n'est plus à jour. Il est maintenant (2018) possible d'installer des certificats SSL Let's Encrypt d'une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx <code>certbot --nginx</code>).</em></p>
+<blockquote>
+<p>It’s time for the Web to take a big step forward in terms of security
+and privacy. We want to see HTTPS become the default. Let’s Encrypt
+was built to enable that by making it as easy as possible to get and
+manage certificates.</p>
+<p>-- <a href="https://letsencrypt.org/">Let's Encrypt</a></p>
 </blockquote>
-<p>Depuis début Décembre, la nouvelle <em>autorité de certification</em> Let's Encrypt
-est passée en version <em>Beta</em>. Les certificats SSL sont un moyen de 1. chiffrer la
-communication entre votre navigateur et le serveur et 2. un moyen d'être sur
-que le site Web auquel vous accédez est celui auquel vous pensez vous connecter
-(pour éviter des <a class="reference external" href="https://fr.wikipedia.org/wiki/Attaque_de_l'homme_du_milieu">attaques de l'homme du milieu</a>).</p>
-<p>Jusqu'à maintenant, il était nécessaire de payer une entreprise pour faire en
-sorte d'avoir des certificats qui évitent d'avoir ce genre d'erreurs dans vos
-navigateurs:</p>
-<img alt="Message de firefox lorsque une connexion n'est pas sécurisée." src="{filename}/static/unsecure-connection.png" />
-<p>Maintenant, grâce à Let's Encrypt il est possible d'avoir des certificats SSL
-<strong>gratuits</strong>, ce qui représente un grand pas en avant pour la sécurité de nos
-communications.</p>
-<p>Je viens de mettre en place un procédé (assez simple) qui permet de configurer
-votre serveur pour générer des certificats SSL valides avec Let's Encrypt et
-le répartiteur de charge <a class="reference external" href="http://www.haproxy.org/">HAProxy</a>.</p>
-<p>Je me suis basé pour cet article sur d'<a class="reference external" href="https://blog.infomee.fr/p/letsencrypt-haproxy">autres</a> <a class="reference external" href="http://blog.victor-hery.com/article22/utiliser-let-s-encrypt-avec-haproxy">articles</a>, dont je
-vous recommande la lecture pour un complément d'information.</p>
-<div class="section" id="validation-des-domaines-par-let-s-encrypt">
-<h2>Validation des domaines par Let's Encrypt</h2>
-<p>Je vous passe les détails d'installation du client de Let's Encrypt, qui sont
-<a class="reference external" href="https://github.com/letsencrypt/letsencrypt#installation">très bien expliqués sur leur documentation</a>.</p>
+<p>Depuis début Décembre, la nouvelle <em>autorité de certification</em> Let's
+Encrypt est passée en version <em>Beta</em>. Les certificats SSL sont un moyen
+de 1. chiffrer la communication entre votre navigateur et le serveur et
+2. un moyen d'être sur que le site Web auquel vous accédez est celui
+auquel vous pensez vous connecter (pour éviter des <a href="https://fr.wikipedia.org/wiki/Attaque_de_l'homme_du_milieu">attaques de l'homme
+du milieu</a>).</p>
+<p>Jusqu'à maintenant, il était nécessaire de payer une entreprise pour
+faire en sorte d'avoir des certificats qui évitent d'avoir ce genre
+d'erreurs dans vos navigateurs:</p>
+<p><img alt="Message de firefox lorsque une connexion n'est pas
+sécurisée." src="%7Bfilename%7D/static/unsecure-connection.png"></p>
+<p>Maintenant, grâce à Let's Encrypt il est possible d'avoir des
+certificats SSL <strong>gratuits</strong>, ce qui représente un grand pas en avant
+pour la sécurité de nos communications.</p>
+<p>Je viens de mettre en place un procédé (assez simple) qui permet de
+configurer votre serveur pour générer des certificats SSL valides avec
+Let's Encrypt et le répartiteur de charge
+<a href="http://www.haproxy.org/">HAProxy</a>.</p>
+<p>Je me suis basé pour cet article sur
+d'<a href="https://blog.infomee.fr/p/letsencrypt-haproxy">autres</a>
+<a href="http://blog.victor-hery.com/article22/utiliser-let-s-encrypt-avec-haproxy">articles</a>,
+dont je vous recommande la lecture pour un complément d'information.</p>
+<h2 id="validation-des-domaines-par-lets-encrypt">Validation des domaines par Let's Encrypt</h2>
+<p>Je vous passe les détails d'installation du client de Let's Encrypt, qui
+sont <a href="https://github.com/letsencrypt/letsencrypt#installation">très bien expliqués sur leur
+documentation</a>.</p>
 <p>Une fois installé, vous allez taper une commande qui va ressembler à:</p>
-<pre class="literal-block">
-letsencrypt-auto certonly --renew-by-default
---webroot -w /home/www/letsencrypt-requests/ \
--d hurl.kinto-storage.org \
--d forums.kinto-storage.org
-</pre>
-<p>Le <em>webroot</em> est l'endroit ou les preuves de détention du domaine vont être
-déposées.</p>
-<p>Lorsque les serveurs de Let's Encrypt vont vouloir vérifier que vous êtes bien
-à l'origine des demandes de certificats, ils vont envoyer une requête HTTP sur
-<tt class="docutils literal"><span class="pre">http://domaine.org/.well-known/acme-challenge</span></tt>, ou il voudra trouver des
-informations qu'il aura généré via la commande <tt class="docutils literal"><span class="pre">letsencrypt-auto</span></tt>.</p>
-<p>J'ai choisi de faire une règle dans haproxy pour diriger toutes les requêtes
-avec le chemin <tt class="docutils literal"><span class="pre">.well-known/acme-challenge</span></tt> vers un <em>backend</em> nginx qui sert
-des fichiers statiques (ceux contenus dans
-<tt class="docutils literal"><span class="pre">/home/www/letsencrypt-requests/</span></tt>).</p>
-<p>Voici la section de la configuration de HAProxy (et <a class="reference external" href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72">la configuration
+<div class="highlight"><pre><span></span><span class="n">letsencrypt</span><span class="o">-</span><span class="n">auto</span> <span class="n">certonly</span> <span class="c1">--renew-by-default</span>
+<span class="c1">--webroot -w /home/www/letsencrypt-requests/ \</span>
+<span class="o">-</span><span class="n">d</span> <span class="n">hurl</span><span class="p">.</span><span class="n">kinto</span><span class="o">-</span><span class="k">storage</span><span class="p">.</span><span class="n">org</span> <span class="err">\</span>
+<span class="o">-</span><span class="n">d</span> <span class="n">forums</span><span class="p">.</span><span class="n">kinto</span><span class="o">-</span><span class="k">storage</span><span class="p">.</span><span class="n">org</span>
+</pre></div>
+
+
+<p>Le <em>webroot</em> est l'endroit ou les preuves de détention du domaine vont
+être déposées.</p>
+<p>Lorsque les serveurs de Let's Encrypt vont vouloir vérifier que vous
+êtes bien à l'origine des demandes de certificats, ils vont envoyer une
+requête HTTP sur <code>http://domaine.org/.well-known/acme-challenge</code>, ou il
+voudra trouver des informations qu'il aura généré via la commande
+<code>letsencrypt-auto</code>.</p>
+<p>J'ai choisi de faire une règle dans haproxy pour diriger toutes les
+requêtes avec le chemin <code>.well-known/acme-challenge</code> vers un <em>backend</em>
+nginx qui sert des fichiers statiques (ceux contenus dans
+<code>/home/www/letsencrypt-requests/</code>).</p>
+<p>Voici la section de la configuration de HAProxy (et <a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72">la configuration
 complete</a>
 si ça peut être utile):</p>
-<pre class="literal-block">
-frontend http
-    bind 0.0.0.0:80
-    mode http
-    default_backend nginx_server
+<div class="highlight"><pre><span></span><span class="nv">frontend</span> <span class="nv">http</span>
+    <span class="nv">bind</span> <span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>:<span class="mi">80</span>
+    <span class="nv">mode</span> <span class="nv">http</span>
+    <span class="nv">default_backend</span> <span class="nv">nginx_server</span>
 
-    acl letsencrypt_check path_beg /.well-known/acme-challenge
-    use_backend letsencrypt_backend if letsencrypt_check
+    <span class="nv">acl</span> <span class="nv">letsencrypt_check</span> <span class="nv">path_beg</span> <span class="o">/</span>.<span class="nv">well</span><span class="o">-</span><span class="nv">known</span><span class="o">/</span><span class="nv">acme</span><span class="o">-</span><span class="nv">challenge</span>
+    <span class="nv">use_backend</span> <span class="nv">letsencrypt_backend</span> <span class="k">if</span> <span class="nv">letsencrypt_check</span>
 
-    redirect scheme https code 301 if !{ ssl_fc } !letsencrypt_check
+    <span class="nv">redirect</span> <span class="nv">scheme</span> <span class="nv">https</span> <span class="nv">code</span> <span class="mi">301</span> <span class="k">if</span> <span class="o">!</span>{ <span class="nv">ssl_fc</span> } <span class="o">!</span><span class="nv">letsencrypt_check</span>
 
-backend letsencrypt_backend
-    http-request set-header Host letsencrypt.requests
-    dispatch 127.0.0.1:8000
-</pre>
+<span class="nv">backend</span> <span class="nv">letsencrypt_backend</span>
+    <span class="nv">http</span><span class="o">-</span><span class="nv">request</span> <span class="nv">set</span><span class="o">-</span><span class="nv">header</span> <span class="nv">Host</span> <span class="nv">letsencrypt</span>.<span class="nv">requests</span>
+    <span class="nv">dispatch</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">8000</span>
+</pre></div>
+
+
 <p>Et celle de NGINX:</p>
-<pre class="literal-block">
-server {
-    listen 8000;
-    server_name letsencrypt.requests;
-    root /home/www/letsencrypt-requests;
-}
-</pre>
-</div>
-<div class="section" id="installation-des-certificats-dans-haproxy">
-<h2>Installation des certificats dans HAProxy</h2>
-<p>Vos certificats SSL devraient être générés dans <tt class="docutils literal">/etc/letsencrypt/live</tt>, mais
-ils ne sont pas au format attendu par haproxy.  Rien de grave, la commande
-suivant convertit l'ensemble des certificats en une version compatible avec
-HAProxy:</p>
-<pre class="literal-block">
-cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &gt; /etc/ssl/letsencrypt/domaine.org.pem
-</pre>
-<p>Et ensuite dans la configuration de haproxy, pour le (nouveau) <em>frontend</em> https:</p>
-<pre class="literal-block">
-bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt
-</pre>
-<p>Faites bien attention à avoir un <em>frontend</em> <cite>https</cite> pour tous vos sites en HTTPS.
-<a class="reference external" href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L38-L60">Pour moi cela ressemble à ça</a>.</p>
-<p>Une fois tout ceci fait, redémarrez votre service haproxy et zou !</p>
-</div>
-<div class="section" id="automatisation">
-<h2>Automatisation</h2>
-<p>Pour automatiser un peu tout ça, j'ai choisi de faire ça comme suit:</p>
-<ul class="simple">
-<li>Un fichier domaine dans <tt class="docutils literal">letsencrypt/domains/domain.org</tt> qui contient le script <tt class="docutils literal">letsencrypt</tt>.</li>
-<li>Un fichier d'installation de certificats dans
-<tt class="docutils literal"><span class="pre">letsencrypt/install-certs.sh</span></tt> qui s'occupe d'installer les certificats
-déjà générés.</li>
-</ul>
-<p>Et voila ! <a class="reference external" href="https://github.com/almet/infra/">Le tout est dans un dépot github</a>, si jamais ça peut vous servir, tant mieux !</p>
-</div>
+<div class="highlight"><pre><span></span><span class="n">server</span> <span class="err">{</span>
+    <span class="k">listen</span> <span class="mi">8000</span><span class="p">;</span>
+    <span class="k">server_name</span> <span class="n">letsencrypt</span><span class="p">.</span><span class="n">requests</span><span class="p">;</span>
+    <span class="n">root</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">-</span><span class="n">requests</span><span class="p">;</span>
+<span class="err">}</span>
+</pre></div>
 
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+
+<h2 id="installation-des-certificats-dans-haproxy">Installation des certificats dans HAProxy</h2>
+<p>Vos certificats SSL devraient être générés dans <code>/etc/letsencrypt/live</code>,
+mais ils ne sont pas au format attendu par haproxy. Rien de grave, la
+commande suivant convertit l'ensemble des certificats en une version
+compatible avec
+    HAProxy:</p>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">domaine</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">privkey</span><span class="p">.</span><span class="n">pem</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">domaine</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">fullchain</span><span class="p">.</span><span class="n">pem</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">domaine</span><span class="p">.</span><span class="n">org</span><span class="p">.</span><span class="n">pem</span>
+</pre></div>
+
+
+<p>Et ensuite dans la configuration de haproxy, pour le (nouveau)
+<em>frontend</em> https:</p>
+<div class="highlight"><pre><span></span><span class="n">bind</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">:</span><span class="mi">443</span> <span class="n">ssl</span> <span class="k">no</span><span class="o">-</span><span class="n">sslv3</span> <span class="n">crt</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">letsencrypt</span>
+</pre></div>
+
+
+<p>Faites bien attention à avoir un <em>frontend</em> https pour tous vos sites en
+HTTPS. <a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L38-L60">Pour moi cela ressemble à
+ça</a>.</p>
+<p>Une fois tout ceci fait, redémarrez votre service haproxy et zou !</p>
+<h2 id="automatisation">Automatisation</h2>
+<p>Pour automatiser un peu tout ça, j'ai choisi de faire ça comme suit:</p>
+<ul>
+<li>Un fichier domaine dans <code>letsencrypt/domains/domain.org</code> qui
+    contient le script <code>letsencrypt</code>.</li>
+<li>Un fichier d'installation de certificats dans
+    <code>letsencrypt/install-certs.sh</code> qui s'occupe d'installer les
+    certificats déjà générés.</li>
+</ul>
+<p>Et voila ! <a href="https://github.com/almet/infra/">Le tout est dans un dépot
+github</a>, si jamais ça peut vous servir,
+tant mieux !</p>
   </div>
 </div>
       </div>

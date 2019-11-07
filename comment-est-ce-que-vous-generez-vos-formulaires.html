@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Comment est-ce que vous générez vos formulaires ? - Carnets Web</title>
+    <title>Comment est-ce que vous générez vos formulaires ? - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -78,7 +78,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -107,7 +107,7 @@ pas libre et que les données sont stockées chez Google.</p>
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.</p>
 <p><img alt="Capture de l'interface de création du formulaire" src="{filename}/static/formbuilder-build.png"></p>
-<h2>Fonctionnalités</h2>
+<h2 id="fonctionnalites">Fonctionnalités</h2>
 <p>Il existe pas mal de solutions techniques qui essayent de répondre à la même
 problématique, mais la plupart d'entre elles sont assez souvent compliquées,
 nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
@@ -118,21 +118,21 @@ formulaires <em>et</em> pour les utilisateurs finaux. Pas de chichis, juste quel
 vues, et des URLs à sauvegarder une fois l'opération terminée.</p>
 <p><img alt="Capture de l'écran avec les URLs générées" src="{filename}/static/formbuilder-created.png">
 <img alt="Capture d'écran d'un exemple de formulaire" src="{filename}/static/formbuilder-form.png"></p>
-<h3>Pas de compte</h3>
+<h3 id="pas-de-compte">Pas de compte</h3>
 <p>Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
 qu'eux puissent à leur tour le remplir.</p>
 <p><img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="{filename}/static/formbuilder-welcome.png"></p>
-<h3>Gardez la main sur vos données</h3>
+<h3 id="gardez-la-main-sur-vos-donnees">Gardez la main sur vos données</h3>
 <p>Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
 récupérer les données sur votre machines dans un fichier <code>.csv</code>.</p>
 <p><img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="{filename}/static/formbuilder-results.png"></p>
-<h3>API</h3>
+<h3 id="api">API</h3>
 <p>L'ensemble des données sont en fait stockées dans <a href="https://kinto.readthedocs.org">Kinto</a>
 qui est interrogeable très facilement en HTTP. Ce qui fait qu'il est très facile de
 réutiliser les formulaires que vous avez construits (ou leurs réponses) depuis
 d'autres outils.</p>
-<h3>Auto-hébergeable</h3>
+<h3 id="auto-hebergeable">Auto-hébergeable</h3>
 <p>Un des objectifs de ce projet est de vous redonner la main sur vos données.
 Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
 <a href="https://www.fourmilieres.net">wwww.fourmilieres.net</a>, mais vous pouvez
@@ -140,7 +140,7 @@ Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
 simplement, et vous êtes d'ailleurs fortement encouragés à le faire ! Notre
 objectif n'est pas de stocker l'ensemble des formulaires du monde, mais de
 (re)donner le contrôle aux utilisateurs !</p>
-<h2>On commence petit…</h2>
+<h2 id="on-commence-petit">On commence petit…</h2>
 <p>Cette <em>release</em> n'est (bien sur) pas parfaite, et il reste encore pas mal de
 travail sur cet outil, mais je pense qu'il s'agit d'une base de travail
 intéressante pour un futur où Google n'a pas la main sur toutes nos données.</p>
@@ -149,7 +149,7 @@ Texte long, Oui/Non, choix dans une liste) mais elle à vocation à s'étendre, 
 fonction des besoins de chacun.</p>
 <p>J'ai d'ailleurs créé <a href="https://www.fourmilieres.net/#/form/cfd878264cec4ed2">un formulaire pour que vous puissiez me faire part de vos
 retours</a>, n'hésitez pas !</p>
-<h2>Et, euh, comment ça marche ?</h2>
+<h2 id="et-euh-comment-ca-marche">Et, euh, comment ça marche ?</h2>
 <p>Le <em>formbuilder</em>, comme j'aime l'appeler se compose en fin de compte de deux
 parties distinctes:</p>
 <ul>
@@ -180,11 +180,6 @@ ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez su
 <p>Bref, en espérant que ça vous serve ! Un petit pas dans la direction des données
 rendues à leurs utilisateurs !</p>
     <em>L'image d'illustration utilisée est un travail de <a href="https://www.flickr.com/photos/kurtfaler/2946570890/in/photolist-5unWSo-nxwHk4-fwjQ1b-Xk5F1e-2nyhfK-Wewupi-qRH2Xe-2XeevA-2nyiGe-VoQgbo-2nyh1z-rgyTKm-aPe8yB-9X8MXQ-5zmZi-Vmx4Qu-9X5V9P-5g5EkR-9erwKR-pfUuMZ-obTwRp-dsPpSz-ckgYNh-9X8Zvf-ASZGaH-7LTmLX-fuJpoW-dabtsC-e32SSu-jV9aSa-5vvCn5-9CAB7c-g6y6sK-8N5tB8-87iko3-dsPqmz-4PAkkC-9X67E8-dYGSEz-9X634n-a2GgEA-98kTPP-a6Lpcf-9X5YMk-jcUL1s-7QJYFF-axhDsE-p9vhA8-fA6GmA-5kZtaV">Kurt Faler</a> proposé sous license CC BY-NC-ND 2.0. Merci !</em>
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
   </div>
 </div>
       </div>

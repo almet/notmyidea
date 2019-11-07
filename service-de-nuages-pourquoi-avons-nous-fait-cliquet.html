@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Service de nuages : Pourquoi avons-nous fait Cliquet ? - Alexis - Carnets en ligne</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  <a class="sidebar-nav-item" href="https://www.vieuxsinge.com">Brasserie du Vieux Singe</a>
+  <a class="sidebar-nav-item" href="http://blog.notmyidea.org/pages/about.html">A propos</a>
+  <a class="sidebar-nav-item" href="https://twitter.com/ametaireau">Messages courts</a>
+  <a class="sidebar-nav-item" href="https://github.com/almet">Code</a>
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Service de nuages : Pourquoi avons-nous fait Cliquet ?</h1>
+<span class="post-date">14 juillet 2015</span>
+<img id="illustration" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla</em></p>
+<p><strong>tldr; Cliquet est un toolkit Python pour construire des APIs, qui implémente
+les bonnes pratiques en terme de mise en production et de protocole HTTP.</strong></p>
+<div class="section" id="les-origines">
+<h2>Les origines</h2>
+<p>L'objectif pour le premier trimestre 2015 était de construire un service de
+stockage et de <a class="reference external" href="{filename}2015.04.service-de-nuages.rst">synchronisation de listes de lecture</a>.</p>
+<p>Au démarrage du projet, nous avons tenté de rassembler toutes les bonnes pratiques
+et recommandations, venant de différentes équipes et surtout des derniers projets déployés.</p>
+<p>De même, nous voulions tirer parti du protocole de <em>Firefox Sync</em>, robuste et éprouvé,
+pour la synchronisation des données «offline».</p>
+<p>Plutôt qu'écrire un <a class="reference external" href="http://blog.octo.com/en/design-a-rest-api/">énième</a>
+<a class="reference external" href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">article</a> de blog,
+nous avons préféré les rassembler dans ce qu'on a appellé «un protocole».</p>
+<p>Comme pour l'architecture envisagée nous avions deux projets à construire, qui
+devaient obéir globalement à ces mêmes règles, nous avons décidé de mettre en
+commun l'implémentation de ce protocole et de ces bonnes pratiques dans un
+«toolkit».</p>
+<p><em>Cliquet</em> est né.</p>
+<img alt="Cliquet logo" class="align-center" src="{filename}/images/cliquet-logo.png" />
+<div class="section" id="les-intentions">
+<h3>Les intentions</h3>
+<blockquote class="epigraph">
+Quelle structure JSON pour mon API ? Quelle syntaxe pour filtrer la liste
+via la querystring ? Comment gérer les écritures concurrentes ?
+Et synchroniser les données dans mon application cliente ?</blockquote>
+<p>Désormais, quand un projet souhaite bénéficier d'une API REST pour stocker et consommer
+des données, il est possible d'utiliser le <strong>protocole HTTP</strong> proposé
+et de se concentrer sur l'essentiel. Cela vaut aussi pour les clients, où
+la majorité du code d'interaction avec le serveur est réutilisable.</p>
+<blockquote class="epigraph">
+Comment pouvons-nous vérifier que le service est opérationnel ? Quels indicateurs StatsD ?
+Est-ce que Sentry est bien configuré ? Comment déployer une nouvelle version
+sans casser les applications clientes ?</blockquote>
+<p>Comme <em>Cliquet</em> fournit tout ce qui est nécessaire pour être conforme avec les
+exigences de la <strong>mise en production</strong>, le passage du prototype au service opérationnel
+est très rapide ! De base le service répondra aux attentes en terme supervision, configuration,
+déploiement et dépréciation de version. Et si celles-ci évoluent, il suffira
+de faire évoluer le toolkit.</p>
+<blockquote class="epigraph">
+Quel backend de stockage pour des documents JSON ? Comment faire si l'équipe
+de production impose PostgreSQL ? Et si on voulait passer à Redis ou en
+mémoire pour lancer les tests ?</blockquote>
+<p>En terme d'implémentation, nous avons choisi de <strong>fournir des abstractions</strong>.
+En effet, nous avions deux services dont le coeur consistait
+à exposer un <em>CRUD</em> en <em>REST</em>, persistant des données JSON dans un backend.
+Comme <em>Pyramid</em> et <em>Cornice</em> ne fournissent rien de tout prêt pour ça,
+nous avons voulu introduire des classes de bases pour abstraire les notions
+de resource REST et de backend de stockage.</p>
+<p>Dans le but de tout rendre optionnel et «pluggable», <strong>tout est configurable</strong>
+depuis le fichier <tt class="docutils literal">.ini</tt> de l'application. Ainsi tous les projets qui utilisent
+le toolkit se déploieront de la même manière : seuls quelques éléments de configuration
+les distingueront.</p>
+<img alt="Une réunion à Paris..." class="align-center" src="{filename}/images/cliquet-notes-whiteboard.jpg" />
+</div>
+</div>
+<div class="section" id="le-protocole">
+<h2>Le protocole</h2>
+<blockquote class="epigraph">
+Est-ce suffisant de parler d'«API REST» ? Est-ce bien nécessaire de
+relire la spec HTTP à chaque fois ? Pourquoi réinventer un protocole complet
+à chaque fois ?</blockquote>
+<p>Quand nous développons un (micro)service Web, nous dépensons généralement beaucoup
+trop d'énergie à (re)faire des choix (arbitraires).</p>
+<p>Nul besoin de lister ici tout ce qui concerne la dimension
+de la spécification HTTP pure, qui nous impose le format des headers,
+le support de CORS, la négocation de contenus (types mime), la différence entre
+authentification et autorisation, la cohérence des code status...</p>
+<p>Les choix principaux du protocole concernent surtout :</p>
+<ul class="simple">
+<li><strong>Les resources REST</strong> : Les deux URLs d'une resource (pour la collection
+et les enregistrements) acceptent des verbes et des headers précis.</li>
+<li><strong>Les formats</strong> : le format et la structure JSON des réponses est imposé, ainsi
+que la <a class="reference external" href="{filename}/2015.05.continuation-token.rst">pagination des listes</a>
+ou la syntaxe pour filtrer/trier les resources via la <a class="reference external" href="https://en.wikipedia.org/wiki/Query_string">querystring</a>.</li>
+<li><strong>Les timestamps</strong> : un numéro de révision qui s'incrémente à chaque opération
+d'écriture sur une collection d'enregistrements.</li>
+<li><strong>La synchronisation</strong> : une série de leviers pour récupérer et renvoyer des
+changements sur les données, sans perte ni collision, en utilisant les timestamps.</li>
+<li><strong>Les permissions</strong> : les droits d'un utilisateur sur une collection ou un enregistrement
+(<em>encore frais et sur le point d'être documenté</em>) <a class="footnote-reference" href="#id3" id="id1">[1]</a>.</li>
+<li><strong>Opérations par lot</strong>: une URL qui permet d'envoyer une série de requêtes
+décrites en JSON et d'obtenir les réponses respectives.</li>
+</ul>
+<p>Dans la dimension opérationnelle du protocole, on trouve :</p>
+<ul class="simple">
+<li><strong>La gestion de version</strong> : cohabitation de plusieurs versions en production,
+avec alertes dans les entêtes pour la fin de vie des anciennes versions.</li>
+<li><strong>Le report des requêtes</strong> : entêtes interprétées par les clients, activées en cas de
+maintenance ou de surchage, pour ménager le serveur.</li>
+<li><strong>Le canal d'erreurs</strong> : toutes les erreurs renvoyées par le serveur ont le même
+format JSON et ont un numéro précis.</li>
+<li><strong>Les utilitaires</strong> : URLs diverses pour répondre aux besoins exprimés par
+l'équipe d'administrateurs (monitoring, metadonnées, paramètres publiques).</li>
+</ul>
+<p>Ce protocole est une compilation des bonnes pratiques pour les APIs HTTP (<em>c'est notre métier !</em>),
+des conseils des administrateurs système dont c'est le métier de mettre à disposition des services
+pour des millions d'utilisateurs et des retours d'expérience de l'équipe
+de <em>Firefox Sync</em> pour la gestion de la concurrence et de l'«offline-first».</p>
+<p>Il est <a class="reference external" href="http://cliquet.readthedocs.org/en/latest/api/index.html">documenté en détail</a>.</p>
+<p>Dans un monde idéal, ce protocole serait versionné, et formalisé dans une RFC.
+En rêve, il existerait même plusieurs implémentations avec des technologies différentes
+(Python, Go, Node, etc.). <a class="footnote-reference" href="#id4" id="id2">[2]</a></p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voir notre <a class="reference external" href="{filename}/2015.05.cliquet-permissions.rst">article dédié sur les permissions</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Rappel: nous sommes une toute petite équipe !</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="le-toolkit">
+<h2>Le toolkit</h2>
+<div class="section" id="choix-techniques">
+<h3>Choix techniques</h3>
+<p><em>Cliquet</em> implémente le protocole en Python (<em>2.7, 3.4+, pypy</em>), avec <a class="reference external" href="http://trypyramid.com/">Pyramid</a> <a class="footnote-reference" href="#id6" id="id5">[3]</a>.</p>
+<p><strong>Pyramid</strong> est un framework Web qui va prendre en charge tout la partie HTTP,
+et qui s'avère pertinent aussi bien pour des petits projets que des plus
+ambitieux.</p>
+<p><strong>Cornice</strong> est une extension de <em>Pyramid</em>, écrite en partie par Alexis et Tarek,
+qui permet d'éviter d'écrire tout le code <em>boilerplate</em> quand on construit une
+API REST avec Pyramid.</p>
+<p>Avec <em>Cornice</em>, on évite de réécrire à chaque fois le code qui va
+cabler les verbes HTTP aux méthodes, valider les entêtes, choisir le sérialiseur
+en fonction des entêtes de négociation de contenus, renvoyer les codes HTTP
+rigoureux, gérer les entêtes CORS, fournir la validation JSON à partir de schémas...</p>
+<p><strong>Cliquet</strong> utilise les deux précédents pour implémenter le protocole et fournir
+des abstractions, mais on a toujours <em>Pyramid</em> et <em>Cornice</em> sous la main pour
+aller au delà de ce qui est proposé !</p>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Au tout début nous avons commencé une implémentation avec <em>Python-Eve</em>
+(Flask), mais n'étions pas satisfaits de l'approche pour la configuration
+de l'API. En particulier du côté magique.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="concepts">
+<h3>Concepts</h3>
+<p>Bien évidemment, les concepts du toolkit reflètent ceux du protocole mais il y
+a des éléments supplémentaires:</p>
+<ul class="simple">
+<li><strong>Les backends</strong> : abstractions pour le stockage, le cache et les permissions
+(<em>ex. PostgreSQL, Redis, en-mémoire, ...</em>)</li>
+<li><strong>La supervision</strong> : logging JSON et indicateurs temps-réel (<em>StatsD</em>) pour suivre les
+performances et la santé du service.</li>
+<li><strong>La configuration</strong> : chargement de la configuration depuis les variables
+d'environnement et le fichier <tt class="docutils literal">.ini</tt></li>
+<li><strong>La flexibilité</strong> : dés/activation ou substitution de la majorité des composants
+depuis la configuration.</li>
+<li><strong>Le profiling</strong> : utilitaires de développement pour trouver les <a class="reference external" href="https://fr.wiktionary.org/wiki/goulet_d%E2%80%99%C3%A9tranglement">goulets
+d'étranglement</a>.</li>
+</ul>
+<img alt="Cliquet concepts" class="align-center" src="{filename}/images/cliquet-concepts.png" />
+<p>Proportionnellement, l'implémentation du protocole pour les resources REST est
+la plus volumineuse dans le code source de <em>Cliquet</em>.
+Cependant, comme nous l'avons décrit plus haut, <em>Cliquet</em> fournit tout un
+ensemble d'outillage et de bonnes pratiques, et reste
+donc tout à fait pertinent pour n'importe quel type d'API, même sans
+manipulation de données !</p>
+<p>L'objectif de la boîte à outils est de faire en sorte qu'un développeur puisse constuire
+une application simplement, en étant sûr qu'elle réponde aux exigeances de la
+mise en production, tout en ayant la possibilité de remplacer certaines parties
+au fur et à mesure que ses besoins se précisent.</p>
+<p>Par exemple, la persistence fournie par défault est <em>schemaless</em> (e.g <em>JSONB</em>),
+mais rien n'empêcherait d'implémenter le stockage dans un modèle relationnel.</p>
+<p>Comme les composants peuvent être remplacés depuis la configuration, il est
+tout à fait possible d'étendre <em>Cliquet</em> avec des notions métiers ou des
+technologies exotiques ! Nous avons posé quelques idées dans <a class="reference external" href="http://cliquet.readthedocs.org/en/latest/ecosystem.html">la documentation
+de l'éco-système</a>.</p>
+<p>Dans les prochaines semaines, nous allons introduire la notion d'«évènements» (ou signaux),
+qui permettraient aux extensions de s'interfacer beaucoup plus proprement.</p>
+<p>Nous attachons beaucoup d'importance à la clareté du code, la pertinence des
+<em>patterns</em>, des tests et de la documentation. Si vous avez des commentaires,
+des critiques ou des interrogations, n'hésitez pas à <a class="reference external" href="https://github.com/mozilla-services/cliquet/issues">nous en faire part</a> !</p>
+</div>
+</div>
+<div class="section" id="cliquet-a-l-action">
+<h2>Cliquet, à l'action.</h2>
+<p>Nous avons écrit un <a class="reference external" href="http://cliquet.readthedocs.org/en/latest/quickstart.html">guide de démarrage</a>,
+qui n'exige pas de connaître <em>Pyramid</em>.</p>
+<p>Pour illustrer la simplicité et les concepts, voici quelques extraits !</p>
+<div class="section" id="etape-1">
+<h3>Étape 1</h3>
+<p>Activer <em>Cliquet</em>:</p>
+<div class="highlight"><pre><span></span><span class="hll"><span class="kn">import</span> <span class="nn">cliquet</span>
+</span><span class="kn">from</span> <span class="nn">pyramid.config</span> <span class="kn">import</span> <span class="n">Configurator</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">global_config</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
+
+<span class="hll">    <span class="n">cliquet</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+</span>    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+</pre></div>
+<p>À partir de là, la plupart des outils de <em>Cliquet</em> sont activés et accessibles.</p>
+<p>Par exemple, les URLs <em>hello</em> (<tt class="docutils literal">/v1/</tt>) ou <em>supervision</em> (<tt class="docutils literal">/v1/__heartbeat__</tt>).
+Mais aussi les backends de stockage, de cache, etc.
+qu'il est possible d'utiliser dans des vues classiques <em>Pyramid</em> ou <em>Cornice</em>.</p>
+</div>
+<div class="section" id="etape-2">
+<h3>Étape 2</h3>
+<p>Ajouter des vues:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">global_config</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Configurator</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="n">cliquet</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+<span class="hll">    <span class="n">config</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="s2">&quot;myproject.views&quot;</span><span class="p">)</span>
+</span>    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">make_wsgi_app</span><span class="p">()</span>
+</pre></div>
+<p>Pour définir des resources CRUD, il faut commencer par définir un schéma,
+avec <em>Colander</em>, et ensuite déclarer une resource:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cliquet</span> <span class="kn">import</span> <span class="n">resource</span><span class="p">,</span> <span class="n">schema</span>
+
+<span class="k">class</span> <span class="nc">BookmarkSchema</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">ResourceSchema</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">URL</span><span class="p">()</span>
+
+<span class="hll"><span class="nd">@resource.register</span><span class="p">()</span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
+</span></pre></div>
+<p>Désormais, la resource CRUD est disponible sur <tt class="docutils literal">/v1/bookmarks</tt>, avec toutes
+les fonctionnalités de synchronisation, filtrage, tri, pagination, timestamp, etc.
+De base les enregistrements sont privés, par utilisateur.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="err">http</span> <span class="err">GET</span> <span class="s2">&quot;http://localhost:8000/v1/bookmarks&quot;</span>
+<span class="err">HTTP/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="err">OK</span>
+<span class="err">...</span>
+<span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cliquet.readthedocs.org&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;cc103eb5-0c80-40ec-b6f5-dad12e7d975e&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="mi">1437034418940</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="etape-3">
+<h3>Étape 3</h3>
+<p>Évidemment, il est possible choisir les URLS, les verbes HTTP supportés, de modifier
+des champs avant l'enregistrement, etc.</p>
+<div class="highlight"><pre><span></span><span class="hll"><span class="nd">@resource.register</span><span class="p">(</span><span class="n">collection_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks&#39;</span><span class="p">,</span>
+</span><span class="hll">                   <span class="n">record_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks/{{id}}&#39;</span><span class="p">,</span>
+</span><span class="hll">                   <span class="n">collection_methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,))</span>
+</span><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
+
+<span class="hll">    <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]:</span>
+</span><span class="hll">            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">)</span>
+</span><span class="hll">            <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">new</span>
+</span></pre></div>
+<p><a class="reference external" href="http://cliquet.readthedocs.org/en/latest/reference/resource.html">Plus d'infos dans la documentation dédiée</a> !</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est possible de définir des resources sans validation de schema.
+<a class="reference external" href="https://github.com/mozilla-services/kinto/blob/master/kinto/views/records.py">Voir le code source de Kinto</a>.</p>
+</div>
+</div>
+<div class="section" id="etape-4-optionelle">
+<h3>Étape 4 (optionelle)</h3>
+<p>Utiliser les abstractions de <em>Cliquet</em> dans une vue <em>Cornice</em>.</p>
+<p>Par exemple, une vue qui utilise le backend de stockage:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cliquet</span> <span class="kn">import</span> <span class="n">Service</span>
+
+<span class="n">score</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/score/{game}&#39;</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Store game score&quot;</span><span class="p">)</span>
+
+<span class="nd">@score.post</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">ScoreSchema</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">post_score</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">collection_id</span> <span class="o">=</span> <span class="s1">&#39;scores-&#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">match_dict</span><span class="p">[</span><span class="s1">&#39;game&#39;</span><span class="p">]</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">authenticated_userid</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">validated</span>  <span class="c1"># c.f. Cornice.</span>
+
+<span class="hll">    <span class="n">storage</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">storage</span>
+</span><span class="hll">    <span class="n">record</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">collection_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span>    <span class="k">return</span> <span class="n">record</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vos-retours">
+<h2>Vos retours</h2>
+<p>N'hésitez pas à nous faire part de vos retours ! Cela vous a donné envie
+d'essayer ? Vous connaissez un outil similaire ?
+Y-a-t-il des points qui ne sont pas clairs ? Manque de cas d'utilisation concrets ?
+Certains aspects mal pensés ? Trop contraignants ? Trop de magie ? Overkill ?</p>
+<p>Nous prenons tout.</p>
+<div class="section" id="points-faibles">
+<h3>Points faibles</h3>
+<p>Nous sommes très fiers de ce que nous avons construit, en relativement peu
+de temps. Et comme nous l'exposions dans <a class="reference external" href="{filename/2015.07.whistler-use-cases.rst}">l'article précédent</a>, il y a du potentiel !</p>
+<p>Cependant, nous sommes conscients d'un certain nombre de points
+qui peuvent être vus comme des faiblesses.</p>
+<ul class="simple">
+<li><strong>La documentation d'API</strong> : actuellement, nous n'avons pas de solution pour qu'un
+projet qui utilise <em>Cliquet</em> puisse intégrer facilement toute
+<a class="reference external" href="http://cliquet.readthedocs.org/en/latest/api/index.html">la documentation de l'API</a>
+obtenue.</li>
+<li><strong>La documentation</strong> : il est très difficile d'organiser la documentation, surtout
+quand le public visé est aussi bien débutant qu'expérimenté. Nous sommes probablement
+victimes du «<a class="reference external" href="https://en.wikipedia.org/wiki/Curse_of_knowledge">curse of knowledge</a>».</li>
+<li><strong>Le protocole</strong> : on sent bien qu'on va devoir versionner le protocole. Au
+moins pour le désolidariser des versions de <em>Cliquet</em>, si on veut aller au
+bout de la philosophie et de l'éco-système.</li>
+<li><strong>Le conservatisme</strong> : Nous aimons la stabilité et la robustesse. Mais surtout
+nous ne sommes pas tout seuls et devons nous plier aux contraintes de la mise
+en production ! Cependant, nous avons très envie de faire de l'async avec Python 3 !</li>
+<li><strong>Publication de versions</strong> : le revers de la médaille de la factorisation. Il
+arrive qu'on préfère faire évoluer le toolkit (e.g. ajouter une option) pour
+un point précis d'un projet. En conséquence, on doit souvent releaser les
+projets en cascade.</li>
+</ul>
+</div>
+<div class="section" id="quelques-questions-courantes">
+<h3>Quelques questions courantes</h3>
+<blockquote>
+Pourquoi Python ?</blockquote>
+<p>On prend beaucoup de plaisir à écrire du Python, et le calendrier annoncé
+initialement était très serré: pas question de tituber avec une technologie
+mal maitrisée !</p>
+<p>Et puis, après avoir passé près d'un an sur un projet Node.js, l'équipe avait
+bien envie de refaire du Python.</p>
+<blockquote>
+Pourquoi pas Django ?</blockquote>
+<p>On y a pensé, surtout parce qu'il y a plusieurs fans de <em>Django REST Framework</em>
+dans l'équipe.</p>
+<p>On l'a écarté principalement au profit de la légèreté et la modularité de
+<em>Pyramid</em>.</p>
+<blockquote>
+Pourquoi pas avec un framework asynchrone en Python 3+ ?</blockquote>
+<p>Pour l'instant nos administrateurs système nous imposent des déploiements en
+Python 2.7, à notre grand désarroi /o\</p>
+<p>Pour <em>Reading List</em>, nous <a class="reference external" href="https://github.com/mozilla-services/readinglist/blob/1.7.0/readinglist/__init__.py#L19-L26">avions activé</a>
+<em>gevent</em>.</p>
+<p>Puisque l'approche consiste à implémenter un protocole bien déterminé, nous n'excluons
+pas un jour d'écrire un <em>Cliquet</em> en <em>aiohttp</em> ou <em>Go</em> si cela s'avèrerait pertinent.</p>
+<blockquote>
+Pourquoi pas JSON-API ?</blockquote>
+<p>Comme nous l'expliquions <a class="reference external" href="{filename}/2015.05.retour-apidays.rst">au retour des APIdays</a>,
+JSON-API est une spécification qui rejoint plusieurs de nos intentions.</p>
+<p>Quand nous avons commencé le protocole, nous ne connaissions pas JSON-API.
+Pour l'instant, comme notre proposition est beaucoup plus minimaliste, le
+rapprochement n'a <a class="reference external" href="https://github.com/mozilla-services/cliquet/issues/254">pas dépassé le stade de la discussion</a>.</p>
+<blockquote>
+Est-ce que Cliquet est un framework REST pour Pyramid ?</blockquote>
+<p>Non.</p>
+<p>Au delà des classes de resources CRUD de Cliquet, qui implémentent un
+protocole bien précis, il faut utiliser Cornice ou Pyramid directement.</p>
+<blockquote>
+Est-ce que Cliquet est suffisamment générique pour des projets hors Mozilla ?</blockquote>
+<p>Premièrement, nous faisons en sorte que tout soit contrôlable depuis la
+configuration <tt class="docutils literal">.ini</tt> pour permettre la dés/activation ou substitution des
+composants.</p>
+<p>Si le protocole HTTP/JSON des resources CRUD vous satisfait,
+alors Cliquet est probablement le plus court chemin pour construire une
+application qui tient la route.</p>
+<p>Mais l'utilisation des resources CRUD est facultative, donc Cliquet reste pertinent
+si les bonnes pratiques en terme de mise en production ou les abstractions fournies
+vous paraissent valables !</p>
+<p>Cliquet reste un moyen simple d'aller très vite pour mettre sur pied
+une application Pyramid/Cornice.</p>
+<blockquote>
+Est-ce que les resources JSON supporte les modèles relationnels complexes ?</blockquote>
+<p>La couche de persistence fournie est très simple, et devrait
+répondre à la majorité des cas d'utilisation où les données n'ont pas de
+relations.</p>
+<p>En revanche, il est tout à fait possible de bénéficier de tous les aspects
+du protocole en utilisant une classe <tt class="docutils literal">Collection</tt> maison, qui se chargerait
+elle de manipuler les relations.</p>
+<p>Le besoin de relations pourrait être un bon prétexte pour implémenter le
+protocole avec Django REST Framework :)</p>
+<blockquote>
+Est-il possible de faire ci ou ça avec Cliquet ?</blockquote>
+<p>Nous aimerions collecter des besoins pour écrire un ensemble de «recettes/tutoriels». Mais
+pour ne pas travailler dans le vide, nous aimerions <a class="reference external" href="https://github.com/mozilla-services/cliquet/issues">connaitre vos idées</a> !
+(<em>ex. brancher l'authentification Github, changer le format du logging JSON, stocker des
+données cartographiques, ...</em>)</p>
+<blockquote>
+Est-ce que Cliquet peut manipuler des fichiers ?</blockquote>
+<p><a class="reference external" href="https://github.com/mozilla-services/cliquet/issues/236">Nous l'envisageons</a>,
+mais pour l'instant nous attendons que le besoin survienne en interne pour se
+lancer.</p>
+<p>Si c'est le cas, le protocole utilisé sera <a class="reference external" href="http://remotestorage.io/">Remote Storage</a>,
+afin notamment de s'intégrer dans l'éco-système grandissant.</p>
+<blockquote>
+Est-ce que la fonctionnalité X va être implémentée ?</blockquote>
+<p><em>Cliquet</em> est déjà bien garni. Plutôt qu'implémenter la fonctionnalité X,
+il y a de grandes chances que nous agissions pour s'assurer que les abstractions
+et les mécanismes d'extension fournis permettent de l'implémenter sous forme
+d'extension.</p>
+</div>
+</div>
+
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+      <!-- Piwik -->
+      <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//tracker.notmyidea.org/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 3]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img src="//tracker.notmyidea.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+     </div>
+  </body>
+</html>

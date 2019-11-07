@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Circus sprint at PyconFR - Carnets Web</title>
+    <title>Circus sprint at PyconFR - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -71,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -84,81 +84,73 @@ styles, `#sidebar-checkbox` for behavior. -->
 
 <div class="post article">
     <h1>🌟</h1>
-    <p>Last Thursday to Sunday, <a class="reference external" href="http://pycon.fr">Pycon France</a> took place, in
-Paris. It was the opportunity to meet a lot of people and to talk about python
-awesomness in general.</p>
-<p>We had three tracks this year, plus sprints the two first days. We sprinted on
-<a class="reference external" href="http://circus.io">Circus</a>, the process and socket manager we're using
-at Mozilla for some of our setups.</p>
-<p>The project gathered some interest, and we ended up with 5 persons working on
-it. Of course, we spent some time explaining what is Circus, how it had been
-built, a lot of time talking about use-cases and possible improvements, but we
-also managed to add new features.</p>
-<p>Having people wanting to sprint on our projects is exciting because that's
-when making things in the open unleashes its full potential. You can't imagine
-how happy I was to have some friends come and work on this with us :)</p>
+    
+<p>Last Thursday to Sunday, <a href="http://pycon.fr">Pycon France</a> took place, in
+Paris. It was the opportunity to meet a lot of people and to talk about
+python awesomness in general.</p>
+<p>We had three tracks this year, plus sprints the two first days. We
+sprinted on <a href="http://circus.io">Circus</a>, the process and socket manager
+we're using at Mozilla for some of our setups.</p>
+<p>The project gathered some interest, and we ended up with 5 persons
+working on it. Of course, we spent some time explaining what is Circus,
+how it had been built, a lot of time talking about use-cases and
+possible improvements, but we also managed to add new features.</p>
+<p>Having people wanting to sprint on our projects is exciting because
+that's when making things in the open unleashes its full potential. You
+can't imagine how happy I was to have some friends come and work on this
+with us :)</p>
 <p>Here is a wrap-up of the sprint:</p>
-<div class="section" id="autocompletion-on-the-command-line">
-<h2>Autocompletion on the command-line</h2>
-<p><a class="reference external" href="http://natim.ionyse.com">Remy Hubscher</a> worked on the command-line
-autocompletion. Now we have a fancy command-line interface which is able to
-aucomplete if you're using bash. It seems that not that much work is needed to
-make it happen on zsh as well :)</p>
-<p><a class="reference external" href="https://github.com/mozilla-services/circus/blob/master/extras/circusctl_bash_completion">Have a look at the feature</a></p>
+<h2 id="autocompletion-on-the-command-line">Autocompletion on the command-line</h2>
+<p><a href="http://natim.ionyse.com">Remy Hubscher</a> worked on the command-line
+autocompletion. Now we have a fancy command-line interface which is able
+to aucomplete if you're using bash. It seems that not that much work is
+needed to make it happen on zsh as well :)</p>
+<p><a href="https://github.com/mozilla-services/circus/blob/master/extras/circusctl_bash_completion">Have a look at the
+feature</a></p>
 <p>On the same topic, we now have a cool shell for Circus. If you start the
-<cite>circusctl</cite> command without any option, you'll end-up with a cool shell. Thanks
-<a class="reference external" href="https://github.com/jojax">Jonathan Dorival</a> for the work on this! You can
-have a look at <a class="reference external" href="https://github.com/mozilla-services/circus/pull/268">the pull request</a>.</p>
-</div>
-<div class="section" id="future-changes-to-the-web-ui">
-<h2>Future changes to the web ui</h2>
-<p><a class="reference external" href="https://twitter.com/rachbelaid">Rachid Belaid</a> had a deep look at the source
-code and is much more familiarized to it now than before. We discussed the
-possibility to change the implementation of the web ui, and I'm glad of this.
-Currently, it's done with bottle.py and we want to switch to pyramid.</p>
-<p>He fixed some issues that were in the tracker, so we now can have the age of
-watchers in the webui, for instance.</p>
-</div>
-<div class="section" id="bug-and-doc-fixing">
-<h2>Bug and doc fixing</h2>
-<p>While reading the source code, we found some inconsistencies and fixed them,
-with <a class="reference external" href="http://mathieu.agopian.info/">Mathieu Agopian</a>. We also tried to
-improve the documentation at different levels.</p>
-<p>Documentation still needs a lot of love, and I'm planning to spend some time on
-this shortly. I've gathered a bunch of feedback on this</p>
-</div>
-<div class="section" id="circus-clustering-capabilities">
-<h2>Circus clustering capabilities</h2>
-<p>One feature I wanted to work on during this sprint was the clustering abilities
-of Circus. Nick Pellegrino made an internship on this topic at Mozilla so we
-spent some time to review his pull requests.</p>
+circusctl command without any option, you'll end-up with a cool shell.
+Thanks <a href="https://github.com/jojax">Jonathan Dorival</a> for the work on
+this! You can have a look at <a href="https://github.com/mozilla-services/circus/pull/268">the pull
+request</a>.</p>
+<h2 id="future-changes-to-the-web-ui">Future changes to the web ui</h2>
+<p><a href="https://twitter.com/rachbelaid">Rachid Belaid</a> had a deep look at the
+source code and is much more familiarized to it now than before. We
+discussed the possibility to change the implementation of the web ui,
+and I'm glad of this. Currently, it's done with bottle.py and we want to
+switch to pyramid.</p>
+<p>He fixed some issues that were in the tracker, so we now can have the
+age of watchers in the webui, for instance.</p>
+<h2 id="bug-and-doc-fixing">Bug and doc fixing</h2>
+<p>While reading the source code, we found some inconsistencies and fixed
+them, with <a href="http://mathieu.agopian.info/">Mathieu Agopian</a>. We also
+tried to improve the documentation at different levels.</p>
+<p>Documentation still needs a lot of love, and I'm planning to spend some
+time on this shortly. I've gathered a bunch of feedback on this</p>
+<h2 id="circus-clustering-capabilities">Circus clustering capabilities</h2>
+<p>One feature I wanted to work on during this sprint was the clustering
+abilities of Circus. Nick Pellegrino made an internship on this topic at
+Mozilla so we spent some time to review his pull requests.</p>
 <p>A lot of code was written for this so we discussed a bunch of things
-regarding all of this. It took us more time than expected (and I still need to
-spend more time on this to provide appropriate feedback), but it allowed us to
-have a starting-point about what this clustering thing could be.</p>
-<p>Remy wrote <a class="reference external" href="http://tech.novapost.fr/circus-clustering-management-en.html">a good summary about our brainstorming</a> so I'll not do
-it again here, but feel free to contact us if you have ideas on this, they're
-very welcome!</p>
-</div>
-<div class="section" id="project-management">
-<h2>Project management</h2>
-<p>We've had some inquiries telling us that's not as easy as it should to get
-started with the Circus project. Some of the reasons are that we don't
-have any release schedule, and that the documentation is hairy enough to lost
-people, at some point :)</p>
+regarding all of this. It took us more time than expected (and I still
+need to spend more time on this to provide appropriate feedback), but it
+allowed us to have a starting-point about what this clustering thing
+could be.</p>
+<p>Remy wrote <a href="http://tech.novapost.fr/circus-clustering-management-en.html">a good summary about our
+brainstorming</a>
+so I'll not do it again here, but feel free to contact us if you have
+ideas on this, they're very welcome!</p>
+<h2 id="project-management">Project management</h2>
+<p>We've had some inquiries telling us that's not as easy as it should to
+get started with the Circus project. Some of the reasons are that we
+don't have any release schedule, and that the documentation is hairy
+enough to lost people, at some point :)</p>
 <p>That's something we'll try to fix soon :)</p>
-<p>PyconFR was a very enjoyable event. I'm looking forward to meet the community
-again and discuss how Circus can evolve in ways that are interesting to
-everyone.</p>
-<p>Tarek and me are going to <a class="reference external" href="http://python.ie/pycon/2012/">Pycon ireland</a>, feel
-free to reach us if you're going there, we'll be happy to meet and enjoy beers!</p>
-</div>
-
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+<p>PyconFR was a very enjoyable event. I'm looking forward to meet the
+community again and discuss how Circus can evolve in ways that are
+interesting to everyone.</p>
+<p>Tarek and me are going to <a href="http://python.ie/pycon/2012/">Pycon ireland</a>,
+feel free to reach us if you're going there, we'll be happy to meet and
+enjoy beers!</p>
   </div>
 </div>
       </div>

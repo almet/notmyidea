@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Avez vous confiance en SSL? - Carnets Web</title>
+    <title>Avez vous confiance en SSL? - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -78,7 +78,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -104,7 +104,7 @@ le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
 <li>un tour des solutions existantes actuellement et de pourquoi je ne les trouve
   pas vraiment satisfaisantes.</li>
 </ul>
-<h2>Comment fonctionne SSL?</h2>
+<h2 id="comment-fonctionne-ssl">Comment fonctionne SSL?</h2>
 <p>Pour expliquer les problèmes de SSL, j'ai d'abord besoin d'expliquer comment
 tout ça fonctionne.</p>
 <p>SSL repose sur l'utilisation de certificats, qui sont générés par des autorités
@@ -134,7 +134,7 @@ a été compromise et les attaquant.e.s ont pu générer des certificats SSL
 frauduleux, ce qui leur a permis d'attaquer des sites tels que Facebook ou GMail.</p>
 <p>Vous pouvez retrouver une liste des risques et menaces autour des <em>CA</em> <a href="http://wiki.cacert.org/Risk/History">sur le
 wiki de CACert</a>.</p>
-<h2>Attaque de l'homme du milieu avec SSL</h2>
+<h2 id="attaque-de-lhomme-du-milieu-avec-ssl">Attaque de l'homme du milieu avec SSL</h2>
 <p>A force de dire que c'était très facile à faire, j'ai eu envie d'essayer
 d'espionner des connections protégées par SSL, et effectivement c'est
 carrément flippant tellement c'est simple.</p>
@@ -169,14 +169,14 @@ sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">80</s
 <p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur SSL</strong>. On peut
 d'ailleurs même imaginer faire tourner ces quelques commandes sur un
 raspberry pi, pour aller encore plus vite…</p>
-<h3>Key-pinning dans les navigateurs</h3>
+<h3 id="key-pinning-dans-les-navigateurs">Key-pinning dans les navigateurs</h3>
 <p>Actuellement, n'importe quel <em>CA</em> peut générer des certificats pour
 n'importe quel site, et c'est en grande partie ce qui pose souci. Une des
 manières de faire évoluer la situation est d'épingler les certificats de
 certains sites directement dans les navigateurs.</p>
 <p>Cette approche a le mérite de fonctionner très bien <a href="https://dxr.mozilla.org/mozilla-central/source/security/manager/ssl/StaticHPKPins.h?from=StaticHPKPins.h">pour un petit nombre de
 sites critiques (Google, Facebook, etc)</a>.</p>
-<h3>HTTP Public Key Pinning (HPKP)</h3>
+<h3 id="http-public-key-pinning-hpkp">HTTP Public Key Pinning (HPKP)</h3>
 <p><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"><em>HTTP Public Key Pinning</em></a>
 est également une solution de <em>pinning</em> qui permet d'établir une confiance lors
 de la première connexion avec le site. C'est ce qu'on appelle du <em>Trust on First
@@ -185,7 +185,7 @@ Use</em> ou <em>TOFU</em>.</p>
 les certificats correspondent bien lors des prochaines visites.</p>
 <p><em>HPKP</em> est disponible dans Firefox depuis Janvier 2015 et dans Chrome
 depuis Octobre 2015.</p>
-<h3>Certificate transparency: des journaux auditables</h3>
+<h3 id="certificate-transparency-des-journaux-auditables">Certificate transparency: des journaux auditables</h3>
 <p>Une autre approche est celle proposée par <em>certificate transparency</em>:</p>
 <blockquote>
 <p>Certificate Transparency aims to remedy these certificate-based threats by
@@ -207,7 +207,7 @@ globale mise en place par les gouvernements par exemple.</p>
 <p>Si vous lisez bien l'anglais, je vous invite à aller lire
 <a href="http://security.stackexchange.com/a/52838">cette description du problème et de la solution</a>
 que je trouve très bien écrite.</p>
-<h3>DANE + DNSSEC</h3>
+<h3 id="dane-dnssec">DANE + DNSSEC</h3>
 <blockquote>
 <p>The DANE working group has developed a framework for securely
 retrieving keying information from the DNS [RFC6698]. This
@@ -245,7 +245,7 @@ been hampered (As of 22 January 2010) by several difficulties:</p>
   deployment</li>
 </ul>
 </blockquote>
-<h2>Solutions basées sur la blockchain</h2>
+<h2 id="solutions-basees-sur-la-blockchain">Solutions basées sur la blockchain</h2>
 <p>Une dernière piste semble être l'utilisation de la <em>blockchain</em> pour distribuer
 des clés par site.</p>
 <p>La solution <em>DNSChain</em> me paraissait tout d'abord un bon point de départ mais
@@ -255,11 +255,6 @@ et interventions du développeur du projet m'ont fait changer d'avis.</p>
 Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
 bienvenue sur ces sujets!</p>
     <em>L'image d'illustration utilisée est un travail de <a href="https://www.flickr.com/photos/tinou/133982614/in/photolist-cQGn5-9AtoAP-dpiR2X-baBc4e-5ZvGJj-8KrKoG-gg2XM4-9KgHee-6iB7C-4zUNee-9hj2zF-43REk-aoanQb-947pCM-aj1P6z-9tE3g-pq8kRk-qp6hK1-hp13Uh-7ywK7o-4F41Pw-72piQE-22a8kTc-ECJ2r6-6ufU4Y-7WLPTu-5bLdgB-ha8ByJ-jqvD3-LktPD-izBtN4-aa7ABY-pz4aLg-49jEZi-YGoRJ-aCuCH2-4muqSR-7ey33A-6nUDPT-ajeJbN-a89tyX-s3pjm1-9imyxV-WswqNm-aDHw9-cN7MWS-abdTEE-a89tAT-aeVpTf-oAuYHd">Tinou Bao</a> proposé sous license CC BY 2.0. Merci !</em>
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
   </div>
 </div>
       </div>

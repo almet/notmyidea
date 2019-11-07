@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Introducing Cornice - Carnets Web</title>
+    <title>Introducing Cornice - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -71,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -79,154 +79,160 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="container content">
 <div id="main" class="posts">
 <h1 class="post-title">Introducing Cornice</h1>
-<span class="post-date">12 juillet 2011</span>
+<span class="post-date">07 décembre 2011</span>
 <img id="illustration" src="" />
 
 <div class="post article">
     <h1>🌟</h1>
-    <p>Wow, already my third working day at Mozilla. Since Monday, I've been working with
-<a class="reference external" href="http://ziade.org">Tarek Ziadé</a>, on a pyramid REST-ish toolkit named <a class="reference external" href="https://github.com/mozilla-services/cornice">Cornice</a>.</p>
-<p>Its goal is to take care for you of what you're usually missing so you can
-focus on what's important. Cornice provides you facilities
-for validation of any kind.</p>
-<p>The goal is to simplify your work, but we don't want to reinvent the wheel, so
-it is easily pluggable with validations frameworks, such as <a class="reference external" href="http://docs.pylonsproject.org/projects/colander/en/latest/">Colander</a>.</p>
-<div class="section" id="handling-errors-and-validation">
-<h2>Handling errors and validation</h2>
+    
+<p>Wow, already my third working day at Mozilla. Since Monday, I've been
+working with <a href="http://ziade.org">Tarek Ziadé</a>, on a pyramid REST-ish
+toolkit named <a href="https://github.com/mozilla-services/cornice">Cornice</a>.</p>
+<p>Its goal is to take care for you of what you're usually missing so you
+can focus on what's important. Cornice provides you facilities for
+validation of any kind.</p>
+<p>The goal is to simplify your work, but we don't want to reinvent the
+wheel, so it is easily pluggable with validations frameworks, such as
+<a href="http://docs.pylonsproject.org/projects/colander/en/latest/">Colander</a>.</p>
+<h2 id="handling-errors-and-validation">Handling errors and validation</h2>
 <p>Here is how it works:</p>
-<div class="highlight"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/service&quot;</span><span class="p">)</span>
+<p>``` sourceCode python
+service = Service(name="service", path="/service")</p>
+<p>def is_awesome(request):
+    if not 'awesome' in request.GET:
+        request.errors.add('query', 'awesome',
+                            'the awesome parameter is required')</p>
+<p>@service.get(validator=is_awesome)
+def get1(request):
+    return {"test": "yay!"}</p>
+<div class="highlight"><pre><span></span><span class="nv">All</span> <span class="nv">the</span> <span class="nv">errors</span> <span class="nv">collected</span> <span class="nv">during</span> <span class="nv">the</span> <span class="nv">validation</span> <span class="nv">process</span>, <span class="nv">or</span> <span class="nv">after</span>, <span class="nv">are</span>
+<span class="nv">collected</span> <span class="nv">before</span> <span class="nv">returning</span> <span class="nv">the</span> <span class="nv">request</span>. <span class="k">If</span> <span class="nv">any</span>, <span class="nv">a</span> <span class="nv">error</span> <span class="mi">400</span> <span class="nv">is</span> <span class="nv">fired</span> <span class="nv">up</span>,
+<span class="nv">with</span> <span class="nv">the</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">problems</span> <span class="nv">encountered</span> <span class="nv">returned</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">nice</span> <span class="nv">json</span> <span class="nv">list</span>
+<span class="nv">response</span> <span class="ss">(</span><span class="nv">we</span> <span class="nv">plan</span> <span class="nv">to</span> <span class="nv">support</span> <span class="nv">multiple</span> <span class="nv">formats</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">future</span><span class="ss">)</span>
+
+<span class="nv">As</span> <span class="nv">you</span> <span class="nv">might</span> <span class="nv">have</span> <span class="nv">seen</span>, <span class="nv">request</span>.<span class="nv">errors</span>.<span class="nv">add</span> <span class="nv">takes</span> <span class="nv">three</span> <span class="nv">parameters</span>:
+<span class="o">**</span><span class="nv">location</span><span class="o">**</span>, <span class="o">**</span><span class="nv">name</span><span class="o">**</span> <span class="nv">and</span> <span class="o">**</span><span class="nv">description</span><span class="o">**</span>.
+
+<span class="o">**</span><span class="nv">location</span><span class="o">**</span> <span class="nv">is</span> <span class="nv">where</span> <span class="nv">the</span> <span class="nv">error</span> <span class="nv">is</span> <span class="nv">located</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">request</span>. <span class="nv">It</span> <span class="nv">can</span> <span class="nv">either</span>
+<span class="nv">be</span> <span class="s2">&quot;</span><span class="s">body</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">query</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">headers</span><span class="s2">&quot;</span> <span class="nv">or</span> <span class="s2">&quot;</span><span class="s">path</span><span class="s2">&quot;</span>. <span class="o">**</span><span class="nv">name</span><span class="o">**</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">name</span> <span class="nv">of</span> <span class="nv">the</span>
+<span class="nv">variable</span> <span class="nv">causing</span> <span class="nv">problem</span>, <span class="k">if</span> <span class="nv">any</span>, <span class="nv">and</span> <span class="o">**</span><span class="nv">description</span><span class="o">**</span> <span class="nv">contains</span> <span class="nv">a</span> <span class="nv">more</span>
+<span class="nv">detailed</span> <span class="nv">message</span>.
+
+<span class="nv">Let</span><span class="s1">&#39;</span><span class="s">s run this simple service and send some queries to it:</span>
+
+    $ <span class="nv">curl</span> <span class="o">-</span><span class="nv">v</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5000</span><span class="o">/</span><span class="nv">service</span>
+    <span class="o">&gt;</span> <span class="nv">GET</span> <span class="o">/</span><span class="nv">service</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">1</span>
+    <span class="o">&gt;</span> <span class="nv">Host</span>: <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5000</span>
+    <span class="o">&gt;</span> <span class="nv">Accept</span>: <span class="o">*/*</span>
+    <span class="o">&gt;</span>
+    <span class="o">*</span> <span class="nv">HTTP</span> <span class="mi">1</span>.<span class="mi">0</span>, <span class="nv">assume</span> <span class="nv">close</span> <span class="nv">after</span> <span class="nv">body</span>
+    <span class="o">&lt;</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">0</span> <span class="mi">400</span> <span class="nv">Bad</span> <span class="nv">Request</span>
+    <span class="o">&lt;</span> <span class="nv">Content</span><span class="o">-</span><span class="nv">Type</span>: <span class="nv">application</span><span class="o">/</span><span class="nv">json</span><span class="c1">; charset=UTF-8</span>
+    [{<span class="s2">&quot;</span><span class="s">location</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">query</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">name</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">awesome</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">description</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">You lack awesomeness!</span><span class="s2">&quot;</span>}
+
+<span class="nv">I</span><span class="s1">&#39;</span><span class="s">ve removed the extra clutter from the curl</span><span class="s1">&#39;</span><span class="nv">s</span> <span class="nv">output</span>, <span class="nv">but</span> <span class="nv">you</span> <span class="nv">got</span> <span class="nv">the</span>
+<span class="nv">general</span> <span class="nv">idea</span>.
+
+<span class="nv">The</span> <span class="nv">content</span> <span class="nv">returned</span> <span class="nv">is</span> <span class="nv">in</span> <span class="nv">JSON</span>, <span class="nv">and</span> <span class="nv">I</span> <span class="nv">know</span> <span class="nv">exactly</span> <span class="nv">what</span> <span class="nv">I</span> <span class="nv">have</span> <span class="nv">to</span> <span class="k">do</span>:
+<span class="nv">add</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">awesome</span><span class="s2">&quot;</span> <span class="nv">parameter</span> <span class="nv">in</span> <span class="nv">my</span> <span class="nv">query</span>. <span class="nv">Let</span><span class="s1">&#39;</span><span class="s">s do it again:</span>
+
+    $ <span class="nv">curl</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5000</span><span class="o">/</span><span class="nv">service</span>?<span class="nv">awesome</span><span class="o">=</span><span class="nv">yeah</span>
+    {<span class="s2">&quot;</span><span class="s">test</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">yay!</span><span class="s2">&quot;</span>}
+
+<span class="nv">Validators</span> <span class="nv">can</span> <span class="nv">also</span> <span class="nv">convert</span> <span class="nv">parts</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">request</span> <span class="nv">and</span> <span class="nv">store</span> <span class="nv">the</span> <span class="nv">converted</span>
+<span class="nv">value</span> <span class="nv">in</span> <span class="nv">request</span>.<span class="nv">validated</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">standard</span> <span class="nv">dict</span> <span class="nv">automatically</span> <span class="nv">attached</span>
+<span class="nv">to</span> <span class="nv">the</span> <span class="nv">requests</span>.
+
+<span class="k">For</span> <span class="nv">instance</span>, <span class="nv">in</span> <span class="nv">our</span> <span class="nv">validator</span>, <span class="nv">we</span> <span class="nv">can</span> <span class="nv">chose</span> <span class="nv">to</span> <span class="nv">validate</span> <span class="nv">the</span> <span class="nv">parameter</span>
+<span class="nv">passed</span> <span class="nv">and</span> <span class="nv">use</span> <span class="nv">it</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">body</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">webservice</span>:
+
+``` <span class="nv">sourceCode</span> <span class="nv">python</span>
+<span class="nv">service</span> <span class="o">=</span> <span class="nv">Service</span><span class="ss">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">service</span><span class="s2">&quot;</span>, <span class="nv">path</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">/service</span><span class="s2">&quot;</span><span class="ss">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;awesome&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
+<span class="nv">def</span> <span class="nv">is_awesome</span><span class="ss">(</span><span class="nv">request</span><span class="ss">)</span>:
+    <span class="k">if</span> <span class="nv">not</span> <span class="s1">&#39;</span><span class="s">awesome</span><span class="s1">&#39;</span> <span class="nv">in</span> <span class="nv">request</span>.<span class="nv">GET</span>:
+        <span class="nv">request</span>.<span class="nv">errors</span>.<span class="nv">add</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">query</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">awesome</span><span class="s1">&#39;</span>,
+                            <span class="s1">&#39;</span><span class="s">the awesome parameter is required</span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="k">else</span>:
+        <span class="nv">request</span>.<span class="nv">validated</span>[<span class="s1">&#39;</span><span class="s">awesome</span><span class="s1">&#39;</span>] <span class="o">=</span> <span class="s1">&#39;</span><span class="s">awesome </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">request</span>.<span class="nv">GET</span>[<span class="s1">&#39;</span><span class="s">awesome</span><span class="s1">&#39;</span>]
 
 
-<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;yay!&quot;</span><span class="p">}</span>
+@<span class="nv">service</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">validator</span><span class="o">=</span><span class="nv">is_awesome</span><span class="ss">)</span>
+<span class="nv">def</span> <span class="nv">get1</span><span class="ss">(</span><span class="nv">request</span><span class="ss">)</span>:
+    <span class="k">return</span> {<span class="s2">&quot;</span><span class="s">test</span><span class="s2">&quot;</span>: <span class="nv">request</span>.<span class="nv">validated</span>[<span class="s1">&#39;</span><span class="s">awesome</span><span class="s1">&#39;</span>]}
 </pre></div>
-<p>All the errors collected during the validation process, or after, are collected
-before returning the request. If any, a error 400 is fired up, with the list of
-problems encountered returned as a nice json list response (we plan to support
-multiple formats in the future)</p>
-<p>As you might have seen, <cite>request.errors.add</cite> takes three parameters: <strong>location</strong>,
-<strong>name</strong> and <strong>description</strong>.</p>
-<p><strong>location</strong> is where the error is located in the request. It can either be &quot;body&quot;,
-&quot;query&quot;, &quot;headers&quot; or &quot;path&quot;. <strong>name</strong> is the name of the variable causing
-problem, if any, and <strong>description</strong> contains a more detailed message.</p>
-<p>Let's run this simple service and send some queries to it:</p>
-<pre class="literal-block">
-$ curl -v http://127.0.0.1:5000/service
-&gt; GET /service HTTP/1.1
-&gt; Host: 127.0.0.1:5000
-&gt; Accept: */*
-&gt;
-* HTTP 1.0, assume close after body
-&lt; HTTP/1.0 400 Bad Request
-&lt; Content-Type: application/json; charset=UTF-8
-[{&quot;location&quot;: &quot;query&quot;, &quot;name&quot;: &quot;awesome&quot;, &quot;description&quot;: &quot;You lack awesomeness!&quot;}
-</pre>
-<p>I've removed the extra clutter from the curl's output, but you got the general idea.</p>
-<p>The content returned is in JSON, and I know exactly what I have to do: add an
-&quot;awesome&quot; parameter in my query. Let's do it again:</p>
-<pre class="literal-block">
-$ curl http://127.0.0.1:5000/service?awesome=yeah
-{&quot;test&quot;: &quot;yay!&quot;}
-</pre>
-<p>Validators can also convert parts of the request and store the converted value
-in <cite>request.validated</cite>. It is a standard dict automatically attached to the
-requests.</p>
-<p>For instance, in our validator, we can chose to validate the parameter passed
-and use it in the body of the webservice:</p>
-<div class="highlight"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;service&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/service&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;awesome&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;awesome&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;the awesome parameter is required&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;awesome &#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]</span>
-
-
-<span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">validated</span><span class="p">[</span><span class="s1">&#39;awesome&#39;</span><span class="p">]}</span>
-</pre></div>
 <p>The output would look like this:</p>
-<pre class="literal-block">
-curl http://127.0.0.1:5000/service?awesome=yeah
-{&quot;test&quot;: &quot;awesome yeah&quot;}
-</pre>
-</div>
-<div class="section" id="dealing-with-accept-headers">
-<h2>Dealing with &quot;Accept&quot; headers</h2>
-<p>The HTTP spec defines a <strong>Accept</strong> header the client can send so the response
-is encoded the right way. A resource, available at an URL, can be available in
-different formats. This is especially true for web services.</p>
-<p>Cornice can help you dealing with this. The services you define can tell which
-<cite>Content-Type</cite> values they can deal with and this will be checked against the
-<strong>Accept</strong> headers sent by the client.</p>
-<p>Let's refine a bit our previous example, by specifying which content-types are
-supported, using the <cite>accept</cite> parameter:</p>
-<div class="highlight"><pre><span></span><span class="nd">@service.get</span><span class="p">(</span><span class="n">validator</span><span class="o">=</span><span class="n">is_awesome</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="s2">&quot;text/json&quot;</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">get1</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;yay!&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">service</span><span class="o">?</span><span class="n">awesome</span><span class="o">=</span><span class="n">yeah</span>
+<span class="err">{</span><span class="ss">&quot;test&quot;</span><span class="p">:</span> <span class="ss">&quot;awesome yeah&quot;</span><span class="err">}</span>
 </pre></div>
-<p>Now, if you specifically ask for XML, Cornice will throw a 406 with the list of
-accepted <cite>Content-Type</cite> values:</p>
-<pre class="literal-block">
-$ curl -vH &quot;Accept: application/xml&quot; http://127.0.0.1:5000/service
-&gt; GET /service HTTP/1.1
-&gt; Host: 127.0.0.1:5000
-&gt; Accept: application/xml
-&gt;
-&lt; HTTP/1.0 406 Not Acceptable
-&lt; Content-Type: application/json; charset=UTF-8
-&lt; Content-Length: 33
-&lt;
-[&quot;application/json&quot;, &quot;text/json&quot;]
-</pre>
-</div>
-<div class="section" id="building-your-documentation-automatically">
-<h2>Building your documentation automatically</h2>
-<p>writing documentation for web services can be painful, especially when your
-services evolve. Cornice provides a sphinx directive to automatically document
-your API in your docs.</p>
-<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">services</span><span class="p">::</span>
-   <span class="nc">:package:</span> <span class="nf">coolapp</span>
-   <span class="nc">:service:</span> <span class="nf">quote</span>
+
+
+<h2 id="dealing-with-accept-headers">Dealing with "Accept" headers</h2>
+<p>The HTTP spec defines a <strong>Accept</strong> header the client can send so the
+response is encoded the right way. A resource, available at an URL, can
+be available in different formats. This is especially true for web
+services.</p>
+<p>Cornice can help you dealing with this. The services you define can tell
+which Content-Type values they can deal with and this will be checked
+against the <strong>Accept</strong> headers sent by the client.</p>
+<p>Let's refine a bit our previous example, by specifying which
+content-types are supported, using the accept
+parameter:</p>
+<p>``` sourceCode python
+@service.get(validator=is_awesome, accept=("application/json", "text/json"))
+def get1(request):
+    return {"test": "yay!"}</p>
+<div class="highlight"><pre><span></span><span class="nv">Now</span>, <span class="k">if</span> <span class="nv">you</span> <span class="nv">specifically</span> <span class="nv">ask</span> <span class="k">for</span> <span class="nv">XML</span>, <span class="nv">Cornice</span> <span class="nv">will</span> <span class="nv">throw</span> <span class="nv">a</span> <span class="mi">406</span> <span class="nv">with</span> <span class="nv">the</span>
+<span class="nv">list</span> <span class="nv">of</span> <span class="nv">accepted</span> <span class="nv">Content</span><span class="o">-</span><span class="nv">Type</span> <span class="nv">values</span>:
+
+    $ <span class="nv">curl</span> <span class="o">-</span><span class="nv">vH</span> <span class="s2">&quot;</span><span class="s">Accept: application/xml</span><span class="s2">&quot;</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5000</span><span class="o">/</span><span class="nv">service</span>
+    <span class="o">&gt;</span> <span class="nv">GET</span> <span class="o">/</span><span class="nv">service</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">1</span>
+    <span class="o">&gt;</span> <span class="nv">Host</span>: <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5000</span>
+    <span class="o">&gt;</span> <span class="nv">Accept</span>: <span class="nv">application</span><span class="o">/</span><span class="nv">xml</span>
+    <span class="o">&gt;</span>
+    <span class="o">&lt;</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">0</span> <span class="mi">406</span> <span class="nv">Not</span> <span class="nv">Acceptable</span>
+    <span class="o">&lt;</span> <span class="nv">Content</span><span class="o">-</span><span class="nv">Type</span>: <span class="nv">application</span><span class="o">/</span><span class="nv">json</span><span class="c1">; charset=UTF-8</span>
+    <span class="o">&lt;</span> <span class="nv">Content</span><span class="o">-</span><span class="nv">Length</span>: <span class="mi">33</span>
+    <span class="o">&lt;</span>
+    [<span class="s2">&quot;</span><span class="s">application/json</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">text/json</span><span class="s2">&quot;</span>]
+
+## <span class="nv">Building</span> <span class="nv">your</span> <span class="nv">documentation</span> <span class="nv">automatically</span>
+
+<span class="nv">writing</span> <span class="nv">documentation</span> <span class="k">for</span> <span class="nv">web</span> <span class="nv">services</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">painful</span>, <span class="nv">especially</span> <span class="nv">when</span>
+<span class="nv">your</span> <span class="nv">services</span> <span class="nv">evolve</span>. <span class="nv">Cornice</span> <span class="nv">provides</span> <span class="nv">a</span> <span class="nv">sphinx</span> <span class="nv">directive</span> <span class="nv">to</span>
+<span class="nv">automatically</span> <span class="nv">document</span> <span class="nv">your</span> <span class="nv">API</span> <span class="nv">in</span> <span class="nv">your</span> <span class="nv">docs</span>.
+
+``` <span class="nv">sourceCode</span> <span class="nv">rst</span>
+.. <span class="nv">services</span>::
+   :<span class="nv">package</span>: <span class="nv">coolapp</span>
+   :<span class="nv">service</span>: <span class="nv">quote</span>
 </pre></div>
-<p>Here is an example of what a generated page looks like: <a class="reference external" href="http://packages.python.org/cornice/exampledoc.html">http://packages.python.org/cornice/exampledoc.html</a></p>
-</div>
-<div class="section" id="yay-how-can-i-get-it">
-<h2>Yay! How can I get it?</h2>
-<p>We just cut a 0.4 release, so it's available at <a class="reference external" href="http://pypi.python.org/pypi/cornice">http://pypi.python.org/pypi/cornice</a>
-You can install it easily using <cite>pip</cite>, for instance:</p>
-<pre class="literal-block">
-$ pip install cornice
-</pre>
+
+
+<p>Here is an example of what a generated page looks like:
+<a href="http://packages.python.org/cornice/exampledoc.html">http://packages.python.org/cornice/exampledoc.html</a></p>
+<h2 id="yay33-how-can-i-get-it">Yay! How can I get it?</h2>
+<p>We just cut a 0.4 release, so it's available at
+<a href="http://pypi.python.org/pypi/cornice">http://pypi.python.org/pypi/cornice</a> You can install it easily using
+pip, for instance:</p>
+<div class="highlight"><pre><span></span>$ pip install cornice
+</pre></div>
+
+
 <p>You can also have a look at the documentation at
-<a class="reference external" href="http://packages.python.org/cornice/">http://packages.python.org/cornice/</a></p>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
+<a href="http://packages.python.org/cornice/">http://packages.python.org/cornice/</a></p>
+<h2 id="whats-next">What's next?</h2>
 <p>We try to make our best to find how Cornice can help you build better
 web services. Cool features we want for the future include the automatic
-publication of a static definition of the services, so it can be used by clients
-to discover services in a nice way.</p>
-<p>Of course, we are open to all your ideas and patches! If you feel haskish and
-want to see the sources, <a class="reference external" href="https://github.com/mozilla-services/cornice">go grab them on github</a>
-, commit and send us a pull request!</p>
-</div>
-
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+publication of a static definition of the services, so it can be used by
+clients to discover services in a nice way.</p>
+<p>Of course, we are open to all your ideas and patches! If you feel
+haskish and want to see the sources, <a href="https://github.com/mozilla-services/cornice">go grab them on
+github</a> , commit and send
+us a pull request!</p>
   </div>
 </div>
       </div>

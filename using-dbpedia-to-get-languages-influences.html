@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Using dbpedia to get languages influences - Carnets Web</title>
+    <title>Using dbpedia to get languages influences - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -18,9 +18,6 @@
 
 
 
-    <meta name="tags" contents="dbpedia" />
-    <meta name="tags" contents="sparql" />
-    <meta name="tags" contents="python" />
 <style>
 
 h1 {
@@ -74,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -87,51 +84,55 @@ styles, `#sidebar-checkbox` for behavior. -->
 
 <div class="post article">
     <h1>🌟</h1>
-    <p>While browsing the Python's wikipedia page, I found information about the languages
-influenced by python, and the languages that influenced python itself.</p>
-<p>Well, that's kind of interesting to know which languages influenced others,
-it could even be more interesting to have an overview of the connexion between
-them, keeping python as the main focus.</p>
+    
+<p>While browsing the Python's wikipedia page, I found information about
+the languages influenced by python, and the languages that influenced
+python itself.</p>
+<p>Well, that's kind of interesting to know which languages influenced
+others, it could even be more interesting to have an overview of the
+connexion between them, keeping python as the main focus.</p>
 <p>This information is available on the wikipedia page, but not in a really
 exploitable format. Hopefully, this information is provided into the
-information box present on the majority of wikipedia pages. And… guess what?
-there is project with the goal to scrap and index all this information in
-a more queriable way, using the semantic web technologies.</p>
-<p>Well, you may have guessed it, the project in question in dbpedia, and exposes
-information in the form of RDF triples, which are way more easy to work with
-than simple HTML.</p>
+information box present on the majority of wikipedia pages. And… guess
+what? there is project with the goal to scrap and index all this
+information in a more queriable way, using the semantic web
+technologies.</p>
+<p>Well, you may have guessed it, the project in question in dbpedia, and
+exposes information in the form of RDF triples, which are way more easy
+to work with than simple HTML.</p>
 <p>For instance, let's take the page about python:
-<a class="reference external" href="http://dbpedia.org/page/Python_%28programming_language%29">http://dbpedia.org/page/Python_%28programming_language%29</a></p>
-<p>The interesting properties here are &quot;Influenced&quot; and &quot;InfluencedBy&quot;, which
-allows us to get a list of languages. Unfortunately, they are not really using
-all the power of the Semantic Web here, and the list is actually a string with
-coma separated values in it.</p>
-<p>Anyway, we can use a simple rule: All wikipedia pages of programming languages
-are either named after the name of the language itself, or suffixed with &quot;(
-programming language)&quot;, which is the case for python.</p>
-<p>So I've built <a class="reference external" href="https://github.com/ametaireau/experiments/blob/master/influences/get_influences.py">a tiny script to extract the information from dbpedia</a> and transform them into a shiny graph using graphviz.</p>
+<a href="http://dbpedia.org/page/Python_%28programming_language%29">http://dbpedia.org/page/Python_%28programming_language%29</a></p>
+<p>The interesting properties here are "Influenced" and "InfluencedBy",
+which allows us to get a list of languages. Unfortunately, they are not
+really using all the power of the Semantic Web here, and the list is
+actually a string with coma separated values in it.</p>
+<p>Anyway, we can use a simple rule: All wikipedia pages of programming
+languages are either named after the name of the language itself, or
+suffixed with "( programming language)", which is the case for python.</p>
+<p>So I've built <a href="https://github.com/ametaireau/experiments/blob/master/influences/get_influences.py">a tiny script to extract the information from
+dbpedia</a>
+and transform them into a shiny graph using graphviz.</p>
 <p>After a nice:</p>
-<pre class="literal-block">
-$ python get_influences.py python dot | dot -Tpng &gt; influences.png
-</pre>
-<p>The result is the following graph (<a class="reference external" href="http://files.lolnet.org/alexis/influences.png">see it directly here</a>)</p>
-<img alt="Graph des influances des langages les uns sur les autres." src="http://files.lolnet.org/alexis/influences.png" style="width: 800px;" />
-<p>While reading this diagram, keep in mind that it is a) not listing all the
-languages and b) keeping a python perspective.</p>
-<p>This means that you can trust the scheme by following the arrows from python to
-something and from something to python, it is not trying to get the matching
-between all the languages at the same time to keep stuff readable.</p>
-<p>It would certainly be possible to have all the connections between all
-languages (and the resulting script would be easier) to do so, but the resulting
-graph would probably be way less readable.</p>
-<p>You can find the script <a class="reference external" href="https://github.com/ametaireau/experiments">on my github account</a>. Feel free to adapt it for
-whatever you want if you feel hackish.</p>
+<div class="highlight"><pre><span></span>$ python get_influences.py python dot <span class="p">|</span> dot -Tpng &gt; influences.png
+</pre></div>
 
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+
+<p>The result is the following graph (<a href="http://files.lolnet.org/alexis/influences.png">see it directly
+here</a>)</p>
+<p><img alt="Graph des influances des langages les uns sur les
+autres." src="http://files.lolnet.org/alexis/influences.png"></p>
+<p>While reading this diagram, keep in mind that it is a) not listing all
+the languages and b) keeping a python perspective.</p>
+<p>This means that you can trust the scheme by following the arrows from
+python to something and from something to python, it is not trying to
+get the matching between all the languages at the same time to keep
+stuff readable.</p>
+<p>It would certainly be possible to have all the connections between all
+languages (and the resulting script would be easier) to do so, but the
+resulting graph would probably be way less readable.</p>
+<p>You can find the script <a href="https://github.com/ametaireau/experiments">on my github
+account</a>. Feel free to adapt
+it for whatever you want if you feel hackish.</p>
   </div>
 </div>
       </div>

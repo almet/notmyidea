@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-    <title>Using JPype to bridge python and Java - Carnets Web</title>
+    <title>Using JPype to bridge python and Java - Alexis - Carnets en ligne</title>
 
     <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets Web Full Atom Feed" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis - Carnets en ligne Full Atom Feed" />
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
@@ -18,8 +18,6 @@
 
 
 
-    <meta name="tags" contents="python" />
-    <meta name="tags" contents="java" />
 <style>
 
 h1 {
@@ -73,7 +71,7 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets Web</a>
+            <a href="https://blog.notmyidea.org/" title="Home">Alexis - Carnets en ligne</a>
           </h3>
         </div>
       </div>
@@ -81,65 +79,73 @@ styles, `#sidebar-checkbox` for behavior. -->
       <div class="container content">
 <div id="main" class="posts">
 <h1 class="post-title">Using JPype to bridge python and Java</h1>
-<span class="post-date">06 novembre 2011</span>
+<span class="post-date">11 juin 2011</span>
 <img id="illustration" src="" />
 
 <div class="post article">
     <h1>🌟</h1>
-    <p>Java provides some interesting libraries that have no exact equivalent in
-python. In my case, the awesome boilerpipe library allows me to remove
-uninteresting parts of HTML pages, like menus, footers and other &quot;boilerplate&quot;
-contents.</p>
-<p>Boilerpipe is written in Java. Two solutions then: using java from python or
-reimplement boilerpipe in python. I will let you guess which one I chosen, meh.</p>
-<p>JPype allows to bridge python project with java libraries. It takes another
-point of view than Jython: rather than reimplementing python in Java, both
-languages are interfacing at the VM level. This means you need to start a VM
-from your python script, but it does the job and stay fully compatible with
-Cpython and its C extensions.</p>
-<div class="section" id="first-steps-with-jpype">
-<h2>First steps with JPype</h2>
+    
+<p>Java provides some interesting libraries that have no exact equivalent
+in python. In my case, the awesome boilerpipe library allows me to
+remove uninteresting parts of HTML pages, like menus, footers and other
+"boilerplate" contents.</p>
+<p>Boilerpipe is written in Java. Two solutions then: using java from
+python or reimplement boilerpipe in python. I will let you guess which
+one I chosen, meh.</p>
+<p>JPype allows to bridge python project with java libraries. It takes
+another point of view than Jython: rather than reimplementing python in
+Java, both languages are interfacing at the VM level. This means you
+need to start a VM from your python script, but it does the job and stay
+fully compatible with Cpython and its C extensions.</p>
+<h2 id="first-steps-with-jpype">First steps with JPype</h2>
 <p>Once JPype installed (you'll have to hack a bit some files to integrate
-seamlessly with your system) you can access java classes by doing something
-like that:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jpype</span>
-<span class="n">jpype</span><span class="o">.</span><span class="n">startJVM</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">())</span>
+seamlessly with your system) you can access java classes by doing
+something like that:</p>
+<p>``` sourceCode python
+import jpype
+jpype.startJVM(jpype.getDefaultJVMPath())</p>
+<h1 id="you-can-then-access-to-the-basic-java-functions">you can then access to the basic java functions</h1>
+<p>jpype.java.lang.System.out.println("hello world")</p>
+<h1 id="and-you-have-to-shutdown-the-vm-at-the-end">and you have to shutdown the VM at the end</h1>
+<p>jpype.shutdownJVM()</p>
+<div class="highlight"><pre><span></span><span class="n">Okay</span><span class="p">,</span> <span class="n">now</span> <span class="n">we</span> <span class="n">have</span> <span class="n">a</span> <span class="n">hello</span> <span class="n">world</span><span class="p">,</span> <span class="n">but</span> <span class="n">what</span> <span class="n">we</span> <span class="n">want</span> <span class="n">seems</span> <span class="n">somehow</span> <span class="n">more</span>
+<span class="nb">complex</span><span class="o">.</span> <span class="n">We</span> <span class="n">want</span> <span class="n">to</span> <span class="n">interact</span> <span class="k">with</span> <span class="n">java</span> <span class="n">classes</span><span class="p">,</span> <span class="n">so</span> <span class="n">we</span> <span class="n">will</span> <span class="n">have</span> <span class="n">to</span> <span class="n">load</span>
+<span class="n">them</span><span class="o">.</span>
 
-<span class="c1"># you can then access to the basic java functions</span>
-<span class="n">jpype</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="c1">## Interfacing with Boilerpipe</span>
 
-<span class="c1"># and you have to shutdown the VM at the end</span>
-<span class="n">jpype</span><span class="o">.</span><span class="n">shutdownJVM</span><span class="p">()</span>
-</pre></div>
-<p>Okay, now we have a hello world, but what we want seems somehow more complex.
-We want to interact with java classes, so we will have to load them.</p>
-</div>
-<div class="section" id="interfacing-with-boilerpipe">
-<h2>Interfacing with Boilerpipe</h2>
-<p>To install boilerpipe, you just have to run an ant script:</p>
-<pre class="literal-block">
-$ cd boilerpipe
-$ ant
-</pre>
-<p>Here is a simple example of how to use boilerpipe in Java, from their sources</p>
-<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">de.l3s.boilerpipe.demo</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">de.l3s.boilerpipe.extractors.ArticleExtractor</span><span class="o">;</span>
+<span class="n">To</span> <span class="n">install</span> <span class="n">boilerpipe</span><span class="p">,</span> <span class="n">you</span> <span class="n">just</span> <span class="n">have</span> <span class="n">to</span> <span class="n">run</span> <span class="n">an</span> <span class="n">ant</span> <span class="n">script</span><span class="p">:</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Oneliner</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;http://notmyidea.org&quot;</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ArticleExtractor</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">getText</span><span class="o">(</span><span class="n">url</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="err">$</span> <span class="n">cd</span> <span class="n">boilerpipe</span>
+    <span class="err">$</span> <span class="n">ant</span>
+
+<span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">example</span> <span class="n">of</span> <span class="n">how</span> <span class="n">to</span> <span class="n">use</span> <span class="n">boilerpipe</span> <span class="ow">in</span> <span class="n">Java</span><span class="p">,</span> <span class="kn">from</span> <span class="nn">their</span>
+<span class="n">sources</span>
+
+<span class="sb">``</span><span class="err">`</span> <span class="n">sourceCode</span> <span class="n">java</span>
+<span class="n">package</span> <span class="n">de</span><span class="o">.</span><span class="n">l3s</span><span class="o">.</span><span class="n">boilerpipe</span><span class="o">.</span><span class="n">demo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">de.l3s.boilerpipe.extractors.ArticleExtractor</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">Oneliner</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">final</span> <span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
+        <span class="n">final</span> <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="n">new</span> <span class="n">URL</span><span class="p">(</span><span class="s2">&quot;http://notmyidea.org&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">ArticleExtractor</span><span class="o">.</span><span class="n">INSTANCE</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">url</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
-<p>To run it:</p>
-<div class="highlight"><pre><span></span>$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
-$ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner
-</pre></div>
-<p>Yes, this is kind of ugly, sorry for your eyes.
-Let's try something similar, but from python</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jpype</span>
+
+
+<p>To run
+it:</p>
+<p>``` sourceCode bash
+$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
+$ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner</p>
+<div class="highlight"><pre><span></span><span class="n">Yes</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">ugly</span><span class="p">,</span> <span class="n">sorry</span> <span class="k">for</span> <span class="n">your</span> <span class="n">eyes</span><span class="o">.</span> <span class="n">Let</span><span class="s1">&#39;s try something</span>
+<span class="n">similar</span><span class="p">,</span> <span class="n">but</span> <span class="kn">from</span> <span class="nn">python</span>
+
+<span class="sb">``</span><span class="err">`</span> <span class="n">sourceCode</span> <span class="n">python</span>
+<span class="kn">import</span> <span class="nn">jpype</span>
 
 <span class="c1"># start the JVM with the good classpaths</span>
 <span class="n">classpath</span> <span class="o">=</span> <span class="s2">&quot;dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar&quot;</span>
@@ -151,17 +157,13 @@ Let's try something similar, but from python</p>
 <span class="c1"># call them !</span>
 <span class="k">print</span> <span class="n">DefaultExtractor</span><span class="o">.</span><span class="n">INSTANCE</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">URL</span><span class="p">(</span><span class="s2">&quot;http://blog.notmyidea.org&quot;</span><span class="p">))</span>
 </pre></div>
-<p>And you get what you want.</p>
-<p>I must say I didn't thought it could work so easily. This will allow me to
-extract text content from URLs and remove the <em>boilerplate</em> text easily
-for infuse (my master thesis project), without having to write java code, nice!</p>
-</div>
 
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
+
+<p>And you get what you want.</p>
+<p>I must say I didn't thought it could work so easily. This will allow me
+to extract text content from URLs and remove the <em>boilerplate</em> text
+easily for infuse (my master thesis project), without having to write
+java code, nice!</p>
   </div>
 </div>
       </div>

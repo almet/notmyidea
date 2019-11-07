@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Carnets Web - Alexis Métaireau, Mathieu Leplatre</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Sat, 04 Feb 2012 00:00:00 +0100</lastBuildDate><item><title>Thoughts about a form generation service, GIS enabled</title><link>https://blog.notmyidea.org/carto-forms.html</link><description>&lt;p&gt;We have a plan. A &amp;quot;fucking good&amp;quot; one.&lt;/p&gt;
-&lt;p&gt;A bunch of friends asked me twice for quite the same thing: a webpage with a
-form, tied to a map generation with some information filtering. They didn't
-explicitly ask that but that's the gist of it.&lt;/p&gt;
-&lt;p&gt;This idea has been stuck …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau, Mathieu Leplatre</dc:creator><pubDate>Sat, 04 Feb 2012 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-02-04:/carto-forms.html</guid><category>GIS</category><category>forms</category></item></channel></rss>

@@ -1,38 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets Web - notes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/notes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2014-11-20T00:00:00+01:00</updated><entry><title>Le secret du bonheur</title><link href="https://blog.notmyidea.org/le-secret-du-bonheur.html" rel="alternate"></link><published>2014-11-20T00:00:00+01:00</published><updated>2014-11-20T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2014-11-20:/le-secret-du-bonheur.html</id><summary type="html">&lt;p&gt;Un enfant demande à son père :&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis - Carnets en ligne - Notes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/notes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2017-12-29T00:00:00+01:00</updated><entry><title>NEIPA #3</title><link href="https://blog.notmyidea.org/neipa-3.html" rel="alternate"></link><published>2017-12-29T00:00:00+01:00</published><updated>2017-12-29T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2017-12-29:/neipa-3.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Voici quelques prises durant un de mes brassins. L'idée est de pouvoir les relire et m'améliorer au fur et à mesure.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Test autour d'une New England Pale Ale; Cette fois ci avec du Mosaic et du Citra, durant une collab' avec Heiko.&lt;/p&gt;
+&lt;h1 id="objectifs"&gt;Objectifs:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Brasser une nouvelle NEIPA en appliquant les …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Voici quelques prises durant un de mes brassins. L'idée est de pouvoir les relire et m'améliorer au fur et à mesure.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Test autour d'une New England Pale Ale; Cette fois ci avec du Mosaic et du Citra, durant une collab' avec Heiko.&lt;/p&gt;
+&lt;h1 id="objectifs"&gt;Objectifs:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Brasser une nouvelle NEIPA en appliquant les trouvailles des deux premières versions;&lt;/li&gt;
+&lt;li&gt;Hop stand de 40mn;&lt;/li&gt;
+&lt;li&gt;Contrôle du pH à 5.2;&lt;/li&gt;
+&lt;li&gt;Refroidissement dans l'évier;&lt;/li&gt;
+&lt;li&gt;Ajouter plus d'avoine;&lt;/li&gt;
+&lt;li&gt;Faire un mash out;&lt;/li&gt;
+&lt;li&gt;Augmenter un peu la quantité de grain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="recette"&gt;Recette:&lt;/h1&gt;
+&lt;p&gt;DI: 1055 (atteint)
+pH: 5.2 (5.4 mesuré)&lt;/p&gt;
+&lt;h2 id="grains"&gt;Grains:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;75% de Pale Ale&lt;/li&gt;
+&lt;li&gt;12.5% de blé&lt;/li&gt;
+&lt;li&gt;12.5% flocons d'avoine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="houblons"&gt;Houblons:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2g/L Mosaic (Hop Stand 40mn)&lt;/li&gt;
+&lt;li&gt;2g/L Citra (Hop Stand 40mn)&lt;/li&gt;
+&lt;li&gt;4g/L Citra à cru (en deux fois)&lt;/li&gt;
+&lt;li&gt;4g/L Mosaic à cru (en deux fois)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="eau"&gt;Eau:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilisation d'eau de source, pour pouvoir corriger les sulfates / chlorures.&lt;/li&gt;
+&lt;li&gt;200 Chlorures pour 100 Sulfates.&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id="gypse-1g"&gt;Gypse: 1g&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dd&gt;1.8g (=4.05ml)&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/li&gt;
+&lt;li&gt;Acide lactique: 0.4ml&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="profil-dempatage"&gt;Profil d'empatage:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;68°C durant 40mn;&lt;/li&gt;
+&lt;li&gt;75°C durant 10mn (mash-out)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="levure"&gt;Levure&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GigaYeast «Vermont Ale». Le nombre de cellules n'est pas indiqué sur le packaging, ni en ligne.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="deroule"&gt;Déroulé&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;12h50: empâtage à 68°C&lt;/li&gt;
+&lt;li&gt;pH = 5.5. Ajout de 0.2 d'acide.&lt;/li&gt;
+&lt;li&gt;Pas mal de mesures du pH:&lt;ul&gt;
+&lt;li&gt;5.2@23°C (13h05)&lt;/li&gt;
+&lt;li&gt;5.4@18°C (13h05)&lt;/li&gt;
+&lt;li&gt;5.2@27°C (13h15)&lt;/li&gt;
+&lt;li&gt;5.3@19°C (13h20)&lt;/li&gt;
+&lt;li&gt;5.4@25°C (13h30)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;13h33: Mash-out à 78°C durant 10mn&lt;/li&gt;
+&lt;li&gt;Test à l'iode: OK&lt;/li&gt;
+&lt;li&gt;14h11: 1er rincage. Densité premier mout: 1070&lt;/li&gt;
+&lt;li&gt;15h40: Hop Stand (15g Citra / 15g Mosaic)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="fermentation"&gt;Fermentation&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;31/12/2017 - Fermentation à 20°C&lt;/li&gt;
+&lt;li&gt;01/01/2018 - Ajout de 12g de Citra et 12g de Mosaic après deux jours.&lt;/li&gt;
+&lt;li&gt;10/01/2018 - 1.040 SG = 1.008 corrigé&lt;/li&gt;
+&lt;li&gt;15/01/2018 - Ajout de 12g de Citra et 12g de Mosaic&lt;/li&gt;
+&lt;li&gt;15/01/2018 - Cold Crash&lt;/li&gt;
+&lt;li&gt;21/01/2018 - Mise en bouteille. Resucrage à 7g/L.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="observations"&gt;Observations:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;En mettant 1.5ml d'acide, si on mesure le pH de l'eau, il est à 3.5. Ça nous à pas mal effrayé, puisque on a pas trop l'habitude de monitorer le pH. On refait: 0.4ml d'acide = pH de 4.1. Au final, cela ne semble pas utile de mesurer le pH de l'eau avant de mettre son grain.&lt;/li&gt;
+&lt;li&gt;Je le savais déjà, mais travailler à deux en discutant n'est pas vraiment une bonne idée: sur les opérations un peu technique, un manque de concentration se fait tout de suite ressentir.&lt;/li&gt;
+&lt;li&gt;BeerSmith semble proposer un outil pour calculer les modifications de pH, je devrais l'utiliser la prochaine fois.&lt;/li&gt;
+&lt;li&gt;Baisser le ration d'empâtage: On s'est retrouvé avec beaucoup trop d'eau de rincage, alors qu'on était sur une bière assez faible en densité.&lt;/li&gt;
+&lt;li&gt;Au final, ajouter l'acide au départ est problématique pour le pH de l'eau qui baisse énormement. Après quelques recherches, il semble qu'il faille faire confiance au logiciel, et prendre une seule mesure de pH à 10mn (cela devrait être stable). Le pHmetre est aussi peut-être en cause.&lt;/li&gt;
+&lt;li&gt;D'une manière générale, j'ai l'impression d'être un peu à l'arrache sur la partie fermentation. Il faudrait vraiment que j'ai un plan et que je m'y tienne. Plusieurs questions me semblent encore à résoudre: combien de temps laisser le houblon à cru ? A quelle température ?&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>NEIPA #2</title><link href="https://blog.notmyidea.org/neipa-2.html" rel="alternate"></link><published>2017-12-18T00:00:00+01:00</published><updated>2017-12-18T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2017-12-18:/neipa-2.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Voici quelques prises durant un de mes brassins. L'idée est de pouvoir les relire et m'améliorer au fur et à mesure.&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="objectifs"&gt;Objectifs&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Corriger les erreurs du précédent brassin.&lt;/li&gt;
+&lt;li&gt;Éviter les soucis de filtration&lt;/li&gt;
+&lt;li&gt;Mieux corriger le pH&lt;/li&gt;
+&lt;li&gt;Faire un whirlpool digne de ce nom / avoir moins de trub dans le …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Voici quelques prises durant un de mes brassins. L'idée est de pouvoir les relire et m'améliorer au fur et à mesure.&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="objectifs"&gt;Objectifs&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Corriger les erreurs du précédent brassin.&lt;/li&gt;
+&lt;li&gt;Éviter les soucis de filtration&lt;/li&gt;
+&lt;li&gt;Mieux corriger le pH&lt;/li&gt;
+&lt;li&gt;Faire un whirlpool digne de ce nom / avoir moins de trub dans le fermenteur&lt;/li&gt;
+&lt;li&gt;Ne pas se laisser avoir par la baisse de température durant l'empâtage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="recette"&gt;Recette&lt;/h1&gt;
+&lt;p&gt;DI: 1060 (1050 mesuré)
+pH: 5.2 (atteint)&lt;/p&gt;
+&lt;h2 id="grains"&gt;Grains&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;90% Pils&lt;/li&gt;
+&lt;li&gt;10% Flocons d'avoine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="houblons"&gt;Houblons&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2g/L Wakatu (au Whirlpool)&lt;/li&gt;
+&lt;li&gt;2g/L Motueka (au Whirlpool)&lt;/li&gt;
+&lt;li&gt;4.5g/L Wakatu à cru (en deux fois)&lt;/li&gt;
+&lt;li&gt;2.5g/L Motueka à cru (en deux fois)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="eau"&gt;Eau&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilisation d'eau de source, pour pouvoir corriger les sulfates / chlorures.&lt;/li&gt;
+&lt;li&gt;200 Chlorures pour 100 Sulfates.&lt;/li&gt;
+&lt;li&gt;Gypse: 0.9g&lt;/li&gt;
+&lt;li&gt;CaCl2: 3.4g&lt;/li&gt;
+&lt;li&gt;Acide lactique: Au batch précédent, j'avais mesuré 5.6, donc: ajout de +2ml d'acide (=2.4g).&lt;/li&gt;
+&lt;li&gt;Utilisation d'Irish Moss (2g) pour coaguler les protéines.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="profil-dempatage"&gt;Profil d'empatage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;65°C durant 90mn (68°C au départ, 65 visé)&lt;/li&gt;
+&lt;li&gt;78°C durant 10mn (mash-out)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="levure"&gt;Levure&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;London Ale III.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="deroule"&gt;Déroulé&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;18h36 - empatage à 65°C&lt;/li&gt;
+&lt;li&gt;19h16- pH = 5.2&lt;/li&gt;
+&lt;li&gt;Densité 1er moût: 1070&lt;/li&gt;
+&lt;li&gt;Ébullition importante pour atteindre 6,2L avec la bonne densité.&lt;/li&gt;
+&lt;li&gt;Mash-out à 78°C durant 10mn&lt;/li&gt;
+&lt;li&gt;Test à l'iode: NOK&lt;/li&gt;
+&lt;li&gt;1er rincage. Densité premier mout: 1070&lt;/li&gt;
+&lt;li&gt;15h40: Hop Stand (15g Citra / 15g Mosaic)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="fermentation"&gt;Fermentation&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;18/12/2017 - Fermentation à 18°C&lt;/li&gt;
+&lt;li&gt;21/12/2017 - Ajout de 13.5g de Wakatu et 7.5g de Motueka&lt;/li&gt;
+&lt;li&gt;30/12/2017 - Ajout de 13.5g de Wakatu et 7.5g de Motueka&lt;/li&gt;
+&lt;li&gt;30/12/2017 - Passage à 10°C.&lt;/li&gt;
+&lt;li&gt;15/01/2018 - Cold Crash&lt;/li&gt;
+&lt;li&gt;21/01/2018 - Mise en bouteille. Resucrage à 7g/L.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="observations"&gt;Observations:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Je change de technique, et mets l'acide lactique directement dans l'eau.&lt;/li&gt;
+&lt;li&gt;Je concasse moins fin mais reteste quand même l'avoine. Aucun souci de filtration (mais l'avoine n'est pas concassé).&lt;/li&gt;
+&lt;li&gt;1g de CaCl2 ~= 2.25ml en solution à 33%.&lt;/li&gt;
+&lt;li&gt;Les deux thermomètres n'affichent pas la même température. Super :(.&lt;/li&gt;
+&lt;li&gt;Au final, j’empâte dans une casserole pour pouvoir faire un mash-out.&lt;/li&gt;
+&lt;li&gt;Le pH oscille pas mal durant l'empâtage. J'ai mesuré des pH de 4.9 à certains moments, mais au final la dernière lecture est de 5.2, ce qui me semble bon.&lt;/li&gt;
+&lt;li&gt;Le système que j'utilise (refroidisseur en cuivre) pour refroidir mon moût n'est pas génial parce que ça mélange pas mal ce qu'on veut voir se déposer au fond de la cuve. Refroidir directement dans l'évier est vachement plus simple (c'est pratique de faire du 6L pour çà !)&lt;/li&gt;
+&lt;li&gt;Le teste à l'iode était positif: tout n'était pas converti. Mais à 90mn de mash, je ne crois pas pouvoir faire grand chose de plus.&lt;/li&gt;
+&lt;li&gt;Idée en vrac, à voir à la dégustation, mais ajouter un peu de cara pourrait être sympa.&lt;/li&gt;
+&lt;li&gt;L'irish moss à vraiment bien fonctionné. Je me demande si je ne devrais pas même laisser décanter un peu plus longtemps durant le whirlpool pour avoir un effet encore plus impressionnant.&lt;/li&gt;
+&lt;li&gt;Je trouve que l'efficacité de cette brasserie est vraiment pourrie.&lt;/li&gt;
+&lt;li&gt;Un peu d'eau est venue diluer le moût (DI = 1050 au lieu de 1060 souhaité)&lt;/li&gt;
+&lt;li&gt;Au goût, le moût à vraiment un goût qui m'assèche la gorge. Trop de modifications de l'eau ? A voir si l'effet persiste après fermentation.&lt;/li&gt;
+&lt;li&gt;A priori, d'après un article de Scott Janish, empâter avec de l'avoine cru ne fonctionne que si on empate haut. Ca à un impact sur l'efficacité générale (2h pour conversion totale, c'est peut-être pour ça que mon teste à l'iode était positif)&lt;/li&gt;
+&lt;li&gt;Sur l'avoine toujours, il faut &lt;strong&gt;dépasser 18%&lt;/strong&gt; pour avoir un côté moelleux. Certains mettent jusqu'à 40% !&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>François Elie : Quelle école pour la société de l’information ?</title><link href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="alternate"></link><published>2013-06-14T00:00:00+02:00</published><updated>2013-06-14T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-06-14:/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html</id><summary type="html">
+&lt;p&gt;&lt;a href="http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference"&gt;http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quelques bouts selectionnés.&lt;/p&gt;
 &lt;blockquote&gt;
-Dis papa, quel est le secret pour être heureux ?&lt;/blockquote&gt;
-&lt;p&gt;Sans dire un mot, le père demande à son fils de le suivre ;
-Ils sortent de la maison, le père sur leur vieil âne et le fils suivant à pied.&lt;/p&gt;
-&lt;p&gt;Et les gens du village …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Un enfant demande à son père :&lt;/p&gt;
+&lt;p&gt;Mais pourquoi continue t-on à enseigner des maths à des gens qui ne
+vont pas les utiliser ? Ben évidemment c’est parce qu’on n’est pas
+dans une école de l’initiation où les mathématiciens …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
+&lt;p&gt;&lt;a href="http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference"&gt;http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quelques bouts selectionnés.&lt;/p&gt;
 &lt;blockquote&gt;
-Dis papa, quel est le secret pour être heureux ?&lt;/blockquote&gt;
-&lt;p&gt;Sans dire un mot, le père demande à son fils de le suivre ;
-Ils sortent de la maison, le père sur leur vieil âne et le fils suivant à pied.&lt;/p&gt;
-&lt;p&gt;Et les gens du village de dire :&lt;/p&gt;
+&lt;p&gt;Mais pourquoi continue t-on à enseigner des maths à des gens qui ne
+vont pas les utiliser ? Ben évidemment c’est parce qu’on n’est pas
+dans une école de l’initiation où les mathématiciens font ça entre eux
+et on n’est pas non plus dans une école de l’apprentissage où l’école
+a pour but de donner un métier, un bagage utilisable. L’école ne sert
+évidemment pas à ça. D’ailleurs heureusement parce que sinon on
+n’enseignerait pas la philosophie qui ne sert à rien à part
+fabriquer des profs de philosophie !&lt;/p&gt;
+&lt;p&gt;On n’a pas besoin de tableau numérique pour enseigner l’informatique
+elle-même pour enseigner la science. De la même façon on n’a pas
+besoin de machine à calculer pour enseigner les mathématiques.
+Évidemment ! On n’a pas besoin d’une machine à calculer pour savoir
+faire une division. Au contraire, surtout pas !&lt;/p&gt;
+&lt;p&gt;Il faut cesser d’opposer l’enseignement de la programmation d’une part
+et l’enseignement des usages, c’est important mais ça c’est l’école
+des maîtres et des esclaves. Ce qu’il faut enseigner, vite et à tous,
+c’est la science, pas la technologie ou l’usage. C’est en amont de la
+programmation, l’algorithmique. C’est, en amont de telle
+instanciation, du codage, du chiffrement, la théorie, quelque chose
+qui comme les maths n’ont besoin que d’une craie et d’un tableau noir.&lt;/p&gt;
+&lt;p&gt;Ce n'est pas un hasard si le mot "numérique" à remplaçé le mot
+"informatique", c'est qu'on voudrait nous faire croire qu'il n'y a pas
+besoin de l'apprendre.&lt;/p&gt;
+&lt;/blockquote&gt;</content></entry><entry><title>Notes: Économie libidinale et économie politique</title><link href="https://blog.notmyidea.org/notes-economie-libidinale-et-economie-politique.html" rel="alternate"></link><published>2013-06-07T00:00:00+02:00</published><updated>2013-06-07T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-06-07:/notes-economie-libidinale-et-economie-politique.html</id><summary type="html">
+&lt;p&gt;Une enquete d'un cabinet de marketing american ARI qui pour la première
+fois en 2004 disait qu'on voyait aparaitre des "alter consommateurs",
+qui n'étaient pas de gens qui consommaient moins, mais qui étaient des
+gens malheureux de consommer. Et qui définissaient la consommation comme
+une dépendance et une addiction.&lt;/p&gt;
+&lt;p&gt;Un …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Une enquete d'un cabinet de marketing american ARI qui pour la première
+fois en 2004 disait qu'on voyait aparaitre des "alter consommateurs",
+qui n'étaient pas de gens qui consommaient moins, mais qui étaient des
+gens malheureux de consommer. Et qui définissaient la consommation comme
+une dépendance et une addiction.&lt;/p&gt;
+&lt;p&gt;Un autre comportement s'est développé: le modèle "collaboratif et
+contributif". Ce modèle ne se repose pas sur la consommation mais sur
+l'implication et la collaboration. Ce modèle est induit par internet,
+qui ne repose plus sur l'opposition production / consommation.&lt;/p&gt;
+&lt;p&gt;Sur internet nous ne sommes pas des simples consommateurs, puisque vous
+êtes un expéditeur / distributeur.&lt;/p&gt;
+&lt;p&gt;Le changement prduit par internet est le fait que les gens ne sont plus
+simplement des consommateurs,mais sont également producteurs de contenus
+/ viennent améliorer les contenus existants.&lt;/p&gt;
+&lt;p&gt;Note perso: quid du culte de la personalité qui en ressort ? Ce qu'il
+apelle l'écologie relationelle ?&lt;/p&gt;
+&lt;p&gt;Quel est le manque que vient combler facebook par exemple ? Et quel est
+l'impact que ces nouveaux réseaux ont sur les modèles relationels que
+l'ont connait (famille, école, droit, etc.).&lt;/p&gt;
+&lt;h2 id="citations"&gt;Citations&lt;/h2&gt;
 &lt;blockquote&gt;
-Mais quel mauvais père qui oblige ainsi son fils d'aller à pied !&lt;/blockquote&gt;
-&lt;p&gt;Le lendemain ils sortent de nouveau.&lt;/p&gt;
-&lt;p&gt;Le père ayant installé son fils sur l'âne et lui marchant à côté.&lt;/p&gt;
-&lt;p&gt;Les gens du village dirent alors :&lt;/p&gt;
-&lt;blockquote&gt;
-Quel fils indigne, qui ne respecte pas son vieux père et le laisse aller à pied !&lt;/blockquote&gt;
-&lt;p&gt;Le jour suivant, ils s'installent tous les deux sur l'âne avant de quitter la maison.
-Les villageois commentèrent en disant :&lt;/p&gt;
-&lt;blockquote&gt;
-Ils ne respectent pas leur bête à la surcharger ainsi !&lt;/blockquote&gt;
-&lt;p&gt;Le jour suivant, ils partirent en portant eux-mêmes leurs affaires, l'âne trottinant derrière eux.
-Cette fois les gens du village y trouvèrent encore à redire :&lt;/p&gt;
-&lt;blockquote&gt;
-Voilà qu'ils portent eux-mêmes leurs bagages maintenant ! C'est le monde à l'envers !&lt;/blockquote&gt;
-&lt;p&gt;De retour à la maison, le père dit à son fils :&lt;/p&gt;
-&lt;blockquote&gt;
-Tu me demandais l'autre jour le secret du bonheur.
-Peu importe ce que tu fais, il y aura toujours quelqu'un pour y trouver à redire.
-Fais ce qui te plaît et là tu seras vraiment heureux.&lt;/blockquote&gt;
-</content></entry><entry><title>Le revenu de base</title><link href="https://blog.notmyidea.org/le-revenu-de-base.html" rel="alternate"></link><published>2013-10-03T00:00:00+02:00</published><updated>2013-10-03T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-10-03:/le-revenu-de-base.html</id><summary type="html">&lt;iframe width="560" height="315" src="http://www.youtube.com/embed/-cwdVDcm-Z0"
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;Quelques notes prises en visualisant le documentaire &amp;quot;le revenu de base&amp;quot;.&lt;/p&gt;
-&lt;ul class="simple"&gt;
+&lt;p&gt;Une révolution c'est le fait de faire une boucle est d'arriver au
+terme de quelque chose. D'avoir clôt un cycle. La lune fait des
+révolutions aussi.&lt;/p&gt;
+&lt;p&gt;81% des Américains déclarent que le consumerisme est une plaie pour
+l'amérique (d'après Juliet Score)&lt;/p&gt;
+&lt;/blockquote&gt;</content></entry><entry><title>Le revenu de base</title><link href="https://blog.notmyidea.org/le-revenu-de-base.html" rel="alternate"></link><published>2013-03-10T00:00:00+01:00</published><updated>2013-03-10T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-03-10:/le-revenu-de-base.html</id><summary type="html">
+&lt;iframe width="560" height="315" src="http://www.youtube.com/embed/-cwdVDcm-Z0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Quelques notes prises en visualisant le documentaire "le revenu de
+base".&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;4 Allemands sur 10 travaillent.&lt;/li&gt;
 &lt;li&gt;3/10 (les enfants et jeunes)&lt;/li&gt;
 &lt;li&gt;2/10 retraite / rente&lt;/li&gt;
@@ -40,9 +251,13 @@ frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;Quelques notes prises
 &lt;li&gt;41% sont le fruit d'un travail rémunéré.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Le revenu de base est inconditionnel.&lt;/p&gt;
-&lt;p&gt;Le marché du travail ne pourra …&lt;/p&gt;</summary><content type="html">&lt;iframe width="560" height="315" src="http://www.youtube.com/embed/-cwdVDcm-Z0"
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;Quelques notes prises en visualisant le documentaire &amp;quot;le revenu de base&amp;quot;.&lt;/p&gt;
-&lt;ul class="simple"&gt;
+&lt;p&gt;Le marché du travail ne pourra …&lt;/p&gt;</summary><content type="html">
+&lt;iframe width="560" height="315" src="http://www.youtube.com/embed/-cwdVDcm-Z0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Quelques notes prises en visualisant le documentaire "le revenu de
+base".&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;4 Allemands sur 10 travaillent.&lt;/li&gt;
 &lt;li&gt;3/10 (les enfants et jeunes)&lt;/li&gt;
 &lt;li&gt;2/10 retraite / rente&lt;/li&gt;
@@ -50,305 +265,245 @@ frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;Quelques notes prises
 &lt;li&gt;41% sont le fruit d'un travail rémunéré.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Le revenu de base est inconditionnel.&lt;/p&gt;
-&lt;p&gt;Le marché du travail ne pourra pas suffire à toute la population. En refusant
-l'idée du RDB, on est obligé de croire en la croissance économique.&lt;/p&gt;
-&lt;p&gt;Différence entre une approche qantitative du travail VS une approche sociale.&lt;/p&gt;
+&lt;p&gt;Le marché du travail ne pourra pas suffire à toute la population. En
+refusant l'idée du RDB, on est obligé de croire en la croissance
+économique.&lt;/p&gt;
+&lt;p&gt;Différence entre une approche qantitative du travail VS une approche
+sociale.&lt;/p&gt;
 &lt;p&gt;La croissance éco ≠ croissance de l'emploi.&lt;/p&gt;
-&lt;p&gt;Parallelle entre le RDB et la déclaration des droits de l'homme. &amp;quot;Et qui voudra
-faire le sale boulot ?&amp;quot;&lt;/p&gt;
-&lt;p&gt;Utopie veut dire le &amp;quot;non lieu&amp;quot;, le lieu qu'on à pas encore trouvé ici sur
-terre, à part dans notre imaginaire.&lt;/p&gt;
-&lt;p&gt;Agriculture: Il y à 100 ans, qqn qui travaillait dans l'agriculture produisait assez pour
-3 autres personnes. ajd un agriculteur produit assez pour 120 personnes, via
-des machines énormes et à la rationalisation.&lt;/p&gt;
+&lt;p&gt;Parallelle entre le RDB et la déclaration des droits de l'homme. "Et qui
+voudra faire le sale boulot ?"&lt;/p&gt;
+&lt;p&gt;Utopie veut dire le "non lieu", le lieu qu'on à pas encore trouvé ici
+sur terre, à part dans notre imaginaire.&lt;/p&gt;
+&lt;p&gt;Agriculture: Il y à 100 ans, qqn qui travaillait dans l'agriculture
+produisait assez pour 3 autres personnes. ajd un agriculteur produit
+assez pour 120 personnes, via des machines énormes et à la
+rationalisation.&lt;/p&gt;
 &lt;p&gt;Rationalisation: moins d'emploi.&lt;/p&gt;
 &lt;p&gt;La condition de pouvoir refuser un travail est très importante.&lt;/p&gt;
-&lt;div class="section" id="citations"&gt;
-&lt;h2&gt;Citations&lt;/h2&gt;
+&lt;h2 id="citations"&gt;Citations&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Le financmenet est acquis, la dificulté c'est la liberté&lt;/p&gt;
-&lt;p class="attribution"&gt;&amp;mdash;NA&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Il faut en finir avec cette idée fausse, selon laquelle seul le travail
-rémunéré constitue une contribution méritoire à la société, en réalité, c'est
-souvent exactement l'inverse.&lt;/p&gt;
-&lt;p class="attribution"&gt;&amp;mdash;Katja Kipping, membre du parlement allemand.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
+&lt;p&gt;— NA&lt;/p&gt;
+&lt;p&gt;Il faut en finir avec cette idée fausse, selon laquelle seul le
+travail rémunéré constitue une contribution méritoire à la société, en
+réalité, c'est souvent exactement l'inverse.&lt;/p&gt;
+&lt;p&gt;— Katja Kipping, membre du parlement allemand.&lt;/p&gt;
 &lt;p&gt;Si les gens on déjà une sécurité matérielle, ils sont plus difficiles
 à corrompre.&lt;/p&gt;
-&lt;p class="attribution"&gt;&amp;mdash;Katja Kipping&lt;/p&gt;
+&lt;p&gt;— Katja Kipping&lt;/p&gt;
+&lt;p&gt;Soutenir les populations sans poser de condition. c'est un principe
+qui à la longe, devra s'imposer. Mais il lui faudra d'abord affronter
+les droits et privilèges dont on bénéficie aujourd'hui.&lt;/p&gt;
+&lt;p&gt;— Anonyme.&lt;/p&gt;
+&lt;p&gt;Si les revenus étaient uniquement lié au travail, il faudrait donner
+les plus hauts revenus aux machines.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Soutenir les populations sans poser de condition. c'est un principe qui à la
-longe, devra s'imposer. Mais il lui faudra d'abord affronter les droits et
-privilèges dont on bénéficie aujourd'hui.&lt;/p&gt;
-&lt;p class="attribution"&gt;&amp;mdash;Anonyme.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-Si les revenus étaient uniquement lié au travail, il faudrait donner les plus
-hauts revenus aux machines.&lt;/blockquote&gt;
-&lt;p&gt;Le sens de l'économie, c'est de libérer l'homme du travail Beaucoup de gens qui
-ont une &amp;quot;place de travail&amp;quot;, n'ont en réalité qu'une &amp;quot;place de revenu&amp;quot;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="chiffres"&gt;
-&lt;h2&gt;Chiffres&lt;/h2&gt;
-&lt;p&gt;Un sondage à été effectué. La question est: &amp;quot;Si vous aviez un revenu de base,
-est-ce que vous iriez encore travailler ?&amp;quot;&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;~60% disent oui&lt;/li&gt;
+&lt;p&gt;Le sens de l'économie, c'est de libérer l'homme du travail Beaucoup de
+gens qui ont une "place de travail", n'ont en réalité qu'une "place de
+revenu".&lt;/p&gt;
+&lt;h2 id="chiffres"&gt;Chiffres&lt;/h2&gt;
+&lt;p&gt;Un sondage à été effectué. La question est: "Si vous aviez un revenu de
+base, est-ce que vous iriez encore travailler ?"&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\~60% disent oui&lt;/li&gt;
 &lt;li&gt;30% répondent oui, mais plus à plein temps.&lt;/li&gt;
 &lt;li&gt;10% pour faire autre chose.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Avec une question différente:&lt;/p&gt;
-&lt;p&gt;&amp;quot;Si on instaurait un revenu de base, est-ce que vous pensez que les autres
-iraient travailler ?&amp;quot;&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;~80% répondent non.&lt;/li&gt;
+&lt;p&gt;"Si on instaurait un revenu de base, est-ce que vous pensez que les
+autres iraient travailler ?"&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\~80% répondent non.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;C'est un changement aussi dans les modes d'éducation, on nous enseigne à être
-&amp;quot;employable&amp;quot;, et non pas à apprendre quelque chose qui nous interesse. Les gens
-ont peur de ne pas trouver du travail.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ressources"&gt;
-&lt;h2&gt;Ressources&lt;/h2&gt;
-&lt;ul class="simple"&gt;
+&lt;p&gt;C'est un changement aussi dans les modes d'éducation, on nous enseigne à
+être "employable", et non pas à apprendre quelque chose qui nous
+interesse. Les gens ont peur de ne pas trouver du travail.&lt;/p&gt;
+&lt;h2 id="ressources"&gt;Ressources&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;Le sens commun, Thomas Payne.&lt;/li&gt;
 &lt;li&gt;Peter Ulrich&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="comment-financer-le-rdb"&gt;
-&lt;h2&gt;Comment financer le RDB&lt;/h2&gt;
-&lt;p&gt;Si l’on se fie à son produit intérieur brut (PIB), la France est aujourd’hui le
-cinquième pays le plus riche du monde.  En 2010, le revenu disponible (après
-versement des pres- tations sociales et prélèvement des impôts directs) s’y
-élevait à 1 276 euros par mois et par personne, adultes et enfants confondus.
-Nous disposons donc de ressources suffisantes pour garantir à chaque individu 1
-276 euros si l’on décidait d’opérer un partage strictement égalitaire.  C’est
-nettement plus que le seuil de pauvreté actuel, fixé en France à 60 % du revenu
-médian (1), soit 960 euros par adulte. Qui peut le plus pouvant le moins, la
-France a donc sans nul doute les moyens d’assurer à tous ses résidents un
-revenu au moins égal au seuil de pauvreté.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="a-reculons-par-andre-gorz"&gt;
-&lt;h2&gt;À Reculons, par André Gorz.&lt;/h2&gt;
+&lt;h2 id="comment-financer-le-rdb"&gt;Comment financer le RDB&lt;/h2&gt;
+&lt;p&gt;Si l’on se fie à son produit intérieur brut (PIB), la France est
+aujourd’hui le cinquième pays le plus riche du monde. En 2010, le
+revenu disponible (après versement des pres- tations sociales et
+prélèvement des impôts directs) s’y élevait à 1 276 euros par mois et
+par personne, adultes et enfants confondus. Nous disposons donc de
+ressources suffisantes pour garantir à chaque individu 1 276 euros si
+l’on décidait d’opérer un partage strictement égalitaire. C’est
+nettement plus que le seuil de pauvreté actuel, fixé en France à 60 % du
+revenu médian (1), soit 960 euros par adulte. Qui peut le plus pouvant
+le moins, la France a donc sans nul doute les moyens d’assurer à tous
+ses résidents un revenu au moins égal au seuil de pauvreté.&lt;/p&gt;
+&lt;h2 id="a-reculons-par-andre-gorz"&gt;À Reculons, par André Gorz.&lt;/h2&gt;
 &lt;p&gt;(Paru dans le monde diplomatique de Juin 1990)&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Proche de Jean-Paul Sartre, cofondateur, en 1964, du Nouvel Observateur, le
-philosophe André Gorz (1923-2007) s’est converti progressivement à un
-écosocialisme dont il est devenu l’un des principaux théoriciens. En 1990, dans
-nos colonnes, sous le titre « Pourquoi la société salariale a besoin de
-nouveaux valets », il formulait une critique de l’idéologie du travail qui
-devait l’amener quelques années plus tard à se prononcer en faveur d’un revenu
+&lt;p&gt;&lt;em&gt;Proche de Jean-Paul Sartre, cofondateur, en 1964, du Nouvel
+Observateur, le philosophe André Gorz (1923-2007) s’est converti
+progressivement à un écosocialisme dont il est devenu l’un des
+principaux théoriciens. En 1990, dans nos colonnes, sous le titre «
+Pourquoi la société salariale a besoin de nouveaux valets », il
+formulait une critique de l’idéologie du travail qui devait l’amener
+quelques années plus tard à se prononcer en faveur d’un revenu
 d’existence.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Dans l’ensemble des pays capitalistes d’Europe, on produit trois à quatre fois
-plus de richesses qu’il y a trente-cinq ans ; cette production n’exige pas
-trois fois plus d’heures de travail, mais une quantité de travail beaucoup plus
-faible. (...)&lt;/p&gt;
-&lt;p&gt;Nous sortons de la civilisation du travail, mais nous en sortons à reculons, et
-nous entrons à reculons dans une civilisation du temps libéré, incapables de la
-voir et de la vouloir, incapables donc de civiliser le temps libéré qui nous
-échoit, et de fonder une culture du temps disponible et une culture des
-activités choisies pour relayer et compléter les cultures techniciennes et
-profes- sionnelles qui dominent la scène. (...)&lt;/p&gt;
-&lt;p&gt;Pour près de la moitié de la population active, l’idéologie du travail est
-devenue une mauvaise farce ; l’identification au travail est désormais
-impossible, car le système économique n’a pas besoin ou n’a pas un besoin
-régulier de leur capacité de travail.  La réalité que nous masque l’exaltation
-de la « ressource humaine », c’est que l’emploi stable, à plein temps, durant
-toute l’année et toute la vie active, devient le privilège d’une minorité.
-Pour [les autres], le travail cesse d’être un métier qui intègre dans une
-communauté productive et définit une place dans la société.  Ce que le patronat
-appelle « flexibilité » se traduit pour les salariés par la précarité. (...)&lt;/p&gt;
-&lt;p&gt;Que doit être une société dans laquelle le travail à plein temps de tous les
-citoyens n’est plus nécessaire, ni économiquement utile ? Quelles priorités
-autres qu’économiques doit-elle se donner ? Comment doit-elle s’y prendre pour
-que les gains de productivité, les économies de temps de travail profitent à
-tout le monde ? Comment peut-elle redistribuer au mieux tout le travail
-socialement utile de manière à ce que tout le monde puisse travailler, mais
-travailler moins et mieux, tout en recevant sa part des richesses socialement
-produites ?&lt;/p&gt;
+&lt;p&gt;Dans l’ensemble des pays capitalistes d’Europe, on produit trois à
+quatre fois plus de richesses qu’il y a trente-cinq ans ; cette
+production n’exige pas trois fois plus d’heures de travail, mais une
+quantité de travail beaucoup plus faible. (...)&lt;/p&gt;
+&lt;p&gt;Nous sortons de la civilisation du travail, mais nous en sortons à
+reculons, et nous entrons à reculons dans une civilisation du temps
+libéré, incapables de la voir et de la vouloir, incapables donc de
+civiliser le temps libéré qui nous échoit, et de fonder une culture du
+temps disponible et une culture des activités choisies pour relayer et
+compléter les cultures techniciennes et profes- sionnelles qui dominent
+la scène. (...)&lt;/p&gt;
+&lt;p&gt;Pour près de la moitié de la population active, l’idéologie du travail
+est devenue une mauvaise farce ; l’identification au travail est
+désormais impossible, car le système économique n’a pas besoin ou n’a
+pas un besoin régulier de leur capacité de travail. La réalité que nous
+masque l’exaltation de la « ressource humaine », c’est que l’emploi
+stable, à plein temps, durant toute l’année et toute la vie active,
+devient le privilège d’une minorité. Pour [les autres], le travail
+cesse d’être un métier qui intègre dans une communauté productive et
+définit une place dans la société. Ce que le patronat appelle «
+flexibilité » se traduit pour les salariés par la précarité. (...)&lt;/p&gt;
+&lt;p&gt;Que doit être une société dans laquelle le travail à plein temps de tous
+les citoyens n’est plus nécessaire, ni économiquement utile ? Quelles
+priorités autres qu’économiques doit-elle se donner ? Comment doit-elle
+s’y prendre pour que les gains de productivité, les économies de temps
+de travail profitent à tout le monde ? Comment peut-elle redistribuer au
+mieux tout le travail socialement utile de manière à ce que tout le
+monde puisse travailler, mais travailler moins et mieux, tout en
+recevant sa part des richesses socialement produites ?&lt;/p&gt;
 &lt;p&gt;La tendance dominante est d’écarter ce genre de questions et de poser le
-problème à l’envers : comment faire pour que, malgré les gains de productivité,
-l’économie consomme autant de travail que par le passé ? Comment faire pour que
-de nouvelles activités rémunérées viennent occuper ce temps que, à l’échelle de
-la société, les gains de productivité libèrent ? A quels nouveaux domaines
-d’activité peut-on étendre les échanges marchands pour remplacer tant bien que
-mal les emplois supprimés par ailleurs dans l’industrie et les services
+problème à l’envers : comment faire pour que, malgré les gains de
+productivité, l’économie consomme autant de travail que par le passé ?
+Comment faire pour que de nouvelles activités rémunérées viennent
+occuper ce temps que, à l’échelle de la société, les gains de
+productivité libèrent ? A quels nouveaux domaines d’activité peut-on
+étendre les échanges marchands pour remplacer tant bien que mal les
+emplois supprimés par ailleurs dans l’industrie et les services
 industrialisés ?&lt;/p&gt;
-&lt;p&gt;On connaît la réponse, pour laquelle les Etats-Unis et le Japon ont montré la
-voie : le seul domaine dans lequel il est possible, en économie libérale, de
-créer à l’avenir un grand nombre d’emplois, c’est celui des services aux
-personnes. Le développement de l’emploi pourrait être illimité si l’on
-parvenait à transformer en prestations de services rétribuées les activités que
-les gens ont, jusqu’à présent, assumées chacun pour soi. Les économistes
-parlent à ce sujet de « nouvelle croissance plus riche en emplois », de «
-tertiarisation » de l’économie, de « société de services » prenant le relais de
-la « société industrielle » (1). (...)&lt;/p&gt;
-&lt;p&gt;Le problème de fond auquel nous sommes confrontés est celui d’un au-delà de
-l’économie et, ce qui revient au même, d’un au- delà du travail rémunéré. La
-rationalisation économique libère du temps, elle continuera d’en libérer, et il
-n’est plus possible, par conséquent, de faire dépendre le revenu des citoyens
-de la quantité de travail dont l’économie a besoin. Il n’est plus possible, non
-plus, de continuer à faire du travail rémunéré la source principale de
-l’identité et du sens de la vie pour chacun.&lt;/p&gt;
-&lt;p&gt;La tâche d’une gauche, si gauche il doit y avoir, consiste à transformer cette
-libération du temps en une liberté nouvelle et en des droits nouveaux : le
-droit de chacun et de chacune de gagner sa vie en travaillant, mais en
-travaillant de moins en moins, de mieux en mieux, tout en recevant sa pleine
-part de la richesse socialement produite. Le droit, d’autre part, de travailler
-de façon discontinue, intermittente, sans perdre durant les intermittences de
-l’emploi le plein revenu – de manière à ouvrir de nouveaux espaces aux
-activités sans but économique et à reconnaître à ces activités qui n’ont pas la
-rémunération pour but une dignité et une valeur éminentes, tant pour les
-individus que pour la société elle-même.&lt;/p&gt;
-&lt;/div&gt;
-</content></entry><entry><title>Notes: Économie libidinale et économie politique</title><link href="https://blog.notmyidea.org/notes-economie-libidinale-et-economie-politique.html" rel="alternate"></link><published>2013-07-06T00:00:00+02:00</published><updated>2013-07-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-07-06:/notes-economie-libidinale-et-economie-politique.html</id><summary type="html">&lt;p&gt;Une enquete d'un cabinet de marketing american ARI qui pour la première fois en
-2004 disait qu'on voyait aparaitre des &amp;quot;alter consommateurs&amp;quot;, qui n'étaient pas
-de gens qui consommaient moins, mais qui étaient des gens malheureux de
-consommer. Et qui définissaient la consommation comme une dépendance et une
-addiction.&lt;/p&gt;
-&lt;p&gt;Un …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Une enquete d'un cabinet de marketing american ARI qui pour la première fois en
-2004 disait qu'on voyait aparaitre des &amp;quot;alter consommateurs&amp;quot;, qui n'étaient pas
-de gens qui consommaient moins, mais qui étaient des gens malheureux de
-consommer. Et qui définissaient la consommation comme une dépendance et une
-addiction.&lt;/p&gt;
-&lt;p&gt;Un autre comportement s'est développé: le modèle &amp;quot;collaboratif et contributif&amp;quot;.
-Ce modèle ne se repose pas sur la consommation mais sur l'implication et la
-collaboration. Ce modèle est induit par internet, qui ne repose plus sur
-l'opposition production / consommation.&lt;/p&gt;
-&lt;p&gt;Sur internet nous ne sommes pas des simples consommateurs, puisque vous êtes un
-expéditeur / distributeur.&lt;/p&gt;
-&lt;p&gt;Le changement prduit par internet est le fait que les gens ne sont plus
-simplement des consommateurs,mais sont également producteurs de contenus
-/ viennent améliorer les contenus existants.&lt;/p&gt;
-&lt;p&gt;Note perso: quid du culte de la personalité qui en ressort ?  Ce qu'il apelle
-l'écologie relationelle ?&lt;/p&gt;
-&lt;p&gt;Quel est le manque que vient combler facebook par exemple ? Et quel est
-l'impact que ces nouveaux réseaux ont sur les modèles relationels que l'ont
-connait (famille, école, droit, etc.).&lt;/p&gt;
-&lt;div class="section" id="citations"&gt;
-&lt;h2&gt;Citations&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Une révolution c'est le fait de faire une boucle est d'arriver au terme de
-quelque chose. D'avoir clôt un cycle. La lune fait des révolutions aussi.&lt;/p&gt;
-&lt;p&gt;81% des Américains déclarent que le consumerisme est une plaie pour l'amérique
-(d'après Juliet Score)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-</content></entry><entry><title>François Elie : Quelle école pour la société de l’information ?</title><link href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="alternate"></link><published>2013-06-14T00:00:00+02:00</published><updated>2013-06-14T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-06-14:/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference"&gt;http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Quelques bouts selectionnés.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Mais pourquoi continue t-on à enseigner des maths à des gens qui ne vont pas
-les utiliser ? Ben évidemment c’est parce qu’on n’est pas dans une école de
-l’initiation où les mathématiciens …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference"&gt;http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Quelques bouts selectionnés.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Mais pourquoi continue t-on à enseigner des maths à des gens qui ne vont pas
-les utiliser ? Ben évidemment c’est parce qu’on n’est pas dans une école de
-l’initiation où les mathématiciens font ça entre eux et on n’est pas non plus
-dans une école de l’apprentissage où l’école a pour but de donner un métier, un
-bagage utilisable. L’école ne sert évidemment pas à ça. D’ailleurs heureusement
-parce que sinon on n’enseignerait pas la philosophie qui ne sert à rien à part
-fabriquer des profs de philosophie !&lt;/p&gt;
-&lt;p&gt;On n’a pas besoin de tableau numérique pour enseigner l’informatique elle-même
-pour enseigner la science. De la même façon on n’a pas besoin de machine à
-calculer pour enseigner les mathématiques. Évidemment ! On n’a pas besoin d’une
-machine à calculer pour savoir faire une division. Au contraire, surtout pas !&lt;/p&gt;
-&lt;p&gt;Il faut cesser d’opposer l’enseignement de la programmation d’une part et
-l’enseignement des usages, c’est important mais ça c’est l’école des maîtres et
-des esclaves. Ce qu’il faut enseigner, vite et à tous, c’est la science, pas la
-technologie ou l’usage. C’est en amont de la programmation, l’algorithmique.
-C’est, en amont de telle instanciation, du codage, du chiffrement, la théorie,
-quelque chose qui comme les maths n’ont besoin que d’une craie et d’un tableau
-noir.&lt;/p&gt;
-&lt;p&gt;Ce n'est pas un hasard si le mot &amp;quot;numérique&amp;quot; à remplaçé le mot &amp;quot;informatique&amp;quot;,
-c'est qu'on voudrait nous faire croire qu'il n'y a pas besoin de l'apprendre.&lt;/p&gt;
-&lt;/blockquote&gt;
-</content></entry><entry><title>Habitat collectif</title><link href="https://blog.notmyidea.org/habitat-collectif.html" rel="alternate"></link><published>2012-12-28T00:00:00+01:00</published><updated>2012-12-28T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-28:/habitat-collectif.html</id><summary type="html">&lt;p&gt;Habiter à plusieurs, partager un lieu de vie, monter une communauté, changer
-nos modes de vie et prendre plus de temps les uns pour les autres.&lt;/p&gt;
-&lt;p&gt;Ça fait réfléchir un peu quand même, non ? en tout cas ça marche chez moi.&lt;/p&gt;
-&lt;p&gt;Voilà quelques ressources qui peuvent être utiles si jamais …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Habiter à plusieurs, partager un lieu de vie, monter une communauté, changer
-nos modes de vie et prendre plus de temps les uns pour les autres.&lt;/p&gt;
-&lt;p&gt;Ça fait réfléchir un peu quand même, non ? en tout cas ça marche chez moi.&lt;/p&gt;
-&lt;p&gt;Voilà quelques ressources qui peuvent être utiles si jamais vous aussi ça vous
-titille:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://www.habicoop.fr/IMG/pdf/Memoire_hbtat_coop_Vaulx-2.pdf"&gt;L’Habitat Coopératif : Solution au problème de responsabilisation sociale des
-copropriétaires sur la commune de Vaulx en Velin
-?&lt;/a&gt; - mémoire REPIQUET Anne
-2005.&lt;/li&gt;
-&lt;li&gt;Un bouquin à lire avec plein d'infos: &lt;a class="reference external" href="http://www.ecosociete.org/t101.php"&gt;Vivre autrement&lt;/a&gt; de Diana Leafe Christian.&lt;/li&gt;
+&lt;p&gt;On connaît la réponse, pour laquelle les Etats-Unis et le Japon ont
+montré la voie : le seul domaine dans lequel il est possible, en
+économie libérale, de créer à l’avenir un grand nombre d’emplois, c’est
+celui des services aux personnes. Le développement de l’emploi pourrait
+être illimité si l’on parvenait à transformer en prestations de
+services rétribuées les activités que les gens ont, jusqu’à présent,
+assumées chacun pour soi. Les économistes parlent à ce sujet de «
+nouvelle croissance plus riche en emplois », de « tertiarisation » de
+l’économie, de « société de services » prenant le relais de la «
+société industrielle » (1). (...)&lt;/p&gt;
+&lt;p&gt;Le problème de fond auquel nous sommes confrontés est celui d’un au-delà
+de l’économie et, ce qui revient au même, d’un au- delà du travail
+rémunéré. La rationalisation économique libère du temps, elle
+continuera d’en libérer, et il n’est plus possible, par conséquent, de
+faire dépendre le revenu des citoyens de la quantité de travail dont
+l’économie a besoin. Il n’est plus possible, non plus, de continuer à
+faire du travail rémunéré la source principale de l’identité et du sens
+de la vie pour chacun.&lt;/p&gt;
+&lt;p&gt;La tâche d’une gauche, si gauche il doit y avoir, consiste à transformer
+cette libération du temps en une liberté nouvelle et en des droits
+nouveaux : le droit de chacun et de chacune de gagner sa vie en
+travaillant, mais en travaillant de moins en moins, de mieux en mieux,
+tout en recevant sa pleine part de la richesse socialement produite. Le
+droit, d’autre part, de travailler de façon discontinue, intermittente,
+sans perdre durant les intermittences de l’emploi le plein revenu – de
+manière à ouvrir de nouveaux espaces aux activités sans but économique
+et à reconnaître à ces activités qui n’ont pas la rémunération pour but
+une dignité et une valeur éminentes, tant pour les individus que pour la
+société elle-même.&lt;/p&gt;</content></entry><entry><title>Habitat collectif</title><link href="https://blog.notmyidea.org/habitat-collectif.html" rel="alternate"></link><published>2012-12-28T00:00:00+01:00</published><updated>2012-12-28T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-28:/habitat-collectif.html</id><summary type="html">
+&lt;p&gt;Habiter à plusieurs, partager un lieu de vie, monter une communauté,
+changer nos modes de vie et prendre plus de temps les uns pour les
+autres.&lt;/p&gt;
+&lt;p&gt;Ça fait réfléchir un peu quand même, non ? en tout cas ça marche chez
+moi.&lt;/p&gt;
+&lt;p&gt;Voilà quelques ressources qui peuvent être utiles si jamais …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Habiter à plusieurs, partager un lieu de vie, monter une communauté,
+changer nos modes de vie et prendre plus de temps les uns pour les
+autres.&lt;/p&gt;
+&lt;p&gt;Ça fait réfléchir un peu quand même, non ? en tout cas ça marche chez
+moi.&lt;/p&gt;
+&lt;p&gt;Voilà quelques ressources qui peuvent être utiles si jamais vous aussi
+ça vous titille:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.habicoop.fr/IMG/pdf/Memoire_hbtat_coop_Vaulx-2.pdf"&gt;L’Habitat Coopératif : Solution au problème de responsabilisation
+    sociale des copropriétaires sur la commune de Vaulx en Velin
+    ?&lt;/a&gt; -
+    mémoire REPIQUET Anne 2005.&lt;/li&gt;
+&lt;li&gt;Un bouquin à lire avec plein d'infos: &lt;a href="http://www.ecosociete.org/t101.php"&gt;Vivre
+    autrement&lt;/a&gt; de Diana Leafe
+    Christian.&lt;/li&gt;
 &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>Tricot</title><link href="https://blog.notmyidea.org/tricot.html" rel="alternate"></link><published>2012-12-28T00:00:00+01:00</published><updated>2012-12-28T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-28:/tricot.html</id><summary type="html">
+&lt;p&gt;Puisque j'ai décidé d'apprendre à faire les trucs moi-même, je me mets
+au tricot. Et puis y'a aussi tout un symbole derrière: le tricot, c'est
+pour les filles, tu sais, un "truc de gonzesse".&lt;/p&gt;
+&lt;p&gt;Eh bah c'est pas gagné, jte le dis. Pour l'instant j'ai réussi à faire à
+peu …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Puisque j'ai décidé d'apprendre à faire les trucs moi-même, je me mets
+au tricot. Et puis y'a aussi tout un symbole derrière: le tricot, c'est
+pour les filles, tu sais, un "truc de gonzesse".&lt;/p&gt;
+&lt;p&gt;Eh bah c'est pas gagné, jte le dis. Pour l'instant j'ai réussi à faire à
+peu près un rang d'endroit et j'arrive pas à enchainer sur l'envers pour
+réussir à faire un point jersey (jersey c'est un rang endroit puis un
+rang envers).&lt;/p&gt;
+&lt;p&gt;Enfin bref, si jamais ça vous botte vous aussi, voila quelques
+ressources que j'ai trouvé sur internet (en plus des conseils avisés de
+maman chérie™):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=VcGiBG2BNxo&amp;amp;list=UUskaiVNnKf7amRb5OI5op_w"&gt;Montage des mailles
+    "normales"&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=aIQtNN89pqA&amp;amp;list=UUskaiVNnKf7amRb5OI5op_w"&gt;Le point
+    jersey&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><title>Astuces SSH</title><link href="https://blog.notmyidea.org/astuces-ssh.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-27:/astuces-ssh.html</id><summary type="html">&lt;div class="section" id="tunelling"&gt;
-&lt;h2&gt;Tunelling&lt;/h2&gt;
-&lt;p&gt;Parce que je m'en rapelle jamais (tête de linote):&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-$ ssh -f hote -L local:lolnet.org:destination -N
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ssh-config"&gt;
-&lt;h2&gt;.ssh/config&lt;/h2&gt;
-&lt;p&gt;(merci &lt;a class="reference external" href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
-&lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
-séparés par des &amp;quot;+&amp;quot;&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-Host *+*
-        ProxyCommand ssh $(echo %h | sed
-'s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="tunelling"&gt;
-&lt;h2&gt;Tunelling&lt;/h2&gt;
-&lt;p&gt;Parce que je m'en rapelle jamais (tête de linote):&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-$ ssh -f hote -L local:lolnet.org:destination -N
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ssh-config"&gt;
-&lt;h2&gt;.ssh/config&lt;/h2&gt;
-&lt;p&gt;(merci &lt;a class="reference external" href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
-&lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
-séparés par des &amp;quot;+&amp;quot;&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-Host *+*
-        ProxyCommand ssh $(echo %h | sed
-'s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /')
-PATH=.:\$PATH nc -w1 $(echo %h | sed 's/^.*+//;/:/!s/$/ %p/;s/:/ /')
-&lt;/pre&gt;
-&lt;p&gt;On peut donc spécifier des &amp;quot;sauts&amp;quot; ssh du style:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-ssh root&amp;#64;91.25.25.25+192.168.1.1
-&lt;/pre&gt;
-&lt;p&gt;Ensuite on peut essayer de rajouter:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-Host &amp;lt;label_pour_mon_serveur_privé&amp;gt;
-    user &amp;lt;monuser(root)&amp;gt;
-    IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;
-    hostname ip_serveur_publique+ip_serveur_privé
-&lt;/pre&gt;
-&lt;/div&gt;
-</content><category term="note"></category></entry><entry><title>Notre dame des landes</title><link href="https://blog.notmyidea.org/notre-dame-des-landes.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-27:/notre-dame-des-landes.html</id><summary type="html">&lt;p&gt;La lutte à Notre Dame des Landes ne fait pas du tout que commencer, mais il se
-trouve que les médias se sont &amp;quot;emparés&amp;quot; de la question que très récemment,
-depuis que JM Ayrault s'est retrouvé premier ministre.&lt;/p&gt;
-&lt;p&gt;Voici une sélection d'articles que j'ai trouvé pertinents, à partir de décembre …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La lutte à Notre Dame des Landes ne fait pas du tout que commencer, mais il se
-trouve que les médias se sont &amp;quot;emparés&amp;quot; de la question que très récemment,
-depuis que JM Ayrault s'est retrouvé premier ministre.&lt;/p&gt;
-&lt;p&gt;Voici une sélection d'articles que j'ai trouvé pertinents, à partir de décembre
-2012:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Article dans le monde qui explique la complexité de la lutte sur place: &lt;a class="reference external" href="http://www.lemonde.fr/idees/article/2012/12/13/notre-dame-des-landes-une-resistance-qui-ne-se-laissera-pas-dicter-sa-conduite_1805511_3232.html"&gt;http://www.lemonde.fr/idees/article/2012/12/13/notre-dame-des-landes-une-resistance-qui-ne-se-laissera-pas-dicter-sa-conduite_1805511_3232.html&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;La nana explique plutôt bien et assez lentement. En espérant que ça
+prenne.&lt;/p&gt;</content></entry><entry><title>Notre dame des landes</title><link href="https://blog.notmyidea.org/notre-dame-des-landes.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-27:/notre-dame-des-landes.html</id><summary type="html">
+&lt;p&gt;La lutte à Notre Dame des Landes ne fait pas du tout que commencer, mais
+il se trouve que les médias se sont "emparés" de la question que très
+récemment, depuis que JM Ayrault s'est retrouvé premier ministre.&lt;/p&gt;
+&lt;p&gt;Voici une sélection d'articles que j'ai trouvé pertinents, à partir de
+décembre …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;La lutte à Notre Dame des Landes ne fait pas du tout que commencer, mais
+il se trouve que les médias se sont "emparés" de la question que très
+récemment, depuis que JM Ayrault s'est retrouvé premier ministre.&lt;/p&gt;
+&lt;p&gt;Voici une sélection d'articles que j'ai trouvé pertinents, à partir de
+décembre 2012:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Article dans le monde qui explique la complexité de la lutte sur
+    place:
+    &lt;a href="http://www.lemonde.fr/idees/article/2012/12/13/notre-dame-des-landes-une-resistance-qui-ne-se-laissera-pas-dicter-sa-conduite_1805511_3232.html"&gt;http://www.lemonde.fr/idees/article/2012/12/13/notre-dame-des-landes-une-resistance-qui-ne-se-laissera-pas-dicter-sa-conduite_1805511_3232.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;autour de relations à la presse:
-&lt;a class="reference external" href="http://www.rennestv.fr/catalogue/magazine/notre-dame-des-landes-l-inaceptable-interdiction-de-la-presse.html"&gt;http://www.rennestv.fr/catalogue/magazine/notre-dame-des-landes-l-inaceptable-interdiction-de-la-presse.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Notre-Dame-des-Landes : un pilote annonce un fiasco pour le futur aéroport &lt;a class="reference external" href="http://www.bastamag.net/article2866.html"&gt;http://www.bastamag.net/article2866.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content></entry><entry><title>Semences paysannes</title><link href="https://blog.notmyidea.org/semences-paysannes.html" rel="alternate"></link><published>2012-12-20T00:00:00+01:00</published><updated>2012-12-20T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-20:/semences-paysannes.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed"&gt;http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;A l'heure actuelle, il est interdit pour deux agriculteurs de s'échangers des semences dans le but d'en revendre la production.&lt;/p&gt;
-&lt;p&gt;Les états ont crée la propriété interellectuelle pour relancer l'industrie après les dégats de la guerre et les selectionneurs en ont profité …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed"&gt;http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;A l'heure actuelle, il est interdit pour deux agriculteurs de s'échangers des semences dans le but d'en revendre la production.&lt;/p&gt;
-&lt;p&gt;Les états ont crée la propriété interellectuelle pour relancer l'industrie après les dégats de la guerre et les selectionneurs en ont profité en 1960 au sein de l'UPOV pour faire des textes pour s'approprié les selections qu'ils ont fait. Les textes ont été votés par les députés depuis: bien prové au lieu de bien collectif.&lt;/p&gt;
-&lt;p&gt;Les semenciers n'existent que depuis 150 ans. Ils revendiquent maintenant le monopole de selection.&lt;/p&gt;
-&lt;p&gt;Un catalogue est prévu pour les semences dites &amp;quot;de conservation&amp;quot; (alors qu'elles évoluent, conservation n'est pas un terme adapté). C'est la voie qui est possible pour pouvoir échanger des semences entre agriculteurs.&lt;/p&gt;
-&lt;p&gt;→ Quelles sont les semences de conservation depuis 2002 ? → Quid des semences paysannes, qui évoluent et que l'on garde d'année en année, en selectionnant les meilleures especes. → Existe-il un autre catalogue ? → Au niveau européen, quelles sontles contraintes d'inscription ? Gratuité demandée, qu'en est il ?&lt;/p&gt;
+    &lt;a href="http://www.rennestv.fr/catalogue/magazine/notre-dame-des-landes-l-inaceptable-interdiction-de-la-presse.html"&gt;http://www.rennestv.fr/catalogue/magazine/notre-dame-des-landes-l-inaceptable-interdiction-de-la-presse.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Notre-Dame-des-Landes : un pilote annonce un fiasco pour le futur
+    aéroport &lt;a href="http://www.bastamag.net/article2866.html"&gt;http://www.bastamag.net/article2866.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>Semences paysannes</title><link href="https://blog.notmyidea.org/semences-paysannes.html" rel="alternate"></link><published>2012-12-20T00:00:00+01:00</published><updated>2012-12-20T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-20:/semences-paysannes.html</id><summary type="html">
+&lt;p&gt;&lt;a href="http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed"&gt;http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A l'heure actuelle, il est interdit pour deux agriculteurs de
+s'échangers des semences dans le but d'en revendre la production.&lt;/p&gt;
+&lt;p&gt;Les états ont crée la propriété interellectuelle pour relancer
+l'industrie après les dégats de la guerre et les selectionneurs en ont
+profité …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;&lt;a href="http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed"&gt;http://www.dailymotion.com/video/x5nhq0_les-semences-paysannes_news#from=embed&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A l'heure actuelle, il est interdit pour deux agriculteurs de
+s'échangers des semences dans le but d'en revendre la production.&lt;/p&gt;
+&lt;p&gt;Les états ont crée la propriété interellectuelle pour relancer
+l'industrie après les dégats de la guerre et les selectionneurs en ont
+profité en 1960 au sein de l'UPOV pour faire des textes pour s'approprié
+les selections qu'ils ont fait. Les textes ont été votés par les députés
+depuis: bien prové au lieu de bien collectif.&lt;/p&gt;
+&lt;p&gt;Les semenciers n'existent que depuis 150 ans. Ils revendiquent
+maintenant le monopole de selection.&lt;/p&gt;
+&lt;p&gt;Un catalogue est prévu pour les semences dites "de conservation" (alors
+qu'elles évoluent, conservation n'est pas un terme adapté). C'est la
+voie qui est possible pour pouvoir échanger des semences entre
+agriculteurs.&lt;/p&gt;
+&lt;p&gt;→ Quelles sont les semences de conservation depuis 2002 ? → Quid des
+semences paysannes, qui évoluent et que l'on garde d'année en année, en
+selectionnant les meilleures especes. → Existe-il un autre catalogue ? →
+Au niveau européen, quelles sontles contraintes d'inscription ? Gratuité
+demandée, qu'en est il ?&lt;/p&gt;
 &lt;p&gt;→ Relocalistion sur les terroirs des échanges.&lt;/p&gt;
 &lt;p&gt;→ Biodiversité serait tué par l'utilisation d'espèces inscrites.&lt;/p&gt;
-&lt;p&gt;Série de vidéos sur la paysannerie: &lt;a class="reference external" href="http://www.latelevisionpaysanne.fr/video.php?lirevideo=86#86"&gt;http://www.latelevisionpaysanne.fr/video.php?lirevideo=86#86&lt;/a&gt;&lt;/p&gt;
-</content></entry></feed>
+&lt;p&gt;Série de vidéos sur la paysannerie:
+&lt;a href="http://www.latelevisionpaysanne.fr/video.php?lirevideo=86#86"&gt;http://www.latelevisionpaysanne.fr/video.php?lirevideo=86#86&lt;/a&gt;&lt;/p&gt;</content></entry></feed>
