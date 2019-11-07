@@ -70,11 +70,6 @@ h1 {
     {% if article.image and article.image_link and article.image_author and article.image_license %}
     <em>L'image d'illustration utilisée est un travail de <a href="{{ article.image_link }}">{{ article.image_author}}</a> proposé sous license {{ article.image_license }}. Merci !</em>
     {% endif %}
-    Vous pouvez également <a onclick="(function(){
-      let here = document.location;
-      document.location = `http://pdf.fivefilters.org/simple-print/url.php?size=A4#${here}`;
-      return false;
-    })();return false;">télécharger cet article en pdf</a>.
   </div>
 </div>
 {% endblock %}

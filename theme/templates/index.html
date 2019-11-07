@@ -1,3 +1,5 @@
+{% import "macros/list_articles.html" as macros %}
+
 {% extends "base.html" %}
 {% block containerclass %}container-wide{% endblock %}
 {% block containertitleclass %}container-wide{% endblock %}
@@ -11,13 +13,41 @@
 {% block content_title %}{% endblock %}
 
 <div class="posts">
-  <ul id="blog_index">
-  {% for article in articles_page.object_list %}
-  {% if not article.unlisted or article.category == category %}
-  <li style="background-image: url('{% if article.image %}{{ article.image }}{% endif %}') !important;"><span class="post"><a class="post_title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></span><span class="description"><span class="headline">{{ article.headline }}</span><time class="created" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span></li>
-  {% endif %}
-  {% endfor %}
-  </ul>
+{% if category is defined %}
+  {{ macros.list_articles(
+    articles_page.object_list,
+    included_categories=(category,),
+    title=category,
+    limit=None,
+  )}}
+{% else %}
+  {{ macros.list_articles(
+    articles_page.object_list,
+    included_categories=dict(categories).keys(),
+    excluded_categories=("journal", "notes"),
+    title="Réfléxions",
+    limit=7,
+    see_more="/categories.html"
+  )}}
+
+  {{ macros.list_articles(
+    articles_page.object_list,
+    included_categories=("journal",),
+    display_category=False,
+    title="Journal",
+    limit=7,
+    see_more="/category/journal.html"
+  )}}
+
+  {{ macros.list_articles(
+    articles_page.object_list,
+    included_categories=("notes",),
+    display_category=False,
+    title="Notes",
+    limit=7,
+    see_more="/category/notes.html"
+  )}}
+{% endif %}
 </div>
-{% include 'pagination.html' %}
+</div>
 {% endblock content %}
