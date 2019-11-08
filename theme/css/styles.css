@@ -38,7 +38,6 @@ td img {
 
 ul.articles_list  {
   margin: auto;
-  padding-left: 10rem;
 }
 
 ul.articles_list h2 {
@@ -60,6 +59,15 @@ ul.articles_list li {
 
 .articles_list .category {
   font-weight: lighter;
+}
+
+@media screen and (max-width: 600px) {
+  .articles_list .category {
+    display: none;
+  }
+  .articles_list .metadata {
+    min-width: 120px;
+  }
 }
 
 .articles_list .date {
