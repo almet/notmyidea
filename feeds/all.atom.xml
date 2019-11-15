@@ -2457,12 +2457,12 @@ civils qui, après deux ans de lutte mixte, a décidé de créer des groupes
 noirs, fermés aux Blancs. C’était, cela demeure, la condition&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pour que leur expérience de discrimination et d’humiliation puisse se
-dire, sans crainte de faire de la peine aux bons Blancs ;&lt;/li&gt;
+  dire, sans crainte de faire de la peine aux bons Blancs ;&lt;/li&gt;
 &lt;li&gt;pour que la rancœur puisse s’exprimer – et elle doit s’exprimer ;&lt;/li&gt;
 &lt;li&gt;pour que l’admiration que les opprimés, même révoltés, ne peuvent
-s’empêcher d’avoir pour les dominants – les noirs pour les Blancs, les
-femmes pour les hommes – ne joue pas pour donner plus de poids aux
-représentants du groupe dominant.&lt;/li&gt;
+  s’empêcher d’avoir pour les dominants – les noirs pour les Blancs, les
+  femmes pour les hommes – ne joue pas pour donner plus de poids aux
+  représentants du groupe dominant.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Car dans les groupes mixtes, Noirs-Blancs ou femmes-hommes, et en
 général dans les groupes dominés-dominants, c’est la vision dominante du
@@ -7292,51 +7292,51 @@ fully compatible with Cpython and its C extensions.&lt;/p&gt;
 &lt;p&gt;Once JPype installed (you'll have to hack a bit some files to integrate
 seamlessly with your system) you can access java classes by doing
 something like that:&lt;/p&gt;
-&lt;p&gt;``` sourceCode python
-import jpype
-jpype.startJVM(jpype.getDefaultJVMPath())&lt;/p&gt;
-&lt;h1 id="you-can-then-access-to-the-basic-java-functions"&gt;you can then access to the basic java functions&lt;/h1&gt;
-&lt;p&gt;jpype.java.lang.System.out.println("hello world")&lt;/p&gt;
-&lt;h1 id="and-you-have-to-shutdown-the-vm-at-the-end"&gt;and you have to shutdown the VM at the end&lt;/h1&gt;
-&lt;p&gt;jpype.shutdownJVM()&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Okay&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="n"&gt;what&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;seems&lt;/span&gt; &lt;span class="n"&gt;somehow&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt;
-&lt;span class="nb"&gt;complex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;interact&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt; &lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;load&lt;/span&gt;
-&lt;span class="n"&gt;them&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;jpype&lt;/span&gt;
+&lt;span class="n"&gt;jpype&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startJVM&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jpype&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getDefaultJVMPath&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 
-&lt;span class="c1"&gt;## Interfacing with Boilerpipe&lt;/span&gt;
+&lt;span class="c1"&gt;# you can then access to the basic java functions&lt;/span&gt;
+&lt;span class="n"&gt;jpype&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="n"&gt;To&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;boilerpipe&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;just&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;ant&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-
-    &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;boilerpipe&lt;/span&gt;
-    &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ant&lt;/span&gt;
-
-&lt;span class="n"&gt;Here&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;how&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="n"&gt;boilerpipe&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Java&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;their&lt;/span&gt;
-&lt;span class="n"&gt;sources&lt;/span&gt;
-
-&lt;span class="sb"&gt;``&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;sourceCode&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt;
-&lt;span class="n"&gt;package&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;l3s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;boilerpipe&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;demo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.net.URL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;de.l3s.boilerpipe.extractors.ArticleExtractor&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Oneliner&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;static&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;throws&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;final&lt;/span&gt; &lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;http://notmyidea.org&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ArticleExtractor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INSTANCE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="c1"&gt;# and you have to shutdown the VM at the end&lt;/span&gt;
+&lt;span class="n"&gt;jpype&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shutdownJVM&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;To run
-it:&lt;/p&gt;
-&lt;p&gt;``` sourceCode bash
-$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
-$ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Yes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;ugly&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sorry&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;eyes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Let&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s try something&lt;/span&gt;
-&lt;span class="n"&gt;similar&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;python&lt;/span&gt;
+&lt;p&gt;Okay, now we have a hello world, but what we want seems somehow more
+complex. We want to interact with java classes, so we will have to load
+them.&lt;/p&gt;
+&lt;h2 id="interfacing-with-boilerpipe"&gt;Interfacing with Boilerpipe&lt;/h2&gt;
+&lt;p&gt;To install boilerpipe, you just have to run an ant script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; boilerpipe
+$ ant
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="sb"&gt;``&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;sourceCode&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;jpype&lt;/span&gt;
+
+&lt;p&gt;Here is a simple example of how to use boilerpipe in Java, from their
+sources&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;de.l3s.boilerpipe.demo&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.net.URL&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;de.l3s.boilerpipe.extractors.ArticleExtractor&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Oneliner&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://notmyidea.org&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ArticleExtractor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;INSTANCE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getText&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To run it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
+$ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yes, this is kind of ugly, sorry for your eyes. Let's try something
+similar, but from python&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;jpype&lt;/span&gt;
 
 &lt;span class="c1"&gt;# start the JVM with the good classpaths&lt;/span&gt;
 &lt;span class="n"&gt;classpath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar&amp;quot;&lt;/span&gt;
