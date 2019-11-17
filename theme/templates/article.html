@@ -65,6 +65,11 @@ h1 {
     {% if article.headline %}
     <h2 class="post-headline">{{ article.headline }}</h2>
     {% endif %}
+    {% if article.table_of_contents %}
+    <div id="toc_container">
+      {{ article.table_of_contents }}
+      </div>
+    {% endif %}
     <h1>🌟</h1>
     {{ article.content }}
     {% if article.image and article.image_link and article.image_author and article.image_license %}

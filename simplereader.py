@@ -16,6 +16,10 @@ class SimpleReader(MarkdownReader):
 
     def read(self, filename):
         content, metadata = super(SimpleReader, self).read(filename)
+        # Add the TOC to the metadata.
+        if len(self._md.toc) > 300:
+            metadata["table_of_contents"] = self._md.toc
+
         # Get the title from the first h1
         if "title" not in metadata and len(self._md.toc_tokens):
             first_title = self._md.toc_tokens[0]

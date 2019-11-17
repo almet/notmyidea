@@ -27,6 +27,7 @@ FIREFOX_BOOKMARKS_PATH = (
 )
 PIWIK_SITE_ID = 3
 PLUGIN_PATHS = ["."]
-PLUGINS = [
-    "simplereader",
-]
+PLUGINS = ["simplereader", ]
+
+CACHE_OUTPUT_DIRECTORY = "cache"
+CACHE_DOMAIN = "/cache/"
