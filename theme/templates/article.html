@@ -40,6 +40,7 @@ h1 {
 
 .post-headline {
     padding: 15px;
+    text-align: center;
 }
 </style>
 {% if article.image %}
@@ -57,9 +58,16 @@ h1 {
 
 {% block content %}
 <div id="main" class="posts">
-<h1 class="post-title">{{ article.title }}</h1>
-<span class="post-date">{{ article.locale_date | capitalize }}, dans <a class="no-color" href="{{ article.category.url }}">{{ article.category }}</a></span>
-<img id="illustration" src="{{ article.image}}" />
+<h1 class="post-title">{% if article.category == "Lectures" %}{{ article.title }} par {{ article.author }}{% else %}{{ article.title }}{% endif %}</h1>
+
+<span class="post-date">
+    {% if article.category == "Lectures" %}
+    <span class="post-date">Lu en {{ article.read_on }}. Thèmes : {% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a> {% endfor %}{% endif %}. {% if article.link %}<a href="{{ article.link }}">Accéder en ligne.</a>{% endif %}</span>
+    {% else %}
+    {{ article.locale_date | capitalize }}, dans <a class="no-color" href="{{ article.category.url }}">{{ article.category }}</a>
+    {% endif %}
+</span>
+<img id="illustration" class="illustration-{{ article.category }}" src="{{ article.image }}" />
 
 <div class="post article">
     {% if article.headline %}
