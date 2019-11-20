@@ -278,11 +278,8 @@ base".&lt;/p&gt;
 &lt;p&gt;Le revenu de base est inconditionnel.&lt;/p&gt;
 &lt;p&gt;Le marché du travail ne pourra …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Sun, 10 Mar 2013 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2013-03-10:/le-revenu-de-base.html</guid></item><item><title>Des profils de confiance partout et pour tout ?</title><link>https://blog.notmyidea.org/des-profils-de-confiance-partout-et-pour-tout.html</link><description>
 &lt;p&gt;Depuis un petit moment déjà, le site covoiturage.fr est passé "payant".
-Il est désormais possible (et même obligatoire) de payer les trajets à
-l'avance, et en ligne, laissant au passage quelques royalties au site en
-question.&lt;/p&gt;
-&lt;p&gt;Précédemment, il était possible de retrouver le numéro des conducteurs
-sur le site …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Mon, 04 Feb 2013 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2013-02-04:/des-profils-de-confiance-partout-et-pour-tout.html</guid></item><item><title>Implementing CORS in Cornice</title><link>https://blog.notmyidea.org/implementing-cors-in-cornice.html</link><description>
+Il est désormais possible (et même obligatoire) de payer les trajets à l'avance, et en ligne, laissant au passage quelques royalties au site en question.&lt;/p&gt;
+&lt;p&gt;Précédemment, il était possible de retrouver le numéro des conducteur sur le site …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Mon, 04 Feb 2013 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2013-02-04:/des-profils-de-confiance-partout-et-pour-tout.html</guid></item><item><title>Implementing CORS in Cornice</title><link>https://blog.notmyidea.org/implementing-cors-in-cornice.html</link><description>
 &lt;div class="note"&gt;
 
 &lt;div class="admonition-title"&gt;
@@ -367,11 +364,12 @@ comme d'hab font un travail impeccable.&lt;/p&gt;
 Angers, France.&lt;/p&gt;
 &lt;p&gt;We were a bunch of python hackers and it rained a lot, wich forced us to
 stay inside and to code. Bad.&lt;/p&gt;
-&lt;p&gt;We were not enough to get rid of all the cheese …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Mon, 22 Oct 2012 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-10-22:/cheese-code-wrap-up.html</guid></item><item><title>Bière maison 33</title><link>https://blog.notmyidea.org/biere-maison-33.html</link><description>&lt;h1 id="biere-maison-33"&gt;Bière maison !&lt;/h1&gt;
+&lt;p&gt;We were not enough to get rid of all the cheese …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Mon, 22 Oct 2012 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-10-22:/cheese-code-wrap-up.html</guid></item><item><title>Bière maison !</title><link>https://blog.notmyidea.org/biere-maison.html</link><description>
 &lt;p&gt;Et voilà, c'est notre troisième brassin. On a commencé à faire notre
 propre bière (avec un ami, Fred) il y a quasiment un an maintenant, et
 après quelques dératés, même s'il nous reste encore bien du chemin à
-parcourir pour avoir quelque chose qui nous convienne réellement… c'est …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Thu, 04 Oct 2012 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-10-04:/biere-maison-33.html</guid></item><item><title>Motivation, bénévolat et participation</title><link>https://blog.notmyidea.org/motivation-benevolat-et-participation.html</link><description>
+parcourir pour avoir quelque chose qui nous convienne réellement… c'est
+pas si …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Thu, 04 Oct 2012 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-10-04:/biere-maison.html</guid></item><item><title>Motivation, bénévolat et participation</title><link>https://blog.notmyidea.org/motivation-benevolat-et-participation.html</link><description>
 &lt;p&gt;Des luttes, dieu (même si on peut à juste titre se demander ce qu'il
 vient faire là) sait qu'il y en a. Principalement pour pointer du doigt
 les hérésies du système actuel. Ça s'applique à l'informatique et à son
@@ -493,11 +491,12 @@ in python. In my case, the awesome boilerpipe library allows me to
 remove uninteresting parts of HTML pages, like menus, footers and other
 "boilerplate" contents.&lt;/p&gt;
 &lt;p&gt;Boilerpipe is written in Java. Two solutions then: using java from
-python or reimplement boilerpipe …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Sat, 11 Jun 2011 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</guid></item><item><title>Un coup de main pour mon mémoire33</title><link>https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire33.html</link><description>&lt;h1 id="un-coup-de-main-pour-mon-memoire33"&gt;Un coup de main pour mon mémoire!&lt;/h1&gt;
+python or reimplement boilerpipe …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Sat, 11 Jun 2011 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</guid></item><item><title>Un coup de main pour mon mémoire !</title><link>https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html</link><description>
 &lt;p&gt;Ça y est, bientôt la fin. LA FIN. La fin des études, et le début du
 reste. En attendant je bosse sur mon mémoire de fin d'études et j'aurais
 besoin d'un petit coup de main.&lt;/p&gt;
-&lt;p&gt;Mon mémoire porte sur les systèmes de recommandation …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Wed, 25 May 2011 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire33.html</guid></item><item><title>Travailler moins pour mieux travailler ?</title><link>https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html</link><description>
+&lt;p&gt;Mon mémoire porte sur les systèmes de recommandation. Pour ceux qui
+connaissent last.fm, je …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexis Métaireau</dc:creator><pubDate>Wed, 25 May 2011 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html</guid></item><item><title>Travailler moins pour mieux travailler ?</title><link>https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html</link><description>
 &lt;p&gt;Je viens de passer une semaine et demi quasiment hors-ligne et je dois
 dire que je suis assez impressionné du résultat: je suis de retour chez
 mes parents pour le "easter break" et j'en ai profité pour donner un
