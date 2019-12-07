@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis - Carnets en ligne - pyconfr2015</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/pyconfr2015.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2015-10-18T00:00:00+02:00</updated><entry><title>PyconFR 2015 — Assemblée générale</title><link href="https://blog.notmyidea.org/pyconfr-2015-assemblee-generale.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-assemblee-generale.html</id><summary type="html">&lt;div class="admonition note"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - pyconfr2015</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/pyconfr2015.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2015-10-18T00:00:00+02:00</updated><entry><title>PyconFR 2015 — Assemblée générale</title><link href="https://blog.notmyidea.org/pyconfr-2015-assemblee-generale.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-assemblee-generale.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -43,7 +43,7 @@ travail pour travailler sur l'évolution de la charte.&lt;/p&gt;
 rapport à notre utilisation.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content></entry><entry><title>PyconFR 2015 — Hospital - des tests en prod</title><link href="https://blog.notmyidea.org/pyconfr-2015-hospital-des-tests-en-prod.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-hospital-des-tests-en-prod.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — Hospital - des tests en prod</title><link href="https://blog.notmyidea.org/pyconfr-2015-hospital-des-tests-en-prod.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-hospital-des-tests-en-prod.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -114,7 +114,7 @@ plus fins.&lt;/p&gt;
 &lt;p&gt;Validez votre configuration, la connectivité avec les services externes. Faites
 des tests souvent !&lt;/p&gt;
 &lt;/div&gt;
-</content></entry><entry><title>PyconFR 2015 — We don't need your loop</title><link href="https://blog.notmyidea.org/pyconfr-2015-we-dont-need-your-loop.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-we-dont-need-your-loop.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — We don't need your loop</title><link href="https://blog.notmyidea.org/pyconfr-2015-we-dont-need-your-loop.html" rel="alternate"></link><published>2015-10-18T00:00:00+02:00</published><updated>2015-10-18T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-18:/pyconfr-2015-we-dont-need-your-loop.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -163,7 +163,7 @@ compilation. Mais pour une fonction qui renvoie None prends de l'ordre d'une
 seconde ou une demi seconde. Ce n'est pas très utile pour un compilateur à la
 volée puisqu'il faudrait des gains de perfs supérieurs à cela.&lt;/p&gt;
 &lt;/div&gt;
-</content></entry><entry><title>PyconFR 2015 — Cliquet</title><link href="https://blog.notmyidea.org/pyconfr-2015-cliquet.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-cliquet.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — Cliquet</title><link href="https://blog.notmyidea.org/pyconfr-2015-cliquet.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-cliquet.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -286,7 +286,7 @@ contre, Kinto.js est prévu pour que la partie commune entre les APIs (le
 protocole) peut etre extrait.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content></entry><entry><title>PyconFR 2015 — Geoalchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-geoalchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-geoalchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — Geoalchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-geoalchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-geoalchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -404,7 +404,7 @@ forme de chaine. Est-ce normal ? Oui.&lt;/li&gt;
 &lt;li&gt;Les rasters sont également supportés.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content></entry><entry><title>PyconFR 2015 — SQL Alchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-sql-alchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-sql-alchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — SQL Alchemy</title><link href="https://blog.notmyidea.org/pyconfr-2015-sql-alchemy.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-sql-alchemy.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;
@@ -459,7 +459,7 @@ backref modifie implicitement la classe associée. Il est recommandé
 d'utiliser &lt;cite&gt;back_populates&lt;/cite&gt; et non pas &lt;cite&gt;backref&lt;/cite&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;cite&gt;subqueryload&lt;/cite&gt; permet de générer une requete séparée plutôt qu'une jointure.&lt;/li&gt;
 &lt;/ul&gt;
-</content></entry><entry><title>PyconFR 2015 — Table ronde diversité</title><link href="https://blog.notmyidea.org/pyconfr-2015-table-ronde-diversite.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-table-ronde-diversite.html</id><summary type="html">&lt;div class="admonition note"&gt;
+</content></entry><entry><title>PyconFR 2015 — Table ronde diversité</title><link href="https://blog.notmyidea.org/pyconfr-2015-table-ronde-diversite.html" rel="alternate"></link><published>2015-10-17T00:00:00+02:00</published><updated>2015-10-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-17:/pyconfr-2015-table-ronde-diversite.html</id><summary type="html">&lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
 à les completer si besoin.&lt;/p&gt;

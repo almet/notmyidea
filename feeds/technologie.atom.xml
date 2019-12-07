@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis - Carnets en ligne - Technologie</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/technologie.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2018-03-03T00:00:00+01:00</updated><entry><title>Groupement d'achats &amp; partage d'expérience</title><link href="https://blog.notmyidea.org/groupement-dachats-partage-dexperience.html" rel="alternate"></link><published>2018-03-03T00:00:00+01:00</published><updated>2018-03-03T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2018-03-03:/groupement-dachats-partage-dexperience.html</id><summary type="html">&lt;p&gt;Il y a quelques années, on s'est motivé entre copains copines pour créer un groupement d'achat.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Technologie</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/technologie.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2018-03-03T00:00:00+01:00</updated><entry><title>Groupement d'achats &amp; partage d'expérience</title><link href="https://blog.notmyidea.org/groupement-dachats-partage-dexperience.html" rel="alternate"></link><published>2018-03-03T00:00:00+01:00</published><updated>2018-03-03T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-03-03:/groupement-dachats-partage-dexperience.html</id><summary type="html">&lt;p&gt;Il y a quelques années, on s'est motivé entre copains copines pour créer un groupement d'achat.&lt;/p&gt;
 &lt;p&gt;L'idée est simple:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;commander en gros, pour faire baisser les prix&lt;/li&gt;
@@ -63,7 +63,7 @@ paiements s'effectuent directement entre nous.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/almet/8c77fafc9e487c02ded852ec4a91ae16"&gt;le code pour faire la répartition des chèques&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.google.com/spreadsheets/d/1bnPRSvf2Q2RDxKerWnEqUyJjuCFePnVMq6pWo8LeA_k/edit?usp=sharing"&gt;une version « à remplir » de notre tableau de commandes&lt;/a&gt; (le mieux est d'en faire une copie !).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Bon groupement d'achat ;)&lt;/p&gt;</content></entry><entry><title>Webnotes</title><link href="https://blog.notmyidea.org/webnotes.html" rel="alternate"></link><published>2018-02-25T00:00:00+01:00</published><updated>2018-02-25T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2018-02-25:/webnotes.html</id><summary type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière que je voulais, c'est à dire:&lt;/p&gt;
+&lt;p&gt;Bon groupement d'achat ;)&lt;/p&gt;</content></entry><entry><title>Webnotes</title><link href="https://blog.notmyidea.org/webnotes.html" rel="alternate"></link><published>2018-02-25T00:00:00+01:00</published><updated>2018-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-02-25:/webnotes.html</id><summary type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière que je voulais, c'est à dire:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;enregistrer une sélection de texte ainsi que son contexte: heure, site web.&lt;/li&gt;
 &lt;li&gt;fonctionner sur Firefox;&lt;/li&gt;
@@ -74,7 +74,7 @@ paiements s'effectuent directement entre nous.&lt;/p&gt;
 &lt;p&gt;J'ai donc pris un peu de temps pour fabriquer mon outil de prises de notes, que j'ai baptisé « Webnotes ». C'est &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/wwebnotes/"&gt;une extension Firefox&lt;/a&gt;, qui se configure assez simplement, et qui stocke les données dans une instance de &lt;a href="http://kinto-storage.org/"&gt;Kinto&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/almet/webnotes/blob/master/webnotes.gif?raw=true" /&gt;&lt;/p&gt;
 &lt;p&gt;C'est aussi simple que sélectionner du texte, faire « clic droit » puis « save as webnote », entrer un tag et le tour est joué !&lt;/p&gt;
-&lt;p&gt;Mes notes sont disponibles &lt;a href="https://notes.notmyidea.org"&gt;sur notes.notmyidea.org&lt;/a&gt;, et voici &lt;a href="https://github.com/almet/webnotes"&gt;le lien vers les sources&lt;/a&gt;, si ça vous intéresse de regarder comment ça fonctionne !&lt;/p&gt;</content></entry><entry><title>Comment est-ce que vous générez vos formulaires ?</title><link href="https://blog.notmyidea.org/comment-est-ce-que-vous-generez-vos-formulaires.html" rel="alternate"></link><published>2016-05-31T00:00:00+02:00</published><updated>2016-05-31T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2016-05-31:/comment-est-ce-que-vous-generez-vos-formulaires.html</id><summary type="html">&lt;p&gt;TL; DR: Je viens à peine de &lt;em&gt;releaser&lt;/em&gt; la première version d'un service de génération de formulaires.
+&lt;p&gt;Mes notes sont disponibles &lt;a href="https://notes.notmyidea.org"&gt;sur notes.notmyidea.org&lt;/a&gt;, et voici &lt;a href="https://github.com/almet/webnotes"&gt;le lien vers les sources&lt;/a&gt;, si ça vous intéresse de regarder comment ça fonctionne !&lt;/p&gt;</content></entry><entry><title>Comment est-ce que vous générez vos formulaires ?</title><link href="https://blog.notmyidea.org/comment-est-ce-que-vous-generez-vos-formulaires.html" rel="alternate"></link><published>2016-05-31T00:00:00+02:00</published><updated>2016-05-31T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-05-31:/comment-est-ce-que-vous-generez-vos-formulaires.html</id><summary type="html">&lt;p&gt;TL; DR: Je viens à peine de &lt;em&gt;releaser&lt;/em&gt; la première version d'un service de génération de formulaires.
 Allez jeter un coup d'œil sur &lt;a href="https://www.fourmilieres.net"&gt;https://www.fourmilieres.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;En février 2012, je parlais ici &lt;a href="https://blog.notmyidea.org/carto-forms.html"&gt;d'un service de génération de formulaires&lt;/a&gt;.
 Depuis, pas mal d'eau à coulé sous les ponts, on est …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;TL; DR: Je viens à peine de &lt;em&gt;releaser&lt;/em&gt; la première version d'un service de génération de formulaires.
@@ -163,7 +163,7 @@ ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez su
   coté pour avoir accès aux réponses.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Bref, en espérant que ça vous serve ! Un petit pas dans la direction des données
-rendues à leurs utilisateurs !&lt;/p&gt;</content></entry><entry><title>Avez vous confiance en SSL?</title><link href="https://blog.notmyidea.org/avez-vous-confiance-en-ssl.html" rel="alternate"></link><published>2016-03-25T00:00:00+01:00</published><updated>2016-03-25T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2016-03-25:/avez-vous-confiance-en-ssl.html</id><summary type="html">&lt;p&gt;Dans le cadre &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;des ateliers d'autodéfense numérique&lt;/a&gt;,
+rendues à leurs utilisateurs !&lt;/p&gt;</content></entry><entry><title>Avez vous confiance en SSL?</title><link href="https://blog.notmyidea.org/avez-vous-confiance-en-ssl.html" rel="alternate"></link><published>2016-03-25T00:00:00+01:00</published><updated>2016-03-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-25:/avez-vous-confiance-en-ssl.html</id><summary type="html">&lt;p&gt;Dans le cadre &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;des ateliers d'autodéfense numérique&lt;/a&gt;,
 j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
 contrairement à ce que la plupart des personnes ont encore tendance à croire,
 le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
@@ -329,7 +329,7 @@ la lecture de &lt;a href="https://www.indolering.com/okturtles-dnschain-unblock-
 et interventions du développeur du projet m'ont fait changer d'avis.&lt;/p&gt;
 &lt;p&gt;Reste encore la piste de &lt;em&gt;Namecoin Control&lt;/em&gt; que je n'ai pas encore creusée.
 Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
-bienvenue sur ces sujets!&lt;/p&gt;</content></entry><entry><title>Retours sur un atelier ZeroNet</title><link href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2016-03-17:/retours-sur-un-atelier-zeronet.html</id><summary type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l'INSA de Rennes.&lt;/p&gt;
+bienvenue sur ces sujets!&lt;/p&gt;</content></entry><entry><title>Retours sur un atelier ZeroNet</title><link href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-17:/retours-sur-un-atelier-zeronet.html</id><summary type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l'INSA de Rennes.&lt;/p&gt;
 &lt;p&gt;L'évènement s'étant rempli au delà de toutes les espérances, on m'a proposé de
 venir y tenir un atelier, que j'ai proposé sur &lt;a href="https://zeronet.io"&gt;ZeroNet&lt;/a&gt;, un
 petit projet fort sympathique qui pourrait devenir une nouvelle manière de
@@ -438,7 +438,7 @@ un tas de petites ressources (par catégorie par ex.). Les gros médias pourraie
 &lt;h3 id="est-ce-quon-a-vraiment-besoin-dun-tracker"&gt;Est-ce qu'on à vraiment besoin d'un tracker ?&lt;/h3&gt;
 &lt;p&gt;Le support d'une DHT &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;est souhaité&lt;/a&gt;,
 mais pour l'instant pas encore implémenté. L'utilisation de la DHT BitTorrent
-n'est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas UDP&lt;/a&gt;.&lt;/p&gt;</content></entry><entry><title>Let's Encrypt + HAProxy</title><link href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="alternate"></link><published>2016-02-11T00:00:00+01:00</published><updated>2016-02-11T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2016-02-11:/lets-encrypt-haproxy.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n'est plus à jour. Il est maintenant (2018) possible d'installer des certificats SSL Let's Encrypt d'une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
+n'est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas UDP&lt;/a&gt;.&lt;/p&gt;</content></entry><entry><title>Let's Encrypt + HAProxy</title><link href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="alternate"></link><published>2016-02-11T00:00:00+01:00</published><updated>2016-02-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-02-11:/lets-encrypt-haproxy.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n'est plus à jour. Il est maintenant (2018) possible d'installer des certificats SSL Let's Encrypt d'une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;It’s time for the Web to take a big step forward in terms of security
 and privacy …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n'est plus à jour. Il est maintenant (2018) possible d'installer des certificats SSL Let's Encrypt d'une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
@@ -553,7 +553,7 @@ HTTPS. &lt;a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cf
 &lt;/ul&gt;
 &lt;p&gt;Et voila ! &lt;a href="https://github.com/almet/infra/"&gt;Le tout est dans un dépot
 github&lt;/a&gt;, si jamais ça peut vous servir,
-tant mieux !&lt;/p&gt;</content></entry><entry><title>Ateliers d'autodéfense numérique</title><link href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="alternate"></link><published>2016-01-14T00:00:00+01:00</published><updated>2016-01-14T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2016-01-14:/ateliers-dautodefense-numerique.html</id><summary type="html">&lt;p&gt;Il y a huit mois, je me rendais compte de l'importance du choix des
+tant mieux !&lt;/p&gt;</content></entry><entry><title>Ateliers d'autodéfense numérique</title><link href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="alternate"></link><published>2016-01-14T00:00:00+01:00</published><updated>2016-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-01-14:/ateliers-dautodefense-numerique.html</id><summary type="html">&lt;p&gt;Il y a huit mois, je me rendais compte de l'importance du choix des
 outils pour faire face à la surveillance généralisée, et notamment en
 rapport au chiffrement des données. Une de mes envies de l'époque était
 l'animation d'ateliers.&lt;/p&gt;
@@ -682,7 +682,7 @@ formation sur le sujet, j'ai donc décidé de publier les nôtres, afin de
 co-construire avec d'autres des plans de formation.&lt;/p&gt;
 &lt;p&gt;Ils sont pour l'instant disponibles &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;sur Read The
 Docs&lt;/a&gt;. Tous les
-retours sont évidemment les bienvenus !&lt;/p&gt;</content></entry><entry><title>Le mail doit-il mourir ?</title><link href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="alternate"></link><published>2015-11-24T00:00:00+01:00</published><updated>2015-11-24T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-11-24:/le-mail-doit-il-mourir.html</id><summary type="html">&lt;p&gt;J'utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l'ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des messages.&lt;/p&gt;
+retours sont évidemment les bienvenus !&lt;/p&gt;</content></entry><entry><title>Le mail doit-il mourir ?</title><link href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="alternate"></link><published>2015-11-24T00:00:00+01:00</published><updated>2015-11-24T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-11-24:/le-mail-doit-il-mourir.html</id><summary type="html">&lt;p&gt;J'utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l'ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des messages.&lt;/p&gt;
 &lt;p&gt;Et même si j'arrive à convaincre certains de mes proches à …&lt;/p&gt;</summary><content type="html">&lt;p&gt;J'utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l'ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des messages.&lt;/p&gt;
 &lt;p&gt;Et même si j'arrive à convaincre certains de mes proches à installer PGP, je ne suis pas satisfait du résultat: les méta-données (qui contacte qui à quel
 moment, et pour lui dire quoi) transitent de toute manière, elles, en clair, à la vue de tous.&lt;/p&gt;
@@ -699,7 +699,7 @@ mail fonctionnel.&lt;/p&gt;
   incriminer l'emmeteur du message (deniability);&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Avec au moins ces besoins en tête, il semble qu'une revue de l'ensemble des projets existants pointe du doigt vers &lt;a href="https://github.com/agl/pond"&gt;pond&lt;/a&gt;, ou vers &lt;a href="https://www.whispersystems.org"&gt;Signal&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Malheureusement, Pond est le projet d'une seule personne, qui veut plutôt utiliser ce code comme démonstration du concept en question.&lt;/p&gt;</content></entry><entry><title>Web distribution signing</title><link href="https://blog.notmyidea.org/web-distribution-signing.html" rel="alternate"></link><published>2015-10-12T00:00:00+02:00</published><updated>2015-10-12T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-10-12:/web-distribution-signing.html</id><summary type="html">&lt;p&gt;&lt;em&gt;I'm not a crypto expert, nor pretend to be one. These are thoughts I
+&lt;p&gt;Malheureusement, Pond est le projet d'une seule personne, qui veut plutôt utiliser ce code comme démonstration du concept en question.&lt;/p&gt;</content></entry><entry><title>Web distribution signing</title><link href="https://blog.notmyidea.org/web-distribution-signing.html" rel="alternate"></link><published>2015-10-12T00:00:00+02:00</published><updated>2015-10-12T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-12:/web-distribution-signing.html</id><summary type="html">&lt;p&gt;&lt;em&gt;I'm not a crypto expert, nor pretend to be one. These are thoughts I
 want to share with the crypto community to actually see if any solution
 exists to solve this particular problem.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;One &lt;a href="http://www.tonyarcieri.com/whats-wrong-with-webcrypto"&gt;often pointed&lt;/a&gt; flaw in
@@ -805,7 +805,7 @@ User-Agent (or the distributor of the User-Agent), a little green icon
 could be presented to the User, so they know that they can be confident
 about this.&lt;/p&gt;
 &lt;p&gt;A bit like User-Agents do for SSL, but for the actual signature of the
-files being viewed.&lt;/p&gt;</content></entry><entry><title>Service de nuages : Pourquoi avons-nous fait Cliquet ?</title><link href="https://blog.notmyidea.org/pourquoi-cliquet" rel="alternate"></link><published>2015-07-14T00:00:00+02:00</published><updated>2015-07-14T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-07-14:/pourquoi-cliquet</id><summary type="html">&lt;p class="first last"&gt;Basé sur Pyramid, Cliquet est un projet qui permet de se concentrer sur l'essentiel
+files being viewed.&lt;/p&gt;</content></entry><entry><title>Service de nuages : Pourquoi avons-nous fait Cliquet ?</title><link href="https://blog.notmyidea.org/pourquoi-cliquet" rel="alternate"></link><published>2015-07-14T00:00:00+02:00</published><updated>2015-07-14T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-14:/pourquoi-cliquet</id><summary type="html">&lt;p class="first last"&gt;Basé sur Pyramid, Cliquet est un projet qui permet de se concentrer sur l'essentiel
 lors de la conception d'APIs.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tldr; Cliquet est un toolkit Python pour construire des APIs, qui implémente
@@ -1207,7 +1207,7 @@ et les mécanismes d'extension fournis permettent de l'implémenter sous forme
 d'extension.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content></entry><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
+</content></entry><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Mozilla a pour coutume d'organiser régulièrement des semaines de travail où tous les employés
 sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouver
@@ -1372,7 +1372,7 @@ construire une solution libre, générique, simple et auto-hébergeable pour le 
 de données sur le Web :)&lt;/p&gt;
 &lt;img alt="Friday Night Party - CC0" class="align-center" src="{filename}/images/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
-</content></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
+</content></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace ?&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="la-problematique"&gt;
@@ -1660,7 +1660,7 @@ un objet et également de pouvoir récupérer tous les objets d'une
 collection pour un utilisateur si celui-ci n'a pas accès à tous les
 records de la collection, ou toutes les collections du bucket.&lt;/p&gt;
 &lt;/div&gt;
-</content></entry><entry><title>Les problèmes de PGP</title><link href="https://blog.notmyidea.org/les-problemes-de-pgp.html" rel="alternate"></link><published>2015-05-25T00:00:00+02:00</published><updated>2015-05-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-05-25:/les-problemes-de-pgp.html</id><summary type="html">&lt;blockquote&gt;
+</content></entry><entry><title>Les problèmes de PGP</title><link href="https://blog.notmyidea.org/les-problemes-de-pgp.html" rel="alternate"></link><published>2015-05-25T00:00:00+02:00</published><updated>2015-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-25:/les-problemes-de-pgp.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Flip a bit in the communication between sender and recipient and they
 will experience decryption or verification errors. How high are the
 chances they will start to exchange the data in the clear rather than
@@ -1730,7 +1730,7 @@ qui explique comment configurer son installation correctement.&lt;/p&gt;
 &lt;p&gt;Le &lt;a href="https://bitmask.net/"&gt;projet Bitmask&lt;/a&gt; vise lui à rendre les outils
 de chiffrement d'échanges de messages et de VPN simples à utiliser,
 encore quelque chose à regarder.&lt;/p&gt;
-&lt;p&gt;Enfin bref, y'a du taf.&lt;/p&gt;</content></entry><entry><title>Simplifier les preuves d'identités</title><link href="https://blog.notmyidea.org/simplifier-les-preuves-didentites.html" rel="alternate"></link><published>2015-05-11T00:00:00+02:00</published><updated>2015-05-11T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-05-11:/simplifier-les-preuves-didentites.html</id><summary type="html">
+&lt;p&gt;Enfin bref, y'a du taf.&lt;/p&gt;</content></entry><entry><title>Simplifier les preuves d'identités</title><link href="https://blog.notmyidea.org/simplifier-les-preuves-didentites.html" rel="alternate"></link><published>2015-05-11T00:00:00+02:00</published><updated>2015-05-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-11:/simplifier-les-preuves-didentites.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;headline&lt;br&gt;
     Qu'est-ce que Keybase.io et comment essayent-ils de simplifier la
@@ -1816,7 +1816,7 @@ exportées sur des serveurs de clés existants. C'est quelque chose
 soulève des questions qui méritent qu'on s'y attarde un brin.&lt;/p&gt;
 &lt;p&gt;Par ailleurs, &lt;a href="https://leap.se/nicknym"&gt;d'autres projets qui visent des objectifs
 similaires&lt;/a&gt; existent, via le projet LEAP, mais
-je n'ai pas encore creusé.&lt;/p&gt;</content></entry><entry><title>Phrases de passe et bonnes pratiques</title><link href="https://blog.notmyidea.org/phrases-de-passe-et-bonnes-pratiques.html" rel="alternate"></link><published>2015-05-09T00:00:00+02:00</published><updated>2015-05-09T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-05-09:/phrases-de-passe-et-bonnes-pratiques.html</id><summary type="html">
+je n'ai pas encore creusé.&lt;/p&gt;</content></entry><entry><title>Phrases de passe et bonnes pratiques</title><link href="https://blog.notmyidea.org/phrases-de-passe-et-bonnes-pratiques.html" rel="alternate"></link><published>2015-05-09T00:00:00+02:00</published><updated>2015-05-09T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-09:/phrases-de-passe-et-bonnes-pratiques.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;headline&lt;br&gt;
     Communiquer de manière chiffrée n'est pas aisée, et nécessite de
@@ -1883,7 +1883,7 @@ personnelles, en utilisant des phrases de passe plus complexes.&lt;/p&gt;
 &lt;p&gt;Reste encore la question de la sauvegarde de ces clés privées de manière
 chiffrée, que je n'ai pas encore résolue. Bref, tout cela me semble bien
 compliqué pour réussir à l'expliquer à des novices, qui pour certains ne
-sont même pas sur de l'intérêt de la chose.&lt;/p&gt;</content></entry><entry><title>Eco-système et stockage générique</title><link href="https://blog.notmyidea.org/eco-systeme-et-stockage-generique.html" rel="alternate"></link><published>2015-04-30T00:00:00+02:00</published><updated>2015-04-30T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2015-04-30:/eco-systeme-et-stockage-generique.html</id><summary type="html">
+sont même pas sur de l'intérêt de la chose.&lt;/p&gt;</content></entry><entry><title>Eco-système et stockage générique</title><link href="https://blog.notmyidea.org/eco-systeme-et-stockage-generique.html" rel="alternate"></link><published>2015-04-30T00:00:00+02:00</published><updated>2015-04-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-30:/eco-systeme-et-stockage-generique.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de
 stockage/synchronisation.&lt;/strong&gt;&lt;/p&gt;
@@ -2219,7 +2219,7 @@ Cloud Services&lt;/em&gt;!&lt;/p&gt;
 &lt;li&gt;Il existe le &lt;a href="https://sharesome.5apps.com/"&gt;projet Sharesome&lt;/a&gt; qui
     permet de partager publiquement des ressources de son &lt;em&gt;remote
     Storage&lt;/em&gt;.&lt;/li&gt;
-&lt;/ol&gt;</content></entry><entry><title>What's Hawk and how to use it?</title><link href="https://blog.notmyidea.org/whats-hawk-and-how-to-use-it.html" rel="alternate"></link><published>2014-07-31T00:00:00+02:00</published><updated>2014-07-31T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2014-07-31:/whats-hawk-and-how-to-use-it.html</id><summary type="html">
+&lt;/ol&gt;</content></entry><entry><title>What's Hawk and how to use it?</title><link href="https://blog.notmyidea.org/whats-hawk-and-how-to-use-it.html" rel="alternate"></link><published>2014-07-31T00:00:00+02:00</published><updated>2014-07-31T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-31:/whats-hawk-and-how-to-use-it.html</id><summary type="html">
 &lt;p&gt;At Mozilla, we recently had to implement &lt;a href="https://github.com/hueniverse/hawk"&gt;the Hawk authentication
 scheme&lt;/a&gt; for a number of projects,
 and we came up creating two libraries to ease integration into pyramid
@@ -2417,7 +2417,7 @@ in case that helps you to integrate with your projects.&lt;/p&gt;
 &lt;li&gt;It's also interesting to note that Kumar put together &lt;a href="http://hawkrest.readthedocs.org/en/latest/"&gt;hawkrest, for
     the django rest
     framework&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content></entry><entry><title>Implementing CORS in Cornice</title><link href="https://blog.notmyidea.org/implementing-cors-in-cornice.html" rel="alternate"></link><published>2013-02-04T00:00:00+01:00</published><updated>2013-02-04T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2013-02-04:/implementing-cors-in-cornice.html</id><summary type="html">
+&lt;/ul&gt;</content></entry><entry><title>Implementing CORS in Cornice</title><link href="https://blog.notmyidea.org/implementing-cors-in-cornice.html" rel="alternate"></link><published>2013-02-04T00:00:00+01:00</published><updated>2013-02-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-02-04:/implementing-cors-in-cornice.html</id><summary type="html">
 &lt;div class="note"&gt;
 
 &lt;div class="admonition-title"&gt;
@@ -2671,7 +2671,7 @@ yourself.&lt;/p&gt;
 &lt;p&gt;Of course, the W3C specification is the best resource to rely on. This
 specification isn't hard to read, so you may want to go through it.
 Especially the &lt;a href="http://www.w3.org/TR/cors/#resource-processing-model"&gt;"resource processing model"
-section&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>Status board</title><link href="https://blog.notmyidea.org/status-board.html" rel="alternate"></link><published>2012-12-29T00:00:00+01:00</published><updated>2012-12-29T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-29:/status-board.html</id><summary type="html">
+section&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>Status board</title><link href="https://blog.notmyidea.org/status-board.html" rel="alternate"></link><published>2012-12-29T00:00:00+01:00</published><updated>2012-12-29T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-29:/status-board.html</id><summary type="html">
 &lt;p&gt;À force de démarrer des services web pour un oui et pour un non, de
 proposer à des copains d'héberger leurs sites, de faire pareil pour
 quelques assos etc, je me suis retrouvé avec, comme dirait l'autre, &lt;em&gt;une
@@ -2758,7 +2758,7 @@ J'utilisais haproxy + stunnel, et la négiciation SSL se passait mal. Une
 fois SSL et TLS activés, et SSLv2 désactivé, tout fonctionne mieux.&lt;/p&gt;
 &lt;h2 id="et-voila"&gt;Et voilà&lt;/h2&gt;
 &lt;p&gt;Finalement, j'ai mon joli status-board qui tourne à merveille sur
-&lt;a href="http://status.lolnet.org"&gt;http://status.lolnet.org&lt;/a&gt; :-)&lt;/p&gt;</content></entry><entry><title>Astuces SSH</title><link href="https://blog.notmyidea.org/astuces-ssh.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-27:/astuces-ssh.html</id><summary type="html">
+&lt;a href="http://status.lolnet.org"&gt;http://status.lolnet.org&lt;/a&gt; :-)&lt;/p&gt;</content></entry><entry><title>Astuces SSH</title><link href="https://blog.notmyidea.org/astuces-ssh.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/astuces-ssh.html</id><summary type="html">
 &lt;h2 id="tunelling"&gt;Tunelling&lt;/h2&gt;
 &lt;p&gt;Parce que je m'en rapelle jamais (tête de linote):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh -f hote -L local:lolnet.org:destination -N
@@ -2799,7 +2799,7 @@ séparés par des "+" :&lt;/p&gt;
     &lt;span class="k"&gt;user&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;monuser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="n"&gt;IdentityFile&lt;/span&gt;  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;chemin&lt;/span&gt; &lt;span class="n"&gt;vers&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt; &lt;span class="n"&gt;clé&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;pour&lt;/span&gt; &lt;span class="n"&gt;le&lt;/span&gt; &lt;span class="n"&gt;serveur&lt;/span&gt; &lt;span class="n"&gt;publique&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="n"&gt;hostname&lt;/span&gt; &lt;span class="n"&gt;ip_serveur_publique&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;ip_serveur_privé&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
 &lt;p&gt;Après avoir tenté pendant un bout de temps unity, le bureau par defaut
 de ubuntu, j'ai eu envie de changements, et j'ai donc essayé un peu de
 regarder du coté de gnome 3, à nouveau.&lt;/p&gt;
@@ -2844,7 +2844,7 @@ que je liste ici.&lt;/p&gt;
     donc je ne sais pas encore si ça va rester, mais pourquoi pas.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vous pouvez aller faire un tour sur &lt;a href="https://extensions.gnome.org/"&gt;https://extensions.gnome.org/&lt;/a&gt; pour
-en trouver d'autres à votre gout.&lt;/p&gt;</content></entry><entry><title>Cheese &amp; code - Wrap-up</title><link href="https://blog.notmyidea.org/cheese-code-wrap-up.html" rel="alternate"></link><published>2012-10-22T00:00:00+02:00</published><updated>2012-10-22T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-10-22:/cheese-code-wrap-up.html</id><summary type="html">&lt;h1 id="cheese-code-wrap-up"&gt;Cheese &amp;amp; code - Wrap-up&lt;/h1&gt;
+en trouver d'autres à votre gout.&lt;/p&gt;</content></entry><entry><title>Cheese &amp; code - Wrap-up</title><link href="https://blog.notmyidea.org/cheese-code-wrap-up.html" rel="alternate"></link><published>2012-10-22T00:00:00+02:00</published><updated>2012-10-22T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-10-22:/cheese-code-wrap-up.html</id><summary type="html">&lt;h1 id="cheese-code-wrap-up"&gt;Cheese &amp;amp; code - Wrap-up&lt;/h1&gt;
 &lt;p&gt;This week-end I hosted a &lt;em&gt;cheese &amp;amp; code&lt;/em&gt; session in the country-side of
 Angers, France.&lt;/p&gt;
 &lt;p&gt;We were a bunch of python hackers and it rained a lot, wich forced us to
@@ -2965,7 +2965,7 @@ def get_spore(request):
 
 &lt;p&gt;Finally, we were out of cheese so everyone headed back to their
 respective houses and cities.&lt;/p&gt;
-&lt;p&gt;Until next time?&lt;/p&gt;</content></entry><entry><title>Circus sprint at PyconFR</title><link href="https://blog.notmyidea.org/circus-sprint-at-pyconfr.html" rel="alternate"></link><published>2012-09-17T00:00:00+02:00</published><updated>2012-09-17T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-09-17:/circus-sprint-at-pyconfr.html</id><summary type="html">
+&lt;p&gt;Until next time?&lt;/p&gt;</content></entry><entry><title>Circus sprint at PyconFR</title><link href="https://blog.notmyidea.org/circus-sprint-at-pyconfr.html" rel="alternate"></link><published>2012-09-17T00:00:00+02:00</published><updated>2012-09-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-09-17:/circus-sprint-at-pyconfr.html</id><summary type="html">
 &lt;p&gt;Last Thursday to Sunday, &lt;a href="http://pycon.fr"&gt;Pycon France&lt;/a&gt; took place, in
 Paris. It was the opportunity to meet a lot of people and to talk about
 python awesomness in general.&lt;/p&gt;
@@ -3037,7 +3037,7 @@ community again and discuss how Circus can evolve in ways that are
 interesting to everyone.&lt;/p&gt;
 &lt;p&gt;Tarek and me are going to &lt;a href="http://python.ie/pycon/2012/"&gt;Pycon ireland&lt;/a&gt;,
 feel free to reach us if you're going there, we'll be happy to meet and
-enjoy beers!&lt;/p&gt;</content></entry><entry><title>Refactoring Cornice</title><link href="https://blog.notmyidea.org/refactoring-cornice.html" rel="alternate"></link><published>2012-05-01T00:00:00+02:00</published><updated>2012-05-01T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-05-01:/refactoring-cornice.html</id><summary type="html">
+enjoy beers!&lt;/p&gt;</content></entry><entry><title>Refactoring Cornice</title><link href="https://blog.notmyidea.org/refactoring-cornice.html" rel="alternate"></link><published>2012-05-01T00:00:00+02:00</published><updated>2012-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-05-01:/refactoring-cornice.html</id><summary type="html">
 &lt;p&gt;After working for a while with &lt;a href="http://cornice.readthedocs.com"&gt;Cornice&lt;/a&gt;
 to define our APIs at &lt;a href="http://docs.services.mozilla.com"&gt;Services&lt;/a&gt;, it
 turned out that the current implementation wasn't flexible enough to
@@ -3235,7 +3235,7 @@ this service description tool: it looks at what's described and build-up
 the documentation from it.&lt;/p&gt;
 &lt;p&gt;The resulting branch is not merged yet. Still, you can &lt;a href="https://github.com/mozilla-services/cornice/tree/refactor-the-world"&gt;have a look at
 it&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Any suggestions are of course welcome :-)&lt;/p&gt;</content></entry><entry><title>Djangocong 2012</title><link href="https://blog.notmyidea.org/djangocong-2012.html" rel="alternate"></link><published>2012-04-16T00:00:00+02:00</published><updated>2012-04-16T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-04-16:/djangocong-2012.html</id><summary type="html">
+&lt;p&gt;Any suggestions are of course welcome :-)&lt;/p&gt;</content></entry><entry><title>Djangocong 2012</title><link href="https://blog.notmyidea.org/djangocong-2012.html" rel="alternate"></link><published>2012-04-16T00:00:00+02:00</published><updated>2012-04-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-16:/djangocong-2012.html</id><summary type="html">
 &lt;p&gt;Ce week-end, c'était &lt;a href="http://rencontres.django-fr.org"&gt;djangocong&lt;/a&gt;, une
 conférence autour de &lt;a href="http://djangoproject.org"&gt;django&lt;/a&gt;, de
 &lt;a href="http://python.org"&gt;python&lt;/a&gt; et du web, qui avait lieu dans le sud, à
@@ -3306,7 +3306,7 @@ qu'ils mentent avec leur soit disant soleil).&lt;/p&gt;
 brasucade&lt;/a&gt;
 …&lt;/p&gt;
 &lt;p&gt;Bref, vivement la prochaine (et allez, cette fois ci je ferais une
-présentation !)&lt;/p&gt;</content></entry><entry><title>Génération de formulaires, geolocalisés ?</title><link href="https://blog.notmyidea.org/generation-de-formulaires-geolocalises.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-04-02:/generation-de-formulaires-geolocalises.html</id><summary type="html">
+présentation !)&lt;/p&gt;</content></entry><entry><title>Génération de formulaires, geolocalisés ?</title><link href="https://blog.notmyidea.org/generation-de-formulaires-geolocalises.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/generation-de-formulaires-geolocalises.html</id><summary type="html">
 &lt;p&gt;On a un plan. Un "truc de ouf".&lt;/p&gt;
 &lt;p&gt;À plusieurs reprises, des amis m'ont demandé de leur coder la même
 chose, à quelques détails près: une page web avec un formulaire qui
@@ -3498,7 +3498,7 @@ solutions ou suggestions.&lt;/p&gt;
 &lt;a href="http://framapad.org/carto-forms"&gt;http://framapad.org/carto-forms&lt;/a&gt;. N'hésitez pas à l'éditer et à ajouter
 vos commentaires, c'est son objectif!&lt;/p&gt;
 &lt;p&gt;Merci à &lt;a href="http://sneakernet.fr/"&gt;Arnaud&lt;/a&gt; pour la relecture et la
-correction de quelques typos dans le texte :)&lt;/p&gt;</content></entry><entry><title>Thoughts about a form generation service, GIS enabled</title><link href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2012-04-02:/thoughts-about-a-form-generation-service-gis-enabled.html</id><summary type="html">
+correction de quelques typos dans le texte :)&lt;/p&gt;</content></entry><entry><title>Thoughts about a form generation service, GIS enabled</title><link href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/thoughts-about-a-form-generation-service-gis-enabled.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;slug&lt;br&gt;
@@ -3708,7 +3708,7 @@ is written in stone yet. Comments and proposals are welcome!&lt;/p&gt;
 &lt;a href="http://framapad.org/carto-forms"&gt;http://framapad.org/carto-forms&lt;/a&gt;. Don't hesitate to add your thoughts
 and edit it, that's what it's made for!&lt;/p&gt;
 &lt;p&gt;Thanks to &lt;a href="http://sneakernet.fr/"&gt;Arnaud&lt;/a&gt; and
-&lt;a href="http://qwerty.fuzz.me.uk/"&gt;Fuzzmz&lt;/a&gt; for proof-reading and typo fixing.&lt;/p&gt;</content></entry><entry><title>Introducing Cornice</title><link href="https://blog.notmyidea.org/introducing-cornice.html" rel="alternate"></link><published>2011-12-07T00:00:00+01:00</published><updated>2011-12-07T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-12-07:/introducing-cornice.html</id><summary type="html">
+&lt;a href="http://qwerty.fuzz.me.uk/"&gt;Fuzzmz&lt;/a&gt; for proof-reading and typo fixing.&lt;/p&gt;</content></entry><entry><title>Introducing Cornice</title><link href="https://blog.notmyidea.org/introducing-cornice.html" rel="alternate"></link><published>2011-12-07T00:00:00+01:00</published><updated>2011-12-07T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-12-07:/introducing-cornice.html</id><summary type="html">
 &lt;p&gt;Wow, already my third working day at Mozilla. Since Monday, I've been
 working with &lt;a href="http://ziade.org"&gt;Tarek Ziadé&lt;/a&gt;, on a pyramid REST-ish
 toolkit named &lt;a href="https://github.com/mozilla-services/cornice"&gt;Cornice&lt;/a&gt;.&lt;/p&gt;
@@ -3862,7 +3862,7 @@ clients to discover services in a nice way.&lt;/p&gt;
 &lt;p&gt;Of course, we are open to all your ideas and patches! If you feel
 haskish and want to see the sources, &lt;a href="https://github.com/mozilla-services/cornice"&gt;go grab them on
 github&lt;/a&gt; , commit and send
-us a pull request!&lt;/p&gt;</content></entry><entry><title>How are you handling your shared expenses?</title><link href="https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html" rel="alternate"></link><published>2011-10-15T00:00:00+02:00</published><updated>2011-10-15T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-10-15:/how-are-you-handling-your-shared-expenses.html</id><summary type="html">
+us a pull request!&lt;/p&gt;</content></entry><entry><title>How are you handling your shared expenses?</title><link href="https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html" rel="alternate"></link><published>2011-10-15T00:00:00+02:00</published><updated>2011-10-15T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-10-15:/how-are-you-handling-your-shared-expenses.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; We're kick-starting a new application to manage your shared
 expenses. Have a look at &lt;a href="http://ihatemoney.notmyidea.org"&gt;http://ihatemoney.notmyidea.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;As a student, I lived in a lot of different locations, and the majority
@@ -3937,7 +3937,7 @@ flask for this (and I should release it!).&lt;/p&gt;
 and would be happy to work with new people and implement new ideas. If
 you have a nice idea about this, if you want to tweak it or to fill
 bugs. Don't hesitate a second! The project lives at
-&lt;a href="http://github.com/spiral-project/ihatemoney/"&gt;http://github.com/spiral-project/ihatemoney/&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>Using dbpedia to get languages influences</title><link href="https://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="alternate"></link><published>2011-08-16T00:00:00+02:00</published><updated>2011-08-16T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-08-16:/using-dbpedia-to-get-languages-influences.html</id><summary type="html">
+&lt;a href="http://github.com/spiral-project/ihatemoney/"&gt;http://github.com/spiral-project/ihatemoney/&lt;/a&gt;&lt;/p&gt;</content></entry><entry><title>Using dbpedia to get languages influences</title><link href="https://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="alternate"></link><published>2011-08-16T00:00:00+02:00</published><updated>2011-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-08-16:/using-dbpedia-to-get-languages-influences.html</id><summary type="html">
 &lt;p&gt;While browsing the Python's wikipedia page, I found information about
 the languages influenced by python, and the languages that influenced
 python itself.&lt;/p&gt;
@@ -3991,7 +3991,7 @@ languages (and the resulting script would be easier) to do so, but the
 resulting graph would probably be way less readable.&lt;/p&gt;
 &lt;p&gt;You can find the script &lt;a href="https://github.com/ametaireau/experiments"&gt;on my github
 account&lt;/a&gt;. Feel free to adapt
-it for whatever you want if you feel hackish.&lt;/p&gt;</content></entry><entry><title>Pelican, 9 months later</title><link href="https://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><published>2011-07-25T00:00:00+02:00</published><updated>2011-07-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html</id><summary type="html">
+it for whatever you want if you feel hackish.&lt;/p&gt;</content></entry><entry><title>Pelican, 9 months later</title><link href="https://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><published>2011-07-25T00:00:00+02:00</published><updated>2011-07-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html</id><summary type="html">
 &lt;p&gt;Back in October, I released
 &lt;a href="http://docs.notmyidea.org/alexis/pelican"&gt;pelican&lt;/a&gt;, a little piece of
 code I wrote to power this weblog. I had simple needs: I wanted to be
@@ -4014,7 +4014,7 @@ different services such as twitter or piwik, import from dotclear and
 rss, fixed a number of mistakes and improved a lot the codebase. This
 was a proof that there is a bunch of people that are willing to make
 better softwares just for the sake of fun.&lt;/p&gt;
-&lt;p&gt;Thank you, guys, you're why I like open source so much.&lt;/p&gt;</content></entry><entry><title>Using JPype to bridge python and Java</title><link href="https://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><published>2011-06-11T00:00:00+02:00</published><updated>2011-06-11T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</id><summary type="html">
+&lt;p&gt;Thank you, guys, you're why I like open source so much.&lt;/p&gt;</content></entry><entry><title>Using JPype to bridge python and Java</title><link href="https://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><published>2011-06-11T00:00:00+02:00</published><updated>2011-06-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</id><summary type="html">
 &lt;p&gt;Java provides some interesting libraries that have no exact equivalent
 in python. In my case, the awesome boilerpipe library allows me to
 remove uninteresting parts of HTML pages, like menus, footers and other
@@ -4099,7 +4099,7 @@ similar, but from python&lt;/p&gt;
 &lt;p&gt;I must say I didn't thought it could work so easily. This will allow me
 to extract text content from URLs and remove the &lt;em&gt;boilerplate&lt;/em&gt; text
 easily for infuse (my master thesis project), without having to write
-java code, nice!&lt;/p&gt;</content></entry><entry><title>Un coup de main pour mon mémoire !</title><link href="https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><published>2011-05-25T00:00:00+02:00</published><updated>2011-05-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html</id><summary type="html">
+java code, nice!&lt;/p&gt;</content></entry><entry><title>Un coup de main pour mon mémoire !</title><link href="https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><published>2011-05-25T00:00:00+02:00</published><updated>2011-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html</id><summary type="html">
 &lt;p&gt;Ça y est, bientôt la fin. LA FIN. La fin des études, et le début du
 reste. En attendant je bosse sur mon mémoire de fin d'études et j'aurais
 besoin d'un petit coup de main.&lt;/p&gt;
@@ -4132,7 +4132,7 @@ téléchargé et le compte créé il faut renseigner vos identifiants dans
 le plugin en question, et c'est tout!&lt;/p&gt;
 &lt;p&gt;A votre bon cœur ! Je récupérerais probablement des données durant les
 2 prochains mois pour ensuite les analyser correctement.&lt;/p&gt;
-&lt;p&gt;Merci pour votre aide !&lt;/p&gt;</content></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="https://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><published>2011-04-01T00:00:00+02:00</published><updated>2011-04-01T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html</id><summary type="html">
+&lt;p&gt;Merci pour votre aide !&lt;/p&gt;</content></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="https://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><published>2011-04-01T00:00:00+02:00</published><updated>2011-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html</id><summary type="html">
 &lt;p&gt;No, this is not an april's fool ;)&lt;/p&gt;
 &lt;p&gt;Wow, it's been a long time. My year in Oxford is going really well. I
 realized few days ago that the end of the year is approaching really
@@ -4326,7 +4326,7 @@ complete novice in that field.&lt;/p&gt;
     contents as well, to do some keyword based classification will be
     done.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Lot of work on its way, yay !&lt;/p&gt;</content></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="https://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><published>2011-03-16T00:00:00+01:00</published><updated>2011-03-16T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html</id><summary type="html">
+&lt;p&gt;Lot of work on its way, yay !&lt;/p&gt;</content></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="https://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><published>2011-03-16T00:00:00+01:00</published><updated>2011-03-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html</id><summary type="html">
 &lt;p&gt;I have a server running freebsd since some time now, and was wondering
 about the possibility to directly have a development environment ready
 to use when I get a internet connexion, even if I'm not on my computer.&lt;/p&gt;
@@ -4493,7 +4493,7 @@ its content.&lt;/p&gt;
 &lt;p&gt;And it comes from
 &lt;a href="http://ubuntuforums.org/showthread.php?p=10148738#post10148738"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;A sync takes about 20s + the upload time on my machine, which stay
-acceptable for all of my developments.&lt;/p&gt;</content></entry><entry><title>Wrap up of the distutils2 paris' sprint</title><link href="https://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-02-08T00:00:00+01:00</published><updated>2011-02-08T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html</id><summary type="html">
+acceptable for all of my developments.&lt;/p&gt;</content></entry><entry><title>Wrap up of the distutils2 paris' sprint</title><link href="https://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-02-08T00:00:00+01:00</published><updated>2011-02-08T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html</id><summary type="html">
 &lt;p&gt;Finally, thanks to a bunch of people that helped me to pay my train and
 bus tickets, I've made it to paris for the distutils2 sprint.&lt;/p&gt;
 &lt;p&gt;They have been a bit more than 10 people to come during the sprint, and
@@ -4536,7 +4536,7 @@ week.&lt;/p&gt;
 providing us food, and to bearstech for providing some money for
 breakfast and bears^Wbeers.&lt;/p&gt;
 &lt;p&gt;Again, a big thanks to all the people who gave me money to pay the
-transport, I really wasn't expecting such thing to happen :-)&lt;/p&gt;</content></entry><entry><title>PyPI on CouchDB</title><link href="https://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><published>2011-01-20T00:00:00+01:00</published><updated>2011-01-20T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html</id><summary type="html">
+transport, I really wasn't expecting such thing to happen :-)&lt;/p&gt;</content></entry><entry><title>PyPI on CouchDB</title><link href="https://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><published>2011-01-20T00:00:00+01:00</published><updated>2011-01-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html</id><summary type="html">
 &lt;p&gt;By now, there are two ways to retrieve data from PyPI (the Python
 Package Index). You can both rely on xml/rpc or on the "simple" API. The
 simple API is not so simple to use as the name suggest, and have several
@@ -4630,7 +4630,7 @@ store in couchdb:&lt;/p&gt;
 &lt;p&gt;The work I've done by now is available on
 &lt;a href="https://bitbucket.org/ametaireau/pypioncouch/"&gt;https://bitbucket.org/ametaireau/pypioncouch/&lt;/a&gt;. Keep in mind that it's
 still a work in progress, and everything can break at any time. However,
-any feedback will be appreciated !&lt;/p&gt;</content></entry><entry><title>Help me to go to the distutils2 paris' sprint</title><link href="https://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-01-15T00:00:00+01:00</published><updated>2011-01-15T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html</id><summary type="html">
+any feedback will be appreciated !&lt;/p&gt;</content></entry><entry><title>Help me to go to the distutils2 paris' sprint</title><link href="https://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-01-15T00:00:00+01:00</published><updated>2011-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;Edit: Thanks to logilab and some amazing people, I can make it to
 paris for the sprint. Many thanks to them for the support!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;There will be a distutils2 sprint from the 27th to the 30th of january,
@@ -4654,7 +4654,7 @@ help while needed.&lt;/p&gt;
 &lt;p&gt;If you want to contribute some money to help me go there, feel free to
 use this chipin page:
 &lt;a href="http://ametaireau.chipin.com/distutils2-sprint-in-paris"&gt;http://ametaireau.chipin.com/distutils2-sprint-in-paris&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Thanks for your support !&lt;/p&gt;</content></entry><entry><title>How to reboot your bebox using the CLI</title><link href="https://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><published>2010-10-21T00:00:00+02:00</published><updated>2010-10-21T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html</id><summary type="html">
+&lt;p&gt;Thanks for your support !&lt;/p&gt;</content></entry><entry><title>How to reboot your bebox using the CLI</title><link href="https://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><published>2010-10-21T00:00:00+02:00</published><updated>2010-10-21T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html</id><summary type="html">
 &lt;p&gt;I've an internet connection which, for some obscure reasons, tend to be
 very slow from time to time. After rebooting the box (yes, that's a hard
 solution), all the things seems to go fine again.&lt;/p&gt;
@@ -4709,7 +4709,7 @@ curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&amp;am
     &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urljoin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;boxurl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;REBOOT_URL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;reboot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="https://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><published>2010-10-11T00:00:00+02:00</published><updated>2010-10-11T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html</id><summary type="html">
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="https://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><published>2010-10-11T00:00:00+02:00</published><updated>2010-10-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html</id><summary type="html">
 &lt;p&gt;In gnome, you can can use a XML file to have a dynamic wallpaper. It's
 not so easy, and you can't just tell: use the pictures in this folder to
 do so.&lt;/p&gt;
@@ -4762,7 +4762,7 @@ wallpapers, to have dynamic walls&lt;/p&gt;
   -s, --set-background  '''try to set the background using gnome-appearance-
                         properties
   -b, --debug
-```&lt;/p&gt;</content></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
+```&lt;/p&gt;</content></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;
@@ -4838,7 +4838,7 @@ that will work without effort over time.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;And that's it !&lt;/p&gt;</content></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><published>2010-10-06T00:00:00+02:00</published><updated>2010-10-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html</id><summary type="html">
+&lt;p&gt;And that's it !&lt;/p&gt;</content></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><published>2010-10-06T00:00:00+02:00</published><updated>2010-10-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html</id><summary type="html">
 &lt;p&gt;Those days, I've wrote a little python application to fit my blogging
 needs. I'm an occasional blogger, a vim lover, I like restructured text
 and DVCSes, so I've made a little tool that makes good use of all that.&lt;/p&gt;
@@ -4906,7 +4906,7 @@ usage: pelican [-h] [-t TEMPLATES] [-o OUTPUT] [-m MARKUP] [-s SETTINGS] [-b]
                         the settings of the application. Default to None.
   -b, --debug
 ```&lt;/p&gt;
-&lt;p&gt;Enjoy :)&lt;/p&gt;</content></entry><entry><title>An amazing summer of code working on distutils2</title><link href="https://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><published>2010-08-16T00:00:00+02:00</published><updated>2010-08-16T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html</id><summary type="html">
+&lt;p&gt;Enjoy :)&lt;/p&gt;</content></entry><entry><title>An amazing summer of code working on distutils2</title><link href="https://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><published>2010-08-16T00:00:00+02:00</published><updated>2010-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;The &lt;a href="http://code.google.com/soc/"&gt;Google Summer of Code&lt;/a&gt; I've spent
 working on &lt;a href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt; is over. It
 was a really amazing experience, for many reasons.&lt;/p&gt;
@@ -5037,7 +5037,7 @@ into their offices from time to time, to share they cheerfulness ! Many
 thanks too to the Google Summer of Code program for setting up such an
 initiative. If you're a student, if you're interested about FOSS, dont
 hesitate any second, it's a really good opportunity to work on
-interesting projects!&lt;/p&gt;</content></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="https://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><published>2010-07-10T00:00:00+02:00</published><updated>2010-07-10T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-10:/sprinting-on-distutils2-in-tours.html</id><summary type="html">
+interesting projects!&lt;/p&gt;</content></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="https://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><published>2010-07-10T00:00:00+02:00</published><updated>2010-07-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-10:/sprinting-on-distutils2-in-tours.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;
@@ -5127,7 +5127,7 @@ seems to be a must-read, so, I know what to do.&lt;/p&gt;
 &lt;p&gt;It was really great. Next time, we'll need to focus a bit more on
 distutils2, and to have a bullet list of things to do, but days like
 this one are opportunities to catch ! We'll probably do another sprint
-in a few weeks, stay tuned !&lt;/p&gt;</content></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="https://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><published>2010-07-06T00:00:00+02:00</published><updated>2010-07-06T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html</id><summary type="html">
+in a few weeks, stay tuned !&lt;/p&gt;</content></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="https://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><published>2010-07-06T00:00:00+02:00</published><updated>2010-07-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html</id><summary type="html">
 &lt;p&gt;I'm working for about a month for distutils2, even if I was being a bit
 busy (as I had some class courses and exams to work on)&lt;/p&gt;
 &lt;p&gt;I'll try do sum-up my general feelings here, and the work I've made so
@@ -5241,7 +5241,7 @@ avoid some changes on the API, and some loss of time.&lt;/p&gt;
 &lt;p&gt;Also, I've set up &lt;a href="http://wiki.notmyidea.org/distutils2_schedule"&gt;a
 schedule&lt;/a&gt;, and the goal
 is to be sure everything will be ready in time, for the end of the
-summer. (And now, I need to learn to follow schedules ...)&lt;/p&gt;</content></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="https://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><published>2010-06-25T00:00:00+02:00</published><updated>2010-06-25T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html</id><summary type="html">
+summer. (And now, I need to learn to follow schedules ...)&lt;/p&gt;</content></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="https://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><published>2010-06-25T00:00:00+02:00</published><updated>2010-06-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;
@@ -5290,7 +5290,7 @@ source&lt;/a&gt;,
 used&lt;/a&gt;,
 and the command line to generate the PDF:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;rst2pdf&lt;/span&gt; &lt;span class="n"&gt;couchdb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rst&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;slides&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;As I've been working on &lt;a href="http://hg.python.org/distutils2/"&gt;Distutils2&lt;/a&gt;
 during the past week, taking part of the
 &lt;a href="http://code.google.com/intl/fr/soc/"&gt;GSOC&lt;/a&gt; program, here is a short
@@ -5354,7 +5354,7 @@ as privates methods, have a clear API, and other things like this), then
 update the tests accordingly and write a documentation to make this
 clear.&lt;/p&gt;
 &lt;p&gt;Next step is to a little client, as I've &lt;a href="http://github.com/ametaireau/pypiclient"&gt;already started
-here&lt;/a&gt; I'll take you updated !&lt;/p&gt;</content></entry><entry><title>A Distutils2 GSoC</title><link href="https://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><published>2010-05-01T00:00:00+02:00</published><updated>2010-05-01T00:00:00+02:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html</id><summary type="html">
+here&lt;/a&gt; I'll take you updated !&lt;/p&gt;</content></entry><entry><title>A Distutils2 GSoC</title><link href="https://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><published>2010-05-01T00:00:00+02:00</published><updated>2010-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html</id><summary type="html">
 &lt;p&gt;WOW. I've been accepted to be a part of the &lt;a href="http://code.google.com/intl/fr/soc/"&gt;Google Summer Of
 Code&lt;/a&gt; program, and will work on
 &lt;a href="http://python.org/"&gt;python&lt;/a&gt; &lt;a href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt;, with &lt;a href="http://pygsoc.wordpress.com/"&gt;a&lt;/a&gt; &lt;a href="http://konryd.blogspot.com/"&gt;lot&lt;/a&gt; &lt;a href="http://ziade.org/"&gt;of&lt;/a&gt; (intersting !) &lt;a href="http://zubin71.wordpress.com/"&gt;people&lt;/a&gt;.&lt;/p&gt;
@@ -5383,7 +5383,7 @@ the &lt;a href="http://www.python.org/dev/peps/pep-0376/"&gt;PEP 376&lt;/a&gt;.
 &lt;li&gt;PyPI XML-RPC client for distutils 2:
     &lt;a href="http://bugs.python.org/issue8190"&gt;http://bugs.python.org/issue8190&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As I'm relatively new to python, I'll need some extra work in order to apply all good practice, among other things that can make a developper-life joyful. I'll post here, each week, my advancement, and my tought about python and especialy python packaging world.&lt;/p&gt;</content></entry><entry><title>Python ? go !</title><link href="https://blog.notmyidea.org/python-go.html" rel="alternate"></link><published>2009-12-17T00:00:00+01:00</published><updated>2009-12-17T00:00:00+01:00</updated><author><name>Alexis Métaireau</name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html</id><summary type="html">
+&lt;p&gt;As I'm relatively new to python, I'll need some extra work in order to apply all good practice, among other things that can make a developper-life joyful. I'll post here, each week, my advancement, and my tought about python and especialy python packaging world.&lt;/p&gt;</content></entry><entry><title>Python ? go !</title><link href="https://blog.notmyidea.org/python-go.html" rel="alternate"></link><published>2009-12-17T00:00:00+01:00</published><updated>2009-12-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html</id><summary type="html">
 &lt;p&gt;Cela fait maintenant un peu plus d'un mois que je travaille sur un
 projet en &lt;a href="http://www.djangoproject.org"&gt;django&lt;/a&gt;, et que,
 nécessairement, je me forme à &lt;a href="http://python.org/"&gt;Python&lt;/a&gt;. Je prends
