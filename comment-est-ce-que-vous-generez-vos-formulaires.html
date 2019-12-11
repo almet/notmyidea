@@ -85,28 +85,12 @@ styles, `#sidebar-checkbox` for behavior. -->
 <h1 class="post-title">Comment est-ce que vous générez vos formulaires ?</h1>
 
 <span class="post-date">
-    31 mai 2016, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+    31 mai 2016, dans <a class="no-color" href="category/tech.html">tech</a>
 </span>
-<img id="illustration" class="illustration-Technologie" src="images/forms.jpg" />
+<img id="illustration" class="illustration-tech" src="images/forms.jpg" />
 
 <div class="post article">
     <h2 class="post-headline">Présentation d'une solution pour gérer vos formulaires en gardant la main sur les données générées</h2>
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#fonctionnalites">Fonctionnalités</a><ul>
-<li><a href="#pas-de-compte">Pas de compte</a></li>
-<li><a href="#gardez-la-main-sur-vos-donnees">Gardez la main sur vos données</a></li>
-<li><a href="#api">API</a></li>
-<li><a href="#auto-hebergeable">Auto-hébergeable</a></li>
-</ul>
-</li>
-<li><a href="#on-commence-petit">On commence petit…</a></li>
-<li><a href="#et-euh-comment-ca-marche">Et, euh, comment ça marche ?</a></li>
-</ul>
-</div>
-
-      </div>
     <h1>🌟</h1>
     <p>TL; DR: Je viens à peine de <em>releaser</em> la première version d'un service de génération de formulaires.
 Allez jeter un coup d'œil sur <a href="https://www.fourmilieres.net">https://www.fourmilieres.net</a></p>
@@ -123,7 +107,7 @@ pas libre et que les données sont stockées chez Google.</p>
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.</p>
 <p><img alt="Capture de l'interface de création du formulaire" src="{filename}/static/formbuilder-build.png"></p>
-<h2 id="fonctionnalites">Fonctionnalités</h2>
+<h2>Fonctionnalités</h2>
 <p>Il existe pas mal de solutions techniques qui essayent de répondre à la même
 problématique, mais la plupart d'entre elles sont assez souvent compliquées,
 nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
@@ -134,21 +118,21 @@ formulaires <em>et</em> pour les utilisateurs finaux. Pas de chichis, juste quel
 vues, et des URLs à sauvegarder une fois l'opération terminée.</p>
 <p><img alt="Capture de l'écran avec les URLs générées" src="{filename}/static/formbuilder-created.png">
 <img alt="Capture d'écran d'un exemple de formulaire" src="{filename}/static/formbuilder-form.png"></p>
-<h3 id="pas-de-compte">Pas de compte</h3>
+<h3>Pas de compte</h3>
 <p>Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
 qu'eux puissent à leur tour le remplir.</p>
 <p><img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="{filename}/static/formbuilder-welcome.png"></p>
-<h3 id="gardez-la-main-sur-vos-donnees">Gardez la main sur vos données</h3>
+<h3>Gardez la main sur vos données</h3>
 <p>Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
 récupérer les données sur votre machines dans un fichier <code>.csv</code>.</p>
 <p><img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="{filename}/static/formbuilder-results.png"></p>
-<h3 id="api">API</h3>
+<h3>API</h3>
 <p>L'ensemble des données sont en fait stockées dans <a href="https://kinto.readthedocs.org">Kinto</a>
 qui est interrogeable très facilement en HTTP. Ce qui fait qu'il est très facile de
 réutiliser les formulaires que vous avez construits (ou leurs réponses) depuis
 d'autres outils.</p>
-<h3 id="auto-hebergeable">Auto-hébergeable</h3>
+<h3>Auto-hébergeable</h3>
 <p>Un des objectifs de ce projet est de vous redonner la main sur vos données.
 Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
 <a href="https://www.fourmilieres.net">wwww.fourmilieres.net</a>, mais vous pouvez
@@ -156,7 +140,7 @@ Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
 simplement, et vous êtes d'ailleurs fortement encouragés à le faire ! Notre
 objectif n'est pas de stocker l'ensemble des formulaires du monde, mais de
 (re)donner le contrôle aux utilisateurs !</p>
-<h2 id="on-commence-petit">On commence petit…</h2>
+<h2>On commence petit…</h2>
 <p>Cette <em>release</em> n'est (bien sur) pas parfaite, et il reste encore pas mal de
 travail sur cet outil, mais je pense qu'il s'agit d'une base de travail
 intéressante pour un futur où Google n'a pas la main sur toutes nos données.</p>
@@ -165,7 +149,7 @@ Texte long, Oui/Non, choix dans une liste) mais elle à vocation à s'étendre, 
 fonction des besoins de chacun.</p>
 <p>J'ai d'ailleurs créé <a href="https://www.fourmilieres.net/#/form/cfd878264cec4ed2">un formulaire pour que vous puissiez me faire part de vos
 retours</a>, n'hésitez pas !</p>
-<h2 id="et-euh-comment-ca-marche">Et, euh, comment ça marche ?</h2>
+<h2>Et, euh, comment ça marche ?</h2>
 <p>Le <em>formbuilder</em>, comme j'aime l'appeler se compose en fin de compte de deux
 parties distinctes:</p>
 <ul>

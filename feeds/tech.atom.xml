@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - tech</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tech.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2018-02-25T00:00:00+01:00</updated><entry><title>Webnotes</title><link href="https://blog.notmyidea.org/webnotes.html" rel="alternate"></link><published>2018-02-25T00:00:00+01:00</published><updated>2018-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-02-25:/webnotes.html</id><summary type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quand je navigue en ligne, j'aime bien prendre des notes sur ce que je lis. C'est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j'ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière que je voulais, c'est à dire:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enregistrer une sélection de texte ainsi que son contexte: heure, site web.&lt;/li&gt;
+&lt;li&gt;fonctionner sur Firefox;&lt;/li&gt;
+&lt;li&gt;stocker mes notes à un endroit que je contrôle (ce sont mes données, après tout !)&lt;/li&gt;
+&lt;li&gt;rester en dehors de mon chemin: je suis en train de lire, pas en train d'organiser mes notes.&lt;/li&gt;
+&lt;li&gt;automatiquement partager les notes sur une page web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;J'ai donc pris un peu de temps pour fabriquer mon outil de prises de notes, que j'ai baptisé « Webnotes ». C'est &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/wwebnotes/"&gt;une extension Firefox&lt;/a&gt;, qui se configure assez simplement, et qui stocke les données dans une instance de &lt;a href="http://kinto-storage.org/"&gt;Kinto&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/almet/webnotes/blob/master/webnotes.gif?raw=true" /&gt;&lt;/p&gt;
+&lt;p&gt;C'est aussi simple que sélectionner du texte, faire « clic droit » puis « save as webnote », entrer un tag et le tour est joué !&lt;/p&gt;
+&lt;p&gt;Mes notes sont disponibles &lt;a href="https://notes.notmyidea.org"&gt;sur notes.notmyidea.org&lt;/a&gt;, et voici &lt;a href="https://github.com/almet/webnotes"&gt;le lien vers les sources&lt;/a&gt;, si ça vous intéresse de regarder comment ça fonctionne !&lt;/p&gt;</content><category term="tech"></category></entry><entry><title>Comment est-ce que vous générez vos formulaires ?</title><link href="https://blog.notmyidea.org/comment-est-ce-que-vous-generez-vos-formulaires.html" rel="alternate"></link><published>2016-05-31T00:00:00+02:00</published><updated>2016-05-31T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-05-31:/comment-est-ce-que-vous-generez-vos-formulaires.html</id><summary type="html">&lt;p&gt;TL; DR: Je viens à peine de &lt;em&gt;releaser&lt;/em&gt; la première version d'un service de génération de formulaires.
+Allez jeter un coup d'œil sur &lt;a href="https://www.fourmilieres.net"&gt;https://www.fourmilieres.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;En février 2012, je parlais ici &lt;a href="https://blog.notmyidea.org/carto-forms.html"&gt;d'un service de génération de formulaires&lt;/a&gt;.
+Depuis, pas mal d'eau à coulé sous les ponts, on est …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;TL; DR: Je viens à peine de &lt;em&gt;releaser&lt;/em&gt; la première version d'un service de génération de formulaires.
+Allez jeter un coup d'œil sur &lt;a href="https://www.fourmilieres.net"&gt;https://www.fourmilieres.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;En février 2012, je parlais ici &lt;a href="https://blog.notmyidea.org/carto-forms.html"&gt;d'un service de génération de formulaires&lt;/a&gt;.
+Depuis, pas mal d'eau à coulé sous les ponts, on est passé par pas mal d'étapes pour
+finalement arriver à une première version de ce service de génération de
+formulaires (à la &lt;/em&gt;google forms&lt;em&gt;).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;En tant qu'organisateurs d'évènements (petits et gros), je me retrouve souvent
+dans une situation ou je dois créer des formulaires pour recueillir des
+informations. Actuellement, la meilleure solution disponible est &lt;em&gt;Google Forms&lt;/em&gt;,
+mais celle ci à plusieurs problèmes, à commencer par le fait que le code n'est
+pas libre et que les données sont stockées chez Google.&lt;/p&gt;
+&lt;p&gt;La plupart du temps, le besoin est assez simple: je veux spécifier quelques
+questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
+Je reviens ensuite plus tard pour voir la liste des réponses apportées.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de l'interface de création du formulaire" src="{filename}/static/formbuilder-build.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Fonctionnalités&lt;/h2&gt;
+&lt;p&gt;Il existe pas mal de solutions techniques qui essayent de répondre à la même
+problématique, mais la plupart d'entre elles sont assez souvent compliquées,
+nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
+les données générées, voire le code est assez difficile à faire évoluer ou à
+déployer.&lt;/p&gt;
+&lt;p&gt;Je voulais donc quelque chose de simple à utiliser &lt;em&gt;et&lt;/em&gt; pour les créateurs de
+formulaires &lt;em&gt;et&lt;/em&gt; pour les utilisateurs finaux. Pas de chichis, juste quelques
+vues, et des URLs à sauvegarder une fois l'opération terminée.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de l'écran avec les URLs générées" src="{filename}/static/formbuilder-created.png"&gt;
+&lt;img alt="Capture d'écran d'un exemple de formulaire" src="{filename}/static/formbuilder-form.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Pas de compte&lt;/h3&gt;
+&lt;p&gt;Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
+Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
+qu'eux puissent à leur tour le remplir.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="{filename}/static/formbuilder-welcome.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Gardez la main sur vos données&lt;/h3&gt;
+&lt;p&gt;Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
+récupérer les données sur votre machines dans un fichier &lt;code&gt;.csv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="{filename}/static/formbuilder-results.png"&gt;&lt;/p&gt;
+&lt;h3&gt;API&lt;/h3&gt;
+&lt;p&gt;L'ensemble des données sont en fait stockées dans &lt;a href="https://kinto.readthedocs.org"&gt;Kinto&lt;/a&gt;
+qui est interrogeable très facilement en HTTP. Ce qui fait qu'il est très facile de
+réutiliser les formulaires que vous avez construits (ou leurs réponses) depuis
+d'autres outils.&lt;/p&gt;
+&lt;h3&gt;Auto-hébergeable&lt;/h3&gt;
+&lt;p&gt;Un des objectifs de ce projet est de vous redonner la main sur vos données.
+Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
+&lt;a href="https://www.fourmilieres.net"&gt;wwww.fourmilieres.net&lt;/a&gt;, mais vous pouvez
+également l'héberger vous même très
+simplement, et vous êtes d'ailleurs fortement encouragés à le faire ! Notre
+objectif n'est pas de stocker l'ensemble des formulaires du monde, mais de
+(re)donner le contrôle aux utilisateurs !&lt;/p&gt;
+&lt;h2&gt;On commence petit…&lt;/h2&gt;
+&lt;p&gt;Cette &lt;em&gt;release&lt;/em&gt; n'est (bien sur) pas parfaite, et il reste encore pas mal de
+travail sur cet outil, mais je pense qu'il s'agit d'une base de travail
+intéressante pour un futur où Google n'a pas la main sur toutes nos données.&lt;/p&gt;
+&lt;p&gt;La liste des champs supportés est pour l'instant assez faible (Texte court,
+Texte long, Oui/Non, choix dans une liste) mais elle à vocation à s'étendre, en
+fonction des besoins de chacun.&lt;/p&gt;
+&lt;p&gt;J'ai d'ailleurs créé &lt;a href="https://www.fourmilieres.net/#/form/cfd878264cec4ed2"&gt;un formulaire pour que vous puissiez me faire part de vos
+retours&lt;/a&gt;, n'hésitez pas !&lt;/p&gt;
+&lt;h2&gt;Et, euh, comment ça marche ?&lt;/h2&gt;
+&lt;p&gt;Le &lt;em&gt;formbuilder&lt;/em&gt;, comme j'aime l'appeler se compose en fin de compte de deux
+parties distinctes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://kinto.readthedocs.org"&gt;Kinto&lt;/a&gt;, un service qui stocke
+  des données coté serveur et qui les expose via des &lt;strong&gt;APIs HTTP&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/kinto/formbuilder"&gt;Le formbuilder&lt;/a&gt;, une application
+  JavaScript qui ne tourne que coté client (dans votre navigateur) qui permet
+  de construire les formulaires et d'envoyer les données sur les &lt;em&gt;APIs&lt;/em&gt; coté
+  serveur.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Au niveau de la &lt;em&gt;stack&lt;/em&gt; technique, le &lt;strong&gt;formbuilder&lt;/strong&gt; est codé en ReactJS. Un
+des points techniques intéressants du projet est qu'il génère en fin de compte du
+&lt;a href="http://jsonschema.net/"&gt;JSON Schema&lt;/a&gt;, un format de validation de données &lt;em&gt;JSON&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Donc, reprenons! Vous arrivez sur la page d'accueil puis cliquez sur
+"Create a new form", puis vous vous retrouvez face à une interface ou vous pouvez
+ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez sur
+"Create the form".&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Le JSON Schema est alors envoyé au serveur Kinto, qui l'utilisera pour valider
+  les données qu'il recevra par la suite.&lt;/li&gt;
+&lt;li&gt;Ce JSON Schema sera aussi utilisé lors de l'affichage du formulaire aux
+  personnes qui le remplissent.&lt;/li&gt;
+&lt;li&gt;Un jeton d'accès est généré et ajouté à l'URL, il s'agit de l'identifiant du
+  formulaire.&lt;/li&gt;
+&lt;li&gt;Un second jeton d'accès administrateur et généré, il vous faut le garder de
+  coté pour avoir accès aux réponses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bref, en espérant que ça vous serve ! Un petit pas dans la direction des données
+rendues à leurs utilisateurs !&lt;/p&gt;</content><category term="tech"></category></entry></feed>

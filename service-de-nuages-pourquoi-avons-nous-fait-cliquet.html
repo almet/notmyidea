@@ -306,7 +306,7 @@ avec <em>Colander</em>, et ensuite déclarer une resource:</p>
 <span class="k">class</span> <span class="nc">BookmarkSchema</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">ResourceSchema</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">URL</span><span class="p">()</span>
 
-<span class="hll"><span class="nd">@resource.register</span><span class="p">()</span>
+<span class="hll"><span class="nd">@resource</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
 </span><span class="hll"><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
 </span><span class="hll">    <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
 </span></pre></div>
@@ -331,14 +331,14 @@ De base les enregistrements sont privés, par utilisateur.</p>
 <h3>Étape 3</h3>
 <p>Évidemment, il est possible choisir les URLS, les verbes HTTP supportés, de modifier
 des champs avant l'enregistrement, etc.</p>
-<div class="highlight"><pre><span></span><span class="hll"><span class="nd">@resource.register</span><span class="p">(</span><span class="n">collection_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="hll"><span class="nd">@resource</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">collection_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks&#39;</span><span class="p">,</span>
 </span><span class="hll">                   <span class="n">record_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks/{{id}}&#39;</span><span class="p">,</span>
 </span><span class="hll">                   <span class="n">collection_methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,))</span>
 </span><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
 
-<span class="hll">    <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-</span><span class="hll">        <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]:</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]:</span>
 </span><span class="hll">            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">)</span>
 </span><span class="hll">            <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
 </span><span class="hll">        <span class="k">return</span> <span class="n">new</span>
@@ -357,10 +357,10 @@ des champs avant l'enregistrement, etc.</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cliquet</span> <span class="kn">import</span> <span class="n">Service</span>
 
 <span class="n">score</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
-                <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/score/{game}&#39;</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/score/</span><span class="si">{game}</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Store game score&quot;</span><span class="p">)</span>
 
-<span class="nd">@score.post</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">ScoreSchema</span><span class="p">)</span>
+<span class="nd">@score</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">ScoreSchema</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">post_score</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">collection_id</span> <span class="o">=</span> <span class="s1">&#39;scores-&#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">match_dict</span><span class="p">[</span><span class="s1">&#39;game&#39;</span><span class="p">]</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">authenticated_userid</span>

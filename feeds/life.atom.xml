@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - life</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/life.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2018-05-27T00:00:00+02:00</updated><entry><title>De Mozilla à la Brasserie du Vieux Singe</title><link href="https://blog.notmyidea.org/de-mozilla-a-la-brasserie-du-vieux-singe.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-05-27:/de-mozilla-a-la-brasserie-du-vieux-singe.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Ce weekend avait lieu &lt;a href="https://sudweb.fr/2018/"&gt;SudWeb&lt;/a&gt; « la conférence Web surtout humaine », ou on m'a proposé de venir parler de ma reconversion professionnelle, ou comment un passionné de Logiciels Libres choisit de créer une petite brasserie artisanale.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Certaines parties de ce que je voulais transmettre sont passées à la trappe, alors que …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Ce weekend avait lieu &lt;a href="https://sudweb.fr/2018/"&gt;SudWeb&lt;/a&gt; « la conférence Web surtout humaine », ou on m'a proposé de venir parler de ma reconversion professionnelle, ou comment un passionné de Logiciels Libres choisit de créer une petite brasserie artisanale.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Certaines parties de ce que je voulais transmettre sont passées à la trappe, alors que d'autres ont pris plus de place que prévu. J'avais donc envie de reprendre mes notes pour les transformer en billet de blog, question d'élaborer sur le sujet.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;J'ai toujours été motivé par mes passions. Quand j'ai commencé à travailler professionnellement, je me suis rendu compte que même si je faisais quasiment la même chose qu'auparavant, ça n'avait plus le même goût. J'étais maintenant &lt;em&gt;obligé&lt;/em&gt; de le faire, et je n'en tirais pas le même plaisir.&lt;/p&gt;
+&lt;p&gt;Quand j'étais plus jeune au lycée j'écrivais des programmes en &lt;em&gt;Visual Basic&lt;/em&gt; que je partageais en ligne sur mon site en &lt;code&gt;.free.fr&lt;/code&gt;. Programmes que probablement personne n'a lu, mais l'intention était bel et bien celle de partager mes créations, et d'échanger à leur propos.&lt;/p&gt;
+&lt;p&gt;Cette culture du partage — celle du logiciel libre — est celle qui m'anime.&lt;/p&gt;
+&lt;p&gt;Quelques années plus tard, je découvre le langage de programmation Python, et avec lui toute une communauté, mue par ces mêmes valeurs de partage et d'amélioration de nos pratiques. Puis je rencontre le Logiciel Libre, avec l'écriture d'un programme (&lt;a href="https://getpelican.com"&gt;pelican&lt;/a&gt;) qui reste encore largement utilisé aujourd'hui. Autant dire que c'est une bonne claque que de voir des inconnus contribuer à un bout de code qu'eux aussi jugent utile.&lt;/p&gt;
+&lt;p&gt;À la fin de mes études, alors que je reste passionné par le développement logiciel, je ne veux ni travailler pour l'industrie, ni pour la finance. Je songe même déjà à cette époque à changer de métier (avant même d'avoir commencé !). Coup de bol, une structure qui m'est chère cherche des développeurs Python: Mozilla. Sans trop y croire, je passe une série d'entretiens qui se déroulent bien (!) et je commence quelques mois plus tard à travailler pour cette organisation incroyable, porteuse d'espoir et de toute une symbolique pour moi.&lt;/p&gt;
+&lt;p&gt;Je bosse sur du Logiciel Libre, en Python, en télétravail parfois, avec une bonne paie, sans parler du côté prestigieux. Grisant.&lt;/p&gt;
+&lt;p&gt;Mais au fur et à mesure je découvre l'envers du décors: une méritocratie ancrée et assumée, une hiérarchie de plus en plus importante, menant à une lourdeur administrative assez présente. À ajouter à la barrière de la langue, et aux différences culturelles. Finalement tout n'est pas rose ici.&lt;/p&gt;
+&lt;p&gt;Je décide alors de (je pense) faire un de mes meilleurs choix de vie à ce jour: passer aux 4/5èmes. Je récupère tous mes vendredis. Des weekends de 3 jours, toutes les semaines. Un espace précieux pour me reposer, et pour rêver un peu.&lt;/p&gt;
+&lt;p&gt;C'est à ce moment que Fred, un ami de longue date, en revenant du Québec (ou les brasseries sont légion), me propose de faire de la bière avec lui. Moi qui ne savais même pas qu'il était &lt;em&gt;possible&lt;/em&gt; de faire de la bière. On tente donc l'expérience, et nos premières expériences sont des journées bien &lt;em&gt;funky&lt;/em&gt;, à faire toutes les erreurs possibles.&lt;/p&gt;
+&lt;p&gt;Peu à peu, on découvre un nouveau monde: celui des brasseurs amateurs. De nouvelles compétences sont nécessaires, de la physique à la biochimie. On se met à rencontrer des professionnels, des passionnés, à échanger sur les forums. On se forme, petit à petit. Tout comme il y a la communauté des gens qui font du Python, il y a la communauté des gens qui font de la bière. Pas encore autant fédérés, ça semble balbutiant alors mais la passion elle est bien présente.&lt;/p&gt;
+&lt;p&gt;Tout comme le monde du Logiciel Libre est constitué autour d'un ennemi commun (les GAFA), le monde de la bière artisanale à la sien: les brasseries industrielles, qui uniformisent les goûts et les processus.&lt;/p&gt;
+&lt;p&gt;Je continue en parallèle mon travail chez Mozilla, pendant 4 années. Et puis un jour, une annonce d'arrêt d'un projet sur lequel je travaillais me fait réaliser que cette situation m'épuise. La fameuse goutte de trop.&lt;/p&gt;
+&lt;p&gt;Je décide alors de partir, de faire une pause, sans trop savoir ce que l'avenir me réserve. Une petite période de blanc de deux mois. Le regard des autres est parfois culpabilisant. Mes parents me demandent si « je ne veux pas attendre encore un peu ». La transition me fait peur, mais je choisis quand même de troquer mon confort matériel pour de la cohérence.&lt;/p&gt;
+&lt;p&gt;Petit à petit, l'idée de monter ce qui est maintenant devenu &lt;a href="https://www.vieuxsinge.com"&gt;La Brasserie du Vieux Singe&lt;/a&gt; se pose en évidence. Mais monter une brasserie ce n'est pas uniquement faire de la bière: c'est se mettre d'accord sur des valeurs, trouver comment les défendre, monter un projet pour, et tenir le cap.&lt;/p&gt;
+&lt;p&gt;Quelques mois après mon départ, on se retrouve donc à parler de ces valeurs de partage, de documentation, de goût. De gouvernance et de collaboration aussi.
+Dans nos pratiques courantes, on décide d'intégrer du temps pour documenter la vie de la brasserie.&lt;/p&gt;
+&lt;p&gt;À titre d'exemple, nos étiquettes contiennent l'ensemble des ingrédients que l'on utilise de la manière la plus détaillée possible. On travaille aussi sur un projet de laveuse de fûts, qui sera publié sous licence libre, avec l'idée de pouvoir, petit à petit, constituer un ensemble d'outils utiles à tous les brasseurs, et peut être même réussir à favoriser les échanges entre toutes ces personnes.&lt;/p&gt;
+&lt;p&gt;Nous sommes deux brasseurs, deux chefs d'entreprise, mais aussi deux développeurs. Nos compétences de développeurs nous sont utiles quotidiennement: pour notre laveuse de fûts, pour nos créations de recettes (j'ai découvert la puissance des tableurs !), pour notre site de préventes, notre site Web, nos outils du quotidien. On se rend compte qu'il s'agit de compétences précieuses.&lt;/p&gt;
+&lt;p&gt;Mais monter une entreprise, c'est aussi assumer une partie administrative. Vous vous rappelez cette histoire de réactions face aux activités subordonnées ? Et bien quand je fais mes déclarations aux douanes, ce n'est pas de gaîté de cœur. Je sais par contre pourquoi je le fais: ce sont les règles du jeu. Des obligations, mais peut-être moins de coercition. J'y trouve plus de sens.&lt;/p&gt;
+&lt;p&gt;Et, si je n'avais pas réduit mon temps de travail, j'aurais peut-être loupé la découverte de ce nouveau monde, celui qui me passionne aujourd'hui.&lt;/p&gt;
+&lt;p&gt;Alors je vous invite à vous poser la question — indispensable — de vos valeurs: qu'est-ce que vous souhaitez faire ? Qu'est-ce qui vous anime ? Et peut-être à aménager du temps pour explorer vos envies. &lt;/p&gt;</content><category term="life"></category></entry><entry><title>Groupement d'achats &amp; partage d'expérience</title><link href="https://blog.notmyidea.org/groupement-dachats-partage-dexperience.html" rel="alternate"></link><published>2018-03-03T00:00:00+01:00</published><updated>2018-03-03T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-03-03:/groupement-dachats-partage-dexperience.html</id><summary type="html">&lt;p&gt;Il y a quelques années, on s'est motivé entre copains copines pour créer un groupement d'achat.&lt;/p&gt;
+&lt;p&gt;L'idée est simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;commander en gros, pour faire baisser les prix&lt;/li&gt;
+&lt;li&gt;se passer d'intermédiaires et favoriser les circuits courts&lt;/li&gt;
+&lt;li&gt;aller à la rencontre des producteurs locaux et échanger&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Notre groupement dessert actuellement 18 foyers …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Il y a quelques années, on s'est motivé entre copains copines pour créer un groupement d'achat.&lt;/p&gt;
+&lt;p&gt;L'idée est simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;commander en gros, pour faire baisser les prix&lt;/li&gt;
+&lt;li&gt;se passer d'intermédiaires et favoriser les circuits courts&lt;/li&gt;
+&lt;li&gt;aller à la rencontre des producteurs locaux et échanger&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Notre groupement dessert actuellement 18 foyers et une 60aine de personnes.&lt;/p&gt;
+&lt;p&gt;Au fur et à mesure de la vie du groupement, on a développé quelques outils pour se simplifier la vie. Voici un retour d'expérience et quelques astuces / outils, au cas où l'envie vous prenne à vous aussi :)&lt;/p&gt;
+&lt;h1&gt;Organisation&lt;/h1&gt;
+&lt;p&gt;On organise environs trois ou quatre distributions par an. Le &lt;em&gt;modus operandi&lt;/em&gt; est le suivant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;chaque product·eur·rice à un·e référent·e, qui s'occupe de faire le lien;&lt;/li&gt;
+&lt;li&gt;une personne est désignée pour coordonner la distribution;&lt;/li&gt;
+&lt;li&gt;4 semaines avant la distribution, les référent·e·s mettent à jour les prix / produits dans le tableau de commandes;·e·&lt;/li&gt;
+&lt;li&gt;3 semaines avant la distribution, les commandes sont ouvertes;&lt;/li&gt;
+&lt;li&gt;2 semaines avant la distribution, les commandes sont closes;&lt;/li&gt;
+&lt;li&gt;Les référent·e·s ont ensuite deux semaines pour récupérer les commandes pour la distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Quels produits ?&lt;/h1&gt;
+&lt;p&gt;On essaye d'avoir uniquement des produits qui se conservent (on a également quelques autres produits plus frais, mais avec d'autres modalités).&lt;/p&gt;
+&lt;p&gt;Entre autres: bières, légumes secs, conserves, jus, miel, pâtes, semoule, café, vinaigres, pommes de terre, oignons, huiles, farines.&lt;/p&gt;
+&lt;p&gt;On essaye de faire du local puis du bio au plus proche plutôt que de trouver nécessairement les prix les plus bas. C'est une discussion qui revient assez
+souvent, et donc un point à évoquer lors de la création pour avoir une posture
+claire sur le sujet (tout le monde n'est pas animé par la même éthique !).&lt;/p&gt;
+&lt;h1&gt;Paiements&lt;/h1&gt;
+&lt;p&gt;Pour les paiements, on utilise autant que possible des chèques. Chaque référent·e paye la·le product·rice·eur en son nom, et lui demande d'attendre la date de la distribution pour l'encaissement. La plupart des producteurs acceptent d'être payés sous quinzaine.&lt;/p&gt;
+&lt;p&gt;Le jour de la distribution, tout le monde apporte son chéquier. Nous avons mis
+en place une moulinette qui s'occupe de faire la répartition des chèques automatiquement, chaque membre se retrouve à faire en moyenne un ou deux chèques.&lt;/p&gt;
+&lt;p&gt;Chaque référent·e est ainsi remboursé·e de la somme avancée, et chaque
+membre du groupement d'achat paye ce qu'il doit payer. Nous n'avons
+volontairement pas de structure juridique et pas de compte en banque. Les
+paiements s'effectuent directement entre nous.&lt;/p&gt;
+&lt;h1&gt;Transports&lt;/h1&gt;
+&lt;p&gt;Chaque référent·e commande les produits, puis ensuite s'occupe de les rapatrier. À Rennes, on a la chance d'avoir pas mal de producteurs aux alentours, donc c'est assez simple.&lt;/p&gt;
+&lt;p&gt;Le mieux est de ramener les produits juste un peu avant la distribution au lieu de distribution, ça permet d'éviter de les stocker trop longtemps, et d'éviter aux producteurs d'attendre trop longtemps avant d'encaisser les chèques.&lt;/p&gt;
+&lt;p&gt;Pour les grosses commandes, les voitures se remplissent bien, mais ma petite Clio suffit, que ce soit dit !&lt;/p&gt;
+&lt;h1&gt;La distribution&lt;/h1&gt;
+&lt;p&gt;Un peu en amont de la distribution, il faut organiser l'espace. Des tas par membre sont constitués pour faciliter les choses le jour de la distribution.&lt;/p&gt;
+&lt;p&gt;Le jour même, on se retrouve, on charge ses marchandises, on échange quelques chèques et on papote ! On en profite pour:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;discuter de la date de la prochaine distribution;&lt;/li&gt;
+&lt;li&gt;trouver une nouvelle personne pour la coordonner;&lt;/li&gt;
+&lt;li&gt;discuter de nouveaux produits;&lt;/li&gt;
+&lt;li&gt;refaire le monde;&lt;/li&gt;
+&lt;li&gt;changer de référents pour les producteurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Et c'est reparti pour un tour ;)&lt;/p&gt;
+&lt;h1&gt;Nos outils&lt;/h1&gt;
+&lt;p&gt;On utilise un tableur en ligne pour partager les prix et prendre les commandes. On a essayé d'utiliser &lt;em&gt;ethercalc&lt;/em&gt; au début mais ça ne fonctionnait pas pour nous à l'époque (trop de petits bugs). On a donc préféré utiliser Google docs (ouch).&lt;/p&gt;
+&lt;p&gt;Il est d'ailleurs possible d'y intégrer de nouvelles fonctionnalités assez facilement, du coup Fred et Rémy ont planché sur un moyen d'automatiser la répartition des chèques (qu'on faisait dans un premier temps à la main - assez péniblement).&lt;/p&gt;
+&lt;p&gt;Le système n'est pas parfait mais fonctionne quand même assez bien !&lt;/p&gt;
+&lt;p&gt;Quelques ressources, donc:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/almet/8c77fafc9e487c02ded852ec4a91ae16"&gt;le code pour faire la répartition des chèques&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.google.com/spreadsheets/d/1bnPRSvf2Q2RDxKerWnEqUyJjuCFePnVMq6pWo8LeA_k/edit?usp=sharing"&gt;une version « à remplir » de notre tableau de commandes&lt;/a&gt; (le mieux est d'en faire une copie !).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bon groupement d'achat ;)&lt;/p&gt;</content><category term="life"></category></entry></feed>

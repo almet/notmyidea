@@ -78,32 +78,12 @@ styles, `#sidebar-checkbox` for behavior. -->
 <h1 class="post-title">Retours sur un atelier ZeroNet</h1>
 
 <span class="post-date">
-    17 mars 2016, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+    17 mars 2016, dans <a class="no-color" href="category/crypto.html">crypto</a>
 </span>
-<img id="illustration" class="illustration-Technologie" src="" />
+<img id="illustration" class="illustration-crypto" src="" />
 
 <div class="post article">
     <h2 class="post-headline">Comment contourner la censure grâce à un Web pair-à-pair ?</h2>
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#un-peu-dhistoire">Un peu d'histoire</a></li>
-<li><a href="#un-web-decentralise">Un Web décentralisé</a></li>
-<li><a href="#atelier">Atelier</a><ul>
-<li><a href="#partager-sur-le-reseau-local">Partager sur le réseau local</a></li>
-</ul>
-</li>
-<li><a href="#questions-reponses">Questions / Réponses</a><ul>
-<li><a href="#torrent-tor-breche-de-secu">Torrent + Tor = brèche de sécu ?</a></li>
-<li><a href="#zeromail-cest-lent-non">ZeroMail, c'est lent non ?</a></li>
-<li><a href="#comment-heberger-des-tres-gros-sites">Comment héberger des très gros sites ?</a></li>
-<li><a href="#est-ce-quon-a-vraiment-besoin-dun-tracker">Est-ce qu'on à vraiment besoin d'un tracker ?</a></li>
-</ul>
-</li>
-</ul>
-</div>
-
-      </div>
     <h1>🌟</h1>
     <p>Mardi dernier se tenait <a href="http://biblio.insa-rennes.fr/crypto">une <em>cryptoparty</em></a> dans les locaux de l'INSA de Rennes.</p>
 <p>L'évènement s'étant rempli au delà de toutes les espérances, on m'a proposé de
@@ -112,7 +92,7 @@ petit projet fort sympathique qui pourrait devenir une nouvelle manière de
 distribuer le Web, permettant notamment d'éviter la censure.</p>
 <p>Avant toute autre chose, merci énormément à l'équipe de la bibliothèque de
 l'INSA pour l'organisation de cet évènement qui à une réelle portée politique.</p>
-<h2 id="un-peu-dhistoire">Un peu d'histoire</h2>
+<h2>Un peu d'histoire</h2>
 <p>Il me semble que Tim Bernes Lee (l'inventeur du Web) avait prévu le Web comme un
 protocole décentralisé. Chacun hébergerait ses données et les servirait aux
 autres, qui pourraient alors y accéder.</p>
@@ -121,7 +101,7 @@ n'est pas en ligne. Qu'à cela ne tienne, on s'est mis à avoir des machines qui
 restent connectées au réseau 24 heures par jour. Et puis une machine ne
 suffisant plus, on a eu des fermes de machines dans des <em>data centers</em> etc afin
 de supporter les milliers d'utilisateurs des sites.</p>
-<h2 id="un-web-decentralise">Un Web décentralisé</h2>
+<h2>Un Web décentralisé</h2>
 <p>ZeroNet permet (entre autres) de répondre à ce problème en proposant une manière alternative de <strong>distribuer le Web</strong>, en pair à pair. Lors d'une visite d'un site:</p>
 <ol>
 <li>Vous contactez un <em>tracker</em> BitTorrent pour connaitre la liste des autres
@@ -145,13 +125,13 @@ visiteurs.</p>
 de 10 minutes où je parle en anglais avec une voix très grave.</p>
 <video controls="" src="http://alexis.notmyidea.org/zeronet.webm" width=800></video>
 
-<h2 id="atelier">Atelier</h2>
+<h2>Atelier</h2>
 <p>Pour l'atelier, j'ai choisi de faire une présentation rapide du projet (<a href="{filename}/static/zeronet-presentation-fr.pdf">j'ai
 traduit les slides</a> anglais
 pour l'occasion — <a href="https://docs.google.com/presentation/d/158C_-V1ueNaaKHMBMBgGOVhunb9xrXzB3hC_g1N53c0/edit?usp=sharing">accès aux sources</a>)
 avant d'installer ZeroNet sur les machines et de l'utiliser pour publier un
 site.</p>
-<h3 id="partager-sur-le-reseau-local">Partager sur le réseau local</h3>
+<h3>Partager sur le réseau local</h3>
 <p>Nous avons eu des soucis à cause du réseau (un peu congestionné) sur lequel
 les ports utilisés pour la discussion entre <em>pairs</em> étaient fermés. Il est bien
 sur possible de faire tourner le tout de manière indépendante du reste du réseau,
@@ -173,10 +153,10 @@ $ python zeronet.py --trackers udp://192.168.43.207:6969 --ip_external <span cla
 du réseau local, et non pas l'adresse internet.</p>
 <p>La prochaine fois je tenterais de venir avec un HotSpot Wifi et un tracker
 BitTorrent dans la poche!</p>
-<h2 id="questions-reponses">Questions / Réponses</h2>
+<h2>Questions / Réponses</h2>
 <p>Il y avait quelques questions intéressantes auxquelles je n'ai pas toujours su
 répondre sur le moment. Après quelques recherches, je rajoute des détails ici.</p>
-<h3 id="torrent-tor-breche-de-secu">Torrent + Tor = brèche de sécu ?</h3>
+<h3>Torrent + Tor = brèche de sécu ?</h3>
 <p>Il me semblait avoir entendu parler de problèmes de <em>dé-anonymisation</em>
 <a href="https://hal.inria.fr/file/index/docid/471556/filename/TorBT.pdf">lors de l'utilisation de BitTorrent par dessus Tor</a>.</p>
 <blockquote>
@@ -186,7 +166,7 @@ au tracker et/ou aux autres pairs.
 — https://blog.torproject.org/blog/bittorrent-over-tor-isnt-good-idea</p>
 </blockquote>
 <p><a href="https://github.com/HelloZeroNet/ZeroNet/issues/274">Ce n'est pas le cas de ZeroNet</a>, ce qui évacue le souci.</p>
-<h3 id="zeromail-cest-lent-non">ZeroMail, c'est lent non ?</h3>
+<h3>ZeroMail, c'est lent non ?</h3>
 <p>Une des applications de démo, <em>ZeroMail</em>, propose un mécanisme qui permet de
 s'envoyer des messages chiffrés sur un réseau pair à pair. L'approche choisie
 est de chiffrer les messages avec la clé du destinataire et de le mettre dans
@@ -202,12 +182,12 @@ chaque récipient, mais on connait à ce moment là le nombre de messages qu'un
 utilisateur peut recevoir.</p>
 <p>Je vois plusieurs problèmes avec le design actuel de ZeroMail (il me semble
 assez facile d'y faire un déni de service par exemple). A creuser.</p>
-<h3 id="comment-heberger-des-tres-gros-sites">Comment héberger des très gros sites ?</h3>
+<h3>Comment héberger des très gros sites ?</h3>
 <p>Par exemple, comment faire pour héberger Wikipedia ?</p>
 <p>Il semble que la meilleure manière de faire serait de séparer Wikipedia en
 un tas de petites ressources (par catégorie par ex.). Les gros médias pourraient
 être considérés optionnels (et donc téléchargés uniquement à la demande)</p>
-<h3 id="est-ce-quon-a-vraiment-besoin-dun-tracker">Est-ce qu'on à vraiment besoin d'un tracker ?</h3>
+<h3>Est-ce qu'on à vraiment besoin d'un tracker ?</h3>
 <p>Le support d'une DHT <a href="https://github.com/HelloZeroNet/ZeroNet/issues/57">est souhaité</a>,
 mais pour l'instant pas encore implémenté. L'utilisation de la DHT BitTorrent
 n'est pas une option puisque <a href="https://github.com/HelloZeroNet/ZeroNet/issues/57">Tor ne supporte pas UDP</a>.</p>

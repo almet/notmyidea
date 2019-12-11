@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - crypto</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/crypto.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2016-03-25T00:00:00+01:00</updated><entry><title>Avez vous confiance en SSL?</title><link href="https://blog.notmyidea.org/avez-vous-confiance-en-ssl.html" rel="alternate"></link><published>2016-03-25T00:00:00+01:00</published><updated>2016-03-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-25:/avez-vous-confiance-en-ssl.html</id><summary type="html">&lt;p&gt;Dans le cadre &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;des ateliers d'autodéfense numérique&lt;/a&gt;,
+j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
+contrairement à ce que la plupart des personnes ont encore tendance à croire,
+le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
+&lt;strong&gt;absolument&lt;/strong&gt; pas suffisant.&lt;/p&gt;
+&lt;p&gt;Allez hop …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Dans le cadre &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;des ateliers d'autodéfense numérique&lt;/a&gt;,
+j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
+contrairement à ce que la plupart des personnes ont encore tendance à croire,
+le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
+&lt;strong&gt;absolument&lt;/strong&gt; pas suffisant.&lt;/p&gt;
+&lt;p&gt;Allez hop, c'est parti pour:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;un tour d'horizon du fonctionnement de SSl&lt;/li&gt;
+&lt;li&gt;quelques moyens contourner cette "protection" en faisant une attaque en pratique&lt;/li&gt;
+&lt;li&gt;un tour des solutions existantes actuellement et de pourquoi je ne les trouve
+  pas vraiment satisfaisantes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Comment fonctionne SSL?&lt;/h2&gt;
+&lt;p&gt;Pour expliquer les problèmes de SSL, j'ai d'abord besoin d'expliquer comment
+tout ça fonctionne.&lt;/p&gt;
+&lt;p&gt;SSL repose sur l'utilisation de certificats, qui sont générés par des autorités
+de certification (&lt;em&gt;Certificate Authority&lt;/em&gt; que je nomme &lt;em&gt;CA&lt;/em&gt; dans la suite de
+l'article).&lt;/p&gt;
+&lt;p&gt;Les certificats SSL permettent deux choses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;De garantir que les communications entre les navigateurs (vous) et les sites
+  Web ne sont connues que du détenteur du certificat du site et de vous même.&lt;/li&gt;
+&lt;li&gt;De garantir que le site sur lequel vous vous connectez est bien celui que
+  vous imaginez.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le navigateur, lors d'une visite d'un site, va télécharger le certificat
+associé puis vérifier que le certificat en question a bien été généré par un
+des &lt;em&gt;CA&lt;/em&gt; en qui il a confiance.&lt;/p&gt;
+&lt;p&gt;Imaginons maintenant qu'une des &lt;em&gt;CA&lt;/em&gt; essaye de savoir ce qui s'échange entre
+mon navigateur et le site de ma banque (protégé par SSL). Comment cela se
+passerait il ?&lt;/p&gt;
+&lt;p&gt;N'importe quel &lt;em&gt;CA&lt;/em&gt; peut donc générer des certificats pour n'importe quel site,
+et le navigateur vérifierait, lui, que le certificat a bien été généré par une
+&lt;em&gt;CA&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Tout cela ne poserait pas de soucis si les &lt;em&gt;CA&lt;/em&gt; étaient gérés de manière fiable,
+mais il s'agit d'un travail compliqué, et certains &lt;em&gt;CA&lt;/em&gt; ont par le passé montré
+des faiblesses.&lt;/p&gt;
+&lt;p&gt;Par exemple, &lt;a href="https://en.wikipedia.org/wiki/DigiNotar"&gt;DigiNotar&lt;/a&gt; (un &lt;em&gt;CA&lt;/em&gt; des Pays-Bas)
+a été compromise et les attaquant.e.s ont pu générer des certificats SSL
+frauduleux, ce qui leur a permis d'attaquer des sites tels que Facebook ou GMail.&lt;/p&gt;
+&lt;p&gt;Vous pouvez retrouver une liste des risques et menaces autour des &lt;em&gt;CA&lt;/em&gt; &lt;a href="http://wiki.cacert.org/Risk/History"&gt;sur le
+wiki de CACert&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Attaque de l'homme du milieu avec SSL&lt;/h2&gt;
+&lt;p&gt;A force de dire que c'était très facile à faire, j'ai eu envie d'essayer
+d'espionner des connections protégées par SSL, et effectivement c'est
+carrément flippant tellement c'est simple.&lt;/p&gt;
+&lt;p&gt;En l'espace de quelques minutes, il est possible de faire une &lt;em&gt;attaque de
+l'homme du milieu&lt;/em&gt; en utilisant par exemple un outil nommé &lt;a href="http://docs.mitmproxy.org/en/stable"&gt;mitm-proxy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour déchiffrer l'ensemble du trafic SSL, j'ai simplement eu à lancer quelques
+commandes et avoir un &lt;em&gt;CA&lt;/em&gt; dans lequel le navigateur de la victime a confiance.
+Je l'ai ajouté dans le navigateur cible pour simuler que je l'avais déjà
+(c'est le cas si un des 1200 CA se fait pirater, ce qui me semble une surface
+d'attaque assez large).&lt;/p&gt;
+&lt;p&gt;Je les colle ici si ça vous intéresse:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo aptitude install mitmproxy
+$ mitm-proxy -T --host
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Il faut faire croire à votre victime que vous êtes la passerelle vers
+l'extérieur et à la passerelle que vous êtes la victime:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;arpspoof -i wlan0 -t victime gateway
+arpspoof -i wlan0 -t gateway victime
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Puis dire à notre fausse passerelle de rediriger le trafic des ports 80 et 443
+vers notre proxy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo sysctl -w net.ipv4.ip_forward&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport &lt;span class="m"&gt;443&lt;/span&gt; -j REDIRECT --to-port &lt;span class="m"&gt;4443&lt;/span&gt;
+sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport &lt;span class="m"&gt;80&lt;/span&gt; -j REDIRECT --to-port &lt;span class="m"&gt;4443&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Et paf, &lt;strong&gt;on voit tout ce qui passe entre la machine et le serveur SSL&lt;/strong&gt;. On peut
+d'ailleurs même imaginer faire tourner ces quelques commandes sur un
+raspberry pi, pour aller encore plus vite…&lt;/p&gt;
+&lt;h3&gt;Key-pinning dans les navigateurs&lt;/h3&gt;
+&lt;p&gt;Actuellement, n'importe quel &lt;em&gt;CA&lt;/em&gt; peut générer des certificats pour
+n'importe quel site, et c'est en grande partie ce qui pose souci. Une des
+manières de faire évoluer la situation est d'épingler les certificats de
+certains sites directement dans les navigateurs.&lt;/p&gt;
+&lt;p&gt;Cette approche a le mérite de fonctionner très bien &lt;a href="https://dxr.mozilla.org/mozilla-central/source/security/manager/ssl/StaticHPKPins.h?from=StaticHPKPins.h"&gt;pour un petit nombre de
+sites critiques (Google, Facebook, etc)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;HTTP Public Key Pinning (HPKP)&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"&gt;&lt;em&gt;HTTP Public Key Pinning&lt;/em&gt;&lt;/a&gt;
+est également une solution de &lt;em&gt;pinning&lt;/em&gt; qui permet d'établir une confiance lors
+de la première connexion avec le site. C'est ce qu'on appelle du &lt;em&gt;Trust on First
+Use&lt;/em&gt; ou &lt;em&gt;TOFU&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Le navigateur va alors mettre ces informations dans un cache et vérifiera que
+les certificats correspondent bien lors des prochaines visites.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;HPKP&lt;/em&gt; est disponible dans Firefox depuis Janvier 2015 et dans Chrome
+depuis Octobre 2015.&lt;/p&gt;
+&lt;h3&gt;Certificate transparency: des journaux auditables&lt;/h3&gt;
+&lt;p&gt;Une autre approche est celle proposée par &lt;em&gt;certificate transparency&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Certificate Transparency aims to remedy these certificate-based threats by
+making the issuance and existence of SSL certificates open to scrutiny by
+domain owners, CAs, and domain users.&lt;/p&gt;
+&lt;p&gt;-- &lt;a href="https://www.certificate-transparency.org/what-is-ct"&gt;Certificate Transparency&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Autrement dit, avec ce système les &lt;em&gt;CA&lt;/em&gt; doivent rendre public le fait qu'ils
+aient signé de nouveaux certificats intermédiaires. La signature est ajoutée à
+un journal sur lequel il n'est possible que d'écrire.&lt;/p&gt;
+&lt;p&gt;Les navigateurs vont alors vérifier que les certificats utilisés sont bien des
+certificats qui ont été ajoutés au journal.&lt;/p&gt;
+&lt;p&gt;Ici, toute l'intelligence est dans la vérification de ces journaux, qui
+permettent donc de valider/invalider des certificats racines ou intermédiaires.&lt;/p&gt;
+&lt;p&gt;Il me semble donc qu'il serait possible d'ajouter un certificat frauduleux le
+temps d'une attaque (et celui ci serait détecté et supprimé ensuite).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Certificate-Transparency&lt;/em&gt; n'est donc pas une solution contre une écoute
+globale mise en place par les gouvernements par exemple.&lt;/p&gt;
+&lt;p&gt;Si vous lisez bien l'anglais, je vous invite à aller lire
+&lt;a href="http://security.stackexchange.com/a/52838"&gt;cette description du problème et de la solution&lt;/a&gt;
+que je trouve très bien écrite.&lt;/p&gt;
+&lt;h3&gt;DANE + DNSSEC&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The DANE working group has developed a framework for securely
+retrieving keying information from the DNS [RFC6698]. This
+framework allows secure storing and looking up server public key
+information in the DNS. This provides a binding between a domain
+name providing a particular service and the key that can be used
+to establish encrypted connection to that service.&lt;/p&gt;
+&lt;p&gt;-- &lt;a href="https://datatracker.ietf.org/wg/dane/charter/"&gt;Dane WG&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Une autre solution est appelée "DANE" et repose par dessus le protocole
+&lt;em&gt;DNSSEC&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Je connais assez mal &lt;em&gt;DNSSEC&lt;/em&gt; donc j'ai passé un peu de temps à lire des
+documents. L'impression finale que ça me laisse est que le problème est
+exactement le même que pour SSL: un certain nombre de personnes détiennent les
+clés et toute la sécurité repose sur cette confiance. Or il est possible que
+ces clés soient détenues par des personnes non dignes de confiance.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Secure DNS (DNSSEC) uses cryptographic digital signatures signed with a
+trusted public key certificate to determine the authenticity of data.
+-- https://en.wikipedia.org/wiki/DNS_spoofing&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Et aussi:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is widely believed[1] that securing the DNS is critically important for
+securing the Internet as a whole, but deployment of DNSSEC specifically has
+been hampered (As of 22 January 2010) by several difficulties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The need to design a backward-compatible standard that can scale to the
+  size of the Internet&lt;/li&gt;
+&lt;li&gt;Prevention of "zone enumeration" (see below) where desired&lt;/li&gt;
+&lt;li&gt;Deployment of DNSSEC implementations across a wide variety of DNS servers
+  and resolvers (clients)&lt;/li&gt;
+&lt;li&gt;Disagreement among implementers over who should own the top-level domain
+  root keys Overcoming the perceived complexity of DNSSEC and DNSSEC
+  deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Solutions basées sur la blockchain&lt;/h2&gt;
+&lt;p&gt;Une dernière piste semble être l'utilisation de la &lt;em&gt;blockchain&lt;/em&gt; pour distribuer
+des clés par site.&lt;/p&gt;
+&lt;p&gt;La solution &lt;em&gt;DNSChain&lt;/em&gt; me paraissait tout d'abord un bon point de départ mais
+la lecture de &lt;a href="https://www.indolering.com/okturtles-dnschain-unblock-us"&gt;quelques critiques&lt;/a&gt;
+et interventions du développeur du projet m'ont fait changer d'avis.&lt;/p&gt;
+&lt;p&gt;Reste encore la piste de &lt;em&gt;Namecoin Control&lt;/em&gt; que je n'ai pas encore creusée.
+Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
+bienvenue sur ces sujets!&lt;/p&gt;</content><category term="crypto"></category></entry><entry><title>Retours sur un atelier ZeroNet</title><link href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-17:/retours-sur-un-atelier-zeronet.html</id><summary type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l'INSA de Rennes.&lt;/p&gt;
+&lt;p&gt;L'évènement s'étant rempli au delà de toutes les espérances, on m'a proposé de
+venir y tenir un atelier, que j'ai proposé sur &lt;a href="https://zeronet.io"&gt;ZeroNet&lt;/a&gt;, un
+petit projet fort sympathique qui pourrait devenir une nouvelle manière de
+distribuer le …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l'INSA de Rennes.&lt;/p&gt;
+&lt;p&gt;L'évènement s'étant rempli au delà de toutes les espérances, on m'a proposé de
+venir y tenir un atelier, que j'ai proposé sur &lt;a href="https://zeronet.io"&gt;ZeroNet&lt;/a&gt;, un
+petit projet fort sympathique qui pourrait devenir une nouvelle manière de
+distribuer le Web, permettant notamment d'éviter la censure.&lt;/p&gt;
+&lt;p&gt;Avant toute autre chose, merci énormément à l'équipe de la bibliothèque de
+l'INSA pour l'organisation de cet évènement qui à une réelle portée politique.&lt;/p&gt;
+&lt;h2&gt;Un peu d'histoire&lt;/h2&gt;
+&lt;p&gt;Il me semble que Tim Bernes Lee (l'inventeur du Web) avait prévu le Web comme un
+protocole décentralisé. Chacun hébergerait ses données et les servirait aux
+autres, qui pourraient alors y accéder.&lt;/p&gt;
+&lt;p&gt;Avec ce fonctionnement, impossible alors d'accéder à des sites si leur auteur
+n'est pas en ligne. Qu'à cela ne tienne, on s'est mis à avoir des machines qui
+restent connectées au réseau 24 heures par jour. Et puis une machine ne
+suffisant plus, on a eu des fermes de machines dans des &lt;em&gt;data centers&lt;/em&gt; etc afin
+de supporter les milliers d'utilisateurs des sites.&lt;/p&gt;
+&lt;h2&gt;Un Web décentralisé&lt;/h2&gt;
+&lt;p&gt;ZeroNet permet (entre autres) de répondre à ce problème en proposant une manière alternative de &lt;strong&gt;distribuer le Web&lt;/strong&gt;, en pair à pair. Lors d'une visite d'un site:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Vous contactez un &lt;em&gt;tracker&lt;/em&gt; BitTorrent pour connaitre la liste des autres
+   visiteurs du site (les &lt;em&gt;pairs&lt;/em&gt;).&lt;/li&gt;
+&lt;li&gt;Vous demandez aux &lt;em&gt;pairs&lt;/em&gt; de vous donner les fichiers du site.&lt;/li&gt;
+&lt;li&gt;Vous validez que les fichiers servis sont bien les bons (en vérifiant la
+   signature attachée).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;N'importe quel visiteur devient alors un &lt;em&gt;pair&lt;/em&gt;, qui sert le site aux autres
+visiteurs.&lt;/p&gt;
+&lt;p&gt;Parmi les nombreux avantages de cette approche, je note particulièrement que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Il est très difficile de censurer un site — Il est sur l'ensemble des machines
+  des visiteurs.&lt;/li&gt;
+&lt;li&gt;Les attaques par &lt;em&gt;fingerprinting&lt;/em&gt; sont impossibles: le navigateur Web se
+  connecte à un serveur &lt;em&gt;proxy&lt;/em&gt; local.&lt;/li&gt;
+&lt;li&gt;Vous détenez directement vos données et (par design) ne les donnez pas à des
+  silos (Facebook, Google, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Si vous êtes interessés par une démonstration rapide, j'ai enregistré une vidéo
+de 10 minutes où je parle en anglais avec une voix très grave.&lt;/p&gt;
+&lt;video controls="" src="http://alexis.notmyidea.org/zeronet.webm" width=800&gt;&lt;/video&gt;
+
+&lt;h2&gt;Atelier&lt;/h2&gt;
+&lt;p&gt;Pour l'atelier, j'ai choisi de faire une présentation rapide du projet (&lt;a href="{filename}/static/zeronet-presentation-fr.pdf"&gt;j'ai
+traduit les slides&lt;/a&gt; anglais
+pour l'occasion — &lt;a href="https://docs.google.com/presentation/d/158C_-V1ueNaaKHMBMBgGOVhunb9xrXzB3hC_g1N53c0/edit?usp=sharing"&gt;accès aux sources&lt;/a&gt;)
+avant d'installer ZeroNet sur les machines et de l'utiliser pour publier un
+site.&lt;/p&gt;
+&lt;h3&gt;Partager sur le réseau local&lt;/h3&gt;
+&lt;p&gt;Nous avons eu des soucis à cause du réseau (un peu congestionné) sur lequel
+les ports utilisés pour la discussion entre &lt;em&gt;pairs&lt;/em&gt; étaient fermés. Il est bien
+sur possible de faire tourner le tout de manière indépendante du reste du réseau,
+mais je n'avais pas prévu le coup.&lt;/p&gt;
+&lt;p&gt;Voici donc comment faire pour contourner le souci:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Installer et lancer un &lt;em&gt;tracker&lt;/em&gt; BitTorrent (De manière surprenante,
+   &lt;a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=685575"&gt;rien n'est packagé pour debian pour l'instant&lt;/a&gt;)
+   J'ai choisi d'installer &lt;a href="http://erdgeist.org/arts/software/opentracker/#build-instructions"&gt;OpenTracker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ensuite lancer ZeroNet avec des options spécifiques.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python zeronet.py --trackers udp://localhost:6969 --ip_external &lt;span class="m"&gt;192&lt;/span&gt;.168.43.207
+$ python zeronet.py --trackers udp://192.168.43.207:6969 --ip_external &lt;span class="m"&gt;192&lt;/span&gt;.168.43.172
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Il est nécessaire de spécifier l'adresse IP externe que chaque nœud expose pour
+éviter qu'elle n'essaye d'aller la trouver par elle même: nous voulons l'adresse
+du réseau local, et non pas l'adresse internet.&lt;/p&gt;
+&lt;p&gt;La prochaine fois je tenterais de venir avec un HotSpot Wifi et un tracker
+BitTorrent dans la poche!&lt;/p&gt;
+&lt;h2&gt;Questions / Réponses&lt;/h2&gt;
+&lt;p&gt;Il y avait quelques questions intéressantes auxquelles je n'ai pas toujours su
+répondre sur le moment. Après quelques recherches, je rajoute des détails ici.&lt;/p&gt;
+&lt;h3&gt;Torrent + Tor = brèche de sécu ?&lt;/h3&gt;
+&lt;p&gt;Il me semblait avoir entendu parler de problèmes de &lt;em&gt;dé-anonymisation&lt;/em&gt;
+&lt;a href="https://hal.inria.fr/file/index/docid/471556/filename/TorBT.pdf"&gt;lors de l'utilisation de BitTorrent par dessus Tor&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dans certains cas, certains clients torrents (uTorrent, BitSpirit, etc)
+écrivent directement votre adresse IP dans l'information qui est envoyée
+au tracker et/ou aux autres pairs.
+— https://blog.torproject.org/blog/bittorrent-over-tor-isnt-good-idea&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/274"&gt;Ce n'est pas le cas de ZeroNet&lt;/a&gt;, ce qui évacue le souci.&lt;/p&gt;
+&lt;h3&gt;ZeroMail, c'est lent non ?&lt;/h3&gt;
+&lt;p&gt;Une des applications de démo, &lt;em&gt;ZeroMail&lt;/em&gt;, propose un mécanisme qui permet de
+s'envoyer des messages chiffrés sur un réseau pair à pair. L'approche choisie
+est de chiffrer les messages avec la clé du destinataire et de le mettre dans
+un &lt;em&gt;pot commun&lt;/em&gt;. Tout le monde essaye de déchiffrer tous les messages, mais ne
+peut déchiffrer que les siens.&lt;/p&gt;
+&lt;p&gt;Cela permet de ne &lt;strong&gt;pas&lt;/strong&gt; fuiter de méta-données, &lt;a href="{filename}../crypto/2015.05.pgp-problemes.rst"&gt;à l'inverse de PGP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Je n'ai en fait pas de réponse claire à donner à cette question: l'auteur de
+ZeroNet me disait que 10MB (la limite de taille d'un site, par défaut)
+correspondait à beaucoup de place pour stocker des messages, et qu'il était
+possible de supprimer les anciens messages une fois qu'ils sont lus par exemple.&lt;/p&gt;
+&lt;p&gt;Une autre solution à laquelle je pensait était de créer un &lt;em&gt;ZeroSite&lt;/em&gt; pour
+chaque récipient, mais on connait à ce moment là le nombre de messages qu'un
+utilisateur peut recevoir.&lt;/p&gt;
+&lt;p&gt;Je vois plusieurs problèmes avec le design actuel de ZeroMail (il me semble
+assez facile d'y faire un déni de service par exemple). A creuser.&lt;/p&gt;
+&lt;h3&gt;Comment héberger des très gros sites ?&lt;/h3&gt;
+&lt;p&gt;Par exemple, comment faire pour héberger Wikipedia ?&lt;/p&gt;
+&lt;p&gt;Il semble que la meilleure manière de faire serait de séparer Wikipedia en
+un tas de petites ressources (par catégorie par ex.). Les gros médias pourraient
+être considérés optionnels (et donc téléchargés uniquement à la demande)&lt;/p&gt;
+&lt;h3&gt;Est-ce qu'on à vraiment besoin d'un tracker ?&lt;/h3&gt;
+&lt;p&gt;Le support d'une DHT &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;est souhaité&lt;/a&gt;,
+mais pour l'instant pas encore implémenté. L'utilisation de la DHT BitTorrent
+n'est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas UDP&lt;/a&gt;.&lt;/p&gt;</content><category term="crypto"></category></entry></feed>

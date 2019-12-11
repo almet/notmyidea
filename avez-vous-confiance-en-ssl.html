@@ -85,28 +85,12 @@ styles, `#sidebar-checkbox` for behavior. -->
 <h1 class="post-title">Avez vous confiance en SSL?</h1>
 
 <span class="post-date">
-    25 mars 2016, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+    25 mars 2016, dans <a class="no-color" href="category/crypto.html">crypto</a>
 </span>
-<img id="illustration" class="illustration-Technologie" src="images/illusion.jpg" />
+<img id="illustration" class="illustration-crypto" src="images/illusion.jpg" />
 
 <div class="post article">
     <h2 class="post-headline">Tour d'horizon du fonctionnement de SSL et des solutions pour le sécuriser.</h2>
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#comment-fonctionne-ssl">Comment fonctionne SSL?</a></li>
-<li><a href="#attaque-de-lhomme-du-milieu-avec-ssl">Attaque de l'homme du milieu avec SSL</a><ul>
-<li><a href="#key-pinning-dans-les-navigateurs">Key-pinning dans les navigateurs</a></li>
-<li><a href="#http-public-key-pinning-hpkp">HTTP Public Key Pinning (HPKP)</a></li>
-<li><a href="#certificate-transparency-des-journaux-auditables">Certificate transparency: des journaux auditables</a></li>
-<li><a href="#dane-dnssec">DANE + DNSSEC</a></li>
-</ul>
-</li>
-<li><a href="#solutions-basees-sur-la-blockchain">Solutions basées sur la blockchain</a></li>
-</ul>
-</div>
-
-      </div>
     <h1>🌟</h1>
     <p>Dans le cadre <a href="http://autodefense-numerique.readthedocs.org/en/latest/">des ateliers d'autodéfense numérique</a>,
 j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
@@ -120,7 +104,7 @@ le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
 <li>un tour des solutions existantes actuellement et de pourquoi je ne les trouve
   pas vraiment satisfaisantes.</li>
 </ul>
-<h2 id="comment-fonctionne-ssl">Comment fonctionne SSL?</h2>
+<h2>Comment fonctionne SSL?</h2>
 <p>Pour expliquer les problèmes de SSL, j'ai d'abord besoin d'expliquer comment
 tout ça fonctionne.</p>
 <p>SSL repose sur l'utilisation de certificats, qui sont générés par des autorités
@@ -150,7 +134,7 @@ a été compromise et les attaquant.e.s ont pu générer des certificats SSL
 frauduleux, ce qui leur a permis d'attaquer des sites tels que Facebook ou GMail.</p>
 <p>Vous pouvez retrouver une liste des risques et menaces autour des <em>CA</em> <a href="http://wiki.cacert.org/Risk/History">sur le
 wiki de CACert</a>.</p>
-<h2 id="attaque-de-lhomme-du-milieu-avec-ssl">Attaque de l'homme du milieu avec SSL</h2>
+<h2>Attaque de l'homme du milieu avec SSL</h2>
 <p>A force de dire que c'était très facile à faire, j'ai eu envie d'essayer
 d'espionner des connections protégées par SSL, et effectivement c'est
 carrément flippant tellement c'est simple.</p>
@@ -185,14 +169,14 @@ sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">80</s
 <p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur SSL</strong>. On peut
 d'ailleurs même imaginer faire tourner ces quelques commandes sur un
 raspberry pi, pour aller encore plus vite…</p>
-<h3 id="key-pinning-dans-les-navigateurs">Key-pinning dans les navigateurs</h3>
+<h3>Key-pinning dans les navigateurs</h3>
 <p>Actuellement, n'importe quel <em>CA</em> peut générer des certificats pour
 n'importe quel site, et c'est en grande partie ce qui pose souci. Une des
 manières de faire évoluer la situation est d'épingler les certificats de
 certains sites directement dans les navigateurs.</p>
 <p>Cette approche a le mérite de fonctionner très bien <a href="https://dxr.mozilla.org/mozilla-central/source/security/manager/ssl/StaticHPKPins.h?from=StaticHPKPins.h">pour un petit nombre de
 sites critiques (Google, Facebook, etc)</a>.</p>
-<h3 id="http-public-key-pinning-hpkp">HTTP Public Key Pinning (HPKP)</h3>
+<h3>HTTP Public Key Pinning (HPKP)</h3>
 <p><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"><em>HTTP Public Key Pinning</em></a>
 est également une solution de <em>pinning</em> qui permet d'établir une confiance lors
 de la première connexion avec le site. C'est ce qu'on appelle du <em>Trust on First
@@ -201,7 +185,7 @@ Use</em> ou <em>TOFU</em>.</p>
 les certificats correspondent bien lors des prochaines visites.</p>
 <p><em>HPKP</em> est disponible dans Firefox depuis Janvier 2015 et dans Chrome
 depuis Octobre 2015.</p>
-<h3 id="certificate-transparency-des-journaux-auditables">Certificate transparency: des journaux auditables</h3>
+<h3>Certificate transparency: des journaux auditables</h3>
 <p>Une autre approche est celle proposée par <em>certificate transparency</em>:</p>
 <blockquote>
 <p>Certificate Transparency aims to remedy these certificate-based threats by
@@ -223,7 +207,7 @@ globale mise en place par les gouvernements par exemple.</p>
 <p>Si vous lisez bien l'anglais, je vous invite à aller lire
 <a href="http://security.stackexchange.com/a/52838">cette description du problème et de la solution</a>
 que je trouve très bien écrite.</p>
-<h3 id="dane-dnssec">DANE + DNSSEC</h3>
+<h3>DANE + DNSSEC</h3>
 <blockquote>
 <p>The DANE working group has developed a framework for securely
 retrieving keying information from the DNS [RFC6698]. This
@@ -261,7 +245,7 @@ been hampered (As of 22 January 2010) by several difficulties:</p>
   deployment</li>
 </ul>
 </blockquote>
-<h2 id="solutions-basees-sur-la-blockchain">Solutions basées sur la blockchain</h2>
+<h2>Solutions basées sur la blockchain</h2>
 <p>Une dernière piste semble être l'utilisation de la <em>blockchain</em> pour distribuer
 des clés par site.</p>
 <p>La solution <em>DNSChain</em> me paraissait tout d'abord un bon point de départ mais
