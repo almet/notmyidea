@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>An amazing summer of code working on distutils2 - Carnets en ligne</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">An amazing summer of code working on distutils2</h1>
+
+<span class="post-date">
+    16 août 2010, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+</span>
+<img id="illustration" class="illustration-Technologie" src="" />
+
+<div class="post article">
+    <div id="toc_container">
+      <div class="toc">
+<ul>
+<li><a href="#an-amazing-summer-of-code-working-on-distutils2">An amazing summer of code working on distutils2</a><ul>
+<li><a href="#why">Why ?</a></li>
+<li><a href="#my-job">My job</a><ul>
+<li><a href="#crawling-the-pypi-indexes">Crawling the PyPI indexes</a></li>
+<li><a href="#installation-uninstallation-scripts">Installation / Uninstallation scripts</a></li>
+<li><a href="#extra-work">Extra work</a></li>
+</ul>
+</li>
+<li><a href="#futures-plans">Futures plans</a></li>
+<li><a href="#issues">Issues</a></li>
+<li><a href="#thanks-33">Thanks !</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+      </div>
+    <h1>🌟</h1>
+    
+<p>The <a href="http://code.google.com/soc/">Google Summer of Code</a> I've spent
+working on <a href="http://hg.python.org/distutils2/">distutils2</a> is over. It
+was a really amazing experience, for many reasons.</p>
+<p>First of all, we had a very good team, we were 5 students working on
+distutils2: <a href="http://zubin71.wordpress.com">Zubin</a>,
+<a href="http://wokslog.wordpress.com/">Éric</a>,
+<a href="http://gsoc.djolonga.com/">Josip</a>,
+<a href="http://konryd.blogspot.com/">Konrad</a> and me. In addition,
+<a href="http://mouadino.blogspot.com/">Mouad</a> have worked on the PyPI testing
+infrastructure. You could find what each person have done on <a href="http://bitbucket.org/tarek/distutils2/wiki/GSoC_2010_teams">the wiki
+page of
+distutils2</a>.</p>
+<p>We were in contact with each others really often, helping us when
+possible (in #distutils), and were continuously aware of the state of
+the work of each participant. This, in my opinion, have bring us in a
+good shape.</p>
+<p>Then, I've learned a lot. Python packaging was completely new to me at
+the time of the GSoC start, and I was pretty unfamiliar with python good
+practices too, as I've been introducing myself to python in the late
+2009.</p>
+<p>I've recently looked at some python code I wrote just three months ago,
+and I was amazed to think about many improvements to made on it. I guess
+this is a good indicator of the path I've traveled since I wrote it.</p>
+<p>This summer was awesome because I've learned about python good
+practices, now having some strong
+<a href="http://mercurial.selenic.com/">mercurial</a> knowledge, and I've seen a
+little how the python community works.</p>
+<p>Then, I would like to say a big thanks to all the mentors that have
+hanged around while needed, on IRC or via mail, and especially my mentor
+for this summer, <a href="http://tarek.ziade.org">Tarek Ziadé</a>.</p>
+<p>Thanks a lot for your motivation, your leadership and your cheerfulness,
+even with a new-born and a new work!</p>
+<h2 id="why">Why ?</h2>
+<p>I wanted to work on python packaging because, as the time pass, we were
+having a sort of complex tools in this field. Each one wanted to add
+features to distutils, but not in a standard way.</p>
+<p>Now, we have PEPs that describes some format we agreed on (see PEP 345),
+and we wanted to have a tool on which users can base their code on,
+that's <a href="http://hg.python.org/distutils2/">distutils2</a>.</p>
+<h2 id="my-job">My job</h2>
+<p>I had to provide a way to crawl the PyPI indexes in a simple way, and do
+some installation / uninstallation scripts.</p>
+<p>All the work done is available in <a href="http://bitbucket.org/ametaireau/distutils2/">my bitbucket
+repository</a>.</p>
+<h3 id="crawling-the-pypi-indexes">Crawling the PyPI indexes</h3>
+<p>There are two ways of requesting informations from the indexes: using
+the "simple" index, that is a kind of REST index, and using XML-RPC.</p>
+<p>I've done the two implementations, and a high level API to query those
+twos. Basically, this supports the mirroring infrastructure defined in
+PEP 381. So far, the work I've done is gonna be used in pip (they've
+basically copy/paste the code, but this will change as soon as we get
+something completely stable for distutils2), and that's a good news, as
+it was the main reason for what I've done that.</p>
+<p>I've tried to have an unified API for the clients, to switch from one to
+another implementation easily. I'm already thinking of adding others
+crawlers to this stuff, and it was made to be extensible.</p>
+<p>If you want to get more informations about the crawlers/PyPI clients,
+please refer to the distutils2 documentation, especially <a href="http://distutils2.notmyidea.org/library/distutils2.index.html">the pages
+about
+indexes</a>.</p>
+<p>You can find the changes I made about this in the
+<a href="http://hg.python.org/distutils2/">distutils2</a> source code .</p>
+<h3 id="installation-uninstallation-scripts">Installation / Uninstallation scripts</h3>
+<p>Next step was to think about an installation script, and an uninstaller.
+I've not done the uninstaller part, and it's a smart part, as it's
+basically removing some files from the system, so I'll probably do it in
+a near future.</p>
+<p><a href="http://hg.python.org/distutils2/">distutils2</a> provides a way to install
+distributions, and to handle dependencies between releases. For now,
+this support is only about the last version of the METADATA (1.2) (See,
+the PEP 345), but I'm working on a compatibility layer for the old
+metadata, and for the informations provided via PIP requires.txt, for
+instance.</p>
+<h3 id="extra-work">Extra work</h3>
+<p>Also, I've done some extra work. this includes:</p>
+<ul>
+<li>working on the PEP 345, and having some discussion about it (about
+    the names of some fields).</li>
+<li>writing a PyPI server mock, useful for tests. you can find more
+    information about it on the
+    <a href="http://distutils.notmyidea.org">documentation</a>.</li>
+</ul>
+<h2 id="futures-plans">Futures plans</h2>
+<p>As I said, I've enjoyed working on distutils2, and the people I've met
+here are really pleasant to work with. So I <em>want</em> to continue
+contributing on python, and especially on python packaging, because
+there is still a lot of things to do in this scope, to get something
+really usable.</p>
+<p>I'm not plainly satisfied by the work I've done, so I'll probably tweak
+it a bit: the installer part is not yet completely finished, and I want
+to add support for a real
+<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>
+index in the future.</p>
+<p>We'll talk again of this in the next months, probably, but we definitely
+need a real
+<a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a> API
+for <a href="http://pypi.python.org">PyPI</a>, as the "simple" index <em>is</em> an ugly
+hack, in my opinion. I'll work on a serious proposition about this,
+maybe involving <a href="http://couchdb.org">CouchDB</a>, as it seems to be a good
+option for what we want here.</p>
+<h2 id="issues">Issues</h2>
+<p>I've encountered some issues during this summer. The main one is that's
+hard to work remotely, especially being in the same room that we live,
+with others. I like to just think about a project with other people, a
+paper and a pencil, no computers. This have been not so possible at the
+start of the project, as I needed to read a lot of code to understand
+the codebase, and then to read/write emails.</p>
+<p>I've finally managed to work in an office, so good point for home/office
+separation.</p>
+<p>I'd not planned there will be so a high number of emails to read, in
+order to follow what's up in the python world, and be a part of the
+community seems to takes some times to read/write emails, especially for
+those (like me) that arent so confortable with english (but this had
+brought me some english fu !).</p>
+<h2 id="thanks-33">Thanks !</h2>
+<p>A big thanks to <a href="http://www.graine-libre.fr/">Graine Libre</a> and <a href="http://www.makina-corpus.com/">Makina
+Corpus</a>, which has offered me to come
+into their offices from time to time, to share they cheerfulness ! Many
+thanks too to the Google Summer of Code program for setting up such an
+initiative. If you're a student, if you're interested about FOSS, dont
+hesitate any second, it's a really good opportunity to work on
+interesting projects!</p>
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+     </div>
+  </body>
+</html>

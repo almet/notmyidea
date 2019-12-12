@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Retours sur deux ans à Mozilla - Carnets en ligne</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Retours sur deux ans à Mozilla</h1>
+
+<span class="post-date">
+    29 juillet 2014, dans <a class="no-color" href="category/reflexions.html">Réfléxions</a>
+</span>
+<img id="illustration" class="illustration-Réfléxions" src="" />
+
+<div class="post article">
+    <div id="toc_container">
+      <div class="toc">
+<ul>
+<li><a href="#retours-sur-deux-ans-a-mozilla">Retours sur deux ans à Mozilla</a><ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#marketplace-chouette-on-va-casser-du-serveur">Marketplace ("chouette, on va casser du serveur")</a></li>
+<li><a href="#la-communaute">La Communauté</a></li>
+<li><a href="#talkilla-loop">Talkilla / Loop</a><ul>
+<li><a href="#le-travail-a-distance">Le travail à distance</a></li>
+<li><a href="#enseignements">Enseignements</a></li>
+</ul>
+</li>
+<li><a href="#malheureusement-le-code-nest-pas-propre">Malheureusement, le code n'est pas propre</a></li>
+<li><a href="#apprendre-est-un-processus-actif">Apprendre est un processus actif</a></li>
+<li><a href="#assez-bien-est-suffisant">"Assez bien" est suffisant</a></li>
+<li><a href="#ecrire-des-boites-a-outils-et-non-pas-des-frameworks">Écrire des boites à outils et non pas des frameworks</a></li>
+<li><a href="#etre-le-moteur-de-son-propre-changement">Être le moteur de son propre changement</a></li>
+<li><a href="#ne-pas-chercher-a-avoir-raison">Ne pas chercher à avoir raison</a></li>
+<li><a href="#arreter-le-negativisme">Arrêter le négativisme</a><ul>
+<li><a href="#la-suite">La suite ?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+      </div>
+    <h1>🌟</h1>
+    
+<p><em>Ça fait un bail que j'ai cet article en cours de rédaction, et je me dis que je dois le poster maintenant, sinon je ne le ferais jamais (saloperie de perfectionnisme ?)</em></p>
+<p>Il y à deux ans et demi, en décembre, je commençais à travailler chez
+Mozilla, dans l'équipe "Cloud Services".</p>
+<p>Depuis, énormément de choses ont évoluées, tant en ce qui concerne les
+objectifs de Mozilla (avec l'arrivée de FirefoxOS) que le travail que
+j'effectue au jour le jour. Pour autant, mes objectifs personnels
+restent intacts.</p>
+<p>Deux ans ça parait énorme, c'est le temps le plus long que j'ai passé à
+travailler sur un projet, avec quasiment les mêmes personnes. Si vous
+suivez un peu ces carnets, vous savez surement que j'ai beaucoup
+travaillé avec <a href="ziade.org">Tarek</a> par exemple.</p>
+<p>Ça a été (et c'est toujours) un réel plaisir de bosser avec la personne
+dont j'avais lu les livres pour apprendre le python, merci !</p>
+<h2 id="services">Services</h2>
+<p>Le principal de mon travail a été de construire des outils. Je suis le
+mainteneur de <a href="https://github.com/mozilla-services/cornice">Cornice</a>, un
+utilitaire qui vient se greffer par dessus <a href="http://docs.pylonsproject.org/projects/pyramid/en/latest/">le framework python
+pyramid</a> pour
+vous simplifier la vie et créer des services web; J'ai travaillé un peu
+sur un outil de gestion des processus nommé
+<a href="https://github.com/mozilla-services/circus">Circus</a>, et également sur
+un outil de montée en charge dénommé
+<a href="https://github.com/mozilla-services/loads">Loads</a></p>
+<p>Au tout début, j'ai travaillé sur un concept de <a href="https://github.com/mozilla-services/tokenserver">serveur de
+tokens</a>. L'idée était
+de désolidariser l'authentification des services web des services eux
+mêmes.</p>
+<p>L'idée est (je pense) bonne mais le service n'a pas été utilisé durant
+plus de deux ans. La raison étant principalement que Sync, pour lequel
+le serveur de tokens a été écrit, a subi des changements majeurs (qui
+sont rentrés en production il y a quelques semaines)</p>
+<p>Circus est né de besoins découverts via le token server, et il m'a
+personnellement beaucoup appris. Le token server est finalement utilisé
+dans la nouvelle version de Sync qui est rentrée en production il y a
+peu.</p>
+<h2 id="marketplace-chouette-on-va-casser-du-serveur">Marketplace ("chouette, on va casser du serveur")</h2>
+<p>Après 6 mois à travailler à Services, Tarek et moi avons commencé à
+rejoindre l'équipe du Marketplace pour faire un travail d'"audit de
+performance".</p>
+<p>L'idée était de prêter main forte à l'équipe du marketplace, mais les
+détails étaient alors assez flous. Le code est assez indigeste au
+premier abord, ce qui m'avait alors pas mal refroidi. La raison
+principale étant que le code est utilisé à la fois par
+addons.mozilla.org et par marketplace.firefox.com, rendant les choses
+souvent un peu plus compliquées qu'il ne faudrait.</p>
+<p>Cet "audit" a été l'occasion de travailler sur des outils de montée en
+charge assez sympa, qui ont donné naissance à un projet qu'on utilise
+assez souvent maintenant, <a href="">Loads</a>.</p>
+<p>Énormément d'efforts sont fait pour aller dans la bonne direction et
+faire en sorte que le code soit plus facile à maintenir et que le projet
+soit plus facile à aborder. D'ailleurs, pas mal de copains djangonautes
+français travaillent dessus (salut <a href="http://virgule.net">Mathieu</a>, Yohan,
+<a href="http://larlet.fr">David</a> et <a href="http://mathieu.agopian.info">Mathieu
+Agopian</a>!)</p>
+<p>Une partie de notre plan a été de sortir certaines fonctionnalités du
+code actuel, pour en faire quelque chose de plus facile à maintenir et
+de moins imbriqué.</p>
+<h2 id="la-communaute">La Communauté</h2>
+<p><a href="">Circus</a> et <a href="">Cornice</a> sont deux outils qui semblent utiles à la
+communauté. J'ai eu des retours très positifs sur Cornice, et j'essaye
+de le faire évoluer dans la direction qui me semble propice.</p>
+<p>D'ailleurs, Cornice est utilisé (par <a href="http://blog.mathieu-leplatre.info/pages/about.html">Mathieu
+L.</a> — encore un —,
+<a href="http://twitter.com/natim">Rémy</a> et moi) actuellement pour coder
+<a href="https://github.com/spiral-project/daybed">Daybed</a> un service de
+validation de formulaires, mais ça sera l'objet d'un futur billet.</p>
+<p>Circus commence à recevoir des contributions de plus en plus
+intéressantes, et à être utilisé en interne chez nous et chez d'autres,
+donc c'est une extrêmement bonne nouvelle.</p>
+<h2 id="talkilla-loop">Talkilla / Loop</h2>
+<p>Après quelques temps, j'avais envie d'apprendre de nouveau. Python c'est
+génial mais c'était devenu ma "zone de confort". J'adore découvrir des
+choses, donc c'était le moment de faire en sorte que ça continue!</p>
+<p>C'était aussi l'occasion de travailler avec
+<a href="https://nicolas.perriault.net/">Nicolas</a> et
+<a href="http://monkeypatch.me/blog/">Romain</a>. Je suivais le projet Talkilla de
+plus ou moins loin depuis quelques mois, c'était donc l'occasion à ne
+pas manquer.</p>
+<p>En rentrant dans cette équipe, je cherchais principalement à avoir un
+projet visible pour les utilisateurs finaux. Refaire un peu de frontend,
+apprendre à faire du JavaScript propre et découvrir de nouvelles
+personnes.</p>
+<p>J'y ai aussi récupéré une équipe qui essaye de suivre les principes de
+l'agilité et qui est sur mon fuseau horaire (pour la plupart). Le rêve.</p>
+<p>L'idée derrière Talkilla est d'utiliser la technologie de communication
+pair à pair dans les navigateurs (WebRTC) pour faire des appels audio /
+vidéo. En d'autres termes, c'est un peu transformer votre firefox en
+téléphone, sauf que personne ne peut espionner ce qui se passe entre
+vous et l'autre bout du fil.</p>
+<p>A peine arrivé dans le projet (peut-être un mois et quelques après mon
+débarquement) le choix a été fait de tout réécrire depuis zéro, dans un
+projet qui se nomme actuellement "Loop", qui veut proposer la même
+chose, mais inclus directement dans Firefox.</p>
+<p>C'est en bonne voie, on a quelque chose qui fonctionne dans nightly, et
+le code du serveur fonctionne pas mal. Le code du serveur est ici:
+<a href="https://github.com/mozilla-services/loop-server">https://github.com/mozilla-services/loop-server</a>.</p>
+<p>Un client est en train d'être implémenté dans Firefox et un autre en
+tant qu'application pour FirefoxOS. Le boulot ne s'arrête pas de
+pleuvoir, mais je pense qu'on va dans une direction intéressante.</p>
+<p>Pour être complètement terminé, il faudrait qu'on soit capable de se
+passer complètement de notre provider, TokBox (que l'on utilise en tant
+que relai média), pour que n'importe qui puisse choisir d'utiliser son
+propre serveur STUN / TURN et installe son serveur loop chez lui.</p>
+<h3 id="le-travail-a-distance">Le travail à distance</h3>
+<p>Quand j'ai commencé à travailler à Mozilla, j'ai décidé de venir
+m'installer à Paris. La plupart des personnes de mon entourage ont
+d'ailleurs fait des gros yeux, parce qu'ils connaissaient mon avis sur
+la ville en question, mais casser des préjugés n'est jamais une mauvaise
+chose.</p>
+<p>Après deux ans passés à Paris, j'ai décidé de partir m'installer à
+Rennes, puisque de toute manière, la plupart de mon travail s'effectue
+au jour le jour à distance. En d'autres termes, la plupart de mon équipe
+n'est pas à coté de moi quand je travaille, ce qui veut dire que je peux
+travailler depuis n'importe où.</p>
+<p>Ce qui fonctionne pour moi, c'est de ne quasiment jamais travailler
+depuis la maison. J'utilise <a href="http://www.lacantine-rennes.net/">un espace de
+coworking</a> qui est un moyen de garder
+ma vie perso séparée de ma vie privée et de rencontrer des gens
+passionnés par ce qu'ils font.</p>
+<p>Depuis que je suis arrivé à Rennes, Rémy a commencé à travailler avec
+moi, et c'est un réel bonheur que de pouvoir partager des journées de
+travail. On "pair-prog" énormément et j'ai l'impression d'avoir un boost
+dans ma productivité quotidienne.</p>
+<h3 id="enseignements">Enseignements</h3>
+<p>Mozilla est ma première expérience professionnelle, et par conséquent,
+je manque nécessairement de recul sur ce qui est acceptable et ce qui ne
+l'est pas. D'une manière générale, avoir un environnement de travail
+basé sur la confiance est réellement appréciable (La première réaction
+des gens quand je dis que je peux travailler à distance, c'est de me
+demander comment ils font pour être sur que je travaille. Et la réponse
+est… il n'y en a pas).</p>
+<p>J'ai encore un peu de mal à savoir quels indicateurs utiliser pour
+savoir si je suis "productif" ou non, mais j'ai globalement l'impression
+que je manque de concentration et de discipline: beaucoup
+d'interruptions n'aident pas à se concentrer.</p>
+<p>La motivation fluctue aussi énormément: un jour on est super motivé, un
+autre c'est juste impossible de la trouver. Après quelques
+expérimentations, le mieux (pour moi) est d'avoir des horaires fixes,
+pour pouvoir séparer le travail du reste, de ne pas hésiter à faire des
+pauses et d'écouter un peu ses envies et son corps (si je suis crevé, ça
+ne sert à rien de se lever pour aller travailler, il vaut mieux se
+reposer un peu pour être plus efficace ensuite, par exemple).</p>
+<p>J'ai essayé de tirer quelques enseignements de ces deux années:</p>
+<h2 id="malheureusement-le-code-nest-pas-propre">Malheureusement, le code n'est pas propre</h2>
+<p>Je me rends compte que bien souvent je suis assez déçu de la qualité du
+code que je regarde. Principalement parce que je ne suis pas capable de
+le comprendre rapidement. Spécifiquement, ça m'est arrivé avec certaines
+parties de <a href="https://github.com/mozilla/zamboni">Zamboni</a>, le code du
+<a href="http://marketplace.firefox.com">Marketplace</a> dont je parlais plus haut,
+avec certaines parties de Talkilla ou alors le code de Firefox lui même.</p>
+<p>C'était extrêmement frustrant pour moi de découvrir que le code écrit à
+Mozilla n'était pas exemplaire. Tout le code qui est ajouté à l'heure
+actuelle est revu, corrigé et validé par des pairs, mais un certain
+nombre de projets ont un historique assez lourd qui rends leur structure
+complexe.</p>
+<p>Je réalise donc que mon travail n'est pas uniquement de savoir écrire du
+code propre, mais également de réussir à comprendre du code que je
+considère comme "sale" (quitte à l'améliorer au passage !).</p>
+<p>Et c'est pas du gâteau; je m'attendais à réussir à comprendre des
+projets complexes facilement, mais aucun miracle de ce coté là. Il faut
+réussir à rester concentré pendant suffisamment longtemps pour pouvoir
+tirer tous les fils et commencer à démêler… Pas facile !</p>
+<h2 id="apprendre-est-un-processus-actif">Apprendre est un processus actif</h2>
+<p>Il est facile de passer à coté de l'apprentissage. Être entouré de gens
+talentueux ne suffit pas pour continuer à apprendre.</p>
+<p>Savoir reconnaitre un échec est nécessaire. Dire que l'on comprends pour
+éviter de passer pour un idiot est un biais qui se prends assez
+rapidement, et qu'il faut éviter à tout prix.</p>
+<p>Surtout au début, c'était une erreur que je faisais énormément, une
+question d'égo probablement.</p>
+<p>Il y a une espèce de honte de ne pas savoir, alors que tout le monde
+autour sait ou en tout cas semble savoir. Bien souvent, les gens autour
+ne savent pas non plus, ce qui mène à des discussions de comptoir, sans
+trop savoir pourquoi.</p>
+<p>Connaître ses limites techniques est un bon début pour pouvoir les
+surpasser. Chercher à les rencontrer est un processus actif.</p>
+<p>Le manque de temps m'empêche bien souvent de pouvoir prendre un livre
+technique et de pouvoir l'apprécier. Je ne sais pas exactement pourquoi,
+peut être par sur-dose, mais je n'ai ouvert que quelques rares livres
+techniques durant ces deux années. Et j'aimerais bien que ça change !</p>
+<h2 id="assez-bien-est-suffisant">"Assez bien" est suffisant</h2>
+<p>La culture de l'excellence se mets parfois au milieu du chemin. On
+oublie souvent que "le mieux est l'ennemi du bien".</p>
+<p>Rien ne sert de faire des commits parfaits tout le temps. Quand j'ai
+besoin de "hacker" sur un projet, je ne voulais d'abord pas tout péter,
+par peur de ne plus m'y retrouver.</p>
+<p>Mon approche actuelle est bien différente: on mets les mains dans le
+cambouis jusqu'à ce que ça marche, et ensuite on répare les dégâts.
+Enfin… dans une certaine mesure hein !</p>
+<h2 id="ecrire-des-boites-a-outils-et-non-pas-des-frameworks">Écrire des boites à outils et non pas des frameworks</h2>
+<p>Écrire des frameworks force les utilisateurs à les utiliser, et à les
+connaitre dans les moindres recoins. Heureusement, il existe déjà
+énormément de frameworks qui pour la plupart font très bien leur
+travail. Ce qui nous manque ce n'est pas plus de frameworks, mais bel et
+bien plus de boites à outils.</p>
+<p>Une boite à outil prends un problème bien défini et propose une solution
+pour ce problème. Une boite à outils est, en mon sens, ce qu'on appelle
+une bibliothèque. Pas besoin de réécrire tout votre projet pour utiliser
+ma nouvelle bibliothèque afin de profiter des fonctionnalités qu'elle
+apporte (alors que c'est le cas avec un framework, justement).</p>
+<h2 id="etre-le-moteur-de-son-propre-changement">Être le moteur de son propre changement</h2>
+<p>Facile à dire, héhé ! D'une manière générale, je me rends compte qu'il
+est facile de se plaindre sans pour autant être moteur du changement que
+l'on souhaite voir arriver.</p>
+<p>Ça vaut le coup de se donner la peine de faire changer les choses,
+surtout à Mozilla, parce que le changement n'est pas seulement vu d'un
+mauvais œil.</p>
+<p>Pour que les choses évoluent, il faut être force de proposition. Se
+plaindre n'a jamais servi à rien si ce n'est pas suivi d'actes ;)</p>
+<p>Je dis de temps en temps que Mozilla est une "do-o-cratie" (celui qui
+fait à raison), et je le pense de plus en plus. Quand j'ai envie que
+quelque chose soit fait, et bah… il faut le faire !</p>
+<h2 id="ne-pas-chercher-a-avoir-raison">Ne pas chercher à avoir raison</h2>
+<p>Peu importe qui a raison, l'important n'est pas de chercher à montrer
+que tu sais, mais de trouver ce qui est juste. Ça parait peut être
+évident, mais bien souvent on cherche à se mettre en avant, au
+détriment du projet… Allez, gardons nos égos de coté ;)</p>
+<h2 id="arreter-le-negativisme">Arrêter le négativisme</h2>
+<p>Il est très facile de se laisser embarquer dans le négativisme. Il y a
+toujours des choses qui ne vont pas, et probablement il y en aura
+toujours. Ce ne sont pas des raisons suffisantes pour perdre le moral.
+Identifier les points faibles est important est permet de savoir ce
+qu'il est nécessaire d'améliorer, mais regarder les choses du coté
+positif (et il y en a nécessairement un !) est indispensable !</p>
+<p>À plusieurs reprises je me suis retrouvé dans des crises de négativisme,
+pour un tas de raisons différentes. La meilleure manière de s'en sortir:
+en causer et trouver des solutions, prendre le problème à bras le corps,
+et ne pas considérer que c'est un problème sur lequel on a aucune prise
+possible.</p>
+<h3 id="la-suite">La suite ?</h3>
+<p>Je n'ai aucune idée d'à quoi va ressembler la suite, et c'est justement
+ce que j'apprécie et qui m'effraie en même temps…</p>
+<p>Je fais actuellement énormément de Javascript et je travaille sur des
+projets qui semblent avoir plus de sens qu'avant (même si je vois déjà
+des choses que je souhaiterais améliorer, mais chaque chose en son
+temps). Donc techniquement j'apprends et dans ma quête de faire des
+produits qui touchent un utilisateur.</p>
+<p>Depuis quelques semaines, je peux travailler une journée par semaine sur
+un projet qui me tiens vraiment à cœur: daybed
+(<a href="http://daybed.rtfd.org">http://daybed.rtfd.org</a>). L'objectif est de faire en sorte que le
+projet avance et soit utilisé au sein de mozilla.</p>
+<p>Avant toute autre chose, il faudra faire des changements de "pitch" pour
+qu'il soit plus simple d'expliquer ce que Daybed souhaite faire, mais…
+c'est une autre histoire.</p>
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Status board - Carnets en ligne</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Status board</h1>
+
+<span class="post-date">
+    29 décembre 2012, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+</span>
+<img id="illustration" class="illustration-Technologie" src="" />
+
+<div class="post article">
+    <div id="toc_container">
+      <div class="toc">
+<ul>
+<li><a href="#status-board">Status board</a><ul>
+<li><a href="#verifier-le-statut-des-services">Vérifier le statut des services</a></li>
+<li><a href="#deploiement">Déploiement</a></li>
+<li><a href="#ssl-et-requests">SSL et Requests</a></li>
+<li><a href="#et-voila">Et voilà</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+      </div>
+    <h1>🌟</h1>
+    
+<p>À force de démarrer des services web pour un oui et pour un non, de
+proposer à des copains d'héberger leurs sites, de faire pareil pour
+quelques assos etc, je me suis retrouvé avec, comme dirait l'autre, <em>une
+bonne platrée</em> de sites et de services à gérer sur lolnet.org, mon
+serveur.</p>
+<p>Jusqu'à très récemment, rien de tout ça n'était sauvegardé, et non plus
+monitoré. Après quelques recherches, je suis tombé sur
+<a href="http://www.stashboard.org/">stashboard</a>, un "status board" qu'il est
+bien fait. Le seul problème, c'est écrit pour se lancer sur GAE, <em>Google
+App Engine</em>. Heureusement, c'est open-source, et ça a été forké pour
+donner naissance à
+<a href="https://github.com/bfirsh/whiskerboard">whiskerboard</a> (la planche
+moustachue, pour les non anglophones).</p>
+<p><img alt="Capture d'écran du site." src="images/status_board.png"></p>
+<h2 id="verifier-le-statut-des-services">Vérifier le statut des services</h2>
+<p>Donc, c'est chouette, c'est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m'afficher le statut des services, mais ça ne vérifie pas que tout est bien "up".</p>
+<p>Bon, un peu embêtant pour moi, parce que c'est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J'ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: <a href="https://github.com/almet/whiskerboard">https://github.com/almet/whiskerboard</a> .</p>
+<p>Entres autres, il est désormais possible de lancer
+<a href="http://celeryproject.org/">celery</a> en tache de fond et de vérifier périodiquement que les services sont toujours bien vivants, en utilisant une tache spécifique.</p>
+<p>C'était un bonheur de développer ça (on a fait ça à deux, avec guillaume, avec un mumble + tmux en pair prog, en une petite soirée, ça dépote).</p>
+<p>Les modifications sont assez simples, vous pouvez aller jeter un œil aux changements ici:
+<a href="https://github.com/almet/whiskerboard/compare/b539337416...master">https://github.com/almet/whiskerboard/compare/b539337416...master</a></p>
+<p>En gros:</p>
+<ul>
+<li>ajout d'une connection_string aux services (de la forme
+    protocol://host:port)</li>
+<li>ajout d'une commande check_status qui s'occupe d'itérer sur les
+    services et de lancer des taches celery qui vont bien, en fonction
+    du protocole</li>
+<li>ajout des taches en question</li>
+</ul>
+<h2 id="deploiement">Déploiement</h2>
+<p>Le plus long a été de le déployer en fin de compte, parce que je ne
+voulais pas déployer mon service de supervision sur mon serveur,
+forcément.</p>
+<p>Après un essai (plutôt rapide en fait) sur <a href="http://heroku.com">heroku</a>,
+je me suis rendu compte qu'il me fallait payer pas loin de 35$ par mois
+pour avoir un process celeryd qui tourne, donc j'ai un peu cherché
+ailleurs, pour finalement déployer la chose chez
+<a href="https://www.alwaysdata.com/">alwaysdata</a></p>
+<p>Après quelques péripéties, j'ai réussi à faire tourner le tout, ça à été
+un peu la bataille au départ pour installer virtualenv (j'ai du faire
+des changements dans mon PATH pour que ça puisse marcher), voici mon
+`.bash_profile`:</p>
+<div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTHONPATH</span><span class="o">=~/</span><span class="n">modules</span><span class="o">/</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+</pre></div>
+
+
+<p>Et après y'a plus qu'à installer avec `easy_install`:</p>
+<div class="highlight"><pre><span></span><span class="n">easy_install</span> <span class="c1">--install-dir ~/modules -U pip</span>
+<span class="n">easy_install</span> <span class="c1">--install-dir ~/modules -U virtualenv</span>
+</pre></div>
+
+
+<p>Et à créer le virtualenv:</p>
+<div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="n">venv</span>
+<span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<p>Dernière étape, la création d'un fichier application.wsgi qui s'occupe
+de rendre l'application disponible, avec le bon venv:</p>
+<h2 id="ssl-et-requests">SSL et Requests</h2>
+<p>Quelques tours de manivelle plus loin, j'ai un celeryd qui tourne et qui
+consomme les taches qui lui sont envoyées (pour des questions de
+simplicité, j'ai utilisé le backend django de celery, donc pas besoin
+d'AMQP, par exemple).</p>
+<p>Problème, les ressources que je vérifie en SSL (HTTPS) me jettent. Je
+sais pas exactement pourquoi à l'heure qu'il est, mais il semble que
+lorsque je fais une requête avec
+<a href="http://docs.python-requests.org/en/latest/">Requests</a> je me récupère
+des <em>Connection Refused</em>. Peut être une sombre histoire de proxy ? En
+attendant, les appels avec CURL fonctionnent, donc j'ai fait <a href="https://github.com/ametaireau/whiskerboard/blob/master/board/tasks.py#L17">un
+fallback vers CURL lorsque les autres méthodes
+échouent</a>.
+Pas super propre, mais ça fonctionne.</p>
+<p><strong>EDIT</strong> Finalement, il se trouve que mon serveur était mal configuré.
+J'utilisais haproxy + stunnel, et la négiciation SSL se passait mal. Une
+fois SSL et TLS activés, et SSLv2 désactivé, tout fonctionne mieux.</p>
+<h2 id="et-voila">Et voilà</h2>
+<p>Finalement, j'ai mon joli status-board qui tourne à merveille sur
+<a href="http://status.lolnet.org">http://status.lolnet.org</a> :-)</p>
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+     </div>
+  </body>
+</html>

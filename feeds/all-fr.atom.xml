@@ -164,7 +164,7 @@ construire une solution libre, générique, simple et auto-hébergeable pour le 
 de données sur le Web :)&lt;/p&gt;
 &lt;img alt="Friday Night Party - CC0" class="align-center" src="{filename}/images/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
-</content><category term="Technologie"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
+</content></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace ?&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="la-problematique"&gt;
@@ -452,4 +452,4 @@ un objet et également de pouvoir récupérer tous les objets d'une
 collection pour un utilisateur si celui-ci n'a pas accès à tous les
 records de la collection, ou toutes les collections du bucket.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Technologie"></category></entry></feed>
+</content></entry></feed>

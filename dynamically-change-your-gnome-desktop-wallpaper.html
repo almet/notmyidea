@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>Dynamically change your gnome desktop wallpaper - Carnets en ligne</title>
+
+    <meta charset="utf-8" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
+
+
+
+<style>
+
+h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    padding: 80px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #202020;
+    letter-spacing: .1em;
+    text-shadow:
+        -1px -1px 1px #111,
+        2px 2px 1px #eaeaea;
+}
+
+#main {
+    text-align: justify;
+    text-justify: inter-word;
+}
+#main h1 {
+    padding: 10px;
+}
+
+.post-headline {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+  </head>
+
+  <body>
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <div class="profile">
+      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+  <a class="sidebar-nav-item" href="/">Articles</a>
+
+  </nav>
+</div>    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+<div id="main" class="posts">
+<h1 class="post-title">Dynamically change your gnome desktop wallpaper</h1>
+
+<span class="post-date">
+    11 octobre 2010, dans <a class="no-color" href="category/technologie.html">Technologie</a>
+</span>
+<img id="illustration" class="illustration-Technologie" src="" />
+
+<div class="post article">
+    <h1>🌟</h1>
+    
+<p>In gnome, you can can use a XML file to have a dynamic wallpaper. It's
+not so easy, and you can't just tell: use the pictures in this folder to
+do so.</p>
+<p>You can have a look to the git repository if you want:
+<a href="http://github.com/ametaireau/gnome-background-generator">http://github.com/ametaireau/gnome-background-generator</a></p>
+<p>Some time ago, I've made a little python script to ease that, and you
+can now use it too. It's named "gnome-background-generator", and you can
+install it via pip for instance.</p>
+<p>``` sourceCode shell
+$ pip install gnome-background-generator</p>
+<div class="highlight"><pre><span></span><span class="k">Then</span>, <span class="nv">you</span> <span class="nv">have</span> <span class="nv">just</span> <span class="nv">to</span> <span class="nv">use</span> <span class="nv">it</span> <span class="nv">this</span> <span class="nv">way</span>:
+
+``` <span class="nv">sourceCode</span> <span class="nv">shell</span>
+$ <span class="nv">gnome</span><span class="o">-</span><span class="nv">background</span><span class="o">-</span><span class="nv">generator</span> <span class="o">-</span><span class="nv">p</span> <span class="o">~/</span><span class="nv">Images</span><span class="o">/</span><span class="nv">walls</span> <span class="o">-</span><span class="nv">s</span>
+<span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">alexis</span><span class="o">/</span><span class="nv">Images</span><span class="o">/</span><span class="nv">walls</span><span class="o">/</span><span class="nv">dynamic</span><span class="o">-</span><span class="nv">wallpaper</span>.<span class="nv">xml</span> <span class="nv">generated</span>
+</pre></div>
+
+
+<p>Here is a extract of the `--help`:</p>
+<p>``` sourceCode shell
+$ gnome-background-generator --help
+usage: gnome-background-generator [-h] [-p PATH] [-o OUTPUT]
+                                  [-t TRANSITION_TIME] [-d DISPLAY_TIME] [-s]
+                                  [-b]</p>
+<p>A simple command line tool to generate an XML file to use for gnome
+wallpapers, to have dynamic walls</p>
+<p>optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  Path to look for the pictures. If no output is
+                        specified, will be used too for outputing the dynamic-
+                        wallpaper.xml file. Default value is the current
+                        directory (.)
+  -o OUTPUT, --output OUTPUT
+                        Output filename. If no filename is specified, a
+                        dynamic-wallpaper.xml file will be generated in the
+                        path containing the pictures. You can also use "-" to
+                        display the xml in the stdout.
+  -t TRANSITION_TIME, --transition-time TRANSITION_TIME
+                        Time (in seconds) transitions must last (default value
+                        is 2 seconds)
+  -d DISPLAY_TIME, --display-time DISPLAY_TIME
+                        Time (in seconds) a picture must be displayed. Default
+                        value is 900 (15mn)
+  -s, --set-background  '''try to set the background using gnome-appearance-
+                        properties
+  -b, --debug
+```</p>
+  </div>
+</div>
+      </div>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+      <script>
+        (function(document) {
+          var i = 0;
+          // snip empty header rows since markdown can't
+          var rows = document.querySelectorAll('tr');
+          for(i=0; i<rows.length; i++) {
+            var ths = rows[i].querySelectorAll('th');
+            var rowlen = rows[i].children.length;
+            if (ths.length > 0 && ths.length === rowlen) {
+              rows[i].remove();
+            }
+          }
+        })(document);
+      </script>
+
+      <script>
+        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
+        (function(document) {
+          var toggle = document.querySelector('.sidebar-toggle');
+          var sidebar = document.querySelector('#sidebar');
+          var checkbox = document.querySelector('#sidebar-checkbox');
+          document.addEventListener('click', function(e) {
+            var target = e.target;
+            if(!checkbox.checked ||
+            sidebar.contains(target) ||
+            (target === checkbox || target === toggle)) return;
+            checkbox.checked = false;
+            }, false);
+            })(document);
+      </script>
+     </div>
+  </body>
+</html>

@@ -96,7 +96,7 @@ distributors and certificate authorities (CAs).</p>
 <p>I've been talking with a few folks in the past months about that and
 they suggested me to publish something to discuss the matter. So here I
 come!</p>
-<h2>The problem (Attack vectors)</h2>
+<h2 id="the-problem-attack-vectors">The problem (Attack vectors)</h2>
 <p>Let's try to describe a few potential attacks:</p>
 <p><em>Application Authors</em> just released a new version of their open source
 web crypto messaging application. An <em>Indie Hoster</em> installs it on their
@@ -112,7 +112,7 @@ to <em>Indie Hoster</em> even though they're actually talking to a different
 server.</p>
 <p><strong>Altered files</strong> are then being served to the User Agents, and <em>Evil
 Attacker</em> now has a way to actually attack the end users.</p>
-<h2>Problem Mitigation</h2>
+<h2 id="problem-mitigation">Problem Mitigation</h2>
 <p>Part of the problem is solved by the recently introduced <a href="https://w3c.github.io/webappsec/specs/subresourceintegrity/">Sub Resource
 Integrity</a>
 (SRI). To quote them: "[it] defines a mechanism by which user agents
@@ -139,7 +139,7 @@ possible. Consider the following:</p>
 <li>When a <em>User Agent</em> downloads files, it checks if they're signed by
     a trusted party.</li>
 </ul>
-<h2>Chosing who you trust</h2>
+<h2 id="chosing-who-you-trust">Chosing who you trust</h2>
 <p>In terms of user experience, handling certificates is hard, and that's
 where the community matters. Distributions such as
 <a href="https://tails.boom.org">Tails</a> could chose who they trust to verify the
@@ -179,7 +179,7 @@ I'm pretty sure this design has many security problems attached to it.</p>
 <p>However, that's a problem I would really like to see solved one day, so
 here the start of the discussion, don't hesitate to <a href="/pages/about.html">get in
 touch</a>!</p>
-<h2>Addendum</h2>
+<h2 id="addendum">Addendum</h2>
 <p>It seems possible to increase the level a user has in a Web Application
 by adding indicators in the User-Agent. For instance, when using an
 application that's actually signed by someone considered trustful by the
