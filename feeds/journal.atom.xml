@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2019-12-11T00:00:00+01:00</updated><entry><title>Prix libre et conscient &amp; culpabilisation</title><link href="https://blog.notmyidea.org/prix-libre-et-conscient.html" rel="alternate"></link><published>2019-12-11T00:00:00+01:00</published><updated>2019-12-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-11:/prix-libre-et-conscient.html</id><summary type="html">&lt;p&gt;J'avais envie de réagir suite à la lecture d'une &lt;a href="https://oncletom.io/2019/12/10/exemple-prix-libre-conscient/"&gt;note dans le journal de Thomas&lt;/a&gt; qui parle de « prix libre &lt;em&gt;et&lt;/em&gt; conscient ».&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2019-12-14T00:00:00+01:00</updated><entry><title>Break technologique</title><link href="https://blog.notmyidea.org/break-technologique.html" rel="alternate"></link><published>2019-12-14T00:00:00+01:00</published><updated>2019-12-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-14:/break-technologique.html</id><summary type="html">
+&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis drogué aux écrans. Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;p&gt;En fait, en analysant un peu plus la situation, et en ciblant les …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis drogué aux écrans. Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;p&gt;En fait, en analysant un peu plus la situation, et en ciblant les &lt;em&gt;usages&lt;/em&gt; plutôt que les &lt;em&gt;objets&lt;/em&gt;, je me rends compte que je suis drogué à plusieurs choses :&lt;/p&gt;
+&lt;h2 id="emails"&gt;Emails&lt;/h2&gt;
+&lt;p&gt;Je vais les consulter plusieurs fois par jour, quand ce n'est pas en continu. Avec un effet de bord assez étrange : parfois je souhaite simplement envoyer un mail à quelqu'un·e, et en ouvrant mon client mail je me retrouve à… tout simplement oublier, plongé dans le flux continu des « choses à faire ».&lt;/p&gt;
+&lt;h2 id="notifications-textos-signal-whatsapp-etc"&gt;Notifications (Textos / Signal / Whatsapp etc.)&lt;/h2&gt;
+&lt;p&gt;Je regarde souvent mon téléphone, pour voir si quelqu'un·e ne m'a pas envoyé un message que je n'aurais pas vu.&lt;/p&gt;
+&lt;p&gt;Même avec les notifications désactivées, en fait ! Ils se rappellent à moi, et interrompent mon quotidien de manière assez régulière.&lt;/p&gt;
+&lt;h2 id="les-reseaux-sociaux-mastodon-le-web"&gt;Les réseaux sociaux (Mastodon) / le web&lt;/h2&gt;
+&lt;p&gt;Mastodon, en fait. Je n'y publie pas grand chose, mais je vais actualiser le flux de manière frénétique pour « savoir ce qui s'y raconte ». Je n'y passe pas beaucoup de temps, mais je vais voir plusieurs fois par jour.&lt;/p&gt;
+&lt;p&gt;Pour quelle raison ? Je ne suis pas sur.&lt;/p&gt;
+&lt;p&gt;De la même manière, je consulte Le bon coin, Github, Youtube, de manière assez frénétique parfois.&lt;/p&gt;
+&lt;h2 id="solutions-technologiques"&gt;Solutions technologiques&lt;/h2&gt;
+&lt;p&gt;En écrivant tout ça, je me dis plusieurs choses :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Je devrais me désinscrire des services de communication type Whatsapp et Signal.&lt;/li&gt;
+&lt;li&gt;Je devrais limiter drastiquement les applications installées sur mon téléphone (plus de mails, youhou !)&lt;/li&gt;
+&lt;li&gt;Existe-il un moyen (Thunderbird ?) d'écrire des mails sans voir sa liste de mails ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="solutions-liees-a-mon-mode-de-vie"&gt;Solutions liées à mon mode de vie&lt;/h2&gt;
+&lt;p&gt;Mais… Il me semble que c'est surtout une question de volonté et « d'hygiène numérique » : si je me demande quelle place je veux laisser aux écrans dans ma vie, alors je doit questionner l'usage que j'en ait.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Est-ce que je peux me passer d'un smartphone ?&lt;/li&gt;
+&lt;li&gt;Est-ce que je peux me passer d'une connexion internet ? Au travail ? Chez moi ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Des solutions radicales, mais je me posais déjà des questions similaires dans &lt;a href="https://blog.notmyidea.org/focusing-on-what-matters.html"&gt;un article de 2016 (en anglais)&lt;/a&gt;, sans avoir vraiment réussi à m'y tenir.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Check emails only once a day. Do not do it in the morning, before working, to keep my mind clear. I would say at 2pm (after lunch). (This doesn't mean I will not send mails tho)&lt;/li&gt;
+&lt;li&gt;Stay away from the Internet during the morning. I'll not connect if I don't need to.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;L'avenir dira ce que j'en fais, mais je suis content d'écrire ça :-)&lt;/p&gt;</content></entry><entry><title>Prix libre et conscient &amp; culpabilisation</title><link href="https://blog.notmyidea.org/prix-libre-et-conscient.html" rel="alternate"></link><published>2019-12-11T00:00:00+01:00</published><updated>2019-12-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-11:/prix-libre-et-conscient.html</id><summary type="html">&lt;p&gt;J'avais envie de réagir suite à la lecture d'une &lt;a href="https://oncletom.io/2019/12/10/exemple-prix-libre-conscient/"&gt;note dans le journal de Thomas&lt;/a&gt; qui parle de « prix libre &lt;em&gt;et&lt;/em&gt; conscient ».&lt;/p&gt;
 &lt;p&gt;Derrière le prix libre, je vois le fait que chacun⋅e paye ce qu'il ou elle veut, et ce qu'il ou elle peut. J'y vois également une sorte …&lt;/p&gt;</summary><content type="html">&lt;p&gt;J'avais envie de réagir suite à la lecture d'une &lt;a href="https://oncletom.io/2019/12/10/exemple-prix-libre-conscient/"&gt;note dans le journal de Thomas&lt;/a&gt; qui parle de « prix libre &lt;em&gt;et&lt;/em&gt; conscient ».&lt;/p&gt;
 &lt;p&gt;Derrière le prix libre, je vois le fait que chacun⋅e paye ce qu'il ou elle veut, et ce qu'il ou elle peut. J'y vois également une sorte de solidarité entre les personnes qui peuvent donner plus et celles qui ne peuvent pas.&lt;/p&gt;
 &lt;p&gt;Pour une tenue d'évènement, voici les critères qui me paraissent intéressants :&lt;/p&gt;
@@ -779,7 +813,7 @@ leçons.&lt;/p&gt;
 on peut vous aider à aller dans la &lt;em&gt;bonne direction&lt;/em&gt;", mais c'est en
 oubliant que la bonne direction pour l'un ne l'est pas nécessairement
 pour les autres…&lt;/p&gt;
-&lt;h2 id="just-do-it-33"&gt;Just do it !&lt;/h2&gt;
+&lt;h2 id="just-do-it"&gt;Just do it !&lt;/h2&gt;
 &lt;p&gt;Se battre &lt;em&gt;contre quelque chose&lt;/em&gt; permet de facilement trouver des
 personnes qui partagent les même craintes alors que se battre &lt;em&gt;pour&lt;/em&gt;
 permet d'engager des discussions avec des personnes qui partagent une
