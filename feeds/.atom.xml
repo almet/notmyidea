@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2019-12-14T00:00:00+01:00</updated><entry><title>Break technologique</title><link href="https://blog.notmyidea.org/break-technologique.html" rel="alternate"></link><published>2019-12-14T00:00:00+01:00</published><updated>2019-12-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-14:/break-technologique.html</id><summary type="html">
-&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis drogué aux écrans. Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
-&lt;p&gt;En fait, en analysant un peu plus la situation, et en ciblant les …&lt;/p&gt;</summary><content type="html">
-&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis drogué aux écrans. Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;h2 id="les-problemes"&gt;Les problèmes&lt;/h2&gt;
+&lt;p&gt;En fait, en analysant un peu plus la situation, et en …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;h2 id="les-problemes"&gt;Les problèmes&lt;/h2&gt;
 &lt;p&gt;En fait, en analysant un peu plus la situation, et en ciblant les &lt;em&gt;usages&lt;/em&gt; plutôt que les &lt;em&gt;objets&lt;/em&gt;, je me rends compte que je suis drogué à plusieurs choses :&lt;/p&gt;
-&lt;h2 id="emails"&gt;Emails&lt;/h2&gt;
-&lt;p&gt;Je vais les consulter plusieurs fois par jour, quand ce n'est pas en continu. Avec un effet de bord assez étrange : parfois je souhaite simplement envoyer un mail à quelqu'un·e, et en ouvrant mon client mail je me retrouve à… tout simplement oublier, plongé dans le flux continu des « choses à faire ».&lt;/p&gt;
-&lt;h2 id="notifications-textos-signal-whatsapp-etc"&gt;Notifications (Textos / Signal / Whatsapp etc.)&lt;/h2&gt;
-&lt;p&gt;Je regarde souvent mon téléphone, pour voir si quelqu'un·e ne m'a pas envoyé un message que je n'aurais pas vu.&lt;/p&gt;
-&lt;p&gt;Même avec les notifications désactivées, en fait ! Ils se rappellent à moi, et interrompent mon quotidien de manière assez régulière.&lt;/p&gt;
-&lt;h2 id="les-reseaux-sociaux-mastodon-le-web"&gt;Les réseaux sociaux (Mastodon) / le web&lt;/h2&gt;
-&lt;p&gt;Mastodon, en fait. Je n'y publie pas grand chose, mais je vais actualiser le flux de manière frénétique pour « savoir ce qui s'y raconte ». Je n'y passe pas beaucoup de temps, mais je vais voir plusieurs fois par jour.&lt;/p&gt;
-&lt;p&gt;Pour quelle raison ? Je ne suis pas sur.&lt;/p&gt;
-&lt;p&gt;De la même manière, je consulte Le bon coin, Github, Youtube, de manière assez frénétique parfois.&lt;/p&gt;
-&lt;h2 id="le-code"&gt;Le code&lt;/h2&gt;
-&lt;p&gt;Parfois, je code, et quand ça m'arrive, je suis dans une sorte de transe assez incroyable, durant laquelle pendant plusieurs heures je ne fais rien d'autre : je ne mange parfois même pas. &lt;/p&gt;
-&lt;p&gt;Je suis engagé dans plusieurs projets qui ont des liens forts avec le numérique, parfois avec le code, et j'en viens à questionner leur apport à mon quotidien.&lt;/p&gt;
-&lt;h2 id="solutions-technologiques"&gt;Solutions technologiques&lt;/h2&gt;
+&lt;h3 id="immediatete-des-communications"&gt;Immédiateté des communications&lt;/h3&gt;
+&lt;p&gt;Que ce soit les emails, que je vais consulter plusieurs fois par jour (quand ce n'est pas en continu) ou les notifications instantanées (Signal, Whatsapp, Messenger etc), je me retrouve souvent derrière l'écran pour les lire.&lt;/p&gt;
+&lt;p&gt;Avec un effet de bord assez étrange : parfois je souhaite simplement envoyer un mail à quelqu'un·e, et en ouvrant mon client mail je me retrouve à… tout simplement oublier, plongé dans le flux des mails reçus et à traiter.&lt;/p&gt;
+&lt;h3 id="dependance-aux-notifications-web"&gt;Dépendance aux notifications Web&lt;/h3&gt;
+&lt;p&gt;Que ce soit sur le réseau social « Mastodon », sur lequel je ne publie pas grand chose, mais que j'actualise parfois de manière frénétique pour « savoir ce qui s'y raconte », ou sur des site tels que Le bon coin, Github, ou Youtube, je me retrouve à « lire le flux », sans trop réussir à en sortir. Aspiré.&lt;/p&gt;
+&lt;h3 id="le-sweet-spot-du-dev"&gt;Le « Sweet Spot » du dev&lt;/h3&gt;
+&lt;p&gt;Parfois, je code, et quand ça m'arrive, je suis dans une sorte de transe assez incroyable, durant laquelle pendant plusieurs heures je ne fais rien d'autre, parfois même sans manger ni bouger du canapé : il faut que je termine !&lt;/p&gt;
+&lt;p&gt;C'est à la fois quelque chose de « bien » parce que je progresse et les outils sur lesquels je bossent fonctionnent, mais c'est au détriment bien sur d'un équilibre de mon quotidien...&lt;/p&gt;
+&lt;h2 id="pistes-pour-men-sortir"&gt;Pistes pour m'en sortir&lt;/h2&gt;
+&lt;p&gt;J'ai l'impression que je peux trouver des pistes de solution à la fois techniques (technologiques) et à la fois liées à mon mode de vie.&lt;/p&gt;
+&lt;h3 id="solutions-technologiques"&gt;Solutions technologiques&lt;/h3&gt;
 &lt;p&gt;En écrivant tout ça, je me dis plusieurs choses :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Je devrais me désinscrire des services de communication type Whatsapp et Signal.&lt;/li&gt;
 &lt;li&gt;Je devrais limiter drastiquement les applications installées sur mon téléphone (plus de mails, youhou !)&lt;/li&gt;
 &lt;li&gt;Existe-il un moyen (Thunderbird ?) d'écrire des mails sans voir sa liste de mails ?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="solutions-liees-a-mon-mode-de-vie"&gt;Solutions liées à mon mode de vie&lt;/h2&gt;
+&lt;h3 id="solutions-liees-a-mon-mode-de-vie"&gt;Solutions liées à mon mode de vie&lt;/h3&gt;
 &lt;p&gt;Mais… Il me semble que c'est surtout une question de volonté et « d'hygiène numérique » : si je me demande quelle place je veux laisser aux écrans dans ma vie, alors je doit questionner l'usage que j'en ait.&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;Je peux limiter le nombre d'outils que j'utilise au quotidien.&lt;/li&gt;
 &lt;li&gt;Est-ce que je peux me passer d'un smartphone ?&lt;/li&gt;
 &lt;li&gt;Est-ce que je peux me passer d'une connexion internet ? Au travail ? Chez moi ?&lt;/li&gt;
-&lt;li&gt;Est-ce que je peux arrêter de faire de l'informatique ?&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Est-ce que je ne devrais pas simplement « arrêter de faire de l'informatique », au moins pour un temps ? Ça aurait le mérite de me permettre de me désengager de certains projets qui ont des liens forts avec le numérique, et qui parfois pourrissent mon quotidien.&lt;/p&gt;
 &lt;p&gt;Des solutions radicales, mais je me posais déjà des questions similaires dans &lt;a href="https://blog.notmyidea.org/focusing-on-what-matters.html"&gt;un article de 2016 (en anglais)&lt;/a&gt;, sans avoir vraiment réussi à m'y tenir.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -37,6 +38,16 @@
 &lt;li&gt;Stay away from the Internet during the morning. I'll not connect if I don't need to.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
+&lt;h2 id="extinction-des-feux"&gt;Extinction des feux&lt;/h2&gt;
+&lt;p&gt;Voici une petite liste des choses qui semblent pouvoir réduire ma dépendance technologique :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/spiral-project/ihatemoney/issues/517"&gt;Me détacher de la maintenance de ihatemoney&lt;/a&gt; ; &lt;/li&gt;
+&lt;li&gt;Supprimer la plupart des applications sur mes téléphones (pro et perso)&lt;/li&gt;
+&lt;li&gt;Éteindre mon serveur personnel ;&lt;/li&gt;
+&lt;li&gt;Ne plus ramener mon téléphone pro à la maison ;&lt;/li&gt;
+&lt;li&gt;Avoir un ordinateur fixe au travail, et l'y laisser ;&lt;/li&gt;
+&lt;li&gt;Limiter mon utilisation de l'ordinateur perso à 1h par jour, sauf exceptions ;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;L'avenir dira ce que j'en fais, mais je suis content d'écrire ça :-)&lt;/p&gt;</content></entry><entry><title>Assurance chômage</title><link href="https://blog.notmyidea.org/assurance-chomage.html" rel="alternate"></link><published>2019-12-13T00:00:00+01:00</published><updated>2019-12-13T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-13:/assurance-chomage.html</id><summary type="html">
 &lt;p&gt;Depuis une génération, les durées et les montants d'indemnisation ont régulièrement diminué en France, par étapes successives, ce qui fait que bon nombre de salariés n'ont pas conscience qu'il ne seront indemnisés à 57 % de leur ex-salaire en cas de chômage, et pour seulement deux ans, alors que les personnes …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Depuis une génération, les durées et les montants d'indemnisation ont régulièrement diminué en France, par étapes successives, ce qui fait que bon nombre de salariés n'ont pas conscience qu'il ne seront indemnisés à 57 % de leur ex-salaire en cas de chômage, et pour seulement deux ans, alors que les personnes de la génération précédente l'on été pendant trois ans à 75 % ou 80 % de leur ex-salaire. &lt;/p&gt;
