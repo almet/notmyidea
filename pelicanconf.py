@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 PATH = "content"
-AUTHOR = u"Alexis Métaireau"
-SITENAME = u"Alexis - Carnets en ligne"
+AUTHOR = u""
+SITENAME = u"Carnets en ligne"
 THEME = "theme"
 DISQUS_SITENAME = "notmyidea"
 STATIC_PATHS = ["static", "images"]
@@ -14,9 +14,7 @@ TIMEZONE = "Europe/Paris"
 LOCALE = "fr_FR.utf8"
 
 DEFAULT_DATE_FORMAT = "%d %B %Y"
-LINKS = [
-    ("Code", "https://github.com/almet"),
-]
+LINKS = []
 
 PLUGIN_PATHS = ["."]
 PLUGINS = [

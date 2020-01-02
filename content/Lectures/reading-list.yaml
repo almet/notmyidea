@@ -1,0 +1,30 @@
+title: Liste de lecture
+description : Liste de livres qui m'ont été conseillés que je ne connais pas encore
+items:
+  - title: Refuser d'être un homme
+    subtitle: Pour en finir avec la virilité
+    isbn: 978-2-84950-381-2
+    author: John Stoltenberg
+    tags: [virilité, féminisme]
+    via: [Raphaël, Jérém]
+  - title: "Recipes for disaster"
+    subtitle: an anarchist cookbook
+    author: Crimethinc
+    tags: [anarchisme]
+    via: [Francis Dupuis Déri]
+  - title: Démocratie
+    subtitle: histoire politique d'un mot
+    author: F. Dupuis-Déri
+    tags: [démocratie, histoire]
+    via: [Thinkerview]
+  - title: Se défendre
+    subtitle: une philosophie de la violence
+    author: Elsa Dorlin
+    tags: [féminisme, violence]
+  - title: Les antifa
+    edition: Lux
+    description: interview de militants antifa. Histoire depuis les années 10-20.
+    author: Mark Bray
+  - author: Glenn Coultar
+    title: Peau rouge, masque blanc
+    description: Dépossession des terres, post-colonialisme

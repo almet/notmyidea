@@ -73,10 +73,13 @@ h1 {
     {% if article.headline %}
     <h2 class="post-headline">{{ article.headline }}</h2>
     {% endif %}
-    {% if article.table_of_contents %}
+    {% if not article.hide_toc and article.table_of_contents %}
     <div id="toc_container">
       {{ article.table_of_contents }}
       </div>
+    {% endif %}
+    {% if article.category == "Notes" %}
+    <em>Voici quelques notes prises autour d'un sujet donné. Je ne suis souvent pas l'auteur des contenus, et les notes peuvent parfois faire un peu « fouillis ». Faites avec ;-)</em>
     {% endif %}
     <h1>🌟</h1>
     {{ article.content }}
