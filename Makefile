@@ -13,6 +13,7 @@ INSTALL_STAMP = $(VENV)/.install.stamp
 PYTHON=$(VENV)/bin/python
 PELICAN=$(VENV)/bin/pelican
 PIP=$(VENV)/bin/pip
+GIT=LD_PRELOAD=/home/dan/dev/GitBSLR/gitbslr.so /usr/bin/git
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -52,6 +53,8 @@ publish: install
 
 github: publish
 	ghp-import -n $(OUTPUTDIR)
-	git push origin gh-pages
+	$(GIT) push origin gh-pages
 
+up:
+	$(GIT) add content/* && $(GIT) commit -am "Update blog" && $(GIT) push && make github
 .PHONY: html clean serve devserver publish
