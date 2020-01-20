@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-04T00:00:00+01:00</updated><entry><title>Limites horaires</title><link href="https://blog.notmyidea.org/limites-horaires.html" rel="alternate"></link><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-04:/limites-horaires.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-14T00:00:00+01:00</updated><entry><title>Packager pour Debian</title><link href="https://blog.notmyidea.org/packager-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-pour-debian.html</id><summary type="html">
+&lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
+&lt;p&gt;Voici quelques notes prises durant l'après-midi …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
+&lt;p&gt;Voici quelques notes prises durant l'après-midi, qui pourront sans doute me servir pour la suite.&lt;/p&gt;
+&lt;h2 id="quest-ce-quon-fait"&gt;Qu'est-ce qu'on fait ?&lt;/h2&gt;
+&lt;p&gt;On essaye de créer un paquet Debian pour une application Web écrite en python. Il s'agit d'une application assez simple, qui communique avec une base de données d'un côté, et avec des utilisateurs de l'autre.&lt;/p&gt;
+&lt;h2 id="y-aller-par-etapes"&gt;Y aller par étapes&lt;/h2&gt;
+&lt;p&gt;On a essayé de faire en sorte d'avoir quelque chose de fonctionnel assez rapidement, même si pas entièrement fait dans les règles de l'art. Ça à l'avantage de garder la motivation :-)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Produire un paquet &lt;code&gt;.deb&lt;/code&gt; qui peut s'installer, et qui fait tourner l'application en question ;&lt;/li&gt;
+&lt;li&gt;Avoir un paquet qui passe les règles de validation de Debian ;&lt;/li&gt;
+&lt;li&gt;Intégrer le paquet avec &lt;code&gt;systemd&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;Intégrer le paquet dans un système de contrôle de version type git ;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="packaging-simple-1ere-version-fonctionnelle"&gt;Packaging « simple » - 1ère version fonctionnelle&lt;/h2&gt;
+&lt;p&gt;On commence par faire un paquet  dit « natif ». C'est l'approche la plus simple. 
+Deux fichiers sont importants, pour commencer : &lt;code&gt;control&lt;/code&gt; et &lt;code&gt;changelog&lt;/code&gt;. Le fichier &lt;code&gt;control&lt;/code&gt; contient un bloc « source » et un ou plusieurs blocs « package », dans l'idée de pouvoir avoir potentiellement plusieurs paquets binaires générés à partir du même package source, ce qui est utile pour les gros paquets.&lt;/p&gt;
+&lt;p&gt;Voici les étapes qu'on a suivi :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Créer les fichiers &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt; et &lt;code&gt;rules&lt;/code&gt; dans le répertoire &lt;code&gt;debian&lt;/code&gt;. Dans la pratique on peut les copier depuis un autre paquet qu'on prends comme modèle ;&lt;/li&gt;
+&lt;li&gt;Installer les dépendances de build avec &lt;code&gt;sudo apt install devscripts &amp;amp;&amp;amp; mk-build-deps -i -r --root-cmd sudo&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;Lancer &lt;code&gt;dpkg-buildpackage -rfakeroot&lt;/code&gt; qui va construire le paquet pour nous ;&lt;/li&gt;
+&lt;li&gt;Regarder la sortie de la commande pour voir les dépendances qui ne sont pas déjà prêtes pour Debian ;&lt;/li&gt;
+&lt;li&gt;Pour les quelques dépendances qui n'étaient pas déjà prêtes, on a répété les étapes précédentes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="questions-diverses-observations"&gt;Questions diverses &amp;amp; observations&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;dh-helper&lt;/code&gt; est une manière de packager « officiellement recommandée », il s'agit d'un ensemble d'outils qui cherchent à se faciliter la tache de &lt;em&gt;packaging&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pour les traductions : il n'est pas nécessaire de faire des paquets séparés pour la traduction, c'est acceptable de tout mettre dans le même paquet.&lt;/p&gt;
+&lt;p&gt;La documentation peut elle aussi être intégrée dans le même paquet.&lt;/p&gt;
+&lt;p&gt;Pour les numéros de version, si on a pas de tiret dans le numéro de version, alors il s'agit de la version &lt;em&gt;upstream&lt;/em&gt;. Si on a un tiret, ce qui est après le numéro de version est la version du &lt;em&gt;packaging&lt;/em&gt; pour Debian.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;DEB_BUILD_OPTIONS=nocheck&lt;/code&gt; permet de ne pas avoir à lancer les tests à chaque fois qu'on construit le paquet.&lt;/p&gt;
+&lt;h2 id="etapes-dapres"&gt;Étapes d'après&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Peut-être utiliser&lt;code&gt;debian/missing-sources&lt;/code&gt;, en tout cas régler le souci pour les bibliothèques JavaScript et le CSS dont les sources ne sont pas distribuées actuellement (parce que versions minifiées).&lt;/li&gt;
+&lt;li&gt;Il est possible d'installer des dépendances et de spécifier des liens symboliques à créer lors de l'installation.&lt;/li&gt;
+&lt;li&gt;Intégrer de la documentation sous forme de &lt;code&gt;manpage&lt;/code&gt;. Il semble que certains outils permettent de le faire de manière simple / automatique, comme « help2man »&lt;/li&gt;
+&lt;li&gt;De la même manière qu'on le fait pour les ressources type JS et CSS, il faut intégrer les &lt;em&gt;fonts&lt;/em&gt;, en faisant référence aux fonts empaquetées pour Debian. &lt;/li&gt;
+&lt;li&gt;Une fois que tout ça fonctionne, passer à un système de build qui comprends git&lt;/li&gt;
+&lt;li&gt;Faire une intégration avec &lt;code&gt;systemd&lt;/code&gt; pour avoir un service qui se lance automatiquement. Ce qui veut aussi dire créer un utilisateur spécifique pour notre service.&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>Prendre le temps</title><link href="https://blog.notmyidea.org/prendre-le-temps.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/prendre-le-temps.html</id><summary type="html">&lt;h2 id="prendre-le-temps"&gt;Prendre le temps&lt;/h2&gt;
+&lt;p&gt;Jusqu'ici, j'ai souvent eu l'impression que le temps s'écoulait sans que je puisse avoir de prise dessus.&lt;/p&gt;
+&lt;p&gt;Depuis peu, je me rends compte que j'ai l'opportunité de « visiter » ce flux, de — quelque part — « naviguer » en son sein, et que ce faisant, il se densifie, il prends plus …&lt;/p&gt;</summary><content type="html">&lt;h2 id="prendre-le-temps"&gt;Prendre le temps&lt;/h2&gt;
+&lt;p&gt;Jusqu'ici, j'ai souvent eu l'impression que le temps s'écoulait sans que je puisse avoir de prise dessus.&lt;/p&gt;
+&lt;p&gt;Depuis peu, je me rends compte que j'ai l'opportunité de « visiter » ce flux, de — quelque part — « naviguer » en son sein, et que ce faisant, il se densifie, il prends plus de place, il s'épaissit en quelque sorte.&lt;/p&gt;
+&lt;p&gt;Je prends plus de temps pour ressentir ce que je fais, et les effets semblent également se sentir sur ma relation aux autres, et sur le soin que je veux porter à mes relations.&lt;/p&gt;
+&lt;p&gt;Ça me donne l'impression d'avoir un contrôle sur le temps qui s'écoule (et ça c'est cool :-)).&lt;/p&gt;</content></entry><entry><title>Limites horaires</title><link href="https://blog.notmyidea.org/limites-horaires.html" rel="alternate"></link><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-04:/limites-horaires.html</id><summary type="html">
 &lt;p&gt;Depuis que j'ai décidé de faire un break technologique, je ne m'en sors pas si mal. Parmi les mesures que j'avais envie de prendre, était le fait de limiter le temps d'utilisation de mon ordinateur personnel.&lt;/p&gt;
 &lt;p&gt;J'utilise le logiciel &lt;a href="https://launchpad.net/timekpr-next"&gt;timekpr-next&lt;/a&gt; qui me permet de définir une limite d'utilisation par jour …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Depuis que j'ai décidé de faire un break technologique, je ne m'en sors pas si mal. Parmi les mesures que j'avais envie de prendre, était le fait de limiter le temps d'utilisation de mon ordinateur personnel.&lt;/p&gt;
@@ -12,7 +58,54 @@
 &lt;p&gt;Une autre astuce qui me permet de retrouver du temps, c'est de remettre certaines choses à plus tard. Certain⋅ne⋅s diraient que c'est de la procrastination, mais je demande par exemple aux personnes de passer par les canaux qui me permettent de mieux compartimenter les choses.&lt;/p&gt;
 &lt;p&gt;Par exemple, si …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Une autre astuce qui me permet de retrouver du temps, c'est de remettre certaines choses à plus tard. Certain⋅ne⋅s diraient que c'est de la procrastination, mais je demande par exemple aux personnes de passer par les canaux qui me permettent de mieux compartimenter les choses.&lt;/p&gt;
-&lt;p&gt;Par exemple, si je reçois un SMS qui me demande de faire quelque chose en rapport avec la technologie, je demande à la personne émettrice de m'envoyer un email.&lt;/p&gt;</content></entry><entry><title>Break technologique</title><link href="https://blog.notmyidea.org/break-technologique.html" rel="alternate"></link><published>2019-12-14T00:00:00+01:00</published><updated>2019-12-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-14:/break-technologique.html</id><summary type="html">&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
+&lt;p&gt;Par exemple, si je reçois un SMS qui me demande de faire quelque chose en rapport avec la technologie, je demande à la personne émettrice de m'envoyer un email.&lt;/p&gt;</content></entry><entry><title>Au delà de la pénétration</title><link href="https://blog.notmyidea.org/au-dela-de-la-penetration.html" rel="alternate"></link><published>2020-01-01T00:00:00+01:00</published><updated>2020-01-01T00:00:00+01:00</updated><author><name>Martin Page</name></author><id>tag:blog.notmyidea.org,2020-01-01:/au-dela-de-la-penetration.html</id><summary type="html">&lt;p&gt;Le livre est une ode aux plaisirs, une proposition de dépasser une sexualité étriquée, renfermée sur des pratiques traditionnelles qui ne sont pas forcement les meilleures en terme de plaisirs.&lt;/p&gt;
+&lt;p&gt;C'est un tout petit livre de 150 pages, découpé en trois parties : une introduction, un recueil de témoignages et enfin …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Le livre est une ode aux plaisirs, une proposition de dépasser une sexualité étriquée, renfermée sur des pratiques traditionnelles qui ne sont pas forcement les meilleures en terme de plaisirs.&lt;/p&gt;
+&lt;p&gt;C'est un tout petit livre de 150 pages, découpé en trois parties : une introduction, un recueil de témoignages et enfin quelques remerciements.&lt;/p&gt;
+&lt;p&gt;L'auteur vient préciser qu'il existe différentes sexualités, qu'avant tout une sexualité &lt;em&gt;devrait&lt;/em&gt; être une rencontre, une écoute mutuelle, une recherche des plaisirs de chacun⋅e.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;La question est: u a t-il des pratiques obligatoires ? Si das un couple, la pénétration (ou toute autre pratique sexuelle) n'était pas (ou plus) possible (ou pas ou plus souhaitée) est-ce que "serait vraiment une tragédie ? Si ma compagne ne veut plus être pénétrée, si mon compagnon ne bande plus, est-ce forcement la fin du désir et du plaisir ? Ou bien est-ce l'occasion d'être créatifs ?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il précise que parfois (souvent ?) la pénétration n'est pas une pratique qui procure du plaisir aux femmes, et que, parce que c'est un tabou, la pratique n'est pas vraiment remise en question. &lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Et parfois, tout simplement, des femmes n'aiment pas particulièrement ça, elles ne ressentent pas le plaisir incroyable qu'on leur intime de ressentir lors de cet acte. Elles ne souffrent de rien, pas de blessures, pas de peur, tout simplement ce n'est pas le truc le plus intéressant pour elles en matière de sexualité. C'est juste sympa, voire sans intérêt.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Une amie me racontant que le problème de la pénétration vaginale c'est qu'elle impliquait forcément contraception et que cela coûtait aux femmes. Une charge mentale de plus, une responsabilité, un truc auquel penser.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sans pénétration, tout le corps est hypersensible et délicieusement hyperactif. Faire l'amour devrait être la rencontre des corps et leur conversation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Finalement, la pénétration est un mode adapté au capitalisme, à nos journées volées par le travail, par les angoisses et la compétition. Comme il y a peu de temps pour penser l'amour, le pénis dans le vagin est pratique, on tient un certain temps, c'est calibré, il y a un début et une fin bien précise, on accomplit son devoir sans penser et sans imaginer. La société applaudit.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ce passage fait echo pour moi, et à mon rapport au temps.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Les hommes veulent entrer dans le corps de l'autre à tout prix, ils s'en servent comme d'un objet au service de leur jouissance et souvent le plaisir de leur partenaire est accessoire. Ils disent qu'ils font l'amour mais en fait ils se masturbent dans le corps des femmes 
+&amp;nbsp;
+Le patriarcat règne. Souvent la pénétration reproduit la domination de l'homme sur la femme : l'homme tient la femme, son sexe est en elle, il décide et dirige.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;J’apprécie que l'analyse ne soit pas porté sur la question de la sexualité sans évoquer les problématiques féministes, qui en mon sens sont centrales.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En fait, l'homme préfère ne pas y penser. Plus exactement: il refuse de se penser comme un être pénétrable. Il est farouchement contre sa propre pénétration. Pourquoi ? Arès tout, si la pénétration peut apporter du plaisir aux femmes, elle peut plus sûrement encore en donner aux hommes. C'est un fait. L'anatomie masculine est dotée d'une prostate [...]. Cet organe est une zone puissamment érogène et une grande source de plaisir qui peut conduire à la jouissance et à l'éjaculation. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bien sur, le massage prostatique est tabou encore plus grand (que parler de pénétration vaginale), et ce plaisir n'est pas pratiqué par la grande majorité des hommes.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Le désir de leur propre pénétration est singulièrement absent chez les hommes hétérosexuels qui paraissent ainsi comme de ridicules et paradoxales victimes de leur domination. [...] Dans leurs majorité, les hommes hétérosexuels, pourtant aventureux déclarés quand il s'agit du corps de l'autre, se révèlent puritains concernant leur propre corps. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Et, en parlant de l'utilisation de l'anus / de la prostate : &lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Leur angoisse étant de ne pas être assez homme, de ne pas correspondre au cliché viril. C'est bien ça l'enjeu pour certains : ils pénètrent pour ne pas risquer de mettre au jour leur propre désir d'avoir un doigt ou un gode dans l'anus, pour ne pas devenir un être pénétrable, c'est-à-dire, dans leur stupide esprit macho : une femme ou un homosexuel. Donc un dominé, un faible. &lt;strong&gt;Être considéré comme une femme ou un gay reste la grande peur des hétérosexuels&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;J'aime bien les « insultes » qui sont utilisées par Martin page : « Punaise de kalenbullar de plutonium », « punaise de tragédie », etc.&lt;/p&gt;</content><category term="sexualité"></category></entry><entry><title>Break technologique</title><link href="https://blog.notmyidea.org/break-technologique.html" rel="alternate"></link><published>2019-12-14T00:00:00+01:00</published><updated>2019-12-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-12-14:/break-technologique.html</id><summary type="html">&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
 &lt;h2 id="les-problemes"&gt;Les problèmes&lt;/h2&gt;
 &lt;p&gt;En fait, en analysant un peu plus la situation, et en …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à l'autre.&lt;/p&gt;
 &lt;h2 id="les-problemes"&gt;Les problèmes&lt;/h2&gt;
@@ -284,26 +377,7 @@
 &lt;p&gt;Ceux qui savent vont alors &lt;em&gt;expliquer&lt;/em&gt; à ceux qui apprennent, et ceux qui apprennent vont être contents d'apprendre. Il est à mon avis important de garder une posture d'apprenant alors même qu'on a des choses à transmettre. Que faut-il alors faire ? Dois-je garder du recul sur mes avis, ou dois-je les formuler comme étant des avis personnels, a prendre avec des pincettes ?&lt;/p&gt;
 &lt;h2 id="connaitre-mes-limites"&gt;Connaître mes limites&lt;/h2&gt;
 &lt;p&gt;Rester dans une position de &lt;em&gt;sachant&lt;/em&gt; semble me pousser à des comportements de fermeture d'esprit. La « sagesse » serait-elle la faculté à se remettre en question ? Mais quid des « fausses vérités » et des &lt;em&gt;avis de surface&lt;/em&gt;, de ce que l'on croit connaître ?&lt;/p&gt;
-&lt;p&gt;Peut-être que la solution est de connaître mes limites, ou en tout cas de les rechercher et de reconnaître mes zones de flou. &lt;/p&gt;</content></entry><entry><title>La conjuration des égos</title><link href="https://blog.notmyidea.org/la-conjuration-des-egos.html" rel="alternate"></link><published>2019-11-01T00:00:00+01:00</published><updated>2019-11-01T00:00:00+01:00</updated><author><name>Aude Vidal</name></author><id>tag:blog.notmyidea.org,2019-11-01:/la-conjuration-des-egos.html</id><summary type="html">&lt;h1 id="le-feminisme-entre-intime-et-politique"&gt;Le féminisme, entre intime et politique&lt;/h1&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Privées de paroles, privées d'espace, les femmes sont aussi d'une certaine manière privées de leur corps. C'est ainsi qu'est décrit le rapport des petites filles à leur corps par des sportives qui notent la faibel amplitude d'un geste, un bras qui ne va pas …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;h1 id="le-feminisme-entre-intime-et-politique"&gt;Le féminisme, entre intime et politique&lt;/h1&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Privées de paroles, privées d'espace, les femmes sont aussi d'une certaine manière privées de leur corps. C'est ainsi qu'est décrit le rapport des petites filles à leur corps par des sportives qui notent la faibel amplitude d'un geste, un bras qui ne va pas chercher loin derrière pour envoyer une balle.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Les femmes sont les premières à se flageller, lorsqu'elle ne le sont pas, disponibles : « égoiste », « tu ne pense qu'à toi ». Conseils familiaux, amicaux et professionnels, émis indifféremment par des individues des deux sexes, castrent les femmes, les cupabilisent, s'attaquent à leurs éxigenses pour leur faire rejoindre le niveau acceptable.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Le recours à la recherche en sciences humaines et sociales est ici vital pour débusquer les inégfalités, tant dans le discours commun le moindre contre-exemple (« Oui, mais moi je connais des femmes qui ») démonte toute tentative de généralisation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;La disproportion entre l'immensité de la tâche (détruire le patriacat) et les luttes minuscules (le refus de l'expression  « mademoiselle » par exemple) pour s'y atteler sans attendre le Grand Soir offre un objet de sarcasmes tout prêt à ceux qui ont intérêt à ce que rien ne change et à ce que les femmes restent ces petits être serviables et décoratifs.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="féminisme"></category></entry><entry><title>Travail, passion et limites.</title><link href="https://blog.notmyidea.org/travail-passion-et-limites.html" rel="alternate"></link><published>2019-10-25T00:00:00+02:00</published><updated>2019-10-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-10-25:/travail-passion-et-limites.html</id><summary type="html">
+&lt;p&gt;Peut-être que la solution est de connaître mes limites, ou en tout cas de les rechercher et de reconnaître mes zones de flou. &lt;/p&gt;</content></entry><entry><title>Travail, passion et limites.</title><link href="https://blog.notmyidea.org/travail-passion-et-limites.html" rel="alternate"></link><published>2019-10-25T00:00:00+02:00</published><updated>2019-10-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2019-10-25:/travail-passion-et-limites.html</id><summary type="html">
 &lt;p&gt;Je discutais avec des ami⋅e⋅s brasseurs, cavistes et barmaid du rapport que chacun⋅e entretient avec le travail, et je me suis étonné de voir que notre rapport soit aussi différent.&lt;/p&gt;
 &lt;p&gt;Notamment, ce que j'estime de prime abord comme un &lt;em&gt;travail acharné&lt;/em&gt; peut également être analysé sous l'angle …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Je discutais avec des ami⋅e⋅s brasseurs, cavistes et barmaid du rapport que chacun⋅e entretient avec le travail, et je me suis étonné de voir que notre rapport soit aussi différent.&lt;/p&gt;
@@ -462,7 +536,7 @@ manières dont les basculements écologiques sont et seront vécus.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Les pensées de droite sont friandes de responsabilité personnelle, sous-estiment contrainte et rapports de pouvoir, surestiment la marge de manœuvre des personnes (ici des civils dans un pays en guerre, des femmes en régime patriarcal, des personnes surnuméraires dans un contete de chômage massif et durable). C'est une manière de justifier un monde d'inégalités et de violence, où les logiques de solidarités sont abentes. [développement-personnel, p44]&lt;/p&gt;
+&lt;p&gt;Les pensées de droite sont friandes de responsabilité personnelle, sous-estiment contrainte et rapports de pouvoir, surestiment la marge de manœuvre des personnes (ici des civils dans un pays en guerre, des femmes en régime patriarcal, des personnes surnuméraires dans un contexte de chômage massif et durable). C'est une manière de justifier un monde d'inégalités et de violence, où les logiques de solidarités sont abentes. [développement-personnel, p44]&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -478,7 +552,7 @@ manières dont les basculements écologiques sont et seront vécus.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Il est acquis aujourd'hui qu'aucune attitude positive n'a de bénéfice physiologique pour les patientes, qu'un mode de vie sain ne peut pas prévenir le cancer du sein et que l'exposition à un environnemen ttoxique fait l'essentiel du risque mais les discours normatifs culpabilisent les patientes qui vivent leur cancer autrement qu'avec une bonne volonté et un enthousiasme débordants. [cancer, positivisme, p61]&lt;/p&gt;
+&lt;p&gt;Il est acquis aujourd'hui qu'aucune attitude positive n'a de bénéfice physiologique pour les patientes, qu'un mode de vie sain ne peut pas prévenir le cancer du sein et que l'exposition à un environnement toxique fait l'essentiel du risque mais les discours normatifs culpabilisent les patientes qui vivent leur cancer autrement qu'avec une bonne volonté et un enthousiasme débordants. [cancer, positivisme, p61]&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;blockquote&gt;

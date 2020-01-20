@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-04T00:00:00+01:00</updated><entry><title>Limites horaires</title><link href="https://blog.notmyidea.org/limites-horaires.html" rel="alternate"></link><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-04:/limites-horaires.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-14T00:00:00+01:00</updated><entry><title>Packager pour Debian</title><link href="https://blog.notmyidea.org/packager-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-pour-debian.html</id><summary type="html">
+&lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
+&lt;p&gt;Voici quelques notes prises durant l'après-midi …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
+&lt;p&gt;Voici quelques notes prises durant l'après-midi, qui pourront sans doute me servir pour la suite.&lt;/p&gt;
+&lt;h2 id="quest-ce-quon-fait"&gt;Qu'est-ce qu'on fait ?&lt;/h2&gt;
+&lt;p&gt;On essaye de créer un paquet Debian pour une application Web écrite en python. Il s'agit d'une application assez simple, qui communique avec une base de données d'un côté, et avec des utilisateurs de l'autre.&lt;/p&gt;
+&lt;h2 id="y-aller-par-etapes"&gt;Y aller par étapes&lt;/h2&gt;
+&lt;p&gt;On a essayé de faire en sorte d'avoir quelque chose de fonctionnel assez rapidement, même si pas entièrement fait dans les règles de l'art. Ça à l'avantage de garder la motivation :-)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Produire un paquet &lt;code&gt;.deb&lt;/code&gt; qui peut s'installer, et qui fait tourner l'application en question ;&lt;/li&gt;
+&lt;li&gt;Avoir un paquet qui passe les règles de validation de Debian ;&lt;/li&gt;
+&lt;li&gt;Intégrer le paquet avec &lt;code&gt;systemd&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;Intégrer le paquet dans un système de contrôle de version type git ;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="packaging-simple-1ere-version-fonctionnelle"&gt;Packaging « simple » - 1ère version fonctionnelle&lt;/h2&gt;
+&lt;p&gt;On commence par faire un paquet  dit « natif ». C'est l'approche la plus simple. 
+Deux fichiers sont importants, pour commencer : &lt;code&gt;control&lt;/code&gt; et &lt;code&gt;changelog&lt;/code&gt;. Le fichier &lt;code&gt;control&lt;/code&gt; contient un bloc « source » et un ou plusieurs blocs « package », dans l'idée de pouvoir avoir potentiellement plusieurs paquets binaires générés à partir du même package source, ce qui est utile pour les gros paquets.&lt;/p&gt;
+&lt;p&gt;Voici les étapes qu'on a suivi :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Créer les fichiers &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt; et &lt;code&gt;rules&lt;/code&gt; dans le répertoire &lt;code&gt;debian&lt;/code&gt;. Dans la pratique on peut les copier depuis un autre paquet qu'on prends comme modèle ;&lt;/li&gt;
+&lt;li&gt;Installer les dépendances de build avec &lt;code&gt;sudo apt install devscripts &amp;amp;&amp;amp; mk-build-deps -i -r --root-cmd sudo&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;Lancer &lt;code&gt;dpkg-buildpackage -rfakeroot&lt;/code&gt; qui va construire le paquet pour nous ;&lt;/li&gt;
+&lt;li&gt;Regarder la sortie de la commande pour voir les dépendances qui ne sont pas déjà prêtes pour Debian ;&lt;/li&gt;
+&lt;li&gt;Pour les quelques dépendances qui n'étaient pas déjà prêtes, on a répété les étapes précédentes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="questions-diverses-observations"&gt;Questions diverses &amp;amp; observations&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;dh-helper&lt;/code&gt; est une manière de packager « officiellement recommandée », il s'agit d'un ensemble d'outils qui cherchent à se faciliter la tache de &lt;em&gt;packaging&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pour les traductions : il n'est pas nécessaire de faire des paquets séparés pour la traduction, c'est acceptable de tout mettre dans le même paquet.&lt;/p&gt;
+&lt;p&gt;La documentation peut elle aussi être intégrée dans le même paquet.&lt;/p&gt;
+&lt;p&gt;Pour les numéros de version, si on a pas de tiret dans le numéro de version, alors il s'agit de la version &lt;em&gt;upstream&lt;/em&gt;. Si on a un tiret, ce qui est après le numéro de version est la version du &lt;em&gt;packaging&lt;/em&gt; pour Debian.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;DEB_BUILD_OPTIONS=nocheck&lt;/code&gt; permet de ne pas avoir à lancer les tests à chaque fois qu'on construit le paquet.&lt;/p&gt;
+&lt;h2 id="etapes-dapres"&gt;Étapes d'après&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Peut-être utiliser&lt;code&gt;debian/missing-sources&lt;/code&gt;, en tout cas régler le souci pour les bibliothèques JavaScript et le CSS dont les sources ne sont pas distribuées actuellement (parce que versions minifiées).&lt;/li&gt;
+&lt;li&gt;Il est possible d'installer des dépendances et de spécifier des liens symboliques à créer lors de l'installation.&lt;/li&gt;
+&lt;li&gt;Intégrer de la documentation sous forme de &lt;code&gt;manpage&lt;/code&gt;. Il semble que certains outils permettent de le faire de manière simple / automatique, comme « help2man »&lt;/li&gt;
+&lt;li&gt;De la même manière qu'on le fait pour les ressources type JS et CSS, il faut intégrer les &lt;em&gt;fonts&lt;/em&gt;, en faisant référence aux fonts empaquetées pour Debian. &lt;/li&gt;
+&lt;li&gt;Une fois que tout ça fonctionne, passer à un système de build qui comprends git&lt;/li&gt;
+&lt;li&gt;Faire une intégration avec &lt;code&gt;systemd&lt;/code&gt; pour avoir un service qui se lance automatiquement. Ce qui veut aussi dire créer un utilisateur spécifique pour notre service.&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>Prendre le temps</title><link href="https://blog.notmyidea.org/prendre-le-temps.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/prendre-le-temps.html</id><summary type="html">&lt;h2 id="prendre-le-temps"&gt;Prendre le temps&lt;/h2&gt;
+&lt;p&gt;Jusqu'ici, j'ai souvent eu l'impression que le temps s'écoulait sans que je puisse avoir de prise dessus.&lt;/p&gt;
+&lt;p&gt;Depuis peu, je me rends compte que j'ai l'opportunité de « visiter » ce flux, de — quelque part — « naviguer » en son sein, et que ce faisant, il se densifie, il prends plus …&lt;/p&gt;</summary><content type="html">&lt;h2 id="prendre-le-temps"&gt;Prendre le temps&lt;/h2&gt;
+&lt;p&gt;Jusqu'ici, j'ai souvent eu l'impression que le temps s'écoulait sans que je puisse avoir de prise dessus.&lt;/p&gt;
+&lt;p&gt;Depuis peu, je me rends compte que j'ai l'opportunité de « visiter » ce flux, de — quelque part — « naviguer » en son sein, et que ce faisant, il se densifie, il prends plus de place, il s'épaissit en quelque sorte.&lt;/p&gt;
+&lt;p&gt;Je prends plus de temps pour ressentir ce que je fais, et les effets semblent également se sentir sur ma relation aux autres, et sur le soin que je veux porter à mes relations.&lt;/p&gt;
+&lt;p&gt;Ça me donne l'impression d'avoir un contrôle sur le temps qui s'écoule (et ça c'est cool :-)).&lt;/p&gt;</content></entry><entry><title>Limites horaires</title><link href="https://blog.notmyidea.org/limites-horaires.html" rel="alternate"></link><published>2020-01-04T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-04:/limites-horaires.html</id><summary type="html">
 &lt;p&gt;Depuis que j'ai décidé de faire un break technologique, je ne m'en sors pas si mal. Parmi les mesures que j'avais envie de prendre, était le fait de limiter le temps d'utilisation de mon ordinateur personnel.&lt;/p&gt;
 &lt;p&gt;J'utilise le logiciel &lt;a href="https://launchpad.net/timekpr-next"&gt;timekpr-next&lt;/a&gt; qui me permet de définir une limite d'utilisation par jour …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Depuis que j'ai décidé de faire un break technologique, je ne m'en sors pas si mal. Parmi les mesures que j'avais envie de prendre, était le fait de limiter le temps d'utilisation de mon ordinateur personnel.&lt;/p&gt;
