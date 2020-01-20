@@ -44,6 +44,8 @@ Ce passage me fait penser aux groupes de paroles auxquels je participe, pour les
 
 ## Autodéfinition : où sont les autres ?
 
+Mes notes ne sont pas terminées ici, mais clairement c'est un passage avec lequel je ne suis pas vraiment d'accord / qui me surprends.
+
 Le droit français :
 
 > Toute personne majeure ou mineure émancipée qui démontre par une réunion suffisante de faites que la mention relative à son sexe dans les actes de l'état civil ne correspond pas à celui dans lequel elle se présente et dans lequel elle est connue peut en obtenir la modification.
@@ -51,6 +53,5 @@ Le droit français :
 > Le texte, qui n'exige des personnes trans que de s'être présenté⋅es aux autres comme la femme ou l'homme qu'elles savent être, définit le genre comme une expérience sociale. « Le genre est un produit du patriarcat », nous rappelle la féministe Meghan Murphy et « les notions entourant la masculinité et la féminité existent pour naturaliser la domination masculine et la subordination féminine », pas pour être des identités individuelles inventées par chacun⋅e et donnant lieu à des genres pluriels. elle conclut donc :
 
 > Les hommes ne peuvent pas s'exclure aussi facilement, par simple identification, de la classe des oppresseurs, tout comme les femmes ne peuvent simplement choisir de s'identifier hors d'une vulnérabilité à la violence masculine.
-
 
 > l'approche des « milieux LGBT et nouveaux féministes radicaux », qui « tiennent à ce que chacun⋅e ait la liberté de se définir pour échapper à une définition venue de l'extérieur, un regard social perçu comme oppressant.
