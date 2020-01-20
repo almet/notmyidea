@@ -4,7 +4,7 @@ author: Aude Vidal
 tags: féminisme
 isbn: 9782849507898
 image: https://www.syllepse.net/syllepse_images/produits/conjuration_des_egos800.jpg?2
-read_on: Novembre 2019 - Janvier 2020
+read_on: Janvier 2020
 
 # Le féminisme, entre intime et politique
 
