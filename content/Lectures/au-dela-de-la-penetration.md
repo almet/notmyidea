@@ -1,7 +1,6 @@
 title: Au delà de la pénétration
 author: Martin Page
-tags: sexualité
-        féminisme
+tags: sexualité, féminisme
 read_on: Janvier 2020
 
 Le livre est une ode aux plaisirs, une proposition de dépasser une sexualité étriquée, renfermée sur des pratiques traditionnelles qui ne sont pas forcement les meilleures en terme de plaisirs.
