@@ -15,7 +15,7 @@ read_on: Septembre 2019
 
 > « Se changer soi pour changer le monde », cette prescription […] semble au final un leurre, car travailler sur soi-même […] c'est avant tout accepter une vision du monde où chacun⋅e étant capable d'aller bien, chacun⋅e est responsable de son sort.  [développement-personnel, p42]
 
-> Les pensées de droite sont friandes de responsabilité personnelle, sous-estiment contrainte et rapports de pouvoir, surestiment la marge de manœuvre des personnes (ici des civils dans un pays en guerre, des femmes en régime patriarcal, des personnes surnuméraires dans un contete de chômage massif et durable). C'est une manière de justifier un monde d'inégalités et de violence, où les logiques de solidarités sont abentes. [développement-personnel, p44]
+> Les pensées de droite sont friandes de responsabilité personnelle, sous-estiment contrainte et rapports de pouvoir, surestiment la marge de manœuvre des personnes (ici des civils dans un pays en guerre, des femmes en régime patriarcal, des personnes surnuméraires dans un contexte de chômage massif et durable). C'est une manière de justifier un monde d'inégalités et de violence, où les logiques de solidarités sont abentes. [développement-personnel, p44]
 
 > Ainsi, une écologie aux racines libertaires a pu, loin de ses ambitions de départ, suivre la marche du monde : une libéralisation des rapports sociaux qui entraîne consumérisme et individualisme. C'est le sort qu'ont connu d'autres aspirations issues de la contre-culture des années 60 : la révolution sexuelle ouvre le marché de l'industrie pornographique, la critique d'un capitalisme autoritaire entraîne sa métamorphose. [capitalisme, engagement, p51] 
 
@@ -23,7 +23,7 @@ read_on: Septembre 2019
 
 > Les préoccupations politiques sont aussi absentes dans les cours de yoga offerts aux salarié⋅es de grandes entreprises que dans les annonces pour des pratiques de relaxation au magasin bio. [alternatives, p57]
 
-> Il est acquis aujourd'hui qu'aucune attitude positive n'a de bénéfice physiologique pour les patientes, qu'un mode de vie sain ne peut pas prévenir le cancer du sein et que l'exposition à un environnemen ttoxique fait l'essentiel du risque mais les discours normatifs culpabilisent les patientes qui vivent leur cancer autrement qu'avec une bonne volonté et un enthousiasme débordants. [cancer, positivisme, p61]
+> Il est acquis aujourd'hui qu'aucune attitude positive n'a de bénéfice physiologique pour les patientes, qu'un mode de vie sain ne peut pas prévenir le cancer du sein et que l'exposition à un environnement toxique fait l'essentiel du risque mais les discours normatifs culpabilisent les patientes qui vivent leur cancer autrement qu'avec une bonne volonté et un enthousiasme débordants. [cancer, positivisme, p61]
 
 > Or, la vie commune est souvent défavorable aux femmes, elles sont plus heureuses seules qu'en couple. Le couple hétérosexuel permet en revanche aux homes de mieux vivre que s'ils étaient célibataires, par exemple en mangeant plus sainement. Ils travaillent plus et gagnent plus à mesure qu'ils s'installent en couple et ont des enfants, tandis que les femmes réduisent leur temps de travail et leur revenu pour les mêmes raisons. [féminisme, p70]
 
