@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-14T00:00:00+01:00</updated><entry><title>Packager pour Debian</title><link href="https://blog.notmyidea.org/packager-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-pour-debian.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2020-01-21T00:00:00+01:00</updated><entry><title>Le piège du développement personnel</title><link href="https://blog.notmyidea.org/le-piege-du-developpement-personnel.html" rel="alternate"></link><published>2020-01-21T00:00:00+01:00</published><updated>2020-01-21T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-21:/le-piege-du-developpement-personnel.html</id><summary type="html">&lt;p&gt;Ces derniers temps, je me suis retrouvé à questionner mon rapport a la pratique du développement personnel. À quel point le celui ci, et la « psychologie positive » peuvent-elles jouer un rôle de « cache misère » vis à vis des différentes formes d'oppression et de domination à l'œuvre dans notre société ?&lt;/p&gt;
+&lt;p&gt;Voire …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ces derniers temps, je me suis retrouvé à questionner mon rapport a la pratique du développement personnel. À quel point le celui ci, et la « psychologie positive » peuvent-elles jouer un rôle de « cache misère » vis à vis des différentes formes d'oppression et de domination à l'œuvre dans notre société ?&lt;/p&gt;
+&lt;p&gt;Voire même : ce courant de pensée peut-il favoriser un certain conservatisme ? Se changer soi même équivaut-il à une adaptation au système en place, supprimant alors toute volonté de révolte et de changement sociétal ?&lt;/p&gt;
+&lt;p&gt;Face à un constat considéré comme « négatif » sur notre société, plusieurs manières de prendre la chose (entre autres) :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Le travail sur soi&lt;/strong&gt;, qui cherche à percevoir les choses sous le meilleur angle possible. Ici, « Toute expérience est bonne à prendre » ;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La problématisation&lt;/strong&gt; : essayer de comprendre quelles sont les normes et les valeurs qui amènent au problème constaté.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="le-probleme"&gt;Le problème ?&lt;/h2&gt;
+&lt;p&gt;« Travailler sur soi » est parfois mis en opposition avec le fait de déconstruire sociétalement notre monde.&lt;/p&gt;
+&lt;p&gt;Il est (bien sur) souhaitable de mieux vivre la violence des systèmes oppressifs, mais il semble quelque part important d'en avoir d'abord conscience, pour que ce « travail sur soi » ne soit pas assimilé à une « technique de l'autruche ».&lt;/p&gt;
+&lt;p&gt;Il semble aussi que nous ne sommes malheureusement pas tou⋅te⋅s égaux/égales face aux violences systémiques, et « mieux vivre » ces violences, bien que possible pour certain⋅e⋅s, reste impossible pour d'autres &lt;sup id="fnref:matrice-des-dominations"&gt;&lt;a class="footnote-ref" href="#fn:matrice-des-dominations"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Plutôt que d'accepter (implicitement) cette violence, il me semble utile de &lt;strong&gt;comprendre comment cette violence s'applique&lt;/strong&gt;, de manière à remonter aux racines du problème, pour pouvoir le résoudre.&lt;/p&gt;
+&lt;h2 id="developpement-personnel-vs-sociologie"&gt;Développement personnel vs sociologie&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;N'acceptez pas les choses que vous ne pouvez changer, mais changez les choses que vous ne pouvez pas accepter. &lt;/p&gt;
+&lt;p&gt;— Angela Davis&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Le développement personnel, bien qu'une pratique avec des buts qui semblent nobles de prime abord, semble contenir son lot de problèmes.&lt;/p&gt;
+&lt;p&gt;Parmi ceux-cis : une minimisation des problèmes ressentis, et comme le dit Aude Vidal dans son livre « Égologie », une culpabilisation de chacun⋅e : « Si tu en est là, c'est que tu choisis de voir les choses sous cet angle ».&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;« Se changer soi pour changer le monde », cette prescription […] semble au final un leurre, car travailler sur soi-même […] c'est avant tout accepter une vision du monde où chacun⋅e étant capable d'aller bien, chacun⋅e est responsable de son sort.
+— Aude Vidal, Égologie&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Parfois, on en vient également à « psychologiser » des situations, c'est à dire essayer d'expliquer des situations sociétales comme on le ferait d'une personne, sans prendre en compte la société dans son ensemble et dans sa complexité, et cela vient se substituer à l'approche sociologique.&lt;/p&gt;
+&lt;p&gt;On peut également voir ce déni de l'approche sociologique comme une naïveté à l'égard du monde, entretenue par les nombreux ouvrages qu'on trouve sur le sujet. On nous dira bientôt qu'il faut arrêter de se tenir au courant de ce qui se déroule dans le monde, les mauvaises nouvelles étant diablement mauvaises pour notre Karma.&lt;/p&gt;
+&lt;p&gt;Penser le monde dans sa complexité me semble une condition nécessaire pour pouvoir le faire évoluer dans une direction intéressante. &lt;/p&gt;
+&lt;h2 id="une-culture-de-la-passivite"&gt;Une culture de la passivité&lt;/h2&gt;
+&lt;p&gt;Cette manière de penser le monde nous pousse à la passivité : si plutôt que de voir les choses en face, nous décidons de changer notre manière de percevoir les problèmes, alors nous nous dépolitisons.&lt;/p&gt;
+&lt;p&gt;Elle laisse également penser que l'approche sociologique nous empêcherait d'agir, comme si réfléchir aux problèmes de société était un problème en soi, alors que monopole de la résolution de conflit n'est pas au développement personnel !&lt;/p&gt;
+&lt;p&gt;L'approche sociologique permet quelque part de se déculpabiliser : on peut à partir du constat sociologique se dire « je suis oppréssé⋅e, c'est pas de ma faute, maintenant que je le sais je peux travailler dessus plus facilement ».&lt;/p&gt;
+&lt;p&gt;Une prise de pouvoir, en quelque sorte.&lt;/p&gt;
+&lt;h2 id="ressources-pour-aller-plus-loin"&gt;Ressources / pour aller plus loin&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://www.monde-diplomatique.fr/2018/08/MALET/58981"&gt;Le système Pierre Rahbi — Le monde diplomatique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://labrique.net/index.php/thematiques/politicaille/954-cyril-dion-coli-briseur-de-l-ecologie-radicale"&gt;Égologie, par Aude Vidal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://labrique.net/index.php/thematiques/politicaille/954-cyril-dion-coli-briseur-de-l-ecologie-radicale"&gt;Cyril Dion, Coli-briseur de l'écologie radicale — La brique&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:matrice-des-dominations"&gt;
+&lt;p&gt;Comme théorisé avec la &lt;a href="https://en.wikipedia.org/wiki/Matrix_of_domination"&gt;matrice des dominations&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:matrice-des-dominations" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content></entry><entry><title>Packager du python pour Debian</title><link href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-du-python-pour-debian.html</id><summary type="html">
 &lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
 &lt;p&gt;Voici quelques notes prises durant l'après-midi …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
