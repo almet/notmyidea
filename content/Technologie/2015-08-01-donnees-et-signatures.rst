@@ -3,6 +3,7 @@ Service de nuages : Garantir l'intégrité des données via des signatures
 
 :summary: Comment garantir l'intégrité des données en utilisant les signatures.
 :lang: fr
+:date: 2016-03-01
 
 *Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla*
 

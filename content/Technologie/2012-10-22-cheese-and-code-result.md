@@ -56,7 +56,8 @@ consume any REST API with a SPORE endpoint.
 
 Here is how you can let cornice describe your web service for you
 
-``` sourceCode python
+```python
+
 from cornice.ext.spore import generate_spore_description
 from cornice.service import Service, get_services
 
@@ -101,7 +102,8 @@ You can [find the project on
 github](http://github.com/spiral-project/respire), but here is how to
 use it, really quickly (these examples are how to interact with daybed)
 
-``` sourceCode python
+```python
+
 >>> from respire import client_from_url
 
 >>> # create the client from the SPORE definition

@@ -17,7 +17,8 @@ without the need from the developer to deal with them nor to know them.
 If you're not familiar with Cornice, here is how you define a simple
 service with it:
 
-``` sourceCode python
+```python
+
 from cornice.service import Service
 bar = Service(path="/bar")
 
@@ -40,7 +41,8 @@ this was via an extensive use of decorators internally.
 The API of the cornice.service.Service class was as following
 (simplified so you can get the gist of it).
 
-``` sourceCode python
+```python
+
 class Service(object):
 
     def __init__(self, **service_kwargs):
@@ -110,7 +112,8 @@ touching the API that much.
 
 Here is the gist of the new architecture:
 
-``` sourceCode python
+```python
+
 class Service(object):
     # we define class-level variables that will be the default values for
     # this service. This makes things more extensible than it was before.
@@ -170,7 +173,8 @@ and nothing more. No more route registration logic goes here. Instead, I
 added this as another feature, even in a different module. The function
 is named register\_service\_views and has the following signature:
 
-``` sourceCode python
+```python
+
 register_service_views(config, service)
 ```
 

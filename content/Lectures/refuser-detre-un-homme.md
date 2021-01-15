@@ -1,7 +1,6 @@
 title: Refuser d'être un homme
 author:  John Stolenberg
-tags: féminisme
-         masculinisme
+tags: féminisme, masculinisme
 headline: Pour en finir avec la virilité
 read_on: Octobre 2019
 image: https://www.syllepse.net/syllepse_images/produits/refuser_d_etre_un_homme.jpg

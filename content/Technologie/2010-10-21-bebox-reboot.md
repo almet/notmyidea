@@ -11,7 +11,8 @@ After a bit of reflexion, that's also really easy to do using directly
 the command line tools curl, grep and tail (but really harder to
 read).
 
-``` sourceCode bash
+```bash
+
 curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART -d "0=17&2=`curl -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\&l1\=0\&tid\=RESTART | grep -o "name='2' value='[0-9]\+" | grep -o "[0-9]\+" | tail -n 1`&1"
 ```
 
@@ -20,7 +21,8 @@ curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&l0\=1\
 Well, that's not the optimal solution, that's a bit "gruik", but it
 works.
 
-``` sourceCode python
+```python
+
 import urllib2
 import urlparse
 import re

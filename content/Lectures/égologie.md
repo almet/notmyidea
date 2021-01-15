@@ -1,8 +1,7 @@
 title: Égologie
 headline: Écologie, individualisme et course au bonheur
 author: Aude Vidal
-tags: écologie
-      développement-personnel
+tags: écologie, développement-personnel
 isbn: 979-10-91772-19-8
 image: https://products-images.di-static.com/image/aude-vidal-egologie/9791091772198-475x500-1.jpg
 read_on: Septembre 2019

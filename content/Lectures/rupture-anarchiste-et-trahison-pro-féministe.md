@@ -1,8 +1,6 @@
 title: Rupture anarchiste et trahison pro-féministe
 author: Léo Thiers-Vidal
-tags: féminisme
-      anarchisme
-      masculinismes
+tags: féminisme, anarchisme, masculinismes
 isbn: 978-2954323701
 headline: Écrits et échanges de Léo Thiers-Vidal.
 read_on: Août 2019

@@ -3,8 +3,9 @@
 PATH = "content"
 AUTHOR = u""
 SITENAME = u"Carnets en ligne"
-THEME = "theme"
+THEME = "mnmlist"
 DISQUS_SITENAME = "notmyidea"
+DEFAULT_PAGINATION = 10
 STATIC_PATHS = ["static", "images"]
 
 SITEURL = ""

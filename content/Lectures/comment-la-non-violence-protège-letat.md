@@ -1,8 +1,7 @@
 title: Comment la non-violence protège l'état
 headline: Essai sur l'inefficacité des mouvements sociaux
 author: Peter Gelderloos
-tags: non-violence
-      critique
+tags: non-violence, anarchisme
 isbn: 978-2-9556782-4-4
 image: https://www.editionslibre.org/wp-content/uploads/2018/02/siteinternet4.png
 read_on: Juin 2019

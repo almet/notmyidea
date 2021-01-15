@@ -1,8 +1,6 @@
 title: Antisexisme ou antiracisme ? Un faux dilemme
 author: Christine Delphy
-tags: sexisme
-        voile
-        racisme
+tags: sexisme, voile, racisme
 link: https://www.cairn.info/revue-nouvelles-questions-feministes-2006-1-page-59.htm
 read_on: Septembre 2019
 

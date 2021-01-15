@@ -40,7 +40,7 @@ Ce second graphique montre les personnes qui se considèrent en recherche d'empl
 
 ## Budget de l'assurance chômage
 
-![](/images/chomage/dette-chomage.png)
+![Budget dette](/images/chomage/dette-chomage.png)
 
 ## Financement de l'assurance chômage
 

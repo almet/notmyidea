@@ -12,20 +12,23 @@ Some time ago, I've made a little python script to ease that, and you
 can now use it too. It's named "gnome-background-generator", and you can
 install it via pip for instance.
 
-``` sourceCode shell
+``` 
+shell
 $ pip install gnome-background-generator
 ```
 
 Then, you have just to use it this way:
 
-``` sourceCode shell
+``` 
+shell
 $ gnome-background-generator -p ~/Images/walls -s
 /home/alexis/Images/walls/dynamic-wallpaper.xml generated
 ```
 
 Here is a extract of the \`--help\`:
 
-``` sourceCode shell
+``` 
+shell
 $ gnome-background-generator --help
 usage: gnome-background-generator [-h] [-p PATH] [-o OUTPUT]
                                   [-t TRANSITION_TIME] [-d DISPLAY_TIME] [-s]

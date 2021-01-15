@@ -14,7 +14,7 @@ class BlockquotesPreprocessor(Preprocessor):
         new_lines = []
         for line in lines:
             if line.startswith(">"):
-                new_lines.append("&nbsp;")
+                # new_lines.append("&nbsp;")
                 new_lines.append(line)
             else:
                 new_lines.append(line)

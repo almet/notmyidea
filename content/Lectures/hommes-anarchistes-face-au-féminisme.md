@@ -1,7 +1,6 @@
 title: Hommes Anarchistes face au féminisme
 author: Françis Dupuis-Déri
-tags: féminisme
-      anarchisme
+tags: féminisme, anarchisme
 headline: Pistes de réflexion au sujet de la politique, de l'amour et de la sexualité
 read_on: Septembre 2019
 link: https://refractions.plusloin.org/IMG/pdf/2412_1_.pdf

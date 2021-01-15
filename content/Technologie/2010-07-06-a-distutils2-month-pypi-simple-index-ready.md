@@ -71,7 +71,8 @@ If you want to find all the distributions of the "EggsAndSpam" project,
 you could do the following (do not take so attention to the names here,
 as the API will probably change a bit):
 
-``` sourceCode python
+```python
+
 >>> index = SimpleIndex()
 >>> index.find("EggsAndSpam")
 [EggsAndSpam 1.1, EggsAndSpam 1.2, EggsAndSpam 1.3]
@@ -79,7 +80,8 @@ as the API will probably change a bit):
 
 We also could use version specifiers:
 
-``` sourceCode python
+```python
+
 >>> index.find("EggsAndSpam (< =1.2)")
 [EggsAndSpam 1.1, EggsAndSpam 1.2]
 ```

@@ -25,7 +25,7 @@ You can find a repository to fork at
 If you just want to get started, use your installer of choice (pip,
 easy\_install, …) And then have a look to the help (pelican --help)
 
-``` sourceCode bash
+```
 $ pip install pelican
 ```
 
@@ -33,7 +33,7 @@ $ pip install pelican
 
 Here's a sample usage of pelican
 
-``` sourceCode bash
+``` bash
 $ pelican .
 writing /home/alexis/projets/notmyidea.org/output/index.html
 writing /home/alexis/projets/notmyidea.org/output/tags.html
@@ -48,7 +48,8 @@ Done !
 You also can use the --help option for the command line to get more
 informations
 
-``` sourceCode bash
+```bash
+
 $pelican --help
 usage: pelican [-h] [-t TEMPLATES] [-o OUTPUT] [-m MARKUP] [-s SETTINGS] [-b]
                path

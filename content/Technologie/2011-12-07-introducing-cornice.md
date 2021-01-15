@@ -16,7 +16,8 @@ wheel, so it is easily pluggable with validations frameworks, such as
 
 Here is how it works:
 
-``` sourceCode python
+```python
+
 service = Service(name="service", path="/service")
 
 
@@ -72,7 +73,8 @@ to the requests.
 For instance, in our validator, we can chose to validate the parameter
 passed and use it in the body of the webservice:
 
-``` sourceCode python
+```python
+
 service = Service(name="service", path="/service")
 
 
@@ -109,7 +111,8 @@ Let's refine a bit our previous example, by specifying which
 content-types are supported, using the accept
 parameter:
 
-``` sourceCode python
+```python
+
 @service.get(validator=is_awesome, accept=("application/json", "text/json"))
 def get1(request):
     return {"test": "yay!"}
@@ -135,7 +138,8 @@ writing documentation for web services can be painful, especially when
 your services evolve. Cornice provides a sphinx directive to
 automatically document your API in your docs.
 
-``` sourceCode rst
+``` 
+rst
 .. services::
    :package: coolapp
    :service: quote

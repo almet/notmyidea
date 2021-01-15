@@ -137,7 +137,8 @@ CORS support as well.
 
 In Cornice, you define a service like this:
 
-``` sourceCode python
+```python
+
 from cornice import Service
 
 foobar = Service(name="foobar", path="/foobar")
@@ -151,7 +152,8 @@ def get_foobar(request):
 To add CORS support to this resource, you can go this way, with the
 cors\_origins parameter:
 
-``` sourceCode python
+```python
+
 foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))
 ```
 
@@ -166,7 +168,8 @@ need to stick with \*, which means "authorize everyone".
 
 You can define the headers you want to expose for the service:
 
-``` sourceCode python
+```python
+
 foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))
 
 @foobar.get(cors_headers=('X-My-Header', 'Content-Type'))
@@ -212,7 +215,8 @@ the time.
 I introduced another way to pass the CORS policy, so you can do
 something like that:
 
-``` sourceCode python
+```python
+
 policy = dict(enabled=False,
               headers=('X-My-Header', 'Content-Type'),
               origins=('*.notmyidea.org'),

@@ -112,7 +112,8 @@ terme, et que *Remote Storage* devienne une facette de notre solution.
 permet de manipuler des enregistrements en local et de les synchroniser
 vers une base distante.
 
-``` sourceCode javascript
+``` 
+javascript
 var db = new PouchDB('dbname');
 
 db.put({

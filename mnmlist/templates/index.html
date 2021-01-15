@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% block pagetitle %}{% endblock %}</h1>
+{% if articles %}
+    {% for article in articles %}
+        {% if loop.index <= DEFAULT_PAGINATION %}
+            <section class="section index">
+                {% if not HIDE_DATE %}
+                <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                {% endif %}
+                <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
+                {{ article.content|striptags|truncate(200) }}
+            </section>
+        {% else %}
+            {% if loop.index0 == DEFAULT_PAGINATION %}
+            <section>
+                <h1>More...</h1>
+                <ul>
+            {% endif %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></li>
+            {% if loop.last %}
+                </ul>
+            </section>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    No posts found.
+{% endif %}
+{% endblock content %}

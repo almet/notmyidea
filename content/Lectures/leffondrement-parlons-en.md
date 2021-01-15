@@ -1,7 +1,6 @@
 title: L'effondrement, parlons-en...
 author:  Jérémie Cravatte
-tags: écologie
-         collapsologie
+tags: écologie, collapsologie
 headline: Les limites de la "collapsologie".
 read_on: Octobre 2019
 link: http://www.barricade.be/publications/analyses-etudes/effondrement-parlons-limites-collapsologie

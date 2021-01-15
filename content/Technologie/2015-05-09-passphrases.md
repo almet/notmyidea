@@ -42,14 +42,12 @@ Une phrase de passe devrait:
 Une des techniques consiste à utiliser des mots du dictionnaire,
 sélectionnés de manière aléatoire, puis modifiés.
 
-![](https://imgs.xkcd.com/comics/password_strength.png)
+![Trough 20 years of effort, we've succesfully trained everyone to use passwords that are hard for humans to remember, but easy for computers to guess](https://imgs.xkcd.com/comics/password_strength.png)
 
 Micah Lee [travaille également sur un
 outil](https://github.com/micahflee/passphrases) qui vise à rendre la
 mémorisation des phrases de passe plus aisée, de par leur répétition
 avec des pauses de plus en plus longues.
-
-![](%7Bfilename%7D/static/passphrases.png)
 
 Oui, ce n'est pas aussi simple que ce qu'il y parait. Pour ma part, j'ai
 une copie en local de mes clés, dans un fichier chiffré avec une autre
