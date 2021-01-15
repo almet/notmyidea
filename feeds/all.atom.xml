@@ -7938,61 +7938,12 @@ solutions ou suggestions.&lt;/p&gt;
 vos commentaires, c'est son objectif!&lt;/p&gt;
 &lt;p&gt;Merci à &lt;a href="http://sneakernet.fr/"&gt;Arnaud&lt;/a&gt; pour la relecture et la
 correction de quelques typos dans le texte :)&lt;/p&gt;</content><category term="Technologie"></category></entry><entry><title>Thoughts about a form generation service, GIS enabled</title><link href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/thoughts-about-a-form-generation-service-gis-enabled.html</id><summary type="html">
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;slug&lt;br&gt;
-    carto-forms&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;date&lt;br&gt;
-    02-04-2012&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;author&lt;br&gt;
-    Alexis Métaireau, Mathieu Leplatre&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;tags&lt;br&gt;
-    GIS, forms&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;lang&lt;br&gt;
-    en&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;category&lt;br&gt;
-    tech&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Written by Alexis Métaireau &amp;amp; Mathieu Leplatre&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;We have a plan. A "fucking good" one.&lt;/p&gt;
 &lt;p&gt;A bunch of friends asked me twice for quite the same thing: a webpage
-with a form, tied to a map generation with some information filtering …&lt;/p&gt;</summary><content type="html">
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;slug&lt;br&gt;
-    carto-forms&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;date&lt;br&gt;
-    02-04-2012&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;author&lt;br&gt;
-    Alexis Métaireau, Mathieu Leplatre&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;tags&lt;br&gt;
-    GIS, forms&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;lang&lt;br&gt;
-    en&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;category&lt;br&gt;
-    tech&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+with a form, tied to a map generation with some information filtering.
+They didn't explicitly ask that but that's the gist of …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;&lt;em&gt;Written by Alexis Métaireau &amp;amp; Mathieu Leplatre&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;We have a plan. A "fucking good" one.&lt;/p&gt;
 &lt;p&gt;A bunch of friends asked me twice for quite the same thing: a webpage
 with a form, tied to a map generation with some information filtering.
