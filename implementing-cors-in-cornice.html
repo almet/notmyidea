@@ -1,109 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>Implementing CORS in Cornice - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>Implementing CORS in Cornice - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">Implementing CORS in Cornice</h1>
+	<time datetime="2013-02-04T00:00:00+01:00">04 février 2013</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">Implementing CORS in Cornice</h1>
-
-<span class="post-date">
-    04 février 2013, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#implementing-cors-in-cornice">Implementing CORS in Cornice</a><ul>
-<li><a href="#you-want-an-icecream-go-ask-your-dad-first">You want an icecream? Go ask your dad first.</a></li>
-<li><a href="#a-word-about-security">A word about security</a></li>
-<li><a href="#how-this-is-different-from-jsonp">How this is different from JSONP?</a></li>
-<li><a href="#using-cors-in-cornice">Using CORS in Cornice</a></li>
-</ul>
-</li>
-<li><a href="#and-then-you-do-something-with-it">and then you do something with it</a><ul>
-<li><a href="#headers">Headers</a></li>
-<li><a href="#comparison-with-other-implementations">Comparison with other implementations</a></li>
-<li><a href="#resources">Resources</a></li>
-</ul>
-</li>
-</ul>
-</div>
-
-      </div>
-    <h1>🌟</h1>
+    
+</header>
+<article>
     
 <div class="note">
 
@@ -174,14 +96,13 @@ OPTIONS call.</p>
 </ul>
 <p>So, if you want to access the /icecream resource, and do a PUT there,
 you'll have the following flow:</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="k">OPTIONS</span> <span class="o">/</span><span class="n">icecream</span>
-<span class="o">&gt;</span> <span class="k">Access</span><span class="o">-</span><span class="n">Control</span><span class="o">-</span><span class="n">Request</span><span class="o">-</span><span class="n">Methods</span> <span class="o">=</span> <span class="n">PUT</span>
-<span class="o">&gt;</span> <span class="n">Origin</span><span class="p">:</span> <span class="n">notmyidea</span><span class="p">.</span><span class="n">org</span>
-<span class="o">&lt;</span> <span class="k">Access</span><span class="o">-</span><span class="n">Control</span><span class="o">-</span><span class="n">Allow</span><span class="o">-</span><span class="n">Origin</span> <span class="o">=</span> <span class="n">notmyidea</span><span class="p">.</span><span class="n">org</span>
-<span class="o">&lt;</span> <span class="k">Access</span><span class="o">-</span><span class="n">Control</span><span class="o">-</span><span class="n">Allow</span><span class="o">-</span><span class="n">Methods</span> <span class="o">=</span> <span class="n">PUT</span><span class="p">,</span><span class="k">GET</span><span class="p">,</span><span class="k">DELETE</span>
-<span class="mi">200</span> <span class="n">OK</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">&gt; OPTIONS /icecream</span>
+<span class="err">&gt; Access-Control-Request-Methods = PUT</span>
+<span class="err">&gt; Origin: notmyidea.org</span>
+<span class="err">&lt; Access-Control-Allow-Origin = notmyidea.org</span>
+<span class="err">&lt; Access-Control-Allow-Methods = PUT,GET,DELETE</span>
+<span class="err">200 OK</span>
+</code></pre></div>
 
 <p>You can see that we have an Origin Header in the request, as well as a
 Access-Control-Request-Methods. We're here asking if we have the right,
@@ -229,20 +150,20 @@ implemented it on the server-side.</p>
 care of the heavy lifting for you, so I wanted it to take care of the
 CORS support as well.</p>
 <p>In Cornice, you define a service like this:</p>
-<p>``` sourceCode python
-from cornice import Service</p>
-<p>foobar = Service(name="foobar", path="/foobar")</p>
-<h1 id="and-then-you-do-something-with-it">and then you do something with it</h1>
-<p>@foobar.get()
-def get_foobar(request):
-    # do something with the request.</p>
-<div class="highlight"><pre><span></span><span class="k">To</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">CORS</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">way</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="n">cors</span><span class="err">\</span><span class="n">_origins</span><span class="w"> </span><span class="k">parameter</span><span class="err">:</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">cornice</span> <span class="kn">import</span> <span class="n">Service</span>
 
-<span class="err">```</span><span class="w"> </span><span class="n">sourceCode</span><span class="w"> </span><span class="n">python</span><span class="w"></span>
-<span class="n">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">cors_origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,))</span><span class="w"></span>
-</pre></div>
+<span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;foobar&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/foobar&quot;</span><span class="p">)</span>
 
+<span class="c1"># and then you do something with it</span>
+<span class="nd">@foobar</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">get_foobar</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># do something with the request.</span>
+</code></pre></div>
+
+<p>To add CORS support to this resource, you can go this way, with the
+cors_origins parameter:</p>
+<div class="highlight"><pre><span></span><code><span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,))</span>
+</code></pre></div>
 
 <p>Ta-da! You have enabled CORS for your service. <strong>Be aware that you're
 authorizing anyone to query your server, that may not be what you
@@ -251,59 +172,49 @@ want.</strong></p>
 need to stick with *, which means "authorize everyone".</p>
 <h3 id="headers">Headers</h3>
 <p>You can define the headers you want to expose for the service:</p>
-<p>``` sourceCode python
-foobar = Service(name='foobar', path='/foobar', cors_origins=('*',))</p>
-<p>@foobar.get(cors_headers=('X-My-Header', 'Content-Type'))
-def get_foobars_please(request):
-    return "some foobar for you"</p>
-<div class="highlight"><pre><span></span><span class="nv">I</span><span class="s1">&#39;</span><span class="s">ve done some testing and it wasn</span><span class="s1">&#39;</span><span class="nv">t</span> <span class="nv">working</span> <span class="nv">on</span> <span class="nv">Chrome</span> <span class="nv">because</span> <span class="nv">I</span> <span class="nv">wasn</span><span class="s1">&#39;</span><span class="s">t</span>
-<span class="nv">handling</span> <span class="nv">the</span> <span class="nv">headers</span> <span class="nv">the</span> <span class="nv">right</span> <span class="nv">way</span> <span class="ss">(</span><span class="nv">The</span> <span class="nv">missing</span> <span class="nv">one</span> <span class="nv">was</span> <span class="nv">Content</span><span class="o">-</span><span class="nv">Type</span>,
-<span class="nv">that</span> <span class="nv">Chrome</span> <span class="nv">was</span> <span class="nv">asking</span> <span class="k">for</span><span class="ss">)</span>. <span class="nv">With</span> <span class="nv">my</span> <span class="nv">first</span> <span class="nv">version</span> <span class="nv">of</span> <span class="nv">the</span>
-<span class="nv">implementation</span>, <span class="nv">I</span> <span class="nv">needed</span> <span class="nv">the</span> <span class="nv">service</span> <span class="nv">implementers</span> <span class="nv">to</span> <span class="nv">explicitely</span> <span class="nv">list</span>
-<span class="nv">all</span> <span class="nv">the</span> <span class="nv">headers</span> <span class="nv">that</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">exposed</span>. <span class="k">While</span> <span class="nv">this</span> <span class="nv">improves</span> <span class="nv">security</span>, <span class="nv">it</span>
-<span class="nv">can</span> <span class="nv">be</span> <span class="nv">frustrating</span> <span class="k">while</span> <span class="nv">developing</span>.
+<div class="highlight"><pre><span></span><code><span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,))</span>
 
-<span class="nv">So</span> <span class="nv">I</span> <span class="nv">introduced</span> <span class="nv">an</span> <span class="nv">expose</span>\<span class="nv">_all</span>\<span class="nv">_headers</span> <span class="nv">flag</span>, <span class="nv">which</span> <span class="nv">is</span> <span class="nv">set</span> <span class="nv">to</span> <span class="nv">True</span> <span class="nv">by</span>
-<span class="nv">default</span>, <span class="k">if</span> <span class="nv">the</span> <span class="nv">service</span> <span class="nv">supports</span> <span class="nv">CORS</span>.
+<span class="nd">@foobar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cors_headers</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;X-My-Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">get_foobars_please</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;some foobar for you&quot;</span>
+</code></pre></div>
 
-### <span class="nv">Cookies</span> <span class="o">/</span> <span class="nv">Credentials</span>
+<p>I've done some testing and it wasn't working on Chrome because I wasn't
+handling the headers the right way (The missing one was Content-Type,
+that Chrome was asking for). With my first version of the
+implementation, I needed the service implementers to explicitely list
+all the headers that should be exposed. While this improves security, it
+can be frustrating while developing.</p>
+<p>So I introduced an expose_all_headers flag, which is set to True by
+default, if the service supports CORS.</p>
+<h3 id="cookies-credentials">Cookies / Credentials</h3>
+<p>By default, the requests you do to your API endpoint don't include the
+credential information for security reasons. If you really want to do
+that, you need to enable it using the cors_credentials parameter. You
+can activate this one on a per-service basis or on a per-method basis.</p>
+<h3 id="caching">Caching</h3>
+<p>When you do a preflight request, the information returned by the server
+can be cached by the User-Agent so that it's not redone before each
+actual call.</p>
+<p>The caching period is defined by the server, using the
+Access-Control-Max-Age header. You can configure this timing using the
+cors_max_age parameter.</p>
+<h3 id="simplifying-the-api">Simplifying the API</h3>
+<p>We have cors_headers, cors_enabled, cors_origins, cors_credentials,
+cors_max_age, cors_expose_all_headers … a fair number of
+parameters. If you want to have a specific CORS-policy for your
+services, that can be a bit tedious to pass these to your services all
+the time.</p>
+<p>I introduced another way to pass the CORS policy, so you can do
+something like that:</p>
+<div class="highlight"><pre><span></span><code><span class="n">policy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">headers</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;X-My-Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">),</span>
+              <span class="n">origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*.notmyidea.org&#39;</span><span class="p">),</span>
+              <span class="n">credentials</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">max_age</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="nv">By</span> <span class="nv">default</span>, <span class="nv">the</span> <span class="nv">requests</span> <span class="nv">you</span> <span class="k">do</span> <span class="nv">to</span> <span class="nv">your</span> <span class="nv">API</span> <span class="nv">endpoint</span> <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t include the</span>
-<span class="nv">credential</span> <span class="nv">information</span> <span class="k">for</span> <span class="nv">security</span> <span class="nv">reasons</span>. <span class="k">If</span> <span class="nv">you</span> <span class="nv">really</span> <span class="nv">want</span> <span class="nv">to</span> <span class="k">do</span>
-<span class="nv">that</span>, <span class="nv">you</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">enable</span> <span class="nv">it</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">cors</span>\<span class="nv">_credentials</span> <span class="nv">parameter</span>. <span class="nv">You</span>
-<span class="nv">can</span> <span class="nv">activate</span> <span class="nv">this</span> <span class="nv">one</span> <span class="nv">on</span> <span class="nv">a</span> <span class="nv">per</span><span class="o">-</span><span class="nv">service</span> <span class="nv">basis</span> <span class="nv">or</span> <span class="nv">on</span> <span class="nv">a</span> <span class="nv">per</span><span class="o">-</span><span class="nv">method</span> <span class="nv">basis</span>.
-
-### <span class="nv">Caching</span>
-
-<span class="nv">When</span> <span class="nv">you</span> <span class="k">do</span> <span class="nv">a</span> <span class="nv">preflight</span> <span class="nv">request</span>, <span class="nv">the</span> <span class="nv">information</span> <span class="nv">returned</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">server</span>
-<span class="nv">can</span> <span class="nv">be</span> <span class="nv">cached</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">User</span><span class="o">-</span><span class="nv">Agent</span> <span class="nv">so</span> <span class="nv">that</span> <span class="nv">it</span><span class="s1">&#39;</span><span class="s">s not redone before each</span>
-<span class="nv">actual</span> <span class="nv">call</span>.
-
-<span class="nv">The</span> <span class="nv">caching</span> <span class="nv">period</span> <span class="nv">is</span> <span class="nv">defined</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">server</span>, <span class="nv">using</span> <span class="nv">the</span>
-<span class="nv">Access</span><span class="o">-</span><span class="nv">Control</span><span class="o">-</span><span class="nv">Max</span><span class="o">-</span><span class="nv">Age</span> <span class="nv">header</span>. <span class="nv">You</span> <span class="nv">can</span> <span class="nv">configure</span> <span class="nv">this</span> <span class="nv">timing</span> <span class="nv">using</span> <span class="nv">the</span>
-<span class="nv">cors</span>\<span class="nv">_max</span>\<span class="nv">_age</span> <span class="nv">parameter</span>.
-
-### <span class="nv">Simplifying</span> <span class="nv">the</span> <span class="nv">API</span>
-
-<span class="nv">We</span> <span class="nv">have</span> <span class="nv">cors</span>\<span class="nv">_headers</span>, <span class="nv">cors</span>\<span class="nv">_enabled</span>, <span class="nv">cors</span>\<span class="nv">_origins</span>, <span class="nv">cors</span>\<span class="nv">_credentials</span>,
-<span class="nv">cors</span>\<span class="nv">_max</span>\<span class="nv">_age</span>, <span class="nv">cors</span>\<span class="nv">_expose</span>\<span class="nv">_all</span>\<span class="nv">_headers</span> … <span class="nv">a</span> <span class="nv">fair</span> <span class="nv">number</span> <span class="nv">of</span>
-<span class="nv">parameters</span>. <span class="k">If</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">have</span> <span class="nv">a</span> <span class="nv">specific</span> <span class="nv">CORS</span><span class="o">-</span><span class="nv">policy</span> <span class="k">for</span> <span class="nv">your</span>
-<span class="nv">services</span>, <span class="nv">that</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">a</span> <span class="nv">bit</span> <span class="nv">tedious</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">these</span> <span class="nv">to</span> <span class="nv">your</span> <span class="nv">services</span> <span class="nv">all</span>
-<span class="nv">the</span> <span class="nv">time</span>.
-
-<span class="nv">I</span> <span class="nv">introduced</span> <span class="nv">another</span> <span class="nv">way</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">the</span> <span class="nv">CORS</span> <span class="nv">policy</span>, <span class="nv">so</span> <span class="nv">you</span> <span class="nv">can</span> <span class="k">do</span>
-<span class="nv">something</span> <span class="nv">like</span> <span class="nv">that</span>:
-
-``` <span class="nv">sourceCode</span> <span class="nv">python</span>
-<span class="nv">policy</span> <span class="o">=</span> <span class="nv">dict</span><span class="ss">(</span><span class="nv">enabled</span><span class="o">=</span><span class="nv">False</span>,
-              <span class="nv">headers</span><span class="o">=</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">X-My-Header</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Content-Type</span><span class="s1">&#39;</span><span class="ss">)</span>,
-              <span class="nv">origins</span><span class="o">=</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">*.notmyidea.org</span><span class="s1">&#39;</span><span class="ss">)</span>,
-              <span class="nv">credentials</span><span class="o">=</span><span class="nv">True</span>,
-              <span class="nv">max_age</span><span class="o">=</span><span class="mi">42</span><span class="ss">)</span>
-
-<span class="nv">foobar</span> <span class="o">=</span> <span class="nv">Service</span><span class="ss">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">foobar</span><span class="s1">&#39;</span>, <span class="nv">path</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">/foobar</span><span class="s1">&#39;</span>, <span class="nv">cors_policy</span><span class="o">=</span><span class="nv">policy</span><span class="ss">)</span>
-</pre></div>
-
+<span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_policy</span><span class="o">=</span><span class="n">policy</span><span class="p">)</span>
+</code></pre></div>
 
 <h2 id="comparison-with-other-implementations">Comparison with other implementations</h2>
 <p>I was curious to have a look at other implementations of CORS, in django
@@ -343,42 +254,7 @@ yourself.</p>
 specification isn't hard to read, so you may want to go through it.
 Especially the <a href="http://www.w3.org/TR/cors/#resource-processing-model">"resource processing model"
 section</a></p>
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>

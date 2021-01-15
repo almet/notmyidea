@@ -1,89 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>Refactoring Cornice - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>Refactoring Cornice - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">Refactoring Cornice</h1>
+	<time datetime="2012-05-01T00:00:00+02:00">01 mai 2012</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">Refactoring Cornice</h1>
-
-<span class="post-date">
-    01 mai 2012, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <h1>🌟</h1>
+    
+</header>
+<article>
     
 <p>After working for a while with <a href="http://cornice.readthedocs.com">Cornice</a>
 to define our APIs at <a href="http://docs.services.mozilla.com">Services</a>, it
@@ -99,62 +41,58 @@ specification</a>
 without the need from the developer to deal with them nor to know them.</p>
 <p>If you're not familiar with Cornice, here is how you define a simple
 service with it:</p>
-<p>``` sourceCode python
-from cornice.service import Service
-bar = Service(path="/bar")</p>
-<p>@bar.get(validators=validators, accept='application/json')
-def get_drink(request):
-    # do something with the request (with moderation).</p>
-<div class="highlight"><pre><span></span><span class="nv">This</span> <span class="nv">external</span> <span class="nv">API</span> <span class="nv">is</span> <span class="nv">quite</span> <span class="nv">cool</span>, <span class="nv">as</span> <span class="nv">it</span> <span class="nv">allows</span> <span class="nv">to</span> <span class="k">do</span> <span class="nv">a</span> <span class="nv">bunch</span> <span class="nv">of</span> <span class="nv">things</span>
-<span class="nv">quite</span> <span class="nv">easily</span>. <span class="k">For</span> <span class="nv">instance</span>, <span class="nv">we</span><span class="s1">&#39;</span><span class="s">ve written our</span>
-[<span class="nv">token</span><span class="o">-</span><span class="nv">server</span>]<span class="ss">(</span><span class="nv">https</span>:<span class="o">//</span><span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">mozilla</span><span class="o">-</span><span class="nv">services</span><span class="o">/</span><span class="nv">tokenserver</span><span class="ss">)</span> <span class="nv">code</span> <span class="nv">on</span>
-<span class="nv">top</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">blast</span>.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">cornice.service</span> <span class="kn">import</span> <span class="n">Service</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/bar&quot;</span><span class="p">)</span>
 
-## <span class="nv">The</span> <span class="nv">burden</span>
+<span class="nd">@bar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="n">validators</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_drink</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># do something with the request (with moderation).</span>
+</code></pre></div>
 
-<span class="nv">The</span> <span class="nv">problem</span> <span class="nv">with</span> <span class="nv">this</span> <span class="nv">was</span> <span class="nv">that</span> <span class="nv">we</span> <span class="nv">were</span> <span class="nv">mixing</span> <span class="nv">internally</span> <span class="nv">the</span> <span class="nv">service</span>
-<span class="nv">description</span> <span class="nv">logic</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">route</span> <span class="nv">registration</span> <span class="nv">one</span>. <span class="nv">The</span> <span class="nv">way</span> <span class="nv">we</span> <span class="nv">were</span> <span class="nv">doing</span>
-<span class="nv">this</span> <span class="nv">was</span> <span class="nv">via</span> <span class="nv">an</span> <span class="nv">extensive</span> <span class="nv">use</span> <span class="nv">of</span> <span class="nv">decorators</span> <span class="nv">internally</span>.
+<p>This external API is quite cool, as it allows to do a bunch of things
+quite easily. For instance, we've written our
+<a href="https://github.com/mozilla-services/tokenserver">token-server</a> code on
+top of this in a blast.</p>
+<h2 id="the-burden">The burden</h2>
+<p>The problem with this was that we were mixing internally the service
+description logic with the route registration one. The way we were doing
+this was via an extensive use of decorators internally.</p>
+<p>The API of the cornice.service.Service class was as following
+(simplified so you can get the gist of it).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Service</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-<span class="nv">The</span> <span class="nv">API</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">cornice</span>.<span class="nv">service</span>.<span class="nv">Service</span> <span class="nv">class</span> <span class="nv">was</span> <span class="nv">as</span> <span class="nv">following</span>
-<span class="ss">(</span><span class="nv">simplified</span> <span class="nv">so</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">get</span> <span class="nv">the</span> <span class="nv">gist</span> <span class="nv">of</span> <span class="nv">it</span><span class="ss">)</span>.
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">service_kwargs</span><span class="p">):</span>
+        <span class="c1"># some information, such as the colander schemas (for validation),</span>
+        <span class="c1"># the defined methods that had been registered for this service and</span>
+        <span class="c1"># some other things were registered as instance variables.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schemas</span> <span class="o">=</span> <span class="n">service_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">schema</span><span class="s1">&#39;, None)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
 
-``` <span class="nv">sourceCode</span> <span class="nv">python</span>
-<span class="nv">class</span> <span class="nv">Service</span><span class="ss">(</span><span class="nv">object</span><span class="ss">)</span>:
+    <span class="k">def</span> <span class="nf">api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">view_kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method is a decorator that is being used by some alias</span>
+<span class="sd">        methods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+            <span class="c1"># all the logic goes here. And when I mean all the logic, I</span>
+            <span class="c1"># mean it.</span>
+            <span class="c1"># 1. we are registering a callback to the pyramid routing</span>
+            <span class="c1">#    system so it gets called whenever the module using the</span>
+            <span class="c1">#    decorator is used.</span>
+            <span class="c1"># 2. we are transforming the passed arguments so they conform</span>
+            <span class="c1">#    to what is expected by the pyramid routing system.</span>
+            <span class="c1"># 3. We are storing some of the passed arguments into the</span>
+            <span class="c1">#    object so we can retrieve them later on.</span>
+            <span class="c1"># 4. Also, we are transforming the passed view before</span>
+            <span class="c1">#    registering it in the pyramid routing system so that it</span>
+            <span class="c1">#    can do what Cornice wants it to do (checking some rules,</span>
+            <span class="c1">#    applying validators and filters etc.</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
 
-    <span class="nv">def</span> <span class="nv">__init__</span><span class="ss">(</span><span class="nv">self</span>, <span class="o">**</span><span class="nv">service_kwargs</span><span class="ss">)</span>:
-        # <span class="nv">some</span> <span class="nv">information</span>, <span class="nv">such</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">colander</span> <span class="nv">schemas</span> <span class="ss">(</span><span class="k">for</span> <span class="nv">validation</span><span class="ss">)</span>,
-        # <span class="nv">the</span> <span class="nv">defined</span> <span class="nv">methods</span> <span class="nv">that</span> <span class="nv">had</span> <span class="nv">been</span> <span class="nv">registered</span> <span class="k">for</span> <span class="nv">this</span> <span class="nv">service</span> <span class="nv">and</span>
-        # <span class="nv">some</span> <span class="nv">other</span> <span class="nv">things</span> <span class="nv">were</span> <span class="nv">registered</span> <span class="nv">as</span> <span class="nv">instance</span> <span class="nv">variables</span>.
-        <span class="nv">self</span>.<span class="nv">schemas</span> <span class="o">=</span> <span class="nv">service_kwargs</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">schema</span><span class="s1">&#39;</span><span class="s">, None)</span>
-        <span class="nv">self</span>.<span class="nv">defined_methods</span> <span class="o">=</span> []
-        <span class="nv">self</span>.<span class="nv">definitions</span> <span class="o">=</span> []
-
-    <span class="nv">def</span> <span class="nv">api</span><span class="ss">(</span><span class="nv">self</span>, <span class="o">**</span><span class="nv">view_kwargs</span><span class="ss">)</span>:
-        <span class="s2">&quot;&quot;&quot;</span><span class="s">This method is a decorator that is being used by some alias</span>
-        <span class="nv">methods</span>.
-        <span class="s2">&quot;&quot;&quot;</span>
-        <span class="nv">def</span> <span class="nv">wrapper</span><span class="ss">(</span><span class="nv">view</span><span class="ss">)</span>:
-            # <span class="nv">all</span> <span class="nv">the</span> <span class="nv">logic</span> <span class="nv">goes</span> <span class="nv">here</span>. <span class="nv">And</span> <span class="nv">when</span> <span class="nv">I</span> <span class="nv">mean</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">logic</span>, <span class="nv">I</span>
-            # <span class="nv">mean</span> <span class="nv">it</span>.
-            # <span class="mi">1</span>. <span class="nv">we</span> <span class="nv">are</span> <span class="nv">registering</span> <span class="nv">a</span> <span class="nv">callback</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">pyramid</span> <span class="nv">routing</span>
-            #    <span class="nv">system</span> <span class="nv">so</span> <span class="nv">it</span> <span class="nv">gets</span> <span class="nv">called</span> <span class="nv">whenever</span> <span class="nv">the</span> <span class="nv">module</span> <span class="nv">using</span> <span class="nv">the</span>
-            #    <span class="nv">decorator</span> <span class="nv">is</span> <span class="nv">used</span>.
-            # <span class="mi">2</span>. <span class="nv">we</span> <span class="nv">are</span> <span class="nv">transforming</span> <span class="nv">the</span> <span class="nv">passed</span> <span class="nv">arguments</span> <span class="nv">so</span> <span class="nv">they</span> <span class="nv">conform</span>
-            #    <span class="nv">to</span> <span class="nv">what</span> <span class="nv">is</span> <span class="nv">expected</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">pyramid</span> <span class="nv">routing</span> <span class="nv">system</span>.
-            # <span class="mi">3</span>. <span class="nv">We</span> <span class="nv">are</span> <span class="nv">storing</span> <span class="nv">some</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">passed</span> <span class="nv">arguments</span> <span class="nv">into</span> <span class="nv">the</span>
-            #    <span class="nv">object</span> <span class="nv">so</span> <span class="nv">we</span> <span class="nv">can</span> <span class="nv">retrieve</span> <span class="nv">them</span> <span class="nv">later</span> <span class="nv">on</span>.
-            # <span class="mi">4</span>. <span class="nv">Also</span>, <span class="nv">we</span> <span class="nv">are</span> <span class="nv">transforming</span> <span class="nv">the</span> <span class="nv">passed</span> <span class="nv">view</span> <span class="nv">before</span>
-            #    <span class="nv">registering</span> <span class="nv">it</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">pyramid</span> <span class="nv">routing</span> <span class="nv">system</span> <span class="nv">so</span> <span class="nv">that</span> <span class="nv">it</span>
-            #    <span class="nv">can</span> <span class="k">do</span> <span class="nv">what</span> <span class="nv">Cornice</span> <span class="nv">wants</span> <span class="nv">it</span> <span class="nv">to</span> <span class="k">do</span> <span class="ss">(</span><span class="nv">checking</span> <span class="nv">some</span> <span class="nv">rules</span>,
-            #    <span class="nv">applying</span> <span class="nv">validators</span> <span class="nv">and</span> <span class="nv">filters</span> <span class="nv">etc</span>.
-        <span class="k">return</span> <span class="nv">wrapper</span>
-
-    <span class="nv">def</span> <span class="nv">get</span><span class="ss">(</span><span class="nv">self</span>, <span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>:
-        <span class="s2">&quot;&quot;&quot;</span><span class="s">A shortcut of the api decorator</span><span class="s2">&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nv">self</span>.<span class="nv">api</span><span class="ss">(</span><span class="nv">request_method</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">GET</span><span class="s2">&quot;</span>, <span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>
-</pre></div>
-
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A shortcut of the api decorator&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="n">request_method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
 
 <p>I encourage you to go read <a href="https://github.com/mozilla-services/cornice/blob/4e0392a2ae137b6a11690459bcafd7325e86fa9e/cornice/service.py#L44">the entire
 file</a>.
@@ -186,70 +124,66 @@ hack-on. One example is that it allowed me to add features that we
 wanted to bring to Cornice really quickly (a matter of minutes), without
 touching the API that much.</p>
 <p>Here is the gist of the new architecture:</p>
-<p>``` sourceCode python
-class Service(object):
-    # we define class-level variables that will be the default values for
-    # this service. This makes things more extensible than it was before.
-    renderer = 'simplejson'
-    default_validators = DEFAULT_VALIDATORS
-    default_filters = DEFAULT_FILTERS</p>
-<div class="highlight"><pre><span></span># <span class="nv">we</span> <span class="nv">also</span> <span class="nv">have</span> <span class="nv">some</span> <span class="nv">class</span><span class="o">-</span><span class="nv">level</span> <span class="nv">parameters</span> <span class="nv">that</span> <span class="nv">are</span> <span class="nv">useful</span> <span class="nv">to</span> <span class="nv">know</span>
-# <span class="nv">which</span> <span class="nv">parameters</span> <span class="nv">are</span> <span class="nv">supposed</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">lists</span> <span class="ss">(</span><span class="nv">and</span> <span class="nv">so</span> <span class="nv">converted</span> <span class="nv">as</span> <span class="nv">such</span><span class="ss">)</span>
-# <span class="nv">or</span> <span class="nv">which</span> <span class="nv">are</span> <span class="nv">mandatory</span>.
-<span class="nv">mandatory_arguments</span> <span class="o">=</span> <span class="ss">(</span><span class="s1">&#39;</span><span class="s">renderer</span><span class="s1">&#39;</span>,<span class="ss">)</span>
-<span class="nv">list_arguments</span> <span class="o">=</span> <span class="ss">(</span><span class="s1">&#39;</span><span class="s">validators</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">filters</span><span class="s1">&#39;</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Service</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># we define class-level variables that will be the default values for</span>
+    <span class="c1"># this service. This makes things more extensible than it was before.</span>
+    <span class="n">renderer</span> <span class="o">=</span> <span class="s1">&#39;simplejson&#39;</span>
+    <span class="n">default_validators</span> <span class="o">=</span> <span class="n">DEFAULT_VALIDATORS</span>
+    <span class="n">default_filters</span> <span class="o">=</span> <span class="n">DEFAULT_FILTERS</span>
 
-<span class="nv">def</span> <span class="nv">__init__</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">name</span>, <span class="nv">path</span>, <span class="nv">description</span><span class="o">=</span><span class="nv">None</span>, <span class="o">**</span><span class="nv">kw</span><span class="ss">)</span>:
-    # <span class="nv">setup</span> <span class="nv">name</span>, <span class="nv">path</span> <span class="nv">and</span> <span class="nv">description</span> <span class="nv">as</span> <span class="nv">instance</span> <span class="nv">variables</span>
-    <span class="nv">self</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span>
-    <span class="nv">self</span>.<span class="nv">path</span> <span class="o">=</span> <span class="nv">path</span>
-    <span class="nv">self</span>.<span class="nv">description</span> <span class="o">=</span> <span class="nv">description</span>
+    <span class="c1"># we also have some class-level parameters that are useful to know</span>
+    <span class="c1"># which parameters are supposed to be lists (and so converted as such)</span>
+    <span class="c1"># or which are mandatory.</span>
+    <span class="n">mandatory_arguments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,)</span>
+    <span class="n">list_arguments</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;validators&#39;</span><span class="p">,</span> <span class="s1">&#39;filters&#39;</span><span class="p">)</span>
 
-    # <span class="nv">convert</span> <span class="nv">the</span> <span class="nv">arguments</span> <span class="nv">passed</span> <span class="nv">to</span> <span class="nv">something</span> <span class="nv">we</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">store</span>
-    # <span class="nv">and</span> <span class="k">then</span> <span class="nv">store</span> <span class="nv">them</span> <span class="nv">as</span> <span class="nv">attributes</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">instance</span> <span class="ss">(</span><span class="nv">because</span> <span class="nv">they</span>
-    # <span class="nv">were</span> <span class="nv">passed</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">constructor</span>
-    <span class="nv">self</span>.<span class="nv">arguments</span> <span class="o">=</span> <span class="nv">self</span>.<span class="nv">get_arguments</span><span class="ss">(</span><span class="nv">kw</span><span class="ss">)</span>
-    <span class="k">for</span> <span class="nv">key</span>, <span class="nv">value</span> <span class="nv">in</span> <span class="nv">self</span>.<span class="nv">arguments</span>.<span class="nv">items</span><span class="ss">()</span>:
-        <span class="nv">setattr</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">key</span>, <span class="nv">value</span><span class="ss">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="c1"># setup name, path and description as instance variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
 
-    # <span class="nv">we</span> <span class="nv">keep</span> <span class="nv">having</span> <span class="nv">the</span> <span class="nv">defined_methods</span> <span class="nv">tuple</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">list</span> <span class="nv">of</span>
-    # <span class="nv">definitions</span> <span class="nv">that</span> <span class="nv">are</span> <span class="nv">done</span> <span class="k">for</span> <span class="nv">this</span> <span class="nv">service</span>
-    <span class="nv">self</span>.<span class="nv">defined_methods</span> <span class="o">=</span> []
-    <span class="nv">self</span>.<span class="nv">definitions</span> <span class="o">=</span> []
+        <span class="c1"># convert the arguments passed to something we want to store</span>
+        <span class="c1"># and then store them as attributes of the instance (because they</span>
+        <span class="c1"># were passed to the constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_arguments</span><span class="p">(</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-<span class="nv">def</span> <span class="nv">get_arguments</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">conf</span><span class="o">=</span><span class="nv">None</span><span class="ss">)</span>:
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Returns a dict of arguments. It does all the conversions for</span>
-    <span class="nv">you</span>, <span class="nv">and</span> <span class="nv">uses</span> <span class="nv">the</span> <span class="nv">information</span> <span class="nv">that</span> <span class="nv">were</span> <span class="nv">defined</span> <span class="nv">at</span> <span class="nv">the</span> <span class="nv">instance</span>
-    <span class="nv">level</span> <span class="nv">as</span> <span class="nv">fallbacks</span>.
-    <span class="s2">&quot;&quot;&quot;</span>
+        <span class="c1"># we keep having the defined_methods tuple and the list of</span>
+        <span class="c1"># definitions that are done for this service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="nv">def</span> <span class="nv">add_view</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">method</span>, <span class="nv">view</span>, <span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>:
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Add a view to this service.</span><span class="s2">&quot;&quot;&quot;</span>
-    # <span class="nv">this</span> <span class="nv">is</span> <span class="nv">really</span> <span class="nv">simple</span> <span class="nv">and</span> <span class="nv">looks</span> <span class="nv">a</span> <span class="nv">lot</span> <span class="nv">like</span> <span class="nv">this</span>
-    <span class="nv">method</span> <span class="o">=</span> <span class="nv">method</span>.<span class="nv">upper</span><span class="ss">()</span>
-    <span class="nv">self</span>.<span class="nv">definitions</span>.<span class="nv">append</span><span class="ss">((</span><span class="nv">method</span>, <span class="nv">view</span>, <span class="nv">args</span><span class="ss">))</span>
-    <span class="k">if</span> <span class="nv">method</span> <span class="nv">not</span> <span class="nv">in</span> <span class="nv">self</span>.<span class="nv">defined_methods</span>:
-        <span class="nv">self</span>.<span class="nv">defined_methods</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">method</span><span class="ss">)</span>
+    <span class="k">def</span> <span class="nf">get_arguments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dict of arguments. It does all the conversions for</span>
+<span class="sd">        you, and uses the information that were defined at the instance</span>
+<span class="sd">        level as fallbacks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-<span class="nv">def</span> <span class="nv">decorator</span><span class="ss">(</span><span class="nv">self</span>, <span class="nv">method</span>, <span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>:
-<span class="s2">&quot;&quot;&quot;</span><span class="s">This is only another interface to the add_view method, exposing a</span>
-<span class="nv">decorator</span> <span class="nv">interface</span><span class="s2">&quot;&quot;&quot;</span>
-    <span class="nv">def</span> <span class="nv">wrapper</span><span class="ss">(</span><span class="nv">view</span><span class="ss">)</span>:
-        <span class="nv">self</span>.<span class="nv">add_view</span><span class="ss">(</span><span class="nv">method</span>, <span class="nv">view</span>, <span class="o">**</span><span class="nv">kwargs</span><span class="ss">)</span>
-        <span class="k">return</span> <span class="nv">view</span>
-    <span class="k">return</span> <span class="nv">wrapper</span>
-</pre></div>
+    <span class="k">def</span> <span class="nf">add_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a view to this service.&quot;&quot;&quot;</span>
+        <span class="c1"># this is really simple and looks a lot like this</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">args</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is only another interface to the add_view method, exposing a</span>
+<span class="sd">    decorator interface&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">view</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div>
 
-<div class="highlight"><pre><span></span><span class="n">So</span><span class="p">,</span> <span class="n">the</span> <span class="n">service</span> <span class="k">is</span> <span class="n">now</span> <span class="k">only</span> <span class="n">storing</span> <span class="n">the</span> <span class="n">information</span> <span class="n">that</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">passed</span> <span class="k">to</span> <span class="n">it</span>
-<span class="k">and</span> <span class="k">nothing</span> <span class="k">more</span><span class="p">.</span> <span class="k">No</span> <span class="k">more</span> <span class="n">route</span> <span class="n">registration</span> <span class="n">logic</span> <span class="n">goes</span> <span class="n">here</span><span class="p">.</span> <span class="k">Instead</span><span class="p">,</span> <span class="n">I</span>
-<span class="n">added</span> <span class="n">this</span> <span class="k">as</span> <span class="n">another</span> <span class="n">feature</span><span class="p">,</span> <span class="n">even</span> <span class="k">in</span> <span class="n">a</span> <span class="n">different</span> <span class="n">module</span><span class="p">.</span> <span class="n">The</span> <span class="k">function</span>
-<span class="k">is</span> <span class="n">named</span> <span class="n">register</span><span class="err">\</span><span class="n">_service</span><span class="err">\</span><span class="n">_views</span> <span class="k">and</span> <span class="n">has</span> <span class="n">the</span> <span class="n">following</span> <span class="n">signature</span><span class="p">:</span>
-
-<span class="o">```</span> <span class="n">sourceCode</span> <span class="n">python</span>
-<span class="n">register_service_views</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
-</pre></div>
-
+<p>So, the service is now only storing the information that's passed to it
+and nothing more. No more route registration logic goes here. Instead, I
+added this as another feature, even in a different module. The function
+is named register_service_views and has the following signature:</p>
+<div class="highlight"><pre><span></span><code><span class="n">register_service_views</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
+</code></pre></div>
 
 <p>To sum up, here are the changes I made:</p>
 <ol>
@@ -276,42 +210,7 @@ the documentation from it.</p>
 <p>The resulting branch is not merged yet. Still, you can <a href="https://github.com/mozilla-services/cornice/tree/refactor-the-world">have a look at
 it</a>.</p>
 <p>Any suggestions are of course welcome :-)</p>
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>

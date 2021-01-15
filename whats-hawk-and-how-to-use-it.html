@@ -1,102 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>What's Hawk and how to use it? - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>What's Hawk and how to use it? - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">What's Hawk and how to use it?</h1>
+	<time datetime="2014-07-31T00:00:00+02:00">31 juillet 2014</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">What's Hawk and how to use it?</h1>
-
-<span class="post-date">
-    31 juillet 2014, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#whats-hawk-and-how-to-use-it">What's Hawk and how to use it?</a><ul>
-<li><a href="#exchange-of-the-hawk-id-and-hawk-key">Exchange of the hawk id and hawk key</a></li>
-<li><a href="#integrate-with-nodejs-express-apps">Integrate with node.js Express apps</a></li>
-<li><a href="#some-reference-implementations">Some reference implementations</a></li>
-</ul>
-</li>
-</ul>
-</div>
-
-      </div>
-    <h1>🌟</h1>
+    
+</header>
+<article>
     
 <p>At Mozilla, we recently had to implement <a href="https://github.com/hueniverse/hawk">the Hawk authentication
 scheme</a> for a number of projects,
@@ -146,9 +75,8 @@ you will use to sign your next requests.</p>
 <p>First, do an <a href="http://en.wikipedia.org/wiki/HKDF">HKDF derivation</a> on the
 given session token. You'll need to use the following
     parameters:</p>
-<div class="highlight"><pre><span></span><span class="n">key_material</span> <span class="o">=</span> <span class="n">HKDF</span><span class="p">(</span><span class="n">hawk_session</span><span class="p">,</span> <span class="ss">&quot;&quot;</span><span class="p">,</span> <span class="s1">&#39;identity.mozilla.com/picl/v1/sessionToken&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="err">key_material = HKDF(hawk_session, &quot;&quot;, &#39;identity.mozilla.com/picl/v1/sessionToken&#39;, 32*2)</span>
+</code></pre></div>
 
 <div class="note">
 
@@ -167,69 +95,61 @@ way of deriving the credentials, not an actual URL.
 into two parts, the first 32 hex caracters are the hawk id, and the next
 32 ones are the hawk key.</p>
 <p>Credentials:</p>
-<p>``` sourceCode javascript
-credentials = {
-    'id': keyMaterial[0:32],
-    'key': keyMaterial[32:64],
-    'algorithm': 'sha256'
-}</p>
-<div class="highlight"><pre><span></span><span class="c1">## Httpie</span>
+<div class="highlight"><pre><span></span><code><span class="err">javascript</span>
+<span class="err">credentials = {</span>
+<span class="err">    &#39;id&#39;: keyMaterial[0:32],</span>
+<span class="err">    &#39;key&#39;: keyMaterial[32:64],</span>
+<span class="err">    &#39;algorithm&#39;: &#39;sha256&#39;</span>
+<span class="err">}</span>
+</code></pre></div>
 
-<span class="n">To</span> <span class="n">showcase</span> <span class="n">APIs</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">documentation</span><span class="p">,</span> <span class="n">I</span> <span class="n">like</span> <span class="n">to</span> <span class="n">use</span>
-<span class="p">[</span><span class="n">httpie</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jakubroztocil</span><span class="o">/</span><span class="n">httpie</span><span class="p">),</span> <span class="n">a</span> <span class="n">curl</span><span class="o">-</span><span class="n">replacement</span>
-<span class="k">with</span> <span class="n">a</span> <span class="n">nicer</span> <span class="n">API</span><span class="p">,</span> <span class="n">built</span> <span class="n">around</span> <span class="p">[</span><span class="n">the</span> <span class="n">python</span> <span class="n">requests</span>
-<span class="n">library</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">python</span><span class="o">-</span><span class="n">requests</span><span class="o">.</span><span class="n">org</span><span class="p">)</span><span class="o">.</span>
+<h2 id="httpie">Httpie</h2>
+<p>To showcase APIs in the documentation, I like to use
+<a href="https://github.com/jakubroztocil/httpie">httpie</a>, a curl-replacement
+with a nicer API, built around <a href="http://python-requests.org">the python requests
+library</a>.</p>
+<p>Luckily, HTTPie allows you to plug different authentication schemes for
+it, so <a href="https://github.com/mozilla-services/requests-hawk">I wrote a
+wrapper</a> around
+<a href="https://github.com/kumar303/mohawk">mohawk</a> to add hawk support to the
+requests lib.</p>
+<p>Doing hawk requests in your terminal is now as simple as:</p>
+<div class="highlight"><pre><span></span><code>$ pip install requests-hawk httpie
+$ http GET localhost:5000/registration --auth-type<span class="o">=</span>hawk --auth<span class="o">=</span><span class="s1">&#39;id:key&#39;</span>
+</code></pre></div>
 
-<span class="n">Luckily</span><span class="p">,</span> <span class="n">HTTPie</span> <span class="n">allows</span> <span class="n">you</span> <span class="n">to</span> <span class="n">plug</span> <span class="n">different</span> <span class="n">authentication</span> <span class="n">schemes</span> <span class="k">for</span>
-<span class="n">it</span><span class="p">,</span> <span class="n">so</span> <span class="p">[</span><span class="n">I</span> <span class="n">wrote</span> <span class="n">a</span>
-<span class="n">wrapper</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mozilla</span><span class="o">-</span><span class="n">services</span><span class="o">/</span><span class="n">requests</span><span class="o">-</span><span class="n">hawk</span><span class="p">)</span> <span class="n">around</span>
-<span class="p">[</span><span class="n">mohawk</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kumar303</span><span class="o">/</span><span class="n">mohawk</span><span class="p">)</span> <span class="n">to</span> <span class="n">add</span> <span class="n">hawk</span> <span class="n">support</span> <span class="n">to</span> <span class="n">the</span>
-<span class="n">requests</span> <span class="n">lib</span><span class="o">.</span>
-
-<span class="n">Doing</span> <span class="n">hawk</span> <span class="n">requests</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">terminal</span> <span class="ow">is</span> <span class="n">now</span> <span class="k">as</span> <span class="n">simple</span> <span class="k">as</span><span class="p">:</span>
-
-    <span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span><span class="o">-</span><span class="n">hawk</span> <span class="n">httpie</span>
-    <span class="err">$</span> <span class="n">http</span> <span class="n">GET</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">registration</span> <span class="o">--</span><span class="n">auth</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">hawk</span> <span class="o">--</span><span class="n">auth</span><span class="o">=</span><span class="s1">&#39;id:key&#39;</span>
-
-<span class="n">In</span> <span class="n">addition</span><span class="p">,</span> <span class="n">it</span> <span class="n">will</span> <span class="n">help</span> <span class="n">you</span> <span class="n">to</span> <span class="n">craft</span> <span class="n">requests</span> <span class="n">using</span> <span class="n">the</span> <span class="n">requests</span>
-<span class="n">library</span><span class="p">:</span>
-
-<span class="sb">``</span><span class="err">`</span> <span class="n">sourceCode</span> <span class="n">python</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<p>In addition, it will help you to craft requests using the requests
+library:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests_hawk</span> <span class="kn">import</span> <span class="n">HawkAuth</span>
 
 <span class="n">hawk_auth</span> <span class="o">=</span> <span class="n">HawkAuth</span><span class="p">(</span>
   <span class="n">credentials</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39;algorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;sha256&#39;</span><span class="p">})</span>
 
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/url&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">hawk_auth</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Alternatively, if you don't have the token id and key, you can pass the
 hawk session token I talked about earlier and the lib will take care of
 the derivation for you:</p>
-<p>``` sourceCode python
-hawk_auth = HawkAuth(
-    hawk_session=resp.headers['hawk-session-token'],
-    server_url=self.server_url
-)
-requests.post("/url", auth=hawk_auth)</p>
-<div class="highlight"><pre><span></span><span class="c1">## Integrate with python pyramid apps</span>
+<div class="highlight"><pre><span></span><code><span class="n">hawk_auth</span> <span class="o">=</span> <span class="n">HawkAuth</span><span class="p">(</span>
+    <span class="n">hawk_session</span><span class="o">=</span><span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;hawk-session-token&#39;</span><span class="p">],</span>
+    <span class="n">server_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">server_url</span>
+<span class="p">)</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/url&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">hawk_auth</span><span class="p">)</span>
+</code></pre></div>
 
-<span class="n">If</span> <span class="n">you</span><span class="s1">&#39;re writing pyramid applications, you&#39;</span><span class="n">ll</span> <span class="n">be</span> <span class="n">happy</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">that</span>
-<span class="p">[</span><span class="n">Ryan</span> <span class="n">Kelly</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">rfk</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">au</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="p">)</span> <span class="n">put</span> <span class="n">together</span> <span class="n">a</span> <span class="n">library</span> <span class="n">that</span>
-<span class="n">makes</span> <span class="n">Hawk</span> <span class="n">work</span> <span class="k">as</span> <span class="n">an</span> <span class="n">Authentication</span> <span class="n">provider</span> <span class="k">for</span> <span class="n">them</span><span class="o">.</span> <span class="n">I</span><span class="s1">&#39;m chocked how</span>
-<span class="n">simple</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">use</span> <span class="n">it</span><span class="o">.</span>
-
-<span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">demo</span> <span class="n">of</span> <span class="n">how</span> <span class="n">we</span> <span class="n">implemented</span> <span class="n">it</span> <span class="k">for</span> <span class="n">Daybed</span><span class="p">:</span>
-
-<span class="sb">``</span><span class="err">`</span> <span class="n">sourceCode</span> <span class="n">python</span>
-<span class="kn">from</span> <span class="nn">pyramid_hawkauth</span> <span class="kn">import</span> <span class="n">HawkAuthenticationPolicy</span>
+<h2 id="integrate-with-python-pyramid-apps">Integrate with python pyramid apps</h2>
+<p>If you're writing pyramid applications, you'll be happy to learn that
+<a href="https://www.rfk.id.au/blog/">Ryan Kelly</a> put together a library that
+makes Hawk work as an Authentication provider for them. I'm chocked how
+simple it is to use it.</p>
+<p>Here is a demo of how we implemented it for Daybed:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyramid_hawkauth</span> <span class="kn">import</span> <span class="n">HawkAuthenticationPolicy</span>
 
 <span class="n">policy</span> <span class="o">=</span> <span class="n">HawkAuthenticationPolicy</span><span class="p">(</span><span class="n">decode_hawk_id</span><span class="o">=</span><span class="n">get_hawk_id</span><span class="p">)</span>
 <span class="n">config</span><span class="o">.</span><span class="n">set_authentication_policy</span><span class="p">(</span><span class="n">authn_policy</span><span class="p">)</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>The get_hawk_id function is a function that takes a request and a
 tokenid and returns a tuple of (token_id, token_key).</p>
@@ -243,32 +163,35 @@ finally came up factorizing everything in a library for express, named
 <a href="https://github.com/mozilla-services/express-hawkauth">express-hawkauth</a>.</p>
 <p>In order to plug it in your application, you'll need to use it as a
 middleware:</p>
-<p>``` sourceCode javascript
-var express = require("express");
-var hawk = require("express-hawkauth");
-app = express();</p>
-<p>var hawkMiddleware = hawk.getMiddleware({
-  hawkOptions: {},
-  getSession: function(tokenId, cb) {
-    // A function which pass to the cb the key and algorithm for the
-    // given token id. First argument of the callback is a potential
-    // error.
-    cb(null, {key: "key", algorithm: "sha256"});
-  },
-  createSession: function(id, key, cb) {
-    // A function which stores a session for the given id and key.
-    // Argument returned is a potential error.
-    cb(null);
-  },
-  setUser: function(req, res, tokenId, cb) {
-    // A function that uses req and res, the hawkId when they're known so
-    // that it can tweak it. For instance, you can store the tokenId as the
-    // user.
-    req.user = tokenId;
-  }
-});</p>
-<p>app.get("/hawk-enabled-endpoint", hawkMiddleware);
-```</p>
+<div class="highlight"><pre><span></span><code><span class="nt">javascript</span>
+<span class="nt">var</span> <span class="nt">express</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s2">&quot;express&quot;</span><span class="o">);</span>
+<span class="nt">var</span> <span class="nt">hawk</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s2">&quot;express-hawkauth&quot;</span><span class="o">);</span>
+<span class="nt">app</span> <span class="o">=</span> <span class="nt">express</span><span class="o">();</span>
+
+<span class="nt">var</span> <span class="nt">hawkMiddleware</span> <span class="o">=</span> <span class="nt">hawk</span><span class="p">.</span><span class="nc">getMiddleware</span><span class="o">(</span><span class="p">{</span>
+  <span class="n">hawkOptions</span><span class="p">:</span> <span class="err">{</span><span class="p">}</span><span class="o">,</span>
+  <span class="nt">getSession</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">tokenId</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">which</span> <span class="err">pass</span> <span class="err">to</span> <span class="err">the</span> <span class="err">cb</span> <span class="err">the</span> <span class="err">key</span> <span class="err">and</span> <span class="err">algorithm</span> <span class="err">for</span> <span class="err">the</span>
+    <span class="err">//</span> <span class="err">given</span> <span class="err">token</span> <span class="err">id.</span> <span class="err">First</span> <span class="err">argument</span> <span class="err">of</span> <span class="err">the</span> <span class="err">callback</span> <span class="err">is</span> <span class="err">a</span> <span class="err">potential</span>
+    <span class="err">//</span> <span class="err">error.</span>
+    <span class="err">cb(null,</span> <span class="err">{</span><span class="n">key</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">:</span> <span class="s2">&quot;sha256&quot;</span><span class="p">}</span><span class="o">);</span>
+  <span class="err">}</span><span class="o">,</span>
+  <span class="nt">createSession</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="nt">key</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">which</span> <span class="err">stores</span> <span class="err">a</span> <span class="err">session</span> <span class="err">for</span> <span class="err">the</span> <span class="err">given</span> <span class="err">id</span> <span class="err">and</span> <span class="err">key.</span>
+    <span class="err">//</span> <span class="err">Argument</span> <span class="err">returned</span> <span class="err">is</span> <span class="err">a</span> <span class="err">potential</span> <span class="err">error.</span>
+    <span class="err">cb(null)</span><span class="p">;</span>
+  <span class="p">}</span><span class="o">,</span>
+  <span class="nt">setUser</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">req</span><span class="o">,</span> <span class="nt">res</span><span class="o">,</span> <span class="nt">tokenId</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">that</span> <span class="err">uses</span> <span class="err">req</span> <span class="err">and</span> <span class="err">res,</span> <span class="err">the</span> <span class="err">hawkId</span> <span class="err">when</span> <span class="err">they&#39;re</span> <span class="err">known</span> <span class="err">so</span>
+    <span class="err">//</span> <span class="err">that</span> <span class="err">it</span> <span class="err">can</span> <span class="err">tweak</span> <span class="err">it.</span> <span class="err">For</span> <span class="err">instance,</span> <span class="err">you</span> <span class="err">can</span> <span class="err">store</span> <span class="err">the</span> <span class="err">tokenId</span> <span class="err">as</span> <span class="err">the</span>
+    <span class="err">//</span> <span class="err">user.</span>
+    <span class="err">req.user</span> <span class="err">=</span> <span class="err">tokenId</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="err">}</span><span class="o">);</span>
+
+<span class="nt">app</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="s2">&quot;/hawk-enabled-endpoint&quot;</span><span class="o">,</span> <span class="nt">hawkMiddleware</span><span class="o">);</span>
+</code></pre></div>
+
 <p>If you pass the createSession parameter, all non-authenticated requests
 will create a new hawk session and return it with the response, in the
 Hawk-Session-Token header.</p>
@@ -290,42 +213,7 @@ in case that helps you to integrate with your projects.</p>
     the django rest
     framework</a></li>
 </ul>
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>

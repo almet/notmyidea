@@ -1,116 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>Eco-système et stockage générique - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>Eco-système et stockage générique - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">Eco-système et stockage générique</h1>
+	<time datetime="2015-04-30T00:00:00+02:00">30 avril 2015</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">Eco-système et stockage générique</h1>
-
-<span class="post-date">
-    30 avril 2015, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#eco-systeme-et-stockage-generique">Eco-système et stockage générique</a><ul>
-<li><a href="#remote-storage">Remote Storage</a></li>
-<li><a href="#pouchdb">PouchDB</a><ul>
-<li><a href="#synchronisation">Synchronisation</a></li>
-</ul>
-</li>
-<li><a href="#le-cas-dutilisation-payments">Le cas d'utilisation « Payments »</a><ul>
-<li><a href="#avec-remotestorage">Avec RemoteStorage</a></li>
-<li><a href="#avec-pouchdb">Avec PouchDB</a></li>
-</ul>
-</li>
-<li><a href="#un-nouvel-eco-systeme">Un nouvel éco-système ?</a><ul>
-<li><a href="#les-compromis">Les compromis</a></li>
-<li><a href="#les-arguments-philosophiques">Les arguments philosophiques</a></li>
-<li><a href="#les-arguments-pratiques">Les arguments pratiques</a></li>
-</ul>
-</li>
-<li><a href="#les-prochaines-etapes">Les prochaines étapes</a></li>
-</ul>
-</li>
-</ul>
-</div>
-
-      </div>
-    <h1>🌟</h1>
+    
+</header>
+<article>
     
 <p><strong>tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de
@@ -211,15 +126,18 @@ terme, et que <em>Remote Storage</em> devienne une facette de notre solution.</p
 <p><a href="http://pouchdb.com/">PouchDB</a> est une bibliothèque JavaScript qui
 permet de manipuler des enregistrements en local et de les synchroniser
 vers une base distante.</p>
-<p>``` sourceCode javascript
-var db = new PouchDB('dbname');</p>
-<p>db.put({
- _id: 'dave@gmail.com',
- name: 'David',
- age: 68
-});</p>
-<p>db.replicate.to('http://example.com/mydb');
-```</p>
+<div class="highlight"><pre><span></span><code><span class="n">javascript</span><span class="w"></span>
+<span class="nf">var</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PouchDB</span><span class="p">(</span><span class="s1">&#39;dbname&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="err">{</span><span class="w"></span>
+<span class="w"> </span><span class="nl">_id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;dave@gmail.com&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;David&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nl">age</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="w"></span>
+<span class="err">}</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">db</span><span class="p">.</span><span class="nf">replicate</span><span class="p">.</span><span class="k">to</span><span class="p">(</span><span class="s1">&#39;http://example.com/mydb&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
 <p>Le projet a le vent en poupe, bénéficie de nombreux contributeurs,
 l'éco-système est très riche et l'adoption par des projets <a href="https://github.com/hoodiehq/wip-hoodie-store-on-pouchdb">comme
 Hoodie</a> ne fait
@@ -440,42 +358,7 @@ Cloud Services</em>!</p>
     permet de partager publiquement des ressources de son <em>remote
     Storage</em>.</li>
 </ol>
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>

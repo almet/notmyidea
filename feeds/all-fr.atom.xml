@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-fr.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2015-07-07T00:00:00+02:00</updated><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-fr.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2016-03-01T00:00:00+01:00</updated><entry><title>Service de nuages : Garantir l'intégrité des données via des signatures</title><link href="https://blog.notmyidea.org/service-de-nuages-garantir-lintegrite-des-donnees-via-des-signatures-fr.html" rel="alternate"></link><published>2016-03-01T00:00:00+01:00</published><updated>2016-03-01T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-01:/service-de-nuages-garantir-lintegrite-des-donnees-via-des-signatures-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment garantir l'intégrité des données en utilisant les signatures.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dans le cadre du projet &lt;a class="reference external" href="https://wiki.mozilla.org/Firefox/Go_Faster"&gt;Go Faster&lt;/a&gt;, nous souhaitons distribuer des
+mises à jour de parties de &lt;em&gt;Firefox&lt;/em&gt; de manière séparée des mises à jour majeures
+(qui ont lieu toutes les 6 semaines).&lt;/p&gt;
+&lt;p&gt;Les données que nous souhaitons mettre à jour sur les clients sont multiples.
+Entre autres, nous souhaitons gérer &lt;a class="reference external" href="https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/"&gt;la mise à jour des listes de révocation
+(CRL) de certificats SSL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Il est évidemment nécessaire de s'assurer que les données qui sont téléchargées
+sur les client sont légitimes : que personne ne tente d'invalider des
+certificats alors qu'ils sont valides, et que l'ensemble des mises à jour sont
+bel et bien récupérées sur le client.&lt;/p&gt;
+&lt;p&gt;La signature garantit qu'une mise à jour contient tous les enregistrements, mais il
+est toujours possible de bloquer l'accès au service (par exemple avec le &lt;em&gt;china
+great firewall&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Ce mécanisme fonctionne pour les listes de certificats à révoquer, mais pas
+uniquement. Nous comptons réutiliser ce même fonctionnement dans le futur pour
+la mise à jour d'autres parties de Firefox, et vous pouvez également en tirer
+parti pour d'autres cas d'utilisation.&lt;/p&gt;
+&lt;p&gt;Nous souhaitons utiliser &lt;a class="reference external" href="https://kinto.readthedocs.org"&gt;Kinto&lt;/a&gt; afin
+de distribuer ces jeux de données. Un des avantages est que l'on peut
+facilement &lt;em&gt;cacher&lt;/em&gt; les collections derrière un CDN.&lt;/p&gt;
+&lt;p&gt;Par contre, nous ne souhaitons pas que les clients fassent
+confiance aveuglément, ni au serveur Kinto, ni au CDN.&lt;/p&gt;
+&lt;p&gt;Effectivement, un attaquant, contrôlant l'un ou l'autre, pourrait
+alors envoyer les mises à jour qu'il souhaite à l'ensemble des clients
+ou supprimer des certificats révoqués. Imaginez le carnage !&lt;/p&gt;
+&lt;p&gt;Afin de résoudre ce problème, considérons les conditions suivantes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;La personne qui a le pouvoir de mettre à jour les CRL (&lt;em&gt;l'updater&lt;/em&gt;)
+a accès à une cle de signature (ou mieux, &lt;a class="reference external" href="https://fr.wikipedia.org/wiki/Hardware_Security_Module"&gt;un HSM&lt;/a&gt;) qui lui permet de
+signer la collection;&lt;/li&gt;
+&lt;li&gt;Le pendant public de ce certificat est stocké et distribué dans Firefox;&lt;/li&gt;
+&lt;li&gt;Le &lt;em&gt;hashing&lt;/em&gt; et la &lt;em&gt;signature&lt;/em&gt; sont faits côté client pour éviter certains
+vecteurs d'attaque (si un attaquant a la main sur le serveur Kinto par
+exemple).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le chiffrement à sens unique, aussi appellé &lt;em&gt;hashing&lt;/em&gt; est un moyen de toujours
+obtenir le même résultat à partir de la même entrée.&lt;/p&gt;
+&lt;div class="section" id="premier-envoi-de-donnees-sur-kinto"&gt;
+&lt;h2&gt;Premier envoi de données sur Kinto&lt;/h2&gt;
+&lt;p&gt;L'ensemble des données est récupéré depuis une source &lt;em&gt;sécurisée&lt;/em&gt; puis mis dans
+une collection JSON. Chaque élément contient un identifiant unique généré sur
+le client.&lt;/p&gt;
+&lt;p&gt;Par exemple, un enregistrement peut ressembler à :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b7dded96-8df0-8af8-449a-8bc47f71b4c4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s2"&gt;&amp;quot;fingerprint&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;11:D5:D2:0A:9A:F8:D9:FC:23:6E:5C:5C:30:EC:AF:68:F5:68:FB:A3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Le &lt;em&gt;hash&lt;/em&gt; de la collection est ensuite calculé, signé puis envoyé au serveur
+(voir plus bas pour les détails).&lt;/p&gt;
+&lt;p&gt;La signature est déportée sur un service qui ne s'occupe que de ça, puisque la
+sécurité du certificat qui s'occupe des signatures est extrêmement importante.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comment-verifier-l-integrite-des-donnees"&gt;
+&lt;h2&gt;Comment vérifier l'intégrité des données ?&lt;/h2&gt;
+&lt;p&gt;Premièrement, il faut récupérer l'ensemble des enregistrements présents sur
+le serveur, ainsi que le &lt;em&gt;hash&lt;/em&gt; et la signature associée.&lt;/p&gt;
+&lt;p&gt;Ensuite, vérifier la signature du &lt;em&gt;hash&lt;/em&gt;, pour s'assurer que celui-ci provient
+bien d'un tiers de confiance.&lt;/p&gt;
+&lt;p&gt;Finalement, recalculer le &lt;em&gt;hash&lt;/em&gt; localement et valider qu'il correspond bien à
+celui qui a été signé.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ajouter-de-nouvelles-donnees"&gt;
+&lt;h2&gt;Ajouter de nouvelles données&lt;/h2&gt;
+&lt;p&gt;Pour l'ajout de nouvelles données, il est nécessaire de s'assurer que les
+données que l'on a localement sont valides avant de faire quoi que ce soit
+d'autre.&lt;/p&gt;
+&lt;p&gt;Une fois ces données validées, il suffit de procéder comme la première fois, et
+d'envoyer à nouveau le &lt;em&gt;hash&lt;/em&gt; de la collection au serveur.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="comment-calculer-ce-hash"&gt;
+&lt;h2&gt;Comment calculer ce hash ?&lt;/h2&gt;
+&lt;p&gt;Pour calculer le &lt;em&gt;hash&lt;/em&gt; de la collection, il est nécessaire :&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;D'ordonner l'ensemble des éléments de la collection (par leur id) ;&lt;/li&gt;
+&lt;li&gt;Pour chaque élément, sérialiser les champs qui nous intéressent (les
+concaténer clé + valeur)&lt;/li&gt;
+&lt;li&gt;Calculer le &lt;em&gt;hash&lt;/em&gt; depuis la sérialisation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Nous sommes encore incertains de la manière dont le hash va être calculé. Les &lt;a class="reference external" href="https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41"&gt;JSON Web Signature&lt;/a&gt; semblent
+une piste intéressante. En attendant, une implementation naïve en python
+pourrait ressembler à ceci :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;hashlib&lt;/span&gt;
+
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+   &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b7dded96-8df0-8af8-449a-8bc47f71b4c4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;fingerprint&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;11:D5:D2:0A:9A:F8:D9:FC:23:6E:5C:5C:30:EC:AF:68:F5:68:FB:A3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+   &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dded96b7-8f0d-8f8a-49a4-7f771b4c4bc4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;fingerprint&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;33:6E:5C:5C:30:EC:AF:68:F5:68:FB:A3:11:D5:D2:0A:9A:F8:D9:FC&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
+
+&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hashlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sha256&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sort_keys&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;collection_hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Enfin, un schéma pour résumer !&lt;/p&gt;
+&lt;img alt="Schema résumant le processus de signature de la collection." class="align-center" src="{filename}/images/kinto-signing.jpg" /&gt;
+&lt;/div&gt;
+</content><category term="Technologie"></category></entry><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Mozilla a pour coutume d'organiser régulièrement des semaines de travail où tous les employés
 sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouver
@@ -164,7 +262,72 @@ construire une solution libre, générique, simple et auto-hébergeable pour le 
 de données sur le Web :)&lt;/p&gt;
 &lt;img alt="Friday Night Party - CC0" class="align-center" src="{filename}/images/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
-</content></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
+</content><category term="Technologie"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
+et Kinto 1.0 !&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Aujourd'hui, c'est jour de fête : nous venons de publier Cliquet &lt;strong&gt;2.0&lt;/strong&gt;
+&lt;a class="footnote-reference" href="#id5" id="id1"&gt;[1]&lt;/a&gt; et Kinto &lt;strong&gt;1.0&lt;/strong&gt; &lt;a class="footnote-reference" href="#id6" id="id2"&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote class="epigraph"&gt;
+&lt;p&gt;L'aboutissement de 3 années de R&amp;amp;D !&lt;/p&gt;
+&lt;p class="attribution"&gt;&amp;mdash;Rémy&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://kinto.readthedocs.org/en/latest/"&gt;Kinto&lt;/a&gt; est un service pour
+stocker, synchroniser et partager des données arbitraires, attachées à un
+compte Firefox (mais le système d'authentification est &lt;em&gt;pluggable&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://cliquet.readthedocs.org/en/latest/"&gt;Cliquet&lt;/a&gt; est une boite à outils pour faciliter l'implémentation de
+micro-services HTTP tels que les APIs &lt;em&gt;REST&lt;/em&gt; ayant des besoins de synchronisation.&lt;/p&gt;
+&lt;p&gt;Vous pouvez lire plus à propos des raisons qui nous ont poussé à proposer cette nouvelle solution
+et de notre ambition sur &lt;a class="reference external" href="http://www.servicedenuages.fr/eco-systeme-et-stockage-generique.html"&gt;http://www.servicedenuages.fr/eco-systeme-et-stockage-generique.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nous sommes fiers du travail que nous avons pu réaliser durant ces derniers
+mois sur ces deux projets. Bien que la plupart du travail que nous ayons
+réalisé pour le serveur de liste de lecture (Reading List) ait pu être utilisé,
+beaucoup de parties ont été repensées et nous avons introduit des
+fonctionnalités que l'on attendait depuis longtemps, comme la gestion des
+permissions.&lt;/p&gt;
+&lt;p&gt;Bien sur, exactement comme après un ré-aménagement de salon, on ne peut
+s'empêcher de voir toutes les choses qui doivent toujours être améliorées,
+notamment sur la documentation et les performances.&lt;/p&gt;
+&lt;p&gt;On peut déjà entrevoir à quoi l'écosystème va ressembler, et c'est prometteur.
+Il y a déjà un client JavaScript &lt;a class="footnote-reference" href="#id7" id="id3"&gt;[3]&lt;/a&gt; dont l'objectif est de synchroniser les
+données locales du navigateur avec une instance de Kinto.&lt;/p&gt;
+&lt;p&gt;N'hésitez vraiment pas à nous solliciter pour discuter avec vous si vous avez
+des problématiques proches : nous accueillons avec plaisir toutes sortes de
+retours, que ce soit à propos du code, de la documentation, de la sécurité de
+la solution ou de la manière de communiquer avec le monde extérieur. Si vous
+souhaitez nous contacter, vous pouvez laisser un commentaire ici ou nous
+contacter sur le canal &lt;a class="reference external" href="irc://irc.mozilla.org/#storage"&gt;#storage&lt;/a&gt; sur le réseau IRC de Mozilla.&lt;/p&gt;
+&lt;p&gt;Et ce n'est que le début ! Le futur se dessine dans notre feuille de route
+&lt;a class="footnote-reference" href="#id8" id="id4"&gt;[4]&lt;/a&gt;.&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id5" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Cliquet&lt;/strong&gt; est une boite à outils pour faciliter l'implémentation de
+microservices HTTP tels que les APIs &lt;em&gt;REST&lt;/em&gt; ayant des besoins de
+synchronisation.&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id6" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id2"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Kinto&lt;/strong&gt; est un service pour stocker, synchroniser et partager des données
+arbitraires, attachées à un compte Firefox (mais le système d'authentification
+est &lt;em&gt;pluggable&lt;/em&gt;).&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id7" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Cliquetis, la bibliothèque JavaScript pour consommer l'API HTTP de Kinto —
+&lt;a class="reference external" href="https://github.com/mozilla-services/cliquetis"&gt;https://github.com/mozilla-services/cliquetis&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La feuille de route de Kinto: &lt;a class="reference external" href="https://github.com/mozilla-services/kinto/wiki/roadmap"&gt;https://github.com/mozilla-services/kinto/wiki/roadmap&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content><category term="Technologie"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto ?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace ?&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="la-problematique"&gt;
@@ -452,4 +615,682 @@ un objet et également de pouvoir récupérer tous les objets d'une
 collection pour un utilisateur si celui-ci n'a pas accès à tous les
 records de la collection, ou toutes les collections du bucket.&lt;/p&gt;
 &lt;/div&gt;
-</content></entry></feed>
+</content><category term="Technologie"></category></entry><entry><title>Service de nuages : La gestion des permissions</title><link href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html" rel="alternate"></link><published>2015-05-01T00:00:00+02:00</published><updated>2015-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-01:/service-de-nuages-la-gestion-des-permissions-fr.html</id><summary type="html">&lt;p class="first last"&gt;Démystification du vocabulaire des permissions et proposition d'implémentation pour Kinto&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dans le cadre de la création d'un service de stockage de données personnelles
+(Kinto), la gestion des permissions est un des gros challenges : qui doit avoir
+accès à quoi, et comment le définir ?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tl;dr: Quelques retours sur le vocabulaire des systèmes de permission et sur nos idées pour l'implementation des permissions dans un stockage générique.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="section" id="la-problematique"&gt;
+&lt;h2&gt;La problématique&lt;/h2&gt;
+&lt;p&gt;La problématique est simple : des données sont stockées en ligne, et il
+faut un moyen de pouvoir les partager avec d'autres personnes.&lt;/p&gt;
+&lt;p&gt;En regardant les cas d'utilisations, on se rend compte qu'on a plusieurs types
+d'utilisateurs :&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;les utilisateurs &amp;quot;finaux&amp;quot; (vous) ;&lt;/li&gt;
+&lt;li&gt;les applications qui interagissent en leurs noms.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tous les intervenants n'ont donc pas les mêmes droits : certains doivent
+pouvoir lire, d'autres écrire, d'autres encore créer de nouveaux
+enregistrements, et le contrôle doit pouvoir s'effectuer de manière fine : il
+doit être possible de lire un enregistrement mais pas un autre, par exemple.&lt;/p&gt;
+&lt;p&gt;Nous sommes partis du constat que les solutions disponibles n'apportaient pas
+une réponse satisfaisante à ces besoins.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="un-probleme-de-vocabulaire"&gt;
+&lt;h2&gt;Un problème de vocabulaire&lt;/h2&gt;
+&lt;p&gt;Le principal problème rencontré lors des réflexions fût le vocabulaire.&lt;/p&gt;
+&lt;p&gt;Voici ci-dessous une explication des différents termes.&lt;/p&gt;
+&lt;div class="section" id="le-concept-de-principal"&gt;
+&lt;h3&gt;Le concept de « principal »&lt;/h3&gt;
+&lt;p&gt;Un &lt;em&gt;principal&lt;/em&gt;, en sécurité informatique, est une entité qui peut être
+authentifiée par un système informatique. &lt;a class="footnote-reference" href="#id2" id="id1"&gt;[1]&lt;/a&gt; En Français il s'agit
+du « commettant », l'acteur qui commet l'action (oui, le terme est conceptuel !)&lt;/p&gt;
+&lt;p&gt;Il peut s'agir aussi bien d'un individu, d'un ordinateur, d'un
+service ou d'un groupe regroupant l'une de ces entités, ce qui
+est plus large que le classique « &lt;em&gt;user id&lt;/em&gt; ».&lt;/p&gt;
+&lt;p&gt;Les permissions sont alors associées à ces &lt;em&gt;principals&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Par exemple, un utilisateur est identifié de manière unique lors de la
+connexion par le système d'authentification dont le rôle est de
+définir une liste de &lt;em&gt;principals&lt;/em&gt; pour l'utilisateur se connectant.&lt;/p&gt;
+&lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Pour en savoir plus sur les &lt;em&gt;principals&lt;/em&gt; :
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Principal_%28computer_security%29"&gt;https://en.wikipedia.org/wiki/Principal_%28computer_security%29&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-difference-entre-role-et-groupe"&gt;
+&lt;h3&gt;La différence entre rôle et groupe&lt;/h3&gt;
+&lt;p&gt;De but en blanc, il n'est pas évident de définir précisément la
+différence entre ces deux concepts qui permettent d'associer
+des permissions à un groupe de &lt;em&gt;principals&lt;/em&gt;. &lt;a class="footnote-reference" href="#id4" id="id3"&gt;[2]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;La différence est principalement sémantique. Mais on peut y voir une
+différence dans la « direction » de la relation entre les deux concepts.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Un rôle est une liste de permissions que l'on associe à un &lt;em&gt;principal&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Un groupe est une liste de &lt;em&gt;principals&lt;/em&gt; que l'on peut associer à une permission.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Plus d'informations :
+&lt;a class="reference external" href="http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference"&gt;http://stackoverflow.com/questions/7770728/group-vs-role-any-real-difference&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-difference-entre-permission-acl-ace"&gt;
+&lt;h3&gt;La différence entre permission, ACL, ACE&lt;/h3&gt;
+&lt;blockquote class="epigraph"&gt;
+&lt;p&gt;Une ACL est une liste d’Access Control Entry (ACE) ou entrée de contrôle d'accès
+donnant ou supprimant des droits d'accès à une personne ou un groupe.&lt;/p&gt;
+&lt;p class="attribution"&gt;&amp;mdash;&lt;a class="reference external" href="https://fr.wikipedia.org/wiki/Access_Control_List"&gt;https://fr.wikipedia.org/wiki/Access_Control_List&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Je dirais même plus, dans notre cas, « à un &lt;em&gt;principal&lt;/em&gt; ». Par exemple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;create_record: alexis,remy,tarek
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Cet ACE donne la permission &lt;tt class="docutils literal"&gt;create&lt;/tt&gt; sur l'objet &lt;tt class="docutils literal"&gt;record&lt;/tt&gt; aux
+utilisateurs Tarek, Rémy et Alexis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-delegation-de-permissions"&gt;
+&lt;h2&gt;La délégation de permissions&lt;/h2&gt;
+&lt;p&gt;Imaginez l'exemple suivant, où un utilisateur stocke deux types de données en
+ligne :&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;des contacts ;&lt;/li&gt;
+&lt;li&gt;une liste de tâches à faire qu'il peut associer à ses contacts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L'utilisateur a tous les droits sur ses données.&lt;/p&gt;
+&lt;p&gt;Cependant il utilise deux applications qui doivent elles avoir un accès restreint :&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;une application de gestion des contacts à qui il souhaite déléguer
+la gestion intégrale de ses contacts : &lt;tt class="docutils literal"&gt;contacts:write&lt;/tt&gt; ;&lt;/li&gt;
+&lt;li&gt;une application de gestion des tâches à qui il souhaite déléguer la
+gestion des tâches : &lt;tt class="docutils literal"&gt;contacts:read tasks:write&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il souhaite que son application de contacts ne puisse pas accéder à
+ses tâches et que son application de tâches ne puisse pas modifier ses
+contacts existants, juste éventuellement en créer de nouveaux.&lt;/p&gt;
+&lt;p&gt;Il lui faut donc un moyen de déléguer certains de ses droits à un tiers
+(l'application).&lt;/p&gt;
+&lt;p&gt;C'est précisément le rôle des &lt;a class="reference external" href="http://tools.ietf.org/html/rfc6749#page-23"&gt;scopes OAuth2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Lors de la connexion d'un utilisateur, une fenêtre lui demande quels
+accès il veut donner à l'application qui va agir en son nom.&lt;/p&gt;
+&lt;p&gt;Le service aura ensuite accès à ces &lt;em&gt;scopes&lt;/em&gt; en regardant le jeton
+d'authentification utilisé. Cette information doit être
+considérée comme une entrée utilisateur (c'est à dire qu'on ne peut
+pas lui faire confiance). Il s'agit de ce que l'utilisateur souhaite.&lt;/p&gt;
+&lt;p&gt;Or, il est également possible que l'utilisateur n'ait pas accès aux données
+qu'il demande. Le service doit donc utiliser deux niveaux de permissions :
+celles de l'utilisateur, et celles qui ont été déléguées à l'application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="espace-de-noms"&gt;
+&lt;h2&gt;Espace de noms&lt;/h2&gt;
+&lt;p&gt;Dans notre implémentation initiale de &lt;em&gt;Kinto&lt;/em&gt; (notre service de stockage en
+construction), l'espace de nom était implicite : les données stockées étaient
+nécessairement celles de l'utilisateur connecté.&lt;/p&gt;
+&lt;p&gt;Les données d'un utilisateur étaient donc cloisonnées et impossible à partager.&lt;/p&gt;
+&lt;p&gt;L'utilisation d'espaces de noms est une manière simple de gérer le partage des données.&lt;/p&gt;
+&lt;p&gt;Nous avons choisi de reprendre le modèle de GitHub et de Bitbucket, qui
+utilisent les « organisations » comme espaces de noms.&lt;/p&gt;
+&lt;p&gt;Dans notre cas, il est possible de créer des &amp;quot;buckets&amp;quot;, qui correspondent à ces
+espaces de noms. Un bucket est un conteneur de collections et de groupes
+utilisateurs.&lt;/p&gt;
+&lt;p&gt;Les ACLs sur ces collections peuvent être attribuées à certains groupes du
+&lt;em&gt;bucket&lt;/em&gt; ainsi qu'à d'autres &lt;em&gt;principals&lt;/em&gt; directement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="notre-proposition-d-api"&gt;
+&lt;h2&gt;Notre proposition d'API&lt;/h2&gt;
+&lt;div class="section" id="les-objets-manipules"&gt;
+&lt;h3&gt;Les objets manipulés&lt;/h3&gt;
+&lt;p&gt;Pour mettre en place la gestion des permissions, nous avons identifié les
+objets suivants :&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="23%" /&gt;
+&lt;col width="77%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;bucket&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;On peut les voir comme des espaces de noms. Ils
+permettent d'avoir différentes collections portant
+le même nom mais stockées dans différents &lt;em&gt;buckets&lt;/em&gt; de
+manière à ce que les données soient distinctes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;collection&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Une liste d'enregistrements.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;record&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Un enregistrement d'une collection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;group&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Un groupe de commetants (« &lt;em&gt;principals&lt;/em&gt; »).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Pour la définition des ACLs, il y a une hiérarchie et les objets « héritent » des
+ACLs de leur parents :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;           +---------------+
+           | Bucket        |
+           +---------------+
+    +-----&amp;gt;+ - id          +&amp;lt;---+
+    |      | - permissions |    |
+    |      +---------------+    |
+    |                           |
+    |                           |
+    |                           |
+    |                           |
+    |                           |
++---+-----------+        +------+---------+
+| Collection    |        | Group          |
++---------------+        +----------------+
+| - id          |        |  - id          |
+| - permissions |        |  - members     |
++------+--------+        |  - permissions |
+       ^                 +----------------+
+       |
+       |
++------+---------+
+| Record         |
++----------------+
+|  - id          |
+|  - data        |
+|  - permissions |
++----------------+
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="les-permissions"&gt;
+&lt;h3&gt;Les permissions&lt;/h3&gt;
+&lt;p&gt;Pour chacun de ces objets nous avons identifié les permissions suivantes :&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="23%" /&gt;
+&lt;col width="77%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Permission&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;read&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;La permission de lire le contenu de
+l'objet et de ses sous-objets.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;write&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;La permission de modifier et
+d'administrer un objet et ses sous-
+objets. La permission &lt;em&gt;write&lt;/em&gt; permet la
+lecture, modification et suppression
+d'un objet ainsi que la gestion de ses
+permissions.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;create&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;La permission de créer le sous-objet
+spécifié. Par exemple:
+&lt;tt class="docutils literal"&gt;collections:create&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;À chaque permission spécifiée sur un objet est associée une liste de
+&lt;em&gt;principals&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Dans le cas de la permission &lt;tt class="docutils literal"&gt;create&lt;/tt&gt; on est obligé de spécifier
+l'objet enfant en question car un objet peut avoir plusieurs types
+d'enfants. Par exemple : &lt;tt class="docutils literal"&gt;collections:create&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;groups:create&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Nous n'avons pour l'instant pas de permission pour &lt;cite&gt;delete&lt;/cite&gt; et &lt;cite&gt;update&lt;/cite&gt;,
+puisque nous n'avons pas trouvé de cas d'utilisation qui les nécessitent.
+Quiconque avec le droit d'écriture peut donc supprimer un enregistrement.&lt;/p&gt;
+&lt;p&gt;Les permissions d'un objet sont héritées de son parent. Par exemple,
+un enregistrement créé dans une collection accessible à tout le monde
+en lecture sera lui aussi accessible à tout le monde.&lt;/p&gt;
+&lt;p&gt;Par conséquent, les permissions sont cumulées. Autrement dit, il n'est pas
+possible qu'un objet ait des permissions plus restrictives que son parent.&lt;/p&gt;
+&lt;p&gt;Voici la liste exhaustive des permissions :&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="21%" /&gt;
+&lt;col width="32%" /&gt;
+&lt;col width="47%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Permissions associées&lt;/th&gt;
+&lt;th class="head"&gt;Commentaire&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Configuration
+(.ini)&lt;/td&gt;
+&lt;td&gt;&lt;cite&gt;buckets:create&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Les &lt;em&gt;principals&lt;/em&gt; ayant le droit
+de créer un bucket sont définis
+dans la configuration du serveur.
+(&lt;em&gt;ex. utilisateurs authentifiés&lt;/em&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="4"&gt;&lt;tt class="docutils literal"&gt;bucket&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;cite&gt;write&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;C'est en quelque sorte le droit
+d'administration du &lt;em&gt;bucket&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;read&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;C'est le droit de lire le contenu
+de tous les objets du &lt;em&gt;bucket&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;collections:create&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de créer des
+collections dans le &lt;em&gt;bucket&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;groups:create&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de créer des groupes
+dans le &lt;em&gt;bucket&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="3"&gt;&lt;tt class="docutils literal"&gt;collection&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;cite&gt;write&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission d'administrer tous les
+objets de la collection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;read&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de consulter tous les
+objets de la collection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;records:create&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de créer des nouveaux
+enregistrement dans la collection.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;record&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;cite&gt;write&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de modifier ou de
+partager l'enregistrement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;read&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de consulter
+l'enregistrement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;group&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;cite&gt;write&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission d'administrer le
+groupe&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;cite&gt;read&lt;/cite&gt;&lt;/td&gt;
+&lt;td&gt;Permission de consulter les
+membres du groupe.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="les-principals"&gt;
+&lt;h3&gt;Les « &lt;em&gt;principals&lt;/em&gt; »&lt;/h3&gt;
+&lt;p&gt;Les acteurs se connectant au service de stockage peuvent s'authentifier.&lt;/p&gt;
+&lt;p&gt;Ils reçoivent alors une liste de &lt;em&gt;principals&lt;/em&gt; :&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;: le &lt;em&gt;principal&lt;/em&gt; donné à tous les acteurs (authentifiés ou pas) ;&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;: le &lt;em&gt;principal&lt;/em&gt; donné à tous les acteurs authentifiés ;&lt;/li&gt;
+&lt;li&gt;un &lt;em&gt;principal&lt;/em&gt; identifiant l'acteur, par exemple &lt;tt class="docutils literal"&gt;fxa:32aa95a474c984d41d395e2d0b614aa2&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Afin d'éviter les collisions d'identifiants, le &lt;em&gt;principal&lt;/em&gt; de l'acteur dépend
+de son type d'authentification (&lt;tt class="docutils literal"&gt;system&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;basic&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;ipaddr&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;hawk&lt;/tt&gt;,
+&lt;tt class="docutils literal"&gt;fxa&lt;/tt&gt;) et de son identifiant (unique par acteur).&lt;/p&gt;
+&lt;p&gt;En fonction du &lt;em&gt;bucket&lt;/em&gt; sur lequel se passe l'action, les groupes dont
+fait partie l'utilisateur sont également ajoutés à sa liste de
+&lt;tt class="docutils literal"&gt;principals&lt;/tt&gt;. &lt;tt class="docutils literal"&gt;group:moderators&lt;/tt&gt; par exemple.&lt;/p&gt;
+&lt;p&gt;Ainsi, si Bob se connecte avec &lt;em&gt;Firefox Accounts&lt;/em&gt; sur le &lt;em&gt;bucket&lt;/em&gt;
+&lt;tt class="docutils literal"&gt;servicedenuages_blog&lt;/tt&gt; dans lequel il fait partie du groupe
+&lt;tt class="docutils literal"&gt;moderators&lt;/tt&gt;, il aura la liste de &lt;em&gt;principals&lt;/em&gt; suivante :
+&lt;tt class="docutils literal"&gt;Everyone, Authenticated, fxa:32aa95a474c984d41d395e2d0b614aa2, group:moderators&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Il est donc possible d'assigner une permission à Bob en utilisant l'un de
+ces quatre &lt;em&gt;principals&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;Le &lt;em&gt;principal&lt;/em&gt; &lt;tt class="docutils literal"&gt;&amp;lt;userid&amp;gt;&lt;/tt&gt; dépend du &lt;em&gt;back-end&lt;/em&gt; d'authentification (e.g.
+&lt;tt class="docutils literal"&gt;github:leplatrem&lt;/tt&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="quelques-exemples"&gt;
+&lt;h3&gt;Quelques exemples&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Blog&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%" /&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="46%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Permissions&lt;/th&gt;
+&lt;th class="head"&gt;Principals&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;bucket:blog&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;blog&lt;/span&gt; owner id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;collection:articles&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;group:moderators&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;read&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;record:569e28r98889&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;co-author&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Wiki&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%" /&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="46%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Object&lt;/th&gt;
+&lt;th class="head"&gt;Permissions&lt;/th&gt;
+&lt;th class="head"&gt;Principals&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;bucket:wiki&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;wiki&lt;/span&gt; administrator id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;collection:articles&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;read&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Sondages&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="34%" /&gt;
+&lt;col width="31%" /&gt;
+&lt;col width="35%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Permissions&lt;/th&gt;
+&lt;th class="head"&gt;Principals&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;bucket:poll&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;admin&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;collection:create&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;collection:&amp;lt;poll&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;poll&lt;/span&gt; author id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;record:create&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Cartes colaboratives&lt;/strong&gt;&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="34%" /&gt;
+&lt;col width="31%" /&gt;
+&lt;col width="35%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Permissions&lt;/th&gt;
+&lt;th class="head"&gt;Principals&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;bucket:maps&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;admin&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;collection:create&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;collection:&amp;lt;map&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;map&lt;/span&gt; author id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;read&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;record:&amp;lt;record&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;maintainer&lt;/span&gt; id&amp;gt;&lt;/tt&gt;
+(&lt;em&gt;ex. event staff member
+maintaining venues&lt;/em&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Plateformes&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bien sûr, il y a plusieurs façons de modéliser les cas d'utilisation typiques.
+Par exemple, on peut imaginer une plateforme de wikis (à la wikia.com), où les
+wikis sont privés par défaut et certaines pages peuvent être rendues publiques :&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="32%" /&gt;
+&lt;col width="30%" /&gt;
+&lt;col width="38%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Objet&lt;/th&gt;
+&lt;th class="head"&gt;Permissions&lt;/th&gt;
+&lt;th class="head"&gt;Principals&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td rowspan="3"&gt;&lt;tt class="docutils literal"&gt;bucket:freewiki&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;administrator&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;collection:create&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;group:create&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Authenticated&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td rowspan="2"&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;collection:&amp;lt;wiki&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;fxa:&amp;lt;wiki&lt;/span&gt; owner id&amp;gt;&lt;/tt&gt;,
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;group:&amp;lt;editors&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;read&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;group:&amp;lt;readers&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;record:&amp;lt;page&lt;/span&gt; id&amp;gt;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;read&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt class="docutils literal"&gt;Everyone&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="l-api-http"&gt;
+&lt;h3&gt;L'API HTTP&lt;/h3&gt;
+&lt;p&gt;Lors de la création d'un objet, l'utilisateur se voit
+attribué la permission &lt;tt class="docutils literal"&gt;write&lt;/tt&gt; sur l'objet :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;PUT&lt;/span&gt; &lt;span class="nn"&gt;/v1/buckets/servicedenuages_blog&lt;/span&gt; &lt;span class="kr"&gt;HTTP&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;1.1&lt;/span&gt;
+&lt;span class="na"&gt;Authorization&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="l"&gt;Bearer 0b9c2625dc21ef05f6ad4ddf47c5f203837aa32ca42fced54c2625dc21efac32&lt;/span&gt;
+&lt;span class="na"&gt;Accept&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="l"&gt;application/json&lt;/span&gt;
+
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+
+{
+    &amp;quot;id&amp;quot;: &amp;quot;servicedenuages_blog&amp;quot;,
+    &amp;quot;permissions&amp;quot;: {
+        &amp;quot;write&amp;quot;: [&amp;quot;fxa:49d02d55ad10973b7b9d0dc9eba7fdf0&amp;quot;]
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Il est possible d'ajouter des permissions à l'aide de &lt;tt class="docutils literal"&gt;PATCH&lt;/tt&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;PATCH&lt;/span&gt; &lt;span class="nn"&gt;/v1/buckets/servicedenuages_blog/collections/articles&lt;/span&gt; &lt;span class="kr"&gt;HTTP&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;1.1&lt;/span&gt;
+&lt;span class="na"&gt;Authorization&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="l"&gt;Bearer 0b9c2625dc21ef05f6ad4ddf47c5f203837aa32ca42fced54c2625dc21efac32&lt;/span&gt;
+&lt;span class="na"&gt;Accept&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="l"&gt;application/json&lt;/span&gt;
+
+{
+    &amp;quot;permissions&amp;quot;: {
+        &amp;quot;read&amp;quot;: [&amp;quot;+system.Everyone&amp;quot;]
+    }
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+
+{
+    &amp;quot;id&amp;quot;: &amp;quot;servicedenuages_blog&amp;quot;,
+    &amp;quot;permissions&amp;quot;: {
+        &amp;quot;write&amp;quot;: [&amp;quot;fxa:49d02d55ad10973b7b9d0dc9eba7fdf0&amp;quot;],
+        &amp;quot;read&amp;quot;: [&amp;quot;system.Everyone&amp;quot;]
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pour le &lt;tt class="docutils literal"&gt;PATCH&lt;/tt&gt; nous utilisons la syntaxe préfixée par un &lt;tt class="docutils literal"&gt;+&lt;/tt&gt; ou
+par un &lt;tt class="docutils literal"&gt;-&lt;/tt&gt; pour ajouter ou enlever des &lt;em&gt;principals&lt;/em&gt; sur un ACL.&lt;/p&gt;
+&lt;p&gt;Il est également possible de faire un &lt;tt class="docutils literal"&gt;PUT&lt;/tt&gt; pour réinitialiser les ACLs,
+sachant que le &lt;tt class="docutils literal"&gt;PUT&lt;/tt&gt; va ajouter l'utilisateur courant à la
+liste automatiquement mais qu'il pourra se retirer avec un &lt;tt class="docutils literal"&gt;PATCH&lt;/tt&gt;.
+Ajouter l'utilisateur courant permet d'éviter les situations où plus
+personne n'a accès aux données.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;La permission &lt;tt class="docutils literal"&gt;create&lt;/tt&gt; est valable pour &lt;tt class="docutils literal"&gt;POST&lt;/tt&gt; mais aussi pour &lt;tt class="docutils literal"&gt;PUT&lt;/tt&gt;
+lorsque l'enregistrement n'existe pas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="le-cas-specifique-des-donnees-utilisateurs"&gt;
+&lt;h3&gt;Le cas spécifique des données utilisateurs&lt;/h3&gt;
+&lt;p&gt;Une des fonctionnalités actuelles de &lt;em&gt;Kinto&lt;/em&gt; est de pouvoir gérer des
+collections d'enregistrements par utilisateur.&lt;/p&gt;
+&lt;p&gt;Sous &lt;em&gt;*nix&lt;/em&gt; il est possible, pour une
+application, de sauvegarder la configuration de l'utilisateur courant
+dans son dossier personnel sans se soucier de l'emplacement sur
+le disque en utilisant &lt;tt class="docutils literal"&gt;~/&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Dans notre cas si une application souhaite sauvegarder les contacts d'un
+utilisateur, elle peut utiliser le raccourci &lt;tt class="docutils literal"&gt;~&lt;/tt&gt; pour faire référence au
+&lt;em&gt;bucket&lt;/em&gt; &lt;strong&gt;personnel&lt;/strong&gt; de l'utilisateur : &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/buckets/~/collections/contacts&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Cette URL retournera le code &lt;tt class="docutils literal"&gt;HTTP 307&lt;/tt&gt; vers le &lt;em&gt;bucket&lt;/em&gt; de l'utilisateur courant :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;POST&lt;/span&gt; &lt;span class="nn"&gt;/v1/buckets/~/collections/contacts/records&lt;/span&gt; &lt;span class="kr"&gt;HTTP&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;1.1&lt;/span&gt;
+
+{
+   &amp;quot;name&amp;quot;: &amp;quot;Rémy&amp;quot;,
+   &amp;quot;emails&amp;quot;: [&amp;quot;remy@example.com&amp;quot;],
+   &amp;quot;phones&amp;quot;: [&amp;quot;+330820800800&amp;quot;]
+}
+
+HTTP/1.1 307 Temporary Redirect
+Location: /v1/buckets/fxa:49d02d55ad10973b7b9d0dc9eba7fdf0/collections/contacts/records
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainsi il est tout à fait possible à Alice de partager ses contacts
+avec Bob. Il lui suffit pour cela de donner la permission &lt;tt class="docutils literal"&gt;read&lt;/tt&gt; à
+Bob sur sa collection et de donner l'URL complète
+&lt;tt class="docutils literal"&gt;/v1/buckets/fxa:49d02d55ad10973b7b9d0dc9eba7fdf0/collections/contacts/records&lt;/tt&gt;
+à Bob.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-delegation-des-permissions"&gt;
+&lt;h3&gt;La délégation des permissions&lt;/h3&gt;
+&lt;p&gt;Dans le cas de &lt;em&gt;Kinto&lt;/em&gt;, nous avons défini un format pour restreindre les
+permissions via les scopes OAuth2:
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;storage:&amp;lt;bucket_id&amp;gt;:&amp;lt;collection_id&amp;gt;:&amp;lt;permissions_list&amp;gt;&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Ainsi, si on reprend l'exemple précédent de la liste de tâches, il est possible pour
+Bob de créer un token OAuth spécifique avec les &lt;em&gt;scopes&lt;/em&gt; suivants :
+&lt;tt class="docutils literal"&gt;profile storage:todolist:tasks:write &lt;span class="pre"&gt;storage:~:contacts:read+records:create&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Donc, bien que Bob a la permission &lt;tt class="docutils literal"&gt;write&lt;/tt&gt; sur ses contacts,
+l'application utilisant ce token pourra uniquement lire les contacts
+existants et en ajouter de nouveaux.&lt;/p&gt;
+&lt;p&gt;Une partie de la complexité est donc de réussir à présenter ces &lt;em&gt;scopes&lt;/em&gt; de
+manière lisible à l'utilisateur, afin qu'il choisisse quelles permissions
+donner aux applications qui agissent en son nom.&lt;/p&gt;
+&lt;p&gt;Voilà où nous en sommes de notre réflexion !&lt;/p&gt;
+&lt;p&gt;Si vous avez des choses à ajouter, des points de désaccord ou autres
+réflexions, n'hésitez pas à nous interrompre pendant qu'il est encore temps !&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Technologie"></category></entry><entry><title>Service de nuages !</title><link href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="alternate"></link><published>2015-04-01T00:00:00+02:00</published><updated>2015-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-01:/service-de-nuages-fr.html</id><summary type="html">&lt;p class="first last"&gt;Retour sur le premier trimestre 2015: Readinglist, Kinto, Cliquet.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Pas mal de changements depuis le début de l'année pour l'équipe
+«cloud-services» francophone!&lt;/p&gt;
+&lt;p&gt;Tout d'abord, nouvelle importante, l'équipe s'étoffe avec des profils assez
+complémentaires: &lt;a class="reference external" href="https://nicolas.perriault.net/"&gt;n1k0&lt;/a&gt; et &lt;a class="reference external" href="http://mathieu-leplatre.info"&gt;Mathieu&lt;/a&gt; sont venus prêter main forte à &lt;a class="reference external" href="http://ziade.org/"&gt;Tarek&lt;/a&gt;, &lt;a class="reference external" href="http://natim.ionyse.com"&gt;Rémy&lt;/a&gt; et &lt;a class="reference external" href="http://notmyidea.org"&gt;Alexis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Le début de l'année a vu le lancement de &lt;a class="reference external" href="https://www.mozilla.org/en-US/firefox/hello/"&gt;Firefox Hello&lt;/a&gt; ce qui nous a permis de passer
+à l'échelle &lt;a class="reference external" href="https://github.com/mozilla-services/loop-server"&gt;le serveur&lt;/a&gt;,
+écrit en Node.js®, pour l'occasion.&lt;/p&gt;
+&lt;div class="section" id="un-serveur-de-listes-de-lecture"&gt;
+&lt;h2&gt;Un serveur de listes de lecture&lt;/h2&gt;
+&lt;p&gt;En parallèle, un projet de &lt;a class="reference external" href="https://readinglist.readthedocs.org"&gt;synchronisation de liste de lecture&lt;/a&gt; (&lt;em&gt;Reading List&lt;/em&gt;) a vu le jour.  L'idée
+étant de pouvoir marquer des pages &amp;quot;à lire pour plus tard&amp;quot; et de continuer la
+lecture sur n'importe quel périphérique synchronisé (Firefox pour Android ou
+Firefox Desktop). Un équivalent libre à &lt;a class="reference external" href="http://getpocket.com"&gt;Pocket&lt;/a&gt; en quelque sorte, qu'il est
+possible d'héberger soit-même.&lt;/p&gt;
+&lt;img alt="Capture d'écran de Firefox nightly avec readinglist." src="{filename}/images/readinglist-screenshot.png" /&gt;
+&lt;p&gt;Pour le construire, nous aurions pu réutiliser &lt;a class="reference external" href="https://github.com/mozilla-services/server-syncstorage"&gt;Firefox Sync&lt;/a&gt;, après tout
+c'est un service de synchronisation de données très robuste, construit avec &lt;a class="reference external" href="http://cornice.readthedocs.org/"&gt;Cornice&lt;/a&gt;.
+Mais seulement, &lt;em&gt;Sync&lt;/em&gt; n'a pas été pensé pour garantir la pérennité des données,
+et la marche était trop haute pour changer ça en profondeur.&lt;/p&gt;
+&lt;p&gt;Nous aurions pu aussi nous contenter de faire une énième application qui expose
+une API et persiste des données dans une base de données.&lt;/p&gt;
+&lt;p&gt;Mais cette nouvelle petite équipe n'est pas là par hasard :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="la-daybed-team"&gt;
+&lt;h2&gt;La «Daybed Team»&lt;/h2&gt;
+&lt;p&gt;On partage une vision: un service générique de stockage de données ! Peut-être
+que ça vous rappelle &lt;a class="reference external" href="https://daybed.io"&gt;un certain projet nommé Daybed&lt;/a&gt; ?
+Pour les applications clientes, JavaScript, mobiles ou autres, l'utilisation de
+ce service doit être un jeu d'enfant ! L'application gère ses données
+localement (aka offline-first), et synchronise à la demande.&lt;/p&gt;
+&lt;p&gt;Ici, le cœur du serveur &lt;em&gt;Reading List&lt;/em&gt; est justement une API &amp;quot;CRUD&amp;quot; (Create,
+Retrieve, Update, Delete), qui gère de la synchronisation et de
+l'authentification. Nous avons donc pris le parti de faire une API &amp;quot;simple&amp;quot;,
+avec le moins de spécificités possible, qui poserait les bases d'un service
+générique. Notamment parce qu'il y a d'autres projets dans la même trempe qui vont suivre.&lt;/p&gt;
+&lt;p&gt;Pas mal d'expérience ayant été accumulée au sein de l'équipe, avec d'une part la
+création de &lt;em&gt;Firefox Sync&lt;/em&gt;, et d'autre part avec &lt;em&gt;Daybed&lt;/em&gt;, notre side-project, nous
+tentons de ne pas reproduire les mêmes erreurs, tout en gardant les concepts
+qui ont fait leurs preuves.&lt;/p&gt;
+&lt;p&gt;Par exemple, nous avons conservé le mécanisme de collections d'enregistrements
+et de &lt;em&gt;timestamp&lt;/em&gt; de &lt;em&gt;Sync&lt;/em&gt;. Comme ces problématiques sont récurrentes, voire
+incontournables, nous avons décidé de reprendre le protocole de synchronisation,
+de l'étendre légèrement et surtout de le dissocier du projet de listes de lecture.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="le-mecanisme-qui-force-a-aller-de-l-avant"&gt;
+&lt;h2&gt;Le mécanisme qui force à aller de l'avant&lt;/h2&gt;
+&lt;p&gt;Comme première pierre à l'édifice, nous avons donné naissance au projet
+&lt;a class="reference external" href="https://cliquet.readthedocs.org"&gt;Cliquet&lt;/a&gt;, dont l'idée principale est de
+fournir une implémentation de ce protocole en python, tout en factorisant
+l'ensemble de nos bonnes pratiques (pour la prod notamment).&lt;/p&gt;
+&lt;img alt="Logo du projet Cliquet" class="align-right" src="{filename}/images/cliquet-logo.png" /&gt;
+&lt;p&gt;L'avantage d'avoir un protocole plutôt qu'un monolithe, c'est que si vous
+préférez Asyncio, io.js ou Go, on vous encouragera à publier votre
+implémentation alternative !&lt;/p&gt;
+&lt;p&gt;Avec &lt;em&gt;Cliquet&lt;/em&gt;, le code du serveur liste de lecture consiste principalement
+à définir un schéma pour les enregistrements, puis à forcer des valeurs de
+champs sur certains appels. Cela réduit ce projet à quelques dizaines de lignes
+de code.&lt;/p&gt;
+&lt;p&gt;Quant au futur service de stockage générique, &lt;a class="reference external" href="http://kinto.readthedocs.org"&gt;le projet&lt;/a&gt; en est encore à ses balbutiements mais c'est
+bel et bien en route ! Il permet déjà d'être branché comme backend de stockage
+dans une application &lt;em&gt;Cliquet&lt;/em&gt;, et ça &lt;a class="reference external" href="https://github.com/mozilla-services/kinto/blob/0.2.1/kinto/views/collection.py"&gt;implémenté en 20 lignes de code&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Ah, et cette fois, nous ne construirons les fonctionnalités qu'à partir des
+besoins concrets qui surviennent. Ça paraît tout bête, mais sur &lt;em&gt;Daybed&lt;/em&gt; on
+l'a pas vu venir :)&lt;/p&gt;
+&lt;p&gt;Dans les prochains articles, nous avons prévu de décrire les bonnes pratiques
+rassemblées dans le protocole (ou &lt;em&gt;Cliquet&lt;/em&gt;), certains points techniques précis
+et de vous présenter notre vision via des exemples et tutoriaux.&lt;/p&gt;
+&lt;p&gt;À bientôt, donc !&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Technologie"></category></entry></feed>

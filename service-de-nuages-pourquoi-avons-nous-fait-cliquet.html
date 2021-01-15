@@ -1,89 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>Service de nuages : Pourquoi avons-nous fait Cliquet ? - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>Service de nuages : Pourquoi avons-nous fait Cliquet ? - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">Service de nuages : Pourquoi avons-nous fait Cliquet ?</h1>
+	<time datetime="2015-07-14T00:00:00+02:00">14 juillet 2015</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">Service de nuages : Pourquoi avons-nous fait Cliquet ?</h1>
-
-<span class="post-date">
-    14 juillet 2015, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <h1>🌟</h1>
+    
+</header>
+<article>
     <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla</em></p>
 <p><strong>tldr; Cliquet est un toolkit Python pour construire des APIs, qui implémente
 les bonnes pratiques en terme de mise en production et de protocole HTTP.</strong></p>
@@ -306,7 +248,7 @@ avec <em>Colander</em>, et ensuite déclarer une resource:</p>
 <span class="k">class</span> <span class="nc">BookmarkSchema</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">ResourceSchema</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">URL</span><span class="p">()</span>
 
-<span class="hll"><span class="nd">@resource.register</span><span class="p">()</span>
+<span class="hll"><span class="nd">@resource</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>
 </span><span class="hll"><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
 </span><span class="hll">    <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
 </span></pre></div>
@@ -331,14 +273,14 @@ De base les enregistrements sont privés, par utilisateur.</p>
 <h3>Étape 3</h3>
 <p>Évidemment, il est possible choisir les URLS, les verbes HTTP supportés, de modifier
 des champs avant l'enregistrement, etc.</p>
-<div class="highlight"><pre><span></span><span class="hll"><span class="nd">@resource.register</span><span class="p">(</span><span class="n">collection_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="hll"><span class="nd">@resource</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">collection_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks&#39;</span><span class="p">,</span>
 </span><span class="hll">                   <span class="n">record_path</span><span class="o">=</span><span class="s1">&#39;/user/bookmarks/{{id}}&#39;</span><span class="p">,</span>
 </span><span class="hll">                   <span class="n">collection_methods</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,))</span>
 </span><span class="k">class</span> <span class="nc">Bookmark</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">BaseResource</span><span class="p">):</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="n">BookmarkSchema</span><span class="p">()</span>
 
-<span class="hll">    <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-</span><span class="hll">        <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]:</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">process_record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">if</span> <span class="n">old</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]:</span>
 </span><span class="hll">            <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">)</span>
 </span><span class="hll">            <span class="n">new</span><span class="p">[</span><span class="s1">&#39;device&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
 </span><span class="hll">        <span class="k">return</span> <span class="n">new</span>
@@ -357,10 +299,10 @@ des champs avant l'enregistrement, etc.</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cliquet</span> <span class="kn">import</span> <span class="n">Service</span>
 
 <span class="n">score</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
-                <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/score/{game}&#39;</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/score/</span><span class="si">{game}</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Store game score&quot;</span><span class="p">)</span>
 
-<span class="nd">@score.post</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">ScoreSchema</span><span class="p">)</span>
+<span class="nd">@score</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">ScoreSchema</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">post_score</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">collection_id</span> <span class="o">=</span> <span class="s1">&#39;scores-&#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">match_dict</span><span class="p">[</span><span class="s1">&#39;game&#39;</span><span class="p">]</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">authenticated_userid</span>
@@ -485,42 +427,7 @@ d'extension.</p>
 </div>
 </div>
 
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>

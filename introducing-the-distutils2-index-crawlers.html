@@ -1,107 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>Introducing the distutils2 index crawlers - Carnets en ligne</title>
-
-    <meta charset="utf-8" />
-    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne Full Atom Feed" />
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/poole.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/syntax.css"/>
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/lanyon.css"/>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/styles.css"/>
-
+<head>
+        <title>Introducing the distutils2 index crawlers - Carnets en ligne</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Carnets en ligne ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
 
 
-<style>
 
-h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    color: #202020;
-    letter-spacing: .1em;
-    text-shadow:
-        -1px -1px 1px #111,
-        2px 2px 1px #eaeaea;
-}
 
-#main {
-    text-align: justify;
-    text-justify: inter-word;
-}
-#main h1 {
-    padding: 10px;
-}
 
-.post-headline {
-    padding: 15px;
-    text-align: center;
-}
-</style>
-  </head>
+<header>
+	<h1 class="post-title">Introducing the distutils2 index crawlers</h1>
+	<time datetime="2010-07-06T00:00:00+02:00">06 juillet 2010</time>
 
-  <body>
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="profile">
-      <img src="https://blog.notmyidea.org/theme/img/profile.png"/>
-    </div>
-  </div>
-
-  <nav class="sidebar-nav">
-  <a class="sidebar-nav-item" href="/">Articles</a>
-
-  </nav>
-</div>    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="https://blog.notmyidea.org/" title="Home">Carnets en ligne</a>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-<div id="main" class="posts">
-<h1 class="post-title">Introducing the distutils2 index crawlers</h1>
-
-<span class="post-date">
-    06 juillet 2010, dans <a class="no-color" href="category/technologie.html">Technologie</a>
-</span>
-<img id="illustration" class="illustration-Technologie" src="" />
-
-<div class="post article">
-    <div id="toc_container">
-      <div class="toc">
-<ul>
-<li><a href="#introducing-the-distutils2-index-crawlers">Introducing the distutils2 index crawlers</a><ul>
-<li><a href="#general-feelings">General feelings</a></li>
-<li><a href="#tasks">Tasks</a></li>
-<li><a href="#pypi-index-crawling">PyPI index crawling</a><ul>
-<li><a href="#using-the-simple-api">Using the simple API</a></li>
-<li><a href="#using-xml-rpc">Using xml-rpc</a></li>
-</ul>
-</li>
-<li><a href="#processes">Processes</a></li>
-</ul>
-</li>
-</ul>
-</div>
-
-      </div>
-    <h1>🌟</h1>
+    
+</header>
+<article>
     
 <p>I'm working for about a month for distutils2, even if I was being a bit
 busy (as I had some class courses and exams to work on)</p>
@@ -156,23 +80,15 @@ us to get informations about:</p>
 <p>If you want to find all the distributions of the "EggsAndSpam" project,
 you could do the following (do not take so attention to the names here,
 as the API will probably change a bit):</p>
-<p>``` sourceCode python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>index = SimpleIndex()
-index.find("EggsAndSpam")
-[EggsAndSpam 1.1, EggsAndSpam 1.2, EggsAndSpam 1.3]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">also</span> <span class="n">could</span> <span class="n">use</span> <span class="k">version</span> <span class="n">specifiers</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="n">SimpleIndex</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EggsAndSpam&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.3</span><span class="p">]</span>
+</code></pre></div>
 
-<span class="o">```</span> <span class="n">sourceCode</span> <span class="n">python</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">index</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="ss">&quot;EggsAndSpam (&lt; =1.2)&quot;</span><span class="p">)</span>
-<span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-
+<p>We also could use version specifiers:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EggsAndSpam (&lt; =1.2)&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">]</span>
+</code></pre></div>
 
 <p>Internally, what's done here is the following:</p>
 <ul>
@@ -213,42 +129,7 @@ avoid some changes on the API, and some loss of time.</p>
 schedule</a>, and the goal
 is to be sure everything will be ready in time, for the end of the
 summer. (And now, I need to learn to follow schedules ...)</p>
-  </div>
-</div>
-      </div>
+</article>
 
-      <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-      <script>
-        (function(document) {
-          var i = 0;
-          // snip empty header rows since markdown can't
-          var rows = document.querySelectorAll('tr');
-          for(i=0; i<rows.length; i++) {
-            var ths = rows[i].querySelectorAll('th');
-            var rowlen = rows[i].children.length;
-            if (ths.length > 0 && ths.length === rowlen) {
-              rows[i].remove();
-            }
-          }
-        })(document);
-      </script>
-
-      <script>
-        /* Lanyon & Poole are Copyright (c) 2014 Mark Otto. Adapted to Pelican 20141223 and extended a bit by @thomaswilley */
-        (function(document) {
-          var toggle = document.querySelector('.sidebar-toggle');
-          var sidebar = document.querySelector('#sidebar');
-          var checkbox = document.querySelector('#sidebar-checkbox');
-          document.addEventListener('click', function(e) {
-            var target = e.target;
-            if(!checkbox.checked ||
-            sidebar.contains(target) ||
-            (target === checkbox || target === toggle)) return;
-            checkbox.checked = false;
-            }, false);
-            })(document);
-      </script>
-     </div>
-  </body>
+</body>
 </html>
