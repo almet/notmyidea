@@ -13,7 +13,7 @@ INSTALL_STAMP = $(VENV)/.install.stamp
 PYTHON=$(VENV)/bin/python
 PELICAN=$(VENV)/bin/pelican
 PIP=$(VENV)/bin/pip
-GIT=LD_PRELOAD=/home/dan/dev/GitBSLR/gitbslr.so /usr/bin/git
+GIT=/usr/bin/git
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)

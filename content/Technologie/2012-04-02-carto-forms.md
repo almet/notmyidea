@@ -1,22 +1,6 @@
 # Thoughts about a form generation service, GIS enabled
 
-  - slug  
-    carto-forms
-
-  - date  
-    02-04-2012
-
-  - author  
-    Alexis Métaireau, Mathieu Leplatre
-
-  - tags  
-    GIS, forms
-
-  - lang  
-    en
-
-  - category  
-    tech
+*Written by Alexis Métaireau & Mathieu Leplatre*
 
 We have a plan. A "fucking good" one.
 
