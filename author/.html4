@@ -16,6 +16,11 @@
         </section>
 <h1></h1>
             <section class="section index">
+                <time datetime="2021-01-15T00:00:00+01:00">15 janvier 2021</time>
+                <h1><a href="https://blog.notmyidea.org/reconnection.html" id="page-title">Reconnection</a></h1>
+                Cela fait un an que j'ai décidé de me déconnecter pour laisser plus de place à d'autres projets. Me détacher de la maintenance de ihatemoney ; Supprimer la plupart des applications sur mes...
+            </section>
+            <section class="section index">
                 <time datetime="2020-03-06T00:00:00+01:00">06 mars 2020</time>
                 <h1><a href="https://blog.notmyidea.org/forum-ouvert-animation-et-posture.html" id="page-title">Forum ouvert, animation et posture</a></h1>
                 Début Février j'ai participé à un Forum Ouvert. Il s'agit de la troisième fois, et cette fois ci j'étais particulièrement attentif aux procédés mis en place pour sa tenue, puisque je faisais...
@@ -60,14 +65,10 @@
                 <h1><a href="https://blog.notmyidea.org/break-technologique.html" id="page-title">Break technologique</a></h1>
                 Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à...
             </section>
-            <section class="section index">
-                <time datetime="2019-12-13T00:00:00+01:00">13 décembre 2019</time>
-                <h1><a href="https://blog.notmyidea.org/assurance-chomage.html" id="page-title">Assurance chômage</a></h1>
-                Depuis une génération, les durées et les montants d'indemnisation ont régulièrement diminué en France, par étapes successives, ce qui fait que bon nombre de salariés n'ont pas conscience qu'il ne...
-            </section>
             <section>
                 <h1>More...</h1>
                 <ul>
+            <li><a href="https://blog.notmyidea.org/assurance-chomage.html" rel="bookmark" title="Permalink to Assurance chômage">Assurance chômage</a></li>
             <li><a href="https://blog.notmyidea.org/prix-libre-et-conscient.html" rel="bookmark" title="Permalink to Prix libre et conscient & culpabilisation">Prix libre et conscient & culpabilisation</a></li>
             <li><a href="https://blog.notmyidea.org/ecran-et-dependances.html" rel="bookmark" title="Permalink to Écran et dépendances">Écran et dépendances</a></li>
             <li><a href="https://blog.notmyidea.org/groupe-de-paroles-hommes.html" rel="bookmark" title="Permalink to Groupe de paroles hommes">Groupe de paroles hommes</a></li>
