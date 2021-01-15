@@ -1,4 +1,4 @@
-# Reconnection
+# Reconnexion 
 
 Cela fait un an que [j'ai décidé de me déconnecter](https://blog.notmyidea.org/break-technologique.html) pour laisser plus de place à d'autres projets.
 
