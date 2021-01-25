@@ -2,7 +2,7 @@
 
 PATH = "content"
 AUTHOR = u""
-SITENAME = u"Carnets en ligne"
+SITENAME = u"Alexis MÃtaireau"
 THEME = "mnmlist"
 DISQUS_SITENAME = "notmyidea"
 DEFAULT_PAGINATION = 10

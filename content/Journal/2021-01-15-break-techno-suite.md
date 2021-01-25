@@ -8,7 +8,7 @@ Cela fait un an que [j'ai décidé de me déconnecter](https://blog.notmyidea.or
 > Ne plus ramener mon téléphone pro à la maison ;
 > Avoir un ordinateur fixe au travail, et l'y laisser ;
 
-Cette partie de la liste est entièrement validée, et cela m'apporte une quiétude. La frontière entre le travail et le perso est maintenant mieux définie. A la fois pour moi, pour mes collégues et pour mes ami·es. J'en retire beaucoup de repos.
+Cette partie de la liste est entièrement validée, et cela m'apporte une quiétude. La frontière entre le travail et le perso est maintenant mieux définie. A la fois pour moi, pour mes collègues et pour mes ami·es. J'en retire beaucoup de repos.
 
 > Limiter mon utilisation de l'ordinateur perso à 1h par jour, sauf exceptions ;
 
