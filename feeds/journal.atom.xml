@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-01-15T00:00:00+01:00</updated><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Carnets en ligne - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-01-25T00:00:00+01:00</updated><entry><title>Routine</title><link href="https://blog.notmyidea.org/routine.html" rel="alternate"></link><published>2021-01-25T00:00:00+01:00</published><updated>2021-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-25:/routine.html</id><summary type="html">
+&lt;blockquote&gt;
+&lt;p&gt;Si vous pensez que l'aventure est dangereuse, je vous propose d'essayer la routine.... Elle est mortelle !&lt;/p&gt;
+&lt;p&gt;— Paulo Coelho&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;J'ai toujours attaché une connotation négative à la routine.&lt;/p&gt;
+&lt;p&gt;La routine, c'est l'ennui ; c'est la peur de reproduire toujours la même chose ; de me retrouver bloqué dans un fonctionnement que je reproduis …&lt;/p&gt;</summary><content type="html">
+&lt;blockquote&gt;
+&lt;p&gt;Si vous pensez que l'aventure est dangereuse, je vous propose d'essayer la routine.... Elle est mortelle !&lt;/p&gt;
+&lt;p&gt;— Paulo Coelho&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;J'ai toujours attaché une connotation négative à la routine.&lt;/p&gt;
+&lt;p&gt;La routine, c'est l'ennui ; c'est la peur de reproduire toujours la même chose ; de me retrouver bloqué dans un fonctionnement que je reproduis parce qu'il a fonctionné un jour. Dans mon imaginaire, la routine c'est se satisfaire du status-quo.&lt;/p&gt;
+&lt;p&gt;Pourtant, à y regarder de plus près il semble que je manquais une partie de l'histoire.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Capacité, faculté acquise plutôt par une longue habitude, par une longue pratique, que par le secours de l’étude et des règles. &lt;/li&gt;
+&lt;li&gt;Usage depuis longtemps consacré de faire une chose toujours de la même manière. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;— Définition de « routine » sur le &lt;a href="https://fr.wiktionary.org/wiki/routine"&gt;Wikitionnaire&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Il me semble qu'il n'y a pas nécessairement de connotation négative derrière cette notion de routine. Je me demande si les routines ne seraient pas même un moyen pour « apprendre sans en avoir l'air » ?&lt;/p&gt;
+&lt;p&gt;Il me semble également que les routines permettent d'obtenir une quiétude. Se questionner (une fois), décider, puis faire de manière routinière, sans se poser à nouveau la même question sans cesse.&lt;/p&gt;
+&lt;p&gt;Ça vient me questionner à beaucoup d'endroits, de ma gestion quotidienne de mon temps à mon rapport à l'apprentissage. Ça me plait. &lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
 &lt;p&gt;Cela fait un an que &lt;a href="https://blog.notmyidea.org/break-technologique.html"&gt;j'ai décidé de me déconnecter&lt;/a&gt; pour laisser plus de place à d'autres projets.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Me détacher de la maintenance de ihatemoney ;
@@ -15,7 +38,7 @@ Supprimer la plupart des applications sur mes téléphones (pro et perso)
 Ne plus ramener mon téléphone pro à la maison ;
 Avoir un ordinateur fixe au travail, et l'y laisser ;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Cette partie de la liste est entièrement validée, et cela m'apporte une quiétude. La frontière entre le travail et le perso est maintenant mieux définie. A la fois pour moi, pour mes collégues et pour mes ami·es. J'en retire beaucoup de repos.&lt;/p&gt;
+&lt;p&gt;Cette partie de la liste est entièrement validée, et cela m'apporte une quiétude. La frontière entre le travail et le perso est maintenant mieux définie. A la fois pour moi, pour mes collègues et pour mes ami·es. J'en retire beaucoup de repos.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Limiter mon utilisation de l'ordinateur perso à 1h par jour, sauf exceptions ;&lt;/p&gt;
 &lt;/blockquote&gt;

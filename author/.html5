@@ -16,6 +16,11 @@
         </section>
 <h1></h1>
             <section class="section index">
+                <time datetime="2021-01-25T00:00:00+01:00">25 janvier 2021</time>
+                <h1><a href="https://blog.notmyidea.org/routine.html" id="page-title">Routine</a></h1>
+                Si vous pensez que l'aventure est dangereuse, je vous propose d'essayer la routine.... Elle est mortelle ! — Paulo Coelho J'ai toujours attaché une connotation négative à la routine. La routine,...
+            </section>
+            <section class="section index">
                 <time datetime="2021-01-15T00:00:00+01:00">15 janvier 2021</time>
                 <h1><a href="https://blog.notmyidea.org/reconnexion.html" id="page-title">Reconnexion ?</a></h1>
                 Cela fait un an que j'ai décidé de me déconnecter pour laisser plus de place à d'autres projets. Me détacher de la maintenance de ihatemoney ; Supprimer la plupart des applications sur mes...
@@ -60,14 +65,10 @@
                 <h1><a href="https://blog.notmyidea.org/remettre-les-choses-a-plus-tard.html" id="page-title">Remettre les choses à plus tard</a></h1>
                 Une autre astuce qui me permet de retrouver du temps, c'est de remettre certaines choses à plus tard. Certain⋅ne⋅s diraient que c'est de la procrastination, mais je demande par exemple aux...
             </section>
-            <section class="section index">
-                <time datetime="2019-12-14T00:00:00+01:00">14 décembre 2019</time>
-                <h1><a href="https://blog.notmyidea.org/break-technologique.html" id="page-title">Break technologique</a></h1>
-                Comme je le soulignais il y a quelques jours dans ce journal de bord, je suis « drogué aux écrans ». Au point que je passe parfois ma journée entière sans en décrocher, en passant de l'un à...
-            </section>
             <section>
                 <h1>More...</h1>
                 <ul>
+            <li><a href="https://blog.notmyidea.org/break-technologique.html" rel="bookmark" title="Permalink to Break technologique">Break technologique</a></li>
             <li><a href="https://blog.notmyidea.org/assurance-chomage.html" rel="bookmark" title="Permalink to Assurance chômage">Assurance chômage</a></li>
             <li><a href="https://blog.notmyidea.org/prix-libre-et-conscient.html" rel="bookmark" title="Permalink to Prix libre et conscient & culpabilisation">Prix libre et conscient & culpabilisation</a></li>
             <li><a href="https://blog.notmyidea.org/ecran-et-dependances.html" rel="bookmark" title="Permalink to Écran et dépendances">Écran et dépendances</a></li>
