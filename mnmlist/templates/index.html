@@ -8,16 +8,16 @@
                 {% if not HIDE_DATE %}
                 <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
                 {% endif %}
-                <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
+                <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{% if article.category == "lectures" %}📖 {% endif %}{{ article.title }}</a></h1>
                 {{ article.content|striptags|truncate(200) }}
             </section>
         {% else %}
             {% if loop.index0 == DEFAULT_PAGINATION %}
             <section>
-                <h1>More...</h1>
+                <h1>Anciens articles...</h1>
                 <ul>
             {% endif %}
-            <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{% if article.category == "lectures" %}📖 {% endif %}{{ article.title }}</a></li>
             {% if loop.last %}
                 </ul>
             </section>
