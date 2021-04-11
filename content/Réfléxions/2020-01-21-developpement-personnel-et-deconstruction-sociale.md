@@ -56,5 +56,5 @@ Une prise de pouvoir, en quelque sorte.
 [^matrice-des-dominations]: Comme théorisé avec la [matrice des dominations](https://en.wikipedia.org/wiki/Matrix_of_domination).
 
 1. [Le système Pierre Rahbi — Le monde diplomatique](https://www.monde-diplomatique.fr/2018/08/MALET/58981)
-2. [Égologie, par Aude Vidal](https://labrique.net/index.php/thematiques/politicaille/954-cyril-dion-coli-briseur-de-l-ecologie-radicale)
+2. [Égologie, par Aude Vidal](https://blog.notmyidea.org/egologie.html)
 3. [Cyril Dion, Coli-briseur de l'écologie radicale — La brique](https://labrique.net/index.php/thematiques/politicaille/954-cyril-dion-coli-briseur-de-l-ecologie-radicale)
