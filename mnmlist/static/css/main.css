@@ -294,3 +294,30 @@ footer {
   footer a {
     text-decoration-thickness: unset;
   }
+
+table {
+    margin: 0 0 2em 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table thead {
+  border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+}
+
+table th {
+  color: #000;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0 0.75em 0.75em 0.75em;
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n+1) {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+table td {
+  padding: 0.75em 0.75em;
+}
