@@ -1420,7 +1420,7 @@ pas libre et que les données sont stockées chez Google.&lt;/p&gt;
 &lt;p&gt;La plupart du temps, le besoin est assez simple: je veux spécifier quelques
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture de l'interface de création du formulaire" src="{filename}/static/formbuilder-build.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de l'interface de création du formulaire" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-build.png"&gt;&lt;/p&gt;
 &lt;h2 id="fonctionnalites"&gt;Fonctionnalités&lt;/h2&gt;
 &lt;p&gt;Il existe pas mal de solutions techniques qui essayent de répondre à la même
 problématique, mais la plupart d'entre elles sont assez souvent compliquées,
@@ -1430,17 +1430,17 @@ déployer.&lt;/p&gt;
 &lt;p&gt;Je voulais donc quelque chose de simple à utiliser &lt;em&gt;et&lt;/em&gt; pour les créateurs de
 formulaires &lt;em&gt;et&lt;/em&gt; pour les utilisateurs finaux. Pas de chichis, juste quelques
 vues, et des URLs à sauvegarder une fois l'opération terminée.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture de l'écran avec les URLs générées" src="{filename}/static/formbuilder-created.png"&gt;
-&lt;img alt="Capture d'écran d'un exemple de formulaire" src="{filename}/static/formbuilder-form.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de l'écran avec les URLs générées" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-created.png"&gt;
+&lt;img alt="Capture d'écran d'un exemple de formulaire" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-form.png"&gt;&lt;/p&gt;
 &lt;h3 id="pas-de-compte"&gt;Pas de compte&lt;/h3&gt;
 &lt;p&gt;Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
 qu'eux puissent à leur tour le remplir.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="{filename}/static/formbuilder-welcome.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-welcome.png"&gt;&lt;/p&gt;
 &lt;h3 id="gardez-la-main-sur-vos-donnees"&gt;Gardez la main sur vos données&lt;/h3&gt;
 &lt;p&gt;Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
 récupérer les données sur votre machines dans un fichier &lt;code&gt;.csv&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="{filename}/static/formbuilder-results.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="https://blog.notmyidea.org/images/formbuilder/formbuilder-results.png"&gt;&lt;/p&gt;
 &lt;h3 id="api"&gt;API&lt;/h3&gt;
 &lt;p&gt;L'ensemble des données sont en fait stockées dans &lt;a href="https://kinto.readthedocs.org"&gt;Kinto&lt;/a&gt;
 qui est interrogeable très facilement en HTTP. Ce qui fait qu'il est très facile de
@@ -1775,7 +1775,7 @@ de 10 minutes où je parle en anglais avec une voix très grave.&lt;/p&gt;
 &lt;video controls="" src="http://alexis.notmyidea.org/zeronet.webm" width=800&gt;&lt;/video&gt;
 
 &lt;h2 id="atelier"&gt;Atelier&lt;/h2&gt;
-&lt;p&gt;Pour l'atelier, j'ai choisi de faire une présentation rapide du projet (&lt;a href="{filename}/static/zeronet-presentation-fr.pdf"&gt;j'ai
+&lt;p&gt;Pour l'atelier, j'ai choisi de faire une présentation rapide du projet (&lt;a href="https://blog.notmyidea.org/docs/zeronet-presentation-fr.pdf"&gt;j'ai
 traduit les slides&lt;/a&gt; anglais
 pour l'occasion — &lt;a href="https://docs.google.com/presentation/d/158C_-V1ueNaaKHMBMBgGOVhunb9xrXzB3hC_g1N53c0/edit?usp=sharing"&gt;accès aux sources&lt;/a&gt;)
 avant d'installer ZeroNet sur les machines et de l'utiliser pour publier un
@@ -1820,7 +1820,7 @@ s'envoyer des messages chiffrés sur un réseau pair à pair. L'approche choisie
 est de chiffrer les messages avec la clé du destinataire et de le mettre dans
 un &lt;em&gt;pot commun&lt;/em&gt;. Tout le monde essaye de déchiffrer tous les messages, mais ne
 peut déchiffrer que les siens.&lt;/p&gt;
-&lt;p&gt;Cela permet de ne &lt;strong&gt;pas&lt;/strong&gt; fuiter de méta-données, &lt;a href="{filename}../crypto/2015.05.pgp-problemes.rst"&gt;à l'inverse de PGP&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cela permet de ne &lt;strong&gt;pas&lt;/strong&gt; fuiter de méta-données, &lt;a href="https://blog.notmyidea.org/les-problemes-de-pgp.html"&gt;à l'inverse de PGP&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Je n'ai en fait pas de réponse claire à donner à cette question: l'auteur de
 ZeroNet me disait que 10MB (la limite de taille d'un site, par défaut)
 correspondait à beaucoup de place pour stocker des messages, et qu'il était
@@ -1979,8 +1979,6 @@ pourrait ressembler à ceci :&lt;/p&gt;
 &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sort_keys&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;collection_hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Enfin, un schéma pour résumer !&lt;/p&gt;
-&lt;img alt="Schema résumant le processus de signature de la collection." class="align-center" src="{filename}/images/kinto-signing.jpg" /&gt;
 &lt;/div&gt;
 </content><category term="Technologie"></category></entry><entry><title>Let's Encrypt + HAProxy</title><link href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="alternate"></link><published>2016-02-11T00:00:00+01:00</published><updated>2016-02-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-02-11:/lets-encrypt-haproxy.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n'est plus à jour. Il est maintenant (2018) possible d'installer des certificats SSL Let's Encrypt d'une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3051,7 +3049,7 @@ les bonnes pratiques en terme de mise en production et de protocole HTTP.&lt;/st
 &lt;div class="section" id="les-origines"&gt;
 &lt;h2&gt;Les origines&lt;/h2&gt;
 &lt;p&gt;L'objectif pour le premier trimestre 2015 était de construire un service de
-stockage et de &lt;a class="reference external" href="{filename}2015.04.service-de-nuages.rst"&gt;synchronisation de listes de lecture&lt;/a&gt;.&lt;/p&gt;
+stockage et de &lt;a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-fr.html"&gt;synchronisation de listes de lecture&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Au démarrage du projet, nous avons tenté de rassembler toutes les bonnes pratiques
 et recommandations, venant de différentes équipes et surtout des derniers projets déployés.&lt;/p&gt;
 &lt;p&gt;De même, nous voulions tirer parti du protocole de &lt;em&gt;Firefox Sync&lt;/em&gt;, robuste et éprouvé,
@@ -3343,7 +3341,7 @@ Certains aspects mal pensés ? Trop contraignants ? Trop de magie ? Overkill ?&l
 &lt;div class="section" id="points-faibles"&gt;
 &lt;h3&gt;Points faibles&lt;/h3&gt;
 &lt;p&gt;Nous sommes très fiers de ce que nous avons construit, en relativement peu
-de temps. Et comme nous l'exposions dans &lt;a class="reference external" href="{filename/2015.07.whistler-use-cases.rst}"&gt;l'article précédent&lt;/a&gt;, il y a du potentiel !&lt;/p&gt;
+de temps. Et comme nous l'exposions dans &lt;a class="reference external" href="{filename}/2015-07-whistler-use-cases.rst}"&gt;l'article précédent&lt;/a&gt;, il y a du potentiel !&lt;/p&gt;
 &lt;p&gt;Cependant, nous sommes conscients d'un certain nombre de points
 qui peuvent être vus comme des faiblesses.&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -5146,7 +5144,7 @@ réflexions, n'hésitez pas à nous interrompre pendant qu'il est encore temps !
 &lt;p&gt;&lt;strong&gt;tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de
 stockage/synchronisation.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Comme nous l'écrivions &lt;a href="%7Bfilename%7D/2015.04.service-de-nuages.rst"&gt;dans l'article
+&lt;p&gt;Comme nous l'écrivions &lt;a href="https://blog.notmyidea.org/service-de-nuages-fr.html"&gt;dans l'article
 précédent&lt;/a&gt;, nous
 souhaitons construire une solution de stockage générique. On refait
 &lt;a href="http://daybed.readthedocs.org"&gt;Daybed&lt;/a&gt; chez Mozilla !&lt;/p&gt;
@@ -5154,7 +5152,7 @@ souhaitons construire une solution de stockage générique. On refait
 &lt;p&gt;&lt;strong&gt;tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de
 stockage/synchronisation.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Comme nous l'écrivions &lt;a href="%7Bfilename%7D/2015.04.service-de-nuages.rst"&gt;dans l'article
+&lt;p&gt;Comme nous l'écrivions &lt;a href="https://blog.notmyidea.org/service-de-nuages-fr.html"&gt;dans l'article
 précédent&lt;/a&gt;, nous
 souhaitons construire une solution de stockage générique. On refait
 &lt;a href="http://daybed.readthedocs.org"&gt;Daybed&lt;/a&gt; chez Mozilla !&lt;/p&gt;

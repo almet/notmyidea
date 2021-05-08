@@ -258,7 +258,7 @@ d'infériorité. &lt;strong&gt;Cela les prive de la capacité de nuance et …&l
 &lt;p&gt;&lt;strong&gt;tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de
 stockage/synchronisation.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Comme nous l'écrivions &lt;a href="%7Bfilename%7D/2015.04.service-de-nuages.rst"&gt;dans l'article
+&lt;p&gt;Comme nous l'écrivions &lt;a href="https://blog.notmyidea.org/service-de-nuages-fr.html"&gt;dans l'article
 précédent&lt;/a&gt;, nous
 souhaitons construire une solution de stockage générique. On refait
 &lt;a href="http://daybed.readthedocs.org"&gt;Daybed&lt;/a&gt; chez Mozilla !&lt;/p&gt;
