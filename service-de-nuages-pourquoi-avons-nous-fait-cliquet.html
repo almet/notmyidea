@@ -45,7 +45,7 @@ devaient obéir globalement à ces mêmes règles, nous avons décidé de mettre
 commun l'implémentation de ce protocole et de ces bonnes pratiques dans un
 «toolkit».</p>
 <p><em>Cliquet</em> est né.</p>
-<img alt="Cliquet logo" class="align-center" src="{filename}/images/cliquet-logo.png" />
+<img alt="Cliquet logo" class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-logo.png" />
 <div class="section" id="les-intentions">
 <h3>Les intentions</h3>
 <blockquote class="epigraph">
@@ -79,7 +79,7 @@ de resource REST et de backend de stockage.</p>
 depuis le fichier <tt class="docutils literal">.ini</tt> de l'application. Ainsi tous les projets qui utilisent
 le toolkit se déploieront de la même manière : seuls quelques éléments de configuration
 les distingueront.</p>
-<img alt="Une réunion à Paris..." class="align-center" src="{filename}/images/cliquet-notes-whiteboard.jpg" />
+<img alt="Une réunion à Paris..." class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-notes-whiteboard.jpg" />
 </div>
 </div>
 <div class="section" id="le-protocole">
@@ -99,8 +99,7 @@ authentification et autorisation, la cohérence des code status...</p>
 <li><strong>Les resources REST</strong> : Les deux URLs d'une resource (pour la collection
 et les enregistrements) acceptent des verbes et des headers précis.</li>
 <li><strong>Les formats</strong> : le format et la structure JSON des réponses est imposé, ainsi
-que la <a class="reference external" href="{filename}/2015.05.continuation-token.rst">pagination des listes</a>
-ou la syntaxe pour filtrer/trier les resources via la <a class="reference external" href="https://en.wikipedia.org/wiki/Query_string">querystring</a>.</li>
+que la pagination des listes ou la syntaxe pour filtrer/trier les resources via la <a class="reference external" href="https://en.wikipedia.org/wiki/Query_string">querystring</a>.</li>
 <li><strong>Les timestamps</strong> : un numéro de révision qui s'incrémente à chaque opération
 d'écriture sur une collection d'enregistrements.</li>
 <li><strong>La synchronisation</strong> : une série de leviers pour récupérer et renvoyer des
@@ -132,7 +131,7 @@ En rêve, il existerait même plusieurs implémentations avec des technologies d
 <table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voir notre <a class="reference external" href="{filename}/2015.05.cliquet-permissions.rst">article dédié sur les permissions</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voir notre <a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html">article dédié sur les permissions</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
@@ -185,7 +184,7 @@ depuis la configuration.</li>
 <li><strong>Le profiling</strong> : utilitaires de développement pour trouver les <a class="reference external" href="https://fr.wiktionary.org/wiki/goulet_d%E2%80%99%C3%A9tranglement">goulets
 d'étranglement</a>.</li>
 </ul>
-<img alt="Cliquet concepts" class="align-center" src="{filename}/images/cliquet-concepts.png" />
+<img alt="Cliquet concepts" class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-concepts.png" />
 <p>Proportionnellement, l'implémentation du protocole pour les resources REST est
 la plus volumineuse dans le code source de <em>Cliquet</em>.
 Cependant, comme nous l'avons décrit plus haut, <em>Cliquet</em> fournit tout un
@@ -324,7 +323,7 @@ Certains aspects mal pensés ? Trop contraignants ? Trop de magie ? Overkill ?</
 <div class="section" id="points-faibles">
 <h3>Points faibles</h3>
 <p>Nous sommes très fiers de ce que nous avons construit, en relativement peu
-de temps. Et comme nous l'exposions dans <a class="reference external" href="{filename}/2015-07-whistler-use-cases.rst}">l'article précédent</a>, il y a du potentiel !</p>
+de temps. Et comme nous l'exposions dans l'article précédent (plus accessible), il y a du potentiel !</p>
 <p>Cependant, nous sommes conscients d'un certain nombre de points
 qui peuvent être vus comme des faiblesses.</p>
 <ul class="simple">
@@ -372,7 +371,7 @@ Python 2.7, à notre grand désarroi /o\</p>
 pas un jour d'écrire un <em>Cliquet</em> en <em>aiohttp</em> ou <em>Go</em> si cela s'avèrerait pertinent.</p>
 <blockquote>
 Pourquoi pas JSON-API ?</blockquote>
-<p>Comme nous l'expliquions <a class="reference external" href="{filename}/2015.05.retour-apidays.rst">au retour des APIdays</a>,
+<p>Comme nous l'expliquions au retour des APIdays,
 JSON-API est une spécification qui rejoint plusieurs de nos intentions.</p>
 <p>Quand nous avons commencé le protocole, nous ne connaissions pas JSON-API.
 Pour l'instant, comme notre proposition est beaucoup plus minimaliste, le

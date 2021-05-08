@@ -100,7 +100,7 @@ pourrait ressembler à ceci :&lt;/p&gt;
 &lt;p&gt;Mozilla a pour coutume d'organiser régulièrement des semaines de travail où tous les employés
 sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouver
 nos collègues du monde entier à &lt;a class="reference external" href="http://www.openstreetmap.org/node/268148288#map=4/50.12/-122.95"&gt;Whistler, en Colombie Britannique au Canada&lt;/a&gt; !&lt;/p&gt;
-&lt;img alt="«All Hands» talk about Lego, by &amp;#64;davidcrob - CC0" class="align-center" src="{filename}/images/whistler-talks.jpg" /&gt;
+&lt;img alt="«All Hands» talk about Lego, by &amp;#64;davidcrob - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-talks.jpg" /&gt;
 &lt;p&gt;Ce fût l'occasion pour notre équipe de se retrouver, et surtout de partager notre
 vision et nos idées dans le domaine du stockage, afin de collecter des cas d'utilisation pour
 notre solution &lt;a class="reference external" href="https://kinto.readthedocs.org"&gt;Kinto&lt;/a&gt;.&lt;/p&gt;
@@ -120,7 +120,7 @@ HTML5 et ES6, on n'était plus aussi démunis qu'il y a quelques années.&lt;/p&
 grosses lacunes en terme de documentation, surtout en ce qui concerne
 l'éco-système et la vision globale des projets (Kinto, Kinto.js, Cliquet, ...).
 Nous allons donc faire de notre mieux pour combler ce manque.&lt;/p&gt;
-&lt;img alt="Kinto.js workshop - CC0" class="align-center" src="{filename}/images/whistler-workshop.jpg" /&gt;
+&lt;img alt="Kinto.js workshop - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-workshop.jpg" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="mozilla-payments"&gt;
 &lt;h2&gt;Mozilla Payments&lt;/h2&gt;
@@ -130,7 +130,7 @@ Nous allons donc faire de notre mieux pour combler ce manque.&lt;/p&gt;
 &lt;div class="section" id="a-venir"&gt;
 &lt;h3&gt;À venir&lt;/h3&gt;
 &lt;p&gt;Nous aimerions en profiter pour implémenter une fonctionnalité qui nous tient à coeur : la construction de la liste des enregistrements accessibles en lecture sur une collection partagée.&lt;/p&gt;
-&lt;img alt="Whistler Alta Lake - CC0" class="align-center" src="{filename}/images/whistler-lake.jpg" /&gt;
+&lt;img alt="Whistler Alta Lake - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-lake.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="firefox-os-et-stockage"&gt;
@@ -183,7 +183,7 @@ les écritures simultanées et synchronisation en tâche de fond.&lt;/p&gt;
 &lt;p&gt;Nous sommes par ailleurs perpétuellement preneurs de vos retours — et bien
 entendu de vos contributions — tant sur le code &lt;a class="reference external" href="https://github.com/mozilla-services/kinto/"&gt;serveur&lt;/a&gt;
 que &lt;a class="reference external" href="https://github.com/mozilla-services/kinto.js/"&gt;client&lt;/a&gt;  !&lt;/p&gt;
-&lt;img alt="Firefox OS Cloud Storage Presentation - CC0" class="align-center" src="{filename}/images/whistler-cloud-storage.jpg" /&gt;
+&lt;img alt="Firefox OS Cloud Storage Presentation - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-cloud-storage.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="contenus-applicatifs-de-firefox"&gt;
@@ -204,7 +204,7 @@ ce genre de besoins internes, &lt;em&gt;Kinto&lt;/em&gt; est tout aussi pertinen
 été intégrées récemment vont redevenir des &lt;em&gt;add-ons&lt;/em&gt; \o/.&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;img alt="Landscape - CC0" class="align-center" src="{filename}/images/whistler-landscape.jpg" /&gt;
+&lt;img alt="Landscape - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-landscape.jpg" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="awesome-bar"&gt;
 &lt;h2&gt;Awesome bar&lt;/h2&gt;
@@ -220,7 +220,7 @@ correspondent parfaitement à ce qui est envisagé pour le futur du navigateur :
 fonctionnalités d'indexation et de recherche &lt;em&gt;full-text&lt;/em&gt; (comprendre &lt;em&gt;ElasticSearch&lt;/em&gt;).
 Cela rejoint nos plans précédents, puisque c'est quelque chose que nous avions dans
 &lt;em&gt;Daybed&lt;/em&gt;, et qui figurait sur notre feuille de route !&lt;/p&gt;
-&lt;img alt="Firefox Labs Meeting - CC0" class="align-center" src="{filename}/images/whistler-labs.jpg" /&gt;
+&lt;img alt="Firefox Labs Meeting - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-labs.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="browser-html"&gt;
@@ -245,7 +245,7 @@ sujet passionant, et &lt;a class="reference external" href="http://www.w3.org/TR
 changements, l'introduction des &lt;a class="reference external" href="https://w3c.github.io/push-api/"&gt;*push notifications*&lt;/a&gt; semble assez naturelle.
 Il s'agirait alors de la dernière pierre qui manque à l'édifice pour obtenir
 un «&lt;em&gt;Mobile/Web backend as a service&lt;/em&gt;» complet.&lt;/p&gt;
-&lt;img alt="Roadmap - CC0" class="align-center" src="{filename}/images/whistler-roadmap.jpg" /&gt;
+&lt;img alt="Roadmap - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-roadmap.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="conclusion"&gt;
@@ -258,7 +258,7 @@ tenir la charge, continuer à améliorer et à faire la promotion du produit, se
 sur les prochaines étapes et embarquer quelques contributeurs à nos cotés pour
 construire une solution libre, générique, simple et auto-hébergeable pour le stockage
 de données sur le Web :)&lt;/p&gt;
-&lt;img alt="Friday Night Party - CC0" class="align-center" src="{filename}/images/whistler-top-roof.jpg" /&gt;
+&lt;img alt="Friday Night Party - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
 </content><category term="Technologie"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
 et Kinto 1.0 !&lt;/p&gt;
@@ -366,7 +366,7 @@ les &lt;em&gt;buckets&lt;/em&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 Rappel, un &amp;quot;ACE&amp;quot; est un &lt;em&gt;Access Control Entry&lt;/em&gt;, un des éléments
 d'une ACL (e.g. &lt;em&gt;modifier un enregistrement&lt;/em&gt;).&lt;/blockquote&gt;
-&lt;p&gt;Avec le &lt;a class="reference external" href="{filename}/2015.05.cliquet-permissions.rst"&gt;système de permissions choisi&lt;/a&gt;, les permissions d'un
+&lt;p&gt;Avec le &lt;a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html"&gt;système de permissions choisi&lt;/a&gt;, les permissions d'un
 objet héritent de celle de l'objet parent.&lt;/p&gt;
 &lt;p&gt;Par exemple, avoir le droit d'écriture sur un &lt;em&gt;bucket&lt;/em&gt; permet la
 création des permissions et la modification de tous ses records.&lt;/p&gt;
@@ -1236,7 +1236,7 @@ complémentaires: &lt;a class="reference external" href="https://nicolas.perriau
 lecture sur n'importe quel périphérique synchronisé (Firefox pour Android ou
 Firefox Desktop). Un équivalent libre à &lt;a class="reference external" href="http://getpocket.com"&gt;Pocket&lt;/a&gt; en quelque sorte, qu'il est
 possible d'héberger soit-même.&lt;/p&gt;
-&lt;img alt="Capture d'écran de Firefox nightly avec readinglist." src="{filename}/images/readinglist-screenshot.png" /&gt;
+&lt;img alt="Capture d'écran de Firefox nightly avec readinglist." src="https://blog.notmyidea.org/images/readinglist-screenshot.png" /&gt;
 &lt;p&gt;Pour le construire, nous aurions pu réutiliser &lt;a class="reference external" href="https://github.com/mozilla-services/server-syncstorage"&gt;Firefox Sync&lt;/a&gt;, après tout
 c'est un service de synchronisation de données très robuste, construit avec &lt;a class="reference external" href="http://cornice.readthedocs.org/"&gt;Cornice&lt;/a&gt;.
 Mais seulement, &lt;em&gt;Sync&lt;/em&gt; n'a pas été pensé pour garantir la pérennité des données,
@@ -1272,7 +1272,7 @@ de l'étendre légèrement et surtout de le dissocier du projet de listes de lec
 &lt;a class="reference external" href="https://cliquet.readthedocs.org"&gt;Cliquet&lt;/a&gt;, dont l'idée principale est de
 fournir une implémentation de ce protocole en python, tout en factorisant
 l'ensemble de nos bonnes pratiques (pour la prod notamment).&lt;/p&gt;
-&lt;img alt="Logo du projet Cliquet" class="align-right" src="{filename}/images/cliquet-logo.png" /&gt;
+&lt;img alt="Logo du projet Cliquet" class="align-right" src="https://blog.notmyidea.org/images/cliquet/cliquet-logo.png" /&gt;
 &lt;p&gt;L'avantage d'avoir un protocole plutôt qu'un monolithe, c'est que si vous
 préférez Asyncio, io.js ou Go, on vous encouragera à publier votre
 implémentation alternative !&lt;/p&gt;

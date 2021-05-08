@@ -2966,7 +2966,7 @@ devaient obéir globalement à ces mêmes règles, nous avons décidé de mettre
 commun l'implémentation de ce protocole et de ces bonnes pratiques dans un
 «toolkit».&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Cliquet&lt;/em&gt; est né.&lt;/p&gt;
-&lt;img alt="Cliquet logo" class="align-center" src="{filename}/images/cliquet-logo.png" /&gt;
+&lt;img alt="Cliquet logo" class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-logo.png" /&gt;
 &lt;div class="section" id="les-intentions"&gt;
 &lt;h3&gt;Les intentions&lt;/h3&gt;
 &lt;blockquote class="epigraph"&gt;
@@ -3000,7 +3000,7 @@ de resource REST et de backend de stockage.&lt;/p&gt;
 depuis le fichier &lt;tt class="docutils literal"&gt;.ini&lt;/tt&gt; de l'application. Ainsi tous les projets qui utilisent
 le toolkit se déploieront de la même manière : seuls quelques éléments de configuration
 les distingueront.&lt;/p&gt;
-&lt;img alt="Une réunion à Paris..." class="align-center" src="{filename}/images/cliquet-notes-whiteboard.jpg" /&gt;
+&lt;img alt="Une réunion à Paris..." class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-notes-whiteboard.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="le-protocole"&gt;
@@ -3020,8 +3020,7 @@ authentification et autorisation, la cohérence des code status...&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Les resources REST&lt;/strong&gt; : Les deux URLs d'une resource (pour la collection
 et les enregistrements) acceptent des verbes et des headers précis.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Les formats&lt;/strong&gt; : le format et la structure JSON des réponses est imposé, ainsi
-que la &lt;a class="reference external" href="{filename}/2015.05.continuation-token.rst"&gt;pagination des listes&lt;/a&gt;
-ou la syntaxe pour filtrer/trier les resources via la &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Query_string"&gt;querystring&lt;/a&gt;.&lt;/li&gt;
+que la pagination des listes ou la syntaxe pour filtrer/trier les resources via la &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Query_string"&gt;querystring&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Les timestamps&lt;/strong&gt; : un numéro de révision qui s'incrémente à chaque opération
 d'écriture sur une collection d'enregistrements.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;La synchronisation&lt;/strong&gt; : une série de leviers pour récupérer et renvoyer des
@@ -3053,7 +3052,7 @@ En rêve, il existerait même plusieurs implémentations avec des technologies d
 &lt;table class="docutils footnote" frame="void" id="id3" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
 &lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Voir notre &lt;a class="reference external" href="{filename}/2015.05.cliquet-permissions.rst"&gt;article dédié sur les permissions&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Voir notre &lt;a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html"&gt;article dédié sur les permissions&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
@@ -3106,7 +3105,7 @@ depuis la configuration.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Le profiling&lt;/strong&gt; : utilitaires de développement pour trouver les &lt;a class="reference external" href="https://fr.wiktionary.org/wiki/goulet_d%E2%80%99%C3%A9tranglement"&gt;goulets
 d'étranglement&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;img alt="Cliquet concepts" class="align-center" src="{filename}/images/cliquet-concepts.png" /&gt;
+&lt;img alt="Cliquet concepts" class="align-center" src="https://blog.notmyidea.org/images/cliquet/cliquet-concepts.png" /&gt;
 &lt;p&gt;Proportionnellement, l'implémentation du protocole pour les resources REST est
 la plus volumineuse dans le code source de &lt;em&gt;Cliquet&lt;/em&gt;.
 Cependant, comme nous l'avons décrit plus haut, &lt;em&gt;Cliquet&lt;/em&gt; fournit tout un
@@ -3245,7 +3244,7 @@ Certains aspects mal pensés ? Trop contraignants ? Trop de magie ? Overkill ?&l
 &lt;div class="section" id="points-faibles"&gt;
 &lt;h3&gt;Points faibles&lt;/h3&gt;
 &lt;p&gt;Nous sommes très fiers de ce que nous avons construit, en relativement peu
-de temps. Et comme nous l'exposions dans &lt;a class="reference external" href="{filename}/2015-07-whistler-use-cases.rst}"&gt;l'article précédent&lt;/a&gt;, il y a du potentiel !&lt;/p&gt;
+de temps. Et comme nous l'exposions dans l'article précédent (plus accessible), il y a du potentiel !&lt;/p&gt;
 &lt;p&gt;Cependant, nous sommes conscients d'un certain nombre de points
 qui peuvent être vus comme des faiblesses.&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -3293,7 +3292,7 @@ Python 2.7, à notre grand désarroi /o\&lt;/p&gt;
 pas un jour d'écrire un &lt;em&gt;Cliquet&lt;/em&gt; en &lt;em&gt;aiohttp&lt;/em&gt; ou &lt;em&gt;Go&lt;/em&gt; si cela s'avèrerait pertinent.&lt;/p&gt;
 &lt;blockquote&gt;
 Pourquoi pas JSON-API ?&lt;/blockquote&gt;
-&lt;p&gt;Comme nous l'expliquions &lt;a class="reference external" href="{filename}/2015.05.retour-apidays.rst"&gt;au retour des APIdays&lt;/a&gt;,
+&lt;p&gt;Comme nous l'expliquions au retour des APIdays,
 JSON-API est une spécification qui rejoint plusieurs de nos intentions.&lt;/p&gt;
 &lt;p&gt;Quand nous avons commencé le protocole, nous ne connaissions pas JSON-API.
 Pour l'instant, comme notre proposition est beaucoup plus minimaliste, le
