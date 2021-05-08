@@ -18,7 +18,7 @@ Les origines
 ============
 
 L'objectif pour le premier trimestre 2015 était de construire un service de
-stockage et de `synchronisation de listes de lecture <{filename}2015.04.service-de-nuages.rst>`_.
+stockage et de `synchronisation de listes de lecture <{filename}/Technologie/2015-04-01-service-de-nuages.rst>`_.
 
 Au démarrage du projet, nous avons tenté de rassembler toutes les bonnes pratiques
 et recommandations, venant de différentes équipes et surtout des derniers projets déployés.
@@ -393,7 +393,7 @@ Points faibles
 
 Nous sommes très fiers de ce que nous avons construit, en relativement peu
 de temps. Et comme nous l'exposions dans `l'article précédent
-<{filename/2015.07.whistler-use-cases.rst}>`_, il y a du potentiel !
+<{filename}/2015-07-whistler-use-cases.rst}>`_, il y a du potentiel !
 
 Cependant, nous sommes conscients d'un certain nombre de points
 qui peuvent être vus comme des faiblesses.

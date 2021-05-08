@@ -24,7 +24,7 @@ La plupart du temps, le besoin est assez simple: je veux spécifier quelques
 questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
 Je reviens ensuite plus tard pour voir la liste des réponses apportées.
 
-![Capture de l'interface de création du formulaire]({filename}/static/formbuilder-build.png)
+![Capture de l'interface de création du formulaire]({static}/images/formbuilder/formbuilder-build.png)
 
 ## Fonctionnalités
 
@@ -38,8 +38,8 @@ Je voulais donc quelque chose de simple à utiliser *et* pour les créateurs de
 formulaires *et* pour les utilisateurs finaux. Pas de chichis, juste quelques
 vues, et des URLs à sauvegarder une fois l'opération terminée.
 
-![Capture de l'écran avec les URLs générées]({filename}/static/formbuilder-created.png)
-![Capture d'écran d'un exemple de formulaire]({filename}/static/formbuilder-form.png)
+![Capture de l'écran avec les URLs générées]({static}/images/formbuilder/formbuilder-created.png)
+![Capture d'écran d'un exemple de formulaire]({static}/images/formbuilder/formbuilder-form.png)
 
 ### Pas de compte
 
@@ -47,14 +47,14 @@ Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utilise
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
 qu'eux puissent à leur tour le remplir.
 
-![Capture de la page d'accueil, ou aucun compte n'est requis]({filename}/static/formbuilder-welcome.png)
+![Capture de la page d'accueil, ou aucun compte n'est requis]({static}/images/formbuilder/formbuilder-welcome.png)
 
 ### Gardez la main sur vos données
 
 Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
 récupérer les données sur votre machines dans un fichier `.csv`.
 
-![Capture de la page de resultats, il est possible de télécharger en CSV.]({filename}/static/formbuilder-results.png)
+![Capture de la page de resultats, il est possible de télécharger en CSV.]({static}/images/formbuilder/formbuilder-results.png)
 
 ### API
 

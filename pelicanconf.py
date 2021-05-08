@@ -6,7 +6,7 @@ SITENAME = u"Alexis Métaireau"
 THEME = "mnmlist"
 DISQUS_SITENAME = "notmyidea"
 DEFAULT_PAGINATION = 10
-STATIC_PATHS = ["static", "images"]
+STATIC_PATHS = ["images", "docs"]
 
 SITEURL = ""
 RELATIVE_URLS = True

@@ -131,9 +131,3 @@ pourrait ressembler à ceci :
   m = hashlib.sha256()
   m.update(json.dumps(data, sort_keys=True))
   collection_hash = m.hexdigest()
-
-Enfin, un schéma pour résumer !
-
-.. image:: {filename}/images/kinto-signing.jpg
-    :align: center
-    :alt: Schema résumant le processus de signature de la collection.
