@@ -37,7 +37,7 @@ commun l'implémentation de ce protocole et de ces bonnes pratiques dans un
 
 *Cliquet* est né.
 
-.. image:: {filename}/images/cliquet-logo.png
+.. image:: {static}/images/cliquet/cliquet-logo.png
     :alt: Cliquet logo
     :align: center
 
@@ -86,7 +86,7 @@ depuis le fichier ``.ini`` de l'application. Ainsi tous les projets qui utilisen
 le toolkit se déploieront de la même manière : seuls quelques éléments de configuration
 les distingueront.
 
-.. image:: {filename}/images/cliquet-notes-whiteboard.jpg
+.. image:: {static}/images/cliquet/cliquet-notes-whiteboard.jpg
     :alt: Une réunion à Paris...
     :align: center
 
@@ -113,8 +113,7 @@ Les choix principaux du protocole concernent surtout :
 * **Les resources REST** : Les deux URLs d'une resource (pour la collection
   et les enregistrements) acceptent des verbes et des headers précis.
 * **Les formats** : le format et la structure JSON des réponses est imposé, ainsi
-  que la `pagination des listes <{filename}/2015.05.continuation-token.rst>`_
-  ou la syntaxe pour filtrer/trier les resources via la `querystring <https://en.wikipedia.org/wiki/Query_string>`_.
+  que la pagination des listes ou la syntaxe pour filtrer/trier les resources via la `querystring <https://en.wikipedia.org/wiki/Query_string>`_.
 * **Les timestamps** : un numéro de révision qui s'incrémente à chaque opération
   d'écriture sur une collection d'enregistrements.
 * **La synchronisation** : une série de leviers pour récupérer et renvoyer des
@@ -146,7 +145,7 @@ Dans un monde idéal, ce protocole serait versionné, et formalisé dans une RFC
 En rêve, il existerait même plusieurs implémentations avec des technologies différentes
 (Python, Go, Node, etc.). [#]_
 
-.. [#] Voir notre `article dédié sur les permissions <{filename}/2015.05.cliquet-permissions.rst>`_
+.. [#] Voir notre `article dédié sur les permissions <{filename}/Technologie/2015-05-01-cliquet-permissions.rst>`_
 .. [#] Rappel: nous sommes une toute petite équipe !
 
 
@@ -200,7 +199,7 @@ a des éléments supplémentaires:
   d'étranglement <https://fr.wiktionary.org/wiki/goulet_d%E2%80%99%C3%A9tranglement>`_.
 
 
-.. image:: {filename}/images/cliquet-concepts.png
+.. image:: {static}/images/cliquet/cliquet-concepts.png
     :alt: Cliquet concepts
     :align: center
 
@@ -392,8 +391,7 @@ Points faibles
 --------------
 
 Nous sommes très fiers de ce que nous avons construit, en relativement peu
-de temps. Et comme nous l'exposions dans `l'article précédent
-<{filename}/2015-07-whistler-use-cases.rst}>`_, il y a du potentiel !
+de temps. Et comme nous l'exposions dans l'article précédent (plus accessible), il y a du potentiel !
 
 Cependant, nous sommes conscients d'un certain nombre de points
 qui peuvent être vus comme des faiblesses.
@@ -456,7 +454,7 @@ pas un jour d'écrire un *Cliquet* en *aiohttp* ou *Go* si cela s'avèrerait per
 
     Pourquoi pas JSON-API ?
 
-Comme nous l'expliquions `au retour des APIdays <{filename}/2015.05.retour-apidays.rst>`_,
+Comme nous l'expliquions au retour des APIdays,
 JSON-API est une spécification qui rejoint plusieurs de nos intentions.
 
 Quand nous avons commencé le protocole, nous ne connaissions pas JSON-API.

@@ -12,7 +12,7 @@ sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouve
 nos collègues du monde entier à `Whistler, en Colombie Britannique au Canada
 <http://www.openstreetmap.org/node/268148288#map=4/50.12/-122.95>`_ !
 
-.. image:: {filename}/images/whistler-talks.jpg
+.. image:: {static}/images/whistler/whistler-talks.jpg
     :alt: «All Hands» talk about Lego, by @davidcrob - CC0
     :align: center
 
@@ -43,7 +43,7 @@ grosses lacunes en terme de documentation, surtout en ce qui concerne
 l'éco-système et la vision globale des projets (Kinto, Kinto.js, Cliquet, ...).
 Nous allons donc faire de notre mieux pour combler ce manque.
 
-.. image:: {filename}/images/whistler-workshop.jpg
+.. image:: {static}/images/whistler/whistler-workshop.jpg
     :alt: Kinto.js workshop - CC0
     :align: center
 
@@ -62,7 +62,7 @@ Maintenant que les développements ont été livrés, il faut transformer l'essa
 
 Nous aimerions en profiter pour implémenter une fonctionnalité qui nous tient à coeur : la construction de la liste des enregistrements accessibles en lecture sur une collection partagée.
 
-.. image:: {filename}/images/whistler-lake.jpg
+.. image:: {static}/images/whistler/whistler-lake.jpg
     :alt: Whistler Alta Lake - CC0
     :align: center
 
@@ -134,7 +134,7 @@ Nous sommes par ailleurs perpétuellement preneurs de vos retours — et bien
 entendu de vos contributions — tant sur le code `serveur <https://github.com/mozilla-services/kinto/>`_
 que `client <https://github.com/mozilla-services/kinto.js/>`_  !
 
-.. image:: {filename}/images/whistler-cloud-storage.jpg
+.. image:: {static}/images/whistler/whistler-cloud-storage.jpg
     :alt: Firefox OS Cloud Storage Presentation - CC0
     :align: center
 
@@ -159,7 +159,7 @@ ce genre de besoins internes, *Kinto* est tout aussi pertinent !
     La bonne nouvelle c'est que toutes les fonctionnalités *third-party* qui ont
     été intégrées récemment vont redevenir des *add-ons* \\o/.
 
-.. image:: {filename}/images/whistler-landscape.jpg
+.. image:: {static}/images/whistler/whistler-landscape.jpg
     :alt: Landscape - CC0
     :align: center
 
@@ -184,7 +184,7 @@ fonctionnalités d'indexation et de recherche *full-text* (comprendre *ElasticSe
 Cela rejoint nos plans précédents, puisque c'est quelque chose que nous avions dans
 *Daybed*, et qui figurait sur notre feuille de route !
 
-.. image:: {filename}/images/whistler-labs.jpg
+.. image:: {static}/images/whistler/whistler-labs.jpg
     :alt: Firefox Labs Meeting - CC0
     :align: center
 
@@ -219,7 +219,7 @@ changements, l'introduction des `*push notifications* <https://w3c.github.io/pus
 Il s'agirait alors de la dernière pierre qui manque à l'édifice pour obtenir
 un «*Mobile/Web backend as a service*» complet.
 
-.. image:: {filename}/images/whistler-roadmap.jpg
+.. image:: {static}/images/whistler/whistler-roadmap.jpg
     :alt: Roadmap - CC0
     :align: center
 
@@ -237,6 +237,6 @@ sur les prochaines étapes et embarquer quelques contributeurs à nos cotés pou
 construire une solution libre, générique, simple et auto-hébergeable pour le stockage
 de données sur le Web :)
 
-.. image:: {filename}/images/whistler-top-roof.jpg
+.. image:: {static}/images/whistler/whistler-top-roof.jpg
     :alt: Friday Night Party - CC0
     :align: center

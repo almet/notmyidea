@@ -34,7 +34,7 @@ possible d'héberger soit-même.
 
 .. _Pocket: http://getpocket.com
 
-.. image:: {filename}/images/readinglist-screenshot.png
+.. image:: {static}/images/readinglist-screenshot.png
     :alt: Capture d'écran de Firefox nightly avec readinglist.
 
 Pour le construire, nous aurions pu réutiliser `Firefox Sync`_, après tout
@@ -85,7 +85,7 @@ Comme première pierre à l'édifice, nous avons donné naissance au projet
 fournir une implémentation de ce protocole en python, tout en factorisant
 l'ensemble de nos bonnes pratiques (pour la prod notamment).
 
-.. image:: {filename}/images/cliquet-logo.png
+.. image:: {static}/images/cliquet/cliquet-logo.png
     :align: right
     :alt: Logo du projet Cliquet
 
