@@ -71,18 +71,18 @@ ailleurs, pour finalement déployer la chose chez
 un peu la bataille au départ pour installer virtualenv (j'ai du faire
 des changements dans mon PATH pour que ça puisse marcher), voici mon
 `.bash_profile`:</p>
-<div class="highlight"><pre><span></span><code><span class="err">export PYTHONPATH=~/modules/</span>
-<span class="err">export PATH=$HOME/modules/bin:$HOME/modules/:$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="n">PYTHONPATH</span><span class="o">=~/</span><span class="n">modules</span><span class="o">/</span>
+<span class="k">export</span> <span class="n">PATH</span><span class="o">=$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
 </code></pre></div>
 
 <p>Et après y'a plus qu'à installer avec `easy_install`:</p>
-<div class="highlight"><pre><span></span><code><span class="err">easy_install --install-dir ~/modules -U pip</span>
-<span class="err">easy_install --install-dir ~/modules -U virtualenv</span>
+<div class="highlight"><pre><span></span><code>easy_install --install-dir ~/modules -U pip
+easy_install --install-dir ~/modules -U virtualenv
 </code></pre></div>
 
 <p>Et à créer le virtualenv:</p>
-<div class="highlight"><pre><span></span><code><span class="err">virtualenv venv</span>
-<span class="err">venv/bin/pip install -r requirements.txt</span>
+<div class="highlight"><pre><span></span><code>virtualenv venv
+venv/bin/pip install -r requirements.txt
 </code></pre></div>
 
 <p>Dernière étape, la création d'un fichier application.wsgi qui s'occupe

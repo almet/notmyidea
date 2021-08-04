@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-05-08T00:00:00+02:00</updated><entry><title>Vaccination et risques</title><link href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="alternate"></link><published>2021-05-08T00:00:00+02:00</published><updated>2021-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-05-08:/vaccination-et-risques.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-08-04T00:00:00+02:00</updated><entry><title>Faire de la musique sous Linux</title><link href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="alternate"></link><published>2021-08-04T00:00:00+02:00</published><updated>2021-08-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-08-04:/faire-de-la-musique-sous-linux.html</id><summary type="html">
+&lt;p&gt;Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.&lt;/p&gt;
+&lt;p&gt;C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai &lt;a href="https://soundcloud.com/the-lost-triangle/"&gt;fait quelques morceaux&lt;/a&gt; et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils &lt;em&gt;mainstrem&lt;/em&gt;, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.&lt;/p&gt;
+&lt;p&gt;Et puis, &lt;a href="https://yohanboniface.me/"&gt;Yohan&lt;/a&gt; m'a parlé de &lt;a href="https://www.bitwig.com/"&gt;Bitwig&lt;/a&gt;, un logiciel de type « Digital Audio Workstation » (DAW) qui tourne nativement sous Linux, et après une petite scéance de test j'ai eu envie de creuser un peu le sujet de l'audio sous Linux.&lt;/p&gt;
+&lt;p&gt;L'occasion donc d'installer une station musicale sous Linux (j'utilise &lt;a href="https://archlinux.org/"&gt;Arch Linux&lt;/a&gt;). Ça marche plutôt bien, ce n'est pas trop long à mettre en place (une fois qu'on sait quoi faire), même si ça reste moins simple que sous Windows. Je suis très content du résultat !&lt;/p&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que &lt;a href="https://manjaro.org/"&gt;Manjaro&lt;/a&gt; (un dérivé d'Arch) en propose un.&lt;/p&gt;
+&lt;p&gt;Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.&lt;/p&gt;
+&lt;p&gt;J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo pacman -S realtime-privileges
+sudo gpasswd -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; realtime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Le DAW &lt;a href="https://www.bitwig.com/"&gt;Bitwig&lt;/a&gt; que j'utilise n'est pas open source, mais tourne nativement sous Linux. Son installation sous Arch est vraiment on ne peut plus simple : &lt;code&gt;yay bitwig-studio&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="vsts-instruments-virtuels"&gt;VSTs (Instruments virtuels)&lt;/h2&gt;
+&lt;p&gt;J'ai acheté quelques VST qui tournent nativement sous Linux mais également d'autres qui n'ont pas de version Linux native. C'est par exemple le cas de Kontakt.&lt;/p&gt;
+&lt;p&gt;Dans ce cas, il faut passer par le pont logiciel &lt;a href="https://github.com/robbert-vdh/yabridge"&gt;yabridge&lt;/a&gt; ainsi qu'une version récente de wine : &lt;a href="https://github.com/Frogging-Family/wine-tkg-git/releases/"&gt;wine-tkg&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour installer yabridge, &lt;code&gt;yay yabridge-bin&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Installation de wine-tkg :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.11.r4.g0dd44a25/wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+sudo pacman -U wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="installation-dun-vst-kontakt"&gt;Installation d'un VST (Kontakt)&lt;/h3&gt;
+&lt;p&gt;Ensuite, installez le VST dans wine :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wine Kontakt&lt;span class="se"&gt;\ &lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;.3.0&lt;span class="se"&gt;\ &lt;/span&gt;Setup&lt;span class="se"&gt;\ &lt;/span&gt;PC.exe
+&lt;span class="nb"&gt;cd&lt;/span&gt; patch
+wine Kontakt&lt;span class="se"&gt;\_&lt;/span&gt;patch&lt;span class="se"&gt;\_&lt;/span&gt;installer&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;3_0.exe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Spécifiez l'emplacement pour les VST64 : &lt;code&gt;C:\Program Files\Steinberg\VstPlugins&lt;/code&gt; (emplacement souvent utilisé pour les VST2), je ne sais pas pour quelle raison mais utiliser un emplacement classique peut résoudre des bugs.&lt;/p&gt;
+&lt;p&gt;Une fois installé, vous pouvez ajouter le fichier qui contient vos VSTs dans yabridge :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;yabridgectl add &lt;span class="s2"&gt;&amp;quot;/home/alexis/.wine/drive_c/Program Files/Steinberg/VstPlugins&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puis faire &lt;code&gt;yabridgectl sync&lt;/code&gt; qui va générer les .&lt;code&gt;so&lt;/code&gt; (format Linux) à partir des &lt;code&gt;.dll&lt;/code&gt; (format Windows).&lt;/p&gt;
+&lt;p&gt;Il ne reste plus qu'à ajouter le dossier qui contient les VST dans Bitwig et c'est bon !&lt;/p&gt;
+&lt;p&gt;J'utilise sans soucis ces instruments Kontakt :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una Corda (Piano)&lt;/li&gt;
+&lt;li&gt;Studio Drummer (Batterie)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="bitwig-studio-studio-drummer.png" src="/images/musique-linux.png"&gt;&lt;/p&gt;
+&lt;h2 id="carte-son"&gt;Carte son&lt;/h2&gt;
+&lt;p&gt;J'utilise une carte son Scarlett 18i8 gen3, qui fonctionne nativement pour sortir de l'audio et pour en capturer. Par contre certains controles ne sont pas exposés, et le logiciel de contrôle / configuration ne tourne pas sous wine.&lt;/p&gt;
+&lt;p&gt;Mais… (coup de bol ?) quelqu'un s'est motivé &lt;a href="https://github.com/geoffreybennett/scarlett-gen2"&gt;pour écrire le code noyau&lt;/a&gt; qui permet de faire ça nativement. Ça vient d'être mergé dans le noyau Linux, et devrait être disponible avec le kernel 5.14, qui devrait bientôt voir le jour (c'est la RC3 au moment ou j'écris ces lignes).&lt;/p&gt;
+&lt;h2 id="controleurs"&gt;Controleurs&lt;/h2&gt;
+&lt;p&gt;J'utilise un &lt;a href="https://novationmusic.com/en/keys/launchkey-mini"&gt;Novation Launchkey mini mk3&lt;/a&gt; avec les mappings proposés par &lt;a href="http://mossgrabers.de/Software/Bitwig/Bitwig.html"&gt;DrivenByMoss&lt;/a&gt; qui permettent de controller nativement Bitwig, c'est assez bluffant, ça marche tout seul !&lt;/p&gt;
+&lt;p&gt;Installation :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Télécharger l'archive qui contient le code depuis le site web&lt;/li&gt;
+&lt;li&gt;Extraire le fichier .bwextension dans &lt;code&gt;~/Bitwig Studio/Extensions&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il semble aussi que &lt;a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html"&gt;Push 2 pour Bitwig sous Linux&lt;/a&gt; soit une option interessante (mais bien plus couteuse) !&lt;/p&gt;
+&lt;h2 id="vst-natif-linux"&gt;VST natif Linux&lt;/h2&gt;
+&lt;p&gt;Il existe un tas de VST open source qui font très bien le taf. J'aime beaucoup toute la collection de VST sans interface graphique (et open source !) qui est proposée par airwindows, (installables avec &lt;code&gt;yay aur/airwindows-git&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;J'utilise quelques VST payants également. Ceux que j'utilise actuellement, et qui sont compatibles Linux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Les instruments de chez &lt;a href="https://tal-software.com/"&gt;TAL&lt;/a&gt;. J'utilise &lt;a href="https://tal-software.com/products/tal-mod"&gt;TAL-Mod&lt;/a&gt; pour faire des bonnes grosses basses&lt;/li&gt;
+&lt;li&gt;Ceux de chez &lt;a href="https://u-he.com/products/"&gt;U-he&lt;/a&gt;. J'utilise &lt;a href="https://u-he.com/products/bazille/"&gt;Bazille&lt;/a&gt;, un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Une grosse liste est présente sur &lt;a href="http://linux-sound.org/linux-vst-plugins.html"&gt;Linux Sound&lt;/a&gt; si vous voulez creuser :-)&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Vaccination et risques</title><link href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="alternate"></link><published>2021-05-08T00:00:00+02:00</published><updated>2021-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-05-08:/vaccination-et-risques.html</id><summary type="html">
 &lt;p&gt;Je m'intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés.&lt;/p&gt;
 &lt;p&gt;Cette réflexion n'est en aucun cas pro- ou anti- vaccin, mais cherche simplement à essayer de comprendre et faire un petit tour d'horizon des critiques …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Je m'intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés.&lt;/p&gt;
@@ -61,7 +123,7 @@
 &lt;td&gt;- Souvent assez peu immunogènes. Il faut donc ajouter des adjuvants (sels d'aluminium, formaldhéide…). &lt;br /&gt;- Il faut aussi multiplier les doses&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Virus vivant&lt;/td&gt;
+&lt;td&gt;Vaccin vivant&lt;/td&gt;
 &lt;td&gt;Souvent, une souche thermosensible du virus, qui fait qu'il n'est plus capable de se multiplier à la température de notre corps. Plus immunogènes que les virus inactivés&lt;/td&gt;
 &lt;td&gt;Plus grande prise de risque, notamment pour les personnes fragiles, immunodéprimées&lt;/td&gt;
 &lt;/tr&gt;
@@ -171,7 +233,7 @@
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Facebook, compétition, éthique et marketing.</title><link href="https://blog.notmyidea.org/facebook-competition-ethique-et-marketing.html" rel="alternate"></link><published>2021-01-26T00:00:00+01:00</published><updated>2021-01-26T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-26:/facebook-competition-ethique-et-marketing.html</id><summary type="html">
+&lt;/table&gt;</content><category term="Réfléxions"></category></entry><entry><title>Facebook, compétition, éthique et marketing.</title><link href="https://blog.notmyidea.org/facebook-competition-ethique-et-marketing.html" rel="alternate"></link><published>2021-01-26T00:00:00+01:00</published><updated>2021-01-26T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-26:/facebook-competition-ethique-et-marketing.html</id><summary type="html">
 &lt;p&gt;En créant la &lt;a href="https://www.vieuxsinge.com"&gt;brasserie du Vieux Singe&lt;/a&gt;, le fait de créer une &lt;em&gt;page facebook&lt;/em&gt; s'est posé comme une évidence. Il s'agit de l'outil &lt;em&gt;de facto&lt;/em&gt; pour communiquer avec son « audience ».&lt;/p&gt;
 &lt;p&gt;J'ai donc créé une page pour notre nouvelle entreprise, et au fur et à mesure je me suis mis à …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;En créant la &lt;a href="https://www.vieuxsinge.com"&gt;brasserie du Vieux Singe&lt;/a&gt;, le fait de créer une &lt;em&gt;page facebook&lt;/em&gt; s'est posé comme une évidence. Il s'agit de l'outil &lt;em&gt;de facto&lt;/em&gt; pour communiquer avec son « audience ».&lt;/p&gt;
@@ -195,7 +257,7 @@
 &lt;p&gt;Également, après un petit temps &lt;em&gt;dans la compétition&lt;/em&gt;, j'ai choisi d'en sortir en me désinscrivant de toutes les pages suivies sur Facebook. Si Facebook doit être un relai, très bien, mais j'ai d'autres sources d'informations — moins toxiques — de mon côté. Radical, mais efficace !&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Cela fait maintenant un an et demi que je suis ces quelques règles, et je pense que les effets délétères du média social se tassent ;-)&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Routine</title><link href="https://blog.notmyidea.org/routine.html" rel="alternate"></link><published>2021-01-25T00:00:00+01:00</published><updated>2021-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-25:/routine.html</id><summary type="html">
+&lt;p&gt;Cela fait maintenant un an et demi que je suis ces quelques règles, et je pense que les effets délétères du média social se tassent ;-)&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Routine</title><link href="https://blog.notmyidea.org/routine.html" rel="alternate"></link><published>2021-01-25T00:00:00+01:00</published><updated>2021-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-25:/routine.html</id><summary type="html">
 &lt;blockquote&gt;
 &lt;p&gt;Si vous pensez que l'aventure est dangereuse, je vous propose d'essayer la routine.... Elle est mortelle !&lt;/p&gt;
 &lt;p&gt;— Paulo Coelho&lt;/p&gt;
@@ -211,14 +273,14 @@
 &lt;p&gt;Pourtant, à y regarder de plus près il semble que je manquais une partie de l'histoire.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;Capacité, faculté acquise plutôt par une longue habitude, par une longue pratique, que par le secours de l’étude et des règles. &lt;/li&gt;
-&lt;li&gt;Usage depuis longtemps consacré de faire une chose toujours de la même manière. &lt;/li&gt;
+&lt;li&gt;Capacité, faculté acquise plutôt par une longue habitude, par une longue pratique, que par le secours de l’étude et des règles.&lt;/li&gt;
+&lt;li&gt;Usage depuis longtemps consacré de faire une chose toujours de la même manière.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;— Définition de « routine » sur le &lt;a href="https://fr.wiktionary.org/wiki/routine"&gt;Wikitionnaire&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Il me semble qu'il n'y a pas nécessairement de connotation négative derrière cette notion de routine. Je me demande si les routines ne seraient pas même un moyen pour « apprendre sans en avoir l'air » ?&lt;/p&gt;
 &lt;p&gt;Il me semble également que les routines permettent d'obtenir une quiétude. Se questionner (une fois), décider, puis faire de manière routinière, sans se poser à nouveau la même question sans cesse.&lt;/p&gt;
-&lt;p&gt;Ça vient me questionner à beaucoup d'endroits, de ma gestion quotidienne de mon temps à mon rapport à l'apprentissage. Ça me plait. &lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
+&lt;p&gt;Ça vient me questionner à beaucoup d'endroits, de ma gestion quotidienne de mon temps à mon rapport à l'apprentissage. Ça me plait.&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
 &lt;p&gt;Cela fait un an que &lt;a href="https://blog.notmyidea.org/break-technologique.html"&gt;j'ai décidé de me déconnecter&lt;/a&gt; pour laisser plus de place à d'autres projets.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Me détacher de la maintenance de ihatemoney ;
@@ -288,7 +350,7 @@ Mais… je me retrouve encore derrière un écran.&lt;/p&gt;
 &lt;p&gt;Mais dans le cas du forum ouvert, je n'ai pas l'impression que faire l'animation confère un pouvoir sur le groupe, autre que celui d'être garant⋅e des règles du fonctionnement collectif (rappel de l'heure par exemple, rappel du cadre de bienveillance). Si vous avez des retours sur ce sujet je suis preneur !&lt;/p&gt;
 &lt;p&gt;Voire, je me demande même quel rapports cela génère de — justement — rester extérieur et de ne pas participer, alors même qu'on est présent⋅e. Dit autrement, alors que tout le monde se rencontre à travers les discussions, se met en jeu, ce n'est pas le cas des animateur⋅ice⋅s, et je me demande si ça impacte l'ambiance générale ?&lt;/p&gt;
 &lt;p&gt;En tout cas, j'aime bien l'idée qu'il soit possible d'à la fois animer les temps de forums et de participer. Dans ce cas là, existe-il des stratagèmes / artifices pour permettre de visibiliser ces prises de pouvoir pendant les discussions ?&lt;/p&gt;
-&lt;p&gt;Je suis preneur de tout retour d'expérience sur le sujet !&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Artfevre 2020 - Défi artistique en février</title><link href="https://blog.notmyidea.org/artfevre-2020-defi-artistique-en-fevrier.html" rel="alternate"></link><published>2020-03-01T00:00:00+01:00</published><updated>2020-03-01T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-03-01:/artfevre-2020-defi-artistique-en-fevrier.html</id><summary type="html">&lt;p&gt;En Février, il y a 29 Jours, et avec un ami on s'est dit qu'on aimerait bien utiliser chacun d'entre eux pour créer — de manière intensive et sans jugement — hors de notre zone de confort, et avec des contraintes imposées.&lt;/p&gt;
+&lt;p&gt;Je suis preneur de tout retour d'expérience sur le sujet !&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Artfevre 2020 - Défi artistique en février</title><link href="https://blog.notmyidea.org/artfevre-2020-defi-artistique-en-fevrier.html" rel="alternate"></link><published>2020-03-01T00:00:00+01:00</published><updated>2020-03-01T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-03-01:/artfevre-2020-defi-artistique-en-fevrier.html</id><summary type="html">&lt;p&gt;En Février, il y a 29 Jours, et avec un ami on s'est dit qu'on aimerait bien utiliser chacun d'entre eux pour créer — de manière intensive et sans jugement — hors de notre zone de confort, et avec des contraintes imposées.&lt;/p&gt;
 &lt;p&gt;L'idée, c'est qu'à la fin du mois, chacun⋅e puisse …&lt;/p&gt;</summary><content type="html">&lt;p&gt;En Février, il y a 29 Jours, et avec un ami on s'est dit qu'on aimerait bien utiliser chacun d'entre eux pour créer — de manière intensive et sans jugement — hors de notre zone de confort, et avec des contraintes imposées.&lt;/p&gt;
 &lt;p&gt;L'idée, c'est qu'à la fin du mois, chacun⋅e puisse se retourner (c'est une image hein) et se dire : « Ouah, j’ai fait tout ça !? »&lt;/p&gt;
 &lt;p&gt;C’est donc une une liste de 29 thèmes (un par jour du mois) : chaque jour, on doit faire quelque chose d’artistique à partir du thème proposé.&lt;/p&gt;
@@ -389,7 +451,7 @@ Techniquement ?&lt;/p&gt;
 &lt;p&gt;Comme théorisé avec la &lt;a href="https://en.wikipedia.org/wiki/Matrix_of_domination"&gt;matrice des dominations&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:matrice-des-dominations" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Packager du python pour Debian</title><link href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-du-python-pour-debian.html</id><summary type="html">
+&lt;/div&gt;</content><category term="Réfléxions"></category></entry><entry><title>Packager du python pour Debian</title><link href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="alternate"></link><published>2020-01-14T00:00:00+01:00</published><updated>2020-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2020-01-14:/packager-du-python-pour-debian.html</id><summary type="html">
 &lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
 &lt;p&gt;Voici quelques notes prises durant l'après-midi …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.&lt;/p&gt;
@@ -1797,10 +1859,10 @@ dont je vous recommande la lecture pour un complément d'information.&lt;/p&gt;
 sont &lt;a href="https://github.com/letsencrypt/letsencrypt#installation"&gt;très bien expliqués sur leur
 documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Une fois installé, vous allez taper une commande qui va ressembler à:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;letsencrypt-auto certonly --renew-by-default&lt;/span&gt;
-&lt;span class="err"&gt;--webroot -w /home/www/letsencrypt-requests/ \&lt;/span&gt;
-&lt;span class="err"&gt;-d hurl.kinto-storage.org \&lt;/span&gt;
-&lt;span class="err"&gt;-d forums.kinto-storage.org&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;letsencrypt-auto certonly --renew-by-default
+--webroot -w /home/www/letsencrypt-requests/ \
+-d hurl.kinto-storage.org \
+-d forums.kinto-storage.org
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Le &lt;em&gt;webroot&lt;/em&gt; est l'endroit ou les preuves de détention du domaine vont
@@ -1817,27 +1879,27 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 &lt;p&gt;Voici la section de la configuration de HAProxy (et &lt;a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72"&gt;la configuration
 complete&lt;/a&gt;
 si ça peut être utile):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;frontend&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;
-    &lt;span class="n"&gt;bind&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;
-    &lt;span class="k"&gt;mode&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;
-    &lt;span class="n"&gt;default_backend&lt;/span&gt; &lt;span class="n"&gt;nginx_server&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;frontend&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;
+    &lt;span class="nv"&gt;bind&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;
+    &lt;span class="nv"&gt;mode&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;
+    &lt;span class="nv"&gt;default_backend&lt;/span&gt; &lt;span class="nv"&gt;nginx_server&lt;/span&gt;
 
-    &lt;span class="n"&gt;acl&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_check&lt;/span&gt; &lt;span class="n"&gt;path_beg&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;challenge&lt;/span&gt;
-    &lt;span class="n"&gt;use_backend&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_backend&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_check&lt;/span&gt;
+    &lt;span class="nv"&gt;acl&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt; &lt;span class="nv"&gt;path_beg&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;.&lt;span class="nv"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;challenge&lt;/span&gt;
+    &lt;span class="nv"&gt;use_backend&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-    &lt;span class="n"&gt;redirect&lt;/span&gt; &lt;span class="n"&gt;scheme&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="n"&gt;ssl_fc&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;letsencrypt_check&lt;/span&gt;
+    &lt;span class="nv"&gt;redirect&lt;/span&gt; &lt;span class="nv"&gt;scheme&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;{ &lt;span class="nv"&gt;ssl_fc&lt;/span&gt; } &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-&lt;span class="n"&gt;backend&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_backend&lt;/span&gt;
-    &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="k"&gt;Host&lt;/span&gt; &lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;
-    &lt;span class="k"&gt;dispatch&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;
+&lt;span class="nv"&gt;backend&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;
+    &lt;span class="nv"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;header&lt;/span&gt; &lt;span class="nv"&gt;Host&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt&lt;/span&gt;.&lt;span class="nv"&gt;requests&lt;/span&gt;
+    &lt;span class="nv"&gt;dispatch&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;8000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et celle de NGINX:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;server {&lt;/span&gt;
-&lt;span class="err"&gt;    listen 8000;&lt;/span&gt;
-&lt;span class="err"&gt;    server_name letsencrypt.requests;&lt;/span&gt;
-&lt;span class="err"&gt;    root /home/www/letsencrypt-requests;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;server {
+    listen 8000;
+    server_name letsencrypt.requests;
+    root /home/www/letsencrypt-requests;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="installation-des-certificats-dans-haproxy"&gt;Installation des certificats dans HAProxy&lt;/h2&gt;
@@ -1846,12 +1908,12 @@ mais ils ne sont pas au format attendu par haproxy. Rien de grave, la
 commande suivant convertit l'ensemble des certificats en une version
 compatible avec
     HAProxy:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &amp;gt; /etc/ssl/letsencrypt/domaine.org.pem&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &amp;gt; /etc/ssl/letsencrypt/domaine.org.pem
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et ensuite dans la configuration de haproxy, pour le (nouveau)
 &lt;em&gt;frontend&lt;/em&gt; https:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Faites bien attention à avoir un &lt;em&gt;frontend&lt;/em&gt; https pour tous vos sites en
@@ -3050,7 +3112,7 @@ avec &lt;em&gt;Colander&lt;/em&gt;, et ensuite déclarer une resource:&lt;/p&gt;
 &lt;p&gt;Désormais, la resource CRUD est disponible sur &lt;tt class="docutils literal"&gt;/v1/bookmarks&lt;/tt&gt;, avec toutes
 les fonctionnalités de synchronisation, filtrage, tri, pagination, timestamp, etc.
 De base les enregistrements sont privés, par utilisateur.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="err"&gt;http&lt;/span&gt; &lt;span class="err"&gt;GET&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:8000/v1/bookmarks&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="err"&gt;h&lt;/span&gt;&lt;span class="kc"&gt;tt&lt;/span&gt;&lt;span class="err"&gt;p&lt;/span&gt; &lt;span class="err"&gt;GET&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:8000/v1/bookmarks&amp;quot;&lt;/span&gt;
 &lt;span class="err"&gt;HTTP/&lt;/span&gt;&lt;span class="mf"&gt;1.1&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt; &lt;span class="err"&gt;OK&lt;/span&gt;
 &lt;span class="err"&gt;...&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
@@ -3277,7 +3339,7 @@ la non-mixité voulue, la non-mixité politique, doit demeurer la pratique
 de base de toute lutte ; et c’est seulement ainsi que les moments mixtes
 de la lutte – car il y en a et il faut qu’il y en ait – ne seront pas
 susceptibles de déraper vers une reconduction douce de la domination.»&lt;/p&gt;
-&lt;p&gt;-- http://lmsi.net/La-non-mixite-une-necessite&lt;/p&gt;</content><category term="FÃ©minisme"></category></entry><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
+&lt;p&gt;-- http://lmsi.net/La-non-mixite-une-necessite&lt;/p&gt;</content><category term="Féminisme"></category></entry><entry><title>Service de nuages : Perspectives pour l'été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains mois.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Mozilla a pour coutume d'organiser régulièrement des semaines de travail où tous les employés
 sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouver
@@ -3583,7 +3645,7 @@ tour dragon, araignée et grace, parfois corbeau, rarement serpent)&lt;/p&gt;
 &lt;p&gt;Aussi, il semble que le groupe doive souhaiter l'établissement d'un
 environnement &lt;em&gt;horizontal&lt;/em&gt;, avec une considération partagée de la
 direction que le groupe souhaite prendre pour qu'un tel dispositif ait
-du sens.&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
+du sens.&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
 et Kinto 1.0 !&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Aujourd'hui, c'est jour de fête : nous venons de publier Cliquet &lt;strong&gt;2.0&lt;/strong&gt;
@@ -5026,16 +5088,16 @@ terme, et que &lt;em&gt;Remote Storage&lt;/em&gt; devienne une facette de notre 
 &lt;p&gt;&lt;a href="http://pouchdb.com/"&gt;PouchDB&lt;/a&gt; est une bibliothèque JavaScript qui
 permet de manipuler des enregistrements en local et de les synchroniser
 vers une base distante.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nf"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PouchDB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;PouchDB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dave@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;David&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+ &lt;span class="n"&gt;_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dave@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;David&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;68&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;replicate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/mydb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replicate&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/mydb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Le projet a le vent en poupe, bénéficie de nombreux contributeurs,
@@ -5370,7 +5432,7 @@ monde à l'envers !&lt;/p&gt;
 &lt;p&gt;Tu me demandais l'autre jour le secret du bonheur. Peu importe ce que
 tu fais, il y aura toujours quelqu'un pour y trouver à redire. Fais ce
 qui te plaît et là tu seras vraiment heureux.&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>What's Hawk and how to use it?</title><link href="https://blog.notmyidea.org/whats-hawk-and-how-to-use-it.html" rel="alternate"></link><published>2014-07-31T00:00:00+02:00</published><updated>2014-07-31T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-31:/whats-hawk-and-how-to-use-it.html</id><summary type="html">
+&lt;/blockquote&gt;</content><category term="Réfléxions"></category></entry><entry><title>What's Hawk and how to use it?</title><link href="https://blog.notmyidea.org/whats-hawk-and-how-to-use-it.html" rel="alternate"></link><published>2014-07-31T00:00:00+02:00</published><updated>2014-07-31T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-31:/whats-hawk-and-how-to-use-it.html</id><summary type="html">
 &lt;p&gt;At Mozilla, we recently had to implement &lt;a href="https://github.com/hueniverse/hawk"&gt;the Hawk authentication
 scheme&lt;/a&gt; for a number of projects,
 and we came up creating two libraries to ease integration into pyramid
@@ -5425,7 +5487,7 @@ you will use to sign your next requests.&lt;/p&gt;
 &lt;p&gt;First, do an &lt;a href="http://en.wikipedia.org/wiki/HKDF"&gt;HKDF derivation&lt;/a&gt; on the
 given session token. You'll need to use the following
     parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;key_material = HKDF(hawk_session, &amp;quot;&amp;quot;, &amp;#39;identity.mozilla.com/picl/v1/sessionToken&amp;#39;, 32*2)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;key_material = HKDF(hawk_session, &amp;quot;&amp;quot;, &amp;#39;identity.mozilla.com/picl/v1/sessionToken&amp;#39;, 32*2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class="note"&gt;
@@ -5445,12 +5507,12 @@ way of deriving the credentials, not an actual URL.
 into two parts, the first 32 hex caracters are the hawk id, and the next
 32 ones are the hawk key.&lt;/p&gt;
 &lt;p&gt;Credentials:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;javascript&lt;/span&gt;
-&lt;span class="err"&gt;credentials = {&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;id&amp;#39;: keyMaterial[0:32],&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;key&amp;#39;: keyMaterial[32:64],&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;algorithm&amp;#39;: &amp;#39;sha256&amp;#39;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;javascript
+credentials = {
+    &amp;#39;id&amp;#39;: keyMaterial[0:32],
+    &amp;#39;key&amp;#39;: keyMaterial[32:64],
+    &amp;#39;algorithm&amp;#39;: &amp;#39;sha256&amp;#39;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="httpie"&gt;Httpie&lt;/h2&gt;
@@ -5513,33 +5575,33 @@ finally came up factorizing everything in a library for express, named
 &lt;a href="https://github.com/mozilla-services/express-hawkauth"&gt;express-hawkauth&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In order to plug it in your application, you'll need to use it as a
 middleware:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;javascript&lt;/span&gt;
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;require&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;hawk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;require&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express-hawkauth&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;span class="nt"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;express&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hawk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express-hawkauth&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;express&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;hawkMiddleware&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;hawk&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;getMiddleware&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;hawkOptions&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;getSession&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;tokenId&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;which&lt;/span&gt; &lt;span class="err"&gt;pass&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;cb&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;key&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;algorithm&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;given&lt;/span&gt; &lt;span class="err"&gt;token&lt;/span&gt; &lt;span class="err"&gt;id.&lt;/span&gt; &lt;span class="err"&gt;First&lt;/span&gt; &lt;span class="err"&gt;argument&lt;/span&gt; &lt;span class="err"&gt;of&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;callback&lt;/span&gt; &lt;span class="err"&gt;is&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;potential&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;error.&lt;/span&gt;
-    &lt;span class="err"&gt;cb(null,&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;sha256&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;createSession&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;which&lt;/span&gt; &lt;span class="err"&gt;stores&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;session&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;given&lt;/span&gt; &lt;span class="err"&gt;id&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;key.&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;Argument&lt;/span&gt; &lt;span class="err"&gt;returned&lt;/span&gt; &lt;span class="err"&gt;is&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;potential&lt;/span&gt; &lt;span class="err"&gt;error.&lt;/span&gt;
-    &lt;span class="err"&gt;cb(null)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;setUser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;req&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;res&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;tokenId&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;that&lt;/span&gt; &lt;span class="err"&gt;uses&lt;/span&gt; &lt;span class="err"&gt;req&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;res,&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;hawkId&lt;/span&gt; &lt;span class="err"&gt;when&lt;/span&gt; &lt;span class="err"&gt;they&amp;#39;re&lt;/span&gt; &lt;span class="err"&gt;known&lt;/span&gt; &lt;span class="err"&gt;so&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;that&lt;/span&gt; &lt;span class="err"&gt;it&lt;/span&gt; &lt;span class="err"&gt;can&lt;/span&gt; &lt;span class="err"&gt;tweak&lt;/span&gt; &lt;span class="err"&gt;it.&lt;/span&gt; &lt;span class="err"&gt;For&lt;/span&gt; &lt;span class="err"&gt;instance,&lt;/span&gt; &lt;span class="err"&gt;you&lt;/span&gt; &lt;span class="err"&gt;can&lt;/span&gt; &lt;span class="err"&gt;store&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;tokenId&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;user.&lt;/span&gt;
-    &lt;span class="err"&gt;req.user&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hawkMiddleware&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hawk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getMiddleware&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;hawkOptions&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+  &lt;span class="n"&gt;getSession&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt; &lt;span class="n"&gt;token&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;argument&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;sha256&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+  &lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="n"&gt;createSession&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;stores&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Argument&lt;/span&gt; &lt;span class="n"&gt;returned&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;null&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="n"&gt;setUser&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;uses&lt;/span&gt; &lt;span class="n"&gt;req&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;hawkId&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;they&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;re known so&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;tweak&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/hawk-enabled-endpoint&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;hawkMiddleware&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/hawk-enabled-endpoint&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hawkMiddleware&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you pass the createSession parameter, all non-authenticated requests
@@ -5664,7 +5726,7 @@ services de google…&lt;/p&gt;
 billet que j'ai écris juste alors que je terminais mes études, &lt;a href="%7Bfilename%7D2011.05.travailler-moins-mieux.rst"&gt;sur le
 sens du travail et de
 l'informatique&lt;/a&gt;, ça
-fait du bien :)&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Retours sur deux ans à Mozilla</title><link href="https://blog.notmyidea.org/retours-sur-deux-ans-a-mozilla.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/retours-sur-deux-ans-a-mozilla.html</id><summary type="html">
+fait du bien :)&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Retours sur deux ans à Mozilla</title><link href="https://blog.notmyidea.org/retours-sur-deux-ans-a-mozilla.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/retours-sur-deux-ans-a-mozilla.html</id><summary type="html">
 &lt;p&gt;&lt;em&gt;Ça fait un bail que j'ai cet article en cours de rédaction, et je me dis que je dois le poster maintenant, sinon je ne le ferais jamais (saloperie de perfectionnisme ?)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Il y à deux ans et demi, en décembre, je commençais à travailler chez
 Mozilla, dans l'équipe "Cloud Services …&lt;/p&gt;</summary><content type="html">
@@ -5911,7 +5973,7 @@ un projet qui me tiens vraiment à cœur: daybed
 projet avance et soit utilisé au sein de mozilla.&lt;/p&gt;
 &lt;p&gt;Avant toute autre chose, il faudra faire des changements de "pitch" pour
 qu'il soit plus simple d'expliquer ce que Daybed souhaite faire, mais…
-c'est une autre histoire.&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Des carnets d'esquisse</title><link href="https://blog.notmyidea.org/des-carnets-desquisse.html" rel="alternate"></link><published>2013-08-16T00:00:00+02:00</published><updated>2013-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-08-16:/des-carnets-desquisse.html</id><summary type="html">
+c'est une autre histoire.&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Des carnets d'esquisse</title><link href="https://blog.notmyidea.org/des-carnets-desquisse.html" rel="alternate"></link><published>2013-08-16T00:00:00+02:00</published><updated>2013-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-08-16:/des-carnets-desquisse.html</id><summary type="html">
 &lt;p&gt;Je me rends compte que je n'écris pas si souvent que ça ici,
 principalement parce que je me sens obligé d'y écrire en Anglais, mais
 aussi parce que je le considère comme un espace ou les choses doivent
@@ -5946,7 +6008,7 @@ divergent.&lt;/p&gt;
 soi même ses commentaires. J'ai dans l'idée d'héberger une instance de
 ce service sur discus.notmyidea.org, ou d'utiliser Daybed pour faire la
 même chose, mais faut il encore que je le fasse, alors en attendant,
-j'ai réactivé disqus ici! (Le mieux est l'ennemi du bien, paraît il !)&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>François Elie : Quelle école pour la société de l’information ?</title><link href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="alternate"></link><published>2013-06-14T00:00:00+02:00</published><updated>2013-06-14T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-06-14:/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html</id><summary type="html">
+j'ai réactivé disqus ici! (Le mieux est l'ennemi du bien, paraît il !)&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>François Elie : Quelle école pour la société de l’information ?</title><link href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="alternate"></link><published>2013-06-14T00:00:00+02:00</published><updated>2013-06-14T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-06-14:/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html</id><summary type="html">
 &lt;p&gt;&lt;a href="http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference"&gt;http://www.framablog.org/index.php/post/2013/06/11/francois-elie-education-conference&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Quelques bouts selectionnés.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -6225,7 +6287,7 @@ partager le prix d'un trajet avec quelqu'un, c'est bien d'avoir quelque chose qu
 &lt;p&gt;Quelle place laisser à l'inconnu, à la surprise ?&lt;/p&gt;
 &lt;p&gt;Cette volonté de "confiance partout" semble découler tout droit des délires sécuritaires que l'on nous sert à toutes les sauces. Et
 maintenant cela serait rendu accessible à tous grâce à "l'intelligence collective"; gommant au passage les différences de valeur; Préférant éviter de rencontrer les inconnus aux profils "légers".&lt;/p&gt;
-&lt;p&gt;Je sais pas vous, mais elle me fait peur cette idée.&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Implementing CORS in Cornice</title><link href="https://blog.notmyidea.org/implementing-cors-in-cornice.html" rel="alternate"></link><published>2013-02-04T00:00:00+01:00</published><updated>2013-02-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-02-04:/implementing-cors-in-cornice.html</id><summary type="html">
+&lt;p&gt;Je sais pas vous, mais elle me fait peur cette idée.&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Implementing CORS in Cornice</title><link href="https://blog.notmyidea.org/implementing-cors-in-cornice.html" rel="alternate"></link><published>2013-02-04T00:00:00+01:00</published><updated>2013-02-04T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-02-04:/implementing-cors-in-cornice.html</id><summary type="html">
 &lt;div class="note"&gt;
 
 &lt;div class="admonition-title"&gt;
@@ -6311,12 +6373,12 @@ OPTIONS call.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;So, if you want to access the /icecream resource, and do a PUT there,
 you'll have the following flow:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; OPTIONS /icecream&lt;/span&gt;
-&lt;span class="err"&gt;&amp;gt; Access-Control-Request-Methods = PUT&lt;/span&gt;
-&lt;span class="err"&gt;&amp;gt; Origin: notmyidea.org&lt;/span&gt;
-&lt;span class="err"&gt;&amp;lt; Access-Control-Allow-Origin = notmyidea.org&lt;/span&gt;
-&lt;span class="err"&gt;&amp;lt; Access-Control-Allow-Methods = PUT,GET,DELETE&lt;/span&gt;
-&lt;span class="err"&gt;200 OK&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt; OPTIONS /icecream
+&amp;gt; Access-Control-Request-Methods = PUT
+&amp;gt; Origin: notmyidea.org
+&amp;lt; Access-Control-Allow-Origin = notmyidea.org
+&amp;lt; Access-Control-Allow-Methods = PUT,GET,DELETE
+200 OK
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can see that we have an Origin Header in the request, as well as a
@@ -6596,18 +6658,18 @@ ailleurs, pour finalement déployer la chose chez
 un peu la bataille au départ pour installer virtualenv (j'ai du faire
 des changements dans mon PATH pour que ça puisse marcher), voici mon
 `.bash_profile`:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;export PYTHONPATH=~/modules/&lt;/span&gt;
-&lt;span class="err"&gt;export PATH=$HOME/modules/bin:$HOME/modules/:$PATH&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PYTHONPATH&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=$&lt;/span&gt;&lt;span class="n"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et après y'a plus qu'à installer avec `easy_install`:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;easy_install --install-dir ~/modules -U pip&lt;/span&gt;
-&lt;span class="err"&gt;easy_install --install-dir ~/modules -U virtualenv&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;easy_install --install-dir ~/modules -U pip
+easy_install --install-dir ~/modules -U virtualenv
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et à créer le virtualenv:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;virtualenv venv&lt;/span&gt;
-&lt;span class="err"&gt;venv/bin/pip install -r requirements.txt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;virtualenv venv
+venv/bin/pip install -r requirements.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Dernière étape, la création d'un fichier application.wsgi qui s'occupe
@@ -6687,9 +6749,9 @@ prenne.&lt;/p&gt;</content><category term="Notes"></category></entry><entry><tit
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
 séparés par des "+" :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host *+*&lt;/span&gt;
-&lt;span class="err"&gt;        ProxyCommand ssh $(echo %h | sed&lt;/span&gt;
-&lt;span class="err"&gt;&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+        ProxyCommand ssh $(echo %h | sed
+&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;h2 id="tunelling"&gt;Tunelling&lt;/h2&gt;
 &lt;p&gt;Parce que je m'en rapelle jamais (tête de linote):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ssh -f hote -L local:lolnet.org:destination -N
@@ -6699,10 +6761,10 @@ séparés par des "+" :&lt;/p&gt;
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
 séparés par des "+" :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host *+*&lt;/span&gt;
-&lt;span class="err"&gt;        ProxyCommand ssh $(echo %h | sed&lt;/span&gt;
-&lt;span class="err"&gt;&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)&lt;/span&gt;
-&lt;span class="err"&gt;PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+        ProxyCommand ssh $(echo %h | sed
+&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)
+PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;On peut donc spécifier des "sauts" ssh du style:&lt;/p&gt;
@@ -6710,10 +6772,10 @@ séparés par des "+" :&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ensuite on peut essayer de rajouter:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host &amp;lt;label_pour_mon_serveur_privé&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    user &amp;lt;monuser(root)&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    hostname ip_serveur_publique+ip_serveur_privé&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &amp;lt;label_pour_mon_serveur_privé&amp;gt;
+    user &amp;lt;monuser(root)&amp;gt;
+    IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;
+    hostname ip_serveur_publique+ip_serveur_privé
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
 &lt;p&gt;Après avoir tenté pendant un bout de temps unity, le bureau par defaut
 de ubuntu, j'ai eu envie de changements, et j'ai donc essayé un peu de
@@ -8175,7 +8237,7 @@ moins dans les premières années, mais au moins des éditeurs qui ne font
 pas le choix du grand verrou numérique.&lt;/p&gt;
 &lt;p&gt;On demande pas grand chose, pourtant… Peut être même que de telles
 initiatives existent déjà ?&lt;/p&gt;
-&lt;p&gt;Et vous, vous les achetez ou vos livres ?&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Mozilla, first months</title><link href="https://blog.notmyidea.org/mozilla-first-months.html" rel="alternate"></link><published>2012-01-21T00:00:00+01:00</published><updated>2012-01-21T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-01-21:/mozilla-first-months.html</id><summary type="html">
+&lt;p&gt;Et vous, vous les achetez ou vos livres ?&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Mozilla, first months</title><link href="https://blog.notmyidea.org/mozilla-first-months.html" rel="alternate"></link><published>2012-01-21T00:00:00+01:00</published><updated>2012-01-21T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-01-21:/mozilla-first-months.html</id><summary type="html">
 &lt;p&gt;A lot of changes in these last months. First of all, I've started to work for &lt;a href="http://mozilla.org"&gt;Mozilla&lt;/a&gt;, on the Services team, where I am
 working on web services and scalability. Basically, what we are trying
 to do at services is to provide a way for developers to make web
@@ -8312,8 +8374,8 @@ passed and use it in the body of the webservice:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The output would look like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl http://127.0.0.1:5000/service?awesome=yeah&lt;/span&gt;
-&lt;span class="err"&gt;{&amp;quot;test&amp;quot;: &amp;quot;awesome yeah&amp;quot;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl http://127.0.0.1:5000/service?awesome=yeah
+{&amp;quot;test&amp;quot;: &amp;quot;awesome yeah&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="dealing-with-accept-headers"&gt;Dealing with "Accept" headers&lt;/h2&gt;
@@ -8350,10 +8412,10 @@ list of accepted Content-Type values:&lt;/p&gt;
 &lt;p&gt;writing documentation for web services can be painful, especially when
 your services evolve. Cornice provides a sphinx directive to
 automatically document your API in your docs.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rst&lt;/span&gt;
-&lt;span class="err"&gt;.. services::&lt;/span&gt;
-&lt;span class="err"&gt;   :package: coolapp&lt;/span&gt;
-&lt;span class="err"&gt;   :service: quote&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rst
+.. services::
+   :package: coolapp
+   :service: quote
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is an example of what a generated page looks like:
@@ -8483,7 +8545,7 @@ libres et ouverts!) et construisons des ponts entre les initiatives qui
 nous parlent (fermes autogérées, initiatives d'éducation populaire) et
 l'informatique.&lt;/p&gt;
 &lt;p&gt;Faisons en sorte de rendre l'informatique accessible et utile dans les
-milieux ou elle peut apporter quelque chose !&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>How are you handling your shared expenses?</title><link href="https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html" rel="alternate"></link><published>2011-10-15T00:00:00+02:00</published><updated>2011-10-15T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-10-15:/how-are-you-handling-your-shared-expenses.html</id><summary type="html">
+milieux ou elle peut apporter quelque chose !&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>How are you handling your shared expenses?</title><link href="https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html" rel="alternate"></link><published>2011-10-15T00:00:00+02:00</published><updated>2011-10-15T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-10-15:/how-are-you-handling-your-shared-expenses.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; We're kick-starting a new application to manage your shared
 expenses. Have a look at &lt;a href="http://ihatemoney.notmyidea.org"&gt;http://ihatemoney.notmyidea.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;As a student, I lived in a lot of different locations, and the majority
@@ -8812,7 +8874,7 @@ si gagner en productivité peut passer par travailler moins, pourquoi pas
 s'y essayer !&lt;/p&gt;
 &lt;p&gt;Peut être que vous pratiquez déjà le travail au 3/4 temps, que vous avez
 des retours d'expérience à faire : fausse bonne idée ? Vraie bonne idée
-?&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="https://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><published>2011-04-01T00:00:00+02:00</published><updated>2011-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html</id><summary type="html">
+?&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Analyse users' browsing context to build up a web recommender</title><link href="https://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="alternate"></link><published>2011-04-01T00:00:00+02:00</published><updated>2011-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-04-01:/analyse-users-browsing-context-to-build-up-a-web-recommender.html</id><summary type="html">
 &lt;p&gt;No, this is not an april's fool ;)&lt;/p&gt;
 &lt;p&gt;Wow, it's been a long time. My year in Oxford is going really well. I
 realized few days ago that the end of the year is approaching really
@@ -9022,9 +9084,9 @@ etc. from my machine to the server.&lt;/p&gt;
 a network. So let's do it !&lt;/p&gt;
 &lt;h2 id="creating-the-jail"&gt;Creating the jail&lt;/h2&gt;
 &lt;p&gt;In case you don't use FreeBSD, you can skip this section.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# I have a flavour jail named default&lt;/span&gt;
-&lt;span class="err"&gt;$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6&lt;/span&gt;
-&lt;span class="err"&gt;$ ezjail-admin start workspace.notmyidea.org&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# I have a flavour jail named default
+$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6
+$ ezjail-admin start workspace.notmyidea.org
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In my case, because the "default" flavour contains already a lot of
@@ -9071,11 +9133,11 @@ unison .vimrc ssh://notmyidea.org:20006/.vimrc
 then to only run unison. (fire up vim \~/.unison/default.prf.&lt;/p&gt;
 &lt;p&gt;Here is my config:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="na"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/home/alexis&lt;/span&gt;
-&lt;span class="s"&gt;    root = ssh://notmyidea.org:20006&lt;/span&gt;
+    &lt;span class="na"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ssh://notmyidea.org:20006&lt;/span&gt;
 
     &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;.vimrc&lt;/span&gt;
-&lt;span class="s"&gt;    path = dotfiles&lt;/span&gt;
-&lt;span class="s"&gt;    path = dev&lt;/span&gt;
+    &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;dotfiles&lt;/span&gt;
+    &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;dev&lt;/span&gt;
 
     &lt;span class="na"&gt;follow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Name *&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -9132,7 +9194,7 @@ some feedback from the sync:&lt;/p&gt;
 &lt;p&gt;This is probably perfectible, but that does the job.&lt;/p&gt;
 &lt;p&gt;Last step is to tell you machine to run that frequently. That's what
 crontab is made for, so let's &lt;code&gt;crontab -e&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The \~/.Xdbus allows cron to communicate with your X11 session. Here is
@@ -9436,7 +9498,7 @@ community is, and how easily they can becomes part of it.&lt;/p&gt;
 &lt;p&gt;If you're not using them right now, maybe you should do so: have a look
 on how the programs you're using are made, consider publishing your
 experimentations, and share them with others, you will see, it's kind of
-addictive !&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>How to reboot your bebox using the CLI</title><link href="https://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><published>2010-10-21T00:00:00+02:00</published><updated>2010-10-21T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html</id><summary type="html">
+addictive !&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>How to reboot your bebox using the CLI</title><link href="https://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="alternate"></link><published>2010-10-21T00:00:00+02:00</published><updated>2010-10-21T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-21:/how-to-reboot-your-bebox-using-the-cli.html</id><summary type="html">
 &lt;p&gt;I've an internet connection which, for some obscure reasons, tend to be
 very slow from time to time. After rebooting the box (yes, that's a hard
 solution), all the things seems to go fine again.&lt;/p&gt;
@@ -9504,46 +9566,46 @@ do so.&lt;/p&gt;
 &lt;p&gt;Some time ago, I've made a little python script to ease that, and you
 can now use it too. It's named "gnome-background-generator", and you can
 install it via pip for instance.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$ pip install gnome-background-generator&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;shell
+$ pip install gnome-background-generator
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, you have just to use it this way:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$ gnome-background-generator -p ~/Images/walls -s&lt;/span&gt;
-&lt;span class="err"&gt;/home/alexis/Images/walls/dynamic-wallpaper.xml generated&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;shell
+$ gnome-background-generator -p ~/Images/walls -s
+/home/alexis/Images/walls/dynamic-wallpaper.xml generated
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is a extract of the `--help`:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="c1"&gt;--help&lt;/span&gt;
-&lt;span class="k"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="k"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;
+&lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
                                   &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
                                   &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="k"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;tool&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;XML&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;
-&lt;span class="n"&gt;wallpapers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="k"&gt;dynamic&lt;/span&gt; &lt;span class="n"&gt;walls&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="k"&gt;tool&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;XML&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;
+&lt;span class="n"&gt;wallpapers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;dynamic&lt;/span&gt; &lt;span class="n"&gt;walls&lt;/span&gt;
 
 &lt;span class="n"&gt;optional&lt;/span&gt; &lt;span class="n"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--help            show this help message and exit&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--path PATH  Path to look for the pictures. If no output is&lt;/span&gt;
-                        &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;too&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;outputing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
-                        &lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;Default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;current&lt;/span&gt;
-                        &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="p"&gt;(.)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="k"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--output OUTPUT&lt;/span&gt;
-                        &lt;span class="k"&gt;Output&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="k"&gt;no&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-                        &lt;span class="k"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="k"&gt;generated&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
-                        &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt;
-                        &lt;span class="n"&gt;display&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--transition-time TRANSITION_TIME&lt;/span&gt;
-                        &lt;span class="k"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;transitions&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="k"&gt;last&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;            &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;exit&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;  &lt;span class="n"&gt;Path&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;look&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;
+                        &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;too&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;outputing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+                        &lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt;
+                        &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;
+                        &lt;span class="n"&gt;Output&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+                        &lt;span class="n"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;generated&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+                        &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;
+                        &lt;span class="n"&gt;display&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;transition&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;
+                        &lt;span class="n"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;transitions&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
                         &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--display-time DISPLAY_TIME&lt;/span&gt;
-                        &lt;span class="k"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;displayed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;Default&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;
+                        &lt;span class="n"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;displayed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Default&lt;/span&gt;
                         &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="n"&gt;mn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--set-background  &amp;#39;&amp;#39;&amp;#39;try to set the background using gnome-appearance-&lt;/span&gt;
-                        &lt;span class="n"&gt;properties&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--debug&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;  &lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;try to set the background using gnome-appearance-&lt;/span&gt;
+&lt;span class="s1"&gt;                        properties&lt;/span&gt;
+&lt;span class="s1"&gt;  -b, --debug&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
@@ -9558,10 +9620,10 @@ install it via pip for instance.&lt;/p&gt;
 &lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
 but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;ports&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# update the ports
+$ portsnap fetch update
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;php5&lt;/span&gt; &lt;span class="n"&gt;port …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
+# install php5 port …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;
@@ -9575,16 +9637,16 @@ but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
 &lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
 but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;ports&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# update the ports
+$ portsnap fetch update
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;php5&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt;
+# install php5 port
+$ make config-recursive -C /usr/ports/lang/php5-extensions
+$ make package-recursive -C /usr/ports/lang/php5-extensions
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;devel&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;devel&lt;/span&gt;
+# install nginx
+$ make config-recursive -C /usr/ports/www/nginx-devel
+$ make package-recursive -C /usr/ports/www/nginx-devel
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now we have all the dependencies installed, we need to configure a bit
@@ -9676,7 +9738,7 @@ optional arguments:
                         will uses the ones included with pelican.
   -o OUTPUT, --output OUTPUT
                         Where to output the generated files. If not specified,
-                        a directory will be created, named &lt;span class="s2"&gt;&amp;quot;output&amp;quot;&lt;/span&gt; in the
+                        a directory will be created, named &lt;span class="s2"&gt;&amp;quot;output&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; the
                         current path.
   -m MARKUP, --markup MARKUP
                         the markup language to use. Currently only
@@ -10061,7 +10123,7 @@ source&lt;/a&gt;,
 &lt;a href="http://files.lolnet.org/alexis/rst-presentations/slides.style"&gt;the theme
 used&lt;/a&gt;,
 and the command line to generate the PDF:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rst2pdf couchdb.rst -b1 -s ../slides.style&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rst2pdf couchdb.rst -b1 -s ../slides.style
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;As I've been working on &lt;a href="http://hg.python.org/distutils2/"&gt;Distutils2&lt;/a&gt;
 during the past week, taking part of the
@@ -10275,7 +10337,7 @@ consommation, nous avons mis en place &lt;a href="http://spreadsheets.google.com
 ligne&lt;/a&gt;,
 que vous pouvez compléter en une petite 10aine de minutes, n'hésitez pas
 ! &lt;a href="http://www.reseaugrappe.org/consommation/"&gt;La page sur la consommation étudiante sur le site du
-GRAPPE&lt;/a&gt;&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry><entry><title>Python ? go !</title><link href="https://blog.notmyidea.org/python-go.html" rel="alternate"></link><published>2009-12-17T00:00:00+01:00</published><updated>2009-12-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html</id><summary type="html">
+GRAPPE&lt;/a&gt;&lt;/p&gt;</content><category term="Réfléxions"></category></entry><entry><title>Python ? go !</title><link href="https://blog.notmyidea.org/python-go.html" rel="alternate"></link><published>2009-12-17T00:00:00+01:00</published><updated>2009-12-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2009-12-17:/python-go.html</id><summary type="html">
 &lt;p&gt;Cela fait maintenant un peu plus d'un mois que je travaille sur un
 projet en &lt;a href="http://www.djangoproject.org"&gt;django&lt;/a&gt;, et que,
 nécessairement, je me forme à &lt;a href="http://python.org/"&gt;Python&lt;/a&gt;. Je prends
@@ -10412,4 +10474,4 @@ la donnée principale de l'équation, celle sans quoi ça ne peut
 fonctionner. Par le biais de cette AMAP, on essaye de montrer que
 d'autres agricultures sont possibles, que la solidarité c'est bien réel,
 et qu'il est possible de sortir du &lt;em&gt;tout, tout de suite&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Mais bon, apparemment, ça passe pas bien à la télé.&lt;/p&gt;</content><category term="RÃ©flÃ©xions"></category></entry></feed>
+&lt;p&gt;Mais bon, apparemment, ça passe pas bien à la télé.&lt;/p&gt;</content><category term="Réfléxions"></category></entry></feed>

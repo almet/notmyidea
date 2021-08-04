@@ -40,16 +40,16 @@
 <p>I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
 but that's worse to have the piece of configuration somewhere !</p>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="k">update</span> <span class="n">the</span> <span class="n">ports</span>
-<span class="err">$</span> <span class="n">portsnap</span> <span class="k">fetch</span> <span class="k">update</span>
+<div class="highlight"><pre><span></span><code># update the ports
+$ portsnap fetch update
 
-<span class="o">#</span> <span class="n">install</span> <span class="n">php5</span> <span class="n">port</span>
-<span class="err">$</span> <span class="n">make</span> <span class="n">config</span><span class="o">-</span><span class="k">recursive</span> <span class="o">-</span><span class="k">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">php5</span><span class="o">-</span><span class="n">extensions</span>
-<span class="err">$</span> <span class="n">make</span> <span class="n">package</span><span class="o">-</span><span class="k">recursive</span> <span class="o">-</span><span class="k">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">php5</span><span class="o">-</span><span class="n">extensions</span>
+# install php5 port
+$ make config-recursive -C /usr/ports/lang/php5-extensions
+$ make package-recursive -C /usr/ports/lang/php5-extensions
 
-<span class="o">#</span> <span class="n">install</span> <span class="n">nginx</span>
-<span class="err">$</span> <span class="n">make</span> <span class="n">config</span><span class="o">-</span><span class="k">recursive</span> <span class="o">-</span><span class="k">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">devel</span>
-<span class="err">$</span> <span class="n">make</span> <span class="n">package</span><span class="o">-</span><span class="k">recursive</span> <span class="o">-</span><span class="k">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ports</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">devel</span>
+# install nginx
+$ make config-recursive -C /usr/ports/www/nginx-devel
+$ make package-recursive -C /usr/ports/www/nginx-devel
 </code></pre></div>
 
 <p>Now we have all the dependencies installed, we need to configure a bit

@@ -38,9 +38,9 @@ etc. from my machine to the server.</p>
 a network. So let's do it !</p>
 <h2 id="creating-the-jail">Creating the jail</h2>
 <p>In case you don't use FreeBSD, you can skip this section.</p>
-<div class="highlight"><pre><span></span><code><span class="err"># I have a flavour jail named default</span>
-<span class="err">$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6</span>
-<span class="err">$ ezjail-admin start workspace.notmyidea.org</span>
+<div class="highlight"><pre><span></span><code># I have a flavour jail named default
+$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6
+$ ezjail-admin start workspace.notmyidea.org
 </code></pre></div>
 
 <p>In my case, because the "default" flavour contains already a lot of
@@ -87,11 +87,11 @@ unison .vimrc ssh://notmyidea.org:20006/.vimrc
 then to only run unison. (fire up vim \~/.unison/default.prf.</p>
 <p>Here is my config:</p>
 <div class="highlight"><pre><span></span><code>    <span class="na">root</span> <span class="o">=</span> <span class="s">/home/alexis</span>
-<span class="s">    root = ssh://notmyidea.org:20006</span>
+    <span class="na">root</span> <span class="o">=</span> <span class="s">ssh://notmyidea.org:20006</span>
 
     <span class="na">path</span> <span class="o">=</span> <span class="s">.vimrc</span>
-<span class="s">    path = dotfiles</span>
-<span class="s">    path = dev</span>
+    <span class="na">path</span> <span class="o">=</span> <span class="s">dotfiles</span>
+    <span class="na">path</span> <span class="o">=</span> <span class="s">dev</span>
 
     <span class="na">follow</span> <span class="o">=</span> <span class="s">Name *</span>
 </code></pre></div>
@@ -148,7 +148,7 @@ some feedback from the sync:</p>
 <p>This is probably perfectible, but that does the job.</p>
 <p>Last step is to tell you machine to run that frequently. That's what
 crontab is made for, so let's <code>crontab -e</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="err">    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py</span>
+<div class="highlight"><pre><span></span><code>    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 </code></pre></div>
 
 <p>The \~/.Xdbus allows cron to communicate with your X11 session. Here is

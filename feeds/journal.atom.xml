@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-01-25T00:00:00+01:00</updated><entry><title>Routine</title><link href="https://blog.notmyidea.org/routine.html" rel="alternate"></link><published>2021-01-25T00:00:00+01:00</published><updated>2021-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-25:/routine.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-08-04T00:00:00+02:00</updated><entry><title>Faire de la musique sous Linux</title><link href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="alternate"></link><published>2021-08-04T00:00:00+02:00</published><updated>2021-08-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-08-04:/faire-de-la-musique-sous-linux.html</id><summary type="html">
+&lt;p&gt;Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.&lt;/p&gt;
+&lt;p&gt;C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai &lt;a href="https://soundcloud.com/the-lost-triangle/"&gt;fait quelques morceaux&lt;/a&gt; et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils &lt;em&gt;mainstrem&lt;/em&gt;, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.&lt;/p&gt;
+&lt;p&gt;Et puis, &lt;a href="https://yohanboniface.me/"&gt;Yohan&lt;/a&gt; m'a parlé de &lt;a href="https://www.bitwig.com/"&gt;Bitwig&lt;/a&gt;, un logiciel de type « Digital Audio Workstation » (DAW) qui tourne nativement sous Linux, et après une petite scéance de test j'ai eu envie de creuser un peu le sujet de l'audio sous Linux.&lt;/p&gt;
+&lt;p&gt;L'occasion donc d'installer une station musicale sous Linux (j'utilise &lt;a href="https://archlinux.org/"&gt;Arch Linux&lt;/a&gt;). Ça marche plutôt bien, ce n'est pas trop long à mettre en place (une fois qu'on sait quoi faire), même si ça reste moins simple que sous Windows. Je suis très content du résultat !&lt;/p&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que &lt;a href="https://manjaro.org/"&gt;Manjaro&lt;/a&gt; (un dérivé d'Arch) en propose un.&lt;/p&gt;
+&lt;p&gt;Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.&lt;/p&gt;
+&lt;p&gt;J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo pacman -S realtime-privileges
+sudo gpasswd -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; realtime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Le DAW &lt;a href="https://www.bitwig.com/"&gt;Bitwig&lt;/a&gt; que j'utilise n'est pas open source, mais tourne nativement sous Linux. Son installation sous Arch est vraiment on ne peut plus simple : &lt;code&gt;yay bitwig-studio&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="vsts-instruments-virtuels"&gt;VSTs (Instruments virtuels)&lt;/h2&gt;
+&lt;p&gt;J'ai acheté quelques VST qui tournent nativement sous Linux mais également d'autres qui n'ont pas de version Linux native. C'est par exemple le cas de Kontakt.&lt;/p&gt;
+&lt;p&gt;Dans ce cas, il faut passer par le pont logiciel &lt;a href="https://github.com/robbert-vdh/yabridge"&gt;yabridge&lt;/a&gt; ainsi qu'une version récente de wine : &lt;a href="https://github.com/Frogging-Family/wine-tkg-git/releases/"&gt;wine-tkg&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pour installer yabridge, &lt;code&gt;yay yabridge-bin&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Installation de wine-tkg :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.11.r4.g0dd44a25/wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+sudo pacman -U wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="installation-dun-vst-kontakt"&gt;Installation d'un VST (Kontakt)&lt;/h3&gt;
+&lt;p&gt;Ensuite, installez le VST dans wine :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wine Kontakt&lt;span class="se"&gt;\ &lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;.3.0&lt;span class="se"&gt;\ &lt;/span&gt;Setup&lt;span class="se"&gt;\ &lt;/span&gt;PC.exe
+&lt;span class="nb"&gt;cd&lt;/span&gt; patch
+wine Kontakt&lt;span class="se"&gt;\_&lt;/span&gt;patch&lt;span class="se"&gt;\_&lt;/span&gt;installer&lt;span class="se"&gt;\_&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;3_0.exe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Spécifiez l'emplacement pour les VST64 : &lt;code&gt;C:\Program Files\Steinberg\VstPlugins&lt;/code&gt; (emplacement souvent utilisé pour les VST2), je ne sais pas pour quelle raison mais utiliser un emplacement classique peut résoudre des bugs.&lt;/p&gt;
+&lt;p&gt;Une fois installé, vous pouvez ajouter le fichier qui contient vos VSTs dans yabridge :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;yabridgectl add &lt;span class="s2"&gt;&amp;quot;/home/alexis/.wine/drive_c/Program Files/Steinberg/VstPlugins&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puis faire &lt;code&gt;yabridgectl sync&lt;/code&gt; qui va générer les .&lt;code&gt;so&lt;/code&gt; (format Linux) à partir des &lt;code&gt;.dll&lt;/code&gt; (format Windows).&lt;/p&gt;
+&lt;p&gt;Il ne reste plus qu'à ajouter le dossier qui contient les VST dans Bitwig et c'est bon !&lt;/p&gt;
+&lt;p&gt;J'utilise sans soucis ces instruments Kontakt :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una Corda (Piano)&lt;/li&gt;
+&lt;li&gt;Studio Drummer (Batterie)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="bitwig-studio-studio-drummer.png" src="/images/musique-linux.png"&gt;&lt;/p&gt;
+&lt;h2 id="carte-son"&gt;Carte son&lt;/h2&gt;
+&lt;p&gt;J'utilise une carte son Scarlett 18i8 gen3, qui fonctionne nativement pour sortir de l'audio et pour en capturer. Par contre certains controles ne sont pas exposés, et le logiciel de contrôle / configuration ne tourne pas sous wine.&lt;/p&gt;
+&lt;p&gt;Mais… (coup de bol ?) quelqu'un s'est motivé &lt;a href="https://github.com/geoffreybennett/scarlett-gen2"&gt;pour écrire le code noyau&lt;/a&gt; qui permet de faire ça nativement. Ça vient d'être mergé dans le noyau Linux, et devrait être disponible avec le kernel 5.14, qui devrait bientôt voir le jour (c'est la RC3 au moment ou j'écris ces lignes).&lt;/p&gt;
+&lt;h2 id="controleurs"&gt;Controleurs&lt;/h2&gt;
+&lt;p&gt;J'utilise un &lt;a href="https://novationmusic.com/en/keys/launchkey-mini"&gt;Novation Launchkey mini mk3&lt;/a&gt; avec les mappings proposés par &lt;a href="http://mossgrabers.de/Software/Bitwig/Bitwig.html"&gt;DrivenByMoss&lt;/a&gt; qui permettent de controller nativement Bitwig, c'est assez bluffant, ça marche tout seul !&lt;/p&gt;
+&lt;p&gt;Installation :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Télécharger l'archive qui contient le code depuis le site web&lt;/li&gt;
+&lt;li&gt;Extraire le fichier .bwextension dans &lt;code&gt;~/Bitwig Studio/Extensions&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il semble aussi que &lt;a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html"&gt;Push 2 pour Bitwig sous Linux&lt;/a&gt; soit une option interessante (mais bien plus couteuse) !&lt;/p&gt;
+&lt;h2 id="vst-natif-linux"&gt;VST natif Linux&lt;/h2&gt;
+&lt;p&gt;Il existe un tas de VST open source qui font très bien le taf. J'aime beaucoup toute la collection de VST sans interface graphique (et open source !) qui est proposée par airwindows, (installables avec &lt;code&gt;yay aur/airwindows-git&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;J'utilise quelques VST payants également. Ceux que j'utilise actuellement, et qui sont compatibles Linux :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Les instruments de chez &lt;a href="https://tal-software.com/"&gt;TAL&lt;/a&gt;. J'utilise &lt;a href="https://tal-software.com/products/tal-mod"&gt;TAL-Mod&lt;/a&gt; pour faire des bonnes grosses basses&lt;/li&gt;
+&lt;li&gt;Ceux de chez &lt;a href="https://u-he.com/products/"&gt;U-he&lt;/a&gt;. J'utilise &lt;a href="https://u-he.com/products/bazille/"&gt;Bazille&lt;/a&gt;, un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Une grosse liste est présente sur &lt;a href="http://linux-sound.org/linux-vst-plugins.html"&gt;Linux Sound&lt;/a&gt; si vous voulez creuser :-)&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Routine</title><link href="https://blog.notmyidea.org/routine.html" rel="alternate"></link><published>2021-01-25T00:00:00+01:00</published><updated>2021-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-25:/routine.html</id><summary type="html">
 &lt;blockquote&gt;
 &lt;p&gt;Si vous pensez que l'aventure est dangereuse, je vous propose d'essayer la routine.... Elle est mortelle !&lt;/p&gt;
 &lt;p&gt;— Paulo Coelho&lt;/p&gt;
@@ -15,14 +77,14 @@
 &lt;p&gt;Pourtant, à y regarder de plus près il semble que je manquais une partie de l'histoire.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;Capacité, faculté acquise plutôt par une longue habitude, par une longue pratique, que par le secours de l’étude et des règles. &lt;/li&gt;
-&lt;li&gt;Usage depuis longtemps consacré de faire une chose toujours de la même manière. &lt;/li&gt;
+&lt;li&gt;Capacité, faculté acquise plutôt par une longue habitude, par une longue pratique, que par le secours de l’étude et des règles.&lt;/li&gt;
+&lt;li&gt;Usage depuis longtemps consacré de faire une chose toujours de la même manière.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;— Définition de « routine » sur le &lt;a href="https://fr.wiktionary.org/wiki/routine"&gt;Wikitionnaire&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Il me semble qu'il n'y a pas nécessairement de connotation négative derrière cette notion de routine. Je me demande si les routines ne seraient pas même un moyen pour « apprendre sans en avoir l'air » ?&lt;/p&gt;
 &lt;p&gt;Il me semble également que les routines permettent d'obtenir une quiétude. Se questionner (une fois), décider, puis faire de manière routinière, sans se poser à nouveau la même question sans cesse.&lt;/p&gt;
-&lt;p&gt;Ça vient me questionner à beaucoup d'endroits, de ma gestion quotidienne de mon temps à mon rapport à l'apprentissage. Ça me plait. &lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
+&lt;p&gt;Ça vient me questionner à beaucoup d'endroits, de ma gestion quotidienne de mon temps à mon rapport à l'apprentissage. Ça me plait.&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Reconnexion ?</title><link href="https://blog.notmyidea.org/reconnexion.html" rel="alternate"></link><published>2021-01-15T00:00:00+01:00</published><updated>2021-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-01-15:/reconnexion.html</id><summary type="html">
 &lt;p&gt;Cela fait un an que &lt;a href="https://blog.notmyidea.org/break-technologique.html"&gt;j'ai décidé de me déconnecter&lt;/a&gt; pour laisser plus de place à d'autres projets.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Me détacher de la maintenance de ihatemoney ;

@@ -75,7 +75,7 @@ you will use to sign your next requests.</p>
 <p>First, do an <a href="http://en.wikipedia.org/wiki/HKDF">HKDF derivation</a> on the
 given session token. You'll need to use the following
     parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="err">key_material = HKDF(hawk_session, &quot;&quot;, &#39;identity.mozilla.com/picl/v1/sessionToken&#39;, 32*2)</span>
+<div class="highlight"><pre><span></span><code>key_material = HKDF(hawk_session, &quot;&quot;, &#39;identity.mozilla.com/picl/v1/sessionToken&#39;, 32*2)
 </code></pre></div>
 
 <div class="note">
@@ -95,12 +95,12 @@ way of deriving the credentials, not an actual URL.
 into two parts, the first 32 hex caracters are the hawk id, and the next
 32 ones are the hawk key.</p>
 <p>Credentials:</p>
-<div class="highlight"><pre><span></span><code><span class="err">javascript</span>
-<span class="err">credentials = {</span>
-<span class="err">    &#39;id&#39;: keyMaterial[0:32],</span>
-<span class="err">    &#39;key&#39;: keyMaterial[32:64],</span>
-<span class="err">    &#39;algorithm&#39;: &#39;sha256&#39;</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code>javascript
+credentials = {
+    &#39;id&#39;: keyMaterial[0:32],
+    &#39;key&#39;: keyMaterial[32:64],
+    &#39;algorithm&#39;: &#39;sha256&#39;
+}
 </code></pre></div>
 
 <h2 id="httpie">Httpie</h2>
@@ -163,33 +163,33 @@ finally came up factorizing everything in a library for express, named
 <a href="https://github.com/mozilla-services/express-hawkauth">express-hawkauth</a>.</p>
 <p>In order to plug it in your application, you'll need to use it as a
 middleware:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">javascript</span>
-<span class="nt">var</span> <span class="nt">express</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s2">&quot;express&quot;</span><span class="o">);</span>
-<span class="nt">var</span> <span class="nt">hawk</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s2">&quot;express-hawkauth&quot;</span><span class="o">);</span>
-<span class="nt">app</span> <span class="o">=</span> <span class="nt">express</span><span class="o">();</span>
+<div class="highlight"><pre><span></span><code><span class="n">javascript</span>
+<span class="k">var</span> <span class="n">express</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span>
+<span class="k">var</span> <span class="n">hawk</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;express-hawkauth&quot;</span><span class="p">);</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">express</span><span class="p">();</span>
 
-<span class="nt">var</span> <span class="nt">hawkMiddleware</span> <span class="o">=</span> <span class="nt">hawk</span><span class="p">.</span><span class="nc">getMiddleware</span><span class="o">(</span><span class="p">{</span>
-  <span class="n">hawkOptions</span><span class="p">:</span> <span class="err">{</span><span class="p">}</span><span class="o">,</span>
-  <span class="nt">getSession</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">tokenId</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
-    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">which</span> <span class="err">pass</span> <span class="err">to</span> <span class="err">the</span> <span class="err">cb</span> <span class="err">the</span> <span class="err">key</span> <span class="err">and</span> <span class="err">algorithm</span> <span class="err">for</span> <span class="err">the</span>
-    <span class="err">//</span> <span class="err">given</span> <span class="err">token</span> <span class="err">id.</span> <span class="err">First</span> <span class="err">argument</span> <span class="err">of</span> <span class="err">the</span> <span class="err">callback</span> <span class="err">is</span> <span class="err">a</span> <span class="err">potential</span>
-    <span class="err">//</span> <span class="err">error.</span>
-    <span class="err">cb(null,</span> <span class="err">{</span><span class="n">key</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">:</span> <span class="s2">&quot;sha256&quot;</span><span class="p">}</span><span class="o">);</span>
-  <span class="err">}</span><span class="o">,</span>
-  <span class="nt">createSession</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">id</span><span class="o">,</span> <span class="nt">key</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
-    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">which</span> <span class="err">stores</span> <span class="err">a</span> <span class="err">session</span> <span class="err">for</span> <span class="err">the</span> <span class="err">given</span> <span class="err">id</span> <span class="err">and</span> <span class="err">key.</span>
-    <span class="err">//</span> <span class="err">Argument</span> <span class="err">returned</span> <span class="err">is</span> <span class="err">a</span> <span class="err">potential</span> <span class="err">error.</span>
-    <span class="err">cb(null)</span><span class="p">;</span>
-  <span class="p">}</span><span class="o">,</span>
-  <span class="nt">setUser</span><span class="o">:</span> <span class="nt">function</span><span class="o">(</span><span class="nt">req</span><span class="o">,</span> <span class="nt">res</span><span class="o">,</span> <span class="nt">tokenId</span><span class="o">,</span> <span class="nt">cb</span><span class="o">)</span> <span class="p">{</span>
-    <span class="err">//</span> <span class="err">A</span> <span class="err">function</span> <span class="err">that</span> <span class="err">uses</span> <span class="err">req</span> <span class="err">and</span> <span class="err">res,</span> <span class="err">the</span> <span class="err">hawkId</span> <span class="err">when</span> <span class="err">they&#39;re</span> <span class="err">known</span> <span class="err">so</span>
-    <span class="err">//</span> <span class="err">that</span> <span class="err">it</span> <span class="err">can</span> <span class="err">tweak</span> <span class="err">it.</span> <span class="err">For</span> <span class="err">instance,</span> <span class="err">you</span> <span class="err">can</span> <span class="err">store</span> <span class="err">the</span> <span class="err">tokenId</span> <span class="err">as</span> <span class="err">the</span>
-    <span class="err">//</span> <span class="err">user.</span>
-    <span class="err">req.user</span> <span class="err">=</span> <span class="err">tokenId</span><span class="p">;</span>
+<span class="k">var</span> <span class="n">hawkMiddleware</span> <span class="o">=</span> <span class="n">hawk</span><span class="o">.</span><span class="n">getMiddleware</span><span class="p">({</span>
+  <span class="n">hawkOptions</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="n">getSession</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">tokenId</span><span class="p">,</span> <span class="n">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">A</span> <span class="n">function</span> <span class="n">which</span> <span class="k">pass</span> <span class="n">to</span> <span class="n">the</span> <span class="n">cb</span> <span class="n">the</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">algorithm</span> <span class="k">for</span> <span class="n">the</span>
+    <span class="o">//</span> <span class="n">given</span> <span class="n">token</span> <span class="n">id</span><span class="o">.</span> <span class="n">First</span> <span class="n">argument</span> <span class="n">of</span> <span class="n">the</span> <span class="n">callback</span> <span class="k">is</span> <span class="n">a</span> <span class="n">potential</span>
+    <span class="o">//</span> <span class="n">error</span><span class="o">.</span>
+    <span class="n">cb</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">,</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">:</span> <span class="s2">&quot;sha256&quot;</span><span class="p">});</span>
+  <span class="p">},</span>
+  <span class="n">createSession</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">A</span> <span class="n">function</span> <span class="n">which</span> <span class="n">stores</span> <span class="n">a</span> <span class="n">session</span> <span class="k">for</span> <span class="n">the</span> <span class="n">given</span> <span class="n">id</span> <span class="ow">and</span> <span class="n">key</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">Argument</span> <span class="n">returned</span> <span class="k">is</span> <span class="n">a</span> <span class="n">potential</span> <span class="n">error</span><span class="o">.</span>
+    <span class="n">cb</span><span class="p">(</span><span class="nb nb-Type">null</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="n">setUser</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">tokenId</span><span class="p">,</span> <span class="n">cb</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">A</span> <span class="n">function</span> <span class="n">that</span> <span class="n">uses</span> <span class="n">req</span> <span class="ow">and</span> <span class="n">res</span><span class="p">,</span> <span class="n">the</span> <span class="n">hawkId</span> <span class="n">when</span> <span class="n">they</span><span class="s1">&#39;re known so</span>
+    <span class="o">//</span> <span class="n">that</span> <span class="n">it</span> <span class="n">can</span> <span class="n">tweak</span> <span class="n">it</span><span class="o">.</span> <span class="n">For</span> <span class="n">instance</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">store</span> <span class="n">the</span> <span class="n">tokenId</span> <span class="k">as</span> <span class="n">the</span>
+    <span class="o">//</span> <span class="n">user</span><span class="o">.</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">tokenId</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="err">}</span><span class="o">);</span>
+<span class="p">});</span>
 
-<span class="nt">app</span><span class="p">.</span><span class="nc">get</span><span class="o">(</span><span class="s2">&quot;/hawk-enabled-endpoint&quot;</span><span class="o">,</span> <span class="nt">hawkMiddleware</span><span class="o">);</span>
+<span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hawk-enabled-endpoint&quot;</span><span class="p">,</span> <span class="n">hawkMiddleware</span><span class="p">);</span>
 </code></pre></div>
 
 <p>If you pass the createSession parameter, all non-authenticated requests

@@ -61,10 +61,10 @@ dont je vous recommande la lecture pour un complément d'information.</p>
 sont <a href="https://github.com/letsencrypt/letsencrypt#installation">très bien expliqués sur leur
 documentation</a>.</p>
 <p>Une fois installé, vous allez taper une commande qui va ressembler à:</p>
-<div class="highlight"><pre><span></span><code><span class="err">letsencrypt-auto certonly --renew-by-default</span>
-<span class="err">--webroot -w /home/www/letsencrypt-requests/ \</span>
-<span class="err">-d hurl.kinto-storage.org \</span>
-<span class="err">-d forums.kinto-storage.org</span>
+<div class="highlight"><pre><span></span><code>letsencrypt-auto certonly --renew-by-default
+--webroot -w /home/www/letsencrypt-requests/ \
+-d hurl.kinto-storage.org \
+-d forums.kinto-storage.org
 </code></pre></div>
 
 <p>Le <em>webroot</em> est l'endroit ou les preuves de détention du domaine vont
@@ -81,27 +81,27 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 <p>Voici la section de la configuration de HAProxy (et <a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72">la configuration
 complete</a>
 si ça peut être utile):</p>
-<div class="highlight"><pre><span></span><code><span class="n">frontend</span> <span class="n">http</span>
-    <span class="n">bind</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">:</span><span class="mi">80</span>
-    <span class="k">mode</span> <span class="n">http</span>
-    <span class="n">default_backend</span> <span class="n">nginx_server</span>
+<div class="highlight"><pre><span></span><code><span class="nv">frontend</span> <span class="nv">http</span>
+    <span class="nv">bind</span> <span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>:<span class="mi">80</span>
+    <span class="nv">mode</span> <span class="nv">http</span>
+    <span class="nv">default_backend</span> <span class="nv">nginx_server</span>
 
-    <span class="n">acl</span> <span class="n">letsencrypt_check</span> <span class="n">path_beg</span> <span class="o">/</span><span class="p">.</span><span class="n">well</span><span class="o">-</span><span class="n">known</span><span class="o">/</span><span class="n">acme</span><span class="o">-</span><span class="n">challenge</span>
-    <span class="n">use_backend</span> <span class="n">letsencrypt_backend</span> <span class="k">if</span> <span class="n">letsencrypt_check</span>
+    <span class="nv">acl</span> <span class="nv">letsencrypt_check</span> <span class="nv">path_beg</span> <span class="o">/</span>.<span class="nv">well</span><span class="o">-</span><span class="nv">known</span><span class="o">/</span><span class="nv">acme</span><span class="o">-</span><span class="nv">challenge</span>
+    <span class="nv">use_backend</span> <span class="nv">letsencrypt_backend</span> <span class="k">if</span> <span class="nv">letsencrypt_check</span>
 
-    <span class="n">redirect</span> <span class="n">scheme</span> <span class="n">https</span> <span class="n">code</span> <span class="mi">301</span> <span class="k">if</span> <span class="o">!</span><span class="err">{</span> <span class="n">ssl_fc</span> <span class="err">}</span> <span class="o">!</span><span class="n">letsencrypt_check</span>
+    <span class="nv">redirect</span> <span class="nv">scheme</span> <span class="nv">https</span> <span class="nv">code</span> <span class="mi">301</span> <span class="k">if</span> <span class="o">!</span>{ <span class="nv">ssl_fc</span> } <span class="o">!</span><span class="nv">letsencrypt_check</span>
 
-<span class="n">backend</span> <span class="n">letsencrypt_backend</span>
-    <span class="n">http</span><span class="o">-</span><span class="n">request</span> <span class="k">set</span><span class="o">-</span><span class="n">header</span> <span class="k">Host</span> <span class="n">letsencrypt</span><span class="p">.</span><span class="n">requests</span>
-    <span class="k">dispatch</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">8000</span>
+<span class="nv">backend</span> <span class="nv">letsencrypt_backend</span>
+    <span class="nv">http</span><span class="o">-</span><span class="nv">request</span> <span class="nv">set</span><span class="o">-</span><span class="nv">header</span> <span class="nv">Host</span> <span class="nv">letsencrypt</span>.<span class="nv">requests</span>
+    <span class="nv">dispatch</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">8000</span>
 </code></pre></div>
 
 <p>Et celle de NGINX:</p>
-<div class="highlight"><pre><span></span><code><span class="err">server {</span>
-<span class="err">    listen 8000;</span>
-<span class="err">    server_name letsencrypt.requests;</span>
-<span class="err">    root /home/www/letsencrypt-requests;</span>
-<span class="err">}</span>
+<div class="highlight"><pre><span></span><code>server {
+    listen 8000;
+    server_name letsencrypt.requests;
+    root /home/www/letsencrypt-requests;
+}
 </code></pre></div>
 
 <h2 id="installation-des-certificats-dans-haproxy">Installation des certificats dans HAProxy</h2>
@@ -110,12 +110,12 @@ mais ils ne sont pas au format attendu par haproxy. Rien de grave, la
 commande suivant convertit l'ensemble des certificats en une version
 compatible avec
     HAProxy:</p>
-<div class="highlight"><pre><span></span><code><span class="err">cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &gt; /etc/ssl/letsencrypt/domaine.org.pem</span>
+<div class="highlight"><pre><span></span><code>cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &gt; /etc/ssl/letsencrypt/domaine.org.pem
 </code></pre></div>
 
 <p>Et ensuite dans la configuration de haproxy, pour le (nouveau)
 <em>frontend</em> https:</p>
-<div class="highlight"><pre><span></span><code><span class="err">bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt</span>
+<div class="highlight"><pre><span></span><code>bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt
 </code></pre></div>
 
 <p>Faites bien attention à avoir un <em>frontend</em> https pour tous vos sites en

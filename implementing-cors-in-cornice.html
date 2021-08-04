@@ -96,12 +96,12 @@ OPTIONS call.</p>
 </ul>
 <p>So, if you want to access the /icecream resource, and do a PUT there,
 you'll have the following flow:</p>
-<div class="highlight"><pre><span></span><code><span class="err">&gt; OPTIONS /icecream</span>
-<span class="err">&gt; Access-Control-Request-Methods = PUT</span>
-<span class="err">&gt; Origin: notmyidea.org</span>
-<span class="err">&lt; Access-Control-Allow-Origin = notmyidea.org</span>
-<span class="err">&lt; Access-Control-Allow-Methods = PUT,GET,DELETE</span>
-<span class="err">200 OK</span>
+<div class="highlight"><pre><span></span><code>&gt; OPTIONS /icecream
+&gt; Access-Control-Request-Methods = PUT
+&gt; Origin: notmyidea.org
+&lt; Access-Control-Allow-Origin = notmyidea.org
+&lt; Access-Control-Allow-Methods = PUT,GET,DELETE
+200 OK
 </code></pre></div>
 
 <p>You can see that we have an Origin Header in the request, as well as a

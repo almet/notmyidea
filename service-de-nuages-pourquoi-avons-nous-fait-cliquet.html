@@ -254,7 +254,7 @@ avec <em>Colander</em>, et ensuite déclarer une resource:</p>
 <p>Désormais, la resource CRUD est disponible sur <tt class="docutils literal">/v1/bookmarks</tt>, avec toutes
 les fonctionnalités de synchronisation, filtrage, tri, pagination, timestamp, etc.
 De base les enregistrements sont privés, par utilisateur.</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="err">http</span> <span class="err">GET</span> <span class="s2">&quot;http://localhost:8000/v1/bookmarks&quot;</span>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="err">h</span><span class="kc">tt</span><span class="err">p</span> <span class="err">GET</span> <span class="s2">&quot;http://localhost:8000/v1/bookmarks&quot;</span>
 <span class="err">HTTP/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="err">OK</span>
 <span class="err">...</span>
 <span class="p">{</span>

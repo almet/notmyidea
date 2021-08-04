@@ -104,8 +104,8 @@ passed and use it in the body of the webservice:</p>
 </code></pre></div>
 
 <p>The output would look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="err">curl http://127.0.0.1:5000/service?awesome=yeah</span>
-<span class="err">{&quot;test&quot;: &quot;awesome yeah&quot;}</span>
+<div class="highlight"><pre><span></span><code>curl http://127.0.0.1:5000/service?awesome=yeah
+{&quot;test&quot;: &quot;awesome yeah&quot;}
 </code></pre></div>
 
 <h2 id="dealing-with-accept-headers">Dealing with "Accept" headers</h2>
@@ -142,10 +142,10 @@ list of accepted Content-Type values:</p>
 <p>writing documentation for web services can be painful, especially when
 your services evolve. Cornice provides a sphinx directive to
 automatically document your API in your docs.</p>
-<div class="highlight"><pre><span></span><code><span class="err">rst</span>
-<span class="err">.. services::</span>
-<span class="err">   :package: coolapp</span>
-<span class="err">   :service: quote</span>
+<div class="highlight"><pre><span></span><code>rst
+.. services::
+   :package: coolapp
+   :service: quote
 </code></pre></div>
 
 <p>Here is an example of what a generated page looks like:

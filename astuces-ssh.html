@@ -36,10 +36,10 @@
 <p>(merci <a href="http://majerti.fr">gaston</a> !)</p>
 <p>La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
 séparés par des "+" :</p>
-<div class="highlight"><pre><span></span><code><span class="err">Host *+*</span>
-<span class="err">        ProxyCommand ssh $(echo %h | sed</span>
-<span class="err">&#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&#39;)</span>
-<span class="err">PATH=.:\$PATH nc -w1 $(echo %h | sed &#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&#39;)</span>
+<div class="highlight"><pre><span></span><code>Host *+*
+        ProxyCommand ssh $(echo %h | sed
+&#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&#39;)
+PATH=.:\$PATH nc -w1 $(echo %h | sed &#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&#39;)
 </code></pre></div>
 
 <p>On peut donc spécifier des "sauts" ssh du style:</p>
@@ -47,10 +47,10 @@ séparés par des "+" :</p>
 </code></pre></div>
 
 <p>Ensuite on peut essayer de rajouter:</p>
-<div class="highlight"><pre><span></span><code><span class="err">Host &lt;label_pour_mon_serveur_privé&gt;</span>
-<span class="err">    user &lt;monuser(root)&gt;</span>
-<span class="err">    IdentityFile  &lt;chemin vers ma clé ssh pour le serveur publique&gt;</span>
-<span class="err">    hostname ip_serveur_publique+ip_serveur_privé</span>
+<div class="highlight"><pre><span></span><code>Host &lt;label_pour_mon_serveur_privé&gt;
+    user &lt;monuser(root)&gt;
+    IdentityFile  &lt;chemin vers ma clé ssh pour le serveur publique&gt;
+    hostname ip_serveur_publique+ip_serveur_privé
 </code></pre></div>
 </article>
 

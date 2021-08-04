@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Faire de la musique sous Linux - Alexis Métaireau</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis Métaireau ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
+
+
+
+
+
+<header>
+	<h1 class="post-title">Faire de la musique sous Linux</h1>
+	<time datetime="2021-08-04T00:00:00+02:00">04 août 2021</time>
+
+    
+</header>
+<article>
+    
+<p>Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser <a href="https://www.ableton.com/en/live/">Ableton Live</a>, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.</p>
+<p>C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai <a href="https://soundcloud.com/the-lost-triangle/">fait quelques morceaux</a> et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils <em>mainstrem</em>, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.</p>
+<p>Et puis, <a href="https://yohanboniface.me/">Yohan</a> m'a parlé de <a href="https://www.bitwig.com/">Bitwig</a>, un logiciel de type « Digital Audio Workstation » (DAW) qui tourne nativement sous Linux, et après une petite scéance de test j'ai eu envie de creuser un peu le sujet de l'audio sous Linux.</p>
+<p>L'occasion donc d'installer une station musicale sous Linux (j'utilise <a href="https://archlinux.org/">Arch Linux</a>). Ça marche plutôt bien, ce n'est pas trop long à mettre en place (une fois qu'on sait quoi faire), même si ça reste moins simple que sous Windows. Je suis très content du résultat !</p>
+<h2 id="configuration">Configuration</h2>
+<p>Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que <a href="https://manjaro.org/">Manjaro</a> (un dérivé d'Arch) en propose un.</p>
+<p>Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.</p>
+<p>J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.</p>
+<div class="highlight"><pre><span></span><code>sudo pacman -S realtime-privileges
+sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> realtime
+</code></pre></div>
+
+<p>Le DAW <a href="https://www.bitwig.com/">Bitwig</a> que j'utilise n'est pas open source, mais tourne nativement sous Linux. Son installation sous Arch est vraiment on ne peut plus simple : <code>yay bitwig-studio</code>.</p>
+<h2 id="vsts-instruments-virtuels">VSTs (Instruments virtuels)</h2>
+<p>J'ai acheté quelques VST qui tournent nativement sous Linux mais également d'autres qui n'ont pas de version Linux native. C'est par exemple le cas de Kontakt.</p>
+<p>Dans ce cas, il faut passer par le pont logiciel <a href="https://github.com/robbert-vdh/yabridge">yabridge</a> ainsi qu'une version récente de wine : <a href="https://github.com/Frogging-Family/wine-tkg-git/releases/">wine-tkg</a>.</p>
+<p>Pour installer yabridge, <code>yay yabridge-bin</code>.</p>
+<p>Installation de wine-tkg :</p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.11.r4.g0dd44a25/wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+sudo pacman -U wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+</code></pre></div>
+
+<h3 id="installation-dun-vst-kontakt">Installation d'un VST (Kontakt)</h3>
+<p>Ensuite, installez le VST dans wine :</p>
+<div class="highlight"><pre><span></span><code>wine Kontakt<span class="se">\ </span><span class="m">6</span>.3.0<span class="se">\ </span>Setup<span class="se">\ </span>PC.exe
+<span class="nb">cd</span> patch
+wine Kontakt<span class="se">\_</span>patch<span class="se">\_</span>installer<span class="se">\_</span><span class="m">6</span><span class="se">\_</span>3_0.exe
+</code></pre></div>
+
+<p>Spécifiez l'emplacement pour les VST64 : <code>C:\Program Files\Steinberg\VstPlugins</code> (emplacement souvent utilisé pour les VST2), je ne sais pas pour quelle raison mais utiliser un emplacement classique peut résoudre des bugs.</p>
+<p>Une fois installé, vous pouvez ajouter le fichier qui contient vos VSTs dans yabridge :</p>
+<div class="highlight"><pre><span></span><code>yabridgectl add <span class="s2">&quot;/home/alexis/.wine/drive_c/Program Files/Steinberg/VstPlugins&quot;</span>
+</code></pre></div>
+
+<p>Puis faire <code>yabridgectl sync</code> qui va générer les .<code>so</code> (format Linux) à partir des <code>.dll</code> (format Windows).</p>
+<p>Il ne reste plus qu'à ajouter le dossier qui contient les VST dans Bitwig et c'est bon !</p>
+<p>J'utilise sans soucis ces instruments Kontakt :</p>
+<ul>
+<li>Una Corda (Piano)</li>
+<li>Studio Drummer (Batterie)</li>
+</ul>
+<p><img alt="bitwig-studio-studio-drummer.png" src="/images/musique-linux.png"></p>
+<h2 id="carte-son">Carte son</h2>
+<p>J'utilise une carte son Scarlett 18i8 gen3, qui fonctionne nativement pour sortir de l'audio et pour en capturer. Par contre certains controles ne sont pas exposés, et le logiciel de contrôle / configuration ne tourne pas sous wine.</p>
+<p>Mais… (coup de bol ?) quelqu'un s'est motivé <a href="https://github.com/geoffreybennett/scarlett-gen2">pour écrire le code noyau</a> qui permet de faire ça nativement. Ça vient d'être mergé dans le noyau Linux, et devrait être disponible avec le kernel 5.14, qui devrait bientôt voir le jour (c'est la RC3 au moment ou j'écris ces lignes).</p>
+<h2 id="controleurs">Controleurs</h2>
+<p>J'utilise un <a href="https://novationmusic.com/en/keys/launchkey-mini">Novation Launchkey mini mk3</a> avec les mappings proposés par <a href="http://mossgrabers.de/Software/Bitwig/Bitwig.html">DrivenByMoss</a> qui permettent de controller nativement Bitwig, c'est assez bluffant, ça marche tout seul !</p>
+<p>Installation :</p>
+<ol>
+<li>Télécharger l'archive qui contient le code depuis le site web</li>
+<li>Extraire le fichier .bwextension dans <code>~/Bitwig Studio/Extensions</code></li>
+</ol>
+<p>Il semble aussi que <a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html">Push 2 pour Bitwig sous Linux</a> soit une option interessante (mais bien plus couteuse) !</p>
+<h2 id="vst-natif-linux">VST natif Linux</h2>
+<p>Il existe un tas de VST open source qui font très bien le taf. J'aime beaucoup toute la collection de VST sans interface graphique (et open source !) qui est proposée par airwindows, (installables avec <code>yay aur/airwindows-git</code>)</p>
+<p>J'utilise quelques VST payants également. Ceux que j'utilise actuellement, et qui sont compatibles Linux :</p>
+<ul>
+<li>Les instruments de chez <a href="https://tal-software.com/">TAL</a>. J'utilise <a href="https://tal-software.com/products/tal-mod">TAL-Mod</a> pour faire des bonnes grosses basses</li>
+<li>Ceux de chez <a href="https://u-he.com/products/">U-he</a>. J'utilise <a href="https://u-he.com/products/bazille/">Bazille</a>, un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)</li>
+</ul>
+<p>Une grosse liste est présente sur <a href="http://linux-sound.org/linux-vst-plugins.html">Linux Sound</a> si vous voulez creuser :-)</p>
+</article>
+
+</body>
+</html>

@@ -568,10 +568,10 @@ dont je vous recommande la lecture pour un complément d'information.&lt;/p&gt;
 sont &lt;a href="https://github.com/letsencrypt/letsencrypt#installation"&gt;très bien expliqués sur leur
 documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Une fois installé, vous allez taper une commande qui va ressembler à:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;letsencrypt-auto certonly --renew-by-default&lt;/span&gt;
-&lt;span class="err"&gt;--webroot -w /home/www/letsencrypt-requests/ \&lt;/span&gt;
-&lt;span class="err"&gt;-d hurl.kinto-storage.org \&lt;/span&gt;
-&lt;span class="err"&gt;-d forums.kinto-storage.org&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;letsencrypt-auto certonly --renew-by-default
+--webroot -w /home/www/letsencrypt-requests/ \
+-d hurl.kinto-storage.org \
+-d forums.kinto-storage.org
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Le &lt;em&gt;webroot&lt;/em&gt; est l'endroit ou les preuves de détention du domaine vont
@@ -588,27 +588,27 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 &lt;p&gt;Voici la section de la configuration de HAProxy (et &lt;a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72"&gt;la configuration
 complete&lt;/a&gt;
 si ça peut être utile):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;frontend&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;
-    &lt;span class="n"&gt;bind&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;
-    &lt;span class="k"&gt;mode&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;
-    &lt;span class="n"&gt;default_backend&lt;/span&gt; &lt;span class="n"&gt;nginx_server&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;frontend&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;
+    &lt;span class="nv"&gt;bind&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;
+    &lt;span class="nv"&gt;mode&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;
+    &lt;span class="nv"&gt;default_backend&lt;/span&gt; &lt;span class="nv"&gt;nginx_server&lt;/span&gt;
 
-    &lt;span class="n"&gt;acl&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_check&lt;/span&gt; &lt;span class="n"&gt;path_beg&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;challenge&lt;/span&gt;
-    &lt;span class="n"&gt;use_backend&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_backend&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_check&lt;/span&gt;
+    &lt;span class="nv"&gt;acl&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt; &lt;span class="nv"&gt;path_beg&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;.&lt;span class="nv"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;challenge&lt;/span&gt;
+    &lt;span class="nv"&gt;use_backend&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-    &lt;span class="n"&gt;redirect&lt;/span&gt; &lt;span class="n"&gt;scheme&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="n"&gt;ssl_fc&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;letsencrypt_check&lt;/span&gt;
+    &lt;span class="nv"&gt;redirect&lt;/span&gt; &lt;span class="nv"&gt;scheme&lt;/span&gt; &lt;span class="nv"&gt;https&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;301&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;{ &lt;span class="nv"&gt;ssl_fc&lt;/span&gt; } &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-&lt;span class="n"&gt;backend&lt;/span&gt; &lt;span class="n"&gt;letsencrypt_backend&lt;/span&gt;
-    &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="k"&gt;Host&lt;/span&gt; &lt;span class="n"&gt;letsencrypt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requests&lt;/span&gt;
-    &lt;span class="k"&gt;dispatch&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;8000&lt;/span&gt;
+&lt;span class="nv"&gt;backend&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;
+    &lt;span class="nv"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt; &lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;header&lt;/span&gt; &lt;span class="nv"&gt;Host&lt;/span&gt; &lt;span class="nv"&gt;letsencrypt&lt;/span&gt;.&lt;span class="nv"&gt;requests&lt;/span&gt;
+    &lt;span class="nv"&gt;dispatch&lt;/span&gt; &lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;8000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et celle de NGINX:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;server {&lt;/span&gt;
-&lt;span class="err"&gt;    listen 8000;&lt;/span&gt;
-&lt;span class="err"&gt;    server_name letsencrypt.requests;&lt;/span&gt;
-&lt;span class="err"&gt;    root /home/www/letsencrypt-requests;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;server {
+    listen 8000;
+    server_name letsencrypt.requests;
+    root /home/www/letsencrypt-requests;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="installation-des-certificats-dans-haproxy"&gt;Installation des certificats dans HAProxy&lt;/h2&gt;
@@ -617,12 +617,12 @@ mais ils ne sont pas au format attendu par haproxy. Rien de grave, la
 commande suivant convertit l'ensemble des certificats en une version
 compatible avec
     HAProxy:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &amp;gt; /etc/ssl/letsencrypt/domaine.org.pem&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat /etc/letsencrypt/live/domaine.org/privkey.pem /etc/letsencrypt/live/domaine.org/fullchain.pem &amp;gt; /etc/ssl/letsencrypt/domaine.org.pem
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et ensuite dans la configuration de haproxy, pour le (nouveau)
 &lt;em&gt;frontend&lt;/em&gt; https:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bind 0.0.0.0:443 ssl no-sslv3 crt /etc/ssl/letsencrypt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Faites bien attention à avoir un &lt;em&gt;frontend&lt;/em&gt; https pour tous vos sites en
@@ -1122,7 +1122,7 @@ avec &lt;em&gt;Colander&lt;/em&gt;, et ensuite déclarer une resource:&lt;/p&gt;
 &lt;p&gt;Désormais, la resource CRUD est disponible sur &lt;tt class="docutils literal"&gt;/v1/bookmarks&lt;/tt&gt;, avec toutes
 les fonctionnalités de synchronisation, filtrage, tri, pagination, timestamp, etc.
 De base les enregistrements sont privés, par utilisateur.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="err"&gt;http&lt;/span&gt; &lt;span class="err"&gt;GET&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:8000/v1/bookmarks&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="err"&gt;h&lt;/span&gt;&lt;span class="kc"&gt;tt&lt;/span&gt;&lt;span class="err"&gt;p&lt;/span&gt; &lt;span class="err"&gt;GET&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:8000/v1/bookmarks&amp;quot;&lt;/span&gt;
 &lt;span class="err"&gt;HTTP/&lt;/span&gt;&lt;span class="mf"&gt;1.1&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt; &lt;span class="err"&gt;OK&lt;/span&gt;
 &lt;span class="err"&gt;...&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
@@ -2748,16 +2748,16 @@ terme, et que &lt;em&gt;Remote Storage&lt;/em&gt; devienne une facette de notre 
 &lt;p&gt;&lt;a href="http://pouchdb.com/"&gt;PouchDB&lt;/a&gt; est une bibliothèque JavaScript qui
 permet de manipuler des enregistrements en local et de les synchroniser
 vers une base distante.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nf"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;PouchDB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;PouchDB&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dave@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;David&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+ &lt;span class="n"&gt;_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dave@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;David&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;68&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;replicate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/mydb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replicate&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/mydb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Le projet a le vent en poupe, bénéficie de nombreux contributeurs,
@@ -3105,7 +3105,7 @@ you will use to sign your next requests.&lt;/p&gt;
 &lt;p&gt;First, do an &lt;a href="http://en.wikipedia.org/wiki/HKDF"&gt;HKDF derivation&lt;/a&gt; on the
 given session token. You'll need to use the following
     parameters:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;key_material = HKDF(hawk_session, &amp;quot;&amp;quot;, &amp;#39;identity.mozilla.com/picl/v1/sessionToken&amp;#39;, 32*2)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;key_material = HKDF(hawk_session, &amp;quot;&amp;quot;, &amp;#39;identity.mozilla.com/picl/v1/sessionToken&amp;#39;, 32*2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class="note"&gt;
@@ -3125,12 +3125,12 @@ way of deriving the credentials, not an actual URL.
 into two parts, the first 32 hex caracters are the hawk id, and the next
 32 ones are the hawk key.&lt;/p&gt;
 &lt;p&gt;Credentials:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;javascript&lt;/span&gt;
-&lt;span class="err"&gt;credentials = {&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;id&amp;#39;: keyMaterial[0:32],&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;key&amp;#39;: keyMaterial[32:64],&lt;/span&gt;
-&lt;span class="err"&gt;    &amp;#39;algorithm&amp;#39;: &amp;#39;sha256&amp;#39;&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;javascript
+credentials = {
+    &amp;#39;id&amp;#39;: keyMaterial[0:32],
+    &amp;#39;key&amp;#39;: keyMaterial[32:64],
+    &amp;#39;algorithm&amp;#39;: &amp;#39;sha256&amp;#39;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="httpie"&gt;Httpie&lt;/h2&gt;
@@ -3193,33 +3193,33 @@ finally came up factorizing everything in a library for express, named
 &lt;a href="https://github.com/mozilla-services/express-hawkauth"&gt;express-hawkauth&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In order to plug it in your application, you'll need to use it as a
 middleware:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;javascript&lt;/span&gt;
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;require&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;hawk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;require&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express-hawkauth&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;span class="nt"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;express&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hawk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;express-hawkauth&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;express&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
-&lt;span class="nt"&gt;var&lt;/span&gt; &lt;span class="nt"&gt;hawkMiddleware&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;hawk&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;getMiddleware&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;hawkOptions&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;getSession&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;tokenId&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;which&lt;/span&gt; &lt;span class="err"&gt;pass&lt;/span&gt; &lt;span class="err"&gt;to&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;cb&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;key&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;algorithm&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;given&lt;/span&gt; &lt;span class="err"&gt;token&lt;/span&gt; &lt;span class="err"&gt;id.&lt;/span&gt; &lt;span class="err"&gt;First&lt;/span&gt; &lt;span class="err"&gt;argument&lt;/span&gt; &lt;span class="err"&gt;of&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;callback&lt;/span&gt; &lt;span class="err"&gt;is&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;potential&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;error.&lt;/span&gt;
-    &lt;span class="err"&gt;cb(null,&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;sha256&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;createSession&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;id&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;which&lt;/span&gt; &lt;span class="err"&gt;stores&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;session&lt;/span&gt; &lt;span class="err"&gt;for&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;given&lt;/span&gt; &lt;span class="err"&gt;id&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;key.&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;Argument&lt;/span&gt; &lt;span class="err"&gt;returned&lt;/span&gt; &lt;span class="err"&gt;is&lt;/span&gt; &lt;span class="err"&gt;a&lt;/span&gt; &lt;span class="err"&gt;potential&lt;/span&gt; &lt;span class="err"&gt;error.&lt;/span&gt;
-    &lt;span class="err"&gt;cb(null)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
-  &lt;span class="nt"&gt;setUser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;req&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;res&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;tokenId&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cb&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;A&lt;/span&gt; &lt;span class="err"&gt;function&lt;/span&gt; &lt;span class="err"&gt;that&lt;/span&gt; &lt;span class="err"&gt;uses&lt;/span&gt; &lt;span class="err"&gt;req&lt;/span&gt; &lt;span class="err"&gt;and&lt;/span&gt; &lt;span class="err"&gt;res,&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;hawkId&lt;/span&gt; &lt;span class="err"&gt;when&lt;/span&gt; &lt;span class="err"&gt;they&amp;#39;re&lt;/span&gt; &lt;span class="err"&gt;known&lt;/span&gt; &lt;span class="err"&gt;so&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;that&lt;/span&gt; &lt;span class="err"&gt;it&lt;/span&gt; &lt;span class="err"&gt;can&lt;/span&gt; &lt;span class="err"&gt;tweak&lt;/span&gt; &lt;span class="err"&gt;it.&lt;/span&gt; &lt;span class="err"&gt;For&lt;/span&gt; &lt;span class="err"&gt;instance,&lt;/span&gt; &lt;span class="err"&gt;you&lt;/span&gt; &lt;span class="err"&gt;can&lt;/span&gt; &lt;span class="err"&gt;store&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt; &lt;span class="err"&gt;tokenId&lt;/span&gt; &lt;span class="err"&gt;as&lt;/span&gt; &lt;span class="err"&gt;the&lt;/span&gt;
-    &lt;span class="err"&gt;//&lt;/span&gt; &lt;span class="err"&gt;user.&lt;/span&gt;
-    &lt;span class="err"&gt;req.user&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;var&lt;/span&gt; &lt;span class="n"&gt;hawkMiddleware&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hawk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getMiddleware&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="n"&gt;hawkOptions&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{},&lt;/span&gt;
+  &lt;span class="n"&gt;getSession&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt; &lt;span class="n"&gt;token&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;First&lt;/span&gt; &lt;span class="n"&gt;argument&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;null&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;algorithm&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;sha256&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+  &lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="n"&gt;createSession&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;stores&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Argument&lt;/span&gt; &lt;span class="n"&gt;returned&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;potential&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb nb-Type"&gt;null&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="n"&gt;setUser&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;uses&lt;/span&gt; &lt;span class="n"&gt;req&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;hawkId&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;they&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;re known so&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;tweak&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tokenId&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
 
-&lt;span class="nt"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/hawk-enabled-endpoint&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;hawkMiddleware&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/hawk-enabled-endpoint&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hawkMiddleware&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you pass the createSession parameter, all non-authenticated requests
@@ -3328,12 +3328,12 @@ OPTIONS call.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;So, if you want to access the /icecream resource, and do a PUT there,
 you'll have the following flow:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;gt; OPTIONS /icecream&lt;/span&gt;
-&lt;span class="err"&gt;&amp;gt; Access-Control-Request-Methods = PUT&lt;/span&gt;
-&lt;span class="err"&gt;&amp;gt; Origin: notmyidea.org&lt;/span&gt;
-&lt;span class="err"&gt;&amp;lt; Access-Control-Allow-Origin = notmyidea.org&lt;/span&gt;
-&lt;span class="err"&gt;&amp;lt; Access-Control-Allow-Methods = PUT,GET,DELETE&lt;/span&gt;
-&lt;span class="err"&gt;200 OK&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;gt; OPTIONS /icecream
+&amp;gt; Access-Control-Request-Methods = PUT
+&amp;gt; Origin: notmyidea.org
+&amp;lt; Access-Control-Allow-Origin = notmyidea.org
+&amp;lt; Access-Control-Allow-Methods = PUT,GET,DELETE
+200 OK
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can see that we have an Origin Header in the request, as well as a
@@ -3534,18 +3534,18 @@ ailleurs, pour finalement déployer la chose chez
 un peu la bataille au départ pour installer virtualenv (j'ai du faire
 des changements dans mon PATH pour que ça puisse marcher), voici mon
 `.bash_profile`:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;export PYTHONPATH=~/modules/&lt;/span&gt;
-&lt;span class="err"&gt;export PATH=$HOME/modules/bin:$HOME/modules/:$PATH&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PYTHONPATH&lt;/span&gt;&lt;span class="o"&gt;=~/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=$&lt;/span&gt;&lt;span class="n"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et après y'a plus qu'à installer avec `easy_install`:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;easy_install --install-dir ~/modules -U pip&lt;/span&gt;
-&lt;span class="err"&gt;easy_install --install-dir ~/modules -U virtualenv&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;easy_install --install-dir ~/modules -U pip
+easy_install --install-dir ~/modules -U virtualenv
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et à créer le virtualenv:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;virtualenv venv&lt;/span&gt;
-&lt;span class="err"&gt;venv/bin/pip install -r requirements.txt&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;virtualenv venv
+venv/bin/pip install -r requirements.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Dernière étape, la création d'un fichier application.wsgi qui s'occupe
@@ -3579,9 +3579,9 @@ fois SSL et TLS activés, et SSLv2 désactivé, tout fonctionne mieux.&lt;/p&gt;
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
 séparés par des "+" :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host *+*&lt;/span&gt;
-&lt;span class="err"&gt;        ProxyCommand ssh $(echo %h | sed&lt;/span&gt;
-&lt;span class="err"&gt;&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+        ProxyCommand ssh $(echo %h | sed
+&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;h2 id="tunelling"&gt;Tunelling&lt;/h2&gt;
 &lt;p&gt;Parce que je m'en rapelle jamais (tête de linote):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ssh -f hote -L local:lolnet.org:destination -N
@@ -3591,10 +3591,10 @@ séparés par des "+" :&lt;/p&gt;
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt; !)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
 séparés par des "+" :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host *+*&lt;/span&gt;
-&lt;span class="err"&gt;        ProxyCommand ssh $(echo %h | sed&lt;/span&gt;
-&lt;span class="err"&gt;&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)&lt;/span&gt;
-&lt;span class="err"&gt;PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+        ProxyCommand ssh $(echo %h | sed
+&amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)
+PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;On peut donc spécifier des "sauts" ssh du style:&lt;/p&gt;
@@ -3602,10 +3602,10 @@ séparés par des "+" :&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ensuite on peut essayer de rajouter:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Host &amp;lt;label_pour_mon_serveur_privé&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    user &amp;lt;monuser(root)&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;&lt;/span&gt;
-&lt;span class="err"&gt;    hostname ip_serveur_publique+ip_serveur_privé&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &amp;lt;label_pour_mon_serveur_privé&amp;gt;
+    user &amp;lt;monuser(root)&amp;gt;
+    IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;
+    hostname ip_serveur_publique+ip_serveur_privé
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
 &lt;p&gt;Après avoir tenté pendant un bout de temps unity, le bureau par defaut
 de ubuntu, j'ai eu envie de changements, et j'ai donc essayé un peu de
@@ -4533,8 +4533,8 @@ passed and use it in the body of the webservice:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The output would look like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl http://127.0.0.1:5000/service?awesome=yeah&lt;/span&gt;
-&lt;span class="err"&gt;{&amp;quot;test&amp;quot;: &amp;quot;awesome yeah&amp;quot;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl http://127.0.0.1:5000/service?awesome=yeah
+{&amp;quot;test&amp;quot;: &amp;quot;awesome yeah&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id="dealing-with-accept-headers"&gt;Dealing with "Accept" headers&lt;/h2&gt;
@@ -4571,10 +4571,10 @@ list of accepted Content-Type values:&lt;/p&gt;
 &lt;p&gt;writing documentation for web services can be painful, especially when
 your services evolve. Cornice provides a sphinx directive to
 automatically document your API in your docs.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rst&lt;/span&gt;
-&lt;span class="err"&gt;.. services::&lt;/span&gt;
-&lt;span class="err"&gt;   :package: coolapp&lt;/span&gt;
-&lt;span class="err"&gt;   :service: quote&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rst
+.. services::
+   :package: coolapp
+   :service: quote
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is an example of what a generated page looks like:
@@ -5070,9 +5070,9 @@ etc. from my machine to the server.&lt;/p&gt;
 a network. So let's do it !&lt;/p&gt;
 &lt;h2 id="creating-the-jail"&gt;Creating the jail&lt;/h2&gt;
 &lt;p&gt;In case you don't use FreeBSD, you can skip this section.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# I have a flavour jail named default&lt;/span&gt;
-&lt;span class="err"&gt;$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6&lt;/span&gt;
-&lt;span class="err"&gt;$ ezjail-admin start workspace.notmyidea.org&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# I have a flavour jail named default
+$ ezjail-admin -f default workspace.notmyidea.org 172.19.1.6
+$ ezjail-admin start workspace.notmyidea.org
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In my case, because the "default" flavour contains already a lot of
@@ -5119,11 +5119,11 @@ unison .vimrc ssh://notmyidea.org:20006/.vimrc
 then to only run unison. (fire up vim \~/.unison/default.prf.&lt;/p&gt;
 &lt;p&gt;Here is my config:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="na"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/home/alexis&lt;/span&gt;
-&lt;span class="s"&gt;    root = ssh://notmyidea.org:20006&lt;/span&gt;
+    &lt;span class="na"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ssh://notmyidea.org:20006&lt;/span&gt;
 
     &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;.vimrc&lt;/span&gt;
-&lt;span class="s"&gt;    path = dotfiles&lt;/span&gt;
-&lt;span class="s"&gt;    path = dev&lt;/span&gt;
+    &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;dotfiles&lt;/span&gt;
+    &lt;span class="na"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;dev&lt;/span&gt;
 
     &lt;span class="na"&gt;follow&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Name *&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -5180,7 +5180,7 @@ some feedback from the sync:&lt;/p&gt;
 &lt;p&gt;This is probably perfectible, but that does the job.&lt;/p&gt;
 &lt;p&gt;Last step is to tell you machine to run that frequently. That's what
 crontab is made for, so let's &lt;code&gt;crontab -e&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The \~/.Xdbus allows cron to communicate with your X11 session. Here is
@@ -5437,46 +5437,46 @@ do so.&lt;/p&gt;
 &lt;p&gt;Some time ago, I've made a little python script to ease that, and you
 can now use it too. It's named "gnome-background-generator", and you can
 install it via pip for instance.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$ pip install gnome-background-generator&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;shell
+$ pip install gnome-background-generator
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, you have just to use it this way:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$ gnome-background-generator -p ~/Images/walls -s&lt;/span&gt;
-&lt;span class="err"&gt;/home/alexis/Images/walls/dynamic-wallpaper.xml generated&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;shell
+$ gnome-background-generator -p ~/Images/walls -s
+/home/alexis/Images/walls/dynamic-wallpaper.xml generated
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is a extract of the `--help`:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;shell&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="c1"&gt;--help&lt;/span&gt;
-&lt;span class="k"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="k"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;
+&lt;span class="n"&gt;usage&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
                                   &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
                                   &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="k"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;tool&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;XML&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;
-&lt;span class="n"&gt;wallpapers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="k"&gt;dynamic&lt;/span&gt; &lt;span class="n"&gt;walls&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="k"&gt;tool&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;XML&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;gnome&lt;/span&gt;
+&lt;span class="n"&gt;wallpapers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;dynamic&lt;/span&gt; &lt;span class="n"&gt;walls&lt;/span&gt;
 
 &lt;span class="n"&gt;optional&lt;/span&gt; &lt;span class="n"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--help            show this help message and exit&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--path PATH  Path to look for the pictures. If no output is&lt;/span&gt;
-                        &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;too&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;outputing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
-                        &lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;Default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;current&lt;/span&gt;
-                        &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="p"&gt;(.)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="k"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--output OUTPUT&lt;/span&gt;
-                        &lt;span class="k"&gt;Output&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="k"&gt;no&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-                        &lt;span class="k"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="k"&gt;generated&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
-                        &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt;
-                        &lt;span class="n"&gt;display&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--transition-time TRANSITION_TIME&lt;/span&gt;
-                        &lt;span class="k"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;transitions&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="k"&gt;last&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;            &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;exit&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;  &lt;span class="n"&gt;Path&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;look&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt;
+                        &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;too&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;outputing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+                        &lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt;
+                        &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt; &lt;span class="n"&gt;OUTPUT&lt;/span&gt;
+                        &lt;span class="n"&gt;Output&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+                        &lt;span class="n"&gt;dynamic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wallpaper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;generated&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
+                        &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="n"&gt;containing&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pictures&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;
+                        &lt;span class="n"&gt;display&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;transition&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;TRANSITION_TIME&lt;/span&gt;
+                        &lt;span class="n"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;transitions&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
                         &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--display-time DISPLAY_TIME&lt;/span&gt;
-                        &lt;span class="k"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;displayed&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;Default&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt; &lt;span class="n"&gt;DISPLAY_TIME&lt;/span&gt;
+                        &lt;span class="n"&gt;Time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;picture&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;displayed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Default&lt;/span&gt;
                         &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="n"&gt;mn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--set-background  &amp;#39;&amp;#39;&amp;#39;try to set the background using gnome-appearance-&lt;/span&gt;
-                        &lt;span class="n"&gt;properties&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;--debug&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;  &lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;try to set the background using gnome-appearance-&lt;/span&gt;
+&lt;span class="s1"&gt;                        properties&lt;/span&gt;
+&lt;span class="s1"&gt;  -b, --debug&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
@@ -5491,10 +5491,10 @@ install it via pip for instance.&lt;/p&gt;
 &lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
 but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;ports&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# update the ports
+$ portsnap fetch update
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;php5&lt;/span&gt; &lt;span class="n"&gt;port …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
+# install php5 port …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;
@@ -5508,16 +5508,16 @@ but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
 &lt;p&gt;I've not managed so far to get completely rid of php, so here's a simple
 reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
 but that's worse to have the piece of configuration somewhere !&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;ports&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;portsnap&lt;/span&gt; &lt;span class="k"&gt;fetch&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;# update the ports
+$ portsnap fetch update
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;php5&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;php5&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extensions&lt;/span&gt;
+# install php5 port
+$ make config-recursive -C /usr/ports/lang/php5-extensions
+$ make package-recursive -C /usr/ports/lang/php5-extensions
 
-&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;devel&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;recursive&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ports&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;devel&lt;/span&gt;
+# install nginx
+$ make config-recursive -C /usr/ports/www/nginx-devel
+$ make package-recursive -C /usr/ports/www/nginx-devel
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now we have all the dependencies installed, we need to configure a bit
@@ -5609,7 +5609,7 @@ optional arguments:
                         will uses the ones included with pelican.
   -o OUTPUT, --output OUTPUT
                         Where to output the generated files. If not specified,
-                        a directory will be created, named &lt;span class="s2"&gt;&amp;quot;output&amp;quot;&lt;/span&gt; in the
+                        a directory will be created, named &lt;span class="s2"&gt;&amp;quot;output&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; the
                         current path.
   -m MARKUP, --markup MARKUP
                         the markup language to use. Currently only
@@ -5994,7 +5994,7 @@ source&lt;/a&gt;,
 &lt;a href="http://files.lolnet.org/alexis/rst-presentations/slides.style"&gt;the theme
 used&lt;/a&gt;,
 and the command line to generate the PDF:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;rst2pdf couchdb.rst -b1 -s ../slides.style&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rst2pdf couchdb.rst -b1 -s ../slides.style
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Technologie"></category></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;As I've been working on &lt;a href="http://hg.python.org/distutils2/"&gt;Distutils2&lt;/a&gt;
 during the past week, taking part of the
