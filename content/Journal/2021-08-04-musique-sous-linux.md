@@ -1,6 +1,6 @@
 # Faire de la musique sous Linux
 
-Faire de la musique assistée par ordinateur à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser [Ableton Live](https://www.ableton.com/en/live/), un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.
+Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser [Ableton Live](https://www.ableton.com/en/live/), un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.
 
 C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai [fait quelques morceaux](https://soundcloud.com/the-lost-triangle/) et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils *mainstrem*, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.
 
