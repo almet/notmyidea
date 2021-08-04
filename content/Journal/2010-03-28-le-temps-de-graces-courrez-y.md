@@ -2,7 +2,7 @@
 
 Ouf, notre [semaine de l'environnement](http://www.reseaugrappe.org)
 s'est terminée, après un peu de neige et un brin de soleil quand il en
-fallait.
+fallait !
 
 Ce fut l'occasion de rencontrer beaucoup de gens biens, et de regarder
 d'un peu plus près toutes ces problématiques qui mériteraient à elles
