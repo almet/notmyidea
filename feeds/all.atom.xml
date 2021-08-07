@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2021-08-04T00:00:00+02:00</updated><entry><title>Faire de la musique sous Linux</title><link href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="alternate"></link><published>2021-08-04T00:00:00+02:00</published><updated>2021-08-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-08-04:/faire-de-la-musique-sous-linux.html</id><summary type="html">
-&lt;p&gt;Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;&lt;em&gt;Update du 07/08 : ajout des infos sur le noyau temps réel&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;&lt;em&gt;Update du 07/08 : ajout des infos sur le noyau temps réel&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser &lt;a href="https://www.ableton.com/en/live/"&gt;Ableton Live&lt;/a&gt;, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.&lt;/p&gt;
 &lt;p&gt;C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai &lt;a href="https://soundcloud.com/the-lost-triangle/"&gt;fait quelques morceaux&lt;/a&gt; et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils &lt;em&gt;mainstrem&lt;/em&gt;, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.&lt;/p&gt;
 &lt;p&gt;Et puis, &lt;a href="https://yohanboniface.me/"&gt;Yohan&lt;/a&gt; m'a parlé de &lt;a href="https://www.bitwig.com/"&gt;Bitwig&lt;/a&gt;, un logiciel de type « Digital Audio Workstation » (DAW) qui tourne nativement sous Linux, et après une petite scéance de test j'ai eu envie de creuser un peu le sujet de l'audio sous Linux.&lt;/p&gt;
 &lt;p&gt;L'occasion donc d'installer une station musicale sous Linux (j'utilise &lt;a href="https://archlinux.org/"&gt;Arch Linux&lt;/a&gt;). Ça marche plutôt bien, ce n'est pas trop long à mettre en place (une fois qu'on sait quoi faire), même si ça reste moins simple que sous Windows. Je suis très content du résultat !&lt;/p&gt;
 &lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
-&lt;p&gt;Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que &lt;a href="https://manjaro.org/"&gt;Manjaro&lt;/a&gt; (un dérivé d'Arch) en propose un.&lt;/p&gt;
-&lt;p&gt;Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.&lt;/p&gt;
+&lt;p&gt;Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit intimidant. Si vous voulez avoir un installeur graphique, il me semble que &lt;a href="https://manjaro.org/"&gt;Manjaro&lt;/a&gt; (un dérivé d'Arch) en propose un.&lt;/p&gt;
+&lt;h3 id="configuration-du-noyau-linux"&gt;Configuration du noyau Linux&lt;/h3&gt;
+&lt;p&gt;Ça me paraissait compliqué, et pourtant c'était très simple ! J'ai utilisé le noyau « linux-zen » avec quelques options spécifiques « threadirqs » et le mode « performance » pour les processeurs.&lt;/p&gt;
 &lt;p&gt;J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo pacman -S realtime-privileges
+sudo gpasswd -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; realtime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;yay linux-zen
+yay rtirq
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Édition de &lt;code&gt;/etc/default/grub&lt;/code&gt; pour utiliser threadirqs et passer le scheduling du processeur en « performance ».&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;loglevel=3 quiet threadirqs cpufreq.default_governor=performance&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Regénérer la configuration de grub&lt;/span&gt;
+grub-mkconfig -o /boot/grub/grub.cfg
+
+&lt;span class="c1"&gt;# S&amp;#39;assurer que « fsync » soit bien utilisé par wine.&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;export WINEFSYNC=1&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.profile
+
+&lt;span class="c1"&gt;# Ajout au groupe audio&lt;/span&gt;
 sudo gpasswd -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; realtime
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -61,7 +82,14 @@ wine Kontakt&lt;span class="se"&gt;\_&lt;/span&gt;patch&lt;span class="se"&gt;\_
 &lt;li&gt;Les instruments de chez &lt;a href="https://tal-software.com/"&gt;TAL&lt;/a&gt;. J'utilise &lt;a href="https://tal-software.com/products/tal-mod"&gt;TAL-Mod&lt;/a&gt; pour faire des bonnes grosses basses&lt;/li&gt;
 &lt;li&gt;Ceux de chez &lt;a href="https://u-he.com/products/"&gt;U-he&lt;/a&gt;. J'utilise &lt;a href="https://u-he.com/products/bazille/"&gt;Bazille&lt;/a&gt;, un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Une grosse liste est présente sur &lt;a href="http://linux-sound.org/linux-vst-plugins.html"&gt;Linux Sound&lt;/a&gt; si vous voulez creuser :-)&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Vaccination et risques</title><link href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="alternate"></link><published>2021-05-08T00:00:00+02:00</published><updated>2021-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-05-08:/vaccination-et-risques.html</id><summary type="html">
+&lt;p&gt;Une grosse liste est présente sur &lt;a href="http://linux-sound.org/linux-vst-plugins.html"&gt;Linux Sound&lt;/a&gt; si vous voulez creuser :-)&lt;/p&gt;
+&lt;h2 id="configuration-pour-du-temps-reel"&gt;Configuration pour du temps réel&lt;/h2&gt;
+&lt;p&gt;Edititon du 7/08 : j'ai pu jouer un peu depuis, et je me suis rendu compte que j'avais quelques glitches audio quand j'utilisais wine. J'ai donc fait quelques changements supplémentaires.&lt;/p&gt;
+&lt;p&gt;Ressources :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/robbert-vdh/yabridge#performance-tuning"&gt;Le wiki de yabridge sur le tuning perfomance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raboof/realtimeconfigquickscan"&gt;Un outil pour faire un scan des problèmes de perf connus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Journal"></category></entry><entry><title>Vaccination et risques</title><link href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="alternate"></link><published>2021-05-08T00:00:00+02:00</published><updated>2021-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2021-05-08:/vaccination-et-risques.html</id><summary type="html">
 &lt;p&gt;Je m'intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés.&lt;/p&gt;
 &lt;p&gt;Cette réflexion n'est en aucun cas pro- ou anti- vaccin, mais cherche simplement à essayer de comprendre et faire un petit tour d'horizon des critiques …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Je m'intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés.&lt;/p&gt;

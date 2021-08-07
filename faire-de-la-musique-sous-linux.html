@@ -27,15 +27,35 @@
 </header>
 <article>
     
+<p><em>Update du 07/08 : ajout des infos sur le noyau temps réel</em></p>
 <p>Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser <a href="https://www.ableton.com/en/live/">Ableton Live</a>, un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.</p>
 <p>C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai <a href="https://soundcloud.com/the-lost-triangle/">fait quelques morceaux</a> et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils <em>mainstrem</em>, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.</p>
 <p>Et puis, <a href="https://yohanboniface.me/">Yohan</a> m'a parlé de <a href="https://www.bitwig.com/">Bitwig</a>, un logiciel de type « Digital Audio Workstation » (DAW) qui tourne nativement sous Linux, et après une petite scéance de test j'ai eu envie de creuser un peu le sujet de l'audio sous Linux.</p>
 <p>L'occasion donc d'installer une station musicale sous Linux (j'utilise <a href="https://archlinux.org/">Arch Linux</a>). Ça marche plutôt bien, ce n'est pas trop long à mettre en place (une fois qu'on sait quoi faire), même si ça reste moins simple que sous Windows. Je suis très content du résultat !</p>
 <h2 id="configuration">Configuration</h2>
-<p>Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que <a href="https://manjaro.org/">Manjaro</a> (un dérivé d'Arch) en propose un.</p>
-<p>Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.</p>
+<p>Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit intimidant. Si vous voulez avoir un installeur graphique, il me semble que <a href="https://manjaro.org/">Manjaro</a> (un dérivé d'Arch) en propose un.</p>
+<h3 id="configuration-du-noyau-linux">Configuration du noyau Linux</h3>
+<p>Ça me paraissait compliqué, et pourtant c'était très simple ! J'ai utilisé le noyau « linux-zen » avec quelques options spécifiques « threadirqs » et le mode « performance » pour les processeurs.</p>
 <p>J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.</p>
 <div class="highlight"><pre><span></span><code>sudo pacman -S realtime-privileges
+sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> realtime
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>yay linux-zen
+yay rtirq
+</code></pre></div>
+
+<p>Édition de <code>/etc/default/grub</code> pour utiliser threadirqs et passer le scheduling du processeur en « performance ».</p>
+<div class="highlight"><pre><span></span><code><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;loglevel=3 quiet threadirqs cpufreq.default_governor=performance&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Regénérer la configuration de grub</span>
+grub-mkconfig -o /boot/grub/grub.cfg
+
+<span class="c1"># S&#39;assurer que « fsync » soit bien utilisé par wine.</span>
+<span class="nb">echo</span> <span class="s2">&quot;export WINEFSYNC=1&quot;</span> &gt;&gt; ~/.profile
+
+<span class="c1"># Ajout au groupe audio</span>
 sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> realtime
 </code></pre></div>
 
@@ -88,6 +108,13 @@ wine Kontakt<span class="se">\_</span>patch<span class="se">\_</span>installer<s
 <li>Ceux de chez <a href="https://u-he.com/products/">U-he</a>. J'utilise <a href="https://u-he.com/products/bazille/">Bazille</a>, un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)</li>
 </ul>
 <p>Une grosse liste est présente sur <a href="http://linux-sound.org/linux-vst-plugins.html">Linux Sound</a> si vous voulez creuser :-)</p>
+<h2 id="configuration-pour-du-temps-reel">Configuration pour du temps réel</h2>
+<p>Edititon du 7/08 : j'ai pu jouer un peu depuis, et je me suis rendu compte que j'avais quelques glitches audio quand j'utilisais wine. J'ai donc fait quelques changements supplémentaires.</p>
+<p>Ressources :</p>
+<ul>
+<li><a href="https://github.com/robbert-vdh/yabridge#performance-tuning">Le wiki de yabridge sur le tuning perfomance</a></li>
+<li><a href="https://github.com/raboof/realtimeconfigquickscan">Un outil pour faire un scan des problèmes de perf connus</a></li>
+</ul>
 </article>
 
 </body>
