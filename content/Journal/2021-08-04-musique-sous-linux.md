@@ -1,5 +1,7 @@
 # Faire de la musique sous Linux
 
+*Update du 07/08 : ajout des infos sur le noyau temps réel*
+
 Faire de la musique electronique à été pour moi l'occasion de réinstaller Windows pour pouvoir utiliser [Ableton Live](https://www.ableton.com/en/live/), un des logiciels les plus utilisés dans le domaine. J'étais content de passer du temps à faire de la musique plutôt que du temps à faire tomber les choses en marche, même si mon éthique n'était pas tout à fait d'accord.
 
 C'est un choix que je ne regrette pas : je me suis vraiment amusé, j'ai [fait quelques morceaux](https://soundcloud.com/the-lost-triangle/) et j'ai pu goûter au plaisir du truc. Un des avantages d'apprendre en utilisant des outils *mainstrem*, c'est qu'il y a beaucoup de ressources disponibles (tutoriels vidéo, ami⋅es), ce qui m'a beaucoup facilité la tache dans la découverte du domaine.
@@ -10,14 +12,38 @@ L'occasion donc d'installer une station musicale sous Linux (j'utilise [Arch Lin
 
 ## Configuration
 
-Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit indimidant. Si vous voulez avoir un installeur graphique, il me semble que [Manjaro](https://manjaro.org/) (un dérivé d'Arch) en propose un.
+Installer Arch n'est pas très compliqué, mais passe par de la ligne de commande, c'était l'occasion de réviser un peu mes classiques, mais je peux comprendre que ce soit intimidant. Si vous voulez avoir un installeur graphique, il me semble que [Manjaro](https://manjaro.org/) (un dérivé d'Arch) en propose un.
 
-Je n'ai pas encore pris le temps de regarder les noyaux Linux alternatifs (zen-linux par exemple), et ça ne me pose pas de soucis de latence audio pour le moment.
+### Configuration du noyau Linux
+
+Ça me paraissait compliqué, et pourtant c'était très simple ! J'ai utilisé le noyau « linux-zen » avec quelques options spécifiques « threadirqs » et le mode « performance » pour les processeurs.
 
 J'ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l'audio : sans ça le plugin VST « Kontakt » plantait directement au lancement.
 
 ```bash
 sudo pacman -S realtime-privileges
+sudo gpasswd -a "$USER" realtime
+```
+
+```bash
+yay linux-zen
+yay rtirq
+```
+
+Édition de `/etc/default/grub` pour utiliser threadirqs et passer le scheduling du processeur en « performance ».
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet threadirqs cpufreq.default_governor=performance"
+```
+
+```bash
+# Regénérer la configuration de grub
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# S'assurer que « fsync » soit bien utilisé par wine.
+echo "export WINEFSYNC=1" >> ~/.profile
+
+# Ajout au groupe audio
 sudo gpasswd -a "$USER" realtime
 ```
 
@@ -93,3 +119,12 @@ J'utilise quelques VST payants également. Ceux que j'utilise actuellement, et q
 - Ceux de chez [U-he](https://u-he.com/products/). J'utilise [Bazille](https://u-he.com/products/bazille/), un Synthé modulaire polyphonique avec des oscillateurs numériques et de la FM)
 
 Une grosse liste est présente sur [Linux Sound](http://linux-sound.org/linux-vst-plugins.html) si vous voulez creuser :-)
+
+## Configuration pour du temps réel
+
+Edititon du 7/08 : j'ai pu jouer un peu depuis, et je me suis rendu compte que j'avais quelques glitches audio quand j'utilisais wine. J'ai donc fait quelques changements supplémentaires.
+
+Ressources :
+
+- [Le wiki de yabridge sur le tuning perfomance](https://github.com/robbert-vdh/yabridge#performance-tuning)
+- [Un outil pour faire un scan des problèmes de perf connus](https://github.com/raboof/realtimeconfigquickscan)
