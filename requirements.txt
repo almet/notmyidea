@@ -1,3 +1,4 @@
 pelican
 markdown
 datefinder
+typogrify

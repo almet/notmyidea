@@ -24,3 +24,4 @@ PLUGINS = [
 
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
+TYPOGRIFY = True
