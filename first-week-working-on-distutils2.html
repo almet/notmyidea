@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>first week working on distutils2 - Alexis Métaireau</title>
+        <title>first week working on&nbsp;distutils2 - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,71 +20,69 @@
 
 
 <header>
-	<h1 class="post-title">first week working on distutils2</h1>
+	<h1 class="post-title">first week working on&nbsp;distutils2</h1>
 	<time datetime="2010-06-04T00:00:00+02:00">04 juin 2010</time>
 
     
 </header>
 <article>
     
-<p>As I've been working on <a href="http://hg.python.org/distutils2/">Distutils2</a>
+<p>As I&#8217;ve been working on <a href="http://hg.python.org/distutils2/">Distutils2</a>
 during the past week, taking part of the
-<a href="http://code.google.com/intl/fr/soc/">GSOC</a> program, here is a short
-summary of what I've done so far.</p>
-<p>As my courses are not over yet, I've not worked as much as I wanted, and
+<a href="http://code.google.com/intl/fr/soc/"><span class="caps">GSOC</span></a> program, here is a short
+summary of what I&#8217;ve done so&nbsp;far.</p>
+<p>As my courses are not over yet, I&#8217;ve not worked as much as I wanted, and
 this will continues until the end of June. My main tasks are about
 making installation and uninstallation commands, to have a simple way to
 install distributions via
 <a href="http://hg.python.org/distutils2/">Distutils2</a>.</p>
 <p>To do this, we need to rely on informations provided by the Python
 Package Index (<a href="http://pypi.python.org/">PyPI</a>), and there is at least
-two ways to retreive informations from here: XML-RPC and the "simple"
-API.</p>
-<p>So, I've been working on porting some
+two ways to retreive informations from here: <span class="caps">XML</span>-<span class="caps">RPC</span> and the &#8220;simple&#8221;
+<span class="caps">API</span>.</p>
+<p>So, I&#8217;ve been working on porting some
 <a href="http://bitbucket.org/tarek/distribute/">Distribute</a> related stuff to
 <a href="http://hg.python.org/distutils2/">Distutils2</a>, cutting off all non
-distutils' things, as we do not want to depend from Distribute's
+distutils&#8217; things, as we do not want to depend from Distribute&#8217;s
 internals. My main work has been about reading the whole code, writing
-tests about this and making those tests possible.</p>
+tests about this and making those tests&nbsp;possible.</p>
 <p>In fact, there was a need of a pypi mocked server, and, after reading
-and introducing myself to the distutils behaviors and code, I've taken
+and introducing myself to the distutils behaviors and code, I&#8217;ve taken
 some time to improve the work <a href="http://bitbucket.org/konrad">Konrad</a>
-makes about this mock.</p>
-<h2 id="a-pypi-server-mock">A PyPI Server mock</h2>
+makes about this&nbsp;mock.</p>
+<h2 id="a-pypi-server-mock">A PyPI Server&nbsp;mock</h2>
 <p>The mock is embeded in a thread, to make it available during the tests,
-in a non blocking way. We first used <a href="http://wsgi.org">WSGI</a> and
+in a non blocking way. We first used <a href="http://wsgi.org"><span class="caps">WSGI</span></a> and
 <a href="http://docs.python.org/library/wsgiref.html">wsgiref</a> in order control
 what to serve, and to log the requests made to the server, but finally
 realised that <a href="http://docs.python.org/library/wsgiref.html">wsgiref</a> is
-not python 2.4 compatible (and we <em>need</em> to be python 2.4 compatible in
-Distutils2).</p>
+not python 2.4 compatible (and we <em>need</em> to be python 2.4 compatible in&nbsp;Distutils2).</p>
 <p>So, we switched to
 <a href="http://docs.python.org/library/basehttpserver.html">BaseHTTPServer</a> and
 <a href="http://docs.python.org/library/simplehttpserver.html">SimpleHTTPServer</a>,
-and updated our tests accordingly. It's been an opportunity to realize
-that <a href="http://wsgi.org">WSGI</a> has been a great step forward for making
-HTTP servers, and expose a really simplest way to discuss with HTTP !</p>
+and updated our tests accordingly. It&#8217;s been an opportunity to realize
+that <a href="http://wsgi.org"><span class="caps">WSGI</span></a> has been a great step forward for making
+<span class="caps">HTTP</span> servers, and expose a really simplest way to discuss with <span class="caps">HTTP</span>&nbsp;!</p>
 <p>You can find <a href="http://bitbucket.org/ametaireau/distutils2/changesets">the modifications I
 made</a>, and the
 <a href="http://bitbucket.org/ametaireau/distutils2/src/tip/docs/source/test_framework.rst">related
 docs</a>
 about this on <a href="http://bitbucket.org/ametaireau/distutils2/">my bitbucket distutils2
 clone</a>.</p>
-<h2 id="the-pypi-simple-api">The PyPI Simple API</h2>
+<h2 id="the-pypi-simple-api">The PyPI Simple <span class="caps">API</span></h2>
 <p>So, back to the main problematic: make a python library to access and
-request information stored on PyPI, via the simple API. As I said, I've
+request information stored on PyPI, via the simple <span class="caps">API</span>. As I said, I&#8217;ve
 just grabbed the work made from
 <a href="http://bitbucket.org/tarek/distribute/">Distribute</a>, and played a bit
 with, in order to view what are the different use cases, and started to
-write the related tests.</p>
-<h2 id="the-work-to-come">The work to come</h2>
-<p>So, once all use cases covered with tests, I'll rewrite a bit the
+write the related&nbsp;tests.</p>
+<h2 id="the-work-to-come">The work to&nbsp;come</h2>
+<p>So, once all use cases covered with tests, I&#8217;ll rewrite a bit the
 grabbed code, and do some software design work (to not expose all things
-as privates methods, have a clear API, and other things like this), then
-update the tests accordingly and write a documentation to make this
-clear.</p>
-<p>Next step is to a little client, as I've <a href="http://github.com/ametaireau/pypiclient">already started
-here</a> I'll take you updated !</p>
+as privates methods, have a clear <span class="caps">API</span>, and other things like this), then
+update the tests accordingly and write a documentation to make this&nbsp;clear.</p>
+<p>Next step is to a little client, as I&#8217;ve <a href="http://github.com/ametaireau/pypiclient">already started
+here</a> I&#8217;ll take you updated&nbsp;!</p>
 </article>
 
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>PyconFR 2015 — SQL Alchemy - Alexis Métaireau</title>
+        <title>PyconFR 2015 — <span class="caps">SQL</span>&nbsp;Alchemy - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">PyconFR 2015 — SQL Alchemy</h1>
+	<h1 class="post-title">PyconFR 2015 — <span class="caps">SQL</span>&nbsp;Alchemy</h1>
 	<time datetime="2015-10-17T00:00:00+02:00">17 octobre 2015</time>
 
     
@@ -28,48 +28,46 @@
 <article>
     <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
-à les completer si besoin.</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N&#8217;hésitez pas
+à les completer si&nbsp;besoin.</p>
 </div>
-<p>Speaker: David Allouche</p>
-<p>SQL Alchemy vous permet de produire le SQL que vous voulez. Il faut que vous
-souhaitiez comprendre ce que va etre produit.</p>
+<p>Speaker: David&nbsp;Allouche</p>
+<p><span class="caps">SQL</span> Alchemy vous permet de produire le <span class="caps">SQL</span> que vous voulez. Il faut que vous
+souhaitiez comprendre ce que va etre&nbsp;produit.</p>
 <p>Déclaratif:</p>
 <ul class="simple">
 <li>On créé des classes qui representent nos tables, et les liaisons entre les
-tables, en utilisant <cite>relationship</cite> (qui à énormement d'attributs).</li>
-<li>On définit quelles osnt les clés étrangères entre les tables.</li>
-<li>Puis on va définir les attributs qui sont liés entre les tables
-(relationship).</li>
-<li>Pour définir des relations entre les Tables, il est possible d'utiliser des
-chaines de caractère <cite>relationship('OtherTable')</cite>.</li>
-<li>La session es tun concept important.</li>
+tables, en utilisant <cite>relationship</cite> (qui à énormement&nbsp;d&#8217;attributs).</li>
+<li>On définit quelles osnt les clés étrangères entre les&nbsp;tables.</li>
+<li>Puis on va définir les attributs qui sont liés entre les tables&nbsp;(relationship).</li>
+<li>Pour définir des relations entre les Tables, il est possible d&#8217;utiliser des
+chaines de caractère <cite>relationship(&#8216;OtherTable&#8217;)</cite>.</li>
+<li>La session es tun concept&nbsp;important.</li>
 <li>Lire efficacement. Attention à ne pas faire énormement de requetes avec
-L'ORM.</li>
+L&#8217;<span class="caps">ORM</span>.</li>
 </ul>
-<p><strong>Performance SQL</strong></p>
+<p><strong>Performance <span class="caps">SQL</span></strong></p>
 <ul class="simple">
-<li>Générer le SQL (python)</li>
-<li>Ne pas faire énormement de petites requetes.</li>
+<li>Générer le <span class="caps">SQL</span>&nbsp;(python)</li>
+<li>Ne pas faire énormement de petites&nbsp;requetes.</li>
 </ul>
 <p>Il est possible de demander à la session de charger les données qui sont
 associées. (avec un joinedload). Par defaut, cela risque de charger
-l'ensemble des colonnes.</p>
+l&#8217;ensemble des&nbsp;colonnes.</p>
 <p>Pour la générer avec SQLAlchemy, il est possible de faire un
 <cite>.query(Table).join(Table).join(Table2).filter_by(field=value)</cite></p>
-<p>En pratique, le mieux est de lister clairemnet le nom des tables</p>
-<p>2ème partie:</p>
-<p>Pour de l'import de données,</p>
+<p>En pratique, le mieux est de lister clairemnet le nom des&nbsp;tables</p>
+<p>2ème&nbsp;partie:</p>
+<p>Pour de l&#8217;import de&nbsp;données,</p>
 <ul class="simple">
-<li>first() fait une requete SQL. A éviter dans les boucles</li>
-<li>session.flush() c'est quand la session écrit en base tout ce qui est en cours
-dans la transaction. Par default, la session fait un flush avant chaque
-requete.</li>
+<li>first() fait une requete <span class="caps">SQL</span>. A éviter dans les&nbsp;boucles</li>
+<li>session.flush() c&#8217;est quand la session écrit en base tout ce qui est en cours
+dans la transaction. Par default, la session fait un flush avant chaque&nbsp;requete.</li>
 <li>une option backçpopulates mets à jour la liste des documents associés à une
 table qui à une foreign key.
 backref modifie implicitement la classe associée. Il est recommandé
-d'utiliser <cite>back_populates</cite> et non pas <cite>backref</cite>.</li>
-<li><cite>subqueryload</cite> permet de générer une requete séparée plutôt qu'une jointure.</li>
+d&#8217;utiliser <cite>back_populates</cite> et non pas <cite>backref</cite>.</li>
+<li><cite>subqueryload</cite> permet de générer une requete séparée plutôt qu&#8217;une&nbsp;jointure.</li>
 </ul>
 
 </article>

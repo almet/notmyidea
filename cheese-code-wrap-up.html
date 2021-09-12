@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Cheese &amp; code - Wrap-up - Alexis Métaireau</title>
+        <title>Cheese <span class="amp">&amp;</span> code -&nbsp;Wrap-up - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,51 +20,51 @@
 
 
 <header>
-	<h1 class="post-title">Cheese &amp; code - Wrap-up</h1>
+	<h1 class="post-title">Cheese <span class="amp">&amp;</span> code -&nbsp;Wrap-up</h1>
 	<time datetime="2012-10-22T00:00:00+02:00">22 octobre 2012</time>
 
     
 </header>
 <article>
     
-<p>This week-end I hosted a <em>cheese &amp; code</em> session in the country-side of
-Angers, France.</p>
+<p>This week-end I hosted a <em>cheese <span class="amp">&amp;</span> code</em> session in the country-side of
+Angers,&nbsp;France.</p>
 <p>We were a bunch of python hackers and it rained a lot, wich forced us to
-stay inside and to code. Bad.</p>
+stay inside and to code.&nbsp;Bad.</p>
 <p>We were not enough to get rid of all the cheese and the awesome meals,
-but well, we finally managed it pretty well.</p>
-<p>Here is a summary of what we worked on:</p>
+but well, we finally managed it pretty&nbsp;well.</p>
+<p>Here is a summary of what we worked&nbsp;on:</p>
 <h2 id="daybed">Daybed</h2>
 <p>Daybed started some time ago, and intend to be a replacement to google
-forms, in term of features, but backed as a REST web service, in python,
-and open source.</p>
+forms, in term of features, but backed as a <span class="caps">REST</span> web service, in python,
+and open&nbsp;source.</p>
 <p>In case you wonder, daybed is effectively the name of a couch. We chose
 this name because of the similarities (in the sound) with <strong>db</strong>, and
-because we're using <strong>CouchDB</strong> as a backend.</p>
+because we&#8217;re using <strong>CouchDB</strong> as a&nbsp;backend.</p>
 <p><img alt="Daybed is a big couch!" src="images/daybed.jpg"></p>
 <p>We mainly hacked on daybed and are pretty close to the release of the
-first version, meaning that we have something working.</p>
+first version, meaning that we have something&nbsp;working.</p>
 <p><a href="http://github.com/spiral-project/daybed">The code</a> is available on
 github, and we also wrote <a href="http://daybed.rtfd.org">a small
-documentation</a> for it.</p>
+documentation</a> for&nbsp;it.</p>
 <p>Mainly, we did a lot of cleanup, rewrote a bunch of tests so that it
 would be easier to continue to work on the project, and implemented some
-minor features. I'm pretty confidend that we now have really good basis
-for this project.</p>
+minor features. I&#8217;m pretty confidend that we now have really good basis
+for this&nbsp;project.</p>
 <p>Also, we will have a nice todolist application, with the backend <strong>and</strong>
-the frontend, in javascript / html / css, you'll know more when it'll be
-ready :-)</p>
-<p>Once we have something good enough, we'll release the first version and
-I'll host it somewhere so that people can play with it.</p>
+the frontend, in javascript / html / css, you&#8217;ll know more when it&#8217;ll be
+ready&nbsp;:-)</p>
+<p>Once we have something good enough, we&#8217;ll release the first version and
+I&#8217;ll host it somewhere so that people can play with&nbsp;it.</p>
 <h2 id="cornice">Cornice</h2>
 <p>Daybed is built on top of <a href="http://cornice.rtfd.org">Cornice</a>, a
-framework to ease the creation of web-services.</p>
+framework to ease the creation of&nbsp;web-services.</p>
 <p>At Pycon France, we had the opportunity to attend a good presentation
-about <a href="https://github.com/SPORE/specifications">SPORE</a>. SPORE is a way
-to describe your REST web services, as WSDL is for WS-* services. This
-allows to ease the creation of generic SPORE clients, which are able to
-consume any REST API with a SPORE endpoint.</p>
-<p>Here is how you can let cornice describe your web service for you</p>
+about <a href="https://github.com/SPORE/specifications"><span class="caps">SPORE</span></a>. <span class="caps">SPORE</span> is a way
+to describe your <span class="caps">REST</span> web services, as <span class="caps">WSDL</span> is for <span class="caps">WS</span>-* services. This
+allows to ease the creation of generic <span class="caps">SPORE</span> clients, which are able to
+consume any <span class="caps">REST</span> <span class="caps">API</span> with a <span class="caps">SPORE</span>&nbsp;endpoint.</p>
+<p>Here is how you can let cornice describe your web service for&nbsp;you</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">cornice.ext.spore</span> <span class="kn">import</span> <span class="n">generate_spore_description</span>
 <span class="kn">from</span> <span class="nn">cornice.service</span> <span class="kn">import</span> <span class="n">Service</span><span class="p">,</span> <span class="n">get_services</span>
 
@@ -76,30 +76,28 @@ consume any REST API with a SPORE endpoint.</p>
                                       <span class="n">request</span><span class="o">.</span><span class="n">application_url</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>And you'll get a definition of your service, in SPORE, available at
-/spore.</p>
+<p>And you&#8217;ll get a definition of your service, in <span class="caps">SPORE</span>, available at&nbsp;/spore.</p>
 <p>Of course, you can use it to do other things, like generating the file
-locally and exporting it wherever it makes sense to you, etc.</p>
+locally and exporting it wherever it makes sense to you,&nbsp;etc.</p>
 <p>I released today <a href="http://crate.io/packages/cornice/">Cornice 0.11</a>,
-which adds into other things the support for SPORE, plus some other
-fixes we found on our way.</p>
+which adds into other things the support for <span class="caps">SPORE</span>, plus some other
+fixes we found on our&nbsp;way.</p>
 <h2 id="respire">Respire</h2>
 <p>Once you have the description of the service, you can do generic clients
-consuming them!</p>
+consuming&nbsp;them!</p>
 <p>We first wanted to contribute to <a href="https://github.com/bl0b/spyre">spyre</a>
-but it was written in a way that wasn't supporting to POST data, and
-they were using their own stack to handle HTTP. A lot of code that
-already exists in other libraries.</p>
+but it was written in a way that wasn&#8217;t supporting to <span class="caps">POST</span> data, and
+they were using their own stack to handle <span class="caps">HTTP</span>. A lot of code that
+already exists in other&nbsp;libraries.</p>
 <p>While waiting the train with <a href="http://natim.ionyse.com/">Rémy</a>, we hacked
-something together, named "Respire", a thin layer on top of the awesome
-<a href="http://python-requests.org">Requests</a> library.</p>
+something together, named &#8220;Respire&#8221;, a thin layer on top of the awesome
+<a href="http://python-requests.org">Requests</a>&nbsp;library.</p>
 <p>We have a first version, feel free to have a look at it and provide
-enhancements if you feel like it. We're still hacking on it so it may
-break (for the better), but that had been working pretty well for us so
-far.</p>
+enhancements if you feel like it. We&#8217;re still hacking on it so it may
+break (for the better), but that had been working pretty well for us so&nbsp;far.</p>
 <p>You can <a href="http://github.com/spiral-project/respire">find the project on
 github</a>, but here is how to
-use it, really quickly (these examples are how to interact with daybed)</p>
+use it, really quickly (these examples are how to interact with&nbsp;daybed)</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">respire</span> <span class="kn">import</span> <span class="n">client_from_url</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="c1"># create the client from the SPORE definition</span>
@@ -132,8 +130,8 @@ use it, really quickly (these examples are how to interact with daybed)</p>
 </code></pre></div>
 
 <p>Finally, we were out of cheese so everyone headed back to their
-respective houses and cities.</p>
-<p>Until next time?</p>
+respective houses and&nbsp;cities.</p>
+<p>Until next&nbsp;time?</p>
 </article>
 
 </body>

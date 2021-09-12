@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Using JPype to bridge python and Java - Alexis Métaireau</title>
+        <title>Using JPype to bridge python and&nbsp;Java - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Using JPype to bridge python and Java</h1>
+	<h1 class="post-title">Using JPype to bridge python and&nbsp;Java</h1>
 	<time datetime="2011-06-11T00:00:00+02:00">11 juin 2011</time>
 
     
@@ -29,20 +29,20 @@
     
 <p>Java provides some interesting libraries that have no exact equivalent
 in python. In my case, the awesome boilerpipe library allows me to
-remove uninteresting parts of HTML pages, like menus, footers and other
-"boilerplate" contents.</p>
+remove uninteresting parts of <span class="caps">HTML</span> pages, like menus, footers and other
+&#8220;boilerplate&#8221;&nbsp;contents.</p>
 <p>Boilerpipe is written in Java. Two solutions then: using java from
 python or reimplement boilerpipe in python. I will let you guess which
-one I chosen, meh.</p>
+one I chosen,&nbsp;meh.</p>
 <p>JPype allows to bridge python project with java libraries. It takes
 another point of view than Jython: rather than reimplementing python in
-Java, both languages are interfacing at the VM level. This means you
-need to start a VM from your python script, but it does the job and stay
-fully compatible with Cpython and its C extensions.</p>
-<h2 id="first-steps-with-jpype">First steps with JPype</h2>
-<p>Once JPype installed (you'll have to hack a bit some files to integrate
+Java, both languages are interfacing at the <span class="caps">VM</span> level. This means you
+need to start a <span class="caps">VM</span> from your python script, but it does the job and stay
+fully compatible with Cpython and its C&nbsp;extensions.</p>
+<h2 id="first-steps-with-jpype">First steps with&nbsp;JPype</h2>
+<p>Once JPype installed (you&#8217;ll have to hack a bit some files to integrate
 seamlessly with your system) you can access java classes by doing
-something like that:</p>
+something like&nbsp;that:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">jpype</span>
 <span class="n">jpype</span><span class="o">.</span><span class="n">startJVM</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">())</span>
 
@@ -54,16 +54,14 @@ something like that:</p>
 </code></pre></div>
 
 <p>Okay, now we have a hello world, but what we want seems somehow more
-complex. We want to interact with java classes, so we will have to load
-them.</p>
-<h2 id="interfacing-with-boilerpipe">Interfacing with Boilerpipe</h2>
-<p>To install boilerpipe, you just have to run an ant script:</p>
+complex. We want to interact with java classes, so we will have to load&nbsp;them.</p>
+<h2 id="interfacing-with-boilerpipe">Interfacing with&nbsp;Boilerpipe</h2>
+<p>To install boilerpipe, you just have to run an ant&nbsp;script:</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> boilerpipe
 $ ant
 </code></pre></div>
 
-<p>Here is a simple example of how to use boilerpipe in Java, from their
-sources</p>
+<p>Here is a simple example of how to use boilerpipe in Java, from their&nbsp;sources</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">de.l3s.boilerpipe.demo</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.net.URL</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">de.l3s.boilerpipe.extractors.ArticleExtractor</span><span class="p">;</span>
@@ -76,13 +74,13 @@ sources</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>To run it:</p>
+<p>To run&nbsp;it:</p>
 <div class="highlight"><pre><span></span><code>$ javac -cp dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar src/demo/de/l3s/boilerpipe/demo/Oneliner.java
 $ java -cp src/demo:dist/boilerpipe-1.1-dev.jar:lib/nekohtml-1.9.13.jar:lib/xerces-2.9.1.jar de.l3s.boilerpipe.demo.Oneliner
 </code></pre></div>
 
-<p>Yes, this is kind of ugly, sorry for your eyes. Let's try something
-similar, but from python</p>
+<p>Yes, this is kind of ugly, sorry for your eyes. Let&#8217;s try something
+similar, but from&nbsp;python</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">jpype</span>
 
 <span class="c1"># start the JVM with the good classpaths</span>
@@ -96,11 +94,11 @@ similar, but from python</p>
 <span class="nb">print</span> <span class="n">DefaultExtractor</span><span class="o">.</span><span class="n">INSTANCE</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">jpype</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">URL</span><span class="p">(</span><span class="s2">&quot;http://blog.notmyidea.org&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-<p>And you get what you want.</p>
-<p>I must say I didn't thought it could work so easily. This will allow me
+<p>And you get what you&nbsp;want.</p>
+<p>I must say I didn&#8217;t thought it could work so easily. This will allow me
 to extract text content from URLs and remove the <em>boilerplate</em> text
 easily for infuse (my master thesis project), without having to write
-java code, nice!</p>
+java code,&nbsp;nice!</p>
 </article>
 
 </body>

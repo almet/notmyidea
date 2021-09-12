@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Implementing CORS in Cornice - Alexis Métaireau</title>
+        <title>Implementing <span class="caps">CORS</span> in&nbsp;Cornice - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Implementing CORS in Cornice</h1>
+	<h1 class="post-title">Implementing <span class="caps">CORS</span> in&nbsp;Cornice</h1>
 	<time datetime="2013-02-04T00:00:00+01:00">04 février 2013</time>
 
     
@@ -35,67 +35,66 @@ Note
 
 </div>
 
-I'm cross-posting [on the mozilla services
+I&#8217;m cross-posting [on the mozilla services
 weblog](https://blog.mozilla.org/services/). Since this is the first
-time we're doing that, I though it could be useful to point you there.
+time we&#8217;re doing that, I though it could be useful to point you there.
 Check it out and expect more technical articles there in the future.
 
 </div>
 
-<p>For security reasons, it's not possible to do cross-domain requests. In
+<p>For security reasons, it&#8217;s not possible to do cross-domain requests. In
 other words, if you have a page served from the domain lolnet.org, it
-will not be possible for it to get data from notmyidea.org.</p>
-<p>Well, it's possible, using tricks and techniques like
-<a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>, but that doesn't work all
+will not be possible for it to get data from&nbsp;notmyidea.org.</p>
+<p>Well, it&#8217;s possible, using tricks and techniques like
+<a href="http://en.wikipedia.org/wiki/JSONP"><span class="caps">JSONP</span></a>, but that doesn&#8217;t work all
 the time (see <a href="#how-this-is-different-from-jsonp">the section below</a>). I
 remember myself doing some simple proxies on my domain server to be able
-to query other's API.</p>
-<p>Thankfully, there is a nicer way to do this, namely, "Cross Origin
-Resource-Sharing", or <a href="http://www.w3.org/TR/cors/">CORS</a>.</p>
-<h2 id="you-want-an-icecream-go-ask-your-dad-first">You want an icecream? Go ask your dad first.</h2>
-<p>If you want to use CORS, you need the API you're querying to support it;
-on the server side.</p>
-<p>The HTTP server need to answer to the OPTIONS verb, and with the
-appropriate response headers.</p>
-<p>OPTIONS is sent as what the authors of the spec call a "preflight
-request"; just before doing a request to the API, the <em>User-Agent</em> (the
+to query other&#8217;s <span class="caps">API</span>.</p>
+<p>Thankfully, there is a nicer way to do this, namely, &#8220;Cross Origin
+Resource-Sharing&#8221;, or <a href="http://www.w3.org/TR/cors/"><span class="caps">CORS</span></a>.</p>
+<h2 id="you-want-an-icecream-go-ask-your-dad-first">You want an icecream? Go ask your dad&nbsp;first.</h2>
+<p>If you want to use <span class="caps">CORS</span>, you need the <span class="caps">API</span> you&#8217;re querying to support it;
+on the server&nbsp;side.</p>
+<p>The <span class="caps">HTTP</span> server need to answer to the <span class="caps">OPTIONS</span> verb, and with the
+appropriate response&nbsp;headers.</p>
+<p><span class="caps">OPTIONS</span> is sent as what the authors of the spec call a &#8220;preflight
+request&#8221;; just before doing a request to the <span class="caps">API</span>, the <em>User-Agent</em> (the
 browser most of the time) asks the permission to the resource, with an
-OPTIONS call.</p>
-<p>The server answers, and tell what is available and what isn't:</p>
+<span class="caps">OPTIONS</span>&nbsp;call.</p>
+<p>The server answers, and tell what is available and what&nbsp;isn&#8217;t:</p>
 <p><img alt="The CORS flow (from the HTML5 CORS tutorial)" src="images/cors_flow.png"></p>
 <ul>
 <li>
 <p>1a. The User-Agent, rather than doing the call directly, asks the
-    server, the API, the permission to do the request. It does so with
-    the following headers:</p>
+    server, the <span class="caps">API</span>, the permission to do the request. It does so with
+    the following&nbsp;headers:</p>
 <ul>
 <li><strong>Access-Control-Request-Headers</strong>, contains the headers the
-    User-Agent want to access.</li>
+    User-Agent want to&nbsp;access.</li>
 <li><strong>Access-Control-Request-Method</strong> contains the method the
-    User-Agent want to access.</li>
+    User-Agent want to&nbsp;access.</li>
 </ul>
 </li>
 <li>
-<p>1b. The API answers what is authorized:</p>
+<p>1b. The <span class="caps">API</span> answers what is&nbsp;authorized:</p>
 <ul>
-<li><strong>Access-Control-Allow-Origin</strong> the origin that's accepted. Can
-    be * or the domain name.</li>
+<li><strong>Access-Control-Allow-Origin</strong> the origin that&#8217;s accepted. Can
+    be * or the domain&nbsp;name.</li>
 <li><strong>Access-Control-Allow-Methods</strong> a <em>list</em> of allowed methods.
     This can be cached. Note than the request asks permission for
-    one method and the server should return a list of accepted
-    methods.</li>
+    one method and the server should return a list of accepted&nbsp;methods.</li>
 <li><strong>Access-Allow-Headers</strong> a list of allowed headers, for all of
-    the methods, since this can be cached as well.</li>
+    the methods, since this can be cached as&nbsp;well.</li>
 </ul>
 </li>
 <li>
 <ol>
-<li>The User-Agent can do the "normal" request.</li>
+<li>The User-Agent can do the &#8220;normal&#8221;&nbsp;request.</li>
 </ol>
 </li>
 </ul>
-<p>So, if you want to access the /icecream resource, and do a PUT there,
-you'll have the following flow:</p>
+<p>So, if you want to access the /icecream resource, and do a <span class="caps">PUT</span> there,
+you&#8217;ll have the following&nbsp;flow:</p>
 <div class="highlight"><pre><span></span><code>&gt; OPTIONS /icecream
 &gt; Access-Control-Request-Methods = PUT
 &gt; Origin: notmyidea.org
@@ -105,51 +104,51 @@ you'll have the following flow:</p>
 </code></pre></div>
 
 <p>You can see that we have an Origin Header in the request, as well as a
-Access-Control-Request-Methods. We're here asking if we have the right,
-as notmyidea.org, to do a PUT request on /icecream.</p>
-<p>And the server tells us that we can do that, as well as GET and DELETE.</p>
-<p>I'll not cover all the details of the CORS specification here, but bear
-in mind than with CORS, you can control what are the authorized methods,
+Access-Control-Request-Methods. We&#8217;re here asking if we have the right,
+as notmyidea.org, to do a <span class="caps">PUT</span> request on&nbsp;/icecream.</p>
+<p>And the server tells us that we can do that, as well as <span class="caps">GET</span> and <span class="caps">DELETE</span>.</p>
+<p>I&#8217;ll not cover all the details of the <span class="caps">CORS</span> specification here, but bear
+in mind than with <span class="caps">CORS</span>, you can control what are the authorized methods,
 headers, origins, and if the client is allowed to send authentication
-information or not.</p>
-<h2 id="a-word-about-security">A word about security</h2>
-<p>CORS is not an answer for every cross-domain call you want to do,
+information or&nbsp;not.</p>
+<h2 id="a-word-about-security">A word about&nbsp;security</h2>
+<p><span class="caps">CORS</span> is not an answer for every cross-domain call you want to do,
 because you need to control the service you want to call. For instance,
 if you want to build a feed reader and access the feeds on different
 domains, you can be pretty much sure that the servers will not implement
-CORS, so you'll need to write a proxy yourself, to provide this.</p>
-<p>Secondly, if misunderstood, CORS can be insecure, and cause problems.
+<span class="caps">CORS</span>, so you&#8217;ll need to write a proxy yourself, to provide&nbsp;this.</p>
+<p>Secondly, if misunderstood, <span class="caps">CORS</span> can be insecure, and cause problems.
 Because the rules apply when a client wants to do a request to a server,
-you need to be extra careful about who you're authorizing.</p>
-<p>An incorrectly secured CORS server can be accessed by a malicious client
+you need to be extra careful about who you&#8217;re&nbsp;authorizing.</p>
+<p>An incorrectly secured <span class="caps">CORS</span> server can be accessed by a malicious client
 very easily, bypassing network security. For instance, if you host a
-server on an intranet that is only available from behind a VPN but
+server on an intranet that is only available from behind a <span class="caps">VPN</span> but
 accepts every cross-origin call. A bad guy can inject javascript into
 the browser of a user who has access to your protected server and make
-calls to your service, which is probably not what you want.</p>
-<h2 id="how-this-is-different-from-jsonp">How this is different from JSONP?</h2>
-<p>You may know the <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> protocol.
-JSONP allows cross origin, but for a particular use case, and does have
-some drawbacks (for instance, it's not possible to do DELETEs or PUTs
-with JSONP).</p>
-<p>JSONP exploits the fact that it is possible to get information from
+calls to your service, which is probably not what you&nbsp;want.</p>
+<h2 id="how-this-is-different-from-jsonp">How this is different from <span class="caps">JSONP</span>?</h2>
+<p>You may know the <a href="http://en.wikipedia.org/wiki/JSONP"><span class="caps">JSONP</span></a> protocol.
+<span class="caps">JSONP</span> allows cross origin, but for a particular use case, and does have
+some drawbacks (for instance, it&#8217;s not possible to do DELETEs or PUTs
+with <span class="caps">JSONP</span>).</p>
+<p><span class="caps">JSONP</span> exploits the fact that it is possible to get information from
 another domain when you are asking for javascript code, using the
 \&lt;script> element.</p>
 <blockquote>
 <p>Exploiting the open policy for \&lt;script> elements, some pages use
 them to retrieve JavaScript code that operates on dynamically
-generated JSON-formatted data from other origins. This usage pattern
-is known as JSONP. Requests for JSONP retrieve not JSON, but arbitrary
+generated <span class="caps">JSON</span>-formatted data from other origins. This usage pattern
+is known as <span class="caps">JSONP</span>. Requests for <span class="caps">JSONP</span> retrieve not <span class="caps">JSON</span>, but arbitrary
 JavaScript code. They are evaluated by the JavaScript interpreter, not
-parsed by a JSON parser.</p>
+parsed by a <span class="caps">JSON</span>&nbsp;parser.</p>
 </blockquote>
-<h2 id="using-cors-in-cornice">Using CORS in Cornice</h2>
-<p>Okay, things are hopefully clearer about CORS, let's see how we
-implemented it on the server-side.</p>
+<h2 id="using-cors-in-cornice">Using <span class="caps">CORS</span> in&nbsp;Cornice</h2>
+<p>Okay, things are hopefully clearer about <span class="caps">CORS</span>, let&#8217;s see how we
+implemented it on the&nbsp;server-side.</p>
 <p>Cornice is a toolkit that lets you define resources in python and takes
 care of the heavy lifting for you, so I wanted it to take care of the
-CORS support as well.</p>
-<p>In Cornice, you define a service like this:</p>
+<span class="caps">CORS</span> support as&nbsp;well.</p>
+<p>In Cornice, you define a service like&nbsp;this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">cornice</span> <span class="kn">import</span> <span class="n">Service</span>
 
 <span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;foobar&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/foobar&quot;</span><span class="p">)</span>
@@ -160,18 +159,17 @@ CORS support as well.</p>
     <span class="c1"># do something with the request.</span>
 </code></pre></div>
 
-<p>To add CORS support to this resource, you can go this way, with the
-cors_origins parameter:</p>
+<p>To add <span class="caps">CORS</span> support to this resource, you can go this way, with the
+cors_origins&nbsp;parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,))</span>
 </code></pre></div>
 
-<p>Ta-da! You have enabled CORS for your service. <strong>Be aware that you're
-authorizing anyone to query your server, that may not be what you
-want.</strong></p>
-<p>Of course, you can specify a list of origins you trust, and you don't
-need to stick with *, which means "authorize everyone".</p>
+<p>Ta-da! You have enabled <span class="caps">CORS</span> for your service. <strong>Be aware that you&#8217;re
+authorizing anyone to query your server, that may not be what you&nbsp;want.</strong></p>
+<p>Of course, you can specify a list of origins you trust, and you don&#8217;t
+need to stick with *, which means &#8220;authorize&nbsp;everyone&#8221;.</p>
 <h3 id="headers">Headers</h3>
-<p>You can define the headers you want to expose for the service:</p>
+<p>You can define the headers you want to expose for the&nbsp;service:</p>
 <div class="highlight"><pre><span></span><code><span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,))</span>
 
 <span class="nd">@foobar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cors_headers</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;X-My-Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">))</span>
@@ -179,34 +177,34 @@ need to stick with *, which means "authorize everyone".</p>
     <span class="k">return</span> <span class="s2">&quot;some foobar for you&quot;</span>
 </code></pre></div>
 
-<p>I've done some testing and it wasn't working on Chrome because I wasn't
+<p>I&#8217;ve done some testing and it wasn&#8217;t working on Chrome because I wasn&#8217;t
 handling the headers the right way (The missing one was Content-Type,
 that Chrome was asking for). With my first version of the
 implementation, I needed the service implementers to explicitely list
 all the headers that should be exposed. While this improves security, it
-can be frustrating while developing.</p>
+can be frustrating while&nbsp;developing.</p>
 <p>So I introduced an expose_all_headers flag, which is set to True by
-default, if the service supports CORS.</p>
-<h3 id="cookies-credentials">Cookies / Credentials</h3>
-<p>By default, the requests you do to your API endpoint don't include the
+default, if the service supports <span class="caps">CORS</span>.</p>
+<h3 id="cookies-credentials">Cookies /&nbsp;Credentials</h3>
+<p>By default, the requests you do to your <span class="caps">API</span> endpoint don&#8217;t include the
 credential information for security reasons. If you really want to do
 that, you need to enable it using the cors_credentials parameter. You
-can activate this one on a per-service basis or on a per-method basis.</p>
+can activate this one on a per-service basis or on a per-method&nbsp;basis.</p>
 <h3 id="caching">Caching</h3>
 <p>When you do a preflight request, the information returned by the server
-can be cached by the User-Agent so that it's not redone before each
-actual call.</p>
+can be cached by the User-Agent so that it&#8217;s not redone before each
+actual&nbsp;call.</p>
 <p>The caching period is defined by the server, using the
 Access-Control-Max-Age header. You can configure this timing using the
-cors_max_age parameter.</p>
-<h3 id="simplifying-the-api">Simplifying the API</h3>
+cors_max_age&nbsp;parameter.</p>
+<h3 id="simplifying-the-api">Simplifying the <span class="caps">API</span></h3>
 <p>We have cors_headers, cors_enabled, cors_origins, cors_credentials,
 cors_max_age, cors_expose_all_headers … a fair number of
-parameters. If you want to have a specific CORS-policy for your
+parameters. If you want to have a specific <span class="caps">CORS</span>-policy for your
 services, that can be a bit tedious to pass these to your services all
-the time.</p>
-<p>I introduced another way to pass the CORS policy, so you can do
-something like that:</p>
+the&nbsp;time.</p>
+<p>I introduced another way to pass the <span class="caps">CORS</span> policy, so you can do
+something like&nbsp;that:</p>
 <div class="highlight"><pre><span></span><code><span class="n">policy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
               <span class="n">headers</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;X-My-Header&#39;</span><span class="p">,</span> <span class="s1">&#39;Content-Type&#39;</span><span class="p">),</span>
               <span class="n">origins</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;*.notmyidea.org&#39;</span><span class="p">),</span>
@@ -216,44 +214,40 @@ something like that:</p>
 <span class="n">foobar</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foobar&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;/foobar&#39;</span><span class="p">,</span> <span class="n">cors_policy</span><span class="o">=</span><span class="n">policy</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="comparison-with-other-implementations">Comparison with other implementations</h2>
-<p>I was curious to have a look at other implementations of CORS, in django
+<h2 id="comparison-with-other-implementations">Comparison with other&nbsp;implementations</h2>
+<p>I was curious to have a look at other implementations of <span class="caps">CORS</span>, in django
 for instance, and I found <a href="https://gist.github.com/426829.js">a gist about
 it</a>.</p>
-<p>Basically, this adds a middleware that adds the "rights" headers to the
-answer, depending on the request.</p>
-<p>While this approach works, it's not implementing the specification
-completely. You need to add support for all the resources at once.</p>
+<p>Basically, this adds a middleware that adds the &#8220;rights&#8221; headers to the
+answer, depending on the&nbsp;request.</p>
+<p>While this approach works, it&#8217;s not implementing the specification
+completely. You need to add support for all the resources at&nbsp;once.</p>
 <p>We can think about a nice way to implement this specifying a definition
-of what's supposed to be exposed via CORS and what shouldn't directly in
-your settings. In my opinion, CORS support should be handled at the
+of what&#8217;s supposed to be exposed via <span class="caps">CORS</span> and what shouldn&#8217;t directly in
+your settings. In my opinion, <span class="caps">CORS</span> support should be handled at the
 service definition level, except for the list of authorized hosts.
-Otherwise, you don't know exactly what's going on when you look at the
-definition of the service.</p>
+Otherwise, you don&#8217;t know exactly what&#8217;s going on when you look at the
+definition of the&nbsp;service.</p>
 <h2 id="resources">Resources</h2>
 <p>There are a number of good resources that can be useful to you if you
-want to either understand how CORS works, or if you want to implement it
-yourself.</p>
+want to either understand how <span class="caps">CORS</span> works, or if you want to implement it&nbsp;yourself.</p>
 <ul>
-<li><a href="http://enable-cors.org/">http://enable-cors.org/</a> is useful to get started when you don't
-    know anything about CORS.</li>
-<li>There is a W3C wiki page containing information that may be useful
+<li><a href="http://enable-cors.org/">http://enable-cors.org/</a> is useful to get started when you don&#8217;t
+    know anything about <span class="caps">CORS</span>.</li>
+<li>There is a <span class="caps">W3C</span> wiki page containing information that may be useful
     about clients, common pitfalls etc:
     <a href="http://www.w3.org/wiki/CORS_Enabled">http://www.w3.org/wiki/CORS_Enabled</a></li>
-<li><em>HTML5 rocks</em> has a tutorial explaining how to implement CORS, with
+<li><em><span class="caps">HTML5</span> rocks</em> has a tutorial explaining how to implement <span class="caps">CORS</span>, with
     <a href="http://www.html5rocks.com/en/tutorials/cors/#toc-adding-cors-support-to-the-server">a nice section about the
     server-side</a>.</li>
 <li>Be sure to have a look at the <a href="http://caniuse.com/#search=cors">clients support-matrix for this
     feature</a>.</li>
-<li>About security, <a href="https://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">check out this
-    page</a></li>
-<li>If you want to have a look at the implementation code, check <a href="https://github.com/mozilla-services/cornice/pull/98/files">on
-    github</a></li>
+<li>About security, <a href="https://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">check out this&nbsp;page</a></li>
+<li>If you want to have a look at the implementation code, check <a href="https://github.com/mozilla-services/cornice/pull/98/files">on&nbsp;github</a></li>
 </ul>
-<p>Of course, the W3C specification is the best resource to rely on. This
-specification isn't hard to read, so you may want to go through it.
-Especially the <a href="http://www.w3.org/TR/cors/#resource-processing-model">"resource processing model"
-section</a></p>
+<p>Of course, the <span class="caps">W3C</span> specification is the best resource to rely on. This
+specification isn&#8217;t hard to read, so you may want to go through it.
+Especially the <a href="http://www.w3.org/TR/cors/#resource-processing-model">&#8220;resource processing model&#8221;&nbsp;section</a></p>
 </article>
 
 </body>

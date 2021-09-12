@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Circus sprint at PyconFR - Alexis Métaireau</title>
+        <title>Circus sprint at&nbsp;PyconFR - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Circus sprint at PyconFR</h1>
+	<h1 class="post-title">Circus sprint at&nbsp;PyconFR</h1>
 	<time datetime="2012-09-17T00:00:00+02:00">17 septembre 2012</time>
 
     
@@ -29,70 +29,69 @@
     
 <p>Last Thursday to Sunday, <a href="http://pycon.fr">Pycon France</a> took place, in
 Paris. It was the opportunity to meet a lot of people and to talk about
-python awesomness in general.</p>
+python awesomness in&nbsp;general.</p>
 <p>We had three tracks this year, plus sprints the two first days. We
 sprinted on <a href="http://circus.io">Circus</a>, the process and socket manager
-we're using at Mozilla for some of our setups.</p>
+we&#8217;re using at Mozilla for some of our&nbsp;setups.</p>
 <p>The project gathered some interest, and we ended up with 5 persons
 working on it. Of course, we spent some time explaining what is Circus,
 how it had been built, a lot of time talking about use-cases and
-possible improvements, but we also managed to add new features.</p>
+possible improvements, but we also managed to add new&nbsp;features.</p>
 <p>Having people wanting to sprint on our projects is exciting because
-that's when making things in the open unleashes its full potential. You
-can't imagine how happy I was to have some friends come and work on this
-with us :)</p>
-<p>Here is a wrap-up of the sprint:</p>
-<h2 id="autocompletion-on-the-command-line">Autocompletion on the command-line</h2>
+that&#8217;s when making things in the open unleashes its full potential. You
+can&#8217;t imagine how happy I was to have some friends come and work on this
+with us&nbsp;:)</p>
+<p>Here is a wrap-up of the&nbsp;sprint:</p>
+<h2 id="autocompletion-on-the-command-line">Autocompletion on the&nbsp;command-line</h2>
 <p><a href="http://natim.ionyse.com">Remy Hubscher</a> worked on the command-line
 autocompletion. Now we have a fancy command-line interface which is able
-to aucomplete if you're using bash. It seems that not that much work is
-needed to make it happen on zsh as well :)</p>
-<p><a href="https://github.com/mozilla-services/circus/blob/master/extras/circusctl_bash_completion">Have a look at the
-feature</a></p>
+to aucomplete if you&#8217;re using bash. It seems that not that much work is
+needed to make it happen on zsh as well&nbsp;:)</p>
+<p><a href="https://github.com/mozilla-services/circus/blob/master/extras/circusctl_bash_completion">Have a look at the&nbsp;feature</a></p>
 <p>On the same topic, we now have a cool shell for Circus. If you start the
-circusctl command without any option, you'll end-up with a cool shell.
+circusctl command without any option, you&#8217;ll end-up with a cool shell.
 Thanks <a href="https://github.com/jojax">Jonathan Dorival</a> for the work on
 this! You can have a look at <a href="https://github.com/mozilla-services/circus/pull/268">the pull
 request</a>.</p>
-<h2 id="future-changes-to-the-web-ui">Future changes to the web ui</h2>
+<h2 id="future-changes-to-the-web-ui">Future changes to the web&nbsp;ui</h2>
 <p><a href="https://twitter.com/rachbelaid">Rachid Belaid</a> had a deep look at the
 source code and is much more familiarized to it now than before. We
 discussed the possibility to change the implementation of the web ui,
-and I'm glad of this. Currently, it's done with bottle.py and we want to
-switch to pyramid.</p>
+and I&#8217;m glad of this. Currently, it&#8217;s done with bottle.py and we want to
+switch to&nbsp;pyramid.</p>
 <p>He fixed some issues that were in the tracker, so we now can have the
-age of watchers in the webui, for instance.</p>
-<h2 id="bug-and-doc-fixing">Bug and doc fixing</h2>
+age of watchers in the webui, for&nbsp;instance.</p>
+<h2 id="bug-and-doc-fixing">Bug and doc&nbsp;fixing</h2>
 <p>While reading the source code, we found some inconsistencies and fixed
 them, with <a href="http://mathieu.agopian.info/">Mathieu Agopian</a>. We also
-tried to improve the documentation at different levels.</p>
-<p>Documentation still needs a lot of love, and I'm planning to spend some
-time on this shortly. I've gathered a bunch of feedback on this</p>
-<h2 id="circus-clustering-capabilities">Circus clustering capabilities</h2>
+tried to improve the documentation at different&nbsp;levels.</p>
+<p>Documentation still needs a lot of love, and I&#8217;m planning to spend some
+time on this shortly. I&#8217;ve gathered a bunch of feedback on&nbsp;this</p>
+<h2 id="circus-clustering-capabilities">Circus clustering&nbsp;capabilities</h2>
 <p>One feature I wanted to work on during this sprint was the clustering
 abilities of Circus. Nick Pellegrino made an internship on this topic at
-Mozilla so we spent some time to review his pull requests.</p>
+Mozilla so we spent some time to review his pull&nbsp;requests.</p>
 <p>A lot of code was written for this so we discussed a bunch of things
 regarding all of this. It took us more time than expected (and I still
 need to spend more time on this to provide appropriate feedback), but it
 allowed us to have a starting-point about what this clustering thing
-could be.</p>
+could&nbsp;be.</p>
 <p>Remy wrote <a href="http://tech.novapost.fr/circus-clustering-management-en.html">a good summary about our
 brainstorming</a>
-so I'll not do it again here, but feel free to contact us if you have
-ideas on this, they're very welcome!</p>
-<h2 id="project-management">Project management</h2>
-<p>We've had some inquiries telling us that's not as easy as it should to
+so I&#8217;ll not do it again here, but feel free to contact us if you have
+ideas on this, they&#8217;re very&nbsp;welcome!</p>
+<h2 id="project-management">Project&nbsp;management</h2>
+<p>We&#8217;ve had some inquiries telling us that&#8217;s not as easy as it should to
 get started with the Circus project. Some of the reasons are that we
-don't have any release schedule, and that the documentation is hairy
-enough to lost people, at some point :)</p>
-<p>That's something we'll try to fix soon :)</p>
-<p>PyconFR was a very enjoyable event. I'm looking forward to meet the
+don&#8217;t have any release schedule, and that the documentation is hairy
+enough to lost people, at some point&nbsp;:)</p>
+<p>That&#8217;s something we&#8217;ll try to fix soon&nbsp;:)</p>
+<p>PyconFR was a very enjoyable event. I&#8217;m looking forward to meet the
 community again and discuss how Circus can evolve in ways that are
-interesting to everyone.</p>
+interesting to&nbsp;everyone.</p>
 <p>Tarek and me are going to <a href="http://python.ie/pycon/2012/">Pycon ireland</a>,
-feel free to reach us if you're going there, we'll be happy to meet and
-enjoy beers!</p>
+feel free to reach us if you&#8217;re going there, we&#8217;ll be happy to meet and
+enjoy&nbsp;beers!</p>
 </article>
 
 </body>

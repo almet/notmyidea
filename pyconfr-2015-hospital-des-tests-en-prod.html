@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>PyconFR 2015 — Hospital - des tests en prod - Alexis Métaireau</title>
+        <title>PyconFR 2015 — Hospital - des tests en&nbsp;prod - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">PyconFR 2015 — Hospital - des tests en prod</h1>
+	<h1 class="post-title">PyconFR 2015 — Hospital - des tests en&nbsp;prod</h1>
 	<time datetime="2015-10-18T00:00:00+02:00">18 octobre 2015</time>
 
     
@@ -28,67 +28,66 @@
 <article>
     <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
-à les completer si besoin.</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N&#8217;hésitez pas
+à les completer si&nbsp;besoin.</p>
 </div>
-<p>Speaker: Benoit Bryon, Peopledoc.</p>
-<p>Pour une procédure de déploiement, comment est-ce qu'on valide que tout va bien
+<p>Speaker: Benoit Bryon,&nbsp;Peopledoc.</p>
+<p>Pour une procédure de déploiement, comment est-ce qu&#8217;on valide que tout va bien
 une fois que tout est dépoyé ? Si on a une application très simple (upload et
-envoi de fichiers).</p>
+envoi de&nbsp;fichiers).</p>
 <p>Pour des applications plus complexes, il y a beaucoup de choses à tester (base
 de données, cache, email, etc). Beaucoup de parties sont utiles: reverse
-proxy, django, base de données etc.</p>
-<p>Lors d'un déploiement, comment faire pour vérifier que tout tourne lorsque tout
-est déployé ?</p>
+proxy, django, base de données&nbsp;etc.</p>
+<p>Lors d&#8217;un déploiement, comment faire pour vérifier que tout tourne lorsque tout
+est déployé&nbsp;?</p>
 <div class="section" id="comment-faire">
-<h2>Comment faire ?</h2>
+<h2>Comment faire&nbsp;?</h2>
 <ul class="simple">
-<li>Les tests permettent de tester hors sol.</li>
-<li>Le provisionning permet de valider que tout tourne correctement, mais</li>
-<li>simplement au démarrage. Les pannes ne sont pas détectées.</li>
-<li>Le logging va permettre de detecter les erreurs, mais trop tard.</li>
-<li>Le monitoring permet d'avoir une vue de l'exterieur.</li>
+<li>Les tests permettent de tester hors&nbsp;sol.</li>
+<li>Le provisionning permet de valider que tout tourne correctement,&nbsp;mais</li>
+<li>simplement au démarrage. Les pannes ne sont pas&nbsp;détectées.</li>
+<li>Le logging va permettre de detecter les erreurs, mais trop&nbsp;tard.</li>
+<li>Le monitoring permet d&#8217;avoir une vue de&nbsp;l&#8217;exterieur.</li>
 </ul>
 <p>Hostpital propose de faire des assertions sur la configuration,
-l'environnement, <em>en cours de fonctionnement</em>. Ce sont les developeurs qui
-ajoutent ces assertions.</p>
+l&#8217;environnement, <em>en cours de fonctionnement</em>. Ce sont les developeurs qui
+ajoutent ces&nbsp;assertions.</p>
 <p>Cela peut servir à valider un déploiement, pour etre rassuré une fois que le
 déploiement effectué. Cela peut aussi service à surveiller un service et
-diagnostiquer les problèmes.</p>
+diagnostiquer les&nbsp;problèmes.</p>
 </div>
 <div class="section" id="hospital">
 <h2>Hospital</h2>
 <dl class="docutils">
 <dt>::</dt>
-<dd>pip install hospital</dd>
+<dd>pip install&nbsp;hospital</dd>
 </dl>
 <p>Hospital est un outil en python. On définit des tests, de la même manière que
-l'on définit des tests unitaires. On fait des assertions, comme pour les tests
+l&#8217;on définit des tests unitaires. On fait des assertions, comme pour les tests
 unitaires. Hospital propose des helpers pour les cas courants:
 <cite>assert_http_response</cite> ou <cite>assert_ping</cite>.</p>
-<p>La vue est une vue de l'intérieur. La différence avec le monitoring est que
-l'on teste la connectivité entre les services (exemple d'une requete
-elasticsearch qui échoue depuis un service django).</p>
+<p>La vue est une vue de l&#8217;intérieur. La différence avec le monitoring est que
+l&#8217;on teste la connectivité entre les services (exemple d&#8217;une requete
+elasticsearch qui échoue depuis un service&nbsp;django).</p>
 <p>Pour la supervision, les healthchecks sont lancés avec une ligne de commande
-<cite>hospital-cli</cite>. Il est possible de lancer également ces tests avec nose ou
-py.test.</p>
-<p>Il est aussi possible de faire le monitoring avec une API HTTP <cite>hospital
+<cite>hospital-cli</cite>. Il est possible de lancer également ces tests avec nose ou&nbsp;py.test.</p>
+<p>Il est aussi possible de faire le monitoring avec une <span class="caps">API</span> <span class="caps">HTTP</span> <cite>hospital
 serve</cite>.</p>
 <div class="section" id="les-lacunes-de-hospital">
-<h3>Les lacunes de hospital</h3>
+<h3>Les lacunes de&nbsp;hospital</h3>
 <p>Les healthchecks sont fait actuellement en synchrone. Cela peut prendre du
 temps. Il pourrait etre interessant de lancer des taches de manière distribuée
-/ en paralelle.</p>
+/ en&nbsp;paralelle.</p>
 <p>Il pourrait etre utile de faire la distinction entre les smoketests et les
 diagnostiques: les premiers sont des petits checks qui permettent de dire si ça
-marche, de manière très simple. De l'autre coté, les diagnostiques seraient eux
-plus fins.</p>
+marche, de manière très simple. De l&#8217;autre coté, les diagnostiques seraient eux
+plus&nbsp;fins.</p>
 </div>
 </div>
 <div class="section" id="wrap-up">
-<h2>Wrap up</h2>
+<h2>Wrap&nbsp;up</h2>
 <p>Validez votre configuration, la connectivité avec les services externes. Faites
-des tests souvent !</p>
+des tests souvent&nbsp;!</p>
 </div>
 
 </article>

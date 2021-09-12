@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Status board - Alexis Métaireau</title>
+        <title>Status&nbsp;board - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Status board</h1>
+	<h1 class="post-title">Status&nbsp;board</h1>
 	<time datetime="2012-12-29T00:00:00+01:00">29 décembre 2012</time>
 
     
@@ -28,85 +28,81 @@
 <article>
     
 <p>À force de démarrer des services web pour un oui et pour un non, de
-proposer à des copains d'héberger leurs sites, de faire pareil pour
-quelques assos etc, je me suis retrouvé avec, comme dirait l'autre, <em>une
-bonne platrée</em> de sites et de services à gérer sur lolnet.org, mon
-serveur.</p>
-<p>Jusqu'à très récemment, rien de tout ça n'était sauvegardé, et non plus
+proposer à des copains d&#8217;héberger leurs sites, de faire pareil pour
+quelques assos etc, je me suis retrouvé avec, comme dirait l&#8217;autre, <em>une
+bonne platrée</em> de sites et de services à gérer sur lolnet.org, mon&nbsp;serveur.</p>
+<p>Jusqu&#8217;à très récemment, rien de tout ça n&#8217;était sauvegardé, et non plus
 monitoré. Après quelques recherches, je suis tombé sur
-<a href="http://www.stashboard.org/">stashboard</a>, un "status board" qu'il est
-bien fait. Le seul problème, c'est écrit pour se lancer sur GAE, <em>Google
-App Engine</em>. Heureusement, c'est open-source, et ça a été forké pour
+<a href="http://www.stashboard.org/">stashboard</a>, un &#8220;status board&#8221; qu&#8217;il est
+bien fait. Le seul problème, c&#8217;est écrit pour se lancer sur <span class="caps">GAE</span>, <em>Google
+App Engine</em>. Heureusement, c&#8217;est open-source, et ça a été forké pour
 donner naissance à
 <a href="https://github.com/bfirsh/whiskerboard">whiskerboard</a> (la planche
-moustachue, pour les non anglophones).</p>
+moustachue, pour les non&nbsp;anglophones).</p>
 <p><img alt="Capture d'écran du site." src="images/status_board.png"></p>
-<h2 id="verifier-le-statut-des-services">Vérifier le statut des services</h2>
-<p>Donc, c'est chouette, c'est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m'afficher le statut des services, mais ça ne vérifie pas que tout est bien "up".</p>
-<p>Bon, un peu embêtant pour moi, parce que c'est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J'ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: <a href="https://github.com/almet/whiskerboard">https://github.com/almet/whiskerboard</a> .</p>
+<h2 id="verifier-le-statut-des-services">Vérifier le statut des&nbsp;services</h2>
+<p>Donc, c&#8217;est chouette, c&#8217;est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m&#8217;afficher le statut des services, mais ça ne vérifie pas que tout est bien&nbsp;&#8220;up&#8221;.</p>
+<p>Bon, un peu embêtant pour moi, parce que c&#8217;est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J&#8217;ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: <a href="https://github.com/almet/whiskerboard">https://github.com/almet/whiskerboard</a>&nbsp;.</p>
 <p>Entres autres, il est désormais possible de lancer
-<a href="http://celeryproject.org/">celery</a> en tache de fond et de vérifier périodiquement que les services sont toujours bien vivants, en utilisant une tache spécifique.</p>
-<p>C'était un bonheur de développer ça (on a fait ça à deux, avec guillaume, avec un mumble + tmux en pair prog, en une petite soirée, ça dépote).</p>
+<a href="http://celeryproject.org/">celery</a> en tache de fond et de vérifier périodiquement que les services sont toujours bien vivants, en utilisant une tache&nbsp;spécifique.</p>
+<p>C&#8217;était un bonheur de développer ça (on a fait ça à deux, avec guillaume, avec un mumble + tmux en pair prog, en une petite soirée, ça&nbsp;dépote).</p>
 <p>Les modifications sont assez simples, vous pouvez aller jeter un œil aux changements ici:
-<a href="https://github.com/almet/whiskerboard/compare/b539337416...master">https://github.com/almet/whiskerboard/compare/b539337416...master</a></p>
-<p>En gros:</p>
+<a href="https://github.com/almet/whiskerboard/compare/b539337416...master">https://github.com/almet/whiskerboard/compare/b539337416&#8230;master</a></p>
+<p>En&nbsp;gros:</p>
 <ul>
-<li>ajout d'une connection_string aux services (de la forme
-    protocol://host:port)</li>
-<li>ajout d'une commande check_status qui s'occupe d'itérer sur les
+<li>ajout d&#8217;une connection_string aux services (de la forme&nbsp;protocol://host:port)</li>
+<li>ajout d&#8217;une commande check_status qui s&#8217;occupe d&#8217;itérer sur les
     services et de lancer des taches celery qui vont bien, en fonction
-    du protocole</li>
-<li>ajout des taches en question</li>
+    du&nbsp;protocole</li>
+<li>ajout des taches en&nbsp;question</li>
 </ul>
 <h2 id="deploiement">Déploiement</h2>
 <p>Le plus long a été de le déployer en fin de compte, parce que je ne
-voulais pas déployer mon service de supervision sur mon serveur,
-forcément.</p>
+voulais pas déployer mon service de supervision sur mon serveur,&nbsp;forcément.</p>
 <p>Après un essai (plutôt rapide en fait) sur <a href="http://heroku.com">heroku</a>,
-je me suis rendu compte qu'il me fallait payer pas loin de 35$ par mois
-pour avoir un process celeryd qui tourne, donc j'ai un peu cherché
+je me suis rendu compte qu&#8217;il me fallait payer pas loin de 35$ par mois
+pour avoir un process celeryd qui tourne, donc j&#8217;ai un peu cherché
 ailleurs, pour finalement déployer la chose chez
 <a href="https://www.alwaysdata.com/">alwaysdata</a></p>
-<p>Après quelques péripéties, j'ai réussi à faire tourner le tout, ça à été
-un peu la bataille au départ pour installer virtualenv (j'ai du faire
-des changements dans mon PATH pour que ça puisse marcher), voici mon
-`.bash_profile`:</p>
+<p>Après quelques péripéties, j&#8217;ai réussi à faire tourner le tout, ça à été
+un peu la bataille au départ pour installer virtualenv (j&#8217;ai du faire
+des changements dans mon <span class="caps">PATH</span> pour que ça puisse marcher), voici mon&nbsp;`.bash_profile`:</p>
 <div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="n">PYTHONPATH</span><span class="o">=~/</span><span class="n">modules</span><span class="o">/</span>
 <span class="k">export</span> <span class="n">PATH</span><span class="o">=$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="o">$</span><span class="n">HOME</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
 </code></pre></div>
 
-<p>Et après y'a plus qu'à installer avec `easy_install`:</p>
+<p>Et après y&#8217;a plus qu&#8217;à installer avec&nbsp;`easy_install`:</p>
 <div class="highlight"><pre><span></span><code>easy_install --install-dir ~/modules -U pip
 easy_install --install-dir ~/modules -U virtualenv
 </code></pre></div>
 
-<p>Et à créer le virtualenv:</p>
+<p>Et à créer le&nbsp;virtualenv:</p>
 <div class="highlight"><pre><span></span><code>virtualenv venv
 venv/bin/pip install -r requirements.txt
 </code></pre></div>
 
-<p>Dernière étape, la création d'un fichier application.wsgi qui s'occupe
-de rendre l'application disponible, avec le bon venv:</p>
-<h2 id="ssl-et-requests">SSL et Requests</h2>
-<p>Quelques tours de manivelle plus loin, j'ai un celeryd qui tourne et qui
+<p>Dernière étape, la création d&#8217;un fichier application.wsgi qui s&#8217;occupe
+de rendre l&#8217;application disponible, avec le bon&nbsp;venv:</p>
+<h2 id="ssl-et-requests"><span class="caps">SSL</span> et&nbsp;Requests</h2>
+<p>Quelques tours de manivelle plus loin, j&#8217;ai un celeryd qui tourne et qui
 consomme les taches qui lui sont envoyées (pour des questions de
-simplicité, j'ai utilisé le backend django de celery, donc pas besoin
-d'AMQP, par exemple).</p>
-<p>Problème, les ressources que je vérifie en SSL (HTTPS) me jettent. Je
-sais pas exactement pourquoi à l'heure qu'il est, mais il semble que
+simplicité, j&#8217;ai utilisé le backend django de celery, donc pas besoin
+d&#8217;<span class="caps">AMQP</span>, par&nbsp;exemple).</p>
+<p>Problème, les ressources que je vérifie en <span class="caps">SSL</span> (<span class="caps">HTTPS</span>) me jettent. Je
+sais pas exactement pourquoi à l&#8217;heure qu&#8217;il est, mais il semble que
 lorsque je fais une requête avec
 <a href="http://docs.python-requests.org/en/latest/">Requests</a> je me récupère
 des <em>Connection Refused</em>. Peut être une sombre histoire de proxy ? En
-attendant, les appels avec CURL fonctionnent, donc j'ai fait <a href="https://github.com/ametaireau/whiskerboard/blob/master/board/tasks.py#L17">un
-fallback vers CURL lorsque les autres méthodes
+attendant, les appels avec <span class="caps">CURL</span> fonctionnent, donc j&#8217;ai fait <a href="https://github.com/ametaireau/whiskerboard/blob/master/board/tasks.py#L17">un
+fallback vers <span class="caps">CURL</span> lorsque les autres méthodes
 échouent</a>.
-Pas super propre, mais ça fonctionne.</p>
-<p><strong>EDIT</strong> Finalement, il se trouve que mon serveur était mal configuré.
-J'utilisais haproxy + stunnel, et la négiciation SSL se passait mal. Une
-fois SSL et TLS activés, et SSLv2 désactivé, tout fonctionne mieux.</p>
-<h2 id="et-voila">Et voilà</h2>
-<p>Finalement, j'ai mon joli status-board qui tourne à merveille sur
-<a href="http://status.lolnet.org">http://status.lolnet.org</a> :-)</p>
+Pas super propre, mais ça&nbsp;fonctionne.</p>
+<p><strong><span class="caps">EDIT</span></strong> Finalement, il se trouve que mon serveur était mal configuré.
+J&#8217;utilisais haproxy + stunnel, et la négiciation <span class="caps">SSL</span> se passait mal. Une
+fois <span class="caps">SSL</span> et <span class="caps">TLS</span> activés, et SSLv2 désactivé, tout fonctionne&nbsp;mieux.</p>
+<h2 id="et-voila">Et&nbsp;voilà</h2>
+<p>Finalement, j&#8217;ai mon joli status-board qui tourne à merveille sur
+<a href="http://status.lolnet.org">http://status.lolnet.org</a>&nbsp;:-)</p>
 </article>
 
 </body>

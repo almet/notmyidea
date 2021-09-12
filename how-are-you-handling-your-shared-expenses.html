@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>How are you handling your shared expenses? - Alexis Métaireau</title>
+        <title>How are you handling your shared&nbsp;expenses? - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,39 +20,38 @@
 
 
 <header>
-	<h1 class="post-title">How are you handling your shared expenses?</h1>
+	<h1 class="post-title">How are you handling your shared&nbsp;expenses?</h1>
 	<time datetime="2011-10-15T00:00:00+02:00">15 octobre 2011</time>
 
     
 </header>
 <article>
     
-<p><strong>TL;DR:</strong> We're kick-starting a new application to manage your shared
+<p><strong><span class="caps">TL</span>;<span class="caps">DR</span>:</strong> We&#8217;re kick-starting a new application to manage your shared
 expenses. Have a look at <a href="http://ihatemoney.notmyidea.org">http://ihatemoney.notmyidea.org</a></p>
 <p>As a student, I lived in a lot of different locations, and the majority
 of them had something in common: I lived with others. It usually was a
 great experience (and I think I will continue to live with others). Most
 of the time, we had to spend some time each month to compute who had to
-pay what to the others.</p>
+pay what to the&nbsp;others.</p>
 <p>I wanted to create a pet project using flask, so I wrote a little (\~150
 lines) flask application to handle this. It worked out pretty well for
 my housemates and me, and as we had to move into different locations,
-one of them asked me if he could continue to use it for the year to
-come.</p>
-<p>I said yes and gave it some more thoughts: We probably aren't the only
+one of them asked me if he could continue to use it for the year to&nbsp;come.</p>
+<p>I said yes and gave it some more thoughts: We probably aren&#8217;t the only
 ones interested by such kind of software. I decided to extend a bit more
 the software to have a concept of projects and persons (the list of
-persons was hard-coded in the first time, boooh!).</p>
+persons was hard-coded in the first time,&nbsp;boooh!).</p>
 <p>I then discussed with a friend of mine, who was excited about it and
-wanted to learn python. Great! That's a really nice way to get started.
+wanted to learn python. Great! That&#8217;s a really nice way to get started.
 Some more friends were also interested in it and contributed some
 features and provided feedback (thanks
-<a href="http://www.sneakernet.fr/">Arnaud</a> and Quentin!)</p>
+<a href="http://www.sneakernet.fr/">Arnaud</a> and&nbsp;Quentin!)</p>
 <p>Since that, the project now support multiple languages and provides a
-REST API (android and iphone apps in the tubes!), into other things.
+<span class="caps">REST</span> <span class="caps">API</span> (android and iphone apps in the tubes!), into other things.
 There is no need to register for an account or whatnot, just enter a
 project name, a secret code and a contact email, invite friends and
-that's it (this was inspired by doodle)!</p>
+that&#8217;s it (this was inspired by&nbsp;doodle)!</p>
 <p><img alt="Capture d'écran du site." src="images/ihatemoney.png"></p>
 <p>You can try the project at <a href="http://ihatemoney.notmyidea.org">http://ihatemoney.notmyidea.org</a> for now,
 and the code lives at <a href="https://github.com/spiral-project/ihatemoney/">https://github.com/spiral-project/ihatemoney/</a>.</p>
@@ -60,42 +59,42 @@ and the code lives at <a href="https://github.com/spiral-project/ihatemoney/">ht
 <p>In the wild, currently, there already are some implementations of this
 shared budget manager thing. The fact is that most of them are either
 hard to use, with a too much fancy design or simply trying to do too
-much things at once.</p>
-<p>No, I don't want my budget manager to make my shopping list, or to run a
+much things at&nbsp;once.</p>
+<p>No, I don&#8217;t want my budget manager to make my shopping list, or to run a
 blog for me, thanks. I want it to let me focus on something else. Keep
-out of my way.</p>
-<h3 id="no-user-registration">No user registration</h3>
-<p>You don't need to register an account on the website to start using it.
+out of my&nbsp;way.</p>
+<h3 id="no-user-registration">No user&nbsp;registration</h3>
+<p>You don&#8217;t need to register an account on the website to start using it.
 You just have to create a project, set a secret code for it, and give
 both the url and the code to the people you want to share it with (or
-the website can poke them for you).</p>
-<h3 id="keeping-things-simple">Keeping things simple</h3>
-<p>"Keep It Simple, Stupid" really matches our philosophy here: you want to
+the website can poke them for&nbsp;you).</p>
+<h3 id="keeping-things-simple">Keeping things&nbsp;simple</h3>
+<p><span class="dquo">&#8220;</span>Keep It Simple, Stupid&#8221; really matches our philosophy here: you want to
 add a bill? Okay. Just do it. You just have to enter who paid, for who,
-how much, and a description, like you would have done when you're back
-from the farmer's market on raw paper.</p>
-<h3 id="no-categories">No categories</h3>
-<p>Some people like to organise their stuff into different "categories":
-leisure, work, eating, etc. That's not something I want (at least to
-begin with).</p>
-<p>I want things to be simple. Got that? Great. Just add your bills!</p>
+how much, and a description, like you would have done when you&#8217;re back
+from the farmer&#8217;s market on raw&nbsp;paper.</p>
+<h3 id="no-categories">No&nbsp;categories</h3>
+<p>Some people like to organise their stuff into different &#8220;categories&#8221;:
+leisure, work, eating, etc. That&#8217;s not something I want (at least to
+begin&nbsp;with).</p>
+<p>I want things to be simple. Got that? Great. Just add your&nbsp;bills!</p>
 <h3 id="balance">Balance</h3>
-<p>One of the most useful thing is to know what's your "balance" compared
-to others. In other words, if you're negative, you owe money, if you're
+<p>One of the most useful thing is to know what&#8217;s your &#8220;balance&#8221; compared
+to others. In other words, if you&#8217;re negative, you owe money, if you&#8217;re
 positive, you have to receive money. This allows you to dispatch who has
-to pay for the next thing, in order to re-equilibrate the balance.</p>
+to pay for the next thing, in order to re-equilibrate the&nbsp;balance.</p>
 <p>Additionally, the system is able to compute for you who has to give how
 much to who, in order to reduce the number of transactions needed to
-restore the balance.</p>
-<h3 id="api">API</h3>
-<p>All of what's possible to do with the standard web interface is also
-available through a REST API. I developed a simple REST toolkit for
-flask for this (and I should release it!).</p>
+restore the&nbsp;balance.</p>
+<h3 id="api"><span class="caps">API</span></h3>
+<p>All of what&#8217;s possible to do with the standard web interface is also
+available through a <span class="caps">REST</span> <span class="caps">API</span>. I developed a simple <span class="caps">REST</span> toolkit for
+flask for this (and I should release&nbsp;it!).</p>
 <h2 id="interested">Interested?</h2>
 <p>This project is open source. All of us like to share what we are doing
 and would be happy to work with new people and implement new ideas. If
 you have a nice idea about this, if you want to tweak it or to fill
-bugs. Don't hesitate a second! The project lives at
+bugs. Don&#8217;t hesitate a second! The project lives at
 <a href="http://github.com/spiral-project/ihatemoney/">http://github.com/spiral-project/ihatemoney/</a></p>
 </article>
 

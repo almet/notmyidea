@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Astuces SSH - Alexis Métaireau</title>
+        <title>Astuces <span class="caps">SSH</span> - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Astuces SSH</h1>
+	<h1 class="post-title">Astuces <span class="caps">SSH</span></h1>
 	<time datetime="2012-12-27T00:00:00+01:00">27 décembre 2012</time>
 
     
@@ -28,25 +28,25 @@
 <article>
     
 <h2 id="tunelling">Tunelling</h2>
-<p>Parce que je m'en rapelle jamais (tête de linote):</p>
+<p>Parce que je m&#8217;en rapelle jamais (tête de&nbsp;linote):</p>
 <div class="highlight"><pre><span></span><code>$ ssh -f hote -L local:lolnet.org:destination -N
 </code></pre></div>
 
 <h2 id="sshconfig">.ssh/config</h2>
-<p>(merci <a href="http://majerti.fr">gaston</a> !)</p>
-<p>La directive suivante dans .ssh/config permet de sauter d'hôte en hôte
-séparés par des "+" :</p>
+<p>(merci <a href="http://majerti.fr">gaston</a>&nbsp;!)</p>
+<p>La directive suivante dans .ssh/config permet de sauter d&#8217;hôte en hôte
+séparés par des &#8220;+&#8221;&nbsp;:</p>
 <div class="highlight"><pre><span></span><code>Host *+*
         ProxyCommand ssh $(echo %h | sed
 &#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&#39;)
 PATH=.:\$PATH nc -w1 $(echo %h | sed &#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&#39;)
 </code></pre></div>
 
-<p>On peut donc spécifier des "sauts" ssh du style:</p>
+<p>On peut donc spécifier des &#8220;sauts&#8221; ssh du&nbsp;style:</p>
 <div class="highlight"><pre><span></span><code><span class="n">ssh</span> <span class="n">root</span><span class="mf">@91.25.25.25</span><span class="o">+</span><span class="mf">192.168.1.1</span>
 </code></pre></div>
 
-<p>Ensuite on peut essayer de rajouter:</p>
+<p>Ensuite on peut essayer de&nbsp;rajouter:</p>
 <div class="highlight"><pre><span></span><code>Host &lt;label_pour_mon_serveur_privé&gt;
     user &lt;monuser(root)&gt;
     IdentityFile  &lt;chemin vers ma clé ssh pour le serveur publique&gt;

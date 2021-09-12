@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>How to install NGINX + PHP 5.3 on FreeBSD. - Alexis Métaireau</title>
+        <title>How to install <span class="caps">NGINX</span> + <span class="caps">PHP</span> 5.3 on&nbsp;FreeBSD. - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">How to install NGINX + PHP 5.3 on FreeBSD.</h1>
+	<h1 class="post-title">How to install <span class="caps">NGINX</span> + <span class="caps">PHP</span> 5.3 on&nbsp;FreeBSD.</h1>
 	<time datetime="2010-10-10T00:00:00+02:00">10 octobre 2010</time>
 
     
@@ -29,17 +29,15 @@
     
 <ul>
 <li>
-<p>date<br>
-    2010-10-10</p>
+<p>date<br>&nbsp;2010-10-10</p>
 </li>
 <li>
-<p>category<br>
-    tech</p>
+<p>category<br>&nbsp;tech</p>
 </li>
 </ul>
-<p>I've not managed so far to get completely rid of php, so here's a simple
-reminder about how to install php on NGINX, for FreeBSD. Nothing hard,
-but that's worse to have the piece of configuration somewhere !</p>
+<p>I&#8217;ve not managed so far to get completely rid of php, so here&#8217;s a simple
+reminder about how to install php on <span class="caps">NGINX</span>, for FreeBSD. Nothing hard,
+but that&#8217;s worse to have the piece of configuration somewhere&nbsp;!</p>
 <div class="highlight"><pre><span></span><code># update the ports
 $ portsnap fetch update
 
@@ -53,10 +51,10 @@ $ make package-recursive -C /usr/ports/www/nginx-devel
 </code></pre></div>
 
 <p>Now we have all the dependencies installed, we need to configure a bit
-the server.</p>
-<p>That's a simple thing in fact, but it could be good to have something
-that will work without effort over time.</p>
-<p>Here's a sample of my configuration:</p>
+the&nbsp;server.</p>
+<p>That&#8217;s a simple thing in fact, but it could be good to have something
+that will work without effort over&nbsp;time.</p>
+<p>Here&#8217;s a sample of my&nbsp;configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">server</span> <span class="p">{</span>
     <span class="err">server_name</span> <span class="err">ndd</span><span class="p">;</span>
     <span class="err">set</span> <span class="err">$path</span> <span class="err">/path/to/your/files</span><span class="p">;</span>
@@ -83,7 +81,7 @@ that will work without effort over time.</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>And that's it !</p>
+<p>And that&#8217;s it&nbsp;!</p>
 </article>
 
 </body>

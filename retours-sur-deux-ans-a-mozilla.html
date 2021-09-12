@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Retours sur deux ans à Mozilla - Alexis Métaireau</title>
+        <title>Retours sur deux ans à&nbsp;Mozilla - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,257 +20,250 @@
 
 
 <header>
-	<h1 class="post-title">Retours sur deux ans à Mozilla</h1>
+	<h1 class="post-title">Retours sur deux ans à&nbsp;Mozilla</h1>
 	<time datetime="2014-07-29T00:00:00+02:00">29 juillet 2014</time>
 
     
 </header>
 <article>
     
-<p><em>Ça fait un bail que j'ai cet article en cours de rédaction, et je me dis que je dois le poster maintenant, sinon je ne le ferais jamais (saloperie de perfectionnisme ?)</em></p>
+<p><em>Ça fait un bail que j&#8217;ai cet article en cours de rédaction, et je me dis que je dois le poster maintenant, sinon je ne le ferais jamais (saloperie de perfectionnisme&nbsp;?)</em></p>
 <p>Il y à deux ans et demi, en décembre, je commençais à travailler chez
-Mozilla, dans l'équipe "Cloud Services".</p>
+Mozilla, dans l&#8217;équipe &#8220;Cloud&nbsp;Services&#8221;.</p>
 <p>Depuis, énormément de choses ont évoluées, tant en ce qui concerne les
-objectifs de Mozilla (avec l'arrivée de FirefoxOS) que le travail que
-j'effectue au jour le jour. Pour autant, mes objectifs personnels
-restent intacts.</p>
-<p>Deux ans ça parait énorme, c'est le temps le plus long que j'ai passé à
+objectifs de Mozilla (avec l&#8217;arrivée de FirefoxOS) que le travail que
+j&#8217;effectue au jour le jour. Pour autant, mes objectifs personnels
+restent&nbsp;intacts.</p>
+<p>Deux ans ça parait énorme, c&#8217;est le temps le plus long que j&#8217;ai passé à
 travailler sur un projet, avec quasiment les mêmes personnes. Si vous
-suivez un peu ces carnets, vous savez surement que j'ai beaucoup
-travaillé avec <a href="ziade.org">Tarek</a> par exemple.</p>
-<p>Ça a été (et c'est toujours) un réel plaisir de bosser avec la personne
-dont j'avais lu les livres pour apprendre le python, merci !</p>
+suivez un peu ces carnets, vous savez surement que j&#8217;ai beaucoup
+travaillé avec <a href="ziade.org">Tarek</a> par&nbsp;exemple.</p>
+<p>Ça a été (et c&#8217;est toujours) un réel plaisir de bosser avec la personne
+dont j&#8217;avais lu les livres pour apprendre le python, merci&nbsp;!</p>
 <h2 id="services">Services</h2>
 <p>Le principal de mon travail a été de construire des outils. Je suis le
 mainteneur de <a href="https://github.com/mozilla-services/cornice">Cornice</a>, un
 utilitaire qui vient se greffer par dessus <a href="http://docs.pylonsproject.org/projects/pyramid/en/latest/">le framework python
 pyramid</a> pour
-vous simplifier la vie et créer des services web; J'ai travaillé un peu
+vous simplifier la vie et créer des services web; J&#8217;ai travaillé un peu
 sur un outil de gestion des processus nommé
 <a href="https://github.com/mozilla-services/circus">Circus</a>, et également sur
 un outil de montée en charge dénommé
 <a href="https://github.com/mozilla-services/loads">Loads</a></p>
-<p>Au tout début, j'ai travaillé sur un concept de <a href="https://github.com/mozilla-services/tokenserver">serveur de
-tokens</a>. L'idée était
-de désolidariser l'authentification des services web des services eux
-mêmes.</p>
-<p>L'idée est (je pense) bonne mais le service n'a pas été utilisé durant
+<p>Au tout début, j&#8217;ai travaillé sur un concept de <a href="https://github.com/mozilla-services/tokenserver">serveur de
+tokens</a>. L&#8217;idée était
+de désolidariser l&#8217;authentification des services web des services eux&nbsp;mêmes.</p>
+<p>L&#8217;idée est (je pense) bonne mais le service n&#8217;a pas été utilisé durant
 plus de deux ans. La raison étant principalement que Sync, pour lequel
 le serveur de tokens a été écrit, a subi des changements majeurs (qui
-sont rentrés en production il y a quelques semaines)</p>
-<p>Circus est né de besoins découverts via le token server, et il m'a
+sont rentrés en production il y a quelques&nbsp;semaines)</p>
+<p>Circus est né de besoins découverts via le token server, et il m&#8217;a
 personnellement beaucoup appris. Le token server est finalement utilisé
-dans la nouvelle version de Sync qui est rentrée en production il y a
-peu.</p>
-<h2 id="marketplace-chouette-on-va-casser-du-serveur">Marketplace ("chouette, on va casser du serveur")</h2>
+dans la nouvelle version de Sync qui est rentrée en production il y a&nbsp;peu.</p>
+<h2 id="marketplace-chouette-on-va-casser-du-serveur">Marketplace (&#8220;chouette, on va casser du&nbsp;serveur&#8221;)</h2>
 <p>Après 6 mois à travailler à Services, Tarek et moi avons commencé à
-rejoindre l'équipe du Marketplace pour faire un travail d'"audit de
-performance".</p>
-<p>L'idée était de prêter main forte à l'équipe du marketplace, mais les
+rejoindre l&#8217;équipe du Marketplace pour faire un travail d&#8216;&#8220;audit de&nbsp;performance&#8221;.</p>
+<p>L&#8217;idée était de prêter main forte à l&#8217;équipe du marketplace, mais les
 détails étaient alors assez flous. Le code est assez indigeste au
-premier abord, ce qui m'avait alors pas mal refroidi. La raison
+premier abord, ce qui m&#8217;avait alors pas mal refroidi. La raison
 principale étant que le code est utilisé à la fois par
 addons.mozilla.org et par marketplace.firefox.com, rendant les choses
-souvent un peu plus compliquées qu'il ne faudrait.</p>
-<p>Cet "audit" a été l'occasion de travailler sur des outils de montée en
-charge assez sympa, qui ont donné naissance à un projet qu'on utilise
+souvent un peu plus compliquées qu&#8217;il ne&nbsp;faudrait.</p>
+<p>Cet &#8220;audit&#8221; a été l&#8217;occasion de travailler sur des outils de montée en
+charge assez sympa, qui ont donné naissance à un projet qu&#8217;on utilise
 assez souvent maintenant, <a href="">Loads</a>.</p>
-<p>Énormément d'efforts sont fait pour aller dans la bonne direction et
+<p>Énormément d&#8217;efforts sont fait pour aller dans la bonne direction et
 faire en sorte que le code soit plus facile à maintenir et que le projet
-soit plus facile à aborder. D'ailleurs, pas mal de copains djangonautes
+soit plus facile à aborder. D&#8217;ailleurs, pas mal de copains djangonautes
 français travaillent dessus (salut <a href="http://virgule.net">Mathieu</a>, Yohan,
 <a href="http://larlet.fr">David</a> et <a href="http://mathieu.agopian.info">Mathieu
 Agopian</a>!)</p>
 <p>Une partie de notre plan a été de sortir certaines fonctionnalités du
 code actuel, pour en faire quelque chose de plus facile à maintenir et
-de moins imbriqué.</p>
-<h2 id="la-communaute">La Communauté</h2>
+de moins&nbsp;imbriqué.</p>
+<h2 id="la-communaute">La&nbsp;Communauté</h2>
 <p><a href="">Circus</a> et <a href="">Cornice</a> sont deux outils qui semblent utiles à la
-communauté. J'ai eu des retours très positifs sur Cornice, et j'essaye
-de le faire évoluer dans la direction qui me semble propice.</p>
-<p>D'ailleurs, Cornice est utilisé (par <a href="http://blog.mathieu-leplatre.info/pages/about.html">Mathieu
+communauté. J&#8217;ai eu des retours très positifs sur Cornice, et j&#8217;essaye
+de le faire évoluer dans la direction qui me semble&nbsp;propice.</p>
+<p>D&#8217;ailleurs, Cornice est utilisé (par <a href="http://blog.mathieu-leplatre.info/pages/about.html">Mathieu
 L.</a> — encore un —,
 <a href="http://twitter.com/natim">Rémy</a> et moi) actuellement pour coder
 <a href="https://github.com/spiral-project/daybed">Daybed</a> un service de
-validation de formulaires, mais ça sera l'objet d'un futur billet.</p>
+validation de formulaires, mais ça sera l&#8217;objet d&#8217;un futur&nbsp;billet.</p>
 <p>Circus commence à recevoir des contributions de plus en plus
-intéressantes, et à être utilisé en interne chez nous et chez d'autres,
-donc c'est une extrêmement bonne nouvelle.</p>
-<h2 id="talkilla-loop">Talkilla / Loop</h2>
-<p>Après quelques temps, j'avais envie d'apprendre de nouveau. Python c'est
-génial mais c'était devenu ma "zone de confort". J'adore découvrir des
-choses, donc c'était le moment de faire en sorte que ça continue!</p>
-<p>C'était aussi l'occasion de travailler avec
+intéressantes, et à être utilisé en interne chez nous et chez d&#8217;autres,
+donc c&#8217;est une extrêmement bonne&nbsp;nouvelle.</p>
+<h2 id="talkilla-loop">Talkilla /&nbsp;Loop</h2>
+<p>Après quelques temps, j&#8217;avais envie d&#8217;apprendre de nouveau. Python c&#8217;est
+génial mais c&#8217;était devenu ma &#8220;zone de confort&#8221;. J&#8217;adore découvrir des
+choses, donc c&#8217;était le moment de faire en sorte que ça&nbsp;continue!</p>
+<p>C&#8217;était aussi l&#8217;occasion de travailler avec
 <a href="https://nicolas.perriault.net/">Nicolas</a> et
 <a href="http://monkeypatch.me/blog/">Romain</a>. Je suivais le projet Talkilla de
-plus ou moins loin depuis quelques mois, c'était donc l'occasion à ne
-pas manquer.</p>
+plus ou moins loin depuis quelques mois, c&#8217;était donc l&#8217;occasion à ne
+pas&nbsp;manquer.</p>
 <p>En rentrant dans cette équipe, je cherchais principalement à avoir un
 projet visible pour les utilisateurs finaux. Refaire un peu de frontend,
-apprendre à faire du JavaScript propre et découvrir de nouvelles
-personnes.</p>
-<p>J'y ai aussi récupéré une équipe qui essaye de suivre les principes de
-l'agilité et qui est sur mon fuseau horaire (pour la plupart). Le rêve.</p>
-<p>L'idée derrière Talkilla est d'utiliser la technologie de communication
+apprendre à faire du JavaScript propre et découvrir de nouvelles&nbsp;personnes.</p>
+<p>J&#8217;y ai aussi récupéré une équipe qui essaye de suivre les principes de
+l&#8217;agilité et qui est sur mon fuseau horaire (pour la plupart). Le&nbsp;rêve.</p>
+<p>L&#8217;idée derrière Talkilla est d&#8217;utiliser la technologie de communication
 pair à pair dans les navigateurs (WebRTC) pour faire des appels audio /
-vidéo. En d'autres termes, c'est un peu transformer votre firefox en
+vidéo. En d&#8217;autres termes, c&#8217;est un peu transformer votre firefox en
 téléphone, sauf que personne ne peut espionner ce qui se passe entre
-vous et l'autre bout du fil.</p>
+vous et l&#8217;autre bout du&nbsp;fil.</p>
 <p>A peine arrivé dans le projet (peut-être un mois et quelques après mon
 débarquement) le choix a été fait de tout réécrire depuis zéro, dans un
-projet qui se nomme actuellement "Loop", qui veut proposer la même
-chose, mais inclus directement dans Firefox.</p>
-<p>C'est en bonne voie, on a quelque chose qui fonctionne dans nightly, et
+projet qui se nomme actuellement &#8220;Loop&#8221;, qui veut proposer la même
+chose, mais inclus directement dans&nbsp;Firefox.</p>
+<p>C&#8217;est en bonne voie, on a quelque chose qui fonctionne dans nightly, et
 le code du serveur fonctionne pas mal. Le code du serveur est ici:
 <a href="https://github.com/mozilla-services/loop-server">https://github.com/mozilla-services/loop-server</a>.</p>
-<p>Un client est en train d'être implémenté dans Firefox et un autre en
-tant qu'application pour FirefoxOS. Le boulot ne s'arrête pas de
-pleuvoir, mais je pense qu'on va dans une direction intéressante.</p>
-<p>Pour être complètement terminé, il faudrait qu'on soit capable de se
-passer complètement de notre provider, TokBox (que l'on utilise en tant
-que relai média), pour que n'importe qui puisse choisir d'utiliser son
-propre serveur STUN / TURN et installe son serveur loop chez lui.</p>
-<h3 id="le-travail-a-distance">Le travail à distance</h3>
-<p>Quand j'ai commencé à travailler à Mozilla, j'ai décidé de venir
-m'installer à Paris. La plupart des personnes de mon entourage ont
-d'ailleurs fait des gros yeux, parce qu'ils connaissaient mon avis sur
-la ville en question, mais casser des préjugés n'est jamais une mauvaise
-chose.</p>
-<p>Après deux ans passés à Paris, j'ai décidé de partir m'installer à
-Rennes, puisque de toute manière, la plupart de mon travail s'effectue
-au jour le jour à distance. En d'autres termes, la plupart de mon équipe
-n'est pas à coté de moi quand je travaille, ce qui veut dire que je peux
-travailler depuis n'importe où.</p>
-<p>Ce qui fonctionne pour moi, c'est de ne quasiment jamais travailler
-depuis la maison. J'utilise <a href="http://www.lacantine-rennes.net/">un espace de
+<p>Un client est en train d&#8217;être implémenté dans Firefox et un autre en
+tant qu&#8217;application pour FirefoxOS. Le boulot ne s&#8217;arrête pas de
+pleuvoir, mais je pense qu&#8217;on va dans une direction&nbsp;intéressante.</p>
+<p>Pour être complètement terminé, il faudrait qu&#8217;on soit capable de se
+passer complètement de notre provider, TokBox (que l&#8217;on utilise en tant
+que relai média), pour que n&#8217;importe qui puisse choisir d&#8217;utiliser son
+propre serveur <span class="caps">STUN</span> / <span class="caps">TURN</span> et installe son serveur loop chez&nbsp;lui.</p>
+<h3 id="le-travail-a-distance">Le travail à&nbsp;distance</h3>
+<p>Quand j&#8217;ai commencé à travailler à Mozilla, j&#8217;ai décidé de venir
+m&#8217;installer à Paris. La plupart des personnes de mon entourage ont
+d&#8217;ailleurs fait des gros yeux, parce qu&#8217;ils connaissaient mon avis sur
+la ville en question, mais casser des préjugés n&#8217;est jamais une mauvaise&nbsp;chose.</p>
+<p>Après deux ans passés à Paris, j&#8217;ai décidé de partir m&#8217;installer à
+Rennes, puisque de toute manière, la plupart de mon travail s&#8217;effectue
+au jour le jour à distance. En d&#8217;autres termes, la plupart de mon équipe
+n&#8217;est pas à coté de moi quand je travaille, ce qui veut dire que je peux
+travailler depuis n&#8217;importe&nbsp;où.</p>
+<p>Ce qui fonctionne pour moi, c&#8217;est de ne quasiment jamais travailler
+depuis la maison. J&#8217;utilise <a href="http://www.lacantine-rennes.net/">un espace de
 coworking</a> qui est un moyen de garder
 ma vie perso séparée de ma vie privée et de rencontrer des gens
-passionnés par ce qu'ils font.</p>
+passionnés par ce qu&#8217;ils&nbsp;font.</p>
 <p>Depuis que je suis arrivé à Rennes, Rémy a commencé à travailler avec
-moi, et c'est un réel bonheur que de pouvoir partager des journées de
-travail. On "pair-prog" énormément et j'ai l'impression d'avoir un boost
-dans ma productivité quotidienne.</p>
+moi, et c&#8217;est un réel bonheur que de pouvoir partager des journées de
+travail. On &#8220;pair-prog&#8221; énormément et j&#8217;ai l&#8217;impression d&#8217;avoir un boost
+dans ma productivité&nbsp;quotidienne.</p>
 <h3 id="enseignements">Enseignements</h3>
 <p>Mozilla est ma première expérience professionnelle, et par conséquent,
 je manque nécessairement de recul sur ce qui est acceptable et ce qui ne
-l'est pas. D'une manière générale, avoir un environnement de travail
+l&#8217;est pas. D&#8217;une manière générale, avoir un environnement de travail
 basé sur la confiance est réellement appréciable (La première réaction
-des gens quand je dis que je peux travailler à distance, c'est de me
+des gens quand je dis que je peux travailler à distance, c&#8217;est de me
 demander comment ils font pour être sur que je travaille. Et la réponse
-est… il n'y en a pas).</p>
-<p>J'ai encore un peu de mal à savoir quels indicateurs utiliser pour
-savoir si je suis "productif" ou non, mais j'ai globalement l'impression
+est… il n&#8217;y en a&nbsp;pas).</p>
+<p>J&#8217;ai encore un peu de mal à savoir quels indicateurs utiliser pour
+savoir si je suis &#8220;productif&#8221; ou non, mais j&#8217;ai globalement l&#8217;impression
 que je manque de concentration et de discipline: beaucoup
-d'interruptions n'aident pas à se concentrer.</p>
+d&#8217;interruptions n&#8217;aident pas à se&nbsp;concentrer.</p>
 <p>La motivation fluctue aussi énormément: un jour on est super motivé, un
-autre c'est juste impossible de la trouver. Après quelques
-expérimentations, le mieux (pour moi) est d'avoir des horaires fixes,
+autre c&#8217;est juste impossible de la trouver. Après quelques
+expérimentations, le mieux (pour moi) est d&#8217;avoir des horaires fixes,
 pour pouvoir séparer le travail du reste, de ne pas hésiter à faire des
-pauses et d'écouter un peu ses envies et son corps (si je suis crevé, ça
+pauses et d&#8217;écouter un peu ses envies et son corps (si je suis crevé, ça
 ne sert à rien de se lever pour aller travailler, il vaut mieux se
-reposer un peu pour être plus efficace ensuite, par exemple).</p>
-<p>J'ai essayé de tirer quelques enseignements de ces deux années:</p>
-<h2 id="malheureusement-le-code-nest-pas-propre">Malheureusement, le code n'est pas propre</h2>
+reposer un peu pour être plus efficace ensuite, par&nbsp;exemple).</p>
+<p>J&#8217;ai essayé de tirer quelques enseignements de ces deux&nbsp;années:</p>
+<h2 id="malheureusement-le-code-nest-pas-propre">Malheureusement, le code n&#8217;est pas&nbsp;propre</h2>
 <p>Je me rends compte que bien souvent je suis assez déçu de la qualité du
 code que je regarde. Principalement parce que je ne suis pas capable de
-le comprendre rapidement. Spécifiquement, ça m'est arrivé avec certaines
+le comprendre rapidement. Spécifiquement, ça m&#8217;est arrivé avec certaines
 parties de <a href="https://github.com/mozilla/zamboni">Zamboni</a>, le code du
 <a href="http://marketplace.firefox.com">Marketplace</a> dont je parlais plus haut,
-avec certaines parties de Talkilla ou alors le code de Firefox lui même.</p>
-<p>C'était extrêmement frustrant pour moi de découvrir que le code écrit à
-Mozilla n'était pas exemplaire. Tout le code qui est ajouté à l'heure
+avec certaines parties de Talkilla ou alors le code de Firefox lui&nbsp;même.</p>
+<p>C&#8217;était extrêmement frustrant pour moi de découvrir que le code écrit à
+Mozilla n&#8217;était pas exemplaire. Tout le code qui est ajouté à l&#8217;heure
 actuelle est revu, corrigé et validé par des pairs, mais un certain
-nombre de projets ont un historique assez lourd qui rends leur structure
-complexe.</p>
-<p>Je réalise donc que mon travail n'est pas uniquement de savoir écrire du
+nombre de projets ont un historique assez lourd qui rends leur structure&nbsp;complexe.</p>
+<p>Je réalise donc que mon travail n&#8217;est pas uniquement de savoir écrire du
 code propre, mais également de réussir à comprendre du code que je
-considère comme "sale" (quitte à l'améliorer au passage !).</p>
-<p>Et c'est pas du gâteau; je m'attendais à réussir à comprendre des
+considère comme &#8220;sale&#8221; (quitte à l&#8217;améliorer au passage&nbsp;!).</p>
+<p>Et c&#8217;est pas du gâteau; je m&#8217;attendais à réussir à comprendre des
 projets complexes facilement, mais aucun miracle de ce coté là. Il faut
 réussir à rester concentré pendant suffisamment longtemps pour pouvoir
-tirer tous les fils et commencer à démêler… Pas facile !</p>
-<h2 id="apprendre-est-un-processus-actif">Apprendre est un processus actif</h2>
-<p>Il est facile de passer à coté de l'apprentissage. Être entouré de gens
-talentueux ne suffit pas pour continuer à apprendre.</p>
-<p>Savoir reconnaitre un échec est nécessaire. Dire que l'on comprends pour
+tirer tous les fils et commencer à démêler… Pas facile&nbsp;!</p>
+<h2 id="apprendre-est-un-processus-actif">Apprendre est un processus&nbsp;actif</h2>
+<p>Il est facile de passer à coté de l&#8217;apprentissage. Être entouré de gens
+talentueux ne suffit pas pour continuer à&nbsp;apprendre.</p>
+<p>Savoir reconnaitre un échec est nécessaire. Dire que l&#8217;on comprends pour
 éviter de passer pour un idiot est un biais qui se prends assez
-rapidement, et qu'il faut éviter à tout prix.</p>
-<p>Surtout au début, c'était une erreur que je faisais énormément, une
-question d'égo probablement.</p>
+rapidement, et qu&#8217;il faut éviter à tout&nbsp;prix.</p>
+<p>Surtout au début, c&#8217;était une erreur que je faisais énormément, une
+question d&#8217;égo&nbsp;probablement.</p>
 <p>Il y a une espèce de honte de ne pas savoir, alors que tout le monde
 autour sait ou en tout cas semble savoir. Bien souvent, les gens autour
 ne savent pas non plus, ce qui mène à des discussions de comptoir, sans
-trop savoir pourquoi.</p>
+trop savoir&nbsp;pourquoi.</p>
 <p>Connaître ses limites techniques est un bon début pour pouvoir les
-surpasser. Chercher à les rencontrer est un processus actif.</p>
-<p>Le manque de temps m'empêche bien souvent de pouvoir prendre un livre
-technique et de pouvoir l'apprécier. Je ne sais pas exactement pourquoi,
-peut être par sur-dose, mais je n'ai ouvert que quelques rares livres
-techniques durant ces deux années. Et j'aimerais bien que ça change !</p>
-<h2 id="assez-bien-est-suffisant">"Assez bien" est suffisant</h2>
-<p>La culture de l'excellence se mets parfois au milieu du chemin. On
-oublie souvent que "le mieux est l'ennemi du bien".</p>
-<p>Rien ne sert de faire des commits parfaits tout le temps. Quand j'ai
-besoin de "hacker" sur un projet, je ne voulais d'abord pas tout péter,
-par peur de ne plus m'y retrouver.</p>
+surpasser. Chercher à les rencontrer est un processus&nbsp;actif.</p>
+<p>Le manque de temps m&#8217;empêche bien souvent de pouvoir prendre un livre
+technique et de pouvoir l&#8217;apprécier. Je ne sais pas exactement pourquoi,
+peut être par sur-dose, mais je n&#8217;ai ouvert que quelques rares livres
+techniques durant ces deux années. Et j&#8217;aimerais bien que ça change&nbsp;!</p>
+<h2 id="assez-bien-est-suffisant"><span class="dquo">&#8220;</span>Assez bien&#8221; est&nbsp;suffisant</h2>
+<p>La culture de l&#8217;excellence se mets parfois au milieu du chemin. On
+oublie souvent que &#8220;le mieux est l&#8217;ennemi du&nbsp;bien&#8221;.</p>
+<p>Rien ne sert de faire des commits parfaits tout le temps. Quand j&#8217;ai
+besoin de &#8220;hacker&#8221; sur un projet, je ne voulais d&#8217;abord pas tout péter,
+par peur de ne plus m&#8217;y&nbsp;retrouver.</p>
 <p>Mon approche actuelle est bien différente: on mets les mains dans le
-cambouis jusqu'à ce que ça marche, et ensuite on répare les dégâts.
-Enfin… dans une certaine mesure hein !</p>
-<h2 id="ecrire-des-boites-a-outils-et-non-pas-des-frameworks">Écrire des boites à outils et non pas des frameworks</h2>
+cambouis jusqu&#8217;à ce que ça marche, et ensuite on répare les dégâts.
+Enfin… dans une certaine mesure hein&nbsp;!</p>
+<h2 id="ecrire-des-boites-a-outils-et-non-pas-des-frameworks">Écrire des boites à outils et non pas des&nbsp;frameworks</h2>
 <p>Écrire des frameworks force les utilisateurs à les utiliser, et à les
 connaitre dans les moindres recoins. Heureusement, il existe déjà
 énormément de frameworks qui pour la plupart font très bien leur
-travail. Ce qui nous manque ce n'est pas plus de frameworks, mais bel et
-bien plus de boites à outils.</p>
+travail. Ce qui nous manque ce n&#8217;est pas plus de frameworks, mais bel et
+bien plus de boites à&nbsp;outils.</p>
 <p>Une boite à outil prends un problème bien défini et propose une solution
-pour ce problème. Une boite à outils est, en mon sens, ce qu'on appelle
+pour ce problème. Une boite à outils est, en mon sens, ce qu&#8217;on appelle
 une bibliothèque. Pas besoin de réécrire tout votre projet pour utiliser
-ma nouvelle bibliothèque afin de profiter des fonctionnalités qu'elle
-apporte (alors que c'est le cas avec un framework, justement).</p>
-<h2 id="etre-le-moteur-de-son-propre-changement">Être le moteur de son propre changement</h2>
-<p>Facile à dire, héhé ! D'une manière générale, je me rends compte qu'il
+ma nouvelle bibliothèque afin de profiter des fonctionnalités qu&#8217;elle
+apporte (alors que c&#8217;est le cas avec un framework,&nbsp;justement).</p>
+<h2 id="etre-le-moteur-de-son-propre-changement">Être le moteur de son propre&nbsp;changement</h2>
+<p>Facile à dire, héhé ! D&#8217;une manière générale, je me rends compte qu&#8217;il
 est facile de se plaindre sans pour autant être moteur du changement que
-l'on souhaite voir arriver.</p>
+l&#8217;on souhaite voir&nbsp;arriver.</p>
 <p>Ça vaut le coup de se donner la peine de faire changer les choses,
-surtout à Mozilla, parce que le changement n'est pas seulement vu d'un
-mauvais œil.</p>
+surtout à Mozilla, parce que le changement n&#8217;est pas seulement vu d&#8217;un
+mauvais&nbsp;œil.</p>
 <p>Pour que les choses évoluent, il faut être force de proposition. Se
-plaindre n'a jamais servi à rien si ce n'est pas suivi d'actes ;)</p>
-<p>Je dis de temps en temps que Mozilla est une "do-o-cratie" (celui qui
-fait à raison), et je le pense de plus en plus. Quand j'ai envie que
-quelque chose soit fait, et bah… il faut le faire !</p>
-<h2 id="ne-pas-chercher-a-avoir-raison">Ne pas chercher à avoir raison</h2>
-<p>Peu importe qui a raison, l'important n'est pas de chercher à montrer
+plaindre n&#8217;a jamais servi à rien si ce n&#8217;est pas suivi d&#8217;actes&nbsp;;)</p>
+<p>Je dis de temps en temps que Mozilla est une &#8220;do-o-cratie&#8221; (celui qui
+fait à raison), et je le pense de plus en plus. Quand j&#8217;ai envie que
+quelque chose soit fait, et bah… il faut le faire&nbsp;!</p>
+<h2 id="ne-pas-chercher-a-avoir-raison">Ne pas chercher à avoir&nbsp;raison</h2>
+<p>Peu importe qui a raison, l&#8217;important n&#8217;est pas de chercher à montrer
 que tu sais, mais de trouver ce qui est juste. Ça parait peut être
 évident, mais bien souvent on cherche à se mettre en avant, au
-détriment du projet… Allez, gardons nos égos de coté ;)</p>
-<h2 id="arreter-le-negativisme">Arrêter le négativisme</h2>
+détriment du projet… Allez, gardons nos égos de coté&nbsp;;)</p>
+<h2 id="arreter-le-negativisme">Arrêter le&nbsp;négativisme</h2>
 <p>Il est très facile de se laisser embarquer dans le négativisme. Il y a
 toujours des choses qui ne vont pas, et probablement il y en aura
 toujours. Ce ne sont pas des raisons suffisantes pour perdre le moral.
 Identifier les points faibles est important est permet de savoir ce
-qu'il est nécessaire d'améliorer, mais regarder les choses du coté
-positif (et il y en a nécessairement un !) est indispensable !</p>
+qu&#8217;il est nécessaire d&#8217;améliorer, mais regarder les choses du coté
+positif (et il y en a nécessairement un !) est indispensable&nbsp;!</p>
 <p>À plusieurs reprises je me suis retrouvé dans des crises de négativisme,
-pour un tas de raisons différentes. La meilleure manière de s'en sortir:
+pour un tas de raisons différentes. La meilleure manière de s&#8217;en sortir:
 en causer et trouver des solutions, prendre le problème à bras le corps,
-et ne pas considérer que c'est un problème sur lequel on a aucune prise
-possible.</p>
-<h3 id="la-suite">La suite ?</h3>
-<p>Je n'ai aucune idée d'à quoi va ressembler la suite, et c'est justement
-ce que j'apprécie et qui m'effraie en même temps…</p>
+et ne pas considérer que c&#8217;est un problème sur lequel on a aucune prise&nbsp;possible.</p>
+<h3 id="la-suite">La suite&nbsp;?</h3>
+<p>Je n&#8217;ai aucune idée d&#8217;à quoi va ressembler la suite, et c&#8217;est justement
+ce que j&#8217;apprécie et qui m&#8217;effraie en même&nbsp;temps…</p>
 <p>Je fais actuellement énormément de Javascript et je travaille sur des
-projets qui semblent avoir plus de sens qu'avant (même si je vois déjà
+projets qui semblent avoir plus de sens qu&#8217;avant (même si je vois déjà
 des choses que je souhaiterais améliorer, mais chaque chose en son
-temps). Donc techniquement j'apprends et dans ma quête de faire des
-produits qui touchent un utilisateur.</p>
+temps). Donc techniquement j&#8217;apprends et dans ma quête de faire des
+produits qui touchent un&nbsp;utilisateur.</p>
 <p>Depuis quelques semaines, je peux travailler une journée par semaine sur
 un projet qui me tiens vraiment à cœur: daybed
-(<a href="http://daybed.rtfd.org">http://daybed.rtfd.org</a>). L'objectif est de faire en sorte que le
-projet avance et soit utilisé au sein de mozilla.</p>
-<p>Avant toute autre chose, il faudra faire des changements de "pitch" pour
-qu'il soit plus simple d'expliquer ce que Daybed souhaite faire, mais…
-c'est une autre histoire.</p>
+(<a href="http://daybed.rtfd.org">http://daybed.rtfd.org</a>). L&#8217;objectif est de faire en sorte que le
+projet avance et soit utilisé au sein de&nbsp;mozilla.</p>
+<p>Avant toute autre chose, il faudra faire des changements de &#8220;pitch&#8221; pour
+qu&#8217;il soit plus simple d&#8217;expliquer ce que Daybed souhaite faire, mais…
+c&#8217;est une autre&nbsp;histoire.</p>
 </article>
 
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Génération de formulaires, geolocalisés ? - Alexis Métaireau</title>
+        <title>Génération de formulaires, geolocalisés&nbsp;? - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,199 +20,193 @@
 
 
 <header>
-	<h1 class="post-title">Génération de formulaires, geolocalisés ?</h1>
+	<h1 class="post-title">Génération de formulaires, geolocalisés&nbsp;?</h1>
 	<time datetime="2012-04-02T00:00:00+02:00">02 avril 2012</time>
 
     
 </header>
 <article>
     
-<p>On a un plan. Un "truc de ouf".</p>
-<p>À plusieurs reprises, des amis m'ont demandé de leur coder la même
+<p>On a un plan. Un &#8220;truc de&nbsp;ouf&#8221;.</p>
+<p>À plusieurs reprises, des amis m&#8217;ont demandé de leur coder la même
 chose, à quelques détails près: une page web avec un formulaire qui
 permettrait de soumettre des informations géographiques, lié à une carte
-et des manières de filtrer l'information.</p>
-<p>L'idée fait son bout de chemin, et je commence à penser qu'on peut même
-avoir quelque chose de vraiment flexible et utile. J'ai nommé le projet
-<em>carto-forms</em> pour l'instant (mais c'est uniquement un nom de code).</p>
+et des manières de filtrer&nbsp;l&#8217;information.</p>
+<p>L&#8217;idée fait son bout de chemin, et je commence à penser qu&#8217;on peut même
+avoir quelque chose de vraiment flexible et utile. J&#8217;ai nommé le projet
+<em>carto-forms</em> pour l&#8217;instant (mais c&#8217;est uniquement un nom de&nbsp;code).</p>
 <p>Pour résumer: et si on avait un moyen de construire des formulaires, un
-peu comme Google forms, mais avec des informations géographiques en
-plus?</p>
-<p>Si vous ne connaissez pas Google forms, il s'agit d'une interface simple
-d'utilisation pour générer des formulaires et récupérer des informations
-depuis ces derniers.</p>
+peu comme Google forms, mais avec des informations géographiques en&nbsp;plus?</p>
+<p>Si vous ne connaissez pas Google forms, il s&#8217;agit d&#8217;une interface simple
+d&#8217;utilisation pour générer des formulaires et récupérer des informations
+depuis ces&nbsp;derniers.</p>
 <p>Google forms est un super outil mais à mon avis manque deux choses
-importantes: premièrement, il s'agit d'un outil propriétaire (oui, on
-peut aussi dire privateur) et il n'est donc pas possible de le hacker un
-peu pour le faire devenir ce qu'on souhaite, ni l'installer sur notre
+importantes: premièrement, il s&#8217;agit d&#8217;un outil propriétaire (oui, on
+peut aussi dire privateur) et il n&#8217;est donc pas possible de le hacker un
+peu pour le faire devenir ce qu&#8217;on souhaite, ni l&#8217;installer sur notre
 propre serveur. Deuxièmement, il ne sait pas vraiment fonctionner avec
-des informations géographiques, et il n'y à pas d'autre moyen de filtrer
-les informations que l'utilisation de leur système de feuilles de
-calcul.</p>
-<p>Après avoir réfléchi un petit peu à ça, j'ai contacté
+des informations géographiques, et il n&#8217;y à pas d&#8217;autre moyen de filtrer
+les informations que l&#8217;utilisation de leur système de feuilles de&nbsp;calcul.</p>
+<p>Après avoir réfléchi un petit peu à ça, j&#8217;ai contacté
 <a href="http://blog.mathieu-leplatre.info/">Mathieu</a> et les anciens collègues
 de chez <a href="http://makina-corpus.com">Makina Corpus</a>, puisque les projets
-libres à base de carto sont à même de les intéresser.</p>
-<p>Imaginez le cas suivant:</p>
+libres à base de carto sont à même de les&nbsp;intéresser.</p>
+<p>Imaginez le cas&nbsp;suivant:</p>
 <ol>
-<li>Dans une "mapping party", on choisit un sujet particulier à
+<li>Dans une &#8220;mapping party&#8221;, on choisit un sujet particulier à
     cartographier et on design un formulaire (liste des champs (tags) a
-    remplir + description + le type d'information) ;</li>
+    remplir + description + le type d&#8217;information)&nbsp;;</li>
 <li>Sur place, les utilisateurs remplissent les champs du formulaire
-    avec ce qu'ils voient. Les champs géolocalisés peuvent être remplis
-    automatiquement avec la géolocalisation du téléphone ;</li>
+    avec ce qu&#8217;ils voient. Les champs géolocalisés peuvent être remplis
+    automatiquement avec la géolocalisation du téléphone&nbsp;;</li>
 <li>À la fin de la journée, il est possible de voir une carte des
-    contributions, avec le formulaire choisi ;</li>
-<li>Un script peut importer les résultats et les publier vers
-    OpenStreetMap.</li>
+    contributions, avec le formulaire choisi&nbsp;;</li>
+<li>Un script peut importer les résultats et les publier vers&nbsp;OpenStreetMap.</li>
 </ol>
-<h2 id="quelques-cas-dutilisation">Quelques cas d'utilisation</h2>
-<p>J'arrive à imaginer différents cas d'utilisation pour cet outil. Le
-premier est celui que j'ai approximativement décrit plus haut: la
+<h2 id="quelques-cas-dutilisation">Quelques cas&nbsp;d&#8217;utilisation</h2>
+<p>J&#8217;arrive à imaginer différents cas d&#8217;utilisation pour cet outil. Le
+premier est celui que j&#8217;ai approximativement décrit plus haut: la
 génération de cartes de manière collaborative, avec des filtres à
-facettes. Voici un flux d'utilisation général:</p>
+facettes. Voici un flux d&#8217;utilisation&nbsp;général:</p>
 <ul>
 <li>
-<p>Un "administrateur" se rend sur le site web et crée un nouveau
-    formulaire pour l'ensemble des évènements alternatifs. Il crée les
-    champs suivants:</p>
+<p>Un &#8220;administrateur&#8221; se rend sur le site web et crée un nouveau
+    formulaire pour l&#8217;ensemble des évènements alternatifs. Il crée les
+    champs&nbsp;suivants:</p>
 <ul>
-<li>Nom: le champ qui contient le nom de l'évènement.</li>
-<li>Catégorie: la catégorie de l'évènement (marche, concert,
-    manifestation…). Il peut s'agir d'un champ à multiples
-    occurrences.</li>
-<li>Le lieu de l'évènement. Celui-ci peut être donné soit par une
-    adresse soit en sélectionnant un point sur une carte.</li>
-<li>Date: la date de l'évènement (un "date picker" peut permettre
-    cela facilement)</li>
+<li>Nom: le champ qui contient le nom de&nbsp;l&#8217;évènement.</li>
+<li>Catégorie: la catégorie de l&#8217;évènement (marche, concert,
+    manifestation…). Il peut s&#8217;agir d&#8217;un champ à multiples&nbsp;occurrences.</li>
+<li>Le lieu de l&#8217;évènement. Celui-ci peut être donné soit par une
+    adresse soit en sélectionnant un point sur une&nbsp;carte.</li>
+<li>Date: la date de l&#8217;évènement (un &#8220;date picker&#8221; peut permettre
+    cela&nbsp;facilement)</li>
 </ul>
 <p>Chaque champ dans le formulaire a des informations sémantiques
 associées (oui/non, multiple sélection, date, heure, champ géocodé,
-sélection carto, etc.)</p>
+sélection carto,&nbsp;etc.)</p>
 </li>
 <li>
-<p>Une fois terminé, le formulaire est généré et une URL permet d'y
+<p>Une fois terminé, le formulaire est généré et une <span class="caps">URL</span> permet d&#8217;y
     accéder. (par exemple <a href="http://forms.notmyidea.org/alternatives">http://forms.notmyidea.org/alternatives</a>).</p>
 </li>
 <li>
-<p>Une API REST permet à d'autres applications d'accéder aux
-    informations et d'en ajouter / modifier de nouvelles.</p>
+<p>Une <span class="caps">API</span> <span class="caps">REST</span> permet à d&#8217;autres applications d&#8217;accéder aux
+    informations et d&#8217;en ajouter / modifier de&nbsp;nouvelles.</p>
 </li>
 <li>
-<p>Il est maintenant possible de donner l'URL à qui voudra en faire bon
-    usage. N'importe qui peut ajouter des informations. On peut
+<p>Il est maintenant possible de donner l&#8217;<span class="caps">URL</span> à qui voudra en faire bon
+    usage. N&#8217;importe qui peut ajouter des informations. On peut
     également imaginer une manière de modérer les modifications si
-    besoin est.</p>
+    besoin&nbsp;est.</p>
 </li>
 <li>
 <p>Bien sur, la dernière phase est la plus intéressante: il est
     possible de filtrer les informations par lieu, catégorie ou date, le
-    tout soit via une API REST, soit via une jolie carte et quelques
-    contrôles bien placés, dans le navigateur.</p>
+    tout soit via une <span class="caps">API</span> <span class="caps">REST</span>, soit via une jolie carte et quelques
+    contrôles bien placés, dans le&nbsp;navigateur.</p>
 </li>
 </ul>
-<p>Vous avez dû remarquer que le processus de création d'un formulaire est
-volontairement très simple. L'idée est que n'importe qui puisse créer
-des cartes facilement, en quelques clics. Si une API bien pensée suit,
+<p>Vous avez dû remarquer que le processus de création d&#8217;un formulaire est
+volontairement très simple. L&#8217;idée est que n&#8217;importe qui puisse créer
+des cartes facilement, en quelques clics. Si une <span class="caps">API</span> bien pensée suit,
 on peut imaginer faire de la validation coté serveur et même faire des
-applications pour téléphone assez simplement.</p>
+applications pour téléphone assez&nbsp;simplement.</p>
 <p>Pour aller un peu plus loin, si on arrive à penser un format de
 description pour le formulaire, il sera possible de construire les
 formulaires de manière automatisée sur différentes plateformes et
-également sur des clients génériques.</p>
-<p>On imagine pas mal d'exemples pour ce projet: des points de recyclage,
+également sur des clients&nbsp;génériques.</p>
+<p>On imagine pas mal d&#8217;exemples pour ce projet: des points de recyclage,
 les endroits accessibles (pour fauteuils roulants etc.), identification
 des arbres, bons coins à champignons, recensement des espèces en voie de
-disparition (l'aigle de Bonelli est actuellement suivi en utilisant une
+disparition (l&#8217;aigle de Bonelli est actuellement suivi en utilisant une
 feuille de calcul partagée !), suivi des espèces dangereuses (le frelon
-asiatique par exemple), cartographier les points d'affichage
+asiatique par exemple), cartographier les points d&#8217;affichage
 publicitaires, participation citoyenne (graffitis, nids de poule, voir
 <a href="http://fixmystreet.ca">http://fixmystreet.ca</a>), geocaching, trajectoires (randonnées,
-coureurs, cyclistes)…</p>
-<p>Voici quelques exemples où ce projet pourrait être utile (la liste n'est
-pas exhaustive):</p>
-<h3 id="un-backend-sig-simple-a-utiliser">Un backend SIG simple à utiliser</h3>
+coureurs,&nbsp;cyclistes)…</p>
+<p>Voici quelques exemples où ce projet pourrait être utile (la liste n&#8217;est
+pas&nbsp;exhaustive):</p>
+<h3 id="un-backend-sig-simple-a-utiliser">Un backend <span class="caps">SIG</span> simple à&nbsp;utiliser</h3>
 <p>Disons que vous êtes développeur mobile. Vous ne voulez pas vous
 encombrer avec PostGIS ou écrire du code spécifique pour récupérer et
-insérer des données SIG! Vous avez besoin de <em>Carto-Forms</em>! Une API
+insérer des données <span class="caps">SIG</span>! Vous avez besoin de <em>Carto-Forms</em>! Une <span class="caps">API</span>
 simple vous aide à penser vos modèles et vos formulaires, et cette même
-API vous permet d'insérer et de récupérer des données. Vous pouvez vous
+<span class="caps">API</span> vous permet d&#8217;insérer et de récupérer des données. Vous pouvez vous
 concentrer sur votre application et non pas sur la manière dont les
-données géographiques sont stockées et gérées.</p>
-<p>En d'autres termes, vous faites une distinction entre le stockage des
-informations et leur affichage.</p>
+données géographiques sont stockées et&nbsp;gérées.</p>
+<p>En d&#8217;autres termes, vous faites une distinction entre le stockage des
+informations et leur&nbsp;affichage.</p>
 <p>Si vous êtes un développeur django, plomino, drupal etc. vous pouvez
-développer un module pour "plugger" vos modèles et votre interface
+développer un module pour &#8220;plugger&#8221; vos modèles et votre interface
 utilisateur avec celle de <em>Carto-Forms</em>. De cette manière, il est
-possible d'exposer les formulaires aux utilisateurs de vos backoffices.
-De la même manière, il est possible d'écrire des widgets qui consomment
+possible d&#8217;exposer les formulaires aux utilisateurs de vos backoffices.
+De la même manière, il est possible d&#8217;écrire des widgets qui consomment
 des données et les affichent (en utilisant par exemple une bibliothèque
-javascript de webmapping).</p>
-<h3 id="un-outil-de-visualisation">Un outil de visualisation</h3>
+javascript de&nbsp;webmapping).</p>
+<h3 id="un-outil-de-visualisation">Un outil de&nbsp;visualisation</h3>
 <p>Puisque les données peuvent être proposées de manière automatisée en
-utilisant l'API, vous pouvez utiliser la page de résultat de Carto-forms
-comme un outil de visualisation.</p>
-<p>Il est possible d'explorer mon jeu de données en utilisant des filtres
+utilisant l&#8217;<span class="caps">API</span>, vous pouvez utiliser la page de résultat de Carto-forms
+comme un outil de&nbsp;visualisation.</p>
+<p>Il est possible d&#8217;explorer mon jeu de données en utilisant des filtres
 sur chacun des champs. La recherche à facettes peut être une idée pour
 faciliter ce filtrage. Une carte affiche le résultat. Vous avez
-l'impressoin d'être en face d'un système d'aide à la décision !</p>
+l&#8217;impressoin d&#8217;être en face d&#8217;un système d&#8217;aide à la décision&nbsp;!</p>
 <p>Évidemment, il est possible de télécharger les données brutes (geojson,
-xml). Idéalement, le mieux serait d'obtenir ces données filtrées
-directement depuis une API Web, et un lien permet de partager la page
-avec l'état des filtres et le niveau de zoom / la localisation de la
-carte.</p>
-<h3 id="un-service-generique-pour-gerer-les-formulaires">Un service générique pour gérer les formulaires</h3>
+xml). Idéalement, le mieux serait d&#8217;obtenir ces données filtrées
+directement depuis une <span class="caps">API</span> Web, et un lien permet de partager la page
+avec l&#8217;état des filtres et le niveau de zoom / la localisation de la&nbsp;carte.</p>
+<h3 id="un-service-generique-pour-gerer-les-formulaires">Un service générique pour gérer les&nbsp;formulaires</h3>
 <p>Si vous souhaitez générer un fichier de configuration (ou ce que vous
-voulez, messages emails, …) vous aurez besoin d'un formulaire et d'un
+voulez, messages emails, …) vous aurez besoin d&#8217;un formulaire et d&#8217;un
 template pour injecter les données proposées par les utilisateurs et
-récupérer un résultat.</p>
+récupérer un&nbsp;résultat.</p>
 <p>Un service de gestion des formulaires pourrait être utile pour créer des
-formulaires de manière automatique et récupérer les données "nettoyées"
-et "validées".</p>
-<p>On peut imaginer par exemple l'utilisation d'un système de templates
-externe reposant sur <em>carto-forms</em>. Celui-ci "parserait" le contenu des
+formulaires de manière automatique et récupérer les données &#8220;nettoyées&#8221;
+et&nbsp;&#8220;validées&#8221;.</p>
+<p>On peut imaginer par exemple l&#8217;utilisation d&#8217;un système de templates
+externe reposant sur <em>carto-forms</em>. Celui-ci &#8220;parserait&#8221; le contenu des
 templates et pourrait le lier aux informations ajoutées par les
-utilisateurs via un formulaire.</p>
-<p>Pour ce cas particulier, il n'y a pas besoin d'informations
-géographiques (SIG). Il s'agit quasiment du service proposé
-actuellement par Google forms.</p>
-<h2 id="ca-nexiste-pas-deja-tout-ca">Ça n'existe pas déjà tout ça ?</h2>
+utilisateurs via un&nbsp;formulaire.</p>
+<p>Pour ce cas particulier, il n&#8217;y a pas besoin d&#8217;informations
+géographiques (<span class="caps">SIG</span>). Il s&#8217;agit quasiment du service proposé
+actuellement par Google&nbsp;forms.</p>
+<h2 id="ca-nexiste-pas-deja-tout-ca">Ça n&#8217;existe pas déjà tout ça&nbsp;?</h2>
 <p>Bien sur, il y a Google forms, qui vous permet de faire ce genre de
-choses, mais comme je l'ai précisé plus haut, il ne s'agit pas
-exactement de la même chose.</p>
+choses, mais comme je l&#8217;ai précisé plus haut, il ne s&#8217;agit pas
+exactement de la même&nbsp;chose.</p>
 <p>Nous avons découvert <a href="https://webform.com">https://webform.com</a> qui permet de créer des
-formulaires avec un système de drag'n'drop. J'adorerais reproduire
-quelque chose de similaire pour l'interface utilisateur. Par contre ce
-projet ne gère pas les appels via API et les informations de
-géolocalisation …</p>
-<p>L'idée de <a href="http://thoth.io">http://thoth.io</a> est également assez sympathique: une api
+formulaires avec un système de drag&#8217;n&#8217;drop. J&#8217;adorerais reproduire
+quelque chose de similaire pour l&#8217;interface utilisateur. Par contre ce
+projet ne gère pas les appels via <span class="caps">API</span> et les informations de
+géolocalisation&nbsp;…</p>
+<p>L&#8217;idée de <a href="http://thoth.io">http://thoth.io</a> est également assez sympathique: une api
 très simple pour stocker et récupérer des données. En plus de ça,
 <em>carto-forms</em> proposerait de la validation de données et proposerait un
-support des points SIG (point, ligne, polygone).</p>
+support des points <span class="caps">SIG</span> (point, ligne,&nbsp;polygone).</p>
 <p><a href="http://mapbox.com">http://mapbox.com</a> fait également un superbe travail autour de la
-cartographie, mais ne prends pas en compte le coté auto-génération de
-formulaires…</p>
-<h2 id="on-est-parti">On est parti ?!</h2>
-<p>Comme vous avez pu vous en rendre compte, il ne s'agit pas d'un problème
+cartographie, mais ne prends pas en compte le coté auto-génération de&nbsp;formulaires…</p>
+<h2 id="on-est-parti">On est parti&nbsp;?!</h2>
+<p>Comme vous avez pu vous en rendre compte, il ne s&#8217;agit pas d&#8217;un problème
 outrageusement complexe. On a pas mal discuté avec Mathieu, à propos de
-ce qu'on souhaite faire et du comment. Il se trouve qu'on peut sûrement
-s'en sortir avec une solution élégante sans trop de problèmes. Mathieu
-est habitué à travailler autour des projets de SIG (ce qui est parfait
-parce que ce n'est pas mon cas) et connaît son sujet. Une bonne
-opportunité d'apprendre!</p>
+ce qu&#8217;on souhaite faire et du comment. Il se trouve qu&#8217;on peut sûrement
+s&#8217;en sortir avec une solution élégante sans trop de problèmes. Mathieu
+est habitué à travailler autour des projets de <span class="caps">SIG</span> (ce qui est parfait
+parce que ce n&#8217;est pas mon cas) et connaît son sujet. Une bonne
+opportunité&nbsp;d&#8217;apprendre!</p>
 <p>On sera tous les deux à <a href="http://rencontres.django-fr.org">Djangocong</a> le
 14 et 15 Avril, et on prévoit une session de <em>tempête de cerveau</em> et un
 sprint sur ce projet. Si vous êtes dans le coin et que vous souhaitez
-discuter ou nous filer un coup de patte, n'hésitez pas!</p>
-<p>On ne sait pas encore si on utilisera django ou quelque chose d'autre.
+discuter ou nous filer un coup de patte, n&#8217;hésitez&nbsp;pas!</p>
+<p>On ne sait pas encore si on utilisera django ou quelque chose d&#8217;autre.
 On a pensé un peu à CouchDB, son système de couchapps et geocouch, mais
-rien n'est encore gravé dans le marbre ! N'hésitez pas à proposer vos
-solutions ou suggestions.</p>
-<p>Voici le document etherpad sur lequel on a travaillé jusqu'à maintenant:
-<a href="http://framapad.org/carto-forms">http://framapad.org/carto-forms</a>. N'hésitez pas à l'éditer et à ajouter
-vos commentaires, c'est son objectif!</p>
+rien n&#8217;est encore gravé dans le marbre ! N&#8217;hésitez pas à proposer vos
+solutions ou&nbsp;suggestions.</p>
+<p>Voici le document etherpad sur lequel on a travaillé jusqu&#8217;à maintenant:
+<a href="http://framapad.org/carto-forms">http://framapad.org/carto-forms</a>. N&#8217;hésitez pas à l&#8217;éditer et à ajouter
+vos commentaires, c&#8217;est son&nbsp;objectif!</p>
 <p>Merci à <a href="http://sneakernet.fr/">Arnaud</a> pour la relecture et la
-correction de quelques typos dans le texte :)</p>
+correction de quelques typos dans le texte&nbsp;:)</p>
 </article>
 
 </body>

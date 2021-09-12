@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Dynamically change your gnome desktop wallpaper - Alexis Métaireau</title>
+        <title>Dynamically change your gnome desktop&nbsp;wallpaper - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,32 +20,32 @@
 
 
 <header>
-	<h1 class="post-title">Dynamically change your gnome desktop wallpaper</h1>
+	<h1 class="post-title">Dynamically change your gnome desktop&nbsp;wallpaper</h1>
 	<time datetime="2010-10-11T00:00:00+02:00">11 octobre 2010</time>
 
     
 </header>
 <article>
     
-<p>In gnome, you can can use a XML file to have a dynamic wallpaper. It's
-not so easy, and you can't just tell: use the pictures in this folder to
-do so.</p>
+<p>In gnome, you can can use a <span class="caps">XML</span> file to have a dynamic wallpaper. It&#8217;s
+not so easy, and you can&#8217;t just tell: use the pictures in this folder to
+do&nbsp;so.</p>
 <p>You can have a look to the git repository if you want:
 <a href="http://github.com/ametaireau/gnome-background-generator">http://github.com/ametaireau/gnome-background-generator</a></p>
-<p>Some time ago, I've made a little python script to ease that, and you
-can now use it too. It's named "gnome-background-generator", and you can
-install it via pip for instance.</p>
+<p>Some time ago, I&#8217;ve made a little python script to ease that, and you
+can now use it too. It&#8217;s named &#8220;gnome-background-generator&#8221;, and you can
+install it via pip for&nbsp;instance.</p>
 <div class="highlight"><pre><span></span><code>shell
 $ pip install gnome-background-generator
 </code></pre></div>
 
-<p>Then, you have just to use it this way:</p>
+<p>Then, you have just to use it this&nbsp;way:</p>
 <div class="highlight"><pre><span></span><code>shell
 $ gnome-background-generator -p ~/Images/walls -s
 /home/alexis/Images/walls/dynamic-wallpaper.xml generated
 </code></pre></div>
 
-<p>Here is a extract of the `--help`:</p>
+<p>Here is a extract of the&nbsp;`&#8212;help`:</p>
 <div class="highlight"><pre><span></span><code><span class="n">shell</span>
 <span class="o">$</span> <span class="n">gnome</span><span class="o">-</span><span class="n">background</span><span class="o">-</span><span class="n">generator</span> <span class="o">--</span><span class="n">help</span>
 <span class="n">usage</span><span class="p">:</span> <span class="n">gnome</span><span class="o">-</span><span class="n">background</span><span class="o">-</span><span class="n">generator</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span> <span class="n">PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">o</span> <span class="n">OUTPUT</span><span class="p">]</span>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>How to reboot your bebox using the CLI - Alexis Métaireau</title>
+        <title>How to reboot your bebox using the <span class="caps">CLI</span> - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,26 +20,24 @@
 
 
 <header>
-	<h1 class="post-title">How to reboot your bebox using the CLI</h1>
+	<h1 class="post-title">How to reboot your bebox using the <span class="caps">CLI</span></h1>
 	<time datetime="2010-10-21T00:00:00+02:00">21 octobre 2010</time>
 
     
 </header>
 <article>
     
-<p>I've an internet connection which, for some obscure reasons, tend to be
-very slow from time to time. After rebooting the box (yes, that's a hard
-solution), all the things seems to go fine again.</p>
-<h2 id="edit-using-grep">EDIT : Using grep</h2>
-<p>After a bit of reflexion, that's also really easy to do using directly
-the command line tools curl, grep and tail (but really harder to
-read).</p>
+<p>I&#8217;ve an internet connection which, for some obscure reasons, tend to be
+very slow from time to time. After rebooting the box (yes, that&#8217;s a hard
+solution), all the things seems to go fine&nbsp;again.</p>
+<h2 id="edit-using-grep"><span class="caps">EDIT</span> : Using&nbsp;grep</h2>
+<p>After a bit of reflexion, that&#8217;s also really easy to do using directly
+the command line tools curl, grep and tail (but really harder to&nbsp;read).</p>
 <div class="highlight"><pre><span></span><code>curl -X POST -u joel:joel http://bebox.config/cgi/b/info/restart/<span class="se">\?</span>be<span class="se">\=</span><span class="m">0</span><span class="se">\&amp;</span>l0<span class="se">\=</span><span class="m">1</span><span class="se">\&amp;</span>l1<span class="se">\=</span><span class="m">0</span><span class="se">\&amp;</span>tid<span class="se">\=</span>RESTART -d <span class="s2">&quot;0=17&amp;2=`curl -u joel:joel http://bebox.config/cgi/b/info/restart/\?be\=0\&amp;l0\=1\&amp;l1\=0\&amp;tid\=RESTART | grep -o &quot;</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;2&#39;</span> <span class="nv">value</span><span class="o">=</span><span class="err">&#39;</span><span class="o">[</span><span class="m">0</span>-9<span class="o">]</span><span class="se">\+</span><span class="s2">&quot; | grep -o &quot;</span><span class="o">[</span><span class="m">0</span>-9<span class="o">]</span><span class="se">\+</span><span class="s2">&quot; | tail -n 1`&amp;1&quot;</span>
 </code></pre></div>
 
-<h2 id="the-python-version">The Python version</h2>
-<p>Well, that's not the optimal solution, that's a bit "gruik", but it
-works.</p>
+<h2 id="the-python-version">The Python&nbsp;version</h2>
+<p>Well, that&#8217;s not the optimal solution, that&#8217;s a bit &#8220;gruik&#8221;, but it&nbsp;works.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urllib2</span>
 <span class="kn">import</span> <span class="nn">urlparse</span>
 <span class="kn">import</span> <span class="nn">re</span>

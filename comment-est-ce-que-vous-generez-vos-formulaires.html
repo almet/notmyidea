@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Comment est-ce que vous générez vos formulaires ? - Alexis Métaireau</title>
+        <title>Comment est-ce que vous générez vos formulaires&nbsp;? - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,99 +20,96 @@
 
 
 <header>
-	<h1 class="post-title">Comment est-ce que vous générez vos formulaires ?</h1>
+	<h1 class="post-title">Comment est-ce que vous générez vos formulaires&nbsp;?</h1>
 	<time datetime="2016-05-31T00:00:00+02:00">31 mai 2016</time>
 
     
 </header>
 <article>
-    <p>TL; DR: Je viens à peine de <em>releaser</em> la première version d'un service de génération de formulaires.
-Allez jeter un coup d'œil sur <a href="https://www.fourmilieres.net">https://www.fourmilieres.net</a></p>
-<p><em>En février 2012, je parlais ici <a href="https://blog.notmyidea.org/carto-forms.html">d'un service de génération de formulaires</a>.
-Depuis, pas mal d'eau à coulé sous les ponts, on est passé par pas mal d'étapes pour
+    <p><span class="caps">TL</span>; <span class="caps">DR</span>: Je viens à peine de <em>releaser</em> la première version d&#8217;un service de génération de formulaires.
+Allez jeter un coup d&#8217;œil sur <a href="https://www.fourmilieres.net">https://www.fourmilieres.net</a></p>
+<p><em>En février 2012, je parlais ici <a href="https://blog.notmyidea.org/carto-forms.html">d&#8217;un service de génération de formulaires</a>.
+Depuis, pas mal d&#8217;eau à coulé sous les ponts, on est passé par pas mal d&#8217;étapes pour
 finalement arriver à une première version de ce service de génération de
 formulaires (à la </em>google forms<em>).</em></p>
-<p>En tant qu'organisateurs d'évènements (petits et gros), je me retrouve souvent
+<p>En tant qu&#8217;organisateurs d&#8217;évènements (petits et gros), je me retrouve souvent
 dans une situation ou je dois créer des formulaires pour recueillir des
 informations. Actuellement, la meilleure solution disponible est <em>Google Forms</em>,
-mais celle ci à plusieurs problèmes, à commencer par le fait que le code n'est
-pas libre et que les données sont stockées chez Google.</p>
+mais celle ci à plusieurs problèmes, à commencer par le fait que le code n&#8217;est
+pas libre et que les données sont stockées chez&nbsp;Google.</p>
 <p>La plupart du temps, le besoin est assez simple: je veux spécifier quelques
-questions, et donner un lien à mes amis pour qu'ils puissent y répondre.
-Je reviens ensuite plus tard pour voir la liste des réponses apportées.</p>
+questions, et donner un lien à mes amis pour qu&#8217;ils puissent y répondre.
+Je reviens ensuite plus tard pour voir la liste des réponses&nbsp;apportées.</p>
 <p><img alt="Capture de l'interface de création du formulaire" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-build.png"></p>
 <h2 id="fonctionnalites">Fonctionnalités</h2>
 <p>Il existe pas mal de solutions techniques qui essayent de répondre à la même
-problématique, mais la plupart d'entre elles sont assez souvent compliquées,
+problématique, mais la plupart d&#8217;entre elles sont assez souvent compliquées,
 nécessitent de se créer un compte, et/ou ne vous laisse pas la main libre sur
-les données générées, voire le code est assez difficile à faire évoluer ou à
-déployer.</p>
+les données générées, voire le code est assez difficile à faire évoluer ou à&nbsp;déployer.</p>
 <p>Je voulais donc quelque chose de simple à utiliser <em>et</em> pour les créateurs de
 formulaires <em>et</em> pour les utilisateurs finaux. Pas de chichis, juste quelques
-vues, et des URLs à sauvegarder une fois l'opération terminée.</p>
+vues, et des URLs à sauvegarder une fois l&#8217;opération&nbsp;terminée.</p>
 <p><img alt="Capture de l'écran avec les URLs générées" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-created.png">
 <img alt="Capture d'écran d'un exemple de formulaire" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-form.png"></p>
-<h3 id="pas-de-compte">Pas de compte</h3>
-<p>Vous n'avez pas besoin d'avoir un compte sur le site pour commencer à l'utiliser.
+<h3 id="pas-de-compte">Pas de&nbsp;compte</h3>
+<p>Vous n&#8217;avez pas besoin d&#8217;avoir un compte sur le site pour commencer à l&#8217;utiliser.
 Vous créez simplement un nouveau formulaire puis envoyez le lien à vos amis pour
-qu'eux puissent à leur tour le remplir.</p>
+qu&#8217;eux puissent à leur tour le&nbsp;remplir.</p>
 <p><img alt="Capture de la page d'accueil, ou aucun compte n'est requis" src="https://blog.notmyidea.org/images/formbuilder/formbuilder-welcome.png"></p>
-<h3 id="gardez-la-main-sur-vos-donnees">Gardez la main sur vos données</h3>
+<h3 id="gardez-la-main-sur-vos-donnees">Gardez la main sur vos&nbsp;données</h3>
 <p>Une fois que vous avez récupéré les réponses à vos questions, vous pouvez
 récupérer les données sur votre machines dans un fichier <code>.csv</code>.</p>
 <p><img alt="Capture de la page de resultats, il est possible de télécharger en CSV." src="https://blog.notmyidea.org/images/formbuilder/formbuilder-results.png"></p>
-<h3 id="api">API</h3>
-<p>L'ensemble des données sont en fait stockées dans <a href="https://kinto.readthedocs.org">Kinto</a>
-qui est interrogeable très facilement en HTTP. Ce qui fait qu'il est très facile de
+<h3 id="api"><span class="caps">API</span></h3>
+<p>L&#8217;ensemble des données sont en fait stockées dans <a href="https://kinto.readthedocs.org">Kinto</a>
+qui est interrogeable très facilement en <span class="caps">HTTP</span>. Ce qui fait qu&#8217;il est très facile de
 réutiliser les formulaires que vous avez construits (ou leurs réponses) depuis
-d'autres outils.</p>
+d&#8217;autres&nbsp;outils.</p>
 <h3 id="auto-hebergeable">Auto-hébergeable</h3>
 <p>Un des objectifs de ce projet est de vous redonner la main sur vos données.
-Bien sur, vous pouvez utiliser l'instance qui est mise à votre disposition sur
+Bien sur, vous pouvez utiliser l&#8217;instance qui est mise à votre disposition sur
 <a href="https://www.fourmilieres.net">wwww.fourmilieres.net</a>, mais vous pouvez
-également l'héberger vous même très
-simplement, et vous êtes d'ailleurs fortement encouragés à le faire ! Notre
-objectif n'est pas de stocker l'ensemble des formulaires du monde, mais de
-(re)donner le contrôle aux utilisateurs !</p>
-<h2 id="on-commence-petit">On commence petit…</h2>
-<p>Cette <em>release</em> n'est (bien sur) pas parfaite, et il reste encore pas mal de
-travail sur cet outil, mais je pense qu'il s'agit d'une base de travail
-intéressante pour un futur où Google n'a pas la main sur toutes nos données.</p>
-<p>La liste des champs supportés est pour l'instant assez faible (Texte court,
-Texte long, Oui/Non, choix dans une liste) mais elle à vocation à s'étendre, en
-fonction des besoins de chacun.</p>
-<p>J'ai d'ailleurs créé <a href="https://www.fourmilieres.net/#/form/cfd878264cec4ed2">un formulaire pour que vous puissiez me faire part de vos
-retours</a>, n'hésitez pas !</p>
-<h2 id="et-euh-comment-ca-marche">Et, euh, comment ça marche ?</h2>
-<p>Le <em>formbuilder</em>, comme j'aime l'appeler se compose en fin de compte de deux
-parties distinctes:</p>
+également l&#8217;héberger vous même très
+simplement, et vous êtes d&#8217;ailleurs fortement encouragés à le faire ! Notre
+objectif n&#8217;est pas de stocker l&#8217;ensemble des formulaires du monde, mais de
+(re)donner le contrôle aux utilisateurs&nbsp;!</p>
+<h2 id="on-commence-petit">On commence&nbsp;petit…</h2>
+<p>Cette <em>release</em> n&#8217;est (bien sur) pas parfaite, et il reste encore pas mal de
+travail sur cet outil, mais je pense qu&#8217;il s&#8217;agit d&#8217;une base de travail
+intéressante pour un futur où Google n&#8217;a pas la main sur toutes nos&nbsp;données.</p>
+<p>La liste des champs supportés est pour l&#8217;instant assez faible (Texte court,
+Texte long, Oui/Non, choix dans une liste) mais elle à vocation à s&#8217;étendre, en
+fonction des besoins de&nbsp;chacun.</p>
+<p>J&#8217;ai d&#8217;ailleurs créé <a href="https://www.fourmilieres.net/#/form/cfd878264cec4ed2">un formulaire pour que vous puissiez me faire part de vos
+retours</a>, n&#8217;hésitez pas&nbsp;!</p>
+<h2 id="et-euh-comment-ca-marche">Et, euh, comment ça marche&nbsp;?</h2>
+<p>Le <em>formbuilder</em>, comme j&#8217;aime l&#8217;appeler se compose en fin de compte de deux
+parties&nbsp;distinctes:</p>
 <ul>
 <li><a href="https://kinto.readthedocs.org">Kinto</a>, un service qui stocke
-  des données coté serveur et qui les expose via des <strong>APIs HTTP</strong></li>
+  des données coté serveur et qui les expose via des <strong>APIs <span class="caps">HTTP</span></strong></li>
 <li><a href="https://github.com/kinto/formbuilder">Le formbuilder</a>, une application
   JavaScript qui ne tourne que coté client (dans votre navigateur) qui permet
-  de construire les formulaires et d'envoyer les données sur les <em>APIs</em> coté
-  serveur.</li>
+  de construire les formulaires et d&#8217;envoyer les données sur les <em>APIs</em> coté&nbsp;serveur.</li>
 </ul>
 <p>Au niveau de la <em>stack</em> technique, le <strong>formbuilder</strong> est codé en ReactJS. Un
-des points techniques intéressants du projet est qu'il génère en fin de compte du
-<a href="http://jsonschema.net/">JSON Schema</a>, un format de validation de données <em>JSON</em>.</p>
-<p>Donc, reprenons! Vous arrivez sur la page d'accueil puis cliquez sur
-"Create a new form", puis vous vous retrouvez face à une interface ou vous pouvez
+des points techniques intéressants du projet est qu&#8217;il génère en fin de compte du
+<a href="http://jsonschema.net/"><span class="caps">JSON</span> Schema</a>, un format de validation de données <em><span class="caps">JSON</span></em>.</p>
+<p>Donc, reprenons! Vous arrivez sur la page d&#8217;accueil puis cliquez sur
+&#8220;Create a new form&#8221;, puis vous vous retrouvez face à une interface ou vous pouvez
 ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez sur
-"Create the form".</p>
+&#8220;Create the&nbsp;form&#8221;.</p>
 <ul>
-<li>Le JSON Schema est alors envoyé au serveur Kinto, qui l'utilisera pour valider
-  les données qu'il recevra par la suite.</li>
-<li>Ce JSON Schema sera aussi utilisé lors de l'affichage du formulaire aux
-  personnes qui le remplissent.</li>
-<li>Un jeton d'accès est généré et ajouté à l'URL, il s'agit de l'identifiant du
-  formulaire.</li>
-<li>Un second jeton d'accès administrateur et généré, il vous faut le garder de
-  coté pour avoir accès aux réponses.</li>
+<li>Le <span class="caps">JSON</span> Schema est alors envoyé au serveur Kinto, qui l&#8217;utilisera pour valider
+  les données qu&#8217;il recevra par la&nbsp;suite.</li>
+<li>Ce <span class="caps">JSON</span> Schema sera aussi utilisé lors de l&#8217;affichage du formulaire aux
+  personnes qui le&nbsp;remplissent.</li>
+<li>Un jeton d&#8217;accès est généré et ajouté à l&#8217;<span class="caps">URL</span>, il s&#8217;agit de l&#8217;identifiant du&nbsp;formulaire.</li>
+<li>Un second jeton d&#8217;accès administrateur et généré, il vous faut le garder de
+  coté pour avoir accès aux&nbsp;réponses.</li>
 </ul>
 <p>Bref, en espérant que ça vous serve ! Un petit pas dans la direction des données
-rendues à leurs utilisateurs !</p>
+rendues à leurs utilisateurs&nbsp;!</p>
 </article>
 
 </body>

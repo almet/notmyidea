@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Introducing the distutils2 index crawlers - Alexis Métaireau</title>
+        <title>Introducing the distutils2 index&nbsp;crawlers - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,115 +20,113 @@
 
 
 <header>
-	<h1 class="post-title">Introducing the distutils2 index crawlers</h1>
+	<h1 class="post-title">Introducing the distutils2 index&nbsp;crawlers</h1>
 	<time datetime="2010-07-06T00:00:00+02:00">06 juillet 2010</time>
 
     
 </header>
 <article>
     
-<p>I'm working for about a month for distutils2, even if I was being a bit
-busy (as I had some class courses and exams to work on)</p>
-<p>I'll try do sum-up my general feelings here, and the work I've made so
-far. You can also find, if you're interested, my weekly summaries in <a href="http://wiki.notmyidea.org/distutils2_schedule">a
+<p>I&#8217;m working for about a month for distutils2, even if I was being a bit
+busy (as I had some class courses and exams to work&nbsp;on)</p>
+<p>I&#8217;ll try do sum-up my general feelings here, and the work I&#8217;ve made so
+far. You can also find, if you&#8217;re interested, my weekly summaries in <a href="http://wiki.notmyidea.org/distutils2_schedule">a
 dedicated wiki page</a>.</p>
-<h2 id="general-feelings">General feelings</h2>
-<p>First, and it's a really important point, the GSoC is going very well,
-for me as for other students, at least from my perspective. It's a
+<h2 id="general-feelings">General&nbsp;feelings</h2>
+<p>First, and it&#8217;s a really important point, the GSoC is going very well,
+for me as for other students, at least from my perspective. It&#8217;s a
 pleasure to work with such enthusiast people, as this make the global
-atmosphere very pleasant to live.</p>
-<p>First of all, I've spent time to read the existing codebase, and to
-understand what we're going to do, and what's the rationale to do so.</p>
-<p>It's really clear for me now: what we're building is the foundations of
+atmosphere very pleasant to&nbsp;live.</p>
+<p>First of all, I&#8217;ve spent time to read the existing codebase, and to
+understand what we&#8217;re going to do, and what&#8217;s the rationale to do&nbsp;so.</p>
+<p>It&#8217;s really clear for me now: what we&#8217;re building is the foundations of
 a packaging infrastructure in python. The fact is that many projects
 co-exists, and comes all with their good concepts. Distutils2 tries to
 take the interesting parts of all, and to provide it in the python
-standard libs, respecting the recently written PEP about packaging.</p>
-<p>With distutils2, it will be simpler to make "things" compatible. So if
+standard libs, respecting the recently written <span class="caps">PEP</span> about&nbsp;packaging.</p>
+<p>With distutils2, it will be simpler to make &#8220;things&#8221; compatible. So if
 you think about a new way to deal with distributions and packaging in
-python, you can use the Distutils2 APIs to do so.</p>
+python, you can use the Distutils2 APIs to do&nbsp;so.</p>
 <h2 id="tasks">Tasks</h2>
 <p>My main task while working on distutils2 is to provide an installation
-and an un-installation command, as described in PEP 376. For this, I
-first need to get informations about the existing distributions (what's
-their version, name, metadata, dependencies, etc.)</p>
+and an un-installation command, as described in <span class="caps">PEP</span> 376. For this, I
+first need to get informations about the existing distributions (what&#8217;s
+their version, name, metadata, dependencies,&nbsp;etc.)</p>
 <p>The main index, you probably know and use, is PyPI. You can access it at
 <a href="http://pypi.python.org">http://pypi.python.org</a>.</p>
-<h2 id="pypi-index-crawling">PyPI index crawling</h2>
+<h2 id="pypi-index-crawling">PyPI index&nbsp;crawling</h2>
 <p>There is two ways to get these informations from PyPI: using the simple
-API, or via xml-rpc calls.</p>
+<span class="caps">API</span>, or via xml-rpc&nbsp;calls.</p>
 <p>A goal was to use the version specifiers defined
-in<a href="http://www.python.org/dev/peps/pep-0345/">PEP 345</a> and to provides a
+in<a href="http://www.python.org/dev/peps/pep-0345/"><span class="caps">PEP</span> 345</a> and to provides a
 way to sort the grabbed distributions depending our needs, to pick the
-version we want/need.</p>
-<h3 id="using-the-simple-api">Using the simple API</h3>
-<p>The simple API is composed of HTML pages you can access at
+version we&nbsp;want/need.</p>
+<h3 id="using-the-simple-api">Using the simple <span class="caps">API</span></h3>
+<p>The simple <span class="caps">API</span> is composed of <span class="caps">HTML</span> pages you can access at
 <a href="http://pypi.python.org/simple/">http://pypi.python.org/simple/</a>.</p>
 <p>Distribute and Setuptools already provides a crawler for that, but it
 deals with their internal mechanisms, and I found that the code was not
-so clear as I want, that's why I've preferred to pick up the good ideas,
-and some implementation details, plus re-thinking the global
-architecture.</p>
+so clear as I want, that&#8217;s why I&#8217;ve preferred to pick up the good ideas,
+and some implementation details, plus re-thinking the global&nbsp;architecture.</p>
 <p>The rules are simple: each project have a dedicated page, which allows
-us to get informations about:</p>
+us to get informations&nbsp;about:</p>
 <ul>
-<li>the distribution download locations (for some versions)</li>
-<li>homepage links</li>
-<li>some other useful informations, as the bugtracker address, for
-    instance.</li>
+<li>the distribution download locations (for some&nbsp;versions)</li>
+<li>homepage&nbsp;links</li>
+<li>some other useful informations, as the bugtracker address, for&nbsp;instance.</li>
 </ul>
-<p>If you want to find all the distributions of the "EggsAndSpam" project,
+<p>If you want to find all the distributions of the &#8220;EggsAndSpam&#8221; project,
 you could do the following (do not take so attention to the names here,
-as the API will probably change a bit):</p>
+as the <span class="caps">API</span> will probably change a&nbsp;bit):</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="n">SimpleIndex</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EggsAndSpam&quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.3</span><span class="p">]</span>
 </code></pre></div>
 
-<p>We also could use version specifiers:</p>
+<p>We also could use version&nbsp;specifiers:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;EggsAndSpam (&lt; =1.2)&quot;</span><span class="p">)</span>
 <span class="p">[</span><span class="n">EggsAndSpam</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">EggsAndSpam</span> <span class="mf">1.2</span><span class="p">]</span>
 </code></pre></div>
 
-<p>Internally, what's done here is the following:</p>
+<p>Internally, what&#8217;s done here is the&nbsp;following:</p>
 <ul>
 <li>it process the <a href="http://pypi.python.org/simple/FooBar/">http://pypi.python.org/simple/FooBar/</a> page,
-    searching for download URLs.</li>
-<li>for each found distribution download URL, it creates an object,
+    searching for download&nbsp;URLs.</li>
+<li>for each found distribution download <span class="caps">URL</span>, it creates an object,
     containing informations about the project name, the version and the
-    URL where the archive remains.</li>
+    <span class="caps">URL</span> where the archive&nbsp;remains.</li>
 <li>it sort the found distributions, using version numbers. The default
     behavior here is to prefer source distributions (over binary ones),
-    and to rely on the last "final" distribution (rather than beta,
-    alpha etc. ones)</li>
+    and to rely on the last &#8220;final&#8221; distribution (rather than beta,
+    alpha etc.&nbsp;ones)</li>
 </ul>
-<p>So, nothing hard or difficult here.</p>
+<p>So, nothing hard or difficult&nbsp;here.</p>
 <p>We provides a bunch of other features, like relying on the new PyPI
 mirroring infrastructure or filter the found distributions by some
-criterias. If you're curious, please browse the <a href="http://distutils2.notmyidea.org/">distutils2
+criterias. If you&#8217;re curious, please browse the <a href="http://distutils2.notmyidea.org/">distutils2
 documentation</a>.</p>
-<h3 id="using-xml-rpc">Using xml-rpc</h3>
+<h3 id="using-xml-rpc">Using&nbsp;xml-rpc</h3>
 <p>We also can make some xmlrpc calls to retreive informations from PyPI.
-It's a really more reliable way to get informations from from the index
-(as it's just the index that provides the informations), but cost
-processes on the PyPI distant server.</p>
+It&#8217;s a really more reliable way to get informations from from the index
+(as it&#8217;s just the index that provides the informations), but cost
+processes on the PyPI distant&nbsp;server.</p>
 <p>For now, this way of querying the xmlrpc client is not available on
-Distutils2, as I'm working on it. The main pieces are already present
-(I'll reuse some work I've made from the SimpleIndex querying, and <a href="http://github.com/ametaireau/pypiclient">some
+Distutils2, as I&#8217;m working on it. The main pieces are already present
+(I&#8217;ll reuse some work I&#8217;ve made from the SimpleIndex querying, and <a href="http://github.com/ametaireau/pypiclient">some
 code already set up</a>), what I
-need to do is to provide a xml-rpc PyPI mock server, and that's on what
-I'm actually working on.</p>
+need to do is to provide a xml-rpc PyPI mock server, and that&#8217;s on what
+I&#8217;m actually working&nbsp;on.</p>
 <h2 id="processes">Processes</h2>
-<p>For now, I'm trying to follow the "documentation, then test, then code"
+<p>For now, I&#8217;m trying to follow the &#8220;documentation, then test, then code&#8221;
 path, and that seems to be really needed while working with a community.
-Code is hard to read/understand, compared to documentation, and it's
-easier to change.</p>
+Code is hard to read/understand, compared to documentation, and it&#8217;s
+easier to&nbsp;change.</p>
 <p>While writing the simple index crawling work, I must have done this to
-avoid some changes on the API, and some loss of time.</p>
-<p>Also, I've set up <a href="http://wiki.notmyidea.org/distutils2_schedule">a
+avoid some changes on the <span class="caps">API</span>, and some loss of&nbsp;time.</p>
+<p>Also, I&#8217;ve set up <a href="http://wiki.notmyidea.org/distutils2_schedule">a
 schedule</a>, and the goal
 is to be sure everything will be ready in time, for the end of the
-summer. (And now, I need to learn to follow schedules ...)</p>
+summer. (And now, I need to learn to follow schedules&nbsp;&#8230;)</p>
 </article>
 
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Service de nuages : Stocker et interroger les permissions avec Kinto - Alexis Métaireau</title>
+        <title>Service de nuages : Stocker et interroger les permissions avec&nbsp;Kinto - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,94 +20,91 @@
 
 
 <header>
-	<h1 class="post-title">Service de nuages : Stocker et interroger les permissions avec Kinto</h1>
+	<h1 class="post-title">Service de nuages : Stocker et interroger les permissions avec&nbsp;Kinto</h1>
 	<time datetime="2015-05-26T00:00:00+02:00">26 mai 2015</time>
 
     
 </header>
 <article>
-    <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla</em></p>
-<p><strong>tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace ?</strong></p>
+    <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&nbsp;Mozilla</em></p>
+<p><strong>tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace&nbsp;?</strong></p>
 <div class="section" id="la-problematique">
-<h2>La problématique</h2>
+<h2>La&nbsp;problématique</h2>
 <p>Maintenant que nous avons défini un modèle de gestion des permissions
 sur les objets qui nous satisfait, le problème est de stocker ces
 permissions de manière efficace afin de pouvoir autoriser ou interdire
-l'accès à un objet pour la personne qui fait la requête.</p>
-<p>Chaque requête sur notre API va générer une ou plusieurs demandes
-d'accès, il faut donc que la réponse soit très rapide sous peine
-d'impacter la vélocité du service.</p>
+l&#8217;accès à un objet pour la personne qui fait la&nbsp;requête.</p>
+<p>Chaque requête sur notre <span class="caps">API</span> va générer une ou plusieurs demandes
+d&#8217;accès, il faut donc que la réponse soit très rapide sous peine
+d&#8217;impacter la vélocité du&nbsp;service.</p>
 </div>
 <div class="section" id="obtenir-la-liste-des-principals-d-un-utilisateur">
-<h2>Obtenir la liste des &quot;principals&quot; d'un utilisateur</h2>
-<p>Les <em>principals</em> de l'utilisateur correspondent à son <tt class="docutils literal">user_id</tt>
-ainsi qu'à la liste des identifiants des groupes dans lesquels il a
-été ajouté.</p>
-<p>Pour éviter de recalculer les <em>principals</em> de l'utilisateur à chaque
-requête, le mieux reste de maintenir une liste des <em>principals</em> par
-utilisateur.</p>
-<p>Ainsi lorsqu'on ajoute un utilisateur à un groupe, il faut bien penser
-à ajouter le groupe à la liste des <em>principals</em> de l'utilisateur.</p>
-<p>Ça se complexifie lorsqu'on ajoute un groupe à un groupe.</p>
-<p>Dans un premier temps interdire l'ajout d'un groupe à un groupe est
-une limitation qu'on est prêts à accepter pour simplifier le
-modèle.</p>
-<p>L'avantage de maintenir la liste des <em>principals</em> d'un utilisateur
-lors de la modification de cette liste c'est qu'elle est déjà
+<h2>Obtenir la liste des &#8220;principals&#8221; d&#8217;un&nbsp;utilisateur</h2>
+<p>Les <em>principals</em> de l&#8217;utilisateur correspondent à son <tt class="docutils literal">user_id</tt>
+ainsi qu&#8217;à la liste des identifiants des groupes dans lesquels il a
+été&nbsp;ajouté.</p>
+<p>Pour éviter de recalculer les <em>principals</em> de l&#8217;utilisateur à chaque
+requête, le mieux reste de maintenir une liste des <em>principals</em> par&nbsp;utilisateur.</p>
+<p>Ainsi lorsqu&#8217;on ajoute un utilisateur à un groupe, il faut bien penser
+à ajouter le groupe à la liste des <em>principals</em> de&nbsp;l&#8217;utilisateur.</p>
+<p>Ça se complexifie lorsqu&#8217;on ajoute un groupe à un&nbsp;groupe.</p>
+<p>Dans un premier temps interdire l&#8217;ajout d&#8217;un groupe à un groupe est
+une limitation qu&#8217;on est prêts à accepter pour simplifier le&nbsp;modèle.</p>
+<p>L&#8217;avantage de maintenir la liste des <em>principals</em> d&#8217;un utilisateur
+lors de la modification de cette liste c&#8217;est qu&#8217;elle est déjà
 construite lors des lectures, qui sont dans notre cas plus fréquentes
-que les écritures.</p>
+que les&nbsp;écritures.</p>
 <p>Cela nécessite de donner un identifiant unique aux groupes pour tous
 les <em>buckets</em>.</p>
-<p>Nous proposons de de les nommer avec leur URI:
+<p>Nous proposons de de les nommer avec leur <span class="caps">URI</span>:
 <tt class="docutils literal">/buckets/blog/groups/moderators</tt></p>
 </div>
 <div class="section" id="obtenir-la-liste-des-principals-d-un-ace">
-<h2>Obtenir la liste des &quot;principals&quot; d'un ACE</h2>
+<h2>Obtenir la liste des &#8220;principals&#8221; d&#8217;un <span class="caps">ACE</span></h2>
 <blockquote>
-Rappel, un &quot;ACE&quot; est un <em>Access Control Entry</em>, un des éléments
-d'une ACL (e.g. <em>modifier un enregistrement</em>).</blockquote>
-<p>Avec le <a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html">système de permissions choisi</a>, les permissions d'un
-objet héritent de celle de l'objet parent.</p>
-<p>Par exemple, avoir le droit d'écriture sur un <em>bucket</em> permet la
-création des permissions et la modification de tous ses records.</p>
+Rappel, un &#8220;<span class="caps">ACE</span>&#8221; est un <em>Access Control Entry</em>, un des éléments
+d&#8217;une <span class="caps">ACL</span> (e.g. <em>modifier un enregistrement</em>).</blockquote>
+<p>Avec le <a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html">système de permissions choisi</a>, les permissions d&#8217;un
+objet héritent de celle de l&#8217;objet&nbsp;parent.</p>
+<p>Par exemple, avoir le droit d&#8217;écriture sur un <em>bucket</em> permet la
+création des permissions et la modification de tous ses&nbsp;records.</p>
 <p>Ce qui veut dire que pour obtenir la liste complète des <em>principals</em>
-ayant une permission sur un objet, il faut regarder à plusieurs
-endroits.</p>
-<p>Rémy a <a class="reference external" href="https://gist.github.com/Natim/77c8f61c1d42e476cef8#file-permission-py-L9-L52">décrit dans un gist la liste d'héritage de chaque permission</a>.</p>
-<p>Prenons l'exemple de l'ajout d'un record dans une collection.</p>
-<p>Le droit <tt class="docutils literal">records:create</tt> est obtenu si l'on a l'un des droits suivants:</p>
+ayant une permission sur un objet, il faut regarder à plusieurs&nbsp;endroits.</p>
+<p>Rémy a <a class="reference external" href="https://gist.github.com/Natim/77c8f61c1d42e476cef8#file-permission-py-L9-L52">décrit dans un gist la liste d&#8217;héritage de chaque permission</a>.</p>
+<p>Prenons l&#8217;exemple de l&#8217;ajout d&#8217;un record dans une&nbsp;collection.</p>
+<p>Le droit <tt class="docutils literal">records:create</tt> est obtenu si l&#8217;on a l&#8217;un des droits&nbsp;suivants:</p>
 <ul class="simple">
 <li><tt class="docutils literal">bucket:write</tt></li>
 <li><tt class="docutils literal">collection:write</tt></li>
 <li><tt class="docutils literal">records:create</tt></li>
 </ul>
 <p>Notre première idée était de stocker les permissions sur chaque objet
-et de maintenir la liste exhaustive des permissions lors d'une
-modification d'ACL. Cependant cela nécessitait de construire cette
-liste lors de l'ajout d'un objet et de mettre à jour tout l'arbre lors
-de sa suppression.  (<em>Je vous laisse imaginer le nombre d'opérations
+et de maintenir la liste exhaustive des permissions lors d&#8217;une
+modification d&#8217;<span class="caps">ACL</span>. Cependant cela nécessitait de construire cette
+liste lors de l&#8217;ajout d&#8217;un objet et de mettre à jour tout l&#8217;arbre lors
+de sa suppression.  (<em>Je vous laisse imaginer le nombre d&#8217;opérations
 nécessaires pour ajouter un administrateur sur un *bucket</em> contenant
-1000 collections avec 100000 records chacune.*)</p>
+1000 collections avec 100000 records&nbsp;chacune.*)</p>
 <p>La solution que nous avons désormais adoptée consiste à stocker les
-<em>principals</em> de chaque <em>ACE</em> (<em>qui</em> a le droit de faire telle action
-sur l'objet), et de faire l'union des <em>ACE</em> hérités, afin de les
-croiser avec les <em>principals</em> de l'utilisateur :</p>
+<em>principals</em> de chaque <em><span class="caps">ACE</span></em> (<em>qui</em> a le droit de faire telle action
+sur l&#8217;objet), et de faire l&#8217;union des <em><span class="caps">ACE</span></em> hérités, afin de les
+croiser avec les <em>principals</em> de l&#8217;utilisateur&nbsp;:</p>
 <blockquote>
-(ACE(object, permission) ∪ inherited_ACE) ∩ PRINCIPALS(user)</blockquote>
-<p>Par exemple l'ACE: <tt class="docutils literal">/buckets/blog/collections/article:records:create</tt> hérite de
-l'ACE <tt class="docutils literal">/buckets/blog/collections/article:write</tt> et de <tt class="docutils literal">/buckets/blog:write</tt> :</p>
+(<span class="caps">ACE</span>(object, permission) ∪ inherited_ACE) ∩ <span class="caps">PRINCIPALS</span>(user)</blockquote>
+<p>Par exemple l&#8217;<span class="caps">ACE</span>: <tt class="docutils literal">/buckets/blog/collections/article:records:create</tt> hérite de
+l&#8217;<span class="caps">ACE</span> <tt class="docutils literal">/buckets/blog/collections/article:write</tt> et de <tt class="docutils literal">/buckets/blog:write</tt> :</p>
 <blockquote>
-(ACE(/buckets/blog/collections/article:records:create) ∪ ACE(/buckets/blog/collections/article:write) ∪ ACE(/buckets/blog:write)) ∩ PRINCIPALS('fxa:alexis')</blockquote>
+(<span class="caps">ACE</span>(/buckets/blog/collections/article:records:create) ∪ <span class="caps">ACE</span>(/buckets/blog/collections/article:write) ∪ <span class="caps">ACE</span>(/buckets/blog:write)) ∩ <span class="caps">PRINCIPALS</span>(&#8216;fxa:alexis&#8217;)</blockquote>
 </div>
 <div class="section" id="recuperer-les-donnees-de-l-utilisateur">
-<h2>Récupérer les données de l'utilisateur</h2>
-<p>La situation se corse lorsqu'on souhaite limiter la liste des
-<em>records</em> d'une collection à ceux accessibles pour l'utilisateur, car
+<h2>Récupérer les données de&nbsp;l&#8217;utilisateur</h2>
+<p>La situation se corse lorsqu&#8217;on souhaite limiter la liste des
+<em>records</em> d&#8217;une collection à ceux accessibles pour l&#8217;utilisateur, car
 on doit faire cette intersection pour tous les <em>records</em>.</p>
-<p>Une première solution est de regarder si l'utilisateur est mentionné
-dans les <em>ACL*s du *bucket</em> ou de la <em>collection</em>:</p>
-<p>Ensuite, si ce n'est pas le cas, alors on filtre les <em>records</em> pour
-lesquels les <em>principals</em> correspondent à ceux de l'utilisateur.</p>
+<p>Une première solution est de regarder si l&#8217;utilisateur est mentionné
+dans les <em><span class="caps">ACL</span>*s du *bucket</em> ou de la <em>collection</em>:</p>
+<p>Ensuite, si ce n&#8217;est pas le cas, alors on filtre les <em>records</em> pour
+lesquels les <em>principals</em> correspondent à ceux de&nbsp;l&#8217;utilisateur.</p>
 <div class="highlight"><pre><span></span><span class="n">principals</span> <span class="o">=</span> <span class="n">get_user_principals</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
 <span class="n">can_read_all</span> <span class="o">=</span> <span class="n">has_read_perms</span><span class="p">(</span><span class="n">bucket_id</span><span class="p">,</span> <span class="n">collection_id</span><span class="p">,</span>
                               <span class="n">principals</span><span class="p">)</span>
@@ -120,18 +117,17 @@ lesquels les <em>principals</em> correspondent à ceux de l'utilisateur.</p>
                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
 </pre></div>
 <p>Il faudra faire quelque chose de similaire pour la suppression
-multiple, lorsqu'un utilisateur souhaitera supprimer des
-enregistrements sur lesquels il a les droits de lecture mais pas
-d'écriture.</p>
+multiple, lorsqu&#8217;un utilisateur souhaitera supprimer des
+enregistrements sur lesquels il a les droits de lecture mais pas&nbsp;d&#8217;écriture.</p>
 </div>
 <div class="section" id="le-modele-de-donnees">
-<h2>Le modèle de données</h2>
-<p>Pour avoir une idée des requêtes dans un backend SQL, voyons un peu ce
-que donnerait le modèle de données.</p>
+<h2>Le modèle de&nbsp;données</h2>
+<p>Pour avoir une idée des requêtes dans un backend <span class="caps">SQL</span>, voyons un peu ce
+que donnerait le modèle de&nbsp;données.</p>
 <div class="section" id="le-format-des-id">
-<h3>Le format des ID</h3>
-<p>Utiliser des URI comme identifiant des objets présente de nombreux
-avantages (lisibilité, unicité, cohérence avec les URLs)</p>
+<h3>Le format des <span class="caps">ID</span></h3>
+<p>Utiliser des <span class="caps">URI</span> comme identifiant des objets présente de nombreux
+avantages (lisibilité, unicité, cohérence avec les&nbsp;URLs)</p>
 <ul class="simple">
 <li>bucket: <tt class="docutils literal">/buckets/blog</tt></li>
 <li>groupe: <tt class="docutils literal">/buckets/blog/group/moderators</tt></li>
@@ -140,23 +136,22 @@ avantages (lisibilité, unicité, cohérence avec les URLs)</p>
 </ul>
 </div>
 <div class="section" id="les-tables">
-<h3>Les tables</h3>
-<p>Pour le stockage des principals et des permissions:</p>
+<h3>Les&nbsp;tables</h3>
+<p>Pour le stockage des principals et des&nbsp;permissions:</p>
 <div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">user</span><span class="p">(</span><span class="n">id</span> <span class="nb">TEXT</span><span class="p">,</span> <span class="n">principals</span> <span class="nb">TEXT</span><span class="p">[]);</span>
 <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">perms</span><span class="p">(</span><span class="n">ace</span> <span class="nb">TEXT</span><span class="p">,</span> <span class="n">principals</span> <span class="nb">TEXT</span><span class="p">[]);</span>
 </pre></div>
-<p>La table <em>perms</em> va associer des <em>principals</em> à chaque <em>ACE</em>
-(e.g.``/buckets/blog:write``).</p>
-<p>Pour le stockage des données:</p>
+<p>La table <em>perms</em> va associer des <em>principals</em> à chaque <em><span class="caps">ACE</span></em>&nbsp;(e.g.&#8220;/buckets/blog:write&#8220;).</p>
+<p>Pour le stockage des&nbsp;données:</p>
 <div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">object</span><span class="p">(</span><span class="n">id</span> <span class="nb">TEXT</span><span class="p">,</span> <span class="k">type</span> <span class="nb">TEXT</span><span class="p">,</span> <span class="n">parent_id</span> <span class="nb">TEXT</span><span class="p">,</span> <span class="k">data</span> <span class="n">JSONB</span><span class="p">,</span>
                     <span class="n">write_principals</span> <span class="nb">TEXT</span><span class="p">[],</span> <span class="n">read_principals</span> <span class="nb">TEXT</span><span class="p">[]);</span>
 </pre></div>
-<p>La colonne <em>parent_id</em> permet de savoir à qui appartient l'objet
-(e.g. groupe d'un <em>bucket</em>, collection d'un <em>bucket</em>, <em>record</em> d'une
-collection, ...).</p>
+<p>La colonne <em>parent_id</em> permet de savoir à qui appartient l&#8217;objet
+(e.g. groupe d&#8217;un <em>bucket</em>, collection d&#8217;un <em>bucket</em>, <em>record</em> d&#8217;une
+collection,&nbsp;&#8230;).</p>
 </div>
 <div class="section" id="exemple-d-utilisateur">
-<h3>Exemple d'utilisateur</h3>
+<h3>Exemple&nbsp;d&#8217;utilisateur</h3>
 <div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">user</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">principals</span><span class="p">)</span>
      <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;fxa:alexis&#39;</span><span class="p">,</span> <span class="s1">&#39;{}&#39;</span><span class="p">);</span>
 
@@ -166,7 +161,7 @@ collection, ...).</p>
 </pre></div>
 </div>
 <div class="section" id="exemple-d-objets">
-<h3>Exemple d'objets</h3>
+<h3>Exemple&nbsp;d&#8217;objets</h3>
 <div class="section" id="bucket">
 <h4>Bucket</h4>
 <div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">object</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="k">type</span><span class="p">,</span> <span class="n">parent_id</span><span class="p">,</span> <span class="k">data</span><span class="p">,</span>
@@ -190,8 +185,8 @@ collection, ...).</p>
     <span class="s1">&#39;{&quot;name&quot;: &quot;moderators&quot;, &quot;members&quot;: [&#39;</span><span class="n">fxa</span><span class="p">:</span><span class="n">natim</span><span class="s1">&#39;]}&#39;</span><span class="p">::</span><span class="n">JSONB</span><span class="p">,</span>
     <span class="s1">&#39;{}&#39;</span><span class="p">,</span> <span class="s1">&#39;{}&#39;</span><span class="p">);</span>
 </pre></div>
-<p>Ce groupe peut être gére par <tt class="docutils literal">fxa:alexis</tt> puisqu'il a la permission
-<tt class="docutils literal">write</tt> dans le <em>bucket</em> parent.</p>
+<p>Ce groupe peut être gére par <tt class="docutils literal">fxa:alexis</tt> puisqu&#8217;il a la permission
+<tt class="docutils literal">write</tt> dans le <em>bucket</em>&nbsp;parent.</p>
 </div>
 <div class="section" id="collection">
 <h4>Collection</h4>
@@ -205,7 +200,7 @@ collection, ...).</p>
     <span class="s1">&#39;{&quot;system.Everyone&quot;}&#39;</span><span class="p">,</span>
     <span class="s1">&#39;{&quot;/buckets/blog/groups/moderators&quot;}&#39;</span><span class="p">);</span>
 </pre></div>
-<p>Cette collection d'articles peut être lue par tout le monde,
+<p>Cette collection d&#8217;articles peut être lue par tout le monde,
 et gérée par les membres du groupe <tt class="docutils literal">moderators</tt>, ainsi que
 <tt class="docutils literal">fxa:alexis</tt>, via le <em>bucket</em>.</p>
 </div>
@@ -224,12 +219,12 @@ et gérée par les membres du groupe <tt class="docutils literal">moderators</tt
 </div>
 </div>
 <div class="section" id="interroger-les-permissions">
-<h3>Interroger les permissions</h3>
+<h3>Interroger les&nbsp;permissions</h3>
 <div class="section" id="id1">
-<h4>Obtenir la liste des &quot;principals&quot; d'un ACE</h4>
-<p>Comme vu plus haut, pour vérifier une permission, on fait l'union des
+<h4>Obtenir la liste des &#8220;principals&#8221; d&#8217;un <span class="caps">ACE</span></h4>
+<p>Comme vu plus haut, pour vérifier une permission, on fait l&#8217;union des
 <em>principals</em> requis par les objets hérités, et on teste leur
-intersection avec ceux de l'utilisateur:</p>
+intersection avec ceux de&nbsp;l&#8217;utilisateur:</p>
 <div class="highlight"><pre><span></span><span class="k">WITH</span> <span class="n">required_principals</span> <span class="k">AS</span> <span class="p">(</span>
      <span class="k">SELECT</span> <span class="k">unnest</span><span class="p">(</span><span class="n">principals</span><span class="p">)</span> <span class="k">AS</span> <span class="n">p</span>
        <span class="k">FROM</span> <span class="n">perms</span>
@@ -251,7 +246,7 @@ intersection avec ceux de l'utilisateur:</p>
 </pre></div>
 </div>
 <div class="section" id="filtrer-les-objets-en-fonction-des-permissions">
-<h4>Filtrer les objets en fonction des permissions</h4>
+<h4>Filtrer les objets en fonction des&nbsp;permissions</h4>
 <p>Pour filtrer les objets, on fait une simple intersection de liste
 (<em>merci PostgreSQL</em>):</p>
 <div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">data</span>
@@ -262,56 +257,56 @@ intersection avec ceux de l'utilisateur:</p>
         <span class="n">o</span><span class="p">.</span><span class="n">write_principals</span> <span class="o">&amp;&amp;</span> <span class="n">u</span><span class="p">.</span><span class="n">principals</span><span class="p">)</span>
    <span class="k">AND</span> <span class="n">u</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;fxa:natim&#39;</span><span class="p">;</span>
 </pre></div>
-<p>Les listes s'indexent bien, notamment grâce aux <a class="reference external" href="http://www.postgresql.org/docs/current/static/indexes-types.html">index GIN</a>.</p>
+<p>Les listes s&#8217;indexent bien, notamment grâce aux <a class="reference external" href="http://www.postgresql.org/docs/current/static/indexes-types.html">index <span class="caps">GIN</span></a>.</p>
 </div>
 </div>
 <div class="section" id="avec-redis">
-<h3>Avec Redis</h3>
+<h3>Avec&nbsp;Redis</h3>
 <p><em>Redis</em> présente plusieurs avantages pour ce genre de
 problématiques. Notamment, il gère les <em>set</em> nativement (listes de
-valeurs uniques), ainsi que les opérations d'intersection et d'union.</p>
-<p>Avec <em>Redis</em> on peut écrire l'obtention des <em>principals</em> pour un <em>ACE</em>
-comme cela :</p>
+valeurs uniques), ainsi que les opérations d&#8217;intersection et&nbsp;d&#8217;union.</p>
+<p>Avec <em>Redis</em> on peut écrire l&#8217;obtention des <em>principals</em> pour un <em><span class="caps">ACE</span></em>
+comme cela&nbsp;:</p>
 <div class="highlight"><pre><span></span>SUNIONSTORE temp_perm:/buckets/blog/collections/articles:write  permission:/buckets/blog:write  permission:/buckets/blog/collections/articles:write
 SINTER temp_perm:/buckets/blog/collections/articles:write principals:fxa:alexis
 </pre></div>
 <ul class="simple">
-<li><tt class="docutils literal">SUNIONSTORE</tt> permet de créer un set contenant les éléments de
-l'union de tous les set suivants. Dans notre cas on le nomme
+<li><tt class="docutils literal"><span class="caps">SUNIONSTORE</span></tt> permet de créer un set contenant les éléments de
+l&#8217;union de tous les set suivants. Dans notre cas on le nomme
 <tt class="docutils literal"><span class="pre">temp_perm:/buckets/blog/collections/articles:write</span></tt> et il contient
-l'union des sets d'ACLs suivants:
+l&#8217;union des sets d&#8217;ACLs suivants:
 - <tt class="docutils literal"><span class="pre">permission:/buckets/blog:write</span></tt>
 - <tt class="docutils literal"><span class="pre">permission:/buckets/blog/collections/articles:write</span></tt></li>
-<li><tt class="docutils literal">SINTER</tt> retourne l'intersection de tous les sets passés en paramètres dans notre cas :
+<li><tt class="docutils literal"><span class="caps">SINTER</span></tt> retourne l&#8217;intersection de tous les sets passés en paramètres dans notre cas :
 - <tt class="docutils literal"><span class="pre">temp_perm:/buckets/blog/collections/articles:write</span></tt>
 - <tt class="docutils literal">principals:fxa:alexis</tt></li>
 </ul>
-<p>Plus d'informations sur :
+<p>Plus d&#8217;informations sur :
 - <a class="reference external" href="http://redis.io/commands/sinter">http://redis.io/commands/sinter</a>
 - <a class="reference external" href="http://redis.io/commands/sunionstore">http://redis.io/commands/sunionstore</a></p>
-<p>Si le set résultant de la commande <tt class="docutils literal">SINTER</tt> n'est pas vide, alors
-l'utilisateur possède la permission.</p>
+<p>Si le set résultant de la commande <tt class="docutils literal"><span class="caps">SINTER</span></tt> n&#8217;est pas vide, alors
+l&#8217;utilisateur possède la&nbsp;permission.</p>
 <p>On peut ensuite supprimer la clé temporaire <tt class="docutils literal">temp_perm</tt>.</p>
-<p>En utilisant <tt class="docutils literal">MULTI</tt> on peut <a class="reference external" href="https://gist.github.com/Natim/77c8f61c1d42e476cef8#file-permission-py-L117-L124">même faire tout cela au sein d'une
+<p>En utilisant <tt class="docutils literal"><span class="caps">MULTI</span></tt> on peut <a class="reference external" href="https://gist.github.com/Natim/77c8f61c1d42e476cef8#file-permission-py-L117-L124">même faire tout cela au sein d&#8217;une
 transaction</a>
-et garantir ainsi l'intégrité de la requête.</p>
+et garantir ainsi l&#8217;intégrité de la&nbsp;requête.</p>
 </div>
 </div>
 <div class="section" id="conclusion">
 <h2>Conclusion</h2>
-<p>La solution a l'air simple mais nous a demandé beaucoup de réflexion
-en passant par plusieurs propositions.</p>
-<p>L'idée finale est d'avoir :</p>
+<p>La solution a l&#8217;air simple mais nous a demandé beaucoup de réflexion
+en passant par plusieurs&nbsp;propositions.</p>
+<p>L&#8217;idée finale est d&#8217;avoir&nbsp;:</p>
 <ul class="simple">
 <li>Un backend spécifique permettant de stocker les <em>principals</em> des
-utilisateurs et des <em>ACE</em> (e.g. avec les sets Redis) ;</li>
-<li>La liste des principals read et write sur la table des objets.</li>
+utilisateurs et des <em><span class="caps">ACE</span></em> (e.g. avec les sets Redis)&nbsp;;</li>
+<li>La liste des principals read et write sur la table des&nbsp;objets.</li>
 </ul>
-<p>C'est dommage d'avoir le concept de permissions à deux endroits, mais
-cela permet de connaître rapidement la permission d'un utilisateur sur
-un objet et également de pouvoir récupérer tous les objets d'une
-collection pour un utilisateur si celui-ci n'a pas accès à tous les
-records de la collection, ou toutes les collections du bucket.</p>
+<p>C&#8217;est dommage d&#8217;avoir le concept de permissions à deux endroits, mais
+cela permet de connaître rapidement la permission d&#8217;un utilisateur sur
+un objet et également de pouvoir récupérer tous les objets d&#8217;une
+collection pour un utilisateur si celui-ci n&#8217;a pas accès à tous les
+records de la collection, ou toutes les collections du&nbsp;bucket.</p>
 </div>
 
 </article>

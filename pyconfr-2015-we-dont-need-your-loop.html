@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>PyconFR 2015 — We don't need your loop - Alexis Métaireau</title>
+        <title>PyconFR 2015 — We don&#8217;t need your&nbsp;loop - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">PyconFR 2015 — We don't need your loop</h1>
+	<h1 class="post-title">PyconFR 2015 — We don&#8217;t need your&nbsp;loop</h1>
 	<time datetime="2015-10-18T00:00:00+02:00">18 octobre 2015</time>
 
     
@@ -28,44 +28,44 @@
 <article>
     <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
-à les completer si besoin.</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N&#8217;hésitez pas
+à les completer si&nbsp;besoin.</p>
 </div>
-<p>Speaker: serge_sans_paille.</p>
-<p>Retour sur le passé des boucles: ASM, fortran, C. Avec APL, la boucle est
+<p>Speaker:&nbsp;serge_sans_paille.</p>
+<p>Retour sur le passé des boucles: <span class="caps">ASM</span>, fortran, C. Avec <span class="caps">APL</span>, la boucle est
 cachée au fur et à mesure des évolutions. Écrire une boucle ne devrait pas etre
-exprimer comment atteindre le resultat.</p>
+exprimer comment atteindre le&nbsp;resultat.</p>
 <p>En python, par exemple, il vaut mieux utiliser <cite>sum</cite> plutôt que de faire
-l'addition nous même (pour faire une addition des elements d'une liste).</p>
+l&#8217;addition nous même (pour faire une addition des elements d&#8217;une&nbsp;liste).</p>
 <p>Actuellement, le compilateur python est lent si on utilise numpy.sum sur des
-matrices complexes.</p>
+matrices&nbsp;complexes.</p>
 <div class="section" id="comment-aller-plus-vite">
-<h2>Comment aller plus vite?</h2>
-<p>Cython est assez compliqué, il faut savoir ce que l'on fait pour optimiser et
-écrire du bon code Cython.</p>
-<p>Avec pythran, l'intelligence est dans le compilateur, qui permet d'écrire
-notemment des boucles correctement.</p>
-<p>En donnant plus d'informaitons au compilateur, plutôt que de faire des boucles,
-cela lui permet d'avoir un contexte qui lui permet d'optimiser le code.</p>
+<h2>Comment aller plus&nbsp;vite?</h2>
+<p>Cython est assez compliqué, il faut savoir ce que l&#8217;on fait pour optimiser et
+écrire du bon code&nbsp;Cython.</p>
+<p>Avec pythran, l&#8217;intelligence est dans le compilateur, qui permet d&#8217;écrire
+notemment des boucles&nbsp;correctement.</p>
+<p>En donnant plus d&#8217;informaitons au compilateur, plutôt que de faire des boucles,
+cela lui permet d&#8217;avoir un contexte qui lui permet d&#8217;optimiser le&nbsp;code.</p>
 <p>Par contre, cela veut dire que plus de connaissances sont necessaire pour lire
-le code python.</p>
+le code&nbsp;python.</p>
 <p>pythran permet de compiler directement vers du C++ sans avoir à changer son
-code de base (python). C'est utile pour du code numpy notemment.</p>
+code de base (python). C&#8217;est utile pour du code numpy&nbsp;notemment.</p>
 </div>
 <div class="section" id="questions">
 <h2>Questions</h2>
-<p>Possible de paralelliser de manière explicite <strong>ou</strong> implicite.</p>
-<p><strong>C'est très utile pour les gens qui font du &quot;number crunching&quot;. Est-ce que
-c'est utile pour d'autres domaines d'application (Web)?</strong></p>
-<p>Pas vraiment. CPython est déjà bien fait pour ces cas d'utilisation.</p>
-<p><strong>Est-il possible de lancer pythran sans faire de commentaires ?</strong></p>
-<p>C'est possible mais cela ne servira pas à grand chose. Il est necessaire de
-connaitre le type des objets qui sont utilisés lors des boucles.</p>
-<p><strong>Est-ce que vous songez à un compilateur à la volée ?</strong></p>
+<p>Possible de paralelliser de manière explicite <strong>ou</strong>&nbsp;implicite.</p>
+<p><strong>C&#8217;est très utile pour les gens qui font du &#8220;number crunching&#8221;. Est-ce que
+c&#8217;est utile pour d&#8217;autres domaines d&#8217;application&nbsp;(Web)?</strong></p>
+<p>Pas vraiment. CPython est déjà bien fait pour ces cas&nbsp;d&#8217;utilisation.</p>
+<p><strong>Est-il possible de lancer pythran sans faire de commentaires&nbsp;?</strong></p>
+<p>C&#8217;est possible mais cela ne servira pas à grand chose. Il est necessaire de
+connaitre le type des objets qui sont utilisés lors des&nbsp;boucles.</p>
+<p><strong>Est-ce que vous songez à un compilateur à la volée&nbsp;?</strong></p>
 <p>De gros efforts ont été faits dernièrement pour diminuer le temps de
-compilation. Mais pour une fonction qui renvoie None prends de l'ordre d'une
-seconde ou une demi seconde. Ce n'est pas très utile pour un compilateur à la
-volée puisqu'il faudrait des gains de perfs supérieurs à cela.</p>
+compilation. Mais pour une fonction qui renvoie None prends de l&#8217;ordre d&#8217;une
+seconde ou une demi seconde. Ce n&#8217;est pas très utile pour un compilateur à la
+volée puisqu&#8217;il faudrait des gains de perfs supérieurs à&nbsp;cela.</p>
 </div>
 
 </article>

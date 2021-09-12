@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Avez vous confiance en SSL? - Alexis Métaireau</title>
+        <title>Avez vous confiance en <span class="caps">SSL</span>? - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,171 +20,169 @@
 
 
 <header>
-	<h1 class="post-title">Avez vous confiance en SSL?</h1>
+	<h1 class="post-title">Avez vous confiance en <span class="caps">SSL</span>?</h1>
 	<time datetime="2016-03-25T00:00:00+01:00">25 mars 2016</time>
 
     
 </header>
 <article>
-    <p>Dans le cadre <a href="http://autodefense-numerique.readthedocs.org/en/latest/">des ateliers d'autodéfense numérique</a>,
-j'ai passé un peu de temps à creuser sur l'utilisation de SSL puisque
+    <p>Dans le cadre <a href="http://autodefense-numerique.readthedocs.org/en/latest/">des ateliers d&#8217;autodéfense numérique</a>,
+j&#8217;ai passé un peu de temps à creuser sur l&#8217;utilisation de <span class="caps">SSL</span> puisque
 contrairement à ce que la plupart des personnes ont encore tendance à croire,
-le petit cadenas (qui prouve qu'une connexion SSL est en cours) n'est
-<strong>absolument</strong> pas suffisant.</p>
-<p>Allez hop, c'est parti pour:</p>
+le petit cadenas (qui prouve qu&#8217;une connexion <span class="caps">SSL</span> est en cours) n&#8217;est
+<strong>absolument</strong> pas&nbsp;suffisant.</p>
+<p>Allez hop, c&#8217;est parti&nbsp;pour:</p>
 <ul>
-<li>un tour d'horizon du fonctionnement de SSl</li>
-<li>quelques moyens contourner cette "protection" en faisant une attaque en pratique</li>
+<li>un tour d&#8217;horizon du fonctionnement de&nbsp;SSl</li>
+<li>quelques moyens contourner cette &#8220;protection&#8221; en faisant une attaque en&nbsp;pratique</li>
 <li>un tour des solutions existantes actuellement et de pourquoi je ne les trouve
-  pas vraiment satisfaisantes.</li>
+  pas vraiment&nbsp;satisfaisantes.</li>
 </ul>
-<h2 id="comment-fonctionne-ssl">Comment fonctionne SSL?</h2>
-<p>Pour expliquer les problèmes de SSL, j'ai d'abord besoin d'expliquer comment
-tout ça fonctionne.</p>
-<p>SSL repose sur l'utilisation de certificats, qui sont générés par des autorités
-de certification (<em>Certificate Authority</em> que je nomme <em>CA</em> dans la suite de
-l'article).</p>
-<p>Les certificats SSL permettent deux choses:</p>
+<h2 id="comment-fonctionne-ssl">Comment fonctionne <span class="caps">SSL</span>?</h2>
+<p>Pour expliquer les problèmes de <span class="caps">SSL</span>, j&#8217;ai d&#8217;abord besoin d&#8217;expliquer comment
+tout ça&nbsp;fonctionne.</p>
+<p><span class="caps">SSL</span> repose sur l&#8217;utilisation de certificats, qui sont générés par des autorités
+de certification (<em>Certificate Authority</em> que je nomme <em><span class="caps">CA</span></em> dans la suite de&nbsp;l&#8217;article).</p>
+<p>Les certificats <span class="caps">SSL</span> permettent deux&nbsp;choses:</p>
 <ul>
 <li>De garantir que les communications entre les navigateurs (vous) et les sites
-  Web ne sont connues que du détenteur du certificat du site et de vous même.</li>
+  Web ne sont connues que du détenteur du certificat du site et de vous&nbsp;même.</li>
 <li>De garantir que le site sur lequel vous vous connectez est bien celui que
-  vous imaginez.</li>
+  vous&nbsp;imaginez.</li>
 </ul>
-<p>Le navigateur, lors d'une visite d'un site, va télécharger le certificat
+<p>Le navigateur, lors d&#8217;une visite d&#8217;un site, va télécharger le certificat
 associé puis vérifier que le certificat en question a bien été généré par un
-des <em>CA</em> en qui il a confiance.</p>
-<p>Imaginons maintenant qu'une des <em>CA</em> essaye de savoir ce qui s'échange entre
-mon navigateur et le site de ma banque (protégé par SSL). Comment cela se
-passerait il ?</p>
-<p>N'importe quel <em>CA</em> peut donc générer des certificats pour n'importe quel site,
+des <em><span class="caps">CA</span></em> en qui il a&nbsp;confiance.</p>
+<p>Imaginons maintenant qu&#8217;une des <em><span class="caps">CA</span></em> essaye de savoir ce qui s&#8217;échange entre
+mon navigateur et le site de ma banque (protégé par <span class="caps">SSL</span>). Comment cela se
+passerait il&nbsp;?</p>
+<p>N&#8217;importe quel <em><span class="caps">CA</span></em> peut donc générer des certificats pour n&#8217;importe quel site,
 et le navigateur vérifierait, lui, que le certificat a bien été généré par une
-<em>CA</em>.</p>
-<p>Tout cela ne poserait pas de soucis si les <em>CA</em> étaient gérés de manière fiable,
-mais il s'agit d'un travail compliqué, et certains <em>CA</em> ont par le passé montré
-des faiblesses.</p>
-<p>Par exemple, <a href="https://en.wikipedia.org/wiki/DigiNotar">DigiNotar</a> (un <em>CA</em> des Pays-Bas)
-a été compromise et les attaquant.e.s ont pu générer des certificats SSL
-frauduleux, ce qui leur a permis d'attaquer des sites tels que Facebook ou GMail.</p>
-<p>Vous pouvez retrouver une liste des risques et menaces autour des <em>CA</em> <a href="http://wiki.cacert.org/Risk/History">sur le
+<em><span class="caps">CA</span></em>.</p>
+<p>Tout cela ne poserait pas de soucis si les <em><span class="caps">CA</span></em> étaient gérés de manière fiable,
+mais il s&#8217;agit d&#8217;un travail compliqué, et certains <em><span class="caps">CA</span></em> ont par le passé montré
+des&nbsp;faiblesses.</p>
+<p>Par exemple, <a href="https://en.wikipedia.org/wiki/DigiNotar">DigiNotar</a> (un <em><span class="caps">CA</span></em> des Pays-Bas)
+a été compromise et les attaquant.e.s ont pu générer des certificats <span class="caps">SSL</span>
+frauduleux, ce qui leur a permis d&#8217;attaquer des sites tels que Facebook ou&nbsp;GMail.</p>
+<p>Vous pouvez retrouver une liste des risques et menaces autour des <em><span class="caps">CA</span></em> <a href="http://wiki.cacert.org/Risk/History">sur le
 wiki de CACert</a>.</p>
-<h2 id="attaque-de-lhomme-du-milieu-avec-ssl">Attaque de l'homme du milieu avec SSL</h2>
-<p>A force de dire que c'était très facile à faire, j'ai eu envie d'essayer
-d'espionner des connections protégées par SSL, et effectivement c'est
-carrément flippant tellement c'est simple.</p>
-<p>En l'espace de quelques minutes, il est possible de faire une <em>attaque de
-l'homme du milieu</em> en utilisant par exemple un outil nommé <a href="http://docs.mitmproxy.org/en/stable">mitm-proxy</a>.</p>
-<p>Pour déchiffrer l'ensemble du trafic SSL, j'ai simplement eu à lancer quelques
-commandes et avoir un <em>CA</em> dans lequel le navigateur de la victime a confiance.
-Je l'ai ajouté dans le navigateur cible pour simuler que je l'avais déjà
-(c'est le cas si un des 1200 CA se fait pirater, ce qui me semble une surface
-d'attaque assez large).</p>
-<p>Je les colle ici si ça vous intéresse:</p>
+<h2 id="attaque-de-lhomme-du-milieu-avec-ssl">Attaque de l&#8217;homme du milieu avec <span class="caps">SSL</span></h2>
+<p>A force de dire que c&#8217;était très facile à faire, j&#8217;ai eu envie d&#8217;essayer
+d&#8217;espionner des connections protégées par <span class="caps">SSL</span>, et effectivement c&#8217;est
+carrément flippant tellement c&#8217;est&nbsp;simple.</p>
+<p>En l&#8217;espace de quelques minutes, il est possible de faire une <em>attaque de
+l&#8217;homme du milieu</em> en utilisant par exemple un outil nommé <a href="http://docs.mitmproxy.org/en/stable">mitm-proxy</a>.</p>
+<p>Pour déchiffrer l&#8217;ensemble du trafic <span class="caps">SSL</span>, j&#8217;ai simplement eu à lancer quelques
+commandes et avoir un <em><span class="caps">CA</span></em> dans lequel le navigateur de la victime a confiance.
+Je l&#8217;ai ajouté dans le navigateur cible pour simuler que je l&#8217;avais déjà
+(c&#8217;est le cas si un des 1200 <span class="caps">CA</span> se fait pirater, ce qui me semble une surface
+d&#8217;attaque assez&nbsp;large).</p>
+<p>Je les colle ici si ça vous&nbsp;intéresse:</p>
 <div class="highlight"><pre><span></span><code>$ sudo aptitude install mitmproxy
 $ mitm-proxy -T --host
 </code></pre></div>
 
 <p>Il faut faire croire à votre victime que vous êtes la passerelle vers
-l'extérieur et à la passerelle que vous êtes la victime:</p>
+l&#8217;extérieur et à la passerelle que vous êtes la&nbsp;victime:</p>
 <div class="highlight"><pre><span></span><code>arpspoof -i wlan0 -t victime gateway
 arpspoof -i wlan0 -t gateway victime
 </code></pre></div>
 
 <p>Puis dire à notre fausse passerelle de rediriger le trafic des ports 80 et 443
-vers notre proxy:</p>
+vers notre&nbsp;proxy:</p>
 <div class="highlight"><pre><span></span><code>sudo sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
 sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">443</span> -j REDIRECT --to-port <span class="m">4443</span>
 sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">80</span> -j REDIRECT --to-port <span class="m">4443</span>
 </code></pre></div>
 
-<p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur SSL</strong>. On peut
-d'ailleurs même imaginer faire tourner ces quelques commandes sur un
-raspberry pi, pour aller encore plus vite…</p>
-<h3 id="key-pinning-dans-les-navigateurs">Key-pinning dans les navigateurs</h3>
-<p>Actuellement, n'importe quel <em>CA</em> peut générer des certificats pour
-n'importe quel site, et c'est en grande partie ce qui pose souci. Une des
-manières de faire évoluer la situation est d'épingler les certificats de
-certains sites directement dans les navigateurs.</p>
+<p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur <span class="caps">SSL</span></strong>. On peut
+d&#8217;ailleurs même imaginer faire tourner ces quelques commandes sur un
+raspberry pi, pour aller encore plus&nbsp;vite…</p>
+<h3 id="key-pinning-dans-les-navigateurs">Key-pinning dans les&nbsp;navigateurs</h3>
+<p>Actuellement, n&#8217;importe quel <em><span class="caps">CA</span></em> peut générer des certificats pour
+n&#8217;importe quel site, et c&#8217;est en grande partie ce qui pose souci. Une des
+manières de faire évoluer la situation est d&#8217;épingler les certificats de
+certains sites directement dans les&nbsp;navigateurs.</p>
 <p>Cette approche a le mérite de fonctionner très bien <a href="https://dxr.mozilla.org/mozilla-central/source/security/manager/ssl/StaticHPKPins.h?from=StaticHPKPins.h">pour un petit nombre de
 sites critiques (Google, Facebook, etc)</a>.</p>
-<h3 id="http-public-key-pinning-hpkp">HTTP Public Key Pinning (HPKP)</h3>
-<p><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"><em>HTTP Public Key Pinning</em></a>
-est également une solution de <em>pinning</em> qui permet d'établir une confiance lors
-de la première connexion avec le site. C'est ce qu'on appelle du <em>Trust on First
-Use</em> ou <em>TOFU</em>.</p>
+<h3 id="http-public-key-pinning-hpkp"><span class="caps">HTTP</span> Public Key Pinning (<span class="caps">HPKP</span>)</h3>
+<p><a href="https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning"><em><span class="caps">HTTP</span> Public Key Pinning</em></a>
+est également une solution de <em>pinning</em> qui permet d&#8217;établir une confiance lors
+de la première connexion avec le site. C&#8217;est ce qu&#8217;on appelle du <em>Trust on First
+Use</em> ou <em><span class="caps">TOFU</span></em>.</p>
 <p>Le navigateur va alors mettre ces informations dans un cache et vérifiera que
-les certificats correspondent bien lors des prochaines visites.</p>
-<p><em>HPKP</em> est disponible dans Firefox depuis Janvier 2015 et dans Chrome
-depuis Octobre 2015.</p>
-<h3 id="certificate-transparency-des-journaux-auditables">Certificate transparency: des journaux auditables</h3>
+les certificats correspondent bien lors des prochaines&nbsp;visites.</p>
+<p><em><span class="caps">HPKP</span></em> est disponible dans Firefox depuis Janvier 2015 et dans Chrome
+depuis Octobre&nbsp;2015.</p>
+<h3 id="certificate-transparency-des-journaux-auditables">Certificate transparency: des journaux&nbsp;auditables</h3>
 <p>Une autre approche est celle proposée par <em>certificate transparency</em>:</p>
 <blockquote>
 <p>Certificate Transparency aims to remedy these certificate-based threats by
-making the issuance and existence of SSL certificates open to scrutiny by
-domain owners, CAs, and domain users.</p>
-<p>-- <a href="https://www.certificate-transparency.org/what-is-ct">Certificate Transparency</a></p>
+making the issuance and existence of <span class="caps">SSL</span> certificates open to scrutiny by
+domain owners, CAs, and domain&nbsp;users.</p>
+<p>&#8212; <a href="https://www.certificate-transparency.org/what-is-ct">Certificate&nbsp;Transparency</a></p>
 </blockquote>
-<p>Autrement dit, avec ce système les <em>CA</em> doivent rendre public le fait qu'ils
+<p>Autrement dit, avec ce système les <em><span class="caps">CA</span></em> doivent rendre public le fait qu&#8217;ils
 aient signé de nouveaux certificats intermédiaires. La signature est ajoutée à
-un journal sur lequel il n'est possible que d'écrire.</p>
+un journal sur lequel il n&#8217;est possible que&nbsp;d&#8217;écrire.</p>
 <p>Les navigateurs vont alors vérifier que les certificats utilisés sont bien des
-certificats qui ont été ajoutés au journal.</p>
-<p>Ici, toute l'intelligence est dans la vérification de ces journaux, qui
-permettent donc de valider/invalider des certificats racines ou intermédiaires.</p>
-<p>Il me semble donc qu'il serait possible d'ajouter un certificat frauduleux le
-temps d'une attaque (et celui ci serait détecté et supprimé ensuite).</p>
-<p><em>Certificate-Transparency</em> n'est donc pas une solution contre une écoute
-globale mise en place par les gouvernements par exemple.</p>
-<p>Si vous lisez bien l'anglais, je vous invite à aller lire
+certificats qui ont été ajoutés au&nbsp;journal.</p>
+<p>Ici, toute l&#8217;intelligence est dans la vérification de ces journaux, qui
+permettent donc de valider/invalider des certificats racines ou&nbsp;intermédiaires.</p>
+<p>Il me semble donc qu&#8217;il serait possible d&#8217;ajouter un certificat frauduleux le
+temps d&#8217;une attaque (et celui ci serait détecté et supprimé&nbsp;ensuite).</p>
+<p><em>Certificate-Transparency</em> n&#8217;est donc pas une solution contre une écoute
+globale mise en place par les gouvernements par&nbsp;exemple.</p>
+<p>Si vous lisez bien l&#8217;anglais, je vous invite à aller lire
 <a href="http://security.stackexchange.com/a/52838">cette description du problème et de la solution</a>
-que je trouve très bien écrite.</p>
-<h3 id="dane-dnssec">DANE + DNSSEC</h3>
+que je trouve très bien&nbsp;écrite.</p>
+<h3 id="dane-dnssec"><span class="caps">DANE</span> + <span class="caps">DNSSEC</span></h3>
 <blockquote>
-<p>The DANE working group has developed a framework for securely
-retrieving keying information from the DNS [RFC6698]. This
+<p>The <span class="caps">DANE</span> working group has developed a framework for securely
+retrieving keying information from the <span class="caps">DNS</span> [<span class="caps">RFC6698</span>]. This
 framework allows secure storing and looking up server public key
-information in the DNS. This provides a binding between a domain
+information in the <span class="caps">DNS</span>. This provides a binding between a domain
 name providing a particular service and the key that can be used
-to establish encrypted connection to that service.</p>
-<p>-- <a href="https://datatracker.ietf.org/wg/dane/charter/">Dane WG</a></p>
+to establish encrypted connection to that&nbsp;service.</p>
+<p>&#8212; <a href="https://datatracker.ietf.org/wg/dane/charter/">Dane <span class="caps">WG</span></a></p>
 </blockquote>
-<p>Une autre solution est appelée "DANE" et repose par dessus le protocole
-<em>DNSSEC</em>.</p>
-<p>Je connais assez mal <em>DNSSEC</em> donc j'ai passé un peu de temps à lire des
-documents. L'impression finale que ça me laisse est que le problème est
-exactement le même que pour SSL: un certain nombre de personnes détiennent les
+<p>Une autre solution est appelée &#8220;<span class="caps">DANE</span>&#8221; et repose par dessus le protocole
+<em><span class="caps">DNSSEC</span></em>.</p>
+<p>Je connais assez mal <em><span class="caps">DNSSEC</span></em> donc j&#8217;ai passé un peu de temps à lire des
+documents. L&#8217;impression finale que ça me laisse est que le problème est
+exactement le même que pour <span class="caps">SSL</span>: un certain nombre de personnes détiennent les
 clés et toute la sécurité repose sur cette confiance. Or il est possible que
-ces clés soient détenues par des personnes non dignes de confiance.</p>
+ces clés soient détenues par des personnes non dignes de&nbsp;confiance.</p>
 <blockquote>
-<p>Secure DNS (DNSSEC) uses cryptographic digital signatures signed with a
+<p>Secure <span class="caps">DNS</span> (<span class="caps">DNSSEC</span>) uses cryptographic digital signatures signed with a
 trusted public key certificate to determine the authenticity of data.
--- https://en.wikipedia.org/wiki/DNS_spoofing</p>
+&#8212;&nbsp;https://en.wikipedia.org/wiki/DNS_spoofing</p>
 </blockquote>
-<p>Et aussi:</p>
+<p>Et&nbsp;aussi:</p>
 <blockquote>
-<p>It is widely believed[1] that securing the DNS is critically important for
-securing the Internet as a whole, but deployment of DNSSEC specifically has
-been hampered (As of 22 January 2010) by several difficulties:</p>
+<p>It is widely believed[1] that securing the <span class="caps">DNS</span> is critically important for
+securing the Internet as a whole, but deployment of <span class="caps">DNSSEC</span> specifically has
+been hampered (As of 22 January 2010) by several&nbsp;difficulties:</p>
 <ul>
 <li>The need to design a backward-compatible standard that can scale to the
-  size of the Internet</li>
-<li>Prevention of "zone enumeration" (see below) where desired</li>
-<li>Deployment of DNSSEC implementations across a wide variety of DNS servers
-  and resolvers (clients)</li>
+  size of the&nbsp;Internet</li>
+<li>Prevention of &#8220;zone enumeration&#8221; (see below) where&nbsp;desired</li>
+<li>Deployment of <span class="caps">DNSSEC</span> implementations across a wide variety of <span class="caps">DNS</span> servers
+  and resolvers&nbsp;(clients)</li>
 <li>Disagreement among implementers over who should own the top-level domain
-  root keys Overcoming the perceived complexity of DNSSEC and DNSSEC
-  deployment</li>
+  root keys Overcoming the perceived complexity of <span class="caps">DNSSEC</span> and <span class="caps">DNSSEC</span>&nbsp;deployment</li>
 </ul>
 </blockquote>
-<h2 id="solutions-basees-sur-la-blockchain">Solutions basées sur la blockchain</h2>
-<p>Une dernière piste semble être l'utilisation de la <em>blockchain</em> pour distribuer
-des clés par site.</p>
-<p>La solution <em>DNSChain</em> me paraissait tout d'abord un bon point de départ mais
+<h2 id="solutions-basees-sur-la-blockchain">Solutions basées sur la&nbsp;blockchain</h2>
+<p>Une dernière piste semble être l&#8217;utilisation de la <em>blockchain</em> pour distribuer
+des clés par&nbsp;site.</p>
+<p>La solution <em>DNSChain</em> me paraissait tout d&#8217;abord un bon point de départ mais
 la lecture de <a href="https://www.indolering.com/okturtles-dnschain-unblock-us">quelques critiques</a>
-et interventions du développeur du projet m'ont fait changer d'avis.</p>
-<p>Reste encore la piste de <em>Namecoin Control</em> que je n'ai pas encore creusée.
+et interventions du développeur du projet m&#8217;ont fait changer&nbsp;d&#8217;avis.</p>
+<p>Reste encore la piste de <em>Namecoin Control</em> que je n&#8217;ai pas encore creusée.
 Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
-bienvenue sur ces sujets!</p>
+bienvenue sur ces&nbsp;sujets!</p>
 </article>
 
 </body>

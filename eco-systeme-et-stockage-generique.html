@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Eco-système et stockage générique - Alexis Métaireau</title>
+        <title>Eco-système et stockage&nbsp;générique - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">Eco-système et stockage générique</h1>
+	<h1 class="post-title">Eco-système et stockage&nbsp;générique</h1>
 	<time datetime="2015-04-30T00:00:00+02:00">30 avril 2015</time>
 
     
@@ -28,104 +28,100 @@
 <article>
     
 <p><strong>tl;dr Nous devons construire un service de suivi de paiements, et nous
-hésitons à continuer à nous entêter avec notre propre solution de
-stockage/synchronisation.</strong></p>
-<p>Comme nous l'écrivions <a href="https://blog.notmyidea.org/service-de-nuages-fr.html">dans l'article
+hésitons à continuer à nous entêter avec notre propre solution de&nbsp;stockage/synchronisation.</strong></p>
+<p>Comme nous l&#8217;écrivions <a href="https://blog.notmyidea.org/service-de-nuages-fr.html">dans l&#8217;article
 précédent</a>, nous
 souhaitons construire une solution de stockage générique. On refait
-<a href="http://daybed.readthedocs.org">Daybed</a> chez Mozilla !</p>
-<p>Notre objectif est simple: permettre aux développeurs d'application,
+<a href="http://daybed.readthedocs.org">Daybed</a> chez Mozilla&nbsp;!</p>
+<p>Notre objectif est simple: permettre aux développeurs d&#8217;application,
 internes à Mozilla ou du monde entier, de faire persister et
-synchroniser facilement des données associées à un utilisateur.</p>
+synchroniser facilement des données associées à un&nbsp;utilisateur.</p>
 <div id="storage-specs">
 
-Les aspects de l'architecture qui nous semblent incontournables:
+Les aspects de l&#8217;architecture qui nous semblent incontournables:
 
 </div>
 
 <ul>
 <li>La solution doit reposer sur un protocole, et non sur une
-    implémentation ;</li>
-<li>L'auto-hébergement de l'ensemble doit être simplissime ;</li>
-<li>L'authentification doit être <em>pluggable</em>, voire décentralisée
-    (OAuth2, FxA, Persona) ;</li>
-<li>Les enregistrements doivent pouvoir être validés par le serveur ;</li>
-<li>Les données doivent pouvoir être stockées dans n'importe quel
-    backend ;</li>
+    implémentation&nbsp;;</li>
+<li>L&#8217;auto-hébergement de l&#8217;ensemble doit être simplissime&nbsp;;</li>
+<li>L&#8217;authentification doit être <em>pluggable</em>, voire décentralisée
+    (OAuth2, FxA, Persona)&nbsp;;</li>
+<li>Les enregistrements doivent pouvoir être validés par le serveur&nbsp;;</li>
+<li>Les données doivent pouvoir être stockées dans n&#8217;importe quel
+    backend&nbsp;;</li>
 <li>Un système de permissions doit permettre de protéger des
-    collections, ou de partager des enregistrements de manière fine ;</li>
-<li>La résolution de conflits doit pouvoir avoir lieu sur le serveur ;</li>
-<li>Le client doit être pensé «*offline-first*» ;</li>
-<li>Le client doit pouvoir réconcilier les données simplement ;</li>
+    collections, ou de partager des enregistrements de manière fine&nbsp;;</li>
+<li>La résolution de conflits doit pouvoir avoir lieu sur le serveur&nbsp;;</li>
+<li>Le client doit être pensé «*offline-first*»&nbsp;;</li>
+<li>Le client doit pouvoir réconcilier les données simplement&nbsp;;</li>
 <li>Le client doit pouvoir être utilisé aussi bien dans le navigateur
-    que côté serveur ;</li>
-<li>Tous les composants se doivent d´être simples et substituables
-    facilement.</li>
+    que côté serveur&nbsp;;</li>
+<li>Tous les composants se doivent d´être simples et substituables&nbsp;facilement.</li>
 </ul>
 <p>La première question qui nous a été posée fût «*Pourquoi vous
-n'utilisez pas PouchDB ou Remote Storage ?*»</p>
-<h2 id="remote-storage">Remote Storage</h2>
+n&#8217;utilisez pas PouchDB ou Remote Storage&nbsp;?*»</p>
+<h2 id="remote-storage">Remote&nbsp;Storage</h2>
 <p>Remote Storage est un standard ouvert pour du stockage par utilisateur.
 <a href="http://tools.ietf.org/html/draft-dejong-remotestorage-04">La
 specification</a>
 se base sur des standards déjà existants et éprouvés: Webfinger, OAuth
-2, CORS et REST.</p>
-<p>L'API est simple, des <a href="http://blog.cozycloud.cc/news/2014/08/12/when-unhosted-meets-cozy-cloud/">projets prestigieux
-l'utilisent</a>.
+2, <span class="caps">CORS</span> et <span class="caps">REST</span>.</p>
+<p>L&#8217;<span class="caps">API</span> est simple, des <a href="http://blog.cozycloud.cc/news/2014/08/12/when-unhosted-meets-cozy-cloud/">projets prestigieux
+l&#8217;utilisent</a>.
 Il y a plusieurs <a href="https://github.com/jcoglan/restore">implémentations</a>
 du serveur, et il existe <a href="https://www.npmjs.com/package/remotestorage-server">un squelette
 Node</a> pour
-construire un serveur sur mesure.</p>
+construire un serveur sur&nbsp;mesure.</p>
 <p><img alt="Remote Storage widget" src="%7Bfilename%7D/images/remotestorage-widget.png"></p>
 <p>Le client
 <a href="https://github.com/remotestorage/remotestorage.js/">remoteStorage.js</a>
-permet d'intégrer la solution dans les applications Web. Il se charge du
+permet d&#8217;intégrer la solution dans les applications Web. Il se charge du
 «store local», du cache, de la synchronization, et fournit un widget qui
 permet aux utilisateurs des applications de choisir le serveur qui
-recevra les données (via Webfinger).</p>
+recevra les données (via&nbsp;Webfinger).</p>
 <p><a href="https://github.com/michielbdejong/ludbud">ludbud</a>, la version épurée de
-<em>remoteStorage.js</em>, se limite à l'abstraction du stockage distant. Cela
-permettrait à terme, d'avoir une seule bibliothèque pour stocker dans un
+<em>remoteStorage.js</em>, se limite à l&#8217;abstraction du stockage distant. Cela
+permettrait à terme, d&#8217;avoir une seule bibliothèque pour stocker dans un
 serveur <em>remoteStorage</em>, <em>ownCloud</em> ou chez les méchants comme <em>Google
 Drive</em> ou <em>Dropbox</em>.</p>
-<p>Au premier abord, la spécification correspond à ce que nous voulons
-accomplir:</p>
+<p>Au premier abord, la spécification correspond à ce que nous voulons&nbsp;accomplir:</p>
 <ul>
-<li>La philosophie du protocole est saine;</li>
-<li>L'éco-système est bien fichu;</li>
+<li>La philosophie du protocole est&nbsp;saine;</li>
+<li>L&#8217;éco-système est bien&nbsp;fichu;</li>
 <li>La vision politique colle: redonner le contrôle des données aux
     utilisateurs (voir <a href="http://unhosted.org/">unhosted</a>);</li>
-<li>Les choix techniques compatibles avec ce qu'on a commencé (CORS,
-    REST, OAuth 2);</li>
+<li>Les choix techniques compatibles avec ce qu&#8217;on a commencé (<span class="caps">CORS</span>,
+    <span class="caps">REST</span>, OAuth&nbsp;2);</li>
 </ul>
 <p>En revanche, vis à vis de la manipulation des données, il y a plusieurs
-différences avec ce que nous souhaitons faire:</p>
+différences avec ce que nous souhaitons&nbsp;faire:</p>
 <ul>
-<li>L'API suit globalement une métaphore «fichiers» (dossier/documents),
-    plutôt que «données» (collection/enregistrements) ;</li>
-<li>Il n'y a pas de validation des enregistrements selon un schéma (même
+<li>L&#8217;<span class="caps">API</span> suit globalement une métaphore «fichiers» (dossier/documents),
+    plutôt que «données» (collection/enregistrements)&nbsp;;</li>
+<li>Il n&#8217;y a pas de validation des enregistrements selon un schéma (même
     si <a href="https://remotestorage.io/doc/code/files/baseclient/types-js.html">certaines
     implémentations</a>
-    du protocole le font) ;</li>
-<li>Il n'y a pas la possibilité de trier/filtrer les enregistrements
-    selon des attributs ;</li>
+    du protocole le font)&nbsp;;</li>
+<li>Il n&#8217;y a pas la possibilité de trier/filtrer les enregistrements
+    selon des attributs&nbsp;;</li>
 <li>Les permissions <a href="https://groups.google.com/forum/#!topic/unhosted/5_NOGq8BPTo">se limitent à
     privé/public</a>
-    (et <a href="https://github.com/remotestorage/spec/issues/58#issue-27249452">l'auteur envisage plutôt un modèle à la
-    Git</a>)[1]
-    ;</li>
+    (et <a href="https://github.com/remotestorage/spec/issues/58#issue-27249452">l&#8217;auteur envisage plutôt un modèle à la
+    Git</a>)[1]&nbsp;;</li>
 </ul>
 <p>En résumé, il semblerait que ce que nous souhaitons faire avec le
-stockage d'enregistrements validés est complémentaire avec <em>Remote
+stockage d&#8217;enregistrements validés est complémentaire avec <em>Remote
 Storage</em>.</p>
 <p>Si des besoins de persistence orientés «fichiers» se présentent, a
 priori nous aurions tort de réinventer les solutions apportées par cette
 spécification. Il y a donc de grandes chances que nous l´intégrions à
-terme, et que <em>Remote Storage</em> devienne une facette de notre solution.</p>
+terme, et que <em>Remote Storage</em> devienne une facette de notre&nbsp;solution.</p>
 <h2 id="pouchdb">PouchDB</h2>
 <p><a href="http://pouchdb.com/">PouchDB</a> est une bibliothèque JavaScript qui
 permet de manipuler des enregistrements en local et de les synchroniser
-vers une base distante.</p>
+vers une base&nbsp;distante.</p>
 <div class="highlight"><pre><span></span><code><span class="n">javascript</span>
 <span class="k">var</span> <span class="n">db</span> <span class="o">=</span> <span class="n">new</span> <span class="n">PouchDB</span><span class="p">(</span><span class="s1">&#39;dbname&#39;</span><span class="p">);</span>
 
@@ -139,219 +135,211 @@ vers une base distante.</p>
 </code></pre></div>
 
 <p>Le projet a le vent en poupe, bénéficie de nombreux contributeurs,
-l'éco-système est très riche et l'adoption par des projets <a href="https://github.com/hoodiehq/wip-hoodie-store-on-pouchdb">comme
+l&#8217;éco-système est très riche et l&#8217;adoption par des projets <a href="https://github.com/hoodiehq/wip-hoodie-store-on-pouchdb">comme
 Hoodie</a> ne fait
-que confirmer la pertinence de l'outil pour les développeurs frontend.</p>
+que confirmer la pertinence de l&#8217;outil pour les développeurs&nbsp;frontend.</p>
 <p><em>PouchDB</em> gère un « store » local, dont la persistence est abstraite et
-<a href="http://pouchdb.com/2014/07/25/pouchdb-levels-up.html">repose sur</a> l'API
+<a href="http://pouchdb.com/2014/07/25/pouchdb-levels-up.html">repose sur</a> l&#8217;<span class="caps">API</span>
 <a href="https://github.com/level/levelup#relationship-to-leveldown">LevelDown</a>
-pour persister les données dans <a href="https://github.com/Level/levelup/wiki/Modules#storage-back-ends">n'importe quel
+pour persister les données dans <a href="https://github.com/Level/levelup/wiki/Modules#storage-back-ends">n&#8217;importe quel
 backend</a>.</p>
 <p>Même si <em>PouchDB</em> adresse principalement les besoins des applications
 «*offline-first*», il peut être utilisé aussi bien dans le navigateur
-que côté serveur, via Node.</p>
+que côté serveur, via&nbsp;Node.</p>
 <h3 id="synchronisation">Synchronisation</h3>
-<p>La synchronisation (ou réplication) des données locales s'effectue sur
-un <a href="http://couchdb.apache.org/">CouchDB</a> distant.</p>
+<p>La synchronisation (ou réplication) des données locales s&#8217;effectue sur
+un <a href="http://couchdb.apache.org/">CouchDB</a>&nbsp;distant.</p>
 <p>Le projet <a href="https://github.com/pouchdb/pouchdb-server">PouchDB Server</a>
-implémente l'API de CouchDB en NodeJS. Comme <em>PouchDB</em> est utilisé, on
+implémente l&#8217;<span class="caps">API</span> de CouchDB en NodeJS. Comme <em>PouchDB</em> est utilisé, on
 obtient un service qui se comporte comme un <em>CouchDB</em> mais qui stocke
-ses données n'importe où, dans un <em>Redis</em> ou un <em>PostgreSQL</em> par
-exemple.</p>
+ses données n&#8217;importe où, dans un <em>Redis</em> ou un <em>PostgreSQL</em> par&nbsp;exemple.</p>
 <p>La synchronisation est complète. Autrement dit, tous les enregistrements
 qui sont sur le serveur se retrouvent synchronisés dans le client. Il
-est possible de filtrer les collections synchronisées, mais cela <a href="http://pouchdb.com/2015/04/05/filtered-replication.html">n'a
-pas pour objectif de sécuriser l'accès aux
+est possible de filtrer les collections synchronisées, mais cela <a href="http://pouchdb.com/2015/04/05/filtered-replication.html">n&#8217;a
+pas pour objectif de sécuriser l&#8217;accès aux
 données</a>.</p>
-<p>L'approche recommandée pour cloisonner les données par utilisateur
+<p>L&#8217;approche recommandée pour cloisonner les données par utilisateur
 consiste à créer <a href="https://github.com/nolanlawson/pouchdb-authentication#some-people-can-read-some-docs-some-people-can-write-those-same-docs">une base de données par
 utilisateur</a>.</p>
-<p>Ce n'est pas forcément un problème, CouchDB <a href="https://mail-archives.apache.org/mod_mbox/couchdb-user/201401.mbox/%3C52CEB873.7080404@ironicdesign.com%3E">supporte des centaines de
+<p>Ce n&#8217;est pas forcément un problème, CouchDB <a href="https://mail-archives.apache.org/mod_mbox/couchdb-user/201401.mbox/%3C52CEB873.7080404@ironicdesign.com%3E">supporte des centaines de
 milliers de bases sans
 sourciller</a>.
-Mais selon les cas d'utilisation, le cloisement n'est pas toujours
-facile à déterminer (par rôle, par application, par collection, ...).</p>
-<h2 id="le-cas-dutilisation-payments">Le cas d'utilisation « Payments »</h2>
+Mais selon les cas d&#8217;utilisation, le cloisement n&#8217;est pas toujours
+facile à déterminer (par rôle, par application, par collection,&nbsp;&#8230;).</p>
+<h2 id="le-cas-dutilisation-payments">Le cas d&#8217;utilisation « Payments&nbsp;»</h2>
 <p><img alt="Put Payments Here -- Before the Internet - CC-NC-SA Katy Silberger
 https://www.flickr.com/photos/katysilbs/11163812186" src="%7Bfilename%7D/images/put-payments.jpg"></p>
 <p>Dans les prochaines semaines, nous devrons mettre sur pied un prototype
-pour tracer l'historique des paiements et abonnements d'un utilisateur.</p>
-<p>Le besoin est simple:</p>
+pour tracer l&#8217;historique des paiements et abonnements d&#8217;un&nbsp;utilisateur.</p>
+<p>Le besoin est&nbsp;simple:</p>
 <ul>
-<li>l'application « Payment » enregistre les paiements et abonnements
-    d'un utilisateur pour une application donnée;</li>
-<li>l'application « Donnée » interroge le service pour vérifier qu'un
-    utilisateur a payé ou est abonné;</li>
-<li>l'utilisateur interroge le service pour obtenir la liste de tous ses
-    abonnements.</li>
+<li>l&#8217;application « Payment » enregistre les paiements et abonnements
+    d&#8217;un utilisateur pour une application&nbsp;donnée;</li>
+<li>l&#8217;application « Donnée » interroge le service pour vérifier qu&#8217;un
+    utilisateur a payé ou est&nbsp;abonné;</li>
+<li>l&#8217;utilisateur interroge le service pour obtenir la liste de tous ses&nbsp;abonnements.</li>
 </ul>
-<p>Seule l'application « Payment » a le droit de créer/modifier/supprimer
-des enregistrements, les deux autres ne peuvent que consulter en lecture
-seule.</p>
+<p>Seule l&#8217;application « Payment » a le droit de créer/modifier/supprimer
+des enregistrements, les deux autres ne peuvent que consulter en lecture&nbsp;seule.</p>
 <p>Une application donnée ne peut pas accéder aux paiements des autres
 applications, et un utilisateur ne peut pas accéder aux paiements des
-autres utilisateurs.</p>
-<h3 id="avec-remotestorage">Avec RemoteStorage</h3>
+autres&nbsp;utilisateurs.</p>
+<h3 id="avec-remotestorage">Avec&nbsp;RemoteStorage</h3>
 <p><img alt="Remote Love - CC-BY-NC Julie
 https://www.flickr.com/photos/mamajulie2008/2609549461" src="%7Bfilename%7D/images/remote-love.jpg"></p>
-<p>Clairement, l'idée de <em>RemoteStorage</em> est de dissocier l'application
-executée, et les données créées par l'utilisateur avec celle-ci.</p>
-<p>Dans notre cas, c'est l'application « Payment » qui manipule des données
+<p>Clairement, l&#8217;idée de <em>RemoteStorage</em> est de dissocier l&#8217;application
+executée, et les données créées par l&#8217;utilisateur avec&nbsp;celle-ci.</p>
+<p>Dans notre cas, c&#8217;est l&#8217;application « Payment » qui manipule des données
 concernant un utilisateur. Mais celles-ci ne lui appartiennent pas
 directement: certes un utilisateur doit pouvoir les supprimer, surtout
-pas en créer ou les modifier!</p>
+pas en créer ou les&nbsp;modifier!</p>
 <p>La notion de permissions limitée à privé/publique ne suffit pas dans ce
-cas précis.</p>
-<h3 id="avec-pouchdb">Avec PouchDB</h3>
-<p>Il va falloir créer une <em>base de données</em> par utilisateur, afin d'isoler
-les enregistrements de façon sécurisée. Seule l'application « Payment »
-aura tous les droits sur les databases.</p>
-<p>Mais cela ne suffit pas.</p>
-<p>Il ne faut pas qu'une application puisse voir les paiements des autres
+cas&nbsp;précis.</p>
+<h3 id="avec-pouchdb">Avec&nbsp;PouchDB</h3>
+<p>Il va falloir créer une <em>base de données</em> par utilisateur, afin d&#8217;isoler
+les enregistrements de façon sécurisée. Seule l&#8217;application « Payment »
+aura tous les droits sur les&nbsp;databases.</p>
+<p>Mais cela ne suffit&nbsp;pas.</p>
+<p>Il ne faut pas qu&#8217;une application puisse voir les paiements des autres
 applications, donc il va aussi falloir recloisonner, et créer une <em>base
-de données</em> par application.</p>
-<p>Quand un utilisateur voudra accéder à l'ensemble de ses paiements, il
+de données</em> par&nbsp;application.</p>
+<p>Quand un utilisateur voudra accéder à l&#8217;ensemble de ses paiements, il
 faudra agréger les <em>databases</em> de toutes les applications. Quand
-l'équipe marketing voudra faire des statistiques sur l'ensemble des
+l&#8217;équipe marketing voudra faire des statistiques sur l&#8217;ensemble des
 applications, il faudra agrégér des centaines de milliers de
 <em>databases</em>.</p>
-<p>Ce qui est fort dommage, puisqu'il est probable que les paiements ou
-abonnements d'un utilisateur pour une application se comptent sur les
-doigts d'une main. Des centaines de milliers de bases contenant moins de
-5 enregistrements ?</p>
-<p>De plus, dans le cas de l'application « Payment », le serveur est
+<p>Ce qui est fort dommage, puisqu&#8217;il est probable que les paiements ou
+abonnements d&#8217;un utilisateur pour une application se comptent sur les
+doigts d&#8217;une main. Des centaines de milliers de bases contenant moins de
+5 enregistrements&nbsp;?</p>
+<p>De plus, dans le cas de l&#8217;application « Payment », le serveur est
 implémenté en Python. Utiliser un wrapper JavaScript comme le fait
 <a href="https://pythonhosted.org/Python-PouchDB/">python-pouchdb</a> cela ne nous
-fait pas trop rêver.</p>
-<h2 id="un-nouvel-eco-systeme">Un nouvel éco-système ?</h2>
+fait pas trop&nbsp;rêver.</p>
+<h2 id="un-nouvel-eco-systeme">Un nouvel éco-système&nbsp;?</h2>
 <p><img alt="Wagon wheel - CC-BY-NC-SA arbyreed
 https://www.flickr.com/photos/19779889@N00/16161808220" src="%7Bfilename%7D/images/wagon-wheel.jpg"></p>
 <p>Évidemment, quand on voit la richesse des projets <em>PouchDB</em> et <em>Remote
-Storage</em> et la dynamique de ces communautés, il est légitime d'hésiter
-avant de développer une solution alternative.</p>
-<p>Quand nous avons créé le serveur <em>Reading List</em>, nous l'avons construit
-avec <a href="http://cliquet.readthedocs.org/">Cliquet</a>, ce fût l'occasion de
+Storage</em> et la dynamique de ces communautés, il est légitime d&#8217;hésiter
+avant de développer une solution&nbsp;alternative.</p>
+<p>Quand nous avons créé le serveur <em>Reading List</em>, nous l&#8217;avons construit
+avec <a href="http://cliquet.readthedocs.org/">Cliquet</a>, ce fût l&#8217;occasion de
 mettre au point <a href="http://cliquet.readthedocs.org/en/latest/api/">un protocole très
 simple</a>, fortement
 inspiré de <a href="http://en.wikipedia.org/wiki/Firefox_Sync">Firefox Sync</a>,
-pour faire de la synchronisation d'enregistrements.</p>
+pour faire de la synchronisation&nbsp;d&#8217;enregistrements.</p>
 <p>Et si les clients <em>Reading List</em> ont pu être implémentés en quelques
-semaines, que ce soit en JavaScript, Java (Android) et ASM (Add-on
-Firefox), c'est que le principe «*offline first*» du service est
-trivial.</p>
-<h3 id="les-compromis">Les compromis</h3>
-<p>Évidemment, nous n'avons pas la prétention de concurrencer <em>CouchDB</em>.
-Nous faisons plusieurs concessions:</p>
+semaines, que ce soit en JavaScript, Java (Android) et <span class="caps">ASM</span> (Add-on
+Firefox), c&#8217;est que le principe «*offline first*» du service est&nbsp;trivial.</p>
+<h3 id="les-compromis">Les&nbsp;compromis</h3>
+<p>Évidemment, nous n&#8217;avons pas la prétention de concurrencer <em>CouchDB</em>.
+Nous faisons plusieurs&nbsp;concessions:</p>
 <ul>
-<li>De base, les collections d'enregistrements sont cloisonnées par
-    utilisateur;</li>
-<li>Pas d'historique des révisions;</li>
-<li>Pas de diff sur les enregistrements entre révisions;</li>
-<li>De base, pas de résolution de conflit automatique;</li>
+<li>De base, les collections d&#8217;enregistrements sont cloisonnées par&nbsp;utilisateur;</li>
+<li>Pas d&#8217;historique des&nbsp;révisions;</li>
+<li>Pas de diff sur les enregistrements entre&nbsp;révisions;</li>
+<li>De base, pas de résolution de conflit&nbsp;automatique;</li>
 <li>Pas de synchronisation par flux (<em>streams</em>);</li>
 </ul>
-<p>Jusqu'à preuve du contraire, ces compromis excluent la possibilité
-d'implémenter un <a href="https://github.com/pouchdb/pouchdb/blob/master/lib/adapters/http/http.js#L721-L946">adapter
+<p>Jusqu&#8217;à preuve du contraire, ces compromis excluent la possibilité
+d&#8217;implémenter un <a href="https://github.com/pouchdb/pouchdb/blob/master/lib/adapters/http/http.js#L721-L946">adapter
 PouchDB</a>
-pour la synchronisation avec le protocole HTTP de <em>Cliquet</em>.</p>
-<p>Dommage puisque capitaliser sur l'expérience client de <em>PouchDB</em> au
-niveau synchro client semble être une très bonne idée.</p>
-<p>En revanche, nous avons plusieurs fonctionnalités intéressantes:</p>
+pour la synchronisation avec le protocole <span class="caps">HTTP</span> de <em>Cliquet</em>.</p>
+<p>Dommage puisque capitaliser sur l&#8217;expérience client de <em>PouchDB</em> au
+niveau synchro client semble être une très bonne&nbsp;idée.</p>
+<p>En revanche, nous avons plusieurs fonctionnalités&nbsp;intéressantes:</p>
 <ul>
-<li>Pas de map-reduce;</li>
-<li>Synchronisation partielle et/ou ordonnée et/ou paginée ;</li>
-<li>Le client choisit, via des headers, d'écraser la donnée ou de
-    respecter la version du serveur ;</li>
-<li>Un seul serveur à déployer pour N applications ;</li>
-<li>Auto-hébergement simplissime ;</li>
-<li>Le client peut choisir de ne pas utiliser de « store local » du tout
-    ;</li>
-<li>Dans le client JS, la gestion du « store local » sera externalisée
+<li>Pas de&nbsp;map-reduce;</li>
+<li>Synchronisation partielle et/ou ordonnée et/ou paginée&nbsp;;</li>
+<li>Le client choisit, via des headers, d&#8217;écraser la donnée ou de
+    respecter la version du serveur&nbsp;;</li>
+<li>Un seul serveur à déployer pour N applications&nbsp;;</li>
+<li>Auto-hébergement simplissime&nbsp;;</li>
+<li>Le client peut choisir de ne pas utiliser de « store local » du tout&nbsp;;</li>
+<li>Dans le client <span class="caps">JS</span>, la gestion du « store local » sera externalisée
     (on pense à <a href="https://github.com/mozilla/localForage">LocalForage</a> ou
-    <a href="https://github.com/dfahlander/Dexie.js">Dexie.js</a>) ;</li>
+    <a href="https://github.com/dfahlander/Dexie.js">Dexie.js</a>)&nbsp;;</li>
 </ul>
 <p>Et, on répond au reste des <a href="#storage-specs">specifications mentionnées au début de
-l'article</a> !</p>
-<h3 id="les-arguments-philosophiques">Les arguments philosophiques</h3>
-<p>Il est <a href="http://en.wikipedia.org/wiki/Law_of_the_instrument">illusoire de penser qu'on peut tout faire avec un seul
+l&#8217;article</a>&nbsp;!</p>
+<h3 id="les-arguments-philosophiques">Les arguments&nbsp;philosophiques</h3>
+<p>Il est <a href="http://en.wikipedia.org/wiki/Law_of_the_instrument">illusoire de penser qu&#8217;on peut tout faire avec un seul
 outil</a>.</p>
-<p>Nous avons d'autres cas d'utilisations dans les cartons qui semblent
+<p>Nous avons d&#8217;autres cas d&#8217;utilisations dans les cartons qui semblent
 correspondre au scope de <em>PouchDB</em> (<em>pas de notion de permissions ou de
-partage, environnement JavaScript, ...</em>). Nous saurons en tirer profit
-quand cela s'avèrera pertinent !</p>
-<p>L'éco-système que nous voulons construire tentera de couvrir les cas
-d'utilisation qui sont mal adressés par <em>PouchDB</em>. Il se voudra:</p>
+partage, environnement JavaScript, &#8230;</em>). Nous saurons en tirer profit
+quand cela s&#8217;avèrera pertinent&nbsp;!</p>
+<p>L&#8217;éco-système que nous voulons construire tentera de couvrir les cas
+d&#8217;utilisation qui sont mal adressés par <em>PouchDB</em>. Il se&nbsp;voudra:</p>
 <ul>
-<li>Basé sur notre protocole très simple ;</li>
-<li>Minimaliste et multi-usages (<em>comme la fameuse 2CV</em>) ;</li>
-<li>Naïf (<em>pas de rocket science</em>) ;</li>
-<li>Sans magie (<em>explicite et facile à réimplémenter from scratch</em>) ;</li>
+<li>Basé sur notre protocole très simple&nbsp;;</li>
+<li>Minimaliste et multi-usages (<em>comme la fameuse <span class="caps">2CV</span></em>)&nbsp;;</li>
+<li>Naïf (<em>pas de rocket science</em>)&nbsp;;</li>
+<li>Sans magie (<em>explicite et facile à réimplémenter from scratch</em>)&nbsp;;</li>
 </ul>
 <p><a href="http://cliquet.readthedocs.org/en/latest/rationale.html">La philosophie et les fonctionnalités du toolkit python
 Cliquet</a> seront
-bien entendu à l'honneur :)</p>
+bien entendu à l&#8217;honneur&nbsp;:)</p>
 <p>Quant à <em>Remote Storage</em>, dès que le besoin se présentera, nous serons
-très fier de rejoindre l'initiative, mais pour l'instant cela nous
-paraît risqué de démarrer en tordant la solution.</p>
-<h3 id="les-arguments-pratiques">Les arguments pratiques</h3>
-<p>Avant d'accepter de déployer une solution à base de <em>CouchDB</em>, les <em>ops</em>
-de Mozilla vont nous demander de leur prouver par A+B que ce n'est pas
+très fier de rejoindre l&#8217;initiative, mais pour l&#8217;instant cela nous
+paraît risqué de démarrer en tordant la&nbsp;solution.</p>
+<h3 id="les-arguments-pratiques">Les arguments&nbsp;pratiques</h3>
+<p>Avant d&#8217;accepter de déployer une solution à base de <em>CouchDB</em>, les <em>ops</em>
+de Mozilla vont nous demander de leur prouver par A+B que ce n&#8217;est pas
 faisable avec les stacks qui sont déjà rodées en interne (i.e. MySQL,
-Redis, PostgreSQL).</p>
-<p>De plus, on doit s'engager sur une pérennité d'au moins 5 ans pour les
+Redis,&nbsp;PostgreSQL).</p>
+<p>De plus, on doit s&#8217;engager sur une pérennité d&#8217;au moins 5 ans pour les
 données. Avec <em>Cliquet</em>, en utilisant le backend PostgreSQL, les données
 sont persistées à plat dans un <a href="https://github.com/mozilla-services/cliquet/blob/40aa33/cliquet/storage/postgresql/schema.sql#L14-L28">schéma PostgreSQL tout
 bête</a>.
-Ce qui ne sera pas le cas d'un adapteur LevelDown qui va manipuler des
-notions de révisions éclatées dans un schéma clé-valeur.</p>
-<p>Si nous basons le service sur <em>Cliquet</em>, comme c'est le cas avec
-<a href="http://kinto.readthedocs.org">Kinto</a>, tout le travail d'automatisation
-de la mise en production (<em>monitoring, builds RPM, Puppet...</em>) que nous
-avons fait pour <em>Reading List</em> est complètement réutilisable.</p>
+Ce qui ne sera pas le cas d&#8217;un adapteur LevelDown qui va manipuler des
+notions de révisions éclatées dans un schéma&nbsp;clé-valeur.</p>
+<p>Si nous basons le service sur <em>Cliquet</em>, comme c&#8217;est le cas avec
+<a href="http://kinto.readthedocs.org">Kinto</a>, tout le travail d&#8217;automatisation
+de la mise en production (<em>monitoring, builds <span class="caps">RPM</span>, Puppet&#8230;</em>) que nous
+avons fait pour <em>Reading List</em> est complètement&nbsp;réutilisable.</p>
 <p>De même, si on repart avec une stack complètement différente, nous
 allons devoir recommencer tout le travail de rodage, de profiling et
-d'optimisation effectué au premier trimestre.</p>
-<h2 id="les-prochaines-etapes">Les prochaines étapes</h2>
+d&#8217;optimisation effectué au premier&nbsp;trimestre.</p>
+<h2 id="les-prochaines-etapes">Les prochaines&nbsp;étapes</h2>
 <p>Et il est encore temps de changer de stratégie :) Nous aimerions avoir
-un maximum de retours ! C'est toujours une décision difficile à
-prendre... <code>&lt;/appel à troll&gt;</code></p>
+un maximum de retours ! C&#8217;est toujours une décision difficile à
+prendre&#8230; <code>&lt;/appel à troll&gt;</code></p>
 <ul>
-<li>Tordre un éco-système existant vs. constuire sur mesure ;</li>
-<li>Maîtriser l'ensemble vs. s'intégrer ;</li>
-<li>Contribuer vs. refaire ;</li>
-<li>Guider vs. suivre.</li>
+<li>Tordre un éco-système existant vs. constuire sur mesure&nbsp;;</li>
+<li>Maîtriser l&#8217;ensemble vs. s&#8217;intégrer&nbsp;;</li>
+<li>Contribuer vs. refaire&nbsp;;</li>
+<li>Guider vs.&nbsp;suivre.</li>
 </ul>
-<p>Nous avons vraiment l'intention de rejoindre l'initiative
-<a href="https://nobackend.org/">no-backend</a>, et ce premier pas n'exclue pas que
+<p>Nous avons vraiment l&#8217;intention de rejoindre l&#8217;initiative
+<a href="https://nobackend.org/">no-backend</a>, et ce premier pas n&#8217;exclue pas que
 nous convergions à terme ! Peut-être que nous allons finir par rendre
 notre service compatible avec <em>Remote Storage</em>, et peut-être que
-<em>PouchDB</em> deviendra plus agnostique quand au protocole de
-synchronisation...</p>
+<em>PouchDB</em> deviendra plus agnostique quand au protocole de&nbsp;synchronisation&#8230;</p>
 <p><img alt="XKCD — Standards
 https://xkcd.com/927/" src="%7Bfilename%7D/images/standards.png"></p>
 <p>Utiliser ce nouvel écosystème pour le projet « Payments » va nous
 permettre de mettre au point un système de permissions (<em>probablement
 basé sur les scopes OAuth</em>) qui correspond au besoin exprimé. Et nous
-avons bien l'intention de puiser dans <a href="http://blog.daybed.io/daybed-revival.html">notre expérience avec Daybed sur
+avons bien l&#8217;intention de puiser dans <a href="http://blog.daybed.io/daybed-revival.html">notre expérience avec Daybed sur
 le sujet</a>.</p>
 <p>Nous extrairons aussi le code des clients implémentés pour <em>Reading
-List</em> afin de faire un client JavaScript minimaliste.</p>
-<p>En partant dans notre coin, nous prenons plusieurs risques:</p>
+List</em> afin de faire un client JavaScript&nbsp;minimaliste.</p>
+<p>En partant dans notre coin, nous prenons plusieurs&nbsp;risques:</p>
 <ul>
-<li>réinventer une roue dont nous n'avons pas connaissance ;</li>
-<li>échouer à faire de l'éco-système <em>Cliquet</em> un projet communautaire ;</li>
+<li>réinventer une roue dont nous n&#8217;avons pas connaissance&nbsp;;</li>
+<li>échouer à faire de l&#8217;éco-système <em>Cliquet</em> un projet communautaire&nbsp;;</li>
 <li>échouer à positionner <em>Cliquet</em> dans la niche des cas non couverts
-    par PouchDB :)</li>
+    par PouchDB&nbsp;:)</li>
 </ul>
 <p>Comme <a href="http://pouchdb.com/2015/04/05/filtered-replication.html">le dit Giovanni
 Ornaghi</a>:</p>
 <blockquote>
 <p>Rolling out your set of webservices, push notifications, or background
 services might give you more control, but at the same time it will
-force you to engineer, write, test, and maintain a whole new
-ecosystem.</p>
+force you to engineer, write, test, and maintain a whole new&nbsp;ecosystem.</p>
 </blockquote>
-<p>C'est justement l'éco-système dont est responsable l'équipe <em>Mozilla
+<p>C&#8217;est justement l&#8217;éco-système dont est responsable l&#8217;équipe <em>Mozilla
 Cloud Services</em>!</p>
 <ol>
 <li>Il existe le <a href="https://sharesome.5apps.com/">projet Sharesome</a> qui

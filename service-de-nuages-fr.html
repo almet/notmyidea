@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Service de nuages ! - Alexis Métaireau</title>
+        <title>Service de nuages&nbsp;! - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,81 +20,81 @@
 
 
 <header>
-	<h1 class="post-title">Service de nuages !</h1>
+	<h1 class="post-title">Service de nuages&nbsp;!</h1>
 	<time datetime="2015-04-01T00:00:00+02:00">01 avril 2015</time>
 
     
 </header>
 <article>
-    <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à Mozilla</em></p>
-<p>Pas mal de changements depuis le début de l'année pour l'équipe
-«cloud-services» francophone!</p>
-<p>Tout d'abord, nouvelle importante, l'équipe s'étoffe avec des profils assez
+    <p><em>Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&nbsp;Mozilla</em></p>
+<p>Pas mal de changements depuis le début de l&#8217;année pour l&#8217;équipe
+«cloud-services»&nbsp;francophone!</p>
+<p>Tout d&#8217;abord, nouvelle importante, l&#8217;équipe s&#8217;étoffe avec des profils assez
 complémentaires: <a class="reference external" href="https://nicolas.perriault.net/">n1k0</a> et <a class="reference external" href="http://mathieu-leplatre.info">Mathieu</a> sont venus prêter main forte à <a class="reference external" href="http://ziade.org/">Tarek</a>, <a class="reference external" href="http://natim.ionyse.com">Rémy</a> et <a class="reference external" href="http://notmyidea.org">Alexis</a>.</p>
-<p>Le début de l'année a vu le lancement de <a class="reference external" href="https://www.mozilla.org/en-US/firefox/hello/">Firefox Hello</a> ce qui nous a permis de passer
-à l'échelle <a class="reference external" href="https://github.com/mozilla-services/loop-server">le serveur</a>,
-écrit en Node.js®, pour l'occasion.</p>
+<p>Le début de l&#8217;année a vu le lancement de <a class="reference external" href="https://www.mozilla.org/en-US/firefox/hello/">Firefox Hello</a> ce qui nous a permis de passer
+à l&#8217;échelle <a class="reference external" href="https://github.com/mozilla-services/loop-server">le serveur</a>,
+écrit en Node.js®, pour&nbsp;l&#8217;occasion.</p>
 <div class="section" id="un-serveur-de-listes-de-lecture">
-<h2>Un serveur de listes de lecture</h2>
-<p>En parallèle, un projet de <a class="reference external" href="https://readinglist.readthedocs.org">synchronisation de liste de lecture</a> (<em>Reading List</em>) a vu le jour.  L'idée
-étant de pouvoir marquer des pages &quot;à lire pour plus tard&quot; et de continuer la
-lecture sur n'importe quel périphérique synchronisé (Firefox pour Android ou
-Firefox Desktop). Un équivalent libre à <a class="reference external" href="http://getpocket.com">Pocket</a> en quelque sorte, qu'il est
-possible d'héberger soit-même.</p>
+<h2>Un serveur de listes de&nbsp;lecture</h2>
+<p>En parallèle, un projet de <a class="reference external" href="https://readinglist.readthedocs.org">synchronisation de liste de lecture</a> (<em>Reading List</em>) a vu le jour.  L&#8217;idée
+étant de pouvoir marquer des pages &#8220;à lire pour plus tard&#8221; et de continuer la
+lecture sur n&#8217;importe quel périphérique synchronisé (Firefox pour Android ou
+Firefox Desktop). Un équivalent libre à <a class="reference external" href="http://getpocket.com">Pocket</a> en quelque sorte, qu&#8217;il est
+possible d&#8217;héberger&nbsp;soit-même.</p>
 <img alt="Capture d'écran de Firefox nightly avec readinglist." src="https://blog.notmyidea.org/images/readinglist-screenshot.png" />
 <p>Pour le construire, nous aurions pu réutiliser <a class="reference external" href="https://github.com/mozilla-services/server-syncstorage">Firefox Sync</a>, après tout
-c'est un service de synchronisation de données très robuste, construit avec <a class="reference external" href="http://cornice.readthedocs.org/">Cornice</a>.
-Mais seulement, <em>Sync</em> n'a pas été pensé pour garantir la pérennité des données,
-et la marche était trop haute pour changer ça en profondeur.</p>
+c&#8217;est un service de synchronisation de données très robuste, construit avec <a class="reference external" href="http://cornice.readthedocs.org/">Cornice</a>.
+Mais seulement, <em>Sync</em> n&#8217;a pas été pensé pour garantir la pérennité des données,
+et la marche était trop haute pour changer ça en&nbsp;profondeur.</p>
 <p>Nous aurions pu aussi nous contenter de faire une énième application qui expose
-une API et persiste des données dans une base de données.</p>
-<p>Mais cette nouvelle petite équipe n'est pas là par hasard :)</p>
+une <span class="caps">API</span> et persiste des données dans une base de&nbsp;données.</p>
+<p>Mais cette nouvelle petite équipe n&#8217;est pas là par hasard&nbsp;:)</p>
 </div>
 <div class="section" id="la-daybed-team">
-<h2>La «Daybed Team»</h2>
+<h2>La «Daybed&nbsp;Team»</h2>
 <p>On partage une vision: un service générique de stockage de données ! Peut-être
 que ça vous rappelle <a class="reference external" href="https://daybed.io">un certain projet nommé Daybed</a> ?
-Pour les applications clientes, JavaScript, mobiles ou autres, l'utilisation de
-ce service doit être un jeu d'enfant ! L'application gère ses données
-localement (aka offline-first), et synchronise à la demande.</p>
-<p>Ici, le cœur du serveur <em>Reading List</em> est justement une API &quot;CRUD&quot; (Create,
+Pour les applications clientes, JavaScript, mobiles ou autres, l&#8217;utilisation de
+ce service doit être un jeu d&#8217;enfant ! L&#8217;application gère ses données
+localement (aka offline-first), et synchronise à la&nbsp;demande.</p>
+<p>Ici, le cœur du serveur <em>Reading List</em> est justement une <span class="caps">API</span> &#8220;<span class="caps">CRUD</span>&#8221; (Create,
 Retrieve, Update, Delete), qui gère de la synchronisation et de
-l'authentification. Nous avons donc pris le parti de faire une API &quot;simple&quot;,
-avec le moins de spécificités possible, qui poserait les bases d'un service
-générique. Notamment parce qu'il y a d'autres projets dans la même trempe qui vont suivre.</p>
-<p>Pas mal d'expérience ayant été accumulée au sein de l'équipe, avec d'une part la
-création de <em>Firefox Sync</em>, et d'autre part avec <em>Daybed</em>, notre side-project, nous
+l&#8217;authentification. Nous avons donc pris le parti de faire une <span class="caps">API</span> &#8220;simple&#8221;,
+avec le moins de spécificités possible, qui poserait les bases d&#8217;un service
+générique. Notamment parce qu&#8217;il y a d&#8217;autres projets dans la même trempe qui vont&nbsp;suivre.</p>
+<p>Pas mal d&#8217;expérience ayant été accumulée au sein de l&#8217;équipe, avec d&#8217;une part la
+création de <em>Firefox Sync</em>, et d&#8217;autre part avec <em>Daybed</em>, notre side-project, nous
 tentons de ne pas reproduire les mêmes erreurs, tout en gardant les concepts
-qui ont fait leurs preuves.</p>
-<p>Par exemple, nous avons conservé le mécanisme de collections d'enregistrements
+qui ont fait leurs&nbsp;preuves.</p>
+<p>Par exemple, nous avons conservé le mécanisme de collections d&#8217;enregistrements
 et de <em>timestamp</em> de <em>Sync</em>. Comme ces problématiques sont récurrentes, voire
 incontournables, nous avons décidé de reprendre le protocole de synchronisation,
-de l'étendre légèrement et surtout de le dissocier du projet de listes de lecture.</p>
+de l&#8217;étendre légèrement et surtout de le dissocier du projet de listes de&nbsp;lecture.</p>
 </div>
 <div class="section" id="le-mecanisme-qui-force-a-aller-de-l-avant">
-<h2>Le mécanisme qui force à aller de l'avant</h2>
-<p>Comme première pierre à l'édifice, nous avons donné naissance au projet
-<a class="reference external" href="https://cliquet.readthedocs.org">Cliquet</a>, dont l'idée principale est de
+<h2>Le mécanisme qui force à aller de&nbsp;l&#8217;avant</h2>
+<p>Comme première pierre à l&#8217;édifice, nous avons donné naissance au projet
+<a class="reference external" href="https://cliquet.readthedocs.org">Cliquet</a>, dont l&#8217;idée principale est de
 fournir une implémentation de ce protocole en python, tout en factorisant
-l'ensemble de nos bonnes pratiques (pour la prod notamment).</p>
+l&#8217;ensemble de nos bonnes pratiques (pour la prod&nbsp;notamment).</p>
 <img alt="Logo du projet Cliquet" class="align-right" src="https://blog.notmyidea.org/images/cliquet/cliquet-logo.png" />
-<p>L'avantage d'avoir un protocole plutôt qu'un monolithe, c'est que si vous
+<p>L&#8217;avantage d&#8217;avoir un protocole plutôt qu&#8217;un monolithe, c&#8217;est que si vous
 préférez Asyncio, io.js ou Go, on vous encouragera à publier votre
-implémentation alternative !</p>
+implémentation alternative&nbsp;!</p>
 <p>Avec <em>Cliquet</em>, le code du serveur liste de lecture consiste principalement
 à définir un schéma pour les enregistrements, puis à forcer des valeurs de
 champs sur certains appels. Cela réduit ce projet à quelques dizaines de lignes
-de code.</p>
-<p>Quant au futur service de stockage générique, <a class="reference external" href="http://kinto.readthedocs.org">le projet</a> en est encore à ses balbutiements mais c'est
-bel et bien en route ! Il permet déjà d'être branché comme backend de stockage
+de&nbsp;code.</p>
+<p>Quant au futur service de stockage générique, <a class="reference external" href="http://kinto.readthedocs.org">le projet</a> en est encore à ses balbutiements mais c&#8217;est
+bel et bien en route ! Il permet déjà d&#8217;être branché comme backend de stockage
 dans une application <em>Cliquet</em>, et ça <a class="reference external" href="https://github.com/mozilla-services/kinto/blob/0.2.1/kinto/views/collection.py">implémenté en 20 lignes de code</a>!</p>
-<p>Ah, et cette fois, nous ne construirons les fonctionnalités qu'à partir des
+<p>Ah, et cette fois, nous ne construirons les fonctionnalités qu&#8217;à partir des
 besoins concrets qui surviennent. Ça paraît tout bête, mais sur <em>Daybed</em> on
-l'a pas vu venir :)</p>
+l&#8217;a pas vu venir&nbsp;:)</p>
 <p>Dans les prochains articles, nous avons prévu de décrire les bonnes pratiques
 rassemblées dans le protocole (ou <em>Cliquet</em>), certains points techniques précis
-et de vous présenter notre vision via des exemples et tutoriaux.</p>
-<p>À bientôt, donc !</p>
+et de vous présenter notre vision via des exemples et&nbsp;tutoriaux.</p>
+<p>À bientôt, donc&nbsp;!</p>
 </div>
 
 </article>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>PyconFR 2015 — Geoalchemy - Alexis Métaireau</title>
+        <title>PyconFR 2015 —&nbsp;Geoalchemy - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">PyconFR 2015 — Geoalchemy</h1>
+	<h1 class="post-title">PyconFR 2015 —&nbsp;Geoalchemy</h1>
 	<time datetime="2015-10-17T00:00:00+02:00">17 octobre 2015</time>
 
     
@@ -28,65 +28,63 @@
 <article>
     <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N'hésitez pas
-à les completer si besoin.</p>
+<p class="last">Voici quelques notes prises durant la PyconFR 2015, à Pau. N&#8217;hésitez pas
+à les completer si&nbsp;besoin.</p>
 </div>
-<p>Speaker: Eric Lemoine, Camp to camp. (&#64;elemoine)</p>
-<p>Bibliothèque python basée sur SQL alchemy, pour interagir avec des bases de
-données geographiques / spatiales.</p>
+<p>Speaker: Eric Lemoine, Camp to camp.&nbsp;(&#64;elemoine)</p>
+<p>Bibliothèque python basée sur <span class="caps">SQL</span> alchemy, pour interagir avec des bases de
+données geographiques /&nbsp;spatiales.</p>
 <p>Une base de donnée optimisée pour representer et rechercher des données qui
-representent des objets dans un espace géométrique.</p>
+representent des objets dans un espace&nbsp;géométrique.</p>
 <ul class="simple">
 <li>Il est possible d estocker des ligne,s de polygones, des points. Il y a une
-colonne géometrie pour stocker ces données.</li>
+colonne géometrie pour stocker ces&nbsp;données.</li>
 <li>Il y a aussi des fonctions qui permettent de travailler sur ces données
-(transfomrations, projections, etc).</li>
-<li>Indexs géographiques qui permettent de faire des recherches de manière
-performante.</li>
+(transfomrations, projections,&nbsp;etc).</li>
+<li>Indexs géographiques qui permettent de faire des recherches de manière&nbsp;performante.</li>
 </ul>
 <div class="section" id="postgis">
-<h2>POSTGIS</h2>
-<p>POSTGIS s'appuie sur postres pour offrir des types géographiques, des fonctions
+<h2><span class="caps">POSTGIS</span></h2>
+<p><span class="caps">POSTGIS</span> s&#8217;appuie sur postres pour offrir des types géographiques, des fonctions
 et des indexes (R-Tree), qui permettent de ranger les géométries dans des
-&quot;boites englobantes&quot;.</p>
-<p>Pour créer une base de données postgis, il faut faire un &quot;create extension
-postgis&quot;, ce qui installe tout ce dont on a besoin.</p>
-<p>il est possible d'apeller <cite>GEOMETRY(POINT)</cite> par exemple.</p>
-<p><cite>ST_GeomFromText('POINT(lat long)')</cite> permet de convertir un point dans un objet
-geometrie interne à postgres.</p>
-<p><cite>ST_DWithin</cite> permet de trouver les personnes qui sont autour d'un rayon donné.</p>
-<p>L'ensemble des fonctions proposées par postgres commencent par <cite>ST_*</cite></p>
+&#8220;boites&nbsp;englobantes&#8221;.</p>
+<p>Pour créer une base de données postgis, il faut faire un &#8220;create extension
+postgis&#8221;, ce qui installe tout ce dont on a&nbsp;besoin.</p>
+<p>il est possible d&#8217;apeller <cite><span class="caps">GEOMETRY</span>(<span class="caps">POINT</span>)</cite> par&nbsp;exemple.</p>
+<p><cite>ST_GeomFromText(&#8216;<span class="caps">POINT</span>(lat long)&#8217;)</cite> permet de convertir un point dans un objet
+geometrie interne à&nbsp;postgres.</p>
+<p><cite>ST_DWithin</cite> permet de trouver les personnes qui sont autour d&#8217;un rayon&nbsp;donné.</p>
+<p>L&#8217;ensemble des fonctions proposées par postgres commencent par <cite>ST_*</cite></p>
 </div>
 <div class="section" id="sqlalchemy">
 <h2>SQLAlchemy</h2>
-<p>Il s'agit d'une bote à outil qui permet de faire des requetes de manière
-simple. Il y a une philosophie forte.</p>
+<p>Il s&#8217;agit d&#8217;une bote à outil qui permet de faire des requetes de manière
+simple. Il y a une philosophie&nbsp;forte.</p>
 <ul class="simple">
-<li>Il ne sohaite pas cacher la base de données</li>
-<li>C'est un language pour faire du SQL en python</li>
-<li>Rien n'est caché.</li>
-<li>Fourni un vocabulaire riche pour générer le SQL</li>
-<li>L'objectif est de changer la manière dont on pense à SQL, redonner le gout du
-SQL aux developeurs.</li>
+<li>Il ne sohaite pas cacher la base de&nbsp;données</li>
+<li>C&#8217;est un language pour faire du <span class="caps">SQL</span> en&nbsp;python</li>
+<li>Rien n&#8217;est&nbsp;caché.</li>
+<li>Fourni un vocabulaire riche pour générer le <span class="caps">SQL</span></li>
+<li>L&#8217;objectif est de changer la manière dont on pense à <span class="caps">SQL</span>, redonner le gout du
+<span class="caps">SQL</span> aux&nbsp;developeurs.</li>
 </ul>
 <p>Deux parties:
-- ORM
-- CORE</p>
-<p>Il est possible d'utiliser simplement le core si l'on sohaite (sans utiliser
-l'ORM)</p>
+- <span class="caps">ORM</span>
+- <span class="caps">CORE</span></p>
+<p>Il est possible d&#8217;utiliser simplement le core si l&#8217;on sohaite (sans utiliser
+l&#8217;<span class="caps">ORM</span>)</p>
 <div class="section" id="core">
 <h3>Core</h3>
-<p>Il est possible d'utiliser SQL Alchemy pour générer les tables à l'origine.
-Core permet d'utiliser des tables, et d'executer une insertion, depuis python.
+<p>Il est possible d&#8217;utiliser <span class="caps">SQL</span> Alchemy pour générer les tables à l&#8217;origine.
+Core permet d&#8217;utiliser des tables, et d&#8217;executer une insertion, depuis python.
 Il est possible de representer les requetes avec des methodes chainées
 <cite>select().where()</cite> etc.</p>
-<p>Le &quot;core&quot; ne fait pas de mapping du tout, il manipule des Tables SQLA
-directement.</p>
+<p>Le &#8220;core&#8221; ne fait pas de mapping du tout, il manipule des Tables <span class="caps">SQLA</span>&nbsp;directement.</p>
 </div>
 <div class="section" id="orm">
-<h3>ORM</h3>
-<p>L'ORM fait, lui, du mapping. C'est cette couche que l'on va utiliser dans une
-application Web complexe par exemple.</p>
+<h3><span class="caps">ORM</span></h3>
+<p>L&#8217;<span class="caps">ORM</span> fait, lui, du mapping. C&#8217;est cette couche que l&#8217;on va utiliser dans une
+application Web complexe par&nbsp;exemple.</p>
 <ul class="simple">
 <li>il est possible de travailler avec une session <cite>Session()</cite> puis on effectue
 des opérations et on <cite>commit()</cite>.</li>
@@ -94,46 +92,46 @@ des opérations et on <cite>commit()</cite>.</li>
 <div class="section" id="geoalchemy">
 <h4>GeoAlchemy</h4>
 <ul class="simple">
-<li>Créé en 2009, pour supporter uniquement postgis.</li>
-<li>Depuis, d'autres bases de données (MySQL, Spatialite, MySQL server) etc.</li>
-<li>Réécriture depuis grace à la nouvelle API de SQLAlechemy, mais perte du
-support d'autres backends.</li>
-<li>Finalement, retour sur POSTGIS uniquement, pour évite d'avoir à supporter les
-différences de tous les backends.</li>
+<li>Créé en 2009, pour supporter uniquement&nbsp;postgis.</li>
+<li>Depuis, d&#8217;autres bases de données (MySQL, Spatialite, MySQL server)&nbsp;etc.</li>
+<li>Réécriture depuis grace à la nouvelle <span class="caps">API</span> de SQLAlechemy, mais perte du
+support d&#8217;autres&nbsp;backends.</li>
+<li>Finalement, retour sur <span class="caps">POSTGIS</span> uniquement, pour évite d&#8217;avoir à supporter les
+différences de tous les&nbsp;backends.</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="section" id="features">
 <h2>Features</h2>
-<p>Très simple de s'intégrer avec les features de POSTGIS, par exemple en
-déclarant une colonne en tant que &quot;Géometrie&quot;.</p>
+<p>Très simple de s&#8217;intégrer avec les features de <span class="caps">POSTGIS</span>, par exemple en
+déclarant une colonne en tant que&nbsp;&#8220;Géometrie&#8221;.</p>
 <p>Exemple: session.query(Lake).filter(Lake.geom.ST_Buffer(2).ST_Area) permet de
-lister l'ensemble des lacs avec une aire de 2 au moins.</p>
-<p>S'intègre bien avec des services existants (shapely, pyramid, etc).</p>
-<p>Utilisation de geojsondumps pour representer des features en geojson.</p>
+lister l&#8217;ensemble des lacs avec une aire de 2 au&nbsp;moins.</p>
+<p>S&#8217;intègre bien avec des services existants (shapely, pyramid,&nbsp;etc).</p>
+<p>Utilisation de geojsondumps pour representer des features en&nbsp;geojson.</p>
 </div>
 <div class="section" id="status">
 <h2>Status</h2>
 <p>Le projet est completement documenté sur read the docs. La documentation est
 assez complete et solide. Il est intégralement testé, sur differentes versions
-de python, sqlalchemy et postgres.</p>
+de python, sqlalchemy et&nbsp;postgres.</p>
 <dl class="docutils">
-<dt>3 ou 4 developeurs actifs sur le projet, ça fonctionne plutôt bien. Pour</dt>
-<dd><p class="first">contribuer, il est possible de faire cela sur github.</p>
+<dt>3 ou 4 developeurs actifs sur le projet, ça fonctionne plutôt bien.&nbsp;Pour</dt>
+<dd><p class="first">contribuer, il est possible de faire cela sur&nbsp;github.</p>
 <p class="last">Slides de la presentation sur <a class="reference external" href="http://erliem.net/talks/pyconfr2015">http://erliem.net/talks/pyconfr2015</a></p>
 </dd>
 </dl>
 <p>Resources:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://pypi.python.org/pypi/Shapely">https://pypi.python.org/pypi/Shapely</a> - Manipulation and analysis of geometric
-objects in the Cartesian plane.</li>
+objects in the Cartesian&nbsp;plane.</li>
 </ul>
 <p>Question:</p>
 <ul class="simple">
 <li>Dans les exemples geoalchemy, les données geométriques sont passées sous
-forme de chaine. Est-ce normal ? Oui.</li>
-<li>Les rasters sont également supportés.</li>
+forme de chaine. Est-ce normal ?&nbsp;Oui.</li>
+<li>Les rasters sont également&nbsp;supportés.</li>
 </ul>
 </div>
 

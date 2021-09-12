@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Packager du python pour Debian - Alexis Métaireau</title>
+        <title>Packager du python pour&nbsp;Debian - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,50 +20,50 @@
 
 
 <header>
-	<h1 class="post-title">Packager du python pour Debian</h1>
+	<h1 class="post-title">Packager du python pour&nbsp;Debian</h1>
 	<time datetime="2020-01-14T00:00:00+01:00">14 janvier 2020</time>
 
     
 </header>
 <article>
     
-<p>Aujourd'hui j'ai fais un peu de packaging pour la distribution Linux Debian, avec l'aide d'un ami. C'était assez agréable de pouvoir me faire aider dans cet objectif : j'avais déjà tenté l'expérience en solo par le passé, et m'étais cassé les dents sur le sujet.</p>
-<p>Voici quelques notes prises durant l'après-midi, qui pourront sans doute me servir pour la suite.</p>
-<h2 id="quest-ce-quon-fait">Qu'est-ce qu'on fait ?</h2>
-<p>On essaye de créer un paquet Debian pour une application Web écrite en python. Il s'agit d'une application assez simple, qui communique avec une base de données d'un côté, et avec des utilisateurs de l'autre.</p>
-<h2 id="y-aller-par-etapes">Y aller par étapes</h2>
-<p>On a essayé de faire en sorte d'avoir quelque chose de fonctionnel assez rapidement, même si pas entièrement fait dans les règles de l'art. Ça à l'avantage de garder la motivation :-)</p>
+<p>Aujourd&#8217;hui j&#8217;ai fais un peu de packaging pour la distribution Linux Debian, avec l&#8217;aide d&#8217;un ami. C&#8217;était assez agréable de pouvoir me faire aider dans cet objectif : j&#8217;avais déjà tenté l&#8217;expérience en solo par le passé, et m&#8217;étais cassé les dents sur le&nbsp;sujet.</p>
+<p>Voici quelques notes prises durant l&#8217;après-midi, qui pourront sans doute me servir pour la&nbsp;suite.</p>
+<h2 id="quest-ce-quon-fait">Qu&#8217;est-ce qu&#8217;on fait&nbsp;?</h2>
+<p>On essaye de créer un paquet Debian pour une application Web écrite en python. Il s&#8217;agit d&#8217;une application assez simple, qui communique avec une base de données d&#8217;un côté, et avec des utilisateurs de&nbsp;l&#8217;autre.</p>
+<h2 id="y-aller-par-etapes">Y aller par&nbsp;étapes</h2>
+<p>On a essayé de faire en sorte d&#8217;avoir quelque chose de fonctionnel assez rapidement, même si pas entièrement fait dans les règles de l&#8217;art. Ça à l&#8217;avantage de garder la motivation&nbsp;:-)</p>
 <ol>
-<li>Produire un paquet <code>.deb</code> qui peut s'installer, et qui fait tourner l'application en question ;</li>
-<li>Avoir un paquet qui passe les règles de validation de Debian ;</li>
+<li>Produire un paquet <code>.deb</code> qui peut s&#8217;installer, et qui fait tourner l&#8217;application en question&nbsp;;</li>
+<li>Avoir un paquet qui passe les règles de validation de Debian&nbsp;;</li>
 <li>Intégrer le paquet avec <code>systemd</code> ;</li>
-<li>Intégrer le paquet dans un système de contrôle de version type git ;</li>
+<li>Intégrer le paquet dans un système de contrôle de version type git&nbsp;;</li>
 </ol>
-<h2 id="packaging-simple-1ere-version-fonctionnelle">Packaging « simple » - 1ère version fonctionnelle</h2>
-<p>On commence par faire un paquet  dit « natif ». C'est l'approche la plus simple. 
-Deux fichiers sont importants, pour commencer : <code>control</code> et <code>changelog</code>. Le fichier <code>control</code> contient un bloc « source » et un ou plusieurs blocs « package », dans l'idée de pouvoir avoir potentiellement plusieurs paquets binaires générés à partir du même package source, ce qui est utile pour les gros paquets.</p>
-<p>Voici les étapes qu'on a suivi :</p>
+<h2 id="packaging-simple-1ere-version-fonctionnelle">Packaging « simple » - 1ère version&nbsp;fonctionnelle</h2>
+<p>On commence par faire un paquet  dit « natif ». C&#8217;est l&#8217;approche la plus simple. 
+Deux fichiers sont importants, pour commencer : <code>control</code> et <code>changelog</code>. Le fichier <code>control</code> contient un bloc « source » et un ou plusieurs blocs « package », dans l&#8217;idée de pouvoir avoir potentiellement plusieurs paquets binaires générés à partir du même package source, ce qui est utile pour les gros&nbsp;paquets.</p>
+<p>Voici les étapes qu&#8217;on a suivi&nbsp;:</p>
 <ol>
-<li>Créer les fichiers <code>control</code>, <code>changelog</code> et <code>rules</code> dans le répertoire <code>debian</code>. Dans la pratique on peut les copier depuis un autre paquet qu'on prends comme modèle ;</li>
+<li>Créer les fichiers <code>control</code>, <code>changelog</code> et <code>rules</code> dans le répertoire <code>debian</code>. Dans la pratique on peut les copier depuis un autre paquet qu&#8217;on prends comme modèle&nbsp;;</li>
 <li>Installer les dépendances de build avec <code>sudo apt install devscripts &amp;&amp; mk-build-deps -i -r --root-cmd sudo</code> ;</li>
-<li>Lancer <code>dpkg-buildpackage -rfakeroot</code> qui va construire le paquet pour nous ;</li>
-<li>Regarder la sortie de la commande pour voir les dépendances qui ne sont pas déjà prêtes pour Debian ;</li>
-<li>Pour les quelques dépendances qui n'étaient pas déjà prêtes, on a répété les étapes précédentes.</li>
+<li>Lancer <code>dpkg-buildpackage -rfakeroot</code> qui va construire le paquet pour nous&nbsp;;</li>
+<li>Regarder la sortie de la commande pour voir les dépendances qui ne sont pas déjà prêtes pour Debian&nbsp;;</li>
+<li>Pour les quelques dépendances qui n&#8217;étaient pas déjà prêtes, on a répété les étapes&nbsp;précédentes.</li>
 </ol>
-<h2 id="questions-diverses-observations">Questions diverses &amp; observations</h2>
-<p><code>dh-helper</code> est une manière de packager « officiellement recommandée », il s'agit d'un ensemble d'outils qui cherchent à se faciliter la tache de <em>packaging</em>.</p>
-<p>Pour les traductions : il n'est pas nécessaire de faire des paquets séparés pour la traduction, c'est acceptable de tout mettre dans le même paquet.</p>
-<p>La documentation peut elle aussi être intégrée dans le même paquet.</p>
-<p>Pour les numéros de version, si on a pas de tiret dans le numéro de version, alors il s'agit de la version <em>upstream</em>. Si on a un tiret, ce qui est après le numéro de version est la version du <em>packaging</em> pour Debian.</p>
-<p><code>DEB_BUILD_OPTIONS=nocheck</code> permet de ne pas avoir à lancer les tests à chaque fois qu'on construit le paquet.</p>
-<h2 id="etapes-dapres">Étapes d'après</h2>
+<h2 id="questions-diverses-observations">Questions diverses <span class="amp">&amp;</span>&nbsp;observations</h2>
+<p><code>dh-helper</code> est une manière de packager « officiellement recommandée », il s&#8217;agit d&#8217;un ensemble d&#8217;outils qui cherchent à se faciliter la tache de <em>packaging</em>.</p>
+<p>Pour les traductions : il n&#8217;est pas nécessaire de faire des paquets séparés pour la traduction, c&#8217;est acceptable de tout mettre dans le même&nbsp;paquet.</p>
+<p>La documentation peut elle aussi être intégrée dans le même&nbsp;paquet.</p>
+<p>Pour les numéros de version, si on a pas de tiret dans le numéro de version, alors il s&#8217;agit de la version <em>upstream</em>. Si on a un tiret, ce qui est après le numéro de version est la version du <em>packaging</em> pour&nbsp;Debian.</p>
+<p><code>DEB_BUILD_OPTIONS=nocheck</code> permet de ne pas avoir à lancer les tests à chaque fois qu&#8217;on construit le&nbsp;paquet.</p>
+<h2 id="etapes-dapres">Étapes&nbsp;d&#8217;après</h2>
 <ul>
-<li>Peut-être utiliser<code>debian/missing-sources</code>, en tout cas régler le souci pour les bibliothèques JavaScript et le CSS dont les sources ne sont pas distribuées actuellement (parce que versions minifiées).</li>
-<li>Il est possible d'installer des dépendances et de spécifier des liens symboliques à créer lors de l'installation.</li>
-<li>Intégrer de la documentation sous forme de <code>manpage</code>. Il semble que certains outils permettent de le faire de manière simple / automatique, comme « help2man »</li>
-<li>De la même manière qu'on le fait pour les ressources type JS et CSS, il faut intégrer les <em>fonts</em>, en faisant référence aux fonts empaquetées pour Debian. </li>
-<li>Une fois que tout ça fonctionne, passer à un système de build qui comprends git</li>
-<li>Faire une intégration avec <code>systemd</code> pour avoir un service qui se lance automatiquement. Ce qui veut aussi dire créer un utilisateur spécifique pour notre service.</li>
+<li>Peut-être utiliser<code>debian/missing-sources</code>, en tout cas régler le souci pour les bibliothèques JavaScript et le <span class="caps">CSS</span> dont les sources ne sont pas distribuées actuellement (parce que versions&nbsp;minifiées).</li>
+<li>Il est possible d&#8217;installer des dépendances et de spécifier des liens symboliques à créer lors de&nbsp;l&#8217;installation.</li>
+<li>Intégrer de la documentation sous forme de <code>manpage</code>. Il semble que certains outils permettent de le faire de manière simple / automatique, comme « help2man&nbsp;»</li>
+<li>De la même manière qu&#8217;on le fait pour les ressources type <span class="caps">JS</span> et <span class="caps">CSS</span>, il faut intégrer les <em>fonts</em>, en faisant référence aux fonts empaquetées pour&nbsp;Debian. </li>
+<li>Une fois que tout ça fonctionne, passer à un système de build qui comprends&nbsp;git</li>
+<li>Faire une intégration avec <code>systemd</code> pour avoir un service qui se lance automatiquement. Ce qui veut aussi dire créer un utilisateur spécifique pour notre&nbsp;service.</li>
 </ul>
 </article>
 

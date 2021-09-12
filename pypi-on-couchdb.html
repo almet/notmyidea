@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>PyPI on CouchDB - Alexis Métaireau</title>
+        <title>PyPI on&nbsp;CouchDB - Alexis Métaireau</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
@@ -20,7 +20,7 @@
 
 
 <header>
-	<h1 class="post-title">PyPI on CouchDB</h1>
+	<h1 class="post-title">PyPI on&nbsp;CouchDB</h1>
 	<time datetime="2011-01-20T00:00:00+01:00">20 janvier 2011</time>
 
     
@@ -28,91 +28,89 @@
 <article>
     
 <p>By now, there are two ways to retrieve data from PyPI (the Python
-Package Index). You can both rely on xml/rpc or on the "simple" API. The
-simple API is not so simple to use as the name suggest, and have several
-existing drawbacks.</p>
-<p>Basically, if you want to use informations coming from the simple API,
+Package Index). You can both rely on xml/rpc or on the &#8220;simple&#8221; <span class="caps">API</span>. The
+simple <span class="caps">API</span> is not so simple to use as the name suggest, and have several
+existing&nbsp;drawbacks.</p>
+<p>Basically, if you want to use informations coming from the simple <span class="caps">API</span>,
 you will have to parse web pages manually, to extract informations using
-some black vodoo magic. Badly, magic have a price, and it's sometimes
+some black vodoo magic. Badly, magic have a price, and it&#8217;s sometimes
 impossible to get exactly the informations you want to get from this
-index. That's the technique currently being used by distutils2,
-setuptools and pip.</p>
-<p>On the other side, while XML/RPC is working fine, it's requiring extra
+index. That&#8217;s the technique currently being used by distutils2,
+setuptools and&nbsp;pip.</p>
+<p>On the other side, while <span class="caps">XML</span>/<span class="caps">RPC</span> is working fine, it&#8217;s requiring extra
 work to the python servers each time you request something, which can
-lead to some outages from time to time. Also, it's important to point
-out that, even if PyPI have a mirroring infrastructure, it's only for
-the so-called <em>simple</em> API, and not for the XML/RPC.</p>
+lead to some outages from time to time. Also, it&#8217;s important to point
+out that, even if PyPI have a mirroring infrastructure, it&#8217;s only for
+the so-called <em>simple</em> <span class="caps">API</span>, and not for the <span class="caps">XML</span>/<span class="caps">RPC</span>.</p>
 <h2 id="couchdb">CouchDB</h2>
 <p>Here comes CouchDB. CouchDB is a document oriented database, that knows
-how to speak REST and JSON. It's easy to use, and provides out of the
-box a replication mechanism.</p>
-<h2 id="so-what">So, what ?</h2>
-<p>Hmm, I'm sure you got it. I've wrote a piece of software to link
+how to speak <span class="caps">REST</span> and <span class="caps">JSON</span>. It&#8217;s easy to use, and provides out of the
+box a replication&nbsp;mechanism.</p>
+<h2 id="so-what">So, what&nbsp;?</h2>
+<p>Hmm, I&#8217;m sure you got it. I&#8217;ve wrote a piece of software to link
 informations from PyPI to a CouchDB instance. Then you can replicate all
-the PyPI index with only one HTTP request on the CouchDB server. You can
-also access the informations from the index directly using a REST API,
-speaking json. Handy.</p>
-<p>So PyPIonCouch is using the PyPI XML/RPC API to get data from PyPI, and
-generate records in the CouchDB instance.</p>
-<p>The final goal is to avoid to rely on this "simple" API, and rely on a
-REST insterface instead. I have set up a couchdb server on my server,
+the PyPI index with only one <span class="caps">HTTP</span> request on the CouchDB server. You can
+also access the informations from the index directly using a <span class="caps">REST</span> <span class="caps">API</span>,
+speaking json.&nbsp;Handy.</p>
+<p>So PyPIonCouch is using the PyPI <span class="caps">XML</span>/<span class="caps">RPC</span> <span class="caps">API</span> to get data from PyPI, and
+generate records in the CouchDB&nbsp;instance.</p>
+<p>The final goal is to avoid to rely on this &#8220;simple&#8221; <span class="caps">API</span>, and rely on a
+<span class="caps">REST</span> insterface instead. I have set up a couchdb server on my server,
 which is available at
 <a href="http://couchdb.notmyidea.org/_utils/database.html?pypi">http://couchdb.notmyidea.org/_utils/database.html?pypi</a>.</p>
-<p>There is not a lot to see there for now, but I've done the first import
-from PyPI yesterday and all went fine: it's possible to access the
-metadata of all PyPI projects via a REST interface. Next step is to
-write a client for this REST interface in distutils2.</p>
+<p>There is not a lot to see there for now, but I&#8217;ve done the first import
+from PyPI yesterday and all went fine: it&#8217;s possible to access the
+metadata of all PyPI projects via a <span class="caps">REST</span> interface. Next step is to
+write a client for this <span class="caps">REST</span> interface in&nbsp;distutils2.</p>
 <h2 id="example">Example</h2>
 <p>For now, you can use pypioncouch via the command line, or via the python
-API.</p>
-<h3 id="using-the-command-line">Using the command line</h3>
+<span class="caps">API</span>.</p>
+<h3 id="using-the-command-line">Using the command&nbsp;line</h3>
 <p>You can do something like that for a full import. This <strong>will</strong> take
-long, because it's fetching all the projects at pypi and importing their
-metadata:</p>
+long, because it&#8217;s fetching all the projects at pypi and importing their&nbsp;metadata:</p>
 <div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">pypioncouch</span> <span class="o">--</span><span class="n">fullimport</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">your</span><span class="o">.</span><span class="n">couchdb</span><span class="o">.</span><span class="n">instance</span><span class="o">/</span>
 </code></pre></div>
 
 <p>If you already have the data on your couchdb instance, you can just
 update it with the last informations from pypi. <strong>However, I recommend
 to just replicate the principal node, hosted at
-<a href="http://couchdb.notmyidea.org/pypi/">http://couchdb.notmyidea.org/pypi/</a></strong>, to avoid the duplication of
-nodes:</p>
+<a href="http://couchdb.notmyidea.org/pypi/">http://couchdb.notmyidea.org/pypi/</a></strong>, to avoid the duplication of&nbsp;nodes:</p>
 <div class="highlight"><pre><span></span><code>$ pypioncouch --update http://your.couchdb.instance/
 </code></pre></div>
 
-<p>The principal node is updated once a day by now, I'll try to see if it's
-enough, and ajust with the time.</p>
-<h3 id="using-the-python-api">Using the python API</h3>
-<p>You can also use the python API to interact with pypioncouch:</p>
+<p>The principal node is updated once a day by now, I&#8217;ll try to see if it&#8217;s
+enough, and ajust with the&nbsp;time.</p>
+<h3 id="using-the-python-api">Using the python <span class="caps">API</span></h3>
+<p>You can also use the python <span class="caps">API</span> to interact with&nbsp;pypioncouch:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pypioncouch</span> <span class="kn">import</span> <span class="n">XmlRpcImporter</span><span class="p">,</span> <span class="n">import_all</span><span class="p">,</span> <span class="n">update</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">full_import</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">update</span><span class="p">()</span>
 </code></pre></div>
 
-<h2 id="whats-next">What's next ?</h2>
+<h2 id="whats-next">What&#8217;s next&nbsp;?</h2>
 <p>I want to make a couchapp, in order to navigate PyPI easily. Here are
-some of the features I want to propose:</p>
+some of the features I want to&nbsp;propose:</p>
 <ul>
-<li>List all the available projects</li>
-<li>List all the projects, filtered by specifiers</li>
-<li>List all the projects by author/maintainer</li>
-<li>List all the projects by keywords</li>
-<li>Page for each project.</li>
-<li>Provide a PyPI "Simple" API equivalent, even if I want to replace
+<li>List all the available&nbsp;projects</li>
+<li>List all the projects, filtered by&nbsp;specifiers</li>
+<li>List all the projects by&nbsp;author/maintainer</li>
+<li>List all the projects by&nbsp;keywords</li>
+<li>Page for each&nbsp;project.</li>
+<li>Provide a PyPI &#8220;Simple&#8221; <span class="caps">API</span> equivalent, even if I want to replace
     it, I do think it will be really easy to setup mirrors that way,
-    with the out of the box couchdb replication</li>
+    with the out of the box couchdb&nbsp;replication</li>
 </ul>
 <p>I also still need to polish the import mechanism, so I can directly
-store in couchdb:</p>
+store in&nbsp;couchdb:</p>
 <ul>
-<li>The OPML files for each project</li>
-<li>The upload_time as couchdb friendly format (list of int)</li>
-<li>The tags as lists (currently it's only a string separated by spaces</li>
+<li>The <span class="caps">OPML</span> files for each&nbsp;project</li>
+<li>The upload_time as couchdb friendly format (list of&nbsp;int)</li>
+<li>The tags as lists (currently it&#8217;s only a string separated by&nbsp;spaces</li>
 </ul>
-<p>The work I've done by now is available on
-<a href="https://bitbucket.org/ametaireau/pypioncouch/">https://bitbucket.org/ametaireau/pypioncouch/</a>. Keep in mind that it's
+<p>The work I&#8217;ve done by now is available on
+<a href="https://bitbucket.org/ametaireau/pypioncouch/">https://bitbucket.org/ametaireau/pypioncouch/</a>. Keep in mind that it&#8217;s
 still a work in progress, and everything can break at any time. However,
-any feedback will be appreciated !</p>
+any feedback will be appreciated&nbsp;!</p>
 </article>
 
 </body>
