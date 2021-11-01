@@ -16,6 +16,11 @@
         </section>
 <h1></h1>
             <section class="section index">
+                <time datetime="2021-11-01T00:00:00+01:00">01 novembre 2021</time>
+                <h1><a href="https://blog.notmyidea.org/cooperation-et-travail.html" id="page-title">Coopération et&nbsp;travail</a></h1>
+                Je parle souvent de coopération, que j’imagine comme « un fonctionnement collectif, dans lequel chacun⋅e y trouve son compte ». Or je me rends aujourd’hui compte que cette définition mets de côté...
+            </section>
+            <section class="section index">
                 <time datetime="2021-09-13T00:00:00+02:00">13 septembre 2021</time>
                 <h1><a href="https://blog.notmyidea.org/rentree.html" id="page-title">Rentrée</a></h1>
                 Trois semaines de vacances m’ont fait le plus grand bien. Je suis toujours autant étonné par ma capacité à repousser mes limites quand je suis la tête dans le guidon, ce qui était le cas...
@@ -60,14 +65,10 @@
                 <h1><a href="https://blog.notmyidea.org/le-piege-du-developpement-personnel.html" id="page-title">Le piège du développement&nbsp;personnel</a></h1>
                 Ces derniers temps, je me suis retrouvé à questionner mon rapport a la pratique du développement personnel. À quel point le celui ci, et la « psychologie positive » peuvent-elles jouer un rôle de...
             </section>
-            <section class="section index">
-                <time datetime="2020-01-14T00:00:00+01:00">14 janvier 2020</time>
-                <h1><a href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" id="page-title">Packager du python pour&nbsp;Debian</a></h1>
-                Aujourd’hui j’ai fais un peu de packaging pour la distribution Linux Debian, avec l’aide d’un ami. C’était assez agréable de pouvoir me faire aider dans cet objectif : j’avais déjà tenté...
-            </section>
             <section>
                 <h1>Anciens articles...</h1>
                 <ul>
+            <li><a href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="bookmark" title="Permalink to Packager du python pour Debian">Packager du python pour&nbsp;Debian</a></li>
             <li><a href="https://blog.notmyidea.org/prendre-le-temps.html" rel="bookmark" title="Permalink to Prendre le temps">Prendre le&nbsp;temps</a></li>
             <li><a href="https://blog.notmyidea.org/limites-horaires.html" rel="bookmark" title="Permalink to Limites horaires">Limites&nbsp;horaires</a></li>
             <li><a href="https://blog.notmyidea.org/prendre-soin.html" rel="bookmark" title="Permalink to Prendre soin">Prendre&nbsp;soin</a></li>
