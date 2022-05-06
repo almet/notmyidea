@@ -43,7 +43,7 @@ PATH=.:\$PATH nc -w1 $(echo %h | sed &#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&#39;)
 </code></pre></div>
 
 <p>On peut donc spécifier des &#8220;sauts&#8221; ssh du&nbsp;style:</p>
-<div class="highlight"><pre><span></span><code><span class="n">ssh</span> <span class="n">root</span><span class="mf">@91.25.25.25</span><span class="o">+</span><span class="mf">192.168.1.1</span>
+<div class="highlight"><pre><span></span><code><span class="n">ssh</span><span class="w"> </span><span class="n">root</span><span class="mf">@91.25.25.25</span><span class="o">+</span><span class="mf">192.168.1.1</span><span class="w"></span>
 </code></pre></div>
 
 <p>Ensuite on peut essayer de&nbsp;rajouter:</p>

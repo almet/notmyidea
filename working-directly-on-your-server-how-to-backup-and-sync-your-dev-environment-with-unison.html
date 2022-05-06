@@ -86,14 +86,14 @@ unison .vimrc ssh://notmyidea.org:20006/.vimrc
 <p>It is also possible to put all the informations in a config file, and
 then to only run unison. (fire up vim&nbsp;\~/.unison/default.prf.</p>
 <p>Here is my&nbsp;config:</p>
-<div class="highlight"><pre><span></span><code>    <span class="na">root</span> <span class="o">=</span> <span class="s">/home/alexis</span>
-    <span class="na">root</span> <span class="o">=</span> <span class="s">ssh://notmyidea.org:20006</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/home/alexis</span><span class="w"></span>
+<span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ssh://notmyidea.org:20006</span><span class="w"></span>
 
-    <span class="na">path</span> <span class="o">=</span> <span class="s">.vimrc</span>
-    <span class="na">path</span> <span class="o">=</span> <span class="s">dotfiles</span>
-    <span class="na">path</span> <span class="o">=</span> <span class="s">dev</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.vimrc</span><span class="w"></span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dotfiles</span><span class="w"></span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dev</span><span class="w"></span>
 
-    <span class="na">follow</span> <span class="o">=</span> <span class="s">Name *</span>
+<span class="w">    </span><span class="na">follow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name *</span><span class="w"></span>
 </code></pre></div>
 
 <p>My vimrc is in fact a symbolic link on my laptop, but I don&#8217;t want to

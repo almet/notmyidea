@@ -104,7 +104,7 @@ d&#8217;écriture sur une collection&nbsp;d&#8217;enregistrements.</li>
 <li><strong>La synchronisation</strong> : une série de leviers pour récupérer et renvoyer des
 changements sur les données, sans perte ni collision, en utilisant les&nbsp;timestamps.</li>
 <li><strong>Les permissions</strong> : les droits d&#8217;un utilisateur sur une collection ou un enregistrement
-(<em>encore frais et sur le point d&#8217;être documenté</em>) <a class="footnote-reference" href="#id3" id="id1">[1]</a>.</li>
+(<em>encore frais et sur le point d&#8217;être documenté</em>) <a class="footnote-reference" href="#footnote-1" id="footnote-reference-1">[1]</a>.</li>
 <li><strong>Opérations par lot</strong>: une <span class="caps">URL</span> qui permet d&#8217;envoyer une série de requêtes
 décrites en <span class="caps">JSON</span> et d&#8217;obtenir les réponses&nbsp;respectives.</li>
 </ul>
@@ -126,17 +126,17 @@ de <em>Firefox Sync</em> pour la gestion de la concurrence et de&nbsp;l&#8217;«
 <p>Il est <a class="reference external" href="http://cliquet.readthedocs.org/en/latest/api/index.html">documenté en détail</a>.</p>
 <p>Dans un monde idéal, ce protocole serait versionné, et formalisé dans une <span class="caps">RFC</span>.
 En rêve, il existerait même plusieurs implémentations avec des technologies différentes
-(Python, Go, Node, etc.). <a class="footnote-reference" href="#id4" id="id2">[2]</a></p>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
+(Python, Go, Node, etc.). <a class="footnote-reference" href="#footnote-2" id="footnote-reference-2">[2]</a></p>
+<table class="docutils footnote" frame="void" id="footnote-1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Voir notre <a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html">article dédié sur les permissions</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-1">[1]</a></td><td>Voir notre <a class="reference external" href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html">article dédié sur les permissions</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
+<table class="docutils footnote" frame="void" id="footnote-2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Rappel: nous sommes une toute petite équipe !</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-2">[2]</a></td><td>Rappel: nous sommes une toute petite équipe !</td></tr>
 </tbody>
 </table>
 </div>
@@ -144,7 +144,7 @@ En rêve, il existerait même plusieurs implémentations avec des technologies d
 <h2>Le&nbsp;toolkit</h2>
 <div class="section" id="choix-techniques">
 <h3>Choix&nbsp;techniques</h3>
-<p><em>Cliquet</em> implémente le protocole en Python (<em>2.7, 3.4+, pypy</em>), avec <a class="reference external" href="http://trypyramid.com/">Pyramid</a> <a class="footnote-reference" href="#id6" id="id5">[3]</a>.</p>
+<p><em>Cliquet</em> implémente le protocole en Python (<em>2.7, 3.4+, pypy</em>), avec <a class="reference external" href="http://trypyramid.com/">Pyramid</a> <a class="footnote-reference" href="#footnote-3" id="footnote-reference-3">[3]</a>.</p>
 <p><strong>Pyramid</strong> est un framework Web qui va prendre en charge tout la partie <span class="caps">HTTP</span>,
 et qui s&#8217;avère pertinent aussi bien pour des petits projets que des plus&nbsp;ambitieux.</p>
 <p><strong>Cornice</strong> est une extension de <em>Pyramid</em>, écrite en partie par Alexis et Tarek,
@@ -157,10 +157,10 @@ rigoureux, gérer les entêtes <span class="caps">CORS</span>, fournir la valida
 <p><strong>Cliquet</strong> utilise les deux précédents pour implémenter le protocole et fournir
 des abstractions, mais on a toujours <em>Pyramid</em> et <em>Cornice</em> sous la main pour
 aller au delà de ce qui est proposé&nbsp;!</p>
-<table class="docutils footnote" frame="void" id="id6" rules="none">
+<table class="docutils footnote" frame="void" id="footnote-3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Au tout début nous avons commencé une implémentation avec <em>Python-Eve</em>
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-3">[3]</a></td><td>Au tout début nous avons commencé une implémentation avec <em>Python-Eve</em>
 (Flask), mais n&#8217;étions pas satisfaits de l&#8217;approche pour la configuration
 de l&#8217;<span class="caps">API</span>. En particulier du côté magique.</td></tr>
 </tbody>
@@ -252,18 +252,18 @@ avec <em>Colander</em>, et ensuite déclarer une&nbsp;resource:</p>
 <p>Désormais, la resource <span class="caps">CRUD</span> est disponible sur <tt class="docutils literal">/v1/bookmarks</tt>, avec toutes
 les fonctionnalités de synchronisation, filtrage, tri, pagination, timestamp, etc.
 De base les enregistrements sont privés, par&nbsp;utilisateur.</p>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="err">h</span><span class="kc">tt</span><span class="err">p</span> <span class="err">GET</span> <span class="s2">&quot;http://localhost:8000/v1/bookmarks&quot;</span>
-<span class="err">HTTP/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="err">OK</span>
-<span class="err">...</span>
-<span class="p">{</span>
-    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cliquet.readthedocs.org&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;cc103eb5-0c80-40ec-b6f5-dad12e7d975e&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="mi">1437034418940</span><span class="p">,</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="err">h</span><span class="kc">tt</span><span class="err">p</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="s2">&quot;http://localhost:8000/v1/bookmarks&quot;</span><span class="w"></span>
+<span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w"></span>
+<span class="err">...</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://cliquet.readthedocs.org&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cc103eb5-0c80-40ec-b6f5-dad12e7d975e&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;last_modified&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1437034418940</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="section" id="etape-3">

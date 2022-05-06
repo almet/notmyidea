@@ -16,6 +16,16 @@
         </section>
 <h1></h1>
             <section class="section index">
+                <time datetime="2022-05-06T00:00:00+02:00">06 mai 2022</time>
+                <h1><a href="https://blog.notmyidea.org/fatigue-relationnelle.html" id="page-title">Fatigue&nbsp;relationnelle</a></h1>
+                Depuis peu, je me retrouve confronté à mon manque d’envie d’être avec d’autres personnes. Comme si mon quota d’interactions sociales était plus rapidement atteint qu’il y a quelques années. Je ne...
+            </section>
+            <section class="section index">
+                <time datetime="2022-05-01T00:00:00+02:00">01 mai 2022</time>
+                <h1><a href="https://blog.notmyidea.org/accueil-transmission-et-confiance.html" id="page-title">Accueil, transmission et&nbsp;confiance</a></h1>
+                Nous avons depuis peu une nouvelle recrue à la brasserie. Je m’en réjouis pour plusieurs raisons : Ma charge de travail devrait baisser de manière considérable et me permettre d’avancer sur des...
+            </section>
+            <section class="section index">
                 <time datetime="2021-11-11T00:00:00+01:00">11 novembre 2021</time>
                 <h1><a href="https://blog.notmyidea.org/conflit.html" id="page-title">Conflit</a></h1>
                 J’ai pensé durant de nombreuses années que je savais gérer le conflit, alors que c’était en fait impensé. Ne pas être en conflit signifie parfois s’adapter aux autres, parfois ne pas (assez)...
@@ -55,19 +65,11 @@
                 <h1><a href="https://blog.notmyidea.org/reconnexion.html" id="page-title">Reconnexion&nbsp;?</a></h1>
                 Cela fait un an que j’ai décidé de me déconnecter pour laisser plus de place à d’autres projets. Me détacher de la maintenance de ihatemoney ; Supprimer la plupart des applications sur mes...
             </section>
-            <section class="section index">
-                <time datetime="2020-03-06T00:00:00+01:00">06 mars 2020</time>
-                <h1><a href="https://blog.notmyidea.org/forum-ouvert-animation-et-posture.html" id="page-title">Forum ouvert, animation et&nbsp;posture</a></h1>
-                Début Février j’ai participé à un Forum Ouvert. Il s’agit de la troisième fois, et cette fois ci j’étais particulièrement attentif aux procédés mis en place pour sa tenue, puisque je faisais...
-            </section>
-            <section class="section index">
-                <time datetime="2020-03-01T00:00:00+01:00">01 mars 2020</time>
-                <h1><a href="https://blog.notmyidea.org/artfevre-2020-defi-artistique-en-fevrier.html" id="page-title">Artfevre 2020 - Défi artistique en&nbsp;février</a></h1>
-                En Février, il y a 29 Jours, et avec un ami on s’est dit qu’on aimerait bien utiliser chacun d’entre eux pour créer — de manière intensive et sans jugement — hors de notre zone de confort, et avec...
-            </section>
             <section>
                 <h1>Anciens articles...</h1>
                 <ul>
+            <li><a href="https://blog.notmyidea.org/forum-ouvert-animation-et-posture.html" rel="bookmark" title="Permalink to Forum ouvert, animation et posture">Forum ouvert, animation et&nbsp;posture</a></li>
+            <li><a href="https://blog.notmyidea.org/artfevre-2020-defi-artistique-en-fevrier.html" rel="bookmark" title="Permalink to Artfevre 2020 - Défi artistique en février">Artfevre 2020 - Défi artistique en&nbsp;février</a></li>
             <li><a href="https://blog.notmyidea.org/le-piege-du-developpement-personnel.html" rel="bookmark" title="Permalink to Le piège du développement personnel">Le piège du développement&nbsp;personnel</a></li>
             <li><a href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="bookmark" title="Permalink to Packager du python pour Debian">Packager du python pour&nbsp;Debian</a></li>
             <li><a href="https://blog.notmyidea.org/prendre-le-temps.html" rel="bookmark" title="Permalink to Prendre le temps">Prendre le&nbsp;temps</a></li>

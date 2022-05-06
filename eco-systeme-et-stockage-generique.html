@@ -122,16 +122,16 @@ terme, et que <em>Remote Storage</em> devienne une facette de notre&nbsp;solutio
 <p><a href="http://pouchdb.com/">PouchDB</a> est une bibliothèque JavaScript qui
 permet de manipuler des enregistrements en local et de les synchroniser
 vers une base&nbsp;distante.</p>
-<div class="highlight"><pre><span></span><code><span class="n">javascript</span>
-<span class="k">var</span> <span class="n">db</span> <span class="o">=</span> <span class="n">new</span> <span class="n">PouchDB</span><span class="p">(</span><span class="s1">&#39;dbname&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">javascript</span><span class="w"></span>
+<span class="k">var</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">PouchDB</span><span class="p">(</span><span class="s1">&#39;dbname&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">db</span><span class="o">.</span><span class="n">put</span><span class="p">({</span>
- <span class="n">_id</span><span class="p">:</span> <span class="s1">&#39;dave@gmail.com&#39;</span><span class="p">,</span>
- <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
- <span class="n">age</span><span class="p">:</span> <span class="mi">68</span>
-<span class="p">});</span>
+<span class="n">db</span><span class="o">.</span><span class="n">put</span><span class="p">({</span><span class="w"></span>
+<span class="w"> </span><span class="n">_id</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;dave@gmail.com&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;David&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">age</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
-<span class="n">db</span><span class="o">.</span><span class="n">replicate</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;http://example.com/mydb&#39;</span><span class="p">);</span>
+<span class="n">db</span><span class="o">.</span><span class="n">replicate</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;http://example.com/mydb&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 
 <p>Le projet a le vent en poupe, bénéficie de nombreux contributeurs,
