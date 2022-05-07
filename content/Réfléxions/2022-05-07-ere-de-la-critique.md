@@ -1,6 +1,6 @@
 # L'Ère de la critique
 
-Au détour d'[une discussion sur mastodon](https://tutut.delire.party/@almet/108257053355480866) je viens de retrouver ce bout de texte écrit mais jamias publié.
+Au détour d'[une discussion sur mastodon](https://tutut.delire.party/@almet/108257053355480866) je viens de retrouver ce bout de texte écrit mais jamais publié.
 
 J'y parle de ce que formuler des critiques me fait, de la hiérarchisation qui en découle, et de ce qu'elle me fait à moi mais aussi aux producteurs⋅ices.
 
