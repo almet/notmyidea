@@ -16,11 +16,12 @@ Il me semble qu'il y a plusieurs enjeux autour de cette question :
 
 1. Mettre la personne en confiance ;
 1. Organiser la transmission des connaissances ;
-1. Diminuer les attentes sur l'autre ;
 1. Réussir à faire confiance ;
 1. Accepter son rôle de « mentor » ;
 1. La peur d'être jugé⋅e ;
 1. Accepter l'altérité ;
+1. Diminuer les attentes sur l'autre ;
+
 
 ## Mettre en confiance
 
