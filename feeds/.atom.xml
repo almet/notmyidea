@@ -1,5 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2022-05-30T00:00:00+02:00</updated><entry><title>Réveil difficile</title><link href="https://blog.notmyidea.org/reveil-difficile.html" rel="alternate"></link><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-05-30:/reveil-difficile.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2022-08-29T00:00:00+02:00</updated><entry><title>Installation de Mosquitto, InfluxDB, Telegraf et Grafana</title><link href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="alternate"></link><published>2022-08-29T00:00:00+02:00</published><updated>2022-08-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-08-29:/installation-de-mosquitto-influxdb-telegraf-et-grafana.html</id><summary type="html">
+&lt;p&gt;Récemment, on a m&amp;#8217;a demandé un petit coup de main pour aider à l&amp;#8217;installation d&amp;#8217;une pile logicielle qui permet de stocker des données temporelles et en faire des&amp;nbsp;graphiques.&lt;/p&gt;
+&lt;p&gt;Voici donc quelques notes prises durant l&amp;#8217;installation du système, concues pour que des personnes qui n&amp;#8217;y …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Récemment, on a m&amp;#8217;a demandé un petit coup de main pour aider à l&amp;#8217;installation d&amp;#8217;une pile logicielle qui permet de stocker des données temporelles et en faire des&amp;nbsp;graphiques.&lt;/p&gt;
+&lt;p&gt;Voici donc quelques notes prises durant l&amp;#8217;installation du système, concues pour que des personnes qui n&amp;#8217;y connaissent pas grand chose puissent s&amp;#8217;y&amp;nbsp;retrouver.&lt;/p&gt;
+&lt;p&gt;L&amp;#8217;objectif, c&amp;#8217;est d&amp;#8217;avoir des cartes Arduino qui envoient des données de manière régulière sur un système qui va nous permettre de les stocker et d&amp;#8217;en faire des&amp;nbsp;graphiques.&lt;/p&gt;
+&lt;p&gt;Pour ça, nous allons utiliser&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un &lt;em&gt;Broker&lt;/em&gt; &lt;a href="https://mosquitto.org/"&gt;Mosquitto&lt;/a&gt; qui va permettre de receptionner les données depuis les différents &lt;em&gt;clients&lt;/em&gt;, puis de les dispatcher à qui en a besoin&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Une base de données &lt;a href="https://www.influxdata.com/products/influxdb-overview/"&gt;InfluxDB&lt;/a&gt;, qui permet de stocker des données temporelles&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Un &lt;em&gt;agent&lt;/em&gt; &lt;a href="https://www.influxdata.com/time-series-platform/telegraf/"&gt;Telegraf&lt;/a&gt; qui va prendre les données du broker et les stocker dans la base de données&amp;nbsp;InfluxDB.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://grafana.com/"&gt;Grafana&lt;/a&gt;, une &lt;em&gt;application web&lt;/em&gt; qui permet de visualiser les données stockées dans&amp;nbsp;InfluxDB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Voici donc un document qui résume les étapes que j&amp;#8217;ai suivies pour mettre en place les différents élements utiles&amp;nbsp;:&lt;/p&gt;
+&lt;h2 id="installer-et-se-connecter-au-serveur"&gt;Installer et se connecter au&amp;nbsp;serveur&lt;/h2&gt;
+&lt;p&gt;Dans notre cas, on est passé par un &lt;span class="caps"&gt;VPS&lt;/span&gt; chez &lt;span class="caps"&gt;OVH&lt;/span&gt;, qui tourne sous &lt;a href="https://www.debian.org/"&gt;Debian 11&lt;/a&gt;, qui a le mérite d&amp;#8217;être une distribution Linux stable, reconnue et (relativement) simple à&amp;nbsp;utiliser.&lt;/p&gt;
+&lt;p&gt;Dans un terminal, vous pouvez vous connecter en utilisant la ligne de commande suivante&amp;nbsp;:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Les lignes suivantes sont des lignes d&amp;#8217;invite de commande, on les rencontre assez souvent dans les documentations sur le web. Le signe &lt;code&gt;$&lt;/code&gt; signifie le début de la ligne de commande. Le signe &lt;code&gt;#&lt;/code&gt; signifie le début des&amp;nbsp;commentaires.&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ssh utilisateur@adresseip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Une fois connecté, on va mettre à jour les logiciels qui sont présents sur le&amp;nbsp;serveur. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt update &lt;span class="c1"&gt;# mise à jour des dépôts (la liste des logiciels).&lt;/span&gt;
+$ sudo apt upgrade &lt;span class="c1"&gt;# mise à jour des logiciels.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="configurer-les-dns"&gt;Configurer les &lt;span class="caps"&gt;DNS&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Nous allons avoir besoin de deux sous domaines qui redirigent vers le serveur. Bien sur, il faut adapter &lt;code&gt;ndd.tld&lt;/code&gt; et le remplacer par votre nom de domaine&amp;nbsp;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;moquitto.ndd.tld&lt;/li&gt;
+&lt;li&gt;graphs.ndd.tld&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pour faire ça, chez &lt;span class="caps"&gt;OVH&lt;/span&gt; ça se passe dans la console de « &lt;span class="caps"&gt;OVH&lt;/span&gt; Cloud », direction « Noms de domaines », et puis il faut rajouter deux enregistrements de type « A » qui pointent vers l&amp;#8217;adresse &lt;span class="caps"&gt;IP&lt;/span&gt; du&amp;nbsp;serveur.&lt;/p&gt;
+&lt;p&gt;En temps normal, l&amp;#8217;adresse &lt;span class="caps"&gt;IP&lt;/span&gt; vous est fournie par &lt;span class="caps"&gt;OVH&lt;/span&gt;. Si vous avez un doute, vous pouvez l&amp;#8217;obtenir depuis le serveur avec la commande &lt;code&gt;ip a&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="installer-mosquitto"&gt;Installer&amp;nbsp;Mosquitto&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt install mosquitto &lt;span class="c1"&gt;# installation depuis les dépots officiels&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Une fois installé, &lt;a href="https://mosquitto.org/documentation/authentication-methods/"&gt;il faut sécuriser l&amp;#8217;installation avec un utilisateur et un mot de passe&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo mosquitto_passwd -c /etc/mosquitto/passwd &amp;lt;username&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ensuite dans le fichier de configuration il faut spécifier où est le fichier qui contient les mots de passe. Pour éditer je recommande l&amp;#8217;utilisation de l&amp;#8217;éditeur de texte &lt;code&gt;nano&lt;/code&gt;. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo nano /etc/mosquitto/mosquitto.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Voici les lignes à rajouter&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;listener 1883
+password_file /etc/mosquitto/passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puis il faut relancer le service mosquitto&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo systemctl restart mosquitto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Avant de pouvoir utiliser mosquitto, il faut &lt;a href="https://docs.ovh.com/gb/en/dedicated/firewall-network/"&gt;régler le firewall&lt;/a&gt; de chez &lt;span class="caps"&gt;OVH&lt;/span&gt; pour qu&amp;#8217;il accepte de laisser passer les messages pour le broker &lt;span class="caps"&gt;MQTT&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Il faut ajouter une règle dans le Firewall qui laisse passer toutes les connections &lt;span class="caps"&gt;TCP&lt;/span&gt;, avec l&amp;#8217;option « établie&amp;nbsp;».&lt;/p&gt;
+&lt;h3 id="verifions-que-tout-fonctionne-comme-prevu"&gt;Vérifions que tout fonctionne comme prévu&amp;nbsp;:&lt;/h3&gt;
+&lt;p&gt;Dans une console,&amp;nbsp;écoutons…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ mosquitto_sub -h mosquitto.ndd.tld -p &lt;span class="m"&gt;1883&lt;/span&gt; -u &amp;lt;username&amp;gt; -P &amp;lt;password&amp;gt; -t topic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Et dans une autre envoyons un message&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ mosquitto_pub -h mosquitto.ndd.tld -p &lt;span class="m"&gt;1883&lt;/span&gt; -u &amp;lt;username&amp;gt; -P &amp;lt;password&amp;gt; -t topic -m &lt;span class="m"&gt;30&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Vous deviez voir « 30 » apparaitre dans la première console. Si c&amp;#8217;est bon, tout fonctionne&amp;nbsp;!&lt;/p&gt;
+&lt;h2 id="installation-dinfluxdb-et-telegraf"&gt;Installation d&amp;#8217;InfluxDB et&amp;nbsp;Telegraf&lt;/h2&gt;
+&lt;p&gt;Coup de bol, InfluxDB propose directement des packets pour Debian, sur leur dépot, qu&amp;#8217;il faut donc ajouter en suivant ces quelques lignes&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install -y gnupg2 curl wget
+wget -qO- https://repos.influxdata.com/influxdb.key &lt;span class="p"&gt;|&lt;/span&gt; sudo apt-key add -
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;deb https://repos.influxdata.com/debian &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;lsb_release -cs&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt; stable&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puis &lt;code&gt;sudo apt install influxdb telegraf&lt;/code&gt; pour&amp;nbsp;l&amp;#8217;installer.&lt;/p&gt;
+&lt;p&gt;Ensuite, vous pouvez le lancer maintenant et indiquer au système de le lancer tout seul au démarrage&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now influxdb
+$ sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now telegraf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="configuration-de-telegraf"&gt;Configuration de&amp;nbsp;Telegraf&lt;/h3&gt;
+&lt;p&gt;Telegraf permet de faire le lien entre les messages envoyés sur le broker &lt;span class="caps"&gt;MQTT&lt;/span&gt; et la base de données&amp;nbsp;InfluxDB.&lt;/p&gt;
+&lt;p&gt;Ici, il faut rentrer un peu plus dans le vif du sujet, et ça dépends des messages que vous avez à&amp;nbsp;stocker.&lt;/p&gt;
+&lt;p&gt;Dans notre cas, nous avons trois types de messages&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/BatVoltage,&amp;nbsp;int&lt;/li&gt;
+&lt;li&gt;/Temperature,&amp;nbsp;int&lt;/li&gt;
+&lt;li&gt;/&lt;span class="caps"&gt;GPS&lt;/span&gt;,&amp;nbsp;string&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Voici un fichier de configuration, qui reste à modifier en fonction des&amp;nbsp;données.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[global_tags]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[agent]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;interval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;10s&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;round_interval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;metric_batch_size&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;1000&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;metric_buffer_limit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;10000&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;collection_jitter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0s&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;flush_interval&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;10s&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;flush_jitter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0s&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;precision&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0s&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;hostname&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;omit_hostname&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;[[outputs.influxdb]]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;urls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;[&amp;quot;http://127.0.0.1:8086&amp;quot;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="na"&gt;database&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;telegraf&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;[[inputs.mqtt_consumer]]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;servers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;[&amp;quot;tcp://127.0.0.1:1883&amp;quot;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;name_override&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mqtt_consumer_float&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;topics&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;[&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="na"&gt;&amp;quot;Topic/BatVoltage&amp;quot;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="na"&gt;&amp;quot;Topic/Temperature&amp;quot;,&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;username&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;lt;username&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;lt;password&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;data_format&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;data_type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;integer&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="installation-de-grafana"&gt;Installation de&amp;nbsp;Grafana&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/oss/deb stable main&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt update
+sudo apt-get install grafana
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; grafana-server
+sudo /bin/systemctl start grafana-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="nginx"&gt;Nginx&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install nginx certbot python3-certbot-nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Puis il faut créer un fichier de configuration dans &lt;code&gt;/etc/nginx/sites-enabled/graphs.ndd.tld&lt;/code&gt; avec le contenu suivant&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$http_upgrade&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$connection_upgrade&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;default&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;upgrade&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;close&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;upstream&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;grafana&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;listen&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;server_name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;graphs.ndd.tld&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;root&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/usr/share/nginx/html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;index&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;index.html&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;index.htm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;location&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;Host&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$http_host&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_pass&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;http://grafana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# Proxy Grafana Live WebSocket connections.&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="kn"&gt;location&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/api/live/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_http_version&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="s"&gt;.1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;Upgrade&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$http_upgrade&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;Connection&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$connection_upgrade&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;Host&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$http_host&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kn"&gt;proxy_pass&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;http://grafana&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Une fois ces fichiers de configuration en place, il faut penser à la mise en place du &lt;span class="caps"&gt;SSL&lt;/span&gt; qui permet d&amp;#8217;avoir une connexion sécurisée&amp;nbsp;(https).&lt;/p&gt;
+&lt;p&gt;Il suffit de lancer cette ligne de commande et de suivre les questions posées&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo certbot --nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Voilà ! A ce moment là, tout doit être fonctionnel, il ne reste plus qu&amp;#8217;à configurer le Grafana pour grapher les données enregistrées dans&amp;nbsp;InfluxDB.&lt;/p&gt;</content><category term="Technologie"></category></entry><entry><title>2022, l’année des concerts</title><link href="https://blog.notmyidea.org/2022-lannee-des-concerts.html" rel="alternate"></link><published>2022-08-18T00:00:00+02:00</published><updated>2022-08-18T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-08-18:/2022-lannee-des-concerts.html</id><summary type="html">
+&lt;p&gt;Je n&amp;#8217;ai jamais autant été à des concerts de ma vie que ces derniers 6 mois ! La réouverture post-covid à coincidé avec le déménagement de la &lt;span class="caps"&gt;MJC&lt;/span&gt; L&amp;#8217;&lt;a href="https://antipode-rennes.fr/"&gt;Antipode&lt;/a&gt;, qui s&amp;#8217;est retrouvée très bien équipée pour accueillir les artistes… et le public&amp;nbsp;!&lt;/p&gt;
+&lt;p&gt;Ça m&amp;#8217;avait vraiment manqué et …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Je n&amp;#8217;ai jamais autant été à des concerts de ma vie que ces derniers 6 mois ! La réouverture post-covid à coincidé avec le déménagement de la &lt;span class="caps"&gt;MJC&lt;/span&gt; L&amp;#8217;&lt;a href="https://antipode-rennes.fr/"&gt;Antipode&lt;/a&gt;, qui s&amp;#8217;est retrouvée très bien équipée pour accueillir les artistes… et le public&amp;nbsp;!&lt;/p&gt;
+&lt;p&gt;Ça m&amp;#8217;avait vraiment manqué et j&amp;#8217;ai &lt;em&gt;un peu&lt;/em&gt; abusé des bonnes choses. Mais je ne regrette rien. Vive les artistes et les salles de spectacle&amp;nbsp;!&lt;/p&gt;
+&lt;p&gt;Sur l&amp;#8217;ensemble des concerts de cette année, voici les petites pépites que j&amp;#8217;ai pu rencontrer&amp;nbsp;:&lt;/p&gt;
+&lt;h2 id="mad-foxes"&gt;Mad&amp;nbsp;Foxes&lt;/h2&gt;
+&lt;p&gt;Sur la petite scène de l&amp;#8217;Antipode (mon repère de l&amp;#8217;année donc) c&amp;#8217;était juste parfait. Du bon gros Post-Punk, direct et groovy, mais… pas trop. Dansant en fait ! En album ça envoie et j&amp;#8217;ai du mal à ne pas les écouter et ré-écouter.&amp;nbsp;Addictif.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/iFJHBqnmLmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h2 id="frankie-and-the-witch-fingers"&gt;Frankie and The Witch&amp;nbsp;Fingers&lt;/h2&gt;
+&lt;p&gt;Ma découverte lors du festival Lévitation à Angers. Une grosse énergie aussi, plus festif&amp;nbsp;et &lt;/p&gt;
+&lt;h2 id="san-salvador"&gt;San&amp;nbsp;Salvador&lt;/h2&gt;
+&lt;p&gt;Dans un style complètement différent, on part sur de la polyphonie en Occitan. Le résultat est vraiment à la hauteur et l&amp;#8217;energie qui s&amp;#8217;en dégage est assez&amp;nbsp;magnétique.&lt;/p&gt;
+&lt;h2 id="orchestre-tout-puissant-marcel-duchamp-otmpd"&gt;Orchestre Tout Puissant Marcel Duchamp (&lt;span class="caps"&gt;OTMPD&lt;/span&gt;)&lt;/h2&gt;
+&lt;p&gt;J&amp;#8217;étais fan depuis fort lontemps, et je suivais frénétiquement leurs sorties d&amp;#8217;album, mais le seul concert que j&amp;#8217;avais vu s&amp;#8217;était déroulé sous la pluie et sur une bien grosse scène. Là l&amp;#8217;expérience était plus adaptée, dans la salle « micro » du Stéréolux (Nantes). Bah, il⋅elles nous ont carrément mis en&amp;nbsp;transe.&lt;/p&gt;
+&lt;h2 id="la-jungle"&gt;La&amp;nbsp;Jungle&lt;/h2&gt;
+&lt;p&gt;A la batterie un fou furieux, et à la basse et guitare… pas mieux. Pour tout dire je les ai vu deux fois quasiment d&amp;#8217;affilée. La vidéo parle d&amp;#8217;elle même (punk, techno,&amp;nbsp;rock).&lt;/p&gt;</content><category term="Musique"></category></entry><entry><title>Réveil difficile</title><link href="https://blog.notmyidea.org/reveil-difficile.html" rel="alternate"></link><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-05-30:/reveil-difficile.html</id><summary type="html">
 &lt;p&gt;&lt;em&gt;Je viens de remettre la main sur un texte écrit durant Artfèvre 2020, et je lui donne beaucoup plus de sens avec du recul. Je crois que ça parle de ma prise de conscience des oppressions de classe (sexisme, racisme), toute fraîche à&amp;nbsp;l&amp;#8217;époque.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;La discussion avait été transcendante …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;&lt;em&gt;Je viens de remettre la main sur un texte écrit durant Artfèvre 2020, et je lui donne beaucoup plus de sens avec du recul. Je crois que ça parle de ma prise de conscience des oppressions de classe (sexisme, racisme), toute fraîche à&amp;nbsp;l&amp;#8217;époque.&lt;/em&gt;&lt;/p&gt;

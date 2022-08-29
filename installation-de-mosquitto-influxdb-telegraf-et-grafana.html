@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana - Alexis Métaireau</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Alexis Métaireau ATOM Feed" />
+</head>
+<body>
+        <section id="links">
+            <li>
+                <a class="" href="https://blog.notmyidea.org/" id="site-title">Blog</a>
+            </li>
+                <li><a class="" href="https://blog.notmyidea.org/pages/projets.html">Projets</a></li>
+        </section>
+
+
+
+
+
+<header>
+	<h1 class="post-title">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</h1>
+	<time datetime="2022-08-29T00:00:00+02:00">29 août 2022</time>
+
+    
+</header>
+<article>
+    
+<p>Récemment, on a m&#8217;a demandé un petit coup de main pour aider à l&#8217;installation d&#8217;une pile logicielle qui permet de stocker des données temporelles et en faire des&nbsp;graphiques.</p>
+<p>Voici donc quelques notes prises durant l&#8217;installation du système, concues pour que des personnes qui n&#8217;y connaissent pas grand chose puissent s&#8217;y&nbsp;retrouver.</p>
+<p>L&#8217;objectif, c&#8217;est d&#8217;avoir des cartes Arduino qui envoient des données de manière régulière sur un système qui va nous permettre de les stocker et d&#8217;en faire des&nbsp;graphiques.</p>
+<p>Pour ça, nous allons utiliser&nbsp;:</p>
+<ul>
+<li>Un <em>Broker</em> <a href="https://mosquitto.org/">Mosquitto</a> qui va permettre de receptionner les données depuis les différents <em>clients</em>, puis de les dispatcher à qui en a besoin&nbsp;;</li>
+<li>Une base de données <a href="https://www.influxdata.com/products/influxdb-overview/">InfluxDB</a>, qui permet de stocker des données temporelles&nbsp;;</li>
+<li>Un <em>agent</em> <a href="https://www.influxdata.com/time-series-platform/telegraf/">Telegraf</a> qui va prendre les données du broker et les stocker dans la base de données&nbsp;InfluxDB.</li>
+<li><a href="https://grafana.com/">Grafana</a>, une <em>application web</em> qui permet de visualiser les données stockées dans&nbsp;InfluxDB.</li>
+</ul>
+<p>Voici donc un document qui résume les étapes que j&#8217;ai suivies pour mettre en place les différents élements utiles&nbsp;:</p>
+<h2 id="installer-et-se-connecter-au-serveur">Installer et se connecter au&nbsp;serveur</h2>
+<p>Dans notre cas, on est passé par un <span class="caps">VPS</span> chez <span class="caps">OVH</span>, qui tourne sous <a href="https://www.debian.org/">Debian 11</a>, qui a le mérite d&#8217;être une distribution Linux stable, reconnue et (relativement) simple à&nbsp;utiliser.</p>
+<p>Dans un terminal, vous pouvez vous connecter en utilisant la ligne de commande suivante&nbsp;:</p>
+<p><em>Les lignes suivantes sont des lignes d&#8217;invite de commande, on les rencontre assez souvent dans les documentations sur le web. Le signe <code>$</code> signifie le début de la ligne de commande. Le signe <code>#</code> signifie le début des&nbsp;commentaires.</em></p>
+<div class="highlight"><pre><span></span><code>$ ssh utilisateur@adresseip
+</code></pre></div>
+
+<p>Une fois connecté, on va mettre à jour les logiciels qui sont présents sur le&nbsp;serveur. </p>
+<div class="highlight"><pre><span></span><code>$ sudo apt update <span class="c1"># mise à jour des dépôts (la liste des logiciels).</span>
+$ sudo apt upgrade <span class="c1"># mise à jour des logiciels.</span>
+</code></pre></div>
+
+<h2 id="configurer-les-dns">Configurer les <span class="caps">DNS</span></h2>
+<p>Nous allons avoir besoin de deux sous domaines qui redirigent vers le serveur. Bien sur, il faut adapter <code>ndd.tld</code> et le remplacer par votre nom de domaine&nbsp;:</p>
+<ol>
+<li>moquitto.ndd.tld</li>
+<li>graphs.ndd.tld</li>
+</ol>
+<p>Pour faire ça, chez <span class="caps">OVH</span> ça se passe dans la console de « <span class="caps">OVH</span> Cloud », direction « Noms de domaines », et puis il faut rajouter deux enregistrements de type « A » qui pointent vers l&#8217;adresse <span class="caps">IP</span> du&nbsp;serveur.</p>
+<p>En temps normal, l&#8217;adresse <span class="caps">IP</span> vous est fournie par <span class="caps">OVH</span>. Si vous avez un doute, vous pouvez l&#8217;obtenir depuis le serveur avec la commande <code>ip a</code>.</p>
+<h2 id="installer-mosquitto">Installer&nbsp;Mosquitto</h2>
+<div class="highlight"><pre><span></span><code>$ sudo apt install mosquitto <span class="c1"># installation depuis les dépots officiels</span>
+</code></pre></div>
+
+<p>Une fois installé, <a href="https://mosquitto.org/documentation/authentication-methods/">il faut sécuriser l&#8217;installation avec un utilisateur et un mot de passe</a>.</p>
+<div class="highlight"><pre><span></span><code>$ sudo mosquitto_passwd -c /etc/mosquitto/passwd &lt;username&gt;
+</code></pre></div>
+
+<p>Ensuite dans le fichier de configuration il faut spécifier où est le fichier qui contient les mots de passe. Pour éditer je recommande l&#8217;utilisation de l&#8217;éditeur de texte <code>nano</code>. </p>
+<div class="highlight"><pre><span></span><code>$ sudo nano /etc/mosquitto/mosquitto.conf
+</code></pre></div>
+
+<p>Voici les lignes à rajouter&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>listener 1883
+password_file /etc/mosquitto/passwd
+</code></pre></div>
+
+<p>Puis il faut relancer le service mosquitto&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart mosquitto
+</code></pre></div>
+
+<p>Avant de pouvoir utiliser mosquitto, il faut <a href="https://docs.ovh.com/gb/en/dedicated/firewall-network/">régler le firewall</a> de chez <span class="caps">OVH</span> pour qu&#8217;il accepte de laisser passer les messages pour le broker <span class="caps">MQTT</span>.</p>
+<p>Il faut ajouter une règle dans le Firewall qui laisse passer toutes les connections <span class="caps">TCP</span>, avec l&#8217;option « établie&nbsp;».</p>
+<h3 id="verifions-que-tout-fonctionne-comme-prevu">Vérifions que tout fonctionne comme prévu&nbsp;:</h3>
+<p>Dans une console,&nbsp;écoutons…</p>
+<div class="highlight"><pre><span></span><code>$ mosquitto_sub -h mosquitto.ndd.tld -p <span class="m">1883</span> -u &lt;username&gt; -P &lt;password&gt; -t topic
+</code></pre></div>
+
+<p>Et dans une autre envoyons un message&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>$ mosquitto_pub -h mosquitto.ndd.tld -p <span class="m">1883</span> -u &lt;username&gt; -P &lt;password&gt; -t topic -m <span class="m">30</span>
+</code></pre></div>
+
+<p>Vous deviez voir « 30 » apparaitre dans la première console. Si c&#8217;est bon, tout fonctionne&nbsp;!</p>
+<h2 id="installation-dinfluxdb-et-telegraf">Installation d&#8217;InfluxDB et&nbsp;Telegraf</h2>
+<p>Coup de bol, InfluxDB propose directement des packets pour Debian, sur leur dépot, qu&#8217;il faut donc ajouter en suivant ces quelques lignes&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>sudo apt install -y gnupg2 curl wget
+wget -qO- https://repos.influxdata.com/influxdb.key <span class="p">|</span> sudo apt-key add -
+<span class="nb">echo</span> <span class="s2">&quot;deb https://repos.influxdata.com/debian </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt update
+</code></pre></div>
+
+<p>Puis <code>sudo apt install influxdb telegraf</code> pour&nbsp;l&#8217;installer.</p>
+<p>Ensuite, vous pouvez le lancer maintenant et indiquer au système de le lancer tout seul au démarrage&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> --now influxdb
+$ sudo systemctl <span class="nb">enable</span> --now telegraf
+</code></pre></div>
+
+<h3 id="configuration-de-telegraf">Configuration de&nbsp;Telegraf</h3>
+<p>Telegraf permet de faire le lien entre les messages envoyés sur le broker <span class="caps">MQTT</span> et la base de données&nbsp;InfluxDB.</p>
+<p>Ici, il faut rentrer un peu plus dans le vif du sujet, et ça dépends des messages que vous avez à&nbsp;stocker.</p>
+<p>Dans notre cas, nous avons trois types de messages&nbsp;:</p>
+<ul>
+<li>/BatVoltage,&nbsp;int</li>
+<li>/Temperature,&nbsp;int</li>
+<li>/<span class="caps">GPS</span>,&nbsp;string</li>
+</ul>
+<p>Voici un fichier de configuration, qui reste à modifier en fonction des&nbsp;données.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[global_tags]</span><span class="w"></span>
+<span class="k">[agent]</span><span class="w"></span>
+<span class="w">  </span><span class="na">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">round_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
+<span class="w">  </span><span class="na">metric_batch_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1000</span><span class="w"></span>
+<span class="w">  </span><span class="na">metric_buffer_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10000</span><span class="w"></span>
+<span class="w">  </span><span class="na">collection_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">flush_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">flush_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="na">omit_hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+
+<span class="k">[[outputs.influxdb]]</span><span class="w"></span>
+<span class="w">  </span><span class="na">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;http://127.0.0.1:8086&quot;]</span><span class="w"></span>
+<span class="w">  </span><span class="na">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;telegraf&quot;</span><span class="w"></span>
+
+<span class="k">[[inputs.mqtt_consumer]]</span><span class="w"></span>
+<span class="w">    </span><span class="na">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;tcp://127.0.0.1:1883&quot;]</span><span class="w"></span>
+<span class="w">    </span><span class="na">name_override</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mqtt_consumer_float&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[</span><span class="w"></span>
+<span class="w">     </span><span class="na">&quot;Topic/BatVoltage&quot;,</span><span class="w"></span>
+<span class="w">     </span><span class="na">&quot;Topic/Temperature&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="na">]</span><span class="w"></span>
+<span class="w">    </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;username&gt;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;password&gt;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">data_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="na">data_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;integer&quot;</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="installation-de-grafana">Installation de&nbsp;Grafana</h2>
+<div class="highlight"><pre><span></span><code>sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
+<span class="nb">echo</span> <span class="s2">&quot;deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/oss/deb stable main&quot;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt update
+sudo apt-get install grafana
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl <span class="nb">enable</span> grafana-server
+sudo /bin/systemctl start grafana-server
+</code></pre></div>
+
+<h3 id="nginx">Nginx</h3>
+<div class="highlight"><pre><span></span><code>sudo apt install nginx certbot python3-certbot-nginx
+</code></pre></div>
+
+<p>Puis il faut créer un fichier de configuration dans <code>/etc/nginx/sites-enabled/graphs.ndd.tld</code> avec le contenu suivant&nbsp;:</p>
+<div class="highlight"><pre><span></span><code><span class="k">map</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kn">default</span><span class="w"> </span><span class="s">upgrade</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kn">&#39;&#39;</span><span class="w"> </span><span class="s">close</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">upstream</span><span class="w"> </span><span class="s">grafana</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kn">server</span><span class="w"> </span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kn">server_name</span><span class="w"> </span><span class="s">graphs.ndd.tld</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kn">root</span><span class="w"> </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1"># Proxy Grafana Live WebSocket connections.</span>
+<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/live/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Une fois ces fichiers de configuration en place, il faut penser à la mise en place du <span class="caps">SSL</span> qui permet d&#8217;avoir une connexion sécurisée&nbsp;(https).</p>
+<p>Il suffit de lancer cette ligne de commande et de suivre les questions posées&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>sudo certbot --nginx
+</code></pre></div>
+
+<p>Voilà ! A ce moment là, tout doit être fonctionnel, il ne reste plus qu&#8217;à configurer le Grafana pour grapher les données enregistrées dans&nbsp;InfluxDB.</p>
+</article>
+
+</body>
+</html>
