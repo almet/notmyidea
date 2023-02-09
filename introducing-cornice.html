@@ -63,23 +63,23 @@ be &#8220;body&#8221;, &#8220;query&#8221;, &#8220;headers&#8221; or &#8220;path
 variable causing problem, if any, and <strong>description</strong> contains a more
 detailed&nbsp;message.</p>
 <p>Let&#8217;s run this simple service and send some queries to&nbsp;it:</p>
-<div class="highlight"><pre><span></span><code>$ curl -v http://127.0.0.1:5000/service
-&gt; GET /service HTTP/1.1
-&gt; Host: <span class="m">127</span>.0.0.1:5000
-&gt; Accept: */*
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-v<span class="w"> </span>http://127.0.0.1:5000/service
+&gt;<span class="w"> </span>GET<span class="w"> </span>/service<span class="w"> </span>HTTP/1.1
+&gt;<span class="w"> </span>Host:<span class="w"> </span><span class="m">127</span>.0.0.1:5000
+&gt;<span class="w"> </span>Accept:<span class="w"> </span>*/*
 &gt;
-* HTTP <span class="m">1</span>.0, assume close after body
-&lt; HTTP/1.0 <span class="m">400</span> Bad Request
-&lt; Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
-<span class="o">[{</span><span class="s2">&quot;location&quot;</span>: <span class="s2">&quot;query&quot;</span>, <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;awesome&quot;</span>, <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;You lack awesomeness!&quot;</span><span class="o">}</span>
+*<span class="w"> </span>HTTP<span class="w"> </span><span class="m">1</span>.0,<span class="w"> </span>assume<span class="w"> </span>close<span class="w"> </span>after<span class="w"> </span>body
+&lt;<span class="w"> </span>HTTP/1.0<span class="w"> </span><span class="m">400</span><span class="w"> </span>Bad<span class="w"> </span>Request
+&lt;<span class="w"> </span>Content-Type:<span class="w"> </span>application/json<span class="p">;</span><span class="w"> </span><span class="nv">charset</span><span class="o">=</span>UTF-8
+<span class="o">[{</span><span class="s2">&quot;location&quot;</span>:<span class="w"> </span><span class="s2">&quot;query&quot;</span>,<span class="w"> </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;awesome&quot;</span>,<span class="w"> </span><span class="s2">&quot;description&quot;</span>:<span class="w"> </span><span class="s2">&quot;You lack awesomeness!&quot;</span><span class="o">}</span>
 </code></pre></div>
 
 <p>I&#8217;ve removed the extra clutter from the curl&#8217;s output, but you got the
 general&nbsp;idea.</p>
 <p>The content returned is in <span class="caps">JSON</span>, and I know exactly what I have to do:
 add an &#8220;awesome&#8221; parameter in my query. Let&#8217;s do it&nbsp;again:</p>
-<div class="highlight"><pre><span></span><code>$ curl http://127.0.0.1:5000/service?awesome<span class="o">=</span>yeah
-<span class="o">{</span><span class="s2">&quot;test&quot;</span>: <span class="s2">&quot;yay!&quot;</span><span class="o">}</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>http://127.0.0.1:5000/service?awesome<span class="o">=</span>yeah
+<span class="o">{</span><span class="s2">&quot;test&quot;</span>:<span class="w"> </span><span class="s2">&quot;yay!&quot;</span><span class="o">}</span>
 </code></pre></div>
 
 <p>Validators can also convert parts of the request and store the converted
@@ -124,16 +124,16 @@ content-types are supported, using the accept&nbsp;parameter:</p>
 
 <p>Now, if you specifically ask for <span class="caps">XML</span>, Cornice will throw a 406 with the
 list of accepted Content-Type&nbsp;values:</p>
-<div class="highlight"><pre><span></span><code>$ curl -vH <span class="s2">&quot;Accept: application/xml&quot;</span> http://127.0.0.1:5000/service
-&gt; GET /service HTTP/1.1
-&gt; Host: <span class="m">127</span>.0.0.1:5000
-&gt; Accept: application/xml
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-vH<span class="w"> </span><span class="s2">&quot;Accept: application/xml&quot;</span><span class="w"> </span>http://127.0.0.1:5000/service
+&gt;<span class="w"> </span>GET<span class="w"> </span>/service<span class="w"> </span>HTTP/1.1
+&gt;<span class="w"> </span>Host:<span class="w"> </span><span class="m">127</span>.0.0.1:5000
+&gt;<span class="w"> </span>Accept:<span class="w"> </span>application/xml
 &gt;
-&lt; HTTP/1.0 <span class="m">406</span> Not Acceptable
-&lt; Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>UTF-8
-&lt; Content-Length: <span class="m">33</span>
+&lt;<span class="w"> </span>HTTP/1.0<span class="w"> </span><span class="m">406</span><span class="w"> </span>Not<span class="w"> </span>Acceptable
+&lt;<span class="w"> </span>Content-Type:<span class="w"> </span>application/json<span class="p">;</span><span class="w"> </span><span class="nv">charset</span><span class="o">=</span>UTF-8
+&lt;<span class="w"> </span>Content-Length:<span class="w"> </span><span class="m">33</span>
 &lt;
-<span class="o">[</span><span class="s2">&quot;application/json&quot;</span>, <span class="s2">&quot;text/json&quot;</span><span class="o">]</span>
+<span class="o">[</span><span class="s2">&quot;application/json&quot;</span>,<span class="w"> </span><span class="s2">&quot;text/json&quot;</span><span class="o">]</span>
 </code></pre></div>
 
 <h2 id="building-your-documentation-automatically">Building your documentation&nbsp;automatically</h2>
@@ -152,7 +152,7 @@ automatically document your <span class="caps">API</span> in your&nbsp;docs.</p>
 <p>We just cut a 0.4 release, so it&#8217;s available at
 <a href="http://pypi.python.org/pypi/cornice">http://pypi.python.org/pypi/cornice</a> You can install it easily using
 pip, for&nbsp;instance:</p>
-<div class="highlight"><pre><span></span><code>$ pip install cornice
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>cornice
 </code></pre></div>
 
 <p>You can also have a look at the documentation at

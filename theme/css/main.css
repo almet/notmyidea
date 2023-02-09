@@ -197,6 +197,7 @@ header {
 
 dt {
 	font-weight: bold;
+  margin-top: 2em;
 }
 
 section.index {
@@ -320,4 +321,8 @@ table tbody tr:nth-child(2n+1) {
 
 table td {
   padding: 0.75em 0.75em;
+}
+
+dt {
+  margin-top: 1em;
 }

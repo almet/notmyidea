@@ -48,30 +48,30 @@ interesting things, my jail come already setup with ssh, bash and vim
 for instance, but maybe you&#8217;ll need it in your&nbsp;case.</p>
 <p>I want to be redirected to the ssh of the jail when I connect to the
 host with the 20006 port. Add lines in <code>/etc/pf.conf</code>:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nv">workspace_jail</span><span class="o">=</span><span class="s2">&quot;172.19.1.6&quot;</span>
-    rdr on <span class="nv">$ext_if</span> proto tcp from any to <span class="nv">$ext_ip</span> port <span class="m">20006</span> -&gt; <span class="nv">$workspace_jail</span> port <span class="m">22</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nv">workspace_jail</span><span class="o">=</span><span class="s2">&quot;172.19.1.6&quot;</span>
+<span class="w">    </span>rdr<span class="w"> </span>on<span class="w"> </span><span class="nv">$ext_if</span><span class="w"> </span>proto<span class="w"> </span>tcp<span class="w"> </span>from<span class="w"> </span>any<span class="w"> </span>to<span class="w"> </span><span class="nv">$ext_ip</span><span class="w"> </span>port<span class="w"> </span><span class="m">20006</span><span class="w"> </span>-&gt;<span class="w"> </span><span class="nv">$workspace_jail</span><span class="w"> </span>port<span class="w"> </span><span class="m">22</span>
 </code></pre></div>
 
 <p>Reload packet filter&nbsp;rules</p>
-<div class="highlight"><pre><span></span><code>$ /etc/rc.d/pf reload
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>/etc/rc.d/pf<span class="w"> </span>reload
 </code></pre></div>
 
 <h2 id="working-with-unison">Working with&nbsp;unison</h2>
 <p>Now that we&#8217;ve set up the jail. Set up unison on the server and on your
 client. Unison is available on the freebsd ports so just install&nbsp;it</p>
-<div class="highlight"><pre><span></span><code>$ ssh notmyidea.org -p <span class="m">20006</span>
-$ make -C /usr/ports/net/unison-nox11 config-recursive
-$ make -C /usr/ports/net/unison-nox11 package-recursive
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>notmyidea.org<span class="w"> </span>-p<span class="w"> </span><span class="m">20006</span>
+$<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>/usr/ports/net/unison-nox11<span class="w"> </span>config-recursive
+$<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>/usr/ports/net/unison-nox11<span class="w"> </span>package-recursive
 </code></pre></div>
 
 <p>Install as well unison on your local machine. Double check to install
 the same version on the client and on the server. Ubuntu contains the
 2.27.57 as well as the&nbsp;2.32.52.</p>
 <p>Check that unison is installed and reachable via ssh from your&nbsp;machine</p>
-<div class="highlight"><pre><span></span><code>$ ssh notmyidea.org -p <span class="m">20006</span> unison -version
-unison version <span class="m">2</span>.27.157
-$ unison -version
-unison version <span class="m">2</span>.27.57
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>notmyidea.org<span class="w"> </span>-p<span class="w"> </span><span class="m">20006</span><span class="w"> </span>unison<span class="w"> </span>-version
+unison<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.27.157
+$<span class="w"> </span>unison<span class="w"> </span>-version
+unison<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.27.57
 </code></pre></div>
 
 <h2 id="let-sync-our-folders">Let sync our&nbsp;folders</h2>
@@ -79,21 +79,21 @@ unison version <span class="m">2</span>.27.57
 already <a href="http://github.com/ametaireau/dotfiles/">in a git repository</a>
 but let&#8217;s try to use unison for it right&nbsp;now.</p>
 <p>I have two machines then: workspace, the jail, and ecureuil my&nbsp;laptop.</p>
-<div class="highlight"><pre><span></span><code>unison .vim ssh://notmyidea.org:20006/.vim
-unison .vimrc ssh://notmyidea.org:20006/.vimrc
+<div class="highlight"><pre><span></span><code>unison<span class="w"> </span>.vim<span class="w"> </span>ssh://notmyidea.org:20006/.vim
+unison<span class="w"> </span>.vimrc<span class="w"> </span>ssh://notmyidea.org:20006/.vimrc
 </code></pre></div>
 
 <p>It is also possible to put all the informations in a config file, and
 then to only run unison. (fire up vim&nbsp;\~/.unison/default.prf.</p>
 <p>Here is my&nbsp;config:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/home/alexis</span><span class="w"></span>
-<span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ssh://notmyidea.org:20006</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/home/alexis</span>
+<span class="w">    </span><span class="na">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ssh://notmyidea.org:20006</span>
 
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.vimrc</span><span class="w"></span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dotfiles</span><span class="w"></span>
-<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dev</span><span class="w"></span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">.vimrc</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dotfiles</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dev</span>
 
-<span class="w">    </span><span class="na">follow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name *</span><span class="w"></span>
+<span class="w">    </span><span class="na">follow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Name *</span>
 </code></pre></div>
 
 <p>My vimrc is in fact a symbolic link on my laptop, but I don&#8217;t want to
@@ -155,24 +155,24 @@ its&nbsp;content.</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Get the pid of nautilus</span>
-<span class="nv">nautilus_pid</span><span class="o">=</span><span class="k">$(</span>pgrep -u <span class="nv">$LOGNAME</span> -n nautilus<span class="k">)</span>
+<span class="nv">nautilus_pid</span><span class="o">=</span><span class="k">$(</span>pgrep<span class="w"> </span>-u<span class="w"> </span><span class="nv">$LOGNAME</span><span class="w"> </span>-n<span class="w"> </span>nautilus<span class="k">)</span>
 
 <span class="c1"># If nautilus isn&#39;t running, just exit silently</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$nautilus_pid</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-<span class="nb">exit</span> <span class="m">0</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$nautilus_pid</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 <span class="k">fi</span>
 
 <span class="c1"># Grab the DBUS_SESSION_BUS_ADDRESS variable from nautilus&#39;s environment</span>
-<span class="nb">eval</span> <span class="k">$(</span>tr <span class="s1">&#39;\0&#39;</span> <span class="s1">&#39;\n&#39;</span> &lt; /proc/<span class="nv">$nautilus_pid</span>/environ <span class="p">|</span> grep <span class="s1">&#39;^DBUS_SESSION_BUS_ADDRESS=&#39;</span><span class="k">)</span>
+<span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>tr<span class="w"> </span><span class="s1">&#39;\0&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span>&lt;<span class="w"> </span>/proc/<span class="nv">$nautilus_pid</span>/environ<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^DBUS_SESSION_BUS_ADDRESS=&#39;</span><span class="k">)</span>
 
 <span class="c1"># Check that we actually found it</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$DBUS_SESSION_BUS_ADDRESS</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-<span class="nb">echo</span> <span class="s2">&quot;Failed to find bus address&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-<span class="nb">exit</span> <span class="m">1</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DBUS_SESSION_BUS_ADDRESS</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Failed to find bus address&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># export it so that child processes will inherit it</span>
-<span class="nb">export</span> DBUS_SESSION_BUS_ADDRESS
+<span class="nb">export</span><span class="w"> </span>DBUS_SESSION_BUS_ADDRESS
 </code></pre></div>
 
 <p>And it comes from

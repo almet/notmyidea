@@ -21,11 +21,6 @@
                 Récemment, on a m’a demandé un petit coup de main pour aider à l’installation d’une pile logicielle qui permet de stocker des données temporelles et en faire des graphiques. Voici donc quelques...
             </section>
             <section class="section index">
-                <time datetime="2022-08-18T00:00:00+02:00">18 août 2022</time>
-                <h1><a href="https://blog.notmyidea.org/2022-lannee-des-concerts.html" id="page-title">2022, l&#8217;année des&nbsp;concerts</a></h1>
-                Je n’ai jamais autant été à des concerts de ma vie que ces derniers 6 mois ! La réouverture post-covid à coincidé avec le déménagement de la MJC L’Antipode, qui s’est retrouvée très bien équipée...
-            </section>
-            <section class="section index">
                 <time datetime="2022-05-30T00:00:00+02:00">30 mai 2022</time>
                 <h1><a href="https://blog.notmyidea.org/reveil-difficile.html" id="page-title">Réveil&nbsp;difficile</a></h1>
                 Je viens de remettre la main sur un texte écrit durant Artfèvre 2020, et je lui donne beaucoup plus de sens avec du recul. Je crois que ça parle de ma prise de conscience des oppressions de classe...
@@ -35,173 +30,63 @@
                 <h1><a href="https://blog.notmyidea.org/lere-de-la-critique.html" id="page-title">L&#8217;Ère de la&nbsp;critique</a></h1>
                 Au détour d’une discussion sur mastodon je viens de retrouver ce bout de texte écrit mais jamais publié. J’y parle de ce que formuler des critiques me fait, de la hiérarchisation qui en découle,...
             </section>
-            <section class="section index">
-                <time datetime="2022-05-06T00:00:00+02:00">06 mai 2022</time>
-                <h1><a href="https://blog.notmyidea.org/fatigue-relationnelle.html" id="page-title">Fatigue&nbsp;relationnelle</a></h1>
-                Depuis peu, je me retrouve confronté à mon manque d’envie d’être avec d’autres personnes. Comme si mon quota d’interactions sociales était plus rapidement atteint qu’il y a quelques années. Je ne...
-            </section>
-            <section class="section index">
-                <time datetime="2021-11-11T00:00:00+01:00">11 novembre 2021</time>
-                <h1><a href="https://blog.notmyidea.org/conflit.html" id="page-title">Conflit</a></h1>
-                J’ai pensé durant de nombreuses années que je savais gérer le conflit, alors que c’était en fait impensé. Ne pas être en conflit signifie parfois s’adapter aux autres, parfois ne pas (assez)...
-            </section>
-            <section class="section index">
-                <time datetime="2021-11-01T00:00:00+01:00">01 novembre 2021</time>
-                <h1><a href="https://blog.notmyidea.org/cooperation-et-travail.html" id="page-title">Coopération et&nbsp;travail</a></h1>
-                Je parle souvent de coopération, que j’imagine comme « un fonctionnement collectif, dans lequel chacun⋅e y trouve son compte ». Or je me rends aujourd’hui compte que cette définition mets de côté...
-            </section>
-            <section class="section index">
-                <time datetime="2021-09-13T00:00:00+02:00">13 septembre 2021</time>
-                <h1><a href="https://blog.notmyidea.org/rentree.html" id="page-title">Rentrée</a></h1>
-                Trois semaines de vacances m’ont fait le plus grand bien. Je suis toujours autant étonné par ma capacité à repousser mes limites quand je suis la tête dans le guidon, ce qui était le cas...
-            </section>
-            <section class="section index">
-                <time datetime="2021-08-04T00:00:00+02:00">04 août 2021</time>
-                <h1><a href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" id="page-title">Faire de la musique sous&nbsp;Linux</a></h1>
-                Update du 07/08 : ajout des infos sur le noyau temps réel Faire de la musique electronique à été pour moi l’occasion de réinstaller Windows pour pouvoir utiliser Ableton Live, un des logiciels les...
-            </section>
-            <section class="section index">
-                <time datetime="2021-05-08T00:00:00+02:00">08 mai 2021</time>
-                <h1><a href="https://blog.notmyidea.org/vaccination-et-risques.html" id="page-title">Vaccination et&nbsp;risques</a></h1>
-                Je m’intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés. Cette réflexion n’est en aucun...
-            </section>
-            <section>
-                <h1>Anciens articles...</h1>
-                <ul>
-            <li><a href="https://blog.notmyidea.org/facebook-competition-ethique-et-marketing.html" rel="bookmark" title="Permalink to Facebook, compétition, éthique et marketing.">Facebook, compétition, éthique et&nbsp;marketing.</a></li>
-            <li><a href="https://blog.notmyidea.org/routine.html" rel="bookmark" title="Permalink to Routine">Routine</a></li>
-            <li><a href="https://blog.notmyidea.org/reconnexion.html" rel="bookmark" title="Permalink to Reconnexion ?">Reconnexion&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/forum-ouvert-animation-et-posture.html" rel="bookmark" title="Permalink to Forum ouvert, animation et posture">Forum ouvert, animation et&nbsp;posture</a></li>
-            <li><a href="https://blog.notmyidea.org/artfevre-2020-defi-artistique-en-fevrier.html" rel="bookmark" title="Permalink to Artfevre 2020 - Défi artistique en février">Artfevre 2020 - Défi artistique en&nbsp;février</a></li>
-            <li><a href="https://blog.notmyidea.org/le-piege-du-developpement-personnel.html" rel="bookmark" title="Permalink to Le piège du développement personnel">Le piège du développement&nbsp;personnel</a></li>
-            <li><a href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="bookmark" title="Permalink to Packager du python pour Debian">Packager du python pour&nbsp;Debian</a></li>
-            <li><a href="https://blog.notmyidea.org/prendre-le-temps.html" rel="bookmark" title="Permalink to Prendre le temps">Prendre le&nbsp;temps</a></li>
-            <li><a href="https://blog.notmyidea.org/limites-horaires.html" rel="bookmark" title="Permalink to Limites horaires">Limites&nbsp;horaires</a></li>
-            <li><a href="https://blog.notmyidea.org/prendre-soin.html" rel="bookmark" title="Permalink to Prendre soin">Prendre&nbsp;soin</a></li>
-            <li><a href="https://blog.notmyidea.org/remettre-les-choses-a-plus-tard.html" rel="bookmark" title="Permalink to Remettre les choses à plus tard">Remettre les choses à plus&nbsp;tard</a></li>
-            <li><a href="https://blog.notmyidea.org/break-technologique.html" rel="bookmark" title="Permalink to Break technologique">Break&nbsp;technologique</a></li>
-            <li><a href="https://blog.notmyidea.org/assurance-chomage.html" rel="bookmark" title="Permalink to Assurance chômage">Assurance&nbsp;chômage</a></li>
-            <li><a href="https://blog.notmyidea.org/prix-libre-et-conscient.html" rel="bookmark" title="Permalink to Prix libre et conscient & culpabilisation">Prix libre et conscient <span class="amp">&amp;</span>&nbsp;culpabilisation</a></li>
-            <li><a href="https://blog.notmyidea.org/ecran-et-dependances.html" rel="bookmark" title="Permalink to Écran et dépendances">Écran et&nbsp;dépendances</a></li>
-            <li><a href="https://blog.notmyidea.org/groupe-de-paroles-hommes.html" rel="bookmark" title="Permalink to Groupe de paroles hommes">Groupe de paroles&nbsp;hommes</a></li>
-            <li><a href="https://blog.notmyidea.org/ignorance-et-vertu.html" rel="bookmark" title="Permalink to Ignorance et vertu">Ignorance et&nbsp;vertu</a></li>
-            <li><a href="https://blog.notmyidea.org/fatigue-et-competition.html" rel="bookmark" title="Permalink to Fatigue et compétition">Fatigue et&nbsp;compétition</a></li>
-            <li><a href="https://blog.notmyidea.org/francis-dupuis-deri-democratie.html" rel="bookmark" title="Permalink to Francis Dupuis Déri, Démocratie.">Francis Dupuis Déri,&nbsp;Démocratie.</a></li>
-            <li><a href="https://blog.notmyidea.org/musique-creation-et-partage.html" rel="bookmark" title="Permalink to Musique, création et partage">Musique, création et&nbsp;partage</a></li>
-            <li><a href="https://blog.notmyidea.org/elitisme-et-apprentissage.html" rel="bookmark" title="Permalink to Élitisme et apprentissage">Élitisme et&nbsp;apprentissage</a></li>
-            <li><a href="https://blog.notmyidea.org/travail-passion-et-limites.html" rel="bookmark" title="Permalink to Travail, passion et limites.">Travail, passion et&nbsp;limites.</a></li>
-            <li><a href="https://blog.notmyidea.org/ours.html" rel="bookmark" title="Permalink to Ours">Ours</a></li>
-            <li><a href="https://blog.notmyidea.org/velo.html" rel="bookmark" title="Permalink to Vélo">Vélo</a></li>
-            <li><a href="https://blog.notmyidea.org/un-espace-des-communs-rennais.html" rel="bookmark" title="Permalink to Un espace des communs Rennais ?">Un espace des communs Rennais&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/un-an.html" rel="bookmark" title="Permalink to Brasserie - petit bilan, après un an d’existence">Brasserie - petit bilan, après un an&nbsp;d’existence</a></li>
-            <li><a href="https://blog.notmyidea.org/de-mozilla-a-la-brasserie-du-vieux-singe.html" rel="bookmark" title="Permalink to De Mozilla à la Brasserie du Vieux Singe">De Mozilla à la Brasserie du Vieux&nbsp;Singe</a></li>
-            <li><a href="https://blog.notmyidea.org/groupement-dachats-partage-dexperience.html" rel="bookmark" title="Permalink to Groupement d’achats & partage d’expérience">Groupement d&#8217;achats <span class="amp">&amp;</span> partage&nbsp;d&#8217;expérience</a></li>
-            <li><a href="https://blog.notmyidea.org/webnotes.html" rel="bookmark" title="Permalink to Webnotes">Webnotes</a></li>
-            <li><a href="https://blog.notmyidea.org/faire-moins.html" rel="bookmark" title="Permalink to Faire moins">Faire&nbsp;moins</a></li>
-            <li><a href="https://blog.notmyidea.org/neipa-3.html" rel="bookmark" title="Permalink to NEIPA #3"><span class="caps">NEIPA</span>&nbsp;#3</a></li>
-            <li><a href="https://blog.notmyidea.org/neipa-2.html" rel="bookmark" title="Permalink to NEIPA #2"><span class="caps">NEIPA</span>&nbsp;#2</a></li>
-            <li><a href="https://blog.notmyidea.org/larrivee-du-trouble-ou-comment-faire-des-neipa.html" rel="bookmark" title="Permalink to L’arrivée du trouble (ou comment faire des NEIPA ?)">L&#8217;arrivée du trouble (ou comment faire des <span class="caps">NEIPA</span>&nbsp;?)</a></li>
-            <li><a href="https://blog.notmyidea.org/un-club-des-brasseurs-amateurs-rennais.html" rel="bookmark" title="Permalink to Un club des brasseurs amateurs Rennais">Un club des brasseurs amateurs&nbsp;Rennais</a></li>
-            <li><a href="https://blog.notmyidea.org/brasserie-du-vieux-singe-installation-en-cours.html" rel="bookmark" title="Permalink to Brasserie du Vieux Singe — Installation en cours.">Brasserie du Vieux Singe — Installation en&nbsp;cours.</a></li>
-            <li><a href="https://blog.notmyidea.org/comment-est-ce-que-vous-generez-vos-formulaires.html" rel="bookmark" title="Permalink to Comment est-ce que vous générez vos formulaires ?">Comment est-ce que vous générez vos formulaires&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/cloisonnement-des-activites.html" rel="bookmark" title="Permalink to Cloisonnement des activités ?">Cloisonnement des activités&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/avez-vous-confiance-en-ssl.html" rel="bookmark" title="Permalink to Avez vous confiance en SSL?">Avez vous confiance en <span class="caps">SSL</span>?</a></li>
-            <li><a href="https://blog.notmyidea.org/focusing-on-what-matters.html" rel="bookmark" title="Permalink to Focusing on what matters">Focusing on what&nbsp;matters</a></li>
-            <li><a href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="bookmark" title="Permalink to Retours sur un atelier ZeroNet">Retours sur un atelier&nbsp;ZeroNet</a></li>
-            <li><a href="https://blog.notmyidea.org/lhorizon.html" rel="bookmark" title="Permalink to L’horizon">L&#8217;horizon</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-garantir-lintegrite-des-donnees-via-des-signatures-fr.html" rel="bookmark" title="Permalink to Service de nuages : Garantir l’intégrité des données via des signatures">Service de nuages : Garantir l&#8217;intégrité des données via des&nbsp;signatures</a></li>
-            <li><a href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="bookmark" title="Permalink to Let’s Encrypt + HAProxy">Let&#8217;s Encrypt +&nbsp;HAProxy</a></li>
-            <li><a href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="bookmark" title="Permalink to Ateliers d’autodéfense numérique">Ateliers d&#8217;autodéfense&nbsp;numérique</a></li>
-            <li><a href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="bookmark" title="Permalink to Le mail doit-il mourir ?">Le mail doit-il mourir&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/rencontres-python-francophones-2015.html" rel="bookmark" title="Permalink to Rencontres python francophones, 2015">Rencontres python francophones,&nbsp;2015</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-assemblee-generale.html" rel="bookmark" title="Permalink to PyconFR 2015 — Assemblée générale">PyconFR 2015 — Assemblée&nbsp;générale</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-hospital-des-tests-en-prod.html" rel="bookmark" title="Permalink to PyconFR 2015 — Hospital - des tests en prod">PyconFR 2015 — Hospital - des tests en&nbsp;prod</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-we-dont-need-your-loop.html" rel="bookmark" title="Permalink to PyconFR 2015 — We don’t need your loop">PyconFR 2015 — We don&#8217;t need your&nbsp;loop</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-cliquet.html" rel="bookmark" title="Permalink to PyconFR 2015 — Cliquet">PyconFR 2015 —&nbsp;Cliquet</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-geoalchemy.html" rel="bookmark" title="Permalink to PyconFR 2015 — Geoalchemy">PyconFR 2015 —&nbsp;Geoalchemy</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-sql-alchemy.html" rel="bookmark" title="Permalink to PyconFR 2015 — SQL Alchemy">PyconFR 2015 — <span class="caps">SQL</span>&nbsp;Alchemy</a></li>
-            <li><a href="https://blog.notmyidea.org/pyconfr-2015-table-ronde-diversite.html" rel="bookmark" title="Permalink to PyconFR 2015 — Table ronde diversité">PyconFR 2015 — Table ronde&nbsp;diversité</a></li>
-            <li><a href="https://blog.notmyidea.org/web-distribution-signing.html" rel="bookmark" title="Permalink to Web distribution signing">Web distribution&nbsp;signing</a></li>
-            <li><a href="https://blog.notmyidea.org/pourquoi-cliquet" rel="bookmark" title="Permalink to Service de nuages : Pourquoi avons-nous fait Cliquet ?">Service de nuages : Pourquoi avons-nous fait Cliquet&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/charte-et-evenements-non-mixtes-au-sein-de-lafpy.html" rel="bookmark" title="Permalink to Charte et événements non-mixtes au sein de l’Afpy">Charte et événements non-mixtes au sein de&nbsp;l&#8217;Afpy</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="bookmark" title="Permalink to Service de nuages : Perspectives pour l’été">Service de nuages : Perspectives pour&nbsp;l&#8217;été</a></li>
-            <li><a href="https://blog.notmyidea.org/roles.html" rel="bookmark" title="Permalink to Rôles">Rôles</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="bookmark" title="Permalink to Service de nuages : Achievement unlocked">Service de nuages : Achievement&nbsp;unlocked</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="bookmark" title="Permalink to Service de nuages : Stocker et interroger les permissions avec Kinto">Service de nuages : Stocker et interroger les permissions avec&nbsp;Kinto</a></li>
-            <li><a href="https://blog.notmyidea.org/les-problemes-de-pgp.html" rel="bookmark" title="Permalink to Les problèmes de PGP">Les problèmes de <span class="caps">PGP</span></a></li>
-            <li><a href="https://blog.notmyidea.org/travail-et-creativite.html" rel="bookmark" title="Permalink to Travail et créativité">Travail et&nbsp;créativité</a></li>
-            <li><a href="https://blog.notmyidea.org/simplifier-les-preuves-didentites.html" rel="bookmark" title="Permalink to Simplifier les preuves d’identités">Simplifier les preuves&nbsp;d&#8217;identités</a></li>
-            <li><a href="https://blog.notmyidea.org/phrases-de-passe-et-bonnes-pratiques.html" rel="bookmark" title="Permalink to Phrases de passe et bonnes pratiques">Phrases de passe et bonnes&nbsp;pratiques</a></li>
-            <li><a href="https://blog.notmyidea.org/chiffrement.html" rel="bookmark" title="Permalink to Chiffrement">Chiffrement</a></li>
-            <li><a href="https://blog.notmyidea.org/language.html" rel="bookmark" title="Permalink to Language">Language</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html" rel="bookmark" title="Permalink to Service de nuages : La gestion des permissions">Service de nuages : La gestion des&nbsp;permissions</a></li>
-            <li><a href="https://blog.notmyidea.org/eco-systeme-et-stockage-generique.html" rel="bookmark" title="Permalink to Eco-système et stockage générique">Eco-système et stockage&nbsp;générique</a></li>
-            <li><a href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="bookmark" title="Permalink to Service de nuages !">Service de nuages&nbsp;!</a></li>
-            <li><a href="https://blog.notmyidea.org/le-secret-du-bonheur.html" rel="bookmark" title="Permalink to Le secret du bonheur">Le secret du&nbsp;bonheur</a></li>
-            <li><a href="https://blog.notmyidea.org/whats-hawk-and-how-to-use-it.html" rel="bookmark" title="Permalink to What’s Hawk and how to use it?">What&#8217;s Hawk and how to use&nbsp;it?</a></li>
-            <li><a href="https://blog.notmyidea.org/quel-metier-quelle-utilite.html" rel="bookmark" title="Permalink to Quel métier, quelle utilité ?">Quel métier, quelle utilité&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/retours-sur-deux-ans-a-mozilla.html" rel="bookmark" title="Permalink to Retours sur deux ans à Mozilla">Retours sur deux ans à&nbsp;Mozilla</a></li>
-            <li><a href="https://blog.notmyidea.org/des-carnets-desquisse.html" rel="bookmark" title="Permalink to Des carnets d’esquisse">Des carnets&nbsp;d&#8217;esquisse</a></li>
-            <li><a href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="bookmark" title="Permalink to François Elie : Quelle école pour la société de l’information ?">François Elie : Quelle école pour la société de l’information&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/notes-economie-libidinale-et-economie-politique.html" rel="bookmark" title="Permalink to Notes: Économie libidinale et économie politique">Notes: Économie libidinale et économie&nbsp;politique</a></li>
-            <li><a href="https://blog.notmyidea.org/le-revenu-de-base.html" rel="bookmark" title="Permalink to Le revenu de base">Le revenu de&nbsp;base</a></li>
-            <li><a href="https://blog.notmyidea.org/des-profils-de-confiance-partout-et-pour-tout.html" rel="bookmark" title="Permalink to Des profils de confiance partout et pour tout ?">Des profils de confiance partout et pour tout&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/implementing-cors-in-cornice.html" rel="bookmark" title="Permalink to Implementing CORS in Cornice">Implementing <span class="caps">CORS</span> in&nbsp;Cornice</a></li>
-            <li><a href="https://blog.notmyidea.org/new-year-python-meme-2012.html" rel="bookmark" title="Permalink to New year python meme, 2012">New year python meme,&nbsp;2012</a></li>
-            <li><a href="https://blog.notmyidea.org/status-board.html" rel="bookmark" title="Permalink to Status board">Status&nbsp;board</a></li>
-            <li><a href="https://blog.notmyidea.org/habitat-collectif.html" rel="bookmark" title="Permalink to Habitat collectif">Habitat&nbsp;collectif</a></li>
-            <li><a href="https://blog.notmyidea.org/tricot.html" rel="bookmark" title="Permalink to Tricot">Tricot</a></li>
-            <li><a href="https://blog.notmyidea.org/astuces-ssh.html" rel="bookmark" title="Permalink to Astuces SSH">Astuces <span class="caps">SSH</span></a></li>
-            <li><a href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="bookmark" title="Permalink to Gnome 3, extensions">Gnome 3,&nbsp;extensions</a></li>
-            <li><a href="https://blog.notmyidea.org/groovy.html" rel="bookmark" title="Permalink to “Groovy”"><span class="dquo">&#8220;</span>Groovy&#8221;</a></li>
-            <li><a href="https://blog.notmyidea.org/notre-dame-des-landes.html" rel="bookmark" title="Permalink to Notre dame des landes">Notre dame des&nbsp;landes</a></li>
-            <li><a href="https://blog.notmyidea.org/semences-paysannes.html" rel="bookmark" title="Permalink to Semences paysannes">Semences&nbsp;paysannes</a></li>
-            <li><a href="https://blog.notmyidea.org/languages.html" rel="bookmark" title="Permalink to Languages">Languages</a></li>
-            <li><a href="https://blog.notmyidea.org/cheese-code-wrap-up.html" rel="bookmark" title="Permalink to Cheese & code - Wrap-up">Cheese <span class="amp">&amp;</span> code -&nbsp;Wrap-up</a></li>
-            <li><a href="https://blog.notmyidea.org/biere-maison.html" rel="bookmark" title="Permalink to Bière maison !">Bière maison&nbsp;!</a></li>
-            <li><a href="https://blog.notmyidea.org/motivation-benevolat-et-participation.html" rel="bookmark" title="Permalink to Motivation, bénévolat et participation">Motivation, bénévolat et&nbsp;participation</a></li>
-            <li><a href="https://blog.notmyidea.org/cheese-code-party-october-20-21.html" rel="bookmark" title="Permalink to Cheese & Code party: October 20-21">Cheese <span class="amp">&amp;</span> Code party: October&nbsp;20-21</a></li>
-            <li><a href="https://blog.notmyidea.org/circus-sprint-at-pyconfr.html" rel="bookmark" title="Permalink to Circus sprint at PyconFR">Circus sprint at&nbsp;PyconFR</a></li>
-            <li><a href="https://blog.notmyidea.org/pourquoi-mozilla.html" rel="bookmark" title="Permalink to Pourquoi Mozilla?">Pourquoi&nbsp;Mozilla?</a></li>
-            <li><a href="https://blog.notmyidea.org/lifestyle.html" rel="bookmark" title="Permalink to Lifestyle">Lifestyle</a></li>
-            <li><a href="https://blog.notmyidea.org/refactoring-cornice.html" rel="bookmark" title="Permalink to Refactoring Cornice">Refactoring&nbsp;Cornice</a></li>
-            <li><a href="https://blog.notmyidea.org/bidouille.html" rel="bookmark" title="Permalink to Bidouille">Bidouille</a></li>
-            <li><a href="https://blog.notmyidea.org/djangocong-2012.html" rel="bookmark" title="Permalink to Djangocong 2012">Djangocong&nbsp;2012</a></li>
-            <li><a href="https://blog.notmyidea.org/generation-de-formulaires-geolocalises.html" rel="bookmark" title="Permalink to Génération de formulaires, geolocalisés ?">Génération de formulaires, geolocalisés&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="bookmark" title="Permalink to Thoughts about a form generation service, GIS enabled">Thoughts about a form generation service, <span class="caps">GIS</span>&nbsp;enabled</a></li>
-            <li><a href="https://blog.notmyidea.org/les-dangers-du-livre-numerique.html" rel="bookmark" title="Permalink to Les dangers du livre numérique">Les dangers du livre&nbsp;numérique</a></li>
-            <li><a href="https://blog.notmyidea.org/mozilla-first-months.html" rel="bookmark" title="Permalink to Mozilla, first months">Mozilla, first&nbsp;months</a></li>
-            <li><a href="https://blog.notmyidea.org/introducing-cornice.html" rel="bookmark" title="Permalink to Introducing Cornice">Introducing&nbsp;Cornice</a></li>
-            <li><a href="https://blog.notmyidea.org/quels-usages-pour-linformatique.html" rel="bookmark" title="Permalink to Quels usages pour l’informatique ?">Quels usages pour l&#8217;informatique&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html" rel="bookmark" title="Permalink to How are you handling your shared expenses?">How are you handling your shared&nbsp;expenses?</a></li>
-            <li><a href="https://blog.notmyidea.org/la-simplicite-volontaire-contre-le-mythe-de-labondance.html" rel="bookmark" title="Permalink to La simplicité volontaire contre le mythe de l’abondance">La simplicité volontaire contre le mythe de&nbsp;l&#8217;abondance</a></li>
-            <li><a href="https://blog.notmyidea.org/using-dbpedia-to-get-languages-influences.html" rel="bookmark" title="Permalink to Using dbpedia to get languages influences">Using dbpedia to get languages&nbsp;influences</a></li>
-            <li><a href="https://blog.notmyidea.org/pelican-9-months-later.html" rel="bookmark" title="Permalink to Pelican, 9 months later">Pelican, 9 months&nbsp;later</a></li>
-            <li><a href="https://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="bookmark" title="Permalink to Using JPype to bridge python and Java">Using JPype to bridge python and&nbsp;Java</a></li>
-            <li><a href="https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="bookmark" title="Permalink to Un coup de main pour mon mémoire !">Un coup de main pour mon mémoire&nbsp;!</a></li>
-            <li><a href="https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html" rel="bookmark" title="Permalink to Travailler moins pour mieux travailler ?">Travailler moins pour mieux travailler&nbsp;?</a></li>
-            <li><a href="https://blog.notmyidea.org/analyse-users-browsing-context-to-build-up-a-web-recommender.html" rel="bookmark" title="Permalink to Analyse users’ browsing context to build up a web recommender">Analyse users&#8217; browsing context to build up a web&nbsp;recommender</a></li>
-            <li><a href="https://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="bookmark" title="Permalink to Working directly on your server? How to backup and sync your dev environment with unison">Working directly on your server? How to backup and sync your dev environment with&nbsp;unison</a></li>
-            <li><a href="https://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="bookmark" title="Permalink to Wrap up of the distutils2 paris’ sprint">Wrap up of the distutils2 paris&#8217;&nbsp;sprint</a></li>
-            <li><a href="https://blog.notmyidea.org/pypi-on-couchdb.html" rel="bookmark" title="Permalink to PyPI on CouchDB">PyPI on&nbsp;CouchDB</a></li>
-            <li><a href="https://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="bookmark" title="Permalink to Help me to go to the distutils2 paris’ sprint">Help me to go to the distutils2 paris&#8217;&nbsp;sprint</a></li>
-            <li><a href="https://blog.notmyidea.org/fork-you-or-how-the-social-coding-can-help-you.html" rel="bookmark" title="Permalink to Fork you! or how the social coding can help you">Fork you! or how the social coding can help&nbsp;you</a></li>
-            <li><a href="https://blog.notmyidea.org/how-to-reboot-your-bebox-using-the-cli.html" rel="bookmark" title="Permalink to How to reboot your bebox using the CLI">How to reboot your bebox using the <span class="caps">CLI</span></a></li>
-            <li><a href="https://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="bookmark" title="Permalink to Dynamically change your gnome desktop wallpaper">Dynamically change your gnome desktop&nbsp;wallpaper</a></li>
-            <li><a href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="bookmark" title="Permalink to How to install NGINX + PHP 5.3 on FreeBSD.">How to install <span class="caps">NGINX</span> + <span class="caps">PHP</span> 5.3 on&nbsp;FreeBSD.</a></li>
-            <li><a href="https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="bookmark" title="Permalink to Pelican, a simple static blog generator in python">Pelican, a simple static blog generator in&nbsp;python</a></li>
-            <li><a href="https://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="bookmark" title="Permalink to An amazing summer of code working on distutils2">An amazing summer of code working on&nbsp;distutils2</a></li>
-            <li><a href="https://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="bookmark" title="Permalink to Sprinting on distutils2 in Tours">Sprinting on distutils2 in&nbsp;Tours</a></li>
-            <li><a href="https://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="bookmark" title="Permalink to Introducing the distutils2 index crawlers">Introducing the distutils2 index&nbsp;crawlers</a></li>
-            <li><a href="https://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="bookmark" title="Permalink to Use Restructured Text (ReST) to power your presentations">Use Restructured Text (ReST) to power your&nbsp;presentations</a></li>
-            <li><a href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="bookmark" title="Permalink to first week working on distutils2">first week working on&nbsp;distutils2</a></li>
-            <li><a href="https://blog.notmyidea.org/a-distutils2-gsoc.html" rel="bookmark" title="Permalink to A Distutils2 GSoC">A Distutils2&nbsp;GSoC</a></li>
-            <li><a href="https://blog.notmyidea.org/le-temps-des-graces-courrez-y.html" rel="bookmark" title="Permalink to Le temps des grâces, courrez-y !">Le temps des grâces, courrez-y&nbsp;!</a></li>
-            <li><a href="https://blog.notmyidea.org/semaine-de-lenvironnement-la-consommation-etudiante.html" rel="bookmark" title="Permalink to Semaine de l’environnement: La consommation étudiante">Semaine de l’environnement: La consommation&nbsp;étudiante</a></li>
-            <li><a href="https://blog.notmyidea.org/python-go.html" rel="bookmark" title="Permalink to Python ? go !">Python ? go&nbsp;!</a></li>
-            <li><a href="https://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="bookmark" title="Permalink to AMAP + Média = Paniers bio à 5e ?!"><span class="caps">AMAP</span> + Média = Paniers bio à 5e&nbsp;?!</a></li>
-                </ul>
-            </section>
+        <section>
+            <h1>
+            📔
+            Journal
+            </h1>
+            <ul>
+                        <li><a href="https://blog.notmyidea.org/reveil-difficile.html" rel="bookmark" title="Permalink to Réveil difficile">Réveil&nbsp;difficile</a></li>
+                        <li><a href="https://blog.notmyidea.org/lere-de-la-critique.html" rel="bookmark" title="Permalink to L’Ère de la critique">L&#8217;Ère de la&nbsp;critique</a></li>
+                        <li><a href="https://blog.notmyidea.org/fatigue-relationnelle.html" rel="bookmark" title="Permalink to Fatigue relationnelle">Fatigue&nbsp;relationnelle</a></li>
+                        <li><a href="https://blog.notmyidea.org/conflit.html" rel="bookmark" title="Permalink to Conflit">Conflit</a></li>
+                        <li><a href="https://blog.notmyidea.org/cooperation-et-travail.html" rel="bookmark" title="Permalink to Coopération et travail">Coopération et&nbsp;travail</a></li>
+                        <li><a href="https://blog.notmyidea.org/rentree.html" rel="bookmark" title="Permalink to Rentrée">Rentrée</a></li>
+                        <li><a href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="bookmark" title="Permalink to Faire de la musique sous Linux">Faire de la musique sous&nbsp;Linux</a></li>
+                        <li><a href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="bookmark" title="Permalink to Vaccination et risques">Vaccination et&nbsp;risques</a></li>
+                        <li><a href="https://blog.notmyidea.org/facebook-competition-ethique-et-marketing.html" rel="bookmark" title="Permalink to Facebook, compétition, éthique et marketing.">Facebook, compétition, éthique et&nbsp;marketing.</a></li>
+                        <li><a href="https://blog.notmyidea.org/routine.html" rel="bookmark" title="Permalink to Routine">Routine</a></li>
+                        <li><a href="https://blog.notmyidea.org/category/journal.html">Voir plus de Journal</a></li>
+            </ul>
+        </section>
+        <section>
+            <h1>
+            📝
+            Notes
+            </h1>
+            <ul>
+                        <li><a href="https://blog.notmyidea.org/packager-du-python-pour-debian.html" rel="bookmark" title="Permalink to Packager du python pour Debian">Packager du python pour&nbsp;Debian</a></li>
+                        <li><a href="https://blog.notmyidea.org/assurance-chomage.html" rel="bookmark" title="Permalink to Assurance chômage">Assurance&nbsp;chômage</a></li>
+                        <li><a href="https://blog.notmyidea.org/francis-dupuis-deri-democratie.html" rel="bookmark" title="Permalink to Francis Dupuis Déri, Démocratie.">Francis Dupuis Déri,&nbsp;Démocratie.</a></li>
+                        <li><a href="https://blog.notmyidea.org/neipa-3.html" rel="bookmark" title="Permalink to NEIPA #3"><span class="caps">NEIPA</span>&nbsp;#3</a></li>
+                        <li><a href="https://blog.notmyidea.org/neipa-2.html" rel="bookmark" title="Permalink to NEIPA #2"><span class="caps">NEIPA</span>&nbsp;#2</a></li>
+                        <li><a href="https://blog.notmyidea.org/larrivee-du-trouble-ou-comment-faire-des-neipa.html" rel="bookmark" title="Permalink to L’arrivée du trouble (ou comment faire des NEIPA ?)">L&#8217;arrivée du trouble (ou comment faire des <span class="caps">NEIPA</span>&nbsp;?)</a></li>
+                        <li><a href="https://blog.notmyidea.org/francois-elie-quelle-ecole-pour-la-societe-de-linformation.html" rel="bookmark" title="Permalink to François Elie : Quelle école pour la société de l’information ?">François Elie : Quelle école pour la société de l’information&nbsp;?</a></li>
+                        <li><a href="https://blog.notmyidea.org/notes-economie-libidinale-et-economie-politique.html" rel="bookmark" title="Permalink to Notes: Économie libidinale et économie politique">Notes: Économie libidinale et économie&nbsp;politique</a></li>
+                        <li><a href="https://blog.notmyidea.org/le-revenu-de-base.html" rel="bookmark" title="Permalink to Le revenu de base">Le revenu de&nbsp;base</a></li>
+                        <li><a href="https://blog.notmyidea.org/habitat-collectif.html" rel="bookmark" title="Permalink to Habitat collectif">Habitat&nbsp;collectif</a></li>
+                        <li><a href="https://blog.notmyidea.org/category/notes.html">Voir plus de Notes</a></li>
+            </ul>
+        </section>
+        <section>
+            <h1>
+            💻
+            Technologie
+            </h1>
+            <ul>
+                        <li><a href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="bookmark" title="Permalink to Installation de Mosquitto, InfluxDB, Telegraf et Grafana">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</a></li>
+                        <li><a href="https://blog.notmyidea.org/groupement-dachats-partage-dexperience.html" rel="bookmark" title="Permalink to Groupement d’achats & partage d’expérience">Groupement d&#8217;achats <span class="amp">&amp;</span> partage&nbsp;d&#8217;expérience</a></li>
+                        <li><a href="https://blog.notmyidea.org/webnotes.html" rel="bookmark" title="Permalink to Webnotes">Webnotes</a></li>
+                        <li><a href="https://blog.notmyidea.org/comment-est-ce-que-vous-generez-vos-formulaires.html" rel="bookmark" title="Permalink to Comment est-ce que vous générez vos formulaires ?">Comment est-ce que vous générez vos formulaires&nbsp;?</a></li>
+                        <li><a href="https://blog.notmyidea.org/avez-vous-confiance-en-ssl.html" rel="bookmark" title="Permalink to Avez vous confiance en SSL?">Avez vous confiance en <span class="caps">SSL</span>?</a></li>
+                        <li><a href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="bookmark" title="Permalink to Retours sur un atelier ZeroNet">Retours sur un atelier&nbsp;ZeroNet</a></li>
+                        <li><a href="https://blog.notmyidea.org/service-de-nuages-garantir-lintegrite-des-donnees-via-des-signatures-fr.html" rel="bookmark" title="Permalink to Service de nuages : Garantir l’intégrité des données via des signatures">Service de nuages : Garantir l&#8217;intégrité des données via des&nbsp;signatures</a></li>
+                        <li><a href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="bookmark" title="Permalink to Let’s Encrypt + HAProxy">Let&#8217;s Encrypt +&nbsp;HAProxy</a></li>
+                        <li><a href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="bookmark" title="Permalink to Ateliers d’autodéfense numérique">Ateliers d&#8217;autodéfense&nbsp;numérique</a></li>
+                        <li><a href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="bookmark" title="Permalink to Le mail doit-il mourir ?">Le mail doit-il mourir&nbsp;?</a></li>
+                        <li><a href="https://blog.notmyidea.org/category/technologie.html">Voir plus de Technologie</a></li>
+            </ul>
+        </section>
 
 </body>
 </html>

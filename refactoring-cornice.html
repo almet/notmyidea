@@ -70,7 +70,7 @@ this was via an extensive use of decorators&nbsp;internally.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="nf">api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">view_kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;This method is a decorator that is being used by some alias</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This method is a decorator that is being used by some alias</span>
 <span class="sd">        methods.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
@@ -90,7 +90,7 @@ this was via an extensive use of decorators&nbsp;internally.</p>
         <span class="k">return</span> <span class="n">wrapper</span>
 
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;A shortcut of the api decorator&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A shortcut of the api decorator&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="p">(</span><span class="n">request_method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 
@@ -156,13 +156,13 @@ touching the <span class="caps">API</span> that&nbsp;much.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span> <span class="nf">get_arguments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns a dict of arguments. It does all the conversions for</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a dict of arguments. It does all the conversions for</span>
 <span class="sd">        you, and uses the information that were defined at the instance</span>
 <span class="sd">        level as fallbacks.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">add_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Add a view to this service.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a view to this service.&quot;&quot;&quot;</span>
         <span class="c1"># this is really simple and looks a lot like this</span>
         <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">definitions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">args</span><span class="p">))</span>
@@ -170,7 +170,7 @@ touching the <span class="caps">API</span> that&nbsp;much.</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">defined_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;This is only another interface to the add_view method, exposing a</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is only another interface to the add_view method, exposing a</span>
 <span class="sd">    decorator interface&quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">view</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_view</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

@@ -55,30 +55,30 @@ the&nbsp;server.</p>
 <p>That&#8217;s a simple thing in fact, but it could be good to have something
 that will work without effort over&nbsp;time.</p>
 <p>Here&#8217;s a sample of my&nbsp;configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">server_name</span><span class="w"> </span><span class="err">ndd</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="err">set</span><span class="w"> </span><span class="err">$path</span><span class="w"> </span><span class="err">/path/to/your/files</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="err">root</span><span class="w">   </span><span class="err">$path</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">server_name</span><span class="w"> </span><span class="err">ndd</span><span class="p">;</span>
+<span class="w">    </span><span class="err">set</span><span class="w"> </span><span class="err">$path</span><span class="w"> </span><span class="err">/path/to/your/files</span><span class="p">;</span>
+<span class="w">    </span><span class="err">root</span><span class="w">   </span><span class="err">$path</span><span class="p">;</span>
 
-<span class="w">    </span><span class="err">location</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">index</span><span class="w">  </span><span class="err">index.php</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="err">location</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="err">index</span><span class="w">  </span><span class="err">index.php</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nt">location</span><span class="w"> </span><span class="o">~*</span><span class="w"> </span><span class="o">^.+.(</span><span class="nt">jpg</span><span class="o">|</span><span class="nt">jpeg</span><span class="o">|</span><span class="nt">gif</span><span class="o">|</span><span class="nt">css</span><span class="o">|</span><span class="nt">png</span><span class="o">|</span><span class="nt">js</span><span class="o">|</span><span class="nt">ico</span><span class="o">|</span><span class="nt">xml</span><span class="o">)$</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="err">access_log</span><span class="w">        </span><span class="err">off</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="err">expires</span><span class="w">           </span><span class="err">30d</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">location</span><span class="w"> </span><span class="o">~*</span><span class="w"> </span><span class="o">^.+.(</span><span class="nt">jpg</span><span class="o">|</span><span class="nt">jpeg</span><span class="o">|</span><span class="nt">gif</span><span class="o">|</span><span class="nt">css</span><span class="o">|</span><span class="nt">png</span><span class="o">|</span><span class="nt">js</span><span class="o">|</span><span class="nt">ico</span><span class="o">|</span><span class="nt">xml</span><span class="o">)$</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="err">access_log</span><span class="w">        </span><span class="err">off</span><span class="p">;</span>
+<span class="w">      </span><span class="err">expires</span><span class="w">           </span><span class="err">30d</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nt">location</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="p">.</span><span class="nc">php</span><span class="o">$</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">fastcgi_param</span><span class="w">  </span><span class="err">SCRIPT_FILENAME</span><span class="w">  </span><span class="err">$path$fastcgi_script_name</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="err">fastcgi_pass</span><span class="w">   </span><span class="err">backend</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="err">include</span><span class="w"> </span><span class="err">fastcgi_params</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">location</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="p">.</span><span class="nc">php</span><span class="o">$</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="err">fastcgi_param</span><span class="w">  </span><span class="err">SCRIPT_FILENAME</span><span class="w">  </span><span class="err">$path$fastcgi_script_name</span><span class="p">;</span>
+<span class="w">        </span><span class="err">fastcgi_pass</span><span class="w">   </span><span class="err">backend</span><span class="p">;</span>
+<span class="w">        </span><span class="err">include</span><span class="w"> </span><span class="err">fastcgi_params</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="err">}</span>
 
-<span class="nt">upstream</span><span class="w"> </span><span class="nt">backend</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">server</span><span class="w"> </span><span class="err">127.0.0.1:9000</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="nt">upstream</span><span class="w"> </span><span class="nt">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="err">server</span><span class="w"> </span><span class="err">127.0.0.1:9000</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>And that&#8217;s it&nbsp;!</p>

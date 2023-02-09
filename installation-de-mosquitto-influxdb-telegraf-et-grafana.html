@@ -42,12 +42,12 @@
 <p>Dans notre cas, on est passé par un <span class="caps">VPS</span> chez <span class="caps">OVH</span>, qui tourne sous <a href="https://www.debian.org/">Debian 11</a>, qui a le mérite d&#8217;être une distribution Linux stable, reconnue et (relativement) simple à&nbsp;utiliser.</p>
 <p>Dans un terminal, vous pouvez vous connecter en utilisant la ligne de commande suivante&nbsp;:</p>
 <p><em>Les lignes suivantes sont des lignes d&#8217;invite de commande, on les rencontre assez souvent dans les documentations sur le web. Le signe <code>$</code> signifie le début de la ligne de commande. Le signe <code>#</code> signifie le début des&nbsp;commentaires.</em></p>
-<div class="highlight"><pre><span></span><code>$ ssh utilisateur@adresseip
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>utilisateur@adresseip
 </code></pre></div>
 
 <p>Une fois connecté, on va mettre à jour les logiciels qui sont présents sur le&nbsp;serveur. </p>
-<div class="highlight"><pre><span></span><code>$ sudo apt update <span class="c1"># mise à jour des dépôts (la liste des logiciels).</span>
-$ sudo apt upgrade <span class="c1"># mise à jour des logiciels.</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="c1"># mise à jour des dépôts (la liste des logiciels).</span>
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span><span class="c1"># mise à jour des logiciels.</span>
 </code></pre></div>
 
 <h2 id="configurer-les-dns">Configurer les <span class="caps">DNS</span></h2>
@@ -59,15 +59,15 @@ $ sudo apt upgrade <span class="c1"># mise à jour des logiciels.</span>
 <p>Pour faire ça, chez <span class="caps">OVH</span> ça se passe dans la console de « <span class="caps">OVH</span> Cloud », direction « Noms de domaines », et puis il faut rajouter deux enregistrements de type « A » qui pointent vers l&#8217;adresse <span class="caps">IP</span> du&nbsp;serveur.</p>
 <p>En temps normal, l&#8217;adresse <span class="caps">IP</span> vous est fournie par <span class="caps">OVH</span>. Si vous avez un doute, vous pouvez l&#8217;obtenir depuis le serveur avec la commande <code>ip a</code>.</p>
 <h2 id="installer-mosquitto">Installer&nbsp;Mosquitto</h2>
-<div class="highlight"><pre><span></span><code>$ sudo apt install mosquitto <span class="c1"># installation depuis les dépots officiels</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mosquitto<span class="w"> </span><span class="c1"># installation depuis les dépots officiels</span>
 </code></pre></div>
 
 <p>Une fois installé, <a href="https://mosquitto.org/documentation/authentication-methods/">il faut sécuriser l&#8217;installation avec un utilisateur et un mot de passe</a>.</p>
-<div class="highlight"><pre><span></span><code>$ sudo mosquitto_passwd -c /etc/mosquitto/passwd &lt;username&gt;
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mosquitto_passwd<span class="w"> </span>-c<span class="w"> </span>/etc/mosquitto/passwd<span class="w"> </span>&lt;username&gt;
 </code></pre></div>
 
 <p>Ensuite dans le fichier de configuration il faut spécifier où est le fichier qui contient les mots de passe. Pour éditer je recommande l&#8217;utilisation de l&#8217;éditeur de texte <code>nano</code>. </p>
-<div class="highlight"><pre><span></span><code>$ sudo nano /etc/mosquitto/mosquitto.conf
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/mosquitto/mosquitto.conf
 </code></pre></div>
 
 <p>Voici les lignes à rajouter&nbsp;:</p>
@@ -76,33 +76,33 @@ password_file /etc/mosquitto/passwd
 </code></pre></div>
 
 <p>Puis il faut relancer le service mosquitto&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl restart mosquitto
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mosquitto
 </code></pre></div>
 
 <p>Avant de pouvoir utiliser mosquitto, il faut <a href="https://docs.ovh.com/gb/en/dedicated/firewall-network/">régler le firewall</a> de chez <span class="caps">OVH</span> pour qu&#8217;il accepte de laisser passer les messages pour le broker <span class="caps">MQTT</span>.</p>
 <p>Il faut ajouter une règle dans le Firewall qui laisse passer toutes les connections <span class="caps">TCP</span>, avec l&#8217;option « établie&nbsp;».</p>
 <h3 id="verifions-que-tout-fonctionne-comme-prevu">Vérifions que tout fonctionne comme prévu&nbsp;:</h3>
 <p>Dans une console,&nbsp;écoutons…</p>
-<div class="highlight"><pre><span></span><code>$ mosquitto_sub -h mosquitto.ndd.tld -p <span class="m">1883</span> -u &lt;username&gt; -P &lt;password&gt; -t topic
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mosquitto_sub<span class="w"> </span>-h<span class="w"> </span>mosquitto.ndd.tld<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w"> </span>-u<span class="w"> </span>&lt;username&gt;<span class="w"> </span>-P<span class="w"> </span>&lt;password&gt;<span class="w"> </span>-t<span class="w"> </span>topic
 </code></pre></div>
 
 <p>Et dans une autre envoyons un message&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>$ mosquitto_pub -h mosquitto.ndd.tld -p <span class="m">1883</span> -u &lt;username&gt; -P &lt;password&gt; -t topic -m <span class="m">30</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mosquitto_pub<span class="w"> </span>-h<span class="w"> </span>mosquitto.ndd.tld<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w"> </span>-u<span class="w"> </span>&lt;username&gt;<span class="w"> </span>-P<span class="w"> </span>&lt;password&gt;<span class="w"> </span>-t<span class="w"> </span>topic<span class="w"> </span>-m<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
 
 <p>Vous deviez voir « 30 » apparaitre dans la première console. Si c&#8217;est bon, tout fonctionne&nbsp;!</p>
 <h2 id="installation-dinfluxdb-et-telegraf">Installation d&#8217;InfluxDB et&nbsp;Telegraf</h2>
 <p>Coup de bol, InfluxDB propose directement des packets pour Debian, sur leur dépot, qu&#8217;il faut donc ajouter en suivant ces quelques lignes&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install -y gnupg2 curl wget
-wget -qO- https://repos.influxdata.com/influxdb.key <span class="p">|</span> sudo apt-key add -
-<span class="nb">echo</span> <span class="s2">&quot;deb https://repos.influxdata.com/debian </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/influxdb.list
-sudo apt update
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gnupg2<span class="w"> </span>curl<span class="w"> </span>wget
+wget<span class="w"> </span>-qO-<span class="w"> </span>https://repos.influxdata.com/influxdb.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb https://repos.influxdata.com/debian </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/influxdb.list
+sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 
 <p>Puis <code>sudo apt install influxdb telegraf</code> pour&nbsp;l&#8217;installer.</p>
 <p>Ensuite, vous pouvez le lancer maintenant et indiquer au système de le lancer tout seul au démarrage&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> --now influxdb
-$ sudo systemctl <span class="nb">enable</span> --now telegraf
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>influxdb
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>telegraf
 </code></pre></div>
 
 <h3 id="configuration-de-telegraf">Configuration de&nbsp;Telegraf</h3>
@@ -115,46 +115,46 @@ $ sudo systemctl <span class="nb">enable</span> --now telegraf
 <li>/<span class="caps">GPS</span>,&nbsp;string</li>
 </ul>
 <p>Voici un fichier de configuration, qui reste à modifier en fonction des&nbsp;données.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[global_tags]</span><span class="w"></span>
-<span class="k">[agent]</span><span class="w"></span>
-<span class="w">  </span><span class="na">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">round_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
-<span class="w">  </span><span class="na">metric_batch_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1000</span><span class="w"></span>
-<span class="w">  </span><span class="na">metric_buffer_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10000</span><span class="w"></span>
-<span class="w">  </span><span class="na">collection_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">flush_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">flush_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="na">omit_hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[global_tags]</span>
+<span class="k">[agent]</span>
+<span class="w">  </span><span class="na">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span>
+<span class="w">  </span><span class="na">round_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="w">  </span><span class="na">metric_batch_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1000</span>
+<span class="w">  </span><span class="na">metric_buffer_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10000</span>
+<span class="w">  </span><span class="na">collection_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span>
+<span class="w">  </span><span class="na">flush_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10s&quot;</span>
+<span class="w">  </span><span class="na">flush_jitter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span>
+<span class="w">  </span><span class="na">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0s&quot;</span>
+<span class="w">  </span><span class="na">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="na">omit_hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
 
-<span class="k">[[outputs.influxdb]]</span><span class="w"></span>
-<span class="w">  </span><span class="na">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;http://127.0.0.1:8086&quot;]</span><span class="w"></span>
-<span class="w">  </span><span class="na">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;telegraf&quot;</span><span class="w"></span>
+<span class="k">[[outputs.influxdb]]</span>
+<span class="w">  </span><span class="na">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;http://127.0.0.1:8086&quot;]</span>
+<span class="w">  </span><span class="na">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;telegraf&quot;</span>
 
-<span class="k">[[inputs.mqtt_consumer]]</span><span class="w"></span>
-<span class="w">    </span><span class="na">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;tcp://127.0.0.1:1883&quot;]</span><span class="w"></span>
-<span class="w">    </span><span class="na">name_override</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mqtt_consumer_float&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="na">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[</span><span class="w"></span>
-<span class="w">     </span><span class="na">&quot;Topic/BatVoltage&quot;,</span><span class="w"></span>
-<span class="w">     </span><span class="na">&quot;Topic/Temperature&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="na">]</span><span class="w"></span>
-<span class="w">    </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;username&gt;&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;password&gt;&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="na">data_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="na">data_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;integer&quot;</span><span class="w"></span>
+<span class="k">[[inputs.mqtt_consumer]]</span>
+<span class="w">    </span><span class="na">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;tcp://127.0.0.1:1883&quot;]</span>
+<span class="w">    </span><span class="na">name_override</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mqtt_consumer_float&quot;</span>
+<span class="w">    </span><span class="na">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[</span>
+<span class="w">     </span><span class="na">&quot;Topic/BatVoltage&quot;,</span>
+<span class="w">     </span><span class="na">&quot;Topic/Temperature&quot;,</span>
+<span class="w">    </span><span class="na">]</span>
+<span class="w">    </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;username&gt;&quot;</span>
+<span class="w">    </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;password&gt;&quot;</span>
+<span class="w">    </span><span class="na">data_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;value&quot;</span>
+<span class="w">    </span><span class="na">data_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;integer&quot;</span>
 </code></pre></div>
 
 <h2 id="installation-de-grafana">Installation de&nbsp;Grafana</h2>
-<div class="highlight"><pre><span></span><code>sudo apt-get install -y apt-transport-https
-sudo apt-get install -y software-properties-common wget
-sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
-<span class="nb">echo</span> <span class="s2">&quot;deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/oss/deb stable main&quot;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/grafana.list
-sudo apt update
-sudo apt-get install grafana
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl <span class="nb">enable</span> grafana-server
-sudo /bin/systemctl start grafana-server
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>apt-transport-https
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>software-properties-common<span class="w"> </span>wget
+sudo<span class="w"> </span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>/usr/share/keyrings/grafana.key<span class="w"> </span>https://packages.grafana.com/gpg.key
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/oss/deb stable main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/apt/sources.list.d/grafana.list
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>grafana
+sudo<span class="w"> </span>/bin/systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>/bin/systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>grafana-server
+sudo<span class="w"> </span>/bin/systemctl<span class="w"> </span>start<span class="w"> </span>grafana-server
 </code></pre></div>
 
 <h3 id="nginx">Nginx</h3>
@@ -162,35 +162,35 @@ sudo /bin/systemctl start grafana-server
 </code></pre></div>
 
 <p>Puis il faut créer un fichier de configuration dans <code>/etc/nginx/sites-enabled/graphs.ndd.tld</code> avec le contenu suivant&nbsp;:</p>
-<div class="highlight"><pre><span></span><code><span class="k">map</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kn">default</span><span class="w"> </span><span class="s">upgrade</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kn">&#39;&#39;</span><span class="w"> </span><span class="s">close</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">map</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kn">default</span><span class="w"> </span><span class="s">upgrade</span><span class="p">;</span>
+<span class="w">  </span><span class="kn">&#39;&#39;</span><span class="w"> </span><span class="s">close</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="k">upstream</span><span class="w"> </span><span class="s">grafana</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kn">server</span><span class="w"> </span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">grafana</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kn">server</span><span class="w"> </span><span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kn">server_name</span><span class="w"> </span><span class="s">graphs.ndd.tld</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kn">root</span><span class="w"> </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span><span class="w"></span>
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">  </span><span class="kn">server_name</span><span class="w"> </span><span class="s">graphs.ndd.tld</span><span class="p">;</span>
+<span class="w">  </span><span class="kn">root</span><span class="w"> </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+<span class="w">  </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="c1"># Proxy Grafana Live WebSocket connections.</span>
-<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/live/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/live/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="nv">$connection_upgrade</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$http_host</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://grafana</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Une fois ces fichiers de configuration en place, il faut penser à la mise en place du <span class="caps">SSL</span> qui permet d&#8217;avoir une connexion sécurisée&nbsp;(https).</p>

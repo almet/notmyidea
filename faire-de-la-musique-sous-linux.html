@@ -37,12 +37,12 @@
 <h3 id="configuration-du-noyau-linux">Configuration du noyau&nbsp;Linux</h3>
 <p>Ça me paraissait compliqué, et pourtant c&#8217;était très simple ! J&#8217;ai utilisé le noyau « linux-zen » avec quelques options spécifiques « threadirqs » et le mode « performance » pour les&nbsp;processeurs.</p>
 <p>J&#8217;ai du installer un paquet logiciel pour avoir des privilèges « temps réel » indispensable pour l&#8217;audio : sans ça le plugin <span class="caps">VST</span> « Kontakt » plantait directement au&nbsp;lancement.</p>
-<div class="highlight"><pre><span></span><code>sudo pacman -S realtime-privileges
-sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> realtime
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>realtime-privileges
+sudo<span class="w"> </span>gpasswd<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span>realtime
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>yay linux-zen
-yay rtirq
+<div class="highlight"><pre><span></span><code>yay<span class="w"> </span>linux-zen
+yay<span class="w"> </span>rtirq
 </code></pre></div>
 
 <p>Édition de <code>/etc/default/grub</code> pour utiliser threadirqs et passer le scheduling du processeur en « performance&nbsp;».</p>
@@ -50,13 +50,13 @@ yay rtirq
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="c1"># Regénérer la configuration de grub</span>
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub/grub.cfg
 
 <span class="c1"># S&#39;assurer que « fsync » soit bien utilisé par wine.</span>
-<span class="nb">echo</span> <span class="s2">&quot;export WINEFSYNC=1&quot;</span> &gt;&gt; ~/.profile
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export WINEFSYNC=1&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.profile
 
 <span class="c1"># Ajout au groupe audio</span>
-sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> realtime
+sudo<span class="w"> </span>gpasswd<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span>realtime
 </code></pre></div>
 
 <p>Le <span class="caps">DAW</span> <a href="https://www.bitwig.com/">Bitwig</a> que j&#8217;utilise n&#8217;est pas open source, mais tourne nativement sous Linux. Son installation sous Arch est vraiment on ne peut plus simple : <code>yay bitwig-studio</code>.</p>
@@ -65,20 +65,20 @@ sudo gpasswd -a <span class="s2">&quot;</span><span class="nv">$USER</span><span
 <p>Dans ce cas, il faut passer par le pont logiciel <a href="https://github.com/robbert-vdh/yabridge">yabridge</a> ainsi qu&#8217;une version récente de wine : <a href="https://github.com/Frogging-Family/wine-tkg-git/releases/">wine-tkg</a>.</p>
 <p>Pour installer yabridge, <code>yay yabridge-bin</code>.</p>
 <p>Installation de wine-tkg&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>wget https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.11.r4.g0dd44a25/wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
-sudo pacman -U wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/Frogging-Family/wine-tkg-git/releases/download/6.11.r4.g0dd44a25/wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
+sudo<span class="w"> </span>pacman<span class="w"> </span>-U<span class="w"> </span>wine-tkg-staging-fsync-git-6.11.r4.g0dd44a25-326-x86_64.pkg.tar.zst
 </code></pre></div>
 
 <h3 id="installation-dun-vst-kontakt">Installation d&#8217;un <span class="caps">VST</span>&nbsp;(Kontakt)</h3>
 <p>Ensuite, installez le <span class="caps">VST</span> dans wine&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>wine Kontakt<span class="se">\ </span><span class="m">6</span>.3.0<span class="se">\ </span>Setup<span class="se">\ </span>PC.exe
-<span class="nb">cd</span> patch
-wine Kontakt<span class="se">\_</span>patch<span class="se">\_</span>installer<span class="se">\_</span><span class="m">6</span><span class="se">\_</span>3_0.exe
+<div class="highlight"><pre><span></span><code>wine<span class="w"> </span>Kontakt<span class="se">\ </span><span class="m">6</span>.3.0<span class="se">\ </span>Setup<span class="se">\ </span>PC.exe
+<span class="nb">cd</span><span class="w"> </span>patch
+wine<span class="w"> </span>Kontakt<span class="se">\_</span>patch<span class="se">\_</span>installer<span class="se">\_</span><span class="m">6</span><span class="se">\_</span>3_0.exe
 </code></pre></div>
 
 <p>Spécifiez l&#8217;emplacement pour les <span class="caps">VST64</span> : <code>C:\Program Files\Steinberg\VstPlugins</code> (emplacement souvent utilisé pour les <span class="caps">VST2</span>), je ne sais pas pour quelle raison mais utiliser un emplacement classique peut résoudre des&nbsp;bugs.</p>
 <p>Une fois installé, vous pouvez ajouter le fichier qui contient vos VSTs dans yabridge&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>yabridgectl add <span class="s2">&quot;/home/alexis/.wine/drive_c/Program Files/Steinberg/VstPlugins&quot;</span>
+<div class="highlight"><pre><span></span><code>yabridgectl<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;/home/alexis/.wine/drive_c/Program Files/Steinberg/VstPlugins&quot;</span>
 </code></pre></div>
 
 <p>Puis faire <code>yabridgectl sync</code> qui va générer les .<code>so</code> (format Linux) à partir des <code>.dll</code> (format&nbsp;Windows).</p>
