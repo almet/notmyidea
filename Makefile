@@ -15,15 +15,11 @@ PELICAN=$(VENV)/bin/pelican
 PIP=$(VENV)/bin/pip
 GIT=/usr/bin/git
 
-DEBUG ?= 0
-ifeq ($(DEBUG), 1)
-	PELICANOPTS += -D
-endif
-
 install: $(INSTALL_STAMP)
 $(INSTALL_STAMP): $(PYTHON) requirements.txt
 	$(VENV)/bin/pip install -r requirements.txt
 	touch $(INSTALL_STAMP)
+	mkdir output
 
 virtualenv: $(PYTHON)
 $(PYTHON):
@@ -37,15 +33,11 @@ clean:
 	rm -rf $(VENV)
 
 serve: install
-ifdef PORT
-	cd $(OUTPUTDIR) && $(PYTHON) -m pelican.server $(PORT)
-else
-	cd $(OUTPUTDIR) && $(PYTHON) -m pelican.server 8000
-endif
+	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE)
 
 regenerate:
 	cd $(OUTPUTDIR) && $(PYTHON) -m pelican.server &
-	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 publish: install
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)

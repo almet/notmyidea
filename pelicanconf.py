@@ -5,14 +5,14 @@ AUTHOR = u""
 SITENAME = u"Alexis Métaireau"
 THEME = "mnmlist"
 DISQUS_SITENAME = "notmyidea"
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 3
 STATIC_PATHS = ["images", "docs"]
 
 SITEURL = ""
 RELATIVE_URLS = True
 
 TIMEZONE = "Europe/Paris"
-LOCALE = "fr_FR.utf8"
+LOCALE = "fr_FR"
 
 DEFAULT_DATE_FORMAT = "%d %B %Y"
 LINKS = []

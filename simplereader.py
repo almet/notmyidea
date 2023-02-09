@@ -60,9 +60,7 @@ class SimpleReader(MarkdownReader):
 
         # Get the date from the filename, if possible.
         parts = os.path.splitext(os.path.basename(source_path))[0].split("-")
-        if "read_on" in metadata:
-            metadata["date"] = datetime.strptime(metadata["read_on"], "%B %Y")
-        elif len(parts) >= 3:
+        if len(parts) > 3:
             metadata["date"] = get_date("-".join(parts[:3]))
 
         if "slug" not in metadata:
