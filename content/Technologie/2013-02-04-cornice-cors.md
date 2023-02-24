@@ -44,7 +44,7 @@ OPTIONS call.
 
 The server answers, and tell what is available and what isn't:
 
-![The CORS flow (from the HTML5 CORS tutorial)](images/cors_flow.png)
+![The CORS flow (from the HTML5 CORS tutorial)](Blog/output/images/cors_flow.png)
 
   - 1a. The User-Agent, rather than doing the call directly, asks the
     server, the API, the permission to do the request. It does so with

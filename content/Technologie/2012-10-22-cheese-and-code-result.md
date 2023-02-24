@@ -22,7 +22,7 @@ In case you wonder, daybed is effectively the name of a couch. We chose
 this name because of the similarities (in the sound) with **db**, and
 because we're using **CouchDB** as a backend.
 
-![Daybed is a big couch\!](images/daybed.jpg)
+![Daybed is a big couch\!](Blog/output/images/daybed.jpg)
 
 We mainly hacked on daybed and are pretty close to the release of the
 first version, meaning that we have something working.

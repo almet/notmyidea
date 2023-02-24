@@ -2,3 +2,4 @@ pelican
 markdown
 datefinder
 typogrify
+ghp-import
