@@ -3407,7 +3407,7 @@ request&amp;#8221;; just before doing a request to the &lt;span class="caps"&gt;
 browser most of the time) asks the permission to the resource, with an
 &lt;span class="caps"&gt;OPTIONS&lt;/span&gt;&amp;nbsp;call.&lt;/p&gt;
 &lt;p&gt;The server answers, and tell what is available and what&amp;nbsp;isn&amp;#8217;t:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="images/cors_flow.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="Blog/output/images/cors_flow.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;1a. The User-Agent, rather than doing the call directly, asks the
@@ -3609,7 +3609,7 @@ App Engine&lt;/em&gt;. Heureusement, c&amp;#8217;est open-source, et ça a été
 donner naissance à
 &lt;a href="https://github.com/bfirsh/whiskerboard"&gt;whiskerboard&lt;/a&gt; (la planche
 moustachue, pour les non&amp;nbsp;anglophones).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="images/status_board.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/status_board.png"&gt;&lt;/p&gt;
 &lt;h2 id="verifier-le-statut-des-services"&gt;Vérifier le statut des&amp;nbsp;services&lt;/h2&gt;
 &lt;p&gt;Donc, c&amp;#8217;est chouette, c&amp;#8217;est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m&amp;#8217;afficher le statut des services, mais ça ne vérifie pas que tout est bien&amp;nbsp;&amp;#8220;up&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;Bon, un peu embêtant pour moi, parce que c&amp;#8217;est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J&amp;#8217;ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: &lt;a href="https://github.com/almet/whiskerboard"&gt;https://github.com/almet/whiskerboard&lt;/a&gt;&amp;nbsp;.&lt;/p&gt;
@@ -3772,7 +3772,7 @@ and open&amp;nbsp;source.&lt;/p&gt;
 &lt;p&gt;In case you wonder, daybed is effectively the name of a couch. We chose
 this name because of the similarities (in the sound) with &lt;strong&gt;db&lt;/strong&gt;, and
 because we&amp;#8217;re using &lt;strong&gt;CouchDB&lt;/strong&gt; as a&amp;nbsp;backend.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="images/daybed.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="Blog/output/images/daybed.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;We mainly hacked on daybed and are pretty close to the release of the
 first version, meaning that we have something&amp;nbsp;working.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://github.com/spiral-project/daybed"&gt;The code&lt;/a&gt; is available on
@@ -4713,7 +4713,7 @@ features and provided feedback (thanks
 There is no need to register for an account or whatnot, just enter a
 project name, a secret code and a contact email, invite friends and
 that&amp;#8217;s it (this was inspired by&amp;nbsp;doodle)!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="images/ihatemoney.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/ihatemoney.png"&gt;&lt;/p&gt;
 &lt;p&gt;You can try the project at &lt;a href="http://ihatemoney.notmyidea.org"&gt;http://ihatemoney.notmyidea.org&lt;/a&gt; for now,
 and the code lives at &lt;a href="https://github.com/spiral-project/ihatemoney/"&gt;https://github.com/spiral-project/ihatemoney/&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="features"&gt;Features&lt;/h2&gt;

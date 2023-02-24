@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2022-08-29T00:00:00+02:00</updated><entry><title>Installation de Mosquitto, InfluxDB, Telegraf et Grafana</title><link href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="alternate"></link><published>2022-08-29T00:00:00+02:00</published><updated>2022-08-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-08-29:/installation-de-mosquitto-influxdb-telegraf-et-grafana.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-02-24T00:00:00+01:00</updated><entry><title>Tolérance, empathie et limites</title><link href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" rel="alternate"></link><published>2023-02-24T00:00:00+01:00</published><updated>2023-02-24T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-02-24:/tolerance-empathie-et-limites.html</id><summary type="html">
+&lt;p&gt;Suite à un message de Yannick sur mastodon, je me suis rendu compte que j&amp;#8217;avais une réaction que je ne comprennais pas. Son message&amp;nbsp;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dans la voiture bar d&amp;#8217;un train Paris -&amp;gt; Quimper ;&lt;br&gt;
+Ne pas entendre une blague du « barista » parce que je me suis écarté pour laisser passer …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
+&lt;p&gt;Suite à un message de Yannick sur mastodon, je me suis rendu compte que j&amp;#8217;avais une réaction que je ne comprennais pas. Son message&amp;nbsp;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dans la voiture bar d&amp;#8217;un train Paris -&amp;gt; Quimper ;&lt;br&gt;
+Ne pas entendre une blague du « barista » parce que je me suis écarté pour laisser passer un passager qui retournait en 1ere classe ;&lt;br&gt;
+Faire répéter le barista qui faisait une blague cynique sur la retraire ;&lt;br&gt;
+Réaliser que c&amp;#8217;est &lt;a href="https://fr.wikipedia.org/wiki/Michel-%C3%89douard_Leclerc"&gt;Michel Edouard Leclerc&lt;/a&gt; qui vient de passer ;&lt;br&gt;
+Se dire que j&amp;#8217;aurais aimé l&amp;#8217;entendre s&amp;#8217;exprimer sur les retraites &amp;#8230;
+— &lt;a href="https://framapiaf.org/@yaf/109916074251295047"&gt;Yannick François: &amp;#8220;Dans la voiture bar d&amp;#8217;un train…&amp;#8221; -&amp;nbsp;Framapiaf&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Auquel j&amp;#8217;ai répondu&amp;nbsp;que&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Je suis pas sur que tu aurais aimé l&amp;#8217;entendre&amp;nbsp;😧&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;J&amp;#8217;essaye d&amp;#8217;analyser pourquoi l&amp;#8217;idée me fait réagir et ce que ça vient chercher chez&amp;nbsp;moi.  &lt;/p&gt;
+&lt;p&gt;D&amp;#8217;un côté j&amp;#8217;ai une envie de justice : je veux confronter ces personnes au monde qu&amp;#8217;il créent et dont ils profitent, d&amp;#8217;un autre côté ça me fait&amp;nbsp;peur.  &lt;/p&gt;
+&lt;p&gt;Peur de deux choses&amp;nbsp;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;D&amp;#8217;avoir de l&amp;#8217;empathie pour eux&lt;/strong&gt; au moment ou je cherche à les écouter et à les&amp;nbsp;comprendre.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peur de ne pas réussir à les écouter&lt;/strong&gt; parce que je n&amp;#8217;arrive pas à m&amp;#8217;extraire de mon sentiment d&amp;#8217;impuissance et&amp;nbsp;d&amp;#8217;injustice.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Je lis bien ma contradiction ici, et je crois que ça cache que &lt;strong&gt;j&amp;#8217;ai peur de les comprendre&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Comme si les comprendre rajoutait au problème, comme si en les comprenant ça voulait dire que j&amp;#8217;étais d&amp;#8217;accord avec eux. Pourtant c&amp;#8217;est un des méchanismes que j&amp;#8217;aime le plus : discuter avec des gens avec qui on est en désaccord permet de mieux les comprendre, et donc d&amp;#8217;avoir une meilleure compréhension du&amp;nbsp;monde.&lt;/p&gt;
+&lt;p&gt;En fait, j&amp;#8217;ai peur que ma compréhension fasse évluer ma manière de penser : que leurs idées percolent, en les écoutant. Peur que mon monde vacille petit à petit. C&amp;#8217;est une peur que j&amp;#8217;ai aussi rencontrée par le passé, lors de discussions avec des personnes dont les propos me paraissaient dépasser les limites de ce qui est acceptable pour moi, parce qu&amp;#8217;elles font vivre des violences à&amp;nbsp;d&amp;#8217;autres.&lt;/p&gt;
+&lt;p&gt;Je me rends compte de ce que ça à d&amp;#8217;étrange : d&amp;#8217;un côté je veux une société libre, libertaire, une société où on écoute les points de vue des un·es et des autres avec bienveillance, où on décide ensemble; et de l&amp;#8217;autre côté je refuse des visions du monde qui ne sont pas les miennes. Mais où placer la limite&amp;nbsp;?&lt;/p&gt;
+&lt;p&gt;Il me semble que c&amp;#8217;est le paradoxe de la tolérance. Mais on peut aussi voir la tolérance comme un contrat social, ce qui revient à dire que pour être tolérant envers quelqu&amp;#8217;un·e; il faut que cette personne soit tolérante envers&amp;nbsp;nous.&lt;/p&gt;
+&lt;p&gt;Peut-on écouter sans tolérer ? Est-il possible / souhaitable d&amp;#8217;avoir une discussion avec des personnes intolérantes&amp;nbsp;?&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Installation de Mosquitto, InfluxDB, Telegraf et Grafana</title><link href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="alternate"></link><published>2022-08-29T00:00:00+02:00</published><updated>2022-08-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-08-29:/installation-de-mosquitto-influxdb-telegraf-et-grafana.html</id><summary type="html">
 &lt;p&gt;Récemment, on a m&amp;#8217;a demandé un petit coup de main pour aider à l&amp;#8217;installation d&amp;#8217;une pile logicielle qui permet de stocker des données temporelles et en faire des&amp;nbsp;graphiques.&lt;/p&gt;
 &lt;p&gt;Voici donc quelques notes prises durant l&amp;#8217;installation du système, concues pour que des personnes qui n&amp;#8217;y …&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;Récemment, on a m&amp;#8217;a demandé un petit coup de main pour aider à l&amp;#8217;installation d&amp;#8217;une pile logicielle qui permet de stocker des données temporelles et en faire des&amp;nbsp;graphiques.&lt;/p&gt;
@@ -4788,7 +4819,7 @@ request&amp;#8221;; just before doing a request to the &lt;span class="caps"&gt;
 browser most of the time) asks the permission to the resource, with an
 &lt;span class="caps"&gt;OPTIONS&lt;/span&gt;&amp;nbsp;call.&lt;/p&gt;
 &lt;p&gt;The server answers, and tell what is available and what&amp;nbsp;isn&amp;#8217;t:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="images/cors_flow.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="Blog/output/images/cors_flow.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;1a. The User-Agent, rather than doing the call directly, asks the
@@ -5065,7 +5096,7 @@ App Engine&lt;/em&gt;. Heureusement, c&amp;#8217;est open-source, et ça a été
 donner naissance à
 &lt;a href="https://github.com/bfirsh/whiskerboard"&gt;whiskerboard&lt;/a&gt; (la planche
 moustachue, pour les non&amp;nbsp;anglophones).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="images/status_board.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/status_board.png"&gt;&lt;/p&gt;
 &lt;h2 id="verifier-le-statut-des-services"&gt;Vérifier le statut des&amp;nbsp;services&lt;/h2&gt;
 &lt;p&gt;Donc, c&amp;#8217;est chouette, c&amp;#8217;est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m&amp;#8217;afficher le statut des services, mais ça ne vérifie pas que tout est bien&amp;nbsp;&amp;#8220;up&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;Bon, un peu embêtant pour moi, parce que c&amp;#8217;est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J&amp;#8217;ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: &lt;a href="https://github.com/almet/whiskerboard"&gt;https://github.com/almet/whiskerboard&lt;/a&gt;&amp;nbsp;.&lt;/p&gt;
@@ -5326,7 +5357,7 @@ and open&amp;nbsp;source.&lt;/p&gt;
 &lt;p&gt;In case you wonder, daybed is effectively the name of a couch. We chose
 this name because of the similarities (in the sound) with &lt;strong&gt;db&lt;/strong&gt;, and
 because we&amp;#8217;re using &lt;strong&gt;CouchDB&lt;/strong&gt; as a&amp;nbsp;backend.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="images/daybed.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="Blog/output/images/daybed.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;We mainly hacked on daybed and are pretty close to the release of the
 first version, meaning that we have something&amp;nbsp;working.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://github.com/spiral-project/daybed"&gt;The code&lt;/a&gt; is available on
@@ -5446,7 +5477,7 @@ milieu pour donner un petit goût amer et le tour est joué. Enfin&amp;nbsp;pres
 &lt;p&gt;Première étape: &lt;strong&gt;le concassage&lt;/strong&gt;. On avait 6kg d&amp;#8217;orge maltée à
 concasser (plus exactement 6kg de malt pâle &lt;em&gt;&lt;span class="caps"&gt;7EDC&lt;/span&gt;&lt;/em&gt; et 500g de malt cara
 &lt;em&gt;&lt;span class="caps"&gt;50EDC&lt;/span&gt;&lt;/em&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image de concassage." src="images/concassage.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image de concassage." src="Blog/output/images/concassage.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Attention, pas trop fin dis donc ! On ne veut pas de la poudre, on veut
 simplement permettre à l&amp;#8217;amidon de se dissoudre dans l&amp;#8217;eau. Si on
 concasse le malt trop fin, on se retrouve avec un dépôt dégeulasse au
@@ -5458,7 +5489,7 @@ long et fastidieux), On a utilisé… un moulin à malt ! Qui nous à permis
 de concasser les 6kg en 30 minutes (heureusement qu&amp;#8217;on était trois pour
 se relayer sur le moulin, parce que nos petits muscles fatiguaient assez
 vite; vous pouvez envisager de faire ça tout seul si vous êtes un&amp;nbsp;tennisman).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="C'est dur !" src="images/concasse.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="C'est dur !" src="Blog/output/images/concasse.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;La seconde étape, &lt;strong&gt;l&amp;#8217;empatage&lt;/strong&gt;. Il s&amp;#8217;agit de faire chauffer notre orge
 maltée à différentes températures. Les fois précédentes, on avait
 utilisé plusieurs paliers de température, mais il semble que ça ne soit
@@ -5469,7 +5500,7 @@ erreur sur la route, on à eu peur de la contamination bactérienne et on
 bactéries s&amp;#8217;enfuient en courant. Je dis erreur parce que ça nous à pris
 pas loin de 3h30, inertie quand tu nous&amp;nbsp;tiens!&lt;/p&gt;
 &lt;p&gt;On se rends compte de la taille de la marmite un peu&amp;nbsp;là:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Une grosse marmite" src="images/marmite.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Une grosse marmite" src="Blog/output/images/marmite.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Une fois l&amp;#8217;eau à température (54°C), il faut ajouter le malt et le
 laisser durant 30mn à cette température, puis augmenter jusqu&amp;#8217;à 65°C
 durant&amp;nbsp;1h.&lt;/p&gt;
@@ -5479,7 +5510,7 @@ l&amp;#8217;amidon qui s&amp;#8217;est dissout dans l&amp;#8217;eau et de mettre
 On a utilisé 10L d&amp;#8217;eau de rinçage qu&amp;#8217;on a fait chauffer à 78°C, en
 comptant sur le fait qu&amp;#8217;elle perdra de sa température (20°C à peu près)
 en étant utilisée. On a filtré deux fois pour être sûr de ne rien&amp;nbsp;perdre.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Filtrage filtrage..." src="images/filtrage.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Filtrage filtrage..." src="Blog/output/images/filtrage.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;L&amp;#8217;étape d&amp;#8217;après (la quatrième, vous suivez), c&amp;#8217;est &lt;strong&gt;le houblonnage&lt;/strong&gt;.
 On va faire infuser notre &amp;#8220;solution aqueuse&amp;#8221; (wouah, on dirait de la
 chimie !) avec du houblon. Il faut porter l&amp;#8217;eau à ébullition et laisser
@@ -5488,11 +5519,11 @@ faire durant&amp;nbsp;1h.&lt;/p&gt;
 comme ça, mais en fait ça ne l&amp;#8217;est pas tant que ça: il faut réussir à
 passer notre liquide qui était en ébullition à 54°C en un temps
 acceptable. Pour ça, on a utilisé un serpentin confectionné&amp;nbsp;main.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Notre refroidisseur fait main par Fred." src="images/refroidisseur.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Notre refroidisseur fait main par Fred." src="Blog/output/images/refroidisseur.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Ça nous a permis de passer de 100°C à 54°C en… 35 minutes quand même !
 (Nous avions essayé les fois précédentes de gérer ça à coup de baignoire
 et de glaçons, les temps n&amp;#8217;étaient absolument pas au&amp;nbsp;rendez-vous).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Décidement pas." src="images/refroidissement.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Décidement pas." src="Blog/output/images/refroidissement.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Je disais dernière étape, mais il ne faut pas oublier de rajouter les
 levures, qui elles vont faire tout le travail et transformer tout ça en…
 alcool ! Dans notre cas, on ajoute aussi dans la cuve de fermentation
@@ -6957,7 +6988,7 @@ features and provided feedback (thanks
 There is no need to register for an account or whatnot, just enter a
 project name, a secret code and a contact email, invite friends and
 that&amp;#8217;s it (this was inspired by&amp;nbsp;doodle)!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="images/ihatemoney.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/ihatemoney.png"&gt;&lt;/p&gt;
 &lt;p&gt;You can try the project at &lt;a href="http://ihatemoney.notmyidea.org"&gt;http://ihatemoney.notmyidea.org&lt;/a&gt; for now,
 and the code lives at &lt;a href="https://github.com/spiral-project/ihatemoney/"&gt;https://github.com/spiral-project/ihatemoney/&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="features"&gt;Features&lt;/h2&gt;
