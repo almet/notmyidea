@@ -16,6 +16,11 @@
         </section>
 <h1></h1>
             <section class="section index">
+                <time datetime="2023-04-23T00:00:00+02:00">23 avril 2023</time>
+                <h1><a href="https://blog.notmyidea.org/mediter.html" id="page-title">Méditer</a></h1>
+                Depuis environ un mois, je me suis mis à des séances quotidiennes de méditation. Je n’avais jamais fait ça auparavant, et je dois avouer que je partais un peu sceptique. Traversant une période...
+            </section>
+            <section class="section index">
                 <time datetime="2023-02-25T00:00:00+01:00">25 février 2023</time>
                 <h1><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" id="page-title">Séparation travail et&nbsp;loisirs</a></h1>
                 Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps libre. Les trucs « conviviaux » des boites « cool...
@@ -25,17 +30,13 @@
                 <h1><a href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" id="page-title">Tolérance, empathie et&nbsp;limites</a></h1>
                 Hier, je lis un message de Yannick sur mastodon, et je me rends compte qu’il génére une réaction nouvelle chez moi, que je ne comprends pas vraiment. Son message : Dans la voiture bar d’un train...
             </section>
-            <section class="section index">
-                <time datetime="2022-08-29T00:00:00+02:00">29 août 2022</time>
-                <h1><a href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" id="page-title">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</a></h1>
-                Récemment, on a m’a demandé un petit coup de main pour aider à l’installation d’une pile logicielle qui permet de stocker des données temporelles et en faire des graphiques. Voici donc quelques...
-            </section>
         <section>
             <h1>
             📔
             Journal
             </h1>
             <ul>
+                        <li><a href="https://blog.notmyidea.org/mediter.html" rel="bookmark" title="Permalink to Méditer">Méditer</a></li>
                         <li><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="bookmark" title="Permalink to Séparation travail et loisirs">Séparation travail et&nbsp;loisirs</a></li>
                         <li><a href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" rel="bookmark" title="Permalink to Tolérance, empathie et limites">Tolérance, empathie et&nbsp;limites</a></li>
                         <li><a href="https://blog.notmyidea.org/reveil-difficile.html" rel="bookmark" title="Permalink to Réveil difficile">Réveil&nbsp;difficile</a></li>
@@ -45,7 +46,6 @@
                         <li><a href="https://blog.notmyidea.org/cooperation-et-travail.html" rel="bookmark" title="Permalink to Coopération et travail">Coopération et&nbsp;travail</a></li>
                         <li><a href="https://blog.notmyidea.org/rentree.html" rel="bookmark" title="Permalink to Rentrée">Rentrée</a></li>
                         <li><a href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="bookmark" title="Permalink to Faire de la musique sous Linux">Faire de la musique sous&nbsp;Linux</a></li>
-                        <li><a href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="bookmark" title="Permalink to Vaccination et risques">Vaccination et&nbsp;risques</a></li>
                         <li><a href="https://blog.notmyidea.org/category/journal.html">Voir plus de Journal</a></li>
             </ul>
         </section>
