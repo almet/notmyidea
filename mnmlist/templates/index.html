@@ -2,42 +2,21 @@
 {% block content %}
 <h1>{% block pagetitle %}{% endblock %}</h1>
 {% if articles %}
-    {% for article in articles[0:3] %}
-            <section class="section index">
-                {% if not HIDE_DATE %}
-                <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-                {% endif %}
-                <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
-                {{ article.content|striptags|truncate(200) }}
-            </section>
+{% for article in articles[0:10] %}
+<section class="section index">
+    {% if not HIDE_DATE %}
+    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+    {% endif %}
+    <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
+    {{ article.content|striptags|truncate(200) }}
+</section>
+{% endfor %}
+<ul>
+    {% for article in articles[10:] %}
+    <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{
+            article.title }}</a></li>
     {% endfor %}
-    {% for category, items in articles | groupby("category") %}
-        <section>
-            <h1>
-            {% if category == "Lectures" %}
-            📖
-            {% elif category == "Notes" %}
-            📝
-            {% elif category == "Technologie" %}
-            💻
-            {% elif category == "Journal" %}
-            📔
-            {% endif %}
-            {{ category }}
-            </h1>
-            <ul>
-                {% for article in items %}
-                    {% if loop.index <= 10%}
-                        <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></li>
-                    {% endif %}
-                    {% if loop.last %}
-                        <li><a href="{{ SITEURL }}/{{ article.category.url }}">Voir plus de {{ category }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </section>
-    {% endfor %}
-{% else %}
-    No posts found.
+</ul>
+</section>
 {% endif %}
 {% endblock content %}
