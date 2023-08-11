@@ -1,76 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-04-23T00:00:00+02:00</updated><entry><title>Méditer</title><link href="https://blog.notmyidea.org/mediter.html" rel="alternate"></link><published>2023-04-23T00:00:00+02:00</published><updated>2023-04-23T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-04-23:/mediter.html</id><summary type="html">
-&lt;p&gt;Depuis environ un mois, je me suis mis à des séances quotidiennes de méditation. Je n&amp;#8217;avais jamais fait ça auparavant, et je dois avouer que je partais un peu sceptique. Traversant une période difficile, j&amp;#8217;étais vraiment en recherche d&amp;#8217;outils pour m&amp;#8217;aider à cadrer mes&amp;nbsp;émotions.&lt;/p&gt;
-&lt;p&gt;Je …&lt;/p&gt;</summary><content type="html">
-&lt;p&gt;Depuis environ un mois, je me suis mis à des séances quotidiennes de méditation. Je n&amp;#8217;avais jamais fait ça auparavant, et je dois avouer que je partais un peu sceptique. Traversant une période difficile, j&amp;#8217;étais vraiment en recherche d&amp;#8217;outils pour m&amp;#8217;aider à cadrer mes&amp;nbsp;émotions.&lt;/p&gt;
-&lt;p&gt;Je n&amp;#8217;ai absolument pas été déçu. Je fais 30 mn de méditation par jour, et ce que je pensais être une contrainte est en fait devenu un plaisir, une vraie&amp;nbsp;ressource.&lt;/p&gt;
-&lt;p&gt;Après une scéance, je me sens plus calme, centré sur moi-même, moins en prise avec mes émotions. La méditation m&amp;#8217;offre un endroit où je ne suis pas en train de réfléchir. Je vois les pensées se former, et je contrôle la place que je leur&amp;nbsp;donne.&lt;/p&gt;
-&lt;p&gt;Je médite sans être guidé. L&amp;#8217;idée pour moi est de me créer un moment de bulle durant laquelle je ne suis pas dérangé, et dont l&amp;#8217;objectif est de ne pas donner trop d&amp;#8217;importance à mes&amp;nbsp;pensées. &lt;/p&gt;
-&lt;p&gt;Voici comment je procède&amp;nbsp;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Je me mets une ambiance sonore&lt;/strong&gt;, ça m&amp;#8217;aide à me concentrer (détails plus&amp;nbsp;loin).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Je mets tous mes appareils en silencieux&lt;/strong&gt; pour ne pas être&amp;nbsp;dérangé.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Je me mets dans un endroit où je me sens bien&lt;/strong&gt; et je me couvre d&amp;#8217;une&amp;nbsp;couverture&lt;/li&gt;
-&lt;li&gt;C&amp;#8217;est parti&amp;nbsp;!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="ce-que-je-fais"&gt;Ce que je&amp;nbsp;fais&lt;/h2&gt;
-&lt;p&gt;En fin de compte, c&amp;#8217;est assez simple : j&amp;#8217;essaye de ne pas penser, ou plutôt, d&amp;#8217;accepter mes pensées sans leur donner trop d&amp;#8217;importance, et sans les minimiser. Récemment, je visualise mes pensées comme une sorte de flux, et la méditation est un moyen de m&amp;#8217;en extraire temporairement. C&amp;#8217;est une image que j&amp;#8217;ai en tête quand je médite, je m&amp;#8217;imagine au bord de la rivière de mes idées, et je les vois défiler, parfois certaines m&amp;#8217;emportent avec elles, j&amp;#8217;essaye de le voir et de m&amp;#8217;en&amp;nbsp;extraire.&lt;/p&gt;
-&lt;p&gt;Parfois, je compte mes inspirations, avec l&amp;#8217;envie de ne pas me laisser emporter pas les pensées qui arrivent. Au bout d&amp;#8217;un moment, j&amp;#8217;ai l&amp;#8217;impression de réussir à mettre mon cerveau en&amp;nbsp;pause.&lt;/p&gt;
-&lt;p&gt;Ça ressemble pour moi à ce qui se passe quand je fais une sieste : à un moment mon cerveau décroche et m&amp;#8217;envoie une sorte de choc de plaisir. La méditation me fait le même effet, mais il est possible d&amp;#8217;étendre ce moment de&amp;nbsp;plaisir.&lt;/p&gt;
-&lt;p&gt;Parfois, même, je souris&amp;nbsp;!&lt;/p&gt;
-&lt;h2 id="ambiance-sonore"&gt;Ambiance&amp;nbsp;sonore&lt;/h2&gt;
-&lt;p&gt;J&amp;#8217;utilise le site &lt;a href="https://mynoise.net/NoiseMachines/primevalEuropeanForestSoundscapeGenerator.php"&gt;myNoise&lt;/a&gt; qui propose des générateurs qui fonctionnent bien pour moi (on peut venir modifier les niveaux sonores de chaque son). J&amp;#8217;aime bien ce site parce qu&amp;#8217;il regorge de sons, et qu&amp;#8217;il est possible de faire varier d&amp;#8217;un jour sur l&amp;#8217;autre le cadre sonore de la&amp;nbsp;méditation.&lt;/p&gt;
-&lt;p&gt;Je me mets un timer sur le site, avec un « gong » toutes les 10mn, et un &lt;em&gt;fade-out&lt;/em&gt; au bout de&amp;nbsp;30mn.&lt;/p&gt;
-&lt;p&gt;En voici quelques-uns qui fonctionnent bien pour moi&amp;nbsp;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://mynoise.net/NoiseMachines/primevalEuropeanForestSoundscapeGenerator.php"&gt;Les sons de forêt primaire&lt;/a&gt; que j&amp;#8217;oublie en fait assez&amp;nbsp;rapidement.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://mynoise.net/NoiseMachines/singingBowlsDroneGenerator.php"&gt;Singing Bowls&lt;/a&gt; (en supprimant certains sons qui font trop « cloche&amp;nbsp;»)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://mynoise.net/NoiseMachines/deepVoiceSoundscape.php"&gt;Harmoniques et&amp;nbsp;voix&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Journal"></category></entry><entry><title>Séparation travail et loisirs</title><link href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="alternate"></link><published>2023-02-25T00:00:00+01:00</published><updated>2023-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-02-25:/separation-travail-et-loisirs.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Journal</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/journal.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-02-25T00:00:00+01:00</updated><entry><title>Séparation travail et loisirs</title><link href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="alternate"></link><published>2023-02-25T00:00:00+01:00</published><updated>2023-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-02-25:/separation-travail-et-loisirs.html</id><summary type="html">
 &lt;blockquote&gt;
-&lt;p&gt;Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps&amp;nbsp;libre.&lt;/p&gt;
-&lt;p&gt;Les trucs « conviviaux » des boites « cool », c’est un moyen très calculé de brouiller la perception travail/loisir et d’induire en fait …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
+&lt;p&gt;Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps libre.
+Les trucs « conviviaux » des boites « cool », c’est un moyen très calculé de brouiller la perception travail/loisir et d’induire en fait …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
 &lt;blockquote&gt;
-&lt;p&gt;Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps&amp;nbsp;libre.&lt;/p&gt;
-&lt;p&gt;Les trucs « conviviaux » des boites « cool », c’est un moyen très calculé de brouiller la perception travail/loisir et d’induire en fait du présentéisme forcené qui n’est rémunéré que de manière très&amp;nbsp;symbolique.&lt;/p&gt;
-&lt;p&gt;Et qué s’apelerio&amp;nbsp;exploitation.&lt;/p&gt;
-&lt;p&gt;— &lt;a href="https://framapiaf.org/@Monolecte/109924605965899629"&gt;Le Monolecte, sur&amp;nbsp;framapiaf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps libre.
+Les trucs « conviviaux » des boites « cool », c’est un moyen très calculé de brouiller la perception travail/loisir et d’induire en fait du présentéisme forcené qui n’est rémunéré que de manière très symbolique.
+Et qué s’apelerio exploitation.
+— &lt;a href="https://framapiaf.org/@Monolecte/109924605965899629"&gt;Le Monolecte, sur&amp;nbsp;framapiaf&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Je me questionne sur le double rôle des barrières de protection mises en place au travail, peuvent-elles nous empêcher de créer le monde que l&amp;#8217;on veut voir advenir&amp;nbsp;?&lt;/p&gt;
-&lt;p&gt;La question de la séparation entre le travail et les loisirs est une question qui en ouvre d&amp;#8217;autres pour moi&amp;nbsp;:&lt;/p&gt;
+&lt;p&gt;Je me questionne sur le double rôle des barrières de protection mises en place au travail, peuvent-elles nous empêcher de créer le monde que l’on veut voir advenir&amp;nbsp;?&lt;/p&gt;
+&lt;p&gt;La question de la séparation entre le travail et les loisirs est une question qui en ouvre d’autres pour moi&amp;nbsp;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Quelle est la place pour le loisir au travail&amp;nbsp;?&lt;/li&gt;
 &lt;li&gt;Le travail est-il nécessairement opposé aux loisirs&amp;nbsp;?&lt;/li&gt;
 &lt;li&gt;Quelle place donner aux relations professionnelles hors du milieu pro&amp;nbsp;?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="rationalisation-et-culpabilite"&gt;Rationalisation et&amp;nbsp;culpabilité&lt;/h2&gt;
-&lt;p&gt;J&amp;#8217;entends l&amp;#8217;argument de la technique utilisée par les grosses boites pour « paraitre cool » sans rémunérer le travail. C&amp;#8217;est un malheureux fait à garder en&amp;nbsp;tête.&lt;/p&gt;
-&lt;p&gt;Mais je me demande si derrière cette séparation, il ne se cache pas une idée de sectoriser le travail, de le séparer des aires de loisir, et je ne peux m&amp;#8217;empêcher d&amp;#8217;y voir le concept de&amp;nbsp;rationalisation.&lt;/p&gt;
+&lt;p&gt;J’entends l’argument de la technique utilisée par les grosses boites pour « paraitre cool » sans rémunérer le travail. C’est un malheureux fait à garder en&amp;nbsp;tête.&lt;/p&gt;
+&lt;p&gt;Mais je me demande si derrière cette séparation, il ne se cache pas une idée de sectoriser le travail, de le séparer des aires de loisir, et je ne peux m’empêcher d’y voir le concept de&amp;nbsp;rationalisation.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;La &lt;strong&gt;rationalisation&lt;/strong&gt; est le phénomène culturel […] constituant l&amp;#8217;application de la rationalité à &lt;em&gt;tous&lt;/em&gt; les domaines de la vie et depuis &lt;em&gt;tous&lt;/em&gt; les échelons de la société. On retrouve ici ce que l&amp;#8217;on observait dans le rationalisme : &lt;strong&gt;une propension à &lt;em&gt;privilégier la raison sur toutes les autres fonctions du psychisme&lt;/em&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;En psychologie, psychiatrie et criminologie, c&amp;#8217;est l&amp;#8217;un des moyens pour le cerveau de « neutraliser la culpabilité » d&amp;#8217;un individu coupable d&amp;#8217;un acte délictueux ou&amp;nbsp;criminel.&lt;/p&gt;
+&lt;p&gt;La &lt;strong&gt;rationalisation&lt;/strong&gt; est le phénomène culturel […] constituant l’application de la rationalité à tous les domaines de la vie et depuis tous les échelons de la société. On retrouve ici ce que l’on observait dans le rationalisme : &lt;strong&gt;une propension à privilégier la raison sur toutes les autres fonctions du&amp;nbsp;psychisme.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;En psychologie, psychiatrie et criminologie, c’est l’un des moyens pour le cerveau de « neutraliser la culpabilité » d’un individu coupable d’un acte délictueux ou&amp;nbsp;criminel.&lt;/p&gt;
 &lt;p&gt;— &lt;a href="https://fr.wikipedia.org/wiki/Rationalisation?oldformat=true"&gt;Rationalisation —&amp;nbsp;Wikipédia&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Est-ce qu&amp;#8217;en séparant le travail du reste de sa vie (pour s&amp;#8217;en protéger), on n&amp;#8217;effectue pas une gymnastique mentale dont l&amp;#8217;objectif serait de ne pas voir les problèmes qui se déroulent au travail ? De « neutraliser la culpabilité » du travail sur nos vies&amp;nbsp;?&lt;/p&gt;
+&lt;p&gt;Est-ce qu’en séparant le travail du reste de sa vie (pour s’en protéger), on n’effectue pas une gymnastique mentale dont l’objectif serait de ne pas voir les problèmes qui se déroulent au travail ? De « neutraliser la culpabilité » du travail sur nos vies&amp;nbsp;?&lt;/p&gt;
 &lt;h2 id="separer-pourquoi"&gt;Séparer, pourquoi&amp;nbsp;?&lt;/h2&gt;
-&lt;p&gt;À ce stade, il me paraît important de situer cette réflexion sur le plan de l&amp;#8217;idéalisme : les conditions de travail n&amp;#8217;étant pas les mêmes pour tout le&amp;nbsp;monde.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pouvoir mettre le travail à distance&lt;/strong&gt; (a.k.a ne pas mettre tous ses œufs dans le même panier) me semble être un des éléments majeurs de cette séparation. Cette aptitude est nécessaire dans un monde ou le travail est vécu comme un moyen d&amp;#8217;entretenir une&amp;nbsp;exploitation.&lt;/p&gt;
-&lt;p&gt;De l&amp;#8217;autre côté du spectre, en situant la réflexion dans un monde où il est possible aux salarié·es de prendre part aux décisions stratégiques, &lt;strong&gt;un des risques de cette rationalisation est de déshumaniser le travail&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Jouer au babyfoot (pour reprendre l&amp;#8217;exemple du fil mastodon) avec les collègues permettra peut-être d&amp;#8217;avoir ensuite des discussions plus détendues, permettra peut-être de créer autre chose que des relations « de travail&amp;nbsp;».&lt;/p&gt;
+&lt;p&gt;À ce stade, il me paraît important de situer cette réflexion sur le plan de l’idéalisme : les conditions de travail n’étant pas les mêmes pour tout le&amp;nbsp;monde.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pouvoir mettre le travail à distance&lt;/strong&gt; (a.k.a ne pas mettre tous ses œufs dans le même panier) me semble être un des éléments majeurs de cette séparation. Cette aptitude est nécessaire dans un monde ou le travail est vécu comme un moyen d’entretenir une&amp;nbsp;exploitation.&lt;/p&gt;
+&lt;p&gt;De l’autre côté du spectre, en situant la réflexion dans un monde où il est possible aux salarié·es de prendre part aux décisions stratégiques, &lt;strong&gt;un des risques de cette rationalisation est de déshumaniser le travail&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Jouer au babyfoot (pour reprendre l’exemple du fil mastodon) avec les collègues permettra peut-être d’avoir ensuite des discussions plus détendues, permettra peut-être de créer autre chose que des relations « de travail&amp;nbsp;».&lt;/p&gt;
 &lt;p&gt;Se protéger, oui. Garder ses espaces de liberté, oui. Rationaliser ? Plutôt&amp;nbsp;pas.&lt;/p&gt;
 &lt;h2 id="questions-ouvertes"&gt;Questions ouvertes&amp;nbsp;:&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Est-ce que des relations créées au travail sont des relations de travail&amp;nbsp;?&lt;/li&gt;
-&lt;li&gt;Est-il alors nécessaire de séparer l&amp;#8217;un de l&amp;#8217;autre&amp;nbsp;? &lt;/li&gt;
-&lt;li&gt;Que permet et qu&amp;#8217;empêche cette séparation&amp;nbsp;?&lt;/li&gt;
+&lt;li&gt;Est-il alors nécessaire de séparer l’un de l’autre&amp;nbsp;?&lt;/li&gt;
+&lt;li&gt;Que permet et qu’empêche cette séparation&amp;nbsp;?&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Journal"></category></entry><entry><title>Tolérance, empathie et limites</title><link href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" rel="alternate"></link><published>2023-02-24T00:00:00+01:00</published><updated>2023-02-24T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-02-24:/tolerance-empathie-et-limites.html</id><summary type="html">
-&lt;p&gt;Hier, je lis un message de Yannick sur mastodon, et je me rends compte qu&amp;#8217;il génére une réaction nouvelle chez moi, que je ne comprends pas&amp;nbsp;vraiment.&lt;/p&gt;
-&lt;p&gt;Son message&amp;nbsp;:&lt;/p&gt;
+&lt;p&gt;Suite à un message de Yannick sur mastodon, je me suis rendu compte que j&amp;#8217;avais une réaction que je ne comprennais pas. Son message&amp;nbsp;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Dans la voiture bar d&amp;#8217;un train Paris -&amp;gt; Quimper ;&lt;br&gt;
-Ne pas entendre une blague du « barista » parce que je me …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
-&lt;p&gt;Hier, je lis un message de Yannick sur mastodon, et je me rends compte qu&amp;#8217;il génére une réaction nouvelle chez moi, que je ne comprends pas&amp;nbsp;vraiment.&lt;/p&gt;
-&lt;p&gt;Son message&amp;nbsp;:&lt;/p&gt;
+Ne pas entendre une blague du « barista » parce que je me suis écarté pour laisser passer …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">
+&lt;p&gt;Suite à un message de Yannick sur mastodon, je me suis rendu compte que j&amp;#8217;avais une réaction que je ne comprennais pas. Son message&amp;nbsp;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Dans la voiture bar d&amp;#8217;un train Paris -&amp;gt; Quimper ;&lt;br&gt;
 Ne pas entendre une blague du « barista » parce que je me suis écarté pour laisser passer un passager qui retournait en 1ere classe ;&lt;br&gt;
@@ -79,8 +50,12 @@ Réaliser que c&amp;#8217;est &lt;a href="https://fr.wikipedia.org/wiki/Michel-%
 Se dire que j&amp;#8217;aurais aimé l&amp;#8217;entendre s&amp;#8217;exprimer sur les retraites &amp;#8230;
 — &lt;a href="https://framapiaf.org/@yaf/109916074251295047"&gt;Yannick François: &amp;#8220;Dans la voiture bar d&amp;#8217;un train…&amp;#8221; -&amp;nbsp;Framapiaf&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Auquel j&amp;#8217;ai répondu&amp;nbsp;que&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Je suis pas sur que tu aurais aimé l&amp;#8217;entendre&amp;nbsp;😧&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;p&gt;J&amp;#8217;essaye d&amp;#8217;analyser pourquoi son idée me fait réagir, ce que ça vient chercher chez&amp;nbsp;moi.  &lt;/p&gt;
+&lt;p&gt;J&amp;#8217;essaye d&amp;#8217;analyser pourquoi l&amp;#8217;idée me fait réagir et ce que ça vient chercher chez&amp;nbsp;moi.  &lt;/p&gt;
 &lt;p&gt;D&amp;#8217;un côté j&amp;#8217;ai une envie de justice : je veux confronter ces personnes au monde qu&amp;#8217;il créent et dont ils profitent, d&amp;#8217;un autre côté ça me fait&amp;nbsp;peur.  &lt;/p&gt;
 &lt;p&gt;Peur de deux choses&amp;nbsp;:&lt;/p&gt;
 &lt;ol&gt;
@@ -89,10 +64,9 @@ Se dire que j&amp;#8217;aurais aimé l&amp;#8217;entendre s&amp;#8217;exprimer s
 &lt;/ol&gt;
 &lt;p&gt;Je lis bien ma contradiction ici, et je crois que ça cache que &lt;strong&gt;j&amp;#8217;ai peur de les comprendre&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Comme si les comprendre rajoutait au problème, comme si en les comprenant ça voulait dire que j&amp;#8217;étais d&amp;#8217;accord avec eux. Pourtant c&amp;#8217;est un des méchanismes que j&amp;#8217;aime le plus : discuter avec des gens avec qui on est en désaccord permet de mieux les comprendre, et donc d&amp;#8217;avoir une meilleure compréhension du&amp;nbsp;monde.&lt;/p&gt;
-&lt;p&gt;En fait, j&amp;#8217;ai peur que ma compréhension fasse évoluer ma manière de penser : que leurs idées percolent, en les écoutant. Peur que mon monde vacille petit à petit. C&amp;#8217;est une peur que j&amp;#8217;ai aussi rencontrée par le passé, lors de discussions avec des personnes dont les propos me paraissaient dépasser les limites de ce qui est acceptable pour moi, &lt;strong&gt;parce qu&amp;#8217;elles font vivre des violences à d&amp;#8217;autres&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Je me rends compte de ce que ça à d&amp;#8217;étrange : d&amp;#8217;un côté je veux une société libre, libertaire, où on écoute les points de vue des un·es et des autres avec bienveillance, où on décide ensemble; et de l&amp;#8217;autre côté je refuse des visions du monde qui ne sont pas les&amp;nbsp;miennes. &lt;/p&gt;
-&lt;h2 id="ou-placer-la-limite"&gt;Où placer la limite&amp;nbsp;?&lt;/h2&gt;
-&lt;p&gt;Il me semble que c&amp;#8217;est le paradoxe de la tolérance. Mais on peut aussi voir la tolérance &lt;a href="https://newsie.social/@ZhiZhu/109667839755020395"&gt;comme un contrat social&lt;/a&gt;, ce qui revient à dire que pour être tolérant envers quelqu&amp;#8217;un·e; il faut que cette personne soit tolérante envers nous / envers les&amp;nbsp;autres.&lt;/p&gt;
+&lt;p&gt;En fait, j&amp;#8217;ai peur que ma compréhension fasse évluer ma manière de penser : que leurs idées percolent, en les écoutant. Peur que mon monde vacille petit à petit. C&amp;#8217;est une peur que j&amp;#8217;ai aussi rencontrée par le passé, lors de discussions avec des personnes dont les propos me paraissaient dépasser les limites de ce qui est acceptable pour moi, parce qu&amp;#8217;elles font vivre des violences à&amp;nbsp;d&amp;#8217;autres.&lt;/p&gt;
+&lt;p&gt;Je me rends compte de ce que ça à d&amp;#8217;étrange : d&amp;#8217;un côté je veux une société libre, libertaire, une société où on écoute les points de vue des un·es et des autres avec bienveillance, où on décide ensemble; et de l&amp;#8217;autre côté je refuse des visions du monde qui ne sont pas les miennes. Mais où placer la limite&amp;nbsp;?&lt;/p&gt;
+&lt;p&gt;Il me semble que c&amp;#8217;est le paradoxe de la tolérance. Mais on peut aussi voir la tolérance comme un contrat social, ce qui revient à dire que pour être tolérant envers quelqu&amp;#8217;un·e; il faut que cette personne soit tolérante envers&amp;nbsp;nous.&lt;/p&gt;
 &lt;p&gt;Peut-on écouter sans tolérer ? Est-il possible / souhaitable d&amp;#8217;avoir une discussion avec des personnes intolérantes&amp;nbsp;?&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Réveil difficile</title><link href="https://blog.notmyidea.org/reveil-difficile.html" rel="alternate"></link><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-05-30:/reveil-difficile.html</id><summary type="html">
 &lt;p&gt;&lt;em&gt;Je viens de remettre la main sur un texte écrit durant Artfèvre 2020, et je lui donne beaucoup plus de sens avec du recul. Je crois que ça parle de ma prise de conscience des oppressions de classe (sexisme, racisme), toute fraîche à&amp;nbsp;l&amp;#8217;époque.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;La discussion avait été transcendante …&lt;/p&gt;</summary><content type="html">
