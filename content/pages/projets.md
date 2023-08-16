@@ -89,6 +89,10 @@ avec un outil comme [Elm](https://elm-lang.org/), qui permet de ramener de la
 sérénité dans le developpement d'application côté *front¨*, grace à un typage
 fort.
 
+Administration Système
+: Je m'occupe de faire tourner quelques services pour des tiers et pour moi
+même. La maintenance des serveurs fait donc partie du lot :-)
+
 ## Éducation
 
 - Master's degree in Software Engineering, University of Oxford Brookes.
