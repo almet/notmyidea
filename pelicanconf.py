@@ -25,3 +25,4 @@ PLUGINS = [
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
 TYPOGRIFY = True
+INDEX_SAVE_AS = "articles.html"

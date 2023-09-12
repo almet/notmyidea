@@ -1,11 +1,16 @@
-# À propos
+---
+save_as: index.html
+---
+# Alexis Métaireau
 
-Bienvenue sur mon blog personnel. Vous y trouverez principalement des
-réflexions sur mes expériences professionelles et sur mes lectures.
+👋 **Bienvenue, je suis Alexis**, un developpeur intéressé par
+le logiciel libre, les libertés numériques et la coopération. 
+Vous trouverez principalement sur ce site des réflexions sur mes expériences
+professionelles ainsi que quelques lectures.
 
 Vous pouvez me contacter sur ``alexis`` @ ``notmyidea.org``.
 
-## Projets informatiques
+## 💻 Projets informatiques
 
 Voici quelques logiciels pour lesquels j'ai participé de façon significative.
 Vous pouvez aussi aller faire un tour sur ma page
@@ -39,7 +44,7 @@ Boniface](https://yohanboniface.me/) et je l'ai ensuite repris et adapté à
 l'usage d'un groupement auquel je participe.
 
 
-## Expériences passées
+## 🥹 Expériences passées
 
 [Brasserie du Vieux Singe](https://www.vieuxsinge.com/)
 : J'ai co-fondé en 2017 une brasserie artisanale biologique qui défend des
@@ -52,7 +57,7 @@ J'ai pu travailler sur des projets autour des données utilisateur, du
 chiffrement et de la synchronisation, ainsi que pour le passage à l'échelle de
 certaines sites comme addons.mozilla.com.
 
-## Valeurs et intérets
+## 🌟 Valeurs et intérets
 
 Logiciel Libre
 : Je travaille pour et avec du logiciel libre depuis des années. C'est à la
@@ -72,7 +77,7 @@ certains détails. Parfois, « le mieux est l'ennemi du bien ».
 Bonne humeur
 : Parce qu'on a qu'une vie, alors autant se marrer :-) #yolo
 
-## Technologie
+## 🧑‍🔧Technologie
 
 Python
 : J'ai l'habitude d'utiliser Python au quotidien, il s'agit de mon couteau
@@ -93,7 +98,7 @@ Administration Système
 : Je m'occupe de faire tourner quelques services pour des tiers et pour moi
 même. La maintenance des serveurs fait donc partie du lot :-)
 
-## Éducation
+## 🎓 Éducation
 
 - Master's degree in Software Engineering, University of Oxford Brookes.
 - BTS Informatique et Réseau, Angers.
