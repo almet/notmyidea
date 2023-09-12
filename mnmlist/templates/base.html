@@ -19,8 +19,11 @@
         <li><a class="{% if page and page.slug == 'alexis-metaireau' %}selected{% endif %}" href="{{ SITEURL }}/">
                 Alexis Métaireau</a></li>
         <li>
-            <a class="{% if page_name == 'index' %}selected{% endif %}" href="{{ SITEURL }}/articles.html"
+            <a class="{% if page_name == 'articles' %}selected{% endif %}" href="{{ SITEURL }}/articles.html"
                 id="site-title">Articles</a>
+        </li>
+        <li>
+            <a href="https://til.notmyidea.org">Code, etc.</a>
         </li>
     </section>
     {% include 'github.html' %}
