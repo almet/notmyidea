@@ -2,7 +2,7 @@
     Theme Name: mnmlist modified by leplatrem
     Theme URI: http://mathieu.agopian.info/mnmlist/theme.html
     Description: Theme adapted from http://mnmlist.com/theme/ from Leo Babauta, a very clean minimalist theme, without comments, search, archives or other features.
-    Author: Mathieu Agopian, Mathieu Leplatre
+    Author: Mathieu Agopian, Mathieu Leplatre, Alexis Métaireau
     Autor URI: http://mathieu.agopian.info
 
     This theme is uncopyrighted, free, and offered as is.
@@ -29,10 +29,20 @@
 
 }
 
+@font-face {
+  font-family: "Bricolage Grotesque"; 
+  src: url("../fonts/BricolageGrotesque96pt-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 350;
+  font-stretch: 100%;
+  font-display: swap; 
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 body {
   background: var(--main-bg-color);
   color: var(--text-color);
-  font-family: "Helvetica Neue",Arial,sans-serif;
+  font-family: "Bricolage Grotesque",Arial,sans-serif;
+
   margin-left: auto;
   margin-right: auto;
   padding: 16px;
@@ -198,6 +208,7 @@ header {
 dt {
 	font-weight: bold;
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 section.index {
@@ -323,6 +334,7 @@ table td {
   padding: 0.75em 0.75em;
 }
 
-dt {
-  margin-top: 1em;
+hr {
+  border: 0;
+  padding: 1em;
 }
