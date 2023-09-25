@@ -16,6 +16,7 @@
 
 <body>
     <section id="links">
+    <ul>
         {% for (title, url, selected) in MENU %}
         <li><a class="{%
             if page_name == selected
@@ -24,6 +25,7 @@
             %}selected{% endif %}"
             href="{{SITEURL}}{{ url }}">{{ title }}</a></li>
         {% endfor %}
+    </ul>
     </section>
     {% include 'github.html' %}
     {% block content %}

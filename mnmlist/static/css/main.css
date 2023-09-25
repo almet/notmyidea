@@ -237,8 +237,13 @@ section.index {
 }
 
   #links li {
-		display: inline-block;
+		display: initial;
+    list-style-type: none;
 	}
+
+  # links li:nth-child(1) {
+    display: inline-block;
+  }
 
   #links a {
     margin-right: 15px;
@@ -362,4 +367,16 @@ hr::after {
   font-size: 1.5em;
   display: inline-block;
   background-color: var(--main-bg-color);
+}
+
+
+@media screen and (max-width: 710px) {
+  ul li:nth-child(1):after {
+      content: "\A";
+      white-space: pre;
+  }
+}
+
+#links ul {
+  padding: 0;
 }

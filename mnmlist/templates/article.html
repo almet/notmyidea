@@ -5,7 +5,10 @@
 <header>
 	{% if article.category == "Lectures" %}
 	<h1 class="post-title">« {{ article.title }} » par {{ article.author }}</h1>
-	<time datetime="{{ article.date.isoformat() }}">Lu le {{ article.locale_date }}</time>
+	{% if article.headline %}
+	<p><em>{{ article.headline }}</em></p>
+	{% endif %}
+	<time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
 	{% else %}
 	<h1 class="post-title">{{ article.title }}</h1>
 	{% if article.headline %}
