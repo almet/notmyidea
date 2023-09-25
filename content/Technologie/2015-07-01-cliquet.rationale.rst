@@ -18,7 +18,7 @@ Les origines
 ============
 
 L'objectif pour le premier trimestre 2015 était de construire un service de
-stockage et de `synchronisation de listes de lecture <{filename}/Technologie/2015-04-01-service-de-nuages.rst>`_.
+stockage et de `synchronisation de listes de lecture <{filename}/technologie/2015-04-01-service-de-nuages.rst>`_.
 
 Au démarrage du projet, nous avons tenté de rassembler toutes les bonnes pratiques
 et recommandations, venant de différentes équipes et surtout des derniers projets déployés.
@@ -145,7 +145,7 @@ Dans un monde idéal, ce protocole serait versionné, et formalisé dans une RFC
 En rêve, il existerait même plusieurs implémentations avec des technologies différentes
 (Python, Go, Node, etc.). [#]_
 
-.. [#] Voir notre `article dédié sur les permissions <{filename}/Technologie/2015-05-01-cliquet-permissions.rst>`_
+.. [#] Voir notre `article dédié sur les permissions <{filename}/technologie/2015-05-01-cliquet-permissions.rst>`_
 .. [#] Rappel: nous sommes une toute petite équipe !
 
 

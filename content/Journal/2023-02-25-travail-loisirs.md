@@ -1,8 +1,13 @@
-# Séparation travail et loisirs
+---
+title: Séparation travail et loisirs
+tags: Travail, Facilitation, Savoir-Être
+headline: Bien que nécessaire pour certains pour se protéger de l'exploitation, cette séparation ne risque-elle pas de déshumaniser le travail et d'empêcher la construction de relations authentiques entre collègues ?
+---
 
 > Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps libre.
 > Les trucs « conviviaux » des boites « cool », c’est un moyen très calculé de brouiller la perception travail/loisir et d’induire en fait du présentéisme forcené qui n’est rémunéré que de manière très symbolique.
 > Et qué s’apelerio exploitation.
+> 
 > — [Le Monolecte, sur framapiaf](https://framapiaf.org/@Monolecte/109924605965899629)
 
 Je me questionne sur le double rôle des barrières de protection mises en place au travail, peuvent-elles nous empêcher de créer le monde que l’on veut voir advenir ?

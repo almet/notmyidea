@@ -1,4 +1,8 @@
-# Tolérance, empathie et limites
+---
+title: Tolérance, empathie et limites
+tags: Limites, Savoir-Être
+headline: Je lutte contre la « peur de comprendre », et potentiellement d'accorder de l'empathie à ceux qui, selon moi, perpétuent l'injustice, tout en questionnant les limites de ma tolérance et ma volonté de dialogue ouvert.
+---
 
 Suite à un message de Yannick sur mastodon, je me suis rendu compte que j'avais une réaction que je ne comprennais pas. Son message :
 
@@ -9,11 +13,9 @@ Suite à un message de Yannick sur mastodon, je me suis rendu compte que j'avais
 > Se dire que j'aurais aimé l'entendre s'exprimer sur les retraites ...
 > — [Yannick François: "Dans la voiture bar d'un train…" - Framapiaf](https://framapiaf.org/@yaf/109916074251295047)
 
-Auquel j'ai répondu que
+Auquel j'ai répondu
 
 > Je suis pas sur que tu aurais aimé l'entendre 😧
-
----
 
 J'essaye d'analyser pourquoi l'idée me fait réagir et ce que ça vient chercher chez moi.  
   

@@ -2,17 +2,15 @@
 {% block title %}{{ article.title }} - {{ super() }}{% endblock %}
 {% block content %}
 
-
-
-
-
 <header>
 	{% if article.category == "Lectures" %}
-	<h3>Notes de lecture</h3>
 	<h1 class="post-title">« {{ article.title }} » par {{ article.author }}</h1>
 	<time datetime="{{ article.date.isoformat() }}">Lu le {{ article.locale_date }}</time>
 	{% else %}
 	<h1 class="post-title">{{ article.title }}</h1>
+	{% if article.headline %}
+	<p><em>{{ article.headline }}</em></p>
+	{% endif %}
 	<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
 	{% endif %}
 
@@ -25,7 +23,7 @@
 	  {% for tag in article.tags %}
         <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
       {% endfor %}
-	  - Posted in the <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> category
+	  - Posté dans la catégorie <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 	</p>
 	{% endif %}
 </article>

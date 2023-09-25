@@ -5,7 +5,7 @@ hésitons à continuer à nous entêter avec notre propre solution de
 stockage/synchronisation.**
 
 Comme nous l'écrivions [dans l'article
-précédent]({filename}/Technologie/2015-04-01-service-de-nuages.rst), nous
+précédent]({filename}/technologie/2015-04-01-service-de-nuages.rst), nous
 souhaitons construire une solution de stockage générique. On refait
 [Daybed](http://daybed.readthedocs.org) chez Mozilla \!
 

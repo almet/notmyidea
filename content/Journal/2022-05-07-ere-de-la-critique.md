@@ -1,4 +1,8 @@
-# L'Ère de la critique
+---
+title: L'Ère de la critique
+tags: Savoir-Être
+headline: Je réalise combien mes attentes élevées et mon désir de perfection peuvent me priver de joie et engendrer une pression nuisible, pour moi et pour ceux dont je critique les œuvres ; je dois donc questionner ces attentes, sortir de la compétition, considérer l'impact de mes critiques et rechercher le plaisir sincère et constructif dans mes appréciations.
+---
 
 Au détour d'[une discussion sur mastodon](https://tutut.delire.party/@almet/108257053355480866) je viens de retrouver ce bout de texte écrit mais jamais publié.
 

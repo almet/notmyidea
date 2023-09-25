@@ -1,4 +1,7 @@
-# Installation de Mosquitto, InfluxDB, Telegraf et Grafana
+---
+title: Installation de Mosquitto, InfluxDB, Telegraf et Grafana
+tags: Administration Système
+---
 
 Récemment, on a m'a demandé un petit coup de main pour aider à l'installation d'une pile logicielle qui permet de stocker des données temporelles et en faire des graphiques.
 

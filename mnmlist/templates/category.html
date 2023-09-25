@@ -1,13 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{ category }}</h1>
-{% if articles %}
-    {% for article in articles | selectattr("category", "eq", "journal") %}
-        <section class="section index">
-            <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-            <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
-            {{ article.content|striptags|truncate(200) }}
-        </section>
-    {% endfor %}
+{% if category in CATEGORIES_DESCRIPTION.keys() %}
+<h1>{{ CATEGORIES_DESCRIPTION[category][0] }}</h1>
+<p>{{ CATEGORIES_DESCRIPTION[category][1] }}</p>
+{% else %}
+
+<h1> {{ category }}</h1>
 {% endif %}
+        <section class="section index">
+
+{% for article in articles | batch(10) | first %}
+<section class="section index">
+    {% if not HIDE_DATE %}
+    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+    {% endif %}
+
+    <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
+    {% if article.headline %}
+    {{ article.headline }}
+    {% else %}
+    {{ article.summary }}
+    {% endif %}
+    <br />
+	  {% for tag in article.tags %}
+        <a class='tag' href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+</section>
+{% endfor %}
+<ul>
+{% for article in articles | batch(10) %}
+    {% if not loop.first %}
+    <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{
+            article.title }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+</section>
 {% endblock %}

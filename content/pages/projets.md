@@ -1,5 +1,6 @@
 ---
 save_as: index.html
+slug: index
 ---
 # Alexis Métaireau
 
@@ -11,9 +12,7 @@ Si vous souhaitez me contacter, envoyez moi un email sur ``alexis``
 
 ---
 
-## Informatique
-
-Tombé dans le chaudron étant petit, j'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des années.
+Tombé dans le chaudron de l'informatique étant petit, j'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des années.
 Voici quelques logiciels pour lesquels j'ai participé de façon significative.
 Vous pouvez aussi aller faire un tour sur ma page
 [Github](https://github.com/almet) ou [Gitlab](https://gitlab.com/almet) pour

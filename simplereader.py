@@ -1,12 +1,11 @@
-from pelican import signals
-from pelican.readers import MarkdownReader, Category, Markdown, pelican_open
-from pelican.utils import get_date, slugify
-
-from markdown.preprocessors import Preprocessor
-from datefinder import find_dates
-
 import os.path
 from datetime import datetime
+
+from datefinder import find_dates
+from markdown.preprocessors import Preprocessor
+from pelican import signals
+from pelican.readers import Category, Markdown, MarkdownReader, pelican_open
+from pelican.utils import get_date, slugify
 
 
 class BlockquotesPreprocessor(Preprocessor):
