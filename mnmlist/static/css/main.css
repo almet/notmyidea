@@ -239,7 +239,8 @@ section.index {
   #links li {
 		display: initial;
     list-style-type: none;
-	}
+    white-space: nowrap;
+  }
 
   # links li:nth-child(1) {
     display: inline-block;
@@ -260,9 +261,13 @@ section.index {
 		color: var(--link-color-menu);
 	}
 
-  #links a.selected {
+  #links a.main {
     color: #fff;
     background-color: var(--link-color-menu);
+  }
+
+  #links a.selected {
+    text-decoration-color: var(--link-color);
   }
 
   #links a.selected:hover {

@@ -18,6 +18,9 @@
     <section id="links">
     <ul>
         {% for (title, url, selected) in MENU %}
+        {% if loop.first %}
+        <li><a class="main" href="/">{{ SITENAME }}</a></li>
+        {% endif %}
         <li><a class="{%
             if page_name == selected
             or (category and category.name == selected)

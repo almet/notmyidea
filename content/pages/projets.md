@@ -7,8 +7,7 @@ slug: index
 👋 **Bienvenue par ici**. Developpeur et Brasseur, je suis intéressé par les
 dynamiques collectives, les libertés numériques et la facilitation.
 
-Si vous souhaitez me contacter, envoyez moi un email sur ``alexis``
-@ ``notmyidea.org``.
+Pour me contacter, envoyez-moi un email sur ``alexis`` ``@`` ``notmyidea.org``.
 
 ---
 

@@ -31,7 +31,6 @@ CATEGORY_SAVE_AS = "{slug}/index.html"
 CATEGORY_URL = "{slug}/"
 
 MENU = [
-    ("Alexis Métaireau", "/", "index"),
     ("Journal", "/journal/index.html", "journal"),
     ("Code, etc.", "/code/", "code"),
     ("Notes hebdo", "/weeknotes/", "weeknotes"),
