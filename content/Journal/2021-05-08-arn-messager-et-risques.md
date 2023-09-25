@@ -1,4 +1,8 @@
-# Vaccination et risques
+---
+title: Vaccination et risques
+tags: Santé, Vaccination, Covid
+headline: Un résumé de ce que j'ai compris du fonctionnement des différents types de vaccins.
+---
 
 Je m'intéresse un peu tardivement a la question des différents vaccins, pour pouvoir mieux comprendre comment ceux cis fonctionnent et quels sont les risques liés.
 

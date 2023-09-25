@@ -1,4 +1,8 @@
-# Coopération et travail
+---
+title: Coopération et travail
+tags: Coopération, Travail, 
+headline: La coopération ne devrait pas être un moyen que chacun⋅e y trouve son compte, mais une capacité à faire ensemble. C'est une pratique, plutôt qu'un résultat.
+---
 
 Je parle souvent de coopération, que j'imagine comme « un fonctionnement collectif, dans lequel chacun⋅e y trouve son compte ».
 

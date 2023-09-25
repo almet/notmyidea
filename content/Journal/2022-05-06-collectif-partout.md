@@ -1,4 +1,8 @@
-# Fatigue relationnelle
+---
+title: Fatigue relationnelle
+tags: Coopération, Savoir-Être, Fatigue, Conflit
+headline: Je me questionne sur les raisons qui font que j'ai moins envie d'être au contact des autres.
+---
 
 Depuis peu, je me retrouve confronté à mon manque d'envie d'être avec d'autres personnes. Comme si mon quota d’interactions sociales était plus rapidement atteint qu'il y a quelques années.
 

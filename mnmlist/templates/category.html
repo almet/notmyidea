@@ -28,10 +28,13 @@
 </section>
 {% endfor %}
 <ul>
-{% for article in articles | batch(10) %}
+{% for batch in articles | batch(10) %}
     {% if not loop.first %}
-    <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{
-            article.title }}</a></li>
+      {% for article in batch %}
+
+      <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{
+              article.title }}</a></li>
+      {% endfor %}
     {% endif %}
 {% endfor %}
 </ul>
