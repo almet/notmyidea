@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conversion d&#8217;un fichier svg en&nbsp;favicon.ico - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Conversion d&#8217;un fichier svg en&nbsp;favicon.ico</h1>
+	<time datetime="2023-09-13T00:00:00+02:00">13 septembre 2023</time>
+
+    
+</header>
+<article>
+    
+<p>Il y a plusieurs sites qui permettent de faire ça automatiquement, mais j&#8217;aime bien faire les choses depuis mon terminal, voici donc une commande qui permet de faire ça simplement, en utilisant <a href="https://imagemagick.org/">ImageMagick</a>. Merci à <a href="https://gist.github.com/azam/3b6995a29b9f079282f3">ce&nbsp;gist</a></p>
+<div class="highlight"><pre><span></span><code>convert<span class="w"> </span>-density<span class="w"> </span>256x256<span class="w"> </span>-background<span class="w"> </span>transparent<span class="w"> </span>favicon.svg<span class="w"> </span>-define<span class="w"> </span>icon:auto-resize<span class="w"> </span>-colors<span class="w"> </span><span class="m">256</span><span class="w"> </span>favicon.ico
+</code></pre></div>
+</article>
+
+</body>
+
+</html>

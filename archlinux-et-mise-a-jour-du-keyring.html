@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ArchLinux et mise à jour du&nbsp;keyring - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">ArchLinux et mise à jour du&nbsp;keyring</h1>
+	<time datetime="2023-08-18T00:00:00+02:00">18 août 2023</time>
+
+    
+</header>
+<article>
+    
+<p>Pour les mises à jour Arch, j&#8217;utilise <a href="https://github.com/Jguer/yay">yay</a>. Je
+ne fais les mises à jour que de manière semi-régulière, et parfois après une
+longue période je me retrouve avec des soucis de clé qui ne sont plus à jour ou&nbsp;manquantes.</p>
+<p>Avec une utilisation fréquente du système, aucun problème ne se pose car un
+service s&#8217;occupe de faire la mise à jour des clés de manière&nbsp;automatique.</p>
+<p>Pour résoudre le souci, il suffit de mettre à jour le paquet
+<code>archlinux-keyring</code>, comme décrit <a href="https://wiki.archlinux.org/title/Pacman/Package_signing">dans la page Wiki qui va
+bien</a>.</p>
+<div class="highlight"><pre><span></span><code>sudo pacman -S archlinux-keyring
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/arch-linux.html">#arch-linux</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+
+</body>
+
+</html>

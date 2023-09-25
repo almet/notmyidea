@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Découverte de nouveaux outils pour le développement: <span class="caps">LLM</span>, Helix et&nbsp;plus - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Découverte de nouveaux outils pour le développement: <span class="caps">LLM</span>, Helix et&nbsp;plus</h1>
+	<time datetime="2023-09-12T00:00:00+02:00">12 septembre 2023</time>
+
+    
+</header>
+<article>
+    
+<h2 id="llm"><span class="caps">LLM</span></h2>
+<ul>
+<li><a href="https://localai.io/model-compatibility/">LocalAI</a> permet de faire tourner des modèles en local avec la même <span class="caps">API</span> <span class="caps">HTTP</span> que celle&nbsp;d&#8217;OpenAI</li>
+<li><a href="https://github.com/bofenghuang/vigogne">Le modèle Vigogne</a> est un modèle entrainé (<em>fine-tuned</em>) avec des données en Français. Notamment <a href="https://huggingface.co/bofenghuang/vigogne-2-7b-chat/tree/v1.0">ce modèle</a>qui prends <span class="caps">LLAMA2</span> en&nbsp;entrée.</li>
+<li><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> semble être un framework pour travailler avec les différents concepts utiles. A&nbsp;voir.</li>
+</ul>
+<p>Pour la première fois, j&#8217;ai commencé à utiliser un peu plus l&#8217;outil <a href="https://llm.datasette.io">llm</a> pour m&#8217;aider dans les tâches de&nbsp;programmation. </p>
+<p>!! warning
+J&#8217;utilise actuellement par défaut le modèle en ligne d&#8217;OpenAI &#8220;<span class="caps">GTP4</span>&#8221;, à travers leur <span class="caps">API</span>. Cela me pose des problèmes éthiques, mais mon approche est pour le moment de voir le type de résultats que j&#8217;obtiens pour ensuite comparer avec des modèles locaux type <span class="caps">LLAMA2</span>.</p>
+<p>Deux choses que j&#8217;ai trouvées utiles&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span><span class="p">|</span><span class="w"> </span>llm<span class="w"> </span><span class="s2">&quot;write me a commit message&quot;</span>
+git<span class="w"> </span>diff<span class="w"> </span><span class="p">|</span><span class="w"> </span>llm<span class="w"> </span><span class="s2">&quot;find a branch name&quot;</span>
+</code></pre></div>
+
+<p>Qui peuvent faciliter la vie plutôt que de chercher à décrire des choses manuellement (le &#8220;branch-name&#8221;, je le trouve particulièrement&nbsp;utile)</p>
+<p>J&#8217;ai aussi trouvé l&#8217;idée intéressante d&#8217;automatiser l&#8217;écrite de tests, avec pytest. Bien sur ça ne fait pas tout, mais ça donne un template de départ qui est intéressant&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>code/test_file.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>llm<span class="w"> </span><span class="s2">&quot;write tests for this, using pytest&quot;</span>
+</code></pre></div>
+
+<p>J&#8217;ai par exemple demandé à llm de me lister 20 titres pour cet article&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/dev/til.notmyidea.org/content/<span class="k">$(</span>date<span class="w"> </span>+%F<span class="k">)</span>.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>llm<span class="w"> </span><span class="s2">&quot;Liste moi 20 titres pour cet article. Quelque chose de simple&quot;</span>
+<span class="m">1</span>.<span class="w"> </span><span class="s2">&quot;Découverte de nouveaux outils pour le développement: LLM, Helix et plus&quot;</span>
+<span class="m">2</span>.<span class="w"> </span><span class="s2">&quot;Explorer les modèles LLM pour la génération de code&quot;</span>
+<span class="m">3</span>.<span class="w"> </span><span class="s2">&quot;L&#39;amélioration du développement grâce à LLM et Helix&quot;</span>
+<span class="m">4</span>.<span class="w"> </span><span class="s2">&quot;Introduction à l&#39;éditeur Helix et à LLM&quot;</span>
+<span class="m">5</span>.<span class="w"> </span><span class="s2">&quot;Boostez votre productivité de développement avec LLM et Helix&quot;</span>
+<span class="m">6</span>.<span class="w"> </span><span class="s2">&quot;Comment j&#39;intègre LLM et Helix dans mon flux de travail de développement&quot;</span>
+<span class="m">7</span>.<span class="w"> </span><span class="s2">&quot;Les avantages de l&#39;utilisation de LLM pour la programmation&quot;</span>
+<span class="m">8</span>.<span class="w"> </span><span class="s2">&quot;Approches innovantes pour le développement de code avec LLM&quot;</span>
+<span class="m">9</span>.<span class="w"> </span><span class="s2">&quot;L&#39;avenir du développement de code avec LLM et Helix&quot;</span>
+<span class="m">10</span>.<span class="w"> </span><span class="s2">&quot;Optimisation des tâches de programmation avec LLM&quot;</span>
+<span class="m">11</span>.<span class="w"> </span><span class="s2">&quot;Ouvrir de nouvelles possibilités de codage avec LLM et Helix&quot;</span>
+<span class="m">12</span>.<span class="w"> </span><span class="s2">&quot;Utiliser des modèles LLM pour améliorer la qualité du code&quot;</span>
+</code></pre></div>
+
+<h2 id="helix">Helix</h2>
+<p>Je me mets à tester un peu plus l&#8217;éditeur Helix. Je suis un habitué de Vim pour toutes les petites modifications que je fais depuis mon terminal, et Helix semble&nbsp;intéressant.</p>
+<ul>
+<li><code>x</code>pour sélectionner une ligne (<code>xd</code> pour sélectionner et&nbsp;supprimer)</li>
+<li><code>ma</code> pour sélectionner &#8220;around&#8221; quelque chose. <code>maw</code> pour sélectionner le&nbsp;mot</li>
+<li><code>c</code> pour effacer la sélection et passer en mode&nbsp;insertion.</li>
+</ul>
+<h2 id="divers">Divers</h2>
+<blockquote>
+<p>J’ai fait confiance, j’ai appris.
+— <a href="https://d%C3%A9tour.studio">Thomas</a></p>
+</blockquote>
+<p>J&#8217;aime beaucoup ce que ça dit. Faire confiance est peut-être nécessaire, même si on est déçu au final, on aura au moins appris. Ça me&nbsp;touche.</p>
+</article>
+
+</body>
+
+</html>

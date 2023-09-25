@@ -12,68 +12,130 @@
 
 <body>
     <section id="links">
-        <li><a class="" href="https://blog.notmyidea.org/">
-                Alexis Métaireau</a></li>
-        <li>
-            <a class="selected" href="https://blog.notmyidea.org/articles.html"
-                id="site-title">Articles</a>
-        </li>
-        <li>
-            <a href="https://til.notmyidea.org">Code, etc.</a>
-        </li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
     </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2023-09-22T00:00:00+02:00">22 septembre 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/llm.html">llm</a>    <h1><a href="https://blog.notmyidea.org/how-to-run-the-vigogne-model-locally.html" id="page-title">How to run the vigogne model&nbsp;locally</a></h1>
+    
+<p><a href="https://github.com/bofenghuang/vigogne">Vigogne</a> is a <span class="caps">LLM</span> model based on <span class="caps">LLAMA2</span>, but trained with french data. As I&#8217;m working mostly in french, it might be useful. The current models that I can get locally are in&nbsp;english.</p>
+<p>The information I&#8217;ve found online are scarse and not so easy to follow, so …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-09-18T00:00:00+02:00">18 septembre 2023</time>
+
+    <h1><a href="https://blog.notmyidea.org/creating-a-simple-command-line-to-post-snippets-on-gitlab.html" id="page-title">Creating a simple command line to post snippets on&nbsp;Gitlab</a></h1>
+    
+<p>I&#8217;m trying to get away from Github, and one thing that I find useful is the <a href="https://gist.github.com">gist</a> utility they&#8217;re providing. Seems that gitlab provides a similar&nbsp;tool.</p>
+<p>You can use it using <a href="https://python-gitlab.readthedocs.io/">python-gitlab</a>:</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>python-gitlab
+</code></pre></div>
+
+<p>And then&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>gitlab<span class="w"> </span>snippet<span class="w"> </span>create<span class="w"> </span>--title<span class="o">=</span><span class="s2">&quot;youpi&quot;</span><span class="w"> </span>--file-name<span class="o">=</span><span class="s2">&quot;snip.py&quot;</span><span class="w"> </span>--content<span class="w"> </span>snip …</code></pre></div>
+</section>
+<section class="section index">
+    <time datetime="2023-09-17T00:00:00+02:00">17 septembre 2023</time>
+
+    <h1><a href="https://blog.notmyidea.org/creating-an-online-space-to-share-markdown-files.html" id="page-title">Creating an online space to share markdown&nbsp;files</a></h1>
+    
+<p>I wanted to create a space on my server where I can upload markdown files and have them rendered directly, for them to be shared with other&nbsp;people.</p>
+<p>I stumbled on <a href="https://github.com/ukarim/ngx_markdown_filter_module">the markdown module for nginx</a> which does exactly what I want, but seemed to ask for compilation of nginx …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-09-13T00:00:00+02:00">13 septembre 2023</time>
+
+    <h1><a href="https://blog.notmyidea.org/conversion-dun-fichier-svg-en-faviconico.html" id="page-title">Conversion d&#8217;un fichier svg en&nbsp;favicon.ico</a></h1>
+    
+<p>Il y a plusieurs sites qui permettent de faire ça automatiquement, mais j&#8217;aime bien faire les choses depuis mon terminal, voici donc une commande qui permet de faire ça simplement, en utilisant <a href="https://imagemagick.org/">ImageMagick</a>. Merci à <a href="https://gist.github.com/azam/3b6995a29b9f079282f3">ce&nbsp;gist</a></p>
+<div class="highlight"><pre><span></span><code>convert<span class="w"> </span>-density<span class="w"> </span>256x256<span class="w"> </span>-background<span class="w"> </span>transparent<span class="w"> </span>favicon.svg<span class="w"> </span>-define<span class="w"> </span>icon:auto-resize<span class="w"> </span>-colors<span class="w"> </span><span class="m">256 …</span></code></pre></div>
+</section>
+<section class="section index">
+    <time datetime="2023-09-12T00:00:00+02:00">12 septembre 2023</time>
+
+    <h1><a href="https://blog.notmyidea.org/decouverte-de-nouveaux-outils-pour-le-developpement-llm-helix-et-plus.html" id="page-title">Découverte de nouveaux outils pour le développement: <span class="caps">LLM</span>, Helix et&nbsp;plus</a></h1>
+    
+<h2 id="llm"><span class="caps">LLM</span></h2>
+<ul>
+<li><a href="https://localai.io/model-compatibility/">LocalAI</a> permet de faire tourner des modèles en local avec la même <span class="caps">API</span> <span class="caps">HTTP</span> que celle&nbsp;d&#8217;OpenAI</li>
+<li><a href="https://github.com/bofenghuang/vigogne">Le modèle Vigogne</a> est un modèle entrainé (<em>fine-tuned</em>) avec des données en Français. Notamment <a href="https://huggingface.co/bofenghuang/vigogne-2-7b-chat/tree/v1.0">ce modèle</a>qui prends <span class="caps">LLAMA2</span> en&nbsp;entrée.</li>
+<li><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> semble être un framework pour travailler avec les différents …</li></ul>
+</section>
+<section class="section index">
+    <time datetime="2023-08-19T00:00:00+02:00">19 août 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/gitlab.html">gitlab</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/docker.html">docker</a>    <h1><a href="https://blog.notmyidea.org/running-the-gitlab-ci-locally.html" id="page-title">Running the Gitlab <span class="caps">CI</span>&nbsp;locally</a></h1>
+    
+<p>Sometimes, I need to change how the continuous integration is setup, and I find
+myself pushing to a branch to test if my changes are working. Oftentimes, it
+takes me multiple commits to find the correct configuration, which is…&nbsp;suboptimal.</p>
+<p>I discovered today <a href="https://github.com/firecow/gitlab-ci-local">Gitlab <span class="caps">CI</span>
+local</a> which makes it possible …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-08-18T00:00:00+02:00">18 août 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/arch-linux.html">arch-linux</a>    <h1><a href="https://blog.notmyidea.org/archlinux-et-mise-a-jour-du-keyring.html" id="page-title">ArchLinux et mise à jour du&nbsp;keyring</a></h1>
+    
+<p>Pour les mises à jour Arch, j&#8217;utilise <a href="https://github.com/Jguer/yay">yay</a>. Je
+ne fais les mises à jour que de manière semi-régulière, et parfois après une
+longue période je me retrouve avec des soucis de clé qui ne sont plus à jour ou&nbsp;manquantes.</p>
+<p>Avec une utilisation fréquente du système, aucun problème …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-08-17T00:00:00+02:00">17 août 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/python.html">python</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/packaging.html">packaging</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/zsh.html">zsh</a>    <h1><a href="https://blog.notmyidea.org/python-packaging-with-hatch-pipx-and-zsh-environment-variables.html" id="page-title">Python packaging with Hatch, pipx and Zsh environment&nbsp;variables</a></h1>
+    
+<p>It&#8217;s been a while I didn&#8217;t packaged something new. I recently remembered an old
+package of mine that needed some attention :
+<a href="https://gitlab.com/almet/debts">debts</a>. It&#8217;s now time to package it, so I
+discovered <a href="https://hatch.pypa.io/">hatch</a></p>
+<p>hatch new&nbsp;&#8212;init</p>
+<p>This does the heavy-lifting for you, actually porting the <code>setup.py</code> files …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-08-16T00:00:00+02:00">16 août 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/django.html">django</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/pytest.html">pytest</a>    <h1><a href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" id="page-title">Profiling and speeding up Django and&nbsp;Pytest</a></h1>
+    
+<p><a href="https://yaal.coop/">Éloi</a> made <a href="https://github.com/spiral-project/ihatemoney/issues/1214">a pull request on
+IHateMoney</a> to
+speedup the tests, with some great tooling for pytest that I wasn&#8217;t aware&nbsp;of:</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-xdist/">pytest-xdist</a> allows to run tests in
+  parallel, using <code>-n auto</code></li>
+<li><a href="https://pypi.org/project/pytest-profiling/">pytest-profiling</a> makes it easy
+  to get the call stack and time the function calls that take most …</li></ul>
+</section>
+<section class="section index">
     <time datetime="2023-02-25T00:00:00+01:00">25 février 2023</time>
-    <h1><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" id="page-title">Séparation travail et&nbsp;loisirs</a></h1>
-    Plus sérieusement, le boulot est le boulot et les loisirs sont aussi la liberté des salariés de faire strictement ce qu’ils veulent de leur temps libre. Les trucs « conviviaux » des boites « cool...
-</section>
-<section class="section index">
-    <time datetime="2023-02-24T00:00:00+01:00">24 février 2023</time>
-    <h1><a href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" id="page-title">Tolérance, empathie et&nbsp;limites</a></h1>
-    Suite à un message de Yannick sur mastodon, je me suis rendu compte que j’avais une réaction que je ne comprennais pas. Son message : Dans la voiture bar d’un train Paris -> Quimper ; Ne pas...
-</section>
-<section class="section index">
-    <time datetime="2022-08-29T00:00:00+02:00">29 août 2022</time>
-    <h1><a href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" id="page-title">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</a></h1>
-    Récemment, on a m’a demandé un petit coup de main pour aider à l’installation d’une pile logicielle qui permet de stocker des données temporelles et en faire des graphiques. Voici donc quelques...
-</section>
-<section class="section index">
-    <time datetime="2022-05-30T00:00:00+02:00">30 mai 2022</time>
-    <h1><a href="https://blog.notmyidea.org/reveil-difficile.html" id="page-title">Réveil&nbsp;difficile</a></h1>
-    Je viens de remettre la main sur un texte écrit durant Artfèvre 2020, et je lui donne beaucoup plus de sens avec du recul. Je crois que ça parle de ma prise de conscience des oppressions de classe...
-</section>
-<section class="section index">
-    <time datetime="2022-05-07T00:00:00+02:00">07 mai 2022</time>
-    <h1><a href="https://blog.notmyidea.org/lere-de-la-critique.html" id="page-title">L&#8217;Ère de la&nbsp;critique</a></h1>
-    Au détour d’une discussion sur mastodon je viens de retrouver ce bout de texte écrit mais jamais publié. J’y parle de ce que formuler des critiques me fait, de la hiérarchisation qui en découle,...
-</section>
-<section class="section index">
-    <time datetime="2022-05-06T00:00:00+02:00">06 mai 2022</time>
-    <h1><a href="https://blog.notmyidea.org/fatigue-relationnelle.html" id="page-title">Fatigue&nbsp;relationnelle</a></h1>
-    Depuis peu, je me retrouve confronté à mon manque d’envie d’être avec d’autres personnes. Comme si mon quota d’interactions sociales était plus rapidement atteint qu’il y a quelques années. Je ne...
-</section>
-<section class="section index">
-    <time datetime="2021-11-11T00:00:00+01:00">11 novembre 2021</time>
-    <h1><a href="https://blog.notmyidea.org/conflit.html" id="page-title">Conflit</a></h1>
-    J’ai pensé durant de nombreuses années que je savais gérer le conflit, alors que c’était en fait impensé. Ne pas être en conflit signifie parfois s’adapter aux autres, parfois ne pas (assez)...
-</section>
-<section class="section index">
-    <time datetime="2021-11-01T00:00:00+01:00">01 novembre 2021</time>
-    <h1><a href="https://blog.notmyidea.org/cooperation-et-travail.html" id="page-title">Coopération et&nbsp;travail</a></h1>
-    Je parle souvent de coopération, que j’imagine comme « un fonctionnement collectif, dans lequel chacun⋅e y trouve son compte ». Or je me rends aujourd’hui compte que cette définition mets de côté...
-</section>
-<section class="section index">
-    <time datetime="2021-09-13T00:00:00+02:00">13 septembre 2021</time>
-    <h1><a href="https://blog.notmyidea.org/rentree.html" id="page-title">Rentrée</a></h1>
-    Trois semaines de vacances m’ont fait le plus grand bien. Je suis toujours autant étonné par ma capacité à repousser mes limites quand je suis la tête dans le guidon, ce qui était le cas...
-</section>
-<section class="section index">
-    <time datetime="2021-08-04T00:00:00+02:00">04 août 2021</time>
-    <h1><a href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" id="page-title">Faire de la musique sous&nbsp;Linux</a></h1>
-    Update du 07/08 : ajout des infos sur le noyau temps réel Faire de la musique electronique à été pour moi l’occasion de réinstaller Windows pour pouvoir utiliser Ableton Live, un des logiciels les...
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/travail.html">Travail</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/facilitation.html">Facilitation</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/savoir-etre.html">Savoir-Être</a>    <h1><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" id="page-title">Séparation travail et&nbsp;loisirs</a></h1>
+    Bien que nécessaire pour certains pour se protéger de l'exploitation, cette séparation ne risque-elle pas de déshumaniser le travail et d'empêcher la construction de relations authentiques entre collègues ?
 </section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="bookmark" title="Permalink to Séparation travail et loisirs">Séparation travail et&nbsp;loisirs</a></li>
+    <li><a href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" rel="bookmark" title="Permalink to Tolérance, empathie et limites">Tolérance, empathie et&nbsp;limites</a></li>
+    <li><a href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="bookmark" title="Permalink to Installation de Mosquitto, InfluxDB, Telegraf et Grafana">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</a></li>
+    <li><a href="https://blog.notmyidea.org/reveil-difficile.html" rel="bookmark" title="Permalink to Réveil difficile">Réveil&nbsp;difficile</a></li>
+    <li><a href="https://blog.notmyidea.org/lere-de-la-critique.html" rel="bookmark" title="Permalink to L’Ère de la critique">L&#8217;Ère de la&nbsp;critique</a></li>
+    <li><a href="https://blog.notmyidea.org/fatigue-relationnelle.html" rel="bookmark" title="Permalink to Fatigue relationnelle">Fatigue&nbsp;relationnelle</a></li>
+    <li><a href="https://blog.notmyidea.org/conflit.html" rel="bookmark" title="Permalink to Conflit">Conflit</a></li>
+    <li><a href="https://blog.notmyidea.org/cooperation-et-travail.html" rel="bookmark" title="Permalink to Coopération et travail">Coopération et&nbsp;travail</a></li>
+    <li><a href="https://blog.notmyidea.org/rentree.html" rel="bookmark" title="Permalink to Rentrée">Rentrée</a></li>
+    <li><a href="https://blog.notmyidea.org/faire-de-la-musique-sous-linux.html" rel="bookmark" title="Permalink to Faire de la musique sous Linux">Faire de la musique sous&nbsp;Linux</a></li>
     <li><a href="https://blog.notmyidea.org/vaccination-et-risques.html" rel="bookmark" title="Permalink to Vaccination et risques">Vaccination et&nbsp;risques</a></li>
     <li><a href="https://blog.notmyidea.org/facebook-competition-ethique-et-marketing.html" rel="bookmark" title="Permalink to Facebook, compétition, éthique et marketing.">Facebook, compétition, éthique et&nbsp;marketing.</a></li>
     <li><a href="https://blog.notmyidea.org/routine.html" rel="bookmark" title="Permalink to Routine">Routine</a></li>

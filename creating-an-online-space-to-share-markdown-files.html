@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Creating an online space to share markdown&nbsp;files - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Creating an online space to share markdown&nbsp;files</h1>
+	<time datetime="2023-09-17T00:00:00+02:00">17 septembre 2023</time>
+
+    
+</header>
+<article>
+    
+<p>I wanted to create a space on my server where I can upload markdown files and have them rendered directly, for them to be shared with other&nbsp;people.</p>
+<p>I stumbled on <a href="https://github.com/ukarim/ngx_markdown_filter_module">the markdown module for nginx</a> which does exactly what I want, but seemed to ask for compilation of nginx, which wasn&#8217;t exactly what I wanted in terms of maintainability (it would make it complicated to update&nbsp;it)</p>
+<p>I then thought that the <a href="https://caddyserver.com/">Caddy</a> server does that by default, and so I&#8217;ve tested it out. Turns out it&#8217;s not, but it offers ways to do this thanks to its template&nbsp;mecanism.</p>
+<p>It also, <a href="https://caddyserver.com/docs/automatic-https">setups automatically and transparently <span class="caps">SSL</span> certificates</a> for you (using Let&#8217;s Encrypt!), so I wanted to have a&nbsp;look.</p>
+<p>Here is the Caddy configuration file I&#8217;m now using&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>md.notmyidea.org {
+        root * /home/caddy/md.notmyidea.org
+        rewrite * /index.html
+        file_server
+        templates
+        encode zstd gzip
+
+}
+</code></pre></div>
+
+<p>And the&nbsp;template:</p>
+<div class="highlight"><pre><span></span><code>{{$pathParts := splitList &quot;/&quot; .OriginalReq.URL.Path}}
+{{$markdownFilename := default &quot;index&quot; (slice $pathParts 1 | join &quot;/&quot;)}}
+
+{{if not (fileExists $markdownFilename)}}
+    {{httpError 404}}
+{{end}}
+
+{{$markdownFile := (include $markdownFilename | splitFrontMatter)}}
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{{ $markdownFilename }}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        {{ markdown $markdownFile.Body }}
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>This is a minimalistic version, but it works&nbsp;:-)</p>
+</article>
+
+</body>
+
+</html>

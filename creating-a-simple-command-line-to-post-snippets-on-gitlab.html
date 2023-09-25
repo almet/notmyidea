@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Creating a simple command line to post snippets on&nbsp;Gitlab - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Creating a simple command line to post snippets on&nbsp;Gitlab</h1>
+	<time datetime="2023-09-18T00:00:00+02:00">18 septembre 2023</time>
+
+    
+</header>
+<article>
+    
+<p>I&#8217;m trying to get away from Github, and one thing that I find useful is the <a href="https://gist.github.com">gist</a> utility they&#8217;re providing. Seems that gitlab provides a similar&nbsp;tool.</p>
+<p>You can use it using <a href="https://python-gitlab.readthedocs.io/">python-gitlab</a>:</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>python-gitlab
+</code></pre></div>
+
+<p>And then&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>gitlab<span class="w"> </span>snippet<span class="w"> </span>create<span class="w"> </span>--title<span class="o">=</span><span class="s2">&quot;youpi&quot;</span><span class="w"> </span>--file-name<span class="o">=</span><span class="s2">&quot;snip.py&quot;</span><span class="w"> </span>--content<span class="w"> </span>snip.py<span class="w"> </span>--visibility<span class="o">=</span><span class="s2">&quot;public&quot;</span>
+</code></pre></div>
+
+<p>I now wanted a small bash script which will just get the name of the file and infer all the parameters. I asked <span class="caps">GPT</span>-4, and iterated on its&nbsp;answer.</p>
+<p>Here&#8217;s the resulting bash&nbsp;script:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Please provide a filename&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$base</span><span class="s2">&quot;</span>
+<span class="nv">visibility</span><span class="o">=</span><span class="s2">&quot;public&quot;</span>
+
+<span class="c1"># Use `cat` to fetch the content of the file</span>
+<span class="nv">content</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="nv">result</span><span class="o">=</span><span class="k">$(</span>gitlab<span class="w"> </span>snippet<span class="w"> </span>create<span class="w"> </span>--title<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$title</span><span class="s2">&quot;</span><span class="w"> </span>--file-name<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$title</span><span class="s2">&quot;</span><span class="w"> </span>--content<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$content</span><span class="s2">&quot;</span><span class="w"> </span>--visibility<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$visibility</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="nv">id</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$result</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/id: / { print $2 }&#39;</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;https://gitlab.com/-/snippets/</span><span class="nv">$id</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>I can now do <code>snip README.md</code> and that will create the snippet for me&nbsp;:-)</p>
+</article>
+
+</body>
+
+</html>

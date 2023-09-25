@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Profiling and speeding up Django and&nbsp;Pytest - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Profiling and speeding up Django and&nbsp;Pytest</h1>
+	<time datetime="2023-08-16T00:00:00+02:00">16 août 2023</time>
+
+    
+</header>
+<article>
+    
+<p><a href="https://yaal.coop/">Éloi</a> made <a href="https://github.com/spiral-project/ihatemoney/issues/1214">a pull request on
+IHateMoney</a> to
+speedup the tests, with some great tooling for pytest that I wasn&#8217;t aware&nbsp;of:</p>
+<ul>
+<li><a href="https://pypi.org/project/pytest-xdist/">pytest-xdist</a> allows to run tests in
+  parallel, using <code>-n auto</code></li>
+<li><a href="https://pypi.org/project/pytest-profiling/">pytest-profiling</a> makes it easy
+  to get the call stack and time the function calls that take most of the&nbsp;time.</li>
+<li>You can them analyse the <code>.prof</code> files with
+  <a href="https://pypi.org/project/snakeviz/">Snakeviz</a></li>
+</ul>
+<p>So, I spent some time using these on the tests for <a href="https://chariotte.fr">La
+Chariotte</a>, because they were&nbsp;slow.</p>
+<p>I found two things&nbsp;:</p>
+<ul>
+<li>Login calls are costly in the test, and it&#8217;s possible to speed things up&nbsp;;</li>
+<li>On my machine, calls to resolve my hostname were slow, using 5s during the
+  tests for a lookup that wasn&#8217;t even&nbsp;useful.</li>
+</ul>
+<h2 id="changing-the-hashing-algorithm-to-speedup-tests">Changing the hashing algorithm to speedup&nbsp;tests</h2>
+<p>By default, Django uses a slow (but secure !) hashing mechanism for checking
+the user credentials. In the tests, we don&#8217;t need this security, but we need
+the&nbsp;speed.</p>
+<p>Changing them to use <span class="caps">MD5</span> turns out to be a way to greatly speed them up! Here
+is how to do it with a pytest fixture&nbsp;:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">password_hasher_setup</span><span class="p">(</span><span class="n">settings</span><span class="p">):</span>
+    <span class="c1"># Use a weaker password hasher during tests, for speed</span>
+    <span class="n">settings</span><span class="o">.</span><span class="n">PASSWORD_HASHERS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;django.contrib.auth.hashers.MD5PasswordHasher&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+</code></pre></div>
+
+<h2 id="speeding-dns-lookups">Speeding <span class="caps">DNS</span>&nbsp;lookups</h2>
+<p>I&#8217;m currently using a MacOSX machine, and for for whatever reason, the local
+lookup was not configured properly on my machine. I don&#8217;t think I did anything
+specific to get this wrong, so it might be your case too. Calls to resolve the
+local domain were tooking&nbsp;5s.</p>
+<p>If the answer to <code>scutil --get LocalHostName</code>, <code>hostname</code> and <code>scutil --get
+HostName</code> differ, then you might be in this case. Here is the fix&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>scutil<span class="w"> </span>--set<span class="w"> </span>HostName<span class="w"> </span>&lt;YourHostName&gt;
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/django.html">#django</a>,         <a href="https://blog.notmyidea.org/tag/pytest.html">#pytest</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+
+</body>
+
+</html>

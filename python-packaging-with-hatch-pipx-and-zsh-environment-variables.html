@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python packaging with Hatch, pipx and Zsh environment&nbsp;variables - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+        <li><a class=""
+            href="https://blog.notmyidea.org/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </section>
+
+<header>
+	<h1 class="post-title">Python packaging with Hatch, pipx and Zsh environment&nbsp;variables</h1>
+	<time datetime="2023-08-17T00:00:00+02:00">17 août 2023</time>
+
+    
+</header>
+<article>
+    
+<p>It&#8217;s been a while I didn&#8217;t packaged something new. I recently remembered an old
+package of mine that needed some attention :
+<a href="https://gitlab.com/almet/debts">debts</a>. It&#8217;s now time to package it, so I
+discovered <a href="https://hatch.pypa.io/">hatch</a></p>
+<p>hatch new&nbsp;&#8212;init</p>
+<p>This does the heavy-lifting for you, actually porting the <code>setup.py</code> files to the
+new way of packaging with python (with a <code>pyproject.toml</code> file)</p>
+<p>Then <code>hatch shell</code> will create a development environment, install dependencies,
+check the <code>pyproject.toml</code> file in one command, and give you a shell to test
+whatever you need to&nbsp;test.</p>
+<h2 id="isolating-system-packages">Isolating system&nbsp;packages</h2>
+<p>I discovered that <a href="https://github.com/pypa/pipx">pipx</a> is a convenient way to
+install user-facing applications on my system. I use multiple virtual
+environments for my different projects, but not for the install that are used&nbsp;system-wide.</p>
+<p>pipx seems to solve this, and avoid using <code>sudo pip install x</code>.</p>
+<h2 id="manipulating-env-variables-with-zsh">Manipulating env variables with&nbsp;Zsh</h2>
+<p>I use <a href="https://www.zsh.org/">Zsh</a> as my main shell for years, and I just
+discovered that it&#8217;s possible to manipulate environment variables in an easy&nbsp;way.</p>
+<p>If you&#8217;re like me, you never remember how to add something to your path. You
+can actually use <code>+=</code>, like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">path</span><span class="o">+=(</span><span class="s1">&#39;/Users/alexis/.local/bin&#39;</span><span class="o">)</span>
+<span class="nb">export</span><span class="w"> </span>PATH
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/python.html">#python</a>,         <a href="https://blog.notmyidea.org/tag/packaging.html">#packaging</a>,         <a href="https://blog.notmyidea.org/tag/zsh.html">#zsh</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+
+</body>
+
+</html>
