@@ -34,8 +34,9 @@
 <article>
     <p>I&#8217;m using <a href="https://llm.datasette.io">llm</a> more and more, and today I had to find back prompts I used in the past. Here is a command I&#8217;ve been using, which allows me to filter the results based on what I want. It leverages <a href="https://sqlutils.datasette.io">sql-utils</a>, a cli tool which is able to talk to a <span class="caps">SQLITE</span> database and answer in json, and <a href="https://github.com/jqlang/jq">jq</a> a command-line tool capable of doing requests for&nbsp;json.</p>
 <p>All in all, it&#8217;s pretty satisfying to use. I finally got a simple way to query databases! I&#8217;m also using <a href="https://github.com/charmbracelet/glow">glow</a>, which is capable of transforming markdown into a better version on the&nbsp;terminal.</p>
-<p><span class="dquo">&#8220;</span>`bash
-sqlite-utils &#8220;$(llm logs path)&#8221; &#8220;<span class="caps">SELECT</span> * <span class="caps">FROM</span> responses <span class="caps">WHERE</span> prompt <span class="caps">LIKE</span> &#8216;%search%&#8217;&#8221; | jq &#8216;.[].response&#8217; -r | glow&nbsp;&#8220;&#8220;</p>
+<div class="highlight"><pre><span></span><code>sqlite-utils<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>llm<span class="w"> </span>logs<span class="w"> </span>path<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;SELECT * FROM responses WHERE prompt LIKE &#39;%search%&#39;&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[].response&#39;</span><span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>glow
+</code></pre></div>
+
 <p>Which got me a colored response&nbsp;:-)</p>
 	<p>
         <a href="https://blog.notmyidea.org/tag/python.html">#python</a>,         <a href="https://blog.notmyidea.org/tag/llm.html">#llm</a>,         <a href="https://blog.notmyidea.org/tag/bash.html">#bash</a>,         <a href="https://blog.notmyidea.org/tag/sqlite.html">#sqlite</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
