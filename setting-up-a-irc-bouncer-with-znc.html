@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Setting up a <span class="caps">IRC</span> Bouncer with <span class="caps">ZNC</span> - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Setting up a <span class="caps">IRC</span> Bouncer with <span class="caps">ZNC</span></h1>
+	<time datetime="2023-09-27T00:00:00+02:00">27 septembre 2023</time>
+
+    
+</header>
+<article>
+    <p>It&#8217;s been a while since I&#8217;ve used <span class="caps">IRC</span>, but I needed to connect to it today to discuss around <a href="https://docs.peewee-orm.com">Peewee</a>.</p>
+<p>The main issue with <span class="caps">IRC</span> is that you need to be connected to see the answer, and to get the context of the conversation. Unless&#8230; you set up a&nbsp;bouncer.</p>
+<p>The bouncer is named <a href="https://znc.in"><span class="caps">ZNC</span></a>, and the <span class="caps">IRC</span> client I use is <a href="https://weechat.org">Weechat</a>.</p>
+<p>So, that&#8217;s what I&nbsp;did:</p>
+<h2 id="installation-of-znc">Installation of <span class="caps">ZNC</span></h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>znc
+sudo<span class="w"> </span>-u<span class="w"> </span>_znc<span class="w"> </span>/usr/bin/znc<span class="w"> </span>--datadir<span class="o">=</span>/var/lib/znc<span class="w"> </span>--makeconf
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>znc
+</code></pre></div>
+
+<p>You can answer the questions asked by <code>--makeconf</code>, it will generate you a configuration file like this (stored in <code>/var/lib/znc/configurations/znc.conf</code>):</p>
+<div class="highlight"><pre><span></span><code>AnonIPLimit<span class="w"> </span>=<span class="w"> </span>10
+AuthOnlyViaModule<span class="w"> </span>=<span class="w"> </span>false
+ConfigWriteDelay<span class="w"> </span>=<span class="w"> </span>0
+ConnectDelay<span class="w"> </span>=<span class="w"> </span>5
+HideVersion<span class="w"> </span>=<span class="w"> </span>false
+LoadModule<span class="w"> </span>=<span class="w"> </span>webadmin
+MaxBufferSize<span class="w"> </span>=<span class="w"> </span>500
+ProtectWebSessions<span class="w"> </span>=<span class="w"> </span>true
+SSLCertFile<span class="w"> </span>=<span class="w"> </span>/var/lib/znc/znc.pem
+SSLDHParamFile<span class="w"> </span>=<span class="w"> </span>/var/lib/znc/znc.pem
+SSLKeyFile<span class="w"> </span>=<span class="w"> </span>/var/lib/znc/znc.pem
+ServerThrottle<span class="w"> </span>=<span class="w"> </span>30
+Version<span class="w"> </span>=<span class="w"> </span>1.8.2
+
+<span class="nt">&lt;Listener</span><span class="w"> </span><span class="err">listener0</span><span class="nt">&gt;</span>
+<span class="w">    </span>AllowIRC<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>AllowWeb<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>IPv4<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>IPv6<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>Port<span class="w"> </span>=<span class="w"> </span>6697
+<span class="w">    </span>SSL<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>URIPrefix<span class="w"> </span>=<span class="w"> </span>/
+<span class="nt">&lt;/Listener&gt;</span>
+
+<span class="nt">&lt;User</span><span class="w"> </span><span class="err">alexis</span><span class="nt">&gt;</span>
+<span class="w">    </span>Admin<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>Allow<span class="w"> </span>=<span class="w"> </span>*
+<span class="w">    </span>AltNick<span class="w"> </span>=<span class="w"> </span>alexis_
+<span class="w">    </span>AppendTimestamp<span class="w"> </span>=<span class="w"> </span>false
+<span class="w">    </span>AuthOnlyViaModule<span class="w"> </span>=<span class="w"> </span>false
+<span class="w">    </span>AutoClearChanBuffer<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>AutoClearQueryBuffer<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>BindHost<span class="w"> </span>=<span class="w"> </span>skate.notmyidea.org
+<span class="w">    </span>ChanBufferSize<span class="w"> </span>=<span class="w"> </span>50
+<span class="w">    </span>DenyLoadMod<span class="w"> </span>=<span class="w"> </span>false
+<span class="w">    </span>DenySetBindHost<span class="w"> </span>=<span class="w"> </span>false
+<span class="w">    </span>Ident<span class="w"> </span>=<span class="w"> </span>alexis
+<span class="w">    </span>JoinTries<span class="w"> </span>=<span class="w"> </span>10
+<span class="w">    </span>LoadModule<span class="w"> </span>=<span class="w"> </span>chansaver
+<span class="w">    </span>LoadModule<span class="w"> </span>=<span class="w"> </span>controlpanel
+<span class="w">    </span>MaxJoins<span class="w"> </span>=<span class="w"> </span>0
+<span class="w">    </span>MaxNetworks<span class="w"> </span>=<span class="w"> </span>1
+<span class="w">    </span>MaxQueryBuffers<span class="w"> </span>=<span class="w"> </span>50
+<span class="w">    </span>MultiClients<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>Nick<span class="w"> </span>=<span class="w"> </span>alexis
+<span class="w">    </span>NoTrafficTimeout<span class="w"> </span>=<span class="w"> </span>180
+<span class="w">    </span>PrependTimestamp<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">    </span>QueryBufferSize<span class="w"> </span>=<span class="w"> </span>50
+<span class="w">    </span>QuitMsg<span class="w"> </span>=<span class="w"> </span>See<span class="w"> </span>you<span class="w"> </span>:)
+<span class="w">    </span>RealName<span class="w"> </span>=<span class="w"> </span>N/A
+<span class="w">    </span>StatusPrefix<span class="w"> </span>=<span class="w"> </span>*
+<span class="w">    </span>TimestampFormat<span class="w"> </span>=<span class="w"> </span>[%H:%M:%S]
+
+<span class="w">    </span><span class="nt">&lt;Network</span><span class="w"> </span><span class="err">liberachat</span><span class="nt">&gt;</span>
+<span class="w">        </span>FloodBurst<span class="w"> </span>=<span class="w"> </span>9
+<span class="w">        </span>FloodRate<span class="w"> </span>=<span class="w"> </span>2.00
+<span class="w">        </span>IRCConnectEnabled<span class="w"> </span>=<span class="w"> </span>true
+<span class="w">        </span>JoinDelay<span class="w"> </span>=<span class="w"> </span>0
+<span class="w">        </span>LoadModule<span class="w"> </span>=<span class="w"> </span>simple_away
+<span class="w">        </span>RealName<span class="w"> </span>=<span class="w"> </span>N/A
+<span class="w">        </span>Server<span class="w"> </span>=<span class="w"> </span>irc.libera.chat<span class="w"> </span>+6697
+<span class="w">        </span>TrustAllCerts<span class="w"> </span>=<span class="w"> </span>false
+<span class="w">        </span>TrustPKI<span class="w"> </span>=<span class="w"> </span>true
+
+<span class="w">        </span><span class="nt">&lt;Chan</span><span class="w"> </span><span class="err">#peewee</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Chan&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Network&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Pass</span><span class="w"> </span><span class="err">password</span><span class="nt">&gt;</span>
+<span class="w">        </span>Hash<span class="w"> </span>=<span class="w"> </span>REDACTED
+<span class="w">        </span>Method<span class="w"> </span>=<span class="w"> </span>SHA256
+<span class="w">        </span>Salt<span class="w"> </span>=<span class="w"> </span>REDACTED
+<span class="w">    </span><span class="nt">&lt;/Pass&gt;</span>
+<span class="nt">&lt;/User&gt;</span>
+</code></pre></div>
+
+<p>You can access a web interface on the exposed port. I had to make a change in my Firefox configuration, in <code>about:config</code>, set <code>network.security.ports.banned.override</code> to <code>6697</code>, otherwise, Firefox prevents you from connecting to these ports (which might actually be a good&nbsp;idea).</p>
+<h2 id="weechat-configuration">Weechat&nbsp;configuration</h2>
+<p>Now, to use this in weechat, here are some useful commands. First, get the fingerprint of the <span class="caps">SSL</span> certificate generated on your&nbsp;server:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/var/log/znc/znc.pem<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-sha512<span class="w"> </span>-fingerprint<span class="w"> </span>-noout<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;A-Z&#39;</span><span class="w"> </span><span class="s1">&#39;a-z&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="o">=</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span>
+<span class="sb">````</span>
+
+Then,<span class="w"> </span><span class="k">in</span><span class="w"> </span>weechat<span class="w"> </span>:
+
+<span class="sb">```</span>weechat
+/server<span class="w"> </span>add<span class="w"> </span>znc<span class="w"> </span>host/6697<span class="w"> </span>-tls<span class="w"> </span>-username<span class="o">=</span>&lt;username&gt;<span class="w"> </span>-password<span class="o">=</span>&lt;yourpass&gt;<span class="w"> </span>-autoconnect
+/set<span class="w"> </span>irc.server.znc.tls_fingerprint<span class="w"> </span>&lt;fingerprint-goes-here&gt;
+/connect<span class="w"> </span>znc
+</code></pre></div>
+
+<p>And you should be all&nbsp;set!</p>
+<p>Resources : <a href="https://wiki.znc.in/Weechat">The <span class="caps">ZNC</span> Wiki on Weechat</a> and the <a href="https://wiki.debian.org/ZNC">Debian page on <span class="caps">ZNC</span></a></p>
+</article>
+
+</body>
+
+</html>

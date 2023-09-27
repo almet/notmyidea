@@ -26,6 +26,19 @@
     </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2023-09-27T00:00:00+02:00">27 septembre 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/python.html">python</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/llm.html">llm</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/bash.html">bash</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlite.html">sqlite</a>    <h1><a href="https://blog.notmyidea.org/llm-command-line-tips.html" id="page-title">llm command-line&nbsp;tips</a></h1>
+    <p>I&#8217;m using <a href="https://llm.datasette.io">llm</a> more and more, and today I had to find back prompts I used in the past. Here is a command I&#8217;ve been using, which allows me to filter the results based on what I want. It leverages <a href="https://sqlutils.datasette.io">sql-utils</a>, a cli tool which is able to …</p>
+</section>
+<section class="section index">
+    <time datetime="2023-09-27T00:00:00+02:00">27 septembre 2023</time>
+
+    <h1><a href="https://blog.notmyidea.org/setting-up-a-irc-bouncer-with-znc.html" id="page-title">Setting up a <span class="caps">IRC</span> Bouncer with <span class="caps">ZNC</span></a></h1>
+    <p>It&#8217;s been a while since I&#8217;ve used <span class="caps">IRC</span>, but I needed to connect to it today to discuss around <a href="https://docs.peewee-orm.com">Peewee</a>.</p>
+<p>The main issue with <span class="caps">IRC</span> is that you need to be connected to see the answer, and to get the context of the conversation. Unless&#8230; you set up …</p>
+</section>
+<section class="section index">
     <time datetime="2023-09-22T00:00:00+02:00">22 septembre 2023</time>
 
         <a class='tag' href="https://blog.notmyidea.org/tag/llm.html">llm</a>    <h1><a href="https://blog.notmyidea.org/how-to-run-the-vigogne-model-locally.html" id="page-title">How to run the vigogne model&nbsp;locally</a></h1>
@@ -106,27 +119,9 @@ discovered <a href="https://hatch.pypa.io/">hatch</a></p>
 <p>hatch new&nbsp;&#8212;init</p>
 <p>This does the heavy-lifting for you, actually porting the <code>setup.py</code> files …</p>
 </section>
-<section class="section index">
-    <time datetime="2023-08-16T00:00:00+02:00">16 août 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/django.html">django</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/pytest.html">pytest</a>    <h1><a href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" id="page-title">Profiling and speeding up Django and&nbsp;Pytest</a></h1>
-    
-<p><a href="https://yaal.coop/">Éloi</a> made <a href="https://github.com/spiral-project/ihatemoney/issues/1214">a pull request on
-IHateMoney</a> to
-speedup the tests, with some great tooling for pytest that I wasn&#8217;t aware&nbsp;of:</p>
 <ul>
-<li><a href="https://pypi.org/project/pytest-xdist/">pytest-xdist</a> allows to run tests in
-  parallel, using <code>-n auto</code></li>
-<li><a href="https://pypi.org/project/pytest-profiling/">pytest-profiling</a> makes it easy
-  to get the call stack and time the function calls that take most …</li></ul>
-</section>
-<section class="section index">
-    <time datetime="2023-02-25T00:00:00+01:00">25 février 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/travail.html">Travail</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/facilitation.html">Facilitation</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/savoir-etre.html">Savoir-Être</a>    <h1><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" id="page-title">Séparation travail et&nbsp;loisirs</a></h1>
-    Bien que nécessaire pour certains pour se protéger de l'exploitation, cette séparation ne risque-elle pas de déshumaniser le travail et d'empêcher la construction de relations authentiques entre collègues ?
-</section>
-<ul>
+    <li><a href="https://blog.notmyidea.org/python-packaging-with-hatch-pipx-and-zsh-environment-variables.html" rel="bookmark" title="Permalink to Python packaging with Hatch, pipx and Zsh environment variables">Python packaging with Hatch, pipx and Zsh environment&nbsp;variables</a></li>
+    <li><a href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" rel="bookmark" title="Permalink to Profiling and speeding up Django and Pytest">Profiling and speeding up Django and&nbsp;Pytest</a></li>
     <li><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="bookmark" title="Permalink to Séparation travail et loisirs">Séparation travail et&nbsp;loisirs</a></li>
     <li><a href="https://blog.notmyidea.org/tolerance-empathie-et-limites.html" rel="bookmark" title="Permalink to Tolérance, empathie et limites">Tolérance, empathie et&nbsp;limites</a></li>
     <li><a href="https://blog.notmyidea.org/installation-de-mosquitto-influxdb-telegraf-et-grafana.html" rel="bookmark" title="Permalink to Installation de Mosquitto, InfluxDB, Telegraf et Grafana">Installation de Mosquitto, InfluxDB, Telegraf et&nbsp;Grafana</a></li>

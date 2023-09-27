@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-24T00:00:00+02:00</updated><entry><title>2023, Semaine 38</title><link href="https://blog.notmyidea.org/2023-semaine-38.html" rel="alternate"></link><published>2023-09-24T00:00:00+02:00</published><updated>2023-09-24T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-24:/2023-semaine-38.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-27T00:00:00+02:00</updated><entry><title>llm command-line tips</title><link href="https://blog.notmyidea.org/llm-command-line-tips.html" rel="alternate"></link><published>2023-09-27T00:00:00+02:00</published><updated>2023-09-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-27:/llm-command-line-tips.html</id><summary type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to talk to a &lt;span class="caps"&gt;SQLITE&lt;/span&gt; database and answer in json, and &lt;a href="https://github.com/jqlang/jq"&gt;jq&lt;/a&gt; a command-line tool capable of doing requests for&amp;nbsp;json.&lt;/p&gt;
+&lt;p&gt;All in all, it&amp;#8217;s pretty satisfying to use. I finally got a simple way to query databases! I&amp;#8217;m also using &lt;a href="https://github.com/charmbracelet/glow"&gt;glow&lt;/a&gt;, which is capable of transforming markdown into a better version on the&amp;nbsp;terminal.&lt;/p&gt;
+&lt;p&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;`bash
+sqlite-utils &amp;#8220;$(llm logs path)&amp;#8221; &amp;#8220;&lt;span class="caps"&gt;SELECT&lt;/span&gt; * &lt;span class="caps"&gt;FROM&lt;/span&gt; responses &lt;span class="caps"&gt;WHERE&lt;/span&gt; prompt &lt;span class="caps"&gt;LIKE&lt;/span&gt; &amp;#8216;%search%&amp;#8217;&amp;#8221; | jq &amp;#8216;.[].response&amp;#8217; -r | glow&amp;nbsp;&amp;#8220;&amp;#8220;&lt;/p&gt;
+&lt;p&gt;Which got me a colored response&amp;nbsp;:-)&lt;/p&gt;</content><category term="code"></category><category term="python"></category><category term="llm"></category><category term="bash"></category><category term="sqlite"></category></entry><entry><title>Setting up a IRC Bouncer with ZNC</title><link href="https://blog.notmyidea.org/setting-up-a-irc-bouncer-with-znc.html" rel="alternate"></link><published>2023-09-27T00:00:00+02:00</published><updated>2023-09-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-27:/setting-up-a-irc-bouncer-with-znc.html</id><summary type="html">&lt;p&gt;It&amp;#8217;s been a while since I&amp;#8217;ve used &lt;span class="caps"&gt;IRC&lt;/span&gt;, but I needed to connect to it today to discuss around &lt;a href="https://docs.peewee-orm.com"&gt;Peewee&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main issue with &lt;span class="caps"&gt;IRC&lt;/span&gt; is that you need to be connected to see the answer, and to get the context of the conversation. Unless&amp;#8230; you set up …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It&amp;#8217;s been a while since I&amp;#8217;ve used &lt;span class="caps"&gt;IRC&lt;/span&gt;, but I needed to connect to it today to discuss around &lt;a href="https://docs.peewee-orm.com"&gt;Peewee&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main issue with &lt;span class="caps"&gt;IRC&lt;/span&gt; is that you need to be connected to see the answer, and to get the context of the conversation. Unless&amp;#8230; you set up a&amp;nbsp;bouncer.&lt;/p&gt;
+&lt;p&gt;The bouncer is named &lt;a href="https://znc.in"&gt;&lt;span class="caps"&gt;ZNC&lt;/span&gt;&lt;/a&gt;, and the &lt;span class="caps"&gt;IRC&lt;/span&gt; client I use is &lt;a href="https://weechat.org"&gt;Weechat&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So, that&amp;#8217;s what I&amp;nbsp;did:&lt;/p&gt;
+&lt;h2 id="installation-of-znc"&gt;Installation of &lt;span class="caps"&gt;ZNC&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;apt&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;znc
+sudo&lt;span class="w"&gt; &lt;/span&gt;-u&lt;span class="w"&gt; &lt;/span&gt;_znc&lt;span class="w"&gt; &lt;/span&gt;/usr/bin/znc&lt;span class="w"&gt; &lt;/span&gt;--datadir&lt;span class="o"&gt;=&lt;/span&gt;/var/lib/znc&lt;span class="w"&gt; &lt;/span&gt;--makeconf
+sudo&lt;span class="w"&gt; &lt;/span&gt;systemctl&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;enable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;znc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can answer the questions asked by &lt;code&gt;--makeconf&lt;/code&gt;, it will generate you a configuration file like this (stored in &lt;code&gt;/var/lib/znc/configurations/znc.conf&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;AnonIPLimit&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;10
+AuthOnlyViaModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+ConfigWriteDelay&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;0
+ConnectDelay&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;5
+HideVersion&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+LoadModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;webadmin
+MaxBufferSize&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;500
+ProtectWebSessions&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+SSLCertFile&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;/var/lib/znc/znc.pem
+SSLDHParamFile&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;/var/lib/znc/znc.pem
+SSLKeyFile&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;/var/lib/znc/znc.pem
+ServerThrottle&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;30
+Version&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;1.8.2
+
+&lt;span class="nt"&gt;&amp;lt;Listener&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;listener0&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;AllowIRC&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;AllowWeb&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;IPv4&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;IPv6&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;Port&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;6697
+&lt;span class="w"&gt;    &lt;/span&gt;SSL&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;URIPrefix&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;/
+&lt;span class="nt"&gt;&amp;lt;/Listener&amp;gt;&lt;/span&gt;
+
+&lt;span class="nt"&gt;&amp;lt;User&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;alexis&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;Admin&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;Allow&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;*
+&lt;span class="w"&gt;    &lt;/span&gt;AltNick&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;alexis_
+&lt;span class="w"&gt;    &lt;/span&gt;AppendTimestamp&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+&lt;span class="w"&gt;    &lt;/span&gt;AuthOnlyViaModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+&lt;span class="w"&gt;    &lt;/span&gt;AutoClearChanBuffer&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;AutoClearQueryBuffer&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;BindHost&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;skate.notmyidea.org
+&lt;span class="w"&gt;    &lt;/span&gt;ChanBufferSize&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;50
+&lt;span class="w"&gt;    &lt;/span&gt;DenyLoadMod&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+&lt;span class="w"&gt;    &lt;/span&gt;DenySetBindHost&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+&lt;span class="w"&gt;    &lt;/span&gt;Ident&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;alexis
+&lt;span class="w"&gt;    &lt;/span&gt;JoinTries&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;10
+&lt;span class="w"&gt;    &lt;/span&gt;LoadModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;chansaver
+&lt;span class="w"&gt;    &lt;/span&gt;LoadModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;controlpanel
+&lt;span class="w"&gt;    &lt;/span&gt;MaxJoins&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;0
+&lt;span class="w"&gt;    &lt;/span&gt;MaxNetworks&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;1
+&lt;span class="w"&gt;    &lt;/span&gt;MaxQueryBuffers&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;50
+&lt;span class="w"&gt;    &lt;/span&gt;MultiClients&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;Nick&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;alexis
+&lt;span class="w"&gt;    &lt;/span&gt;NoTrafficTimeout&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;180
+&lt;span class="w"&gt;    &lt;/span&gt;PrependTimestamp&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;    &lt;/span&gt;QueryBufferSize&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;50
+&lt;span class="w"&gt;    &lt;/span&gt;QuitMsg&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;See&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;:)
+&lt;span class="w"&gt;    &lt;/span&gt;RealName&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;N/A
+&lt;span class="w"&gt;    &lt;/span&gt;StatusPrefix&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;*
+&lt;span class="w"&gt;    &lt;/span&gt;TimestampFormat&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;[%H:%M:%S]
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;Network&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;liberachat&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;FloodBurst&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;9
+&lt;span class="w"&gt;        &lt;/span&gt;FloodRate&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;2.00
+&lt;span class="w"&gt;        &lt;/span&gt;IRCConnectEnabled&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+&lt;span class="w"&gt;        &lt;/span&gt;JoinDelay&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;0
+&lt;span class="w"&gt;        &lt;/span&gt;LoadModule&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;simple_away
+&lt;span class="w"&gt;        &lt;/span&gt;RealName&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;N/A
+&lt;span class="w"&gt;        &lt;/span&gt;Server&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;irc.libera.chat&lt;span class="w"&gt; &lt;/span&gt;+6697
+&lt;span class="w"&gt;        &lt;/span&gt;TrustAllCerts&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;false
+&lt;span class="w"&gt;        &lt;/span&gt;TrustPKI&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;true
+
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;Chan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;#peewee&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/Chan&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/Network&amp;gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;Pass&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;password&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;Hash&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;REDACTED
+&lt;span class="w"&gt;        &lt;/span&gt;Method&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;SHA256
+&lt;span class="w"&gt;        &lt;/span&gt;Salt&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;REDACTED
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/Pass&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/User&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can access a web interface on the exposed port. I had to make a change in my Firefox configuration, in &lt;code&gt;about:config&lt;/code&gt;, set &lt;code&gt;network.security.ports.banned.override&lt;/code&gt; to &lt;code&gt;6697&lt;/code&gt;, otherwise, Firefox prevents you from connecting to these ports (which might actually be a good&amp;nbsp;idea).&lt;/p&gt;
+&lt;h2 id="weechat-configuration"&gt;Weechat&amp;nbsp;configuration&lt;/h2&gt;
+&lt;p&gt;Now, to use this in weechat, here are some useful commands. First, get the fingerprint of the &lt;span class="caps"&gt;SSL&lt;/span&gt; certificate generated on your&amp;nbsp;server:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat&lt;span class="w"&gt; &lt;/span&gt;/var/log/znc/znc.pem&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;openssl&lt;span class="w"&gt; &lt;/span&gt;x509&lt;span class="w"&gt; &lt;/span&gt;-sha512&lt;span class="w"&gt; &lt;/span&gt;-fingerprint&lt;span class="w"&gt; &lt;/span&gt;-noout&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tr&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;tr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;A-Z&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;a-z&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cut&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
+&lt;span class="sb"&gt;````&lt;/span&gt;
+
+Then,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;weechat&lt;span class="w"&gt; &lt;/span&gt;:
+
+&lt;span class="sb"&gt;```&lt;/span&gt;weechat
+/server&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;znc&lt;span class="w"&gt; &lt;/span&gt;host/6697&lt;span class="w"&gt; &lt;/span&gt;-tls&lt;span class="w"&gt; &lt;/span&gt;-username&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;username&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;-password&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;yourpass&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;-autoconnect
+/set&lt;span class="w"&gt; &lt;/span&gt;irc.server.znc.tls_fingerprint&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;fingerprint-goes-here&amp;gt;
+/connect&lt;span class="w"&gt; &lt;/span&gt;znc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And you should be all&amp;nbsp;set!&lt;/p&gt;
+&lt;p&gt;Resources : &lt;a href="https://wiki.znc.in/Weechat"&gt;The &lt;span class="caps"&gt;ZNC&lt;/span&gt; Wiki on Weechat&lt;/a&gt; and the &lt;a href="https://wiki.debian.org/ZNC"&gt;Debian page on &lt;span class="caps"&gt;ZNC&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="code"></category></entry><entry><title>2023, Semaine 38</title><link href="https://blog.notmyidea.org/2023-semaine-38.html" rel="alternate"></link><published>2023-09-24T00:00:00+02:00</published><updated>2023-09-24T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-24:/2023-semaine-38.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Framasoft&lt;/dt&gt;
