@@ -60,7 +60,7 @@ certaines sites comme addons.mozilla.com.
 valeurs de coopération, de partage et de gastronomie. J'en suis parti à l'été
 2023 pour retourner vers le developpement. La Brasserie existe toujours.
 
-[Le Grappe](https://reseaugrappe.org/)
+[Le Grappe](https://www.reseaugrappe.org/)
 : Durant mes années étudiantes (2007-2012), j'ai participé à la création et à l'animation
 d'un réseau d'associations « porteuses de projets en environnement ». Un bon
 moyen de rencontrer d'autres personnes animées par des valeurs collectivistes,
