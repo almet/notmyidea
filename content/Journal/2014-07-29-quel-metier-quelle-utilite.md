@@ -120,5 +120,5 @@ Allez, au boulot \!
 PS: je me rends compte après relecture que ce billet fait echo à un
 billet que j'ai écris juste alors que je terminais mes études, [sur le
 sens du travail et de
-l'informatique](%7Bfilename%7D2011.05.travailler-moins-mieux.rst), ça
+l'informatique](https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html), ça
 fait du bien :)

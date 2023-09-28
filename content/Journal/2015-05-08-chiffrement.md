@@ -62,9 +62,6 @@ et permet d'avoir des échanges chiffrés. [Référez vous à ce
 guide](https://emailselfdefense.fsf.org/fr/) pour des instructions pas à
 pas.
 
-La clé publique pour me contacter est
-[0x078805D867F56F12](/static/alexis.notmyidea.org.asc). Et vous ?
-
 Je vous invite à aller voir le documentaire Citizen Four, qui passe en
 salles. Si vous ni avez pas accès, vous pouvez le visionner ici, et
 éventuellement faire un don aux auteurs ou associations qui gravitent
