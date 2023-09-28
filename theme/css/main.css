@@ -198,7 +198,7 @@ pre {
     font-size: 0.8em;
     overflow: auto;
     padding: 10px;
-    white-space: initial;
+    white-space: pre-wrap;
 }
 
 header {

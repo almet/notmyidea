@@ -123,14 +123,12 @@ Version<span class="w"> </span>=<span class="w"> </span>1.8.2
 <h2 id="weechat-configuration">Weechat&nbsp;configuration</h2>
 <p>Now, to use this in weechat, here are some useful commands. First, get the fingerprint of the <span class="caps">SSL</span> certificate generated on your&nbsp;server:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/var/log/znc/znc.pem<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-sha512<span class="w"> </span>-fingerprint<span class="w"> </span>-noout<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;A-Z&#39;</span><span class="w"> </span><span class="s1">&#39;a-z&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="w"> </span><span class="o">=</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span>
-<span class="sb">````</span>
+</code></pre></div>
 
-Then,<span class="w"> </span><span class="k">in</span><span class="w"> </span>weechat<span class="w"> </span>:
-
-<span class="sb">```</span>weechat
-/server<span class="w"> </span>add<span class="w"> </span>znc<span class="w"> </span>host/6697<span class="w"> </span>-tls<span class="w"> </span>-username<span class="o">=</span>&lt;username&gt;<span class="w"> </span>-password<span class="o">=</span>&lt;yourpass&gt;<span class="w"> </span>-autoconnect
-/set<span class="w"> </span>irc.server.znc.tls_fingerprint<span class="w"> </span>&lt;fingerprint-goes-here&gt;
-/connect<span class="w"> </span>znc
+<p>Then, in weechat&nbsp;:</p>
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="nv">server</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="nv">znc</span><span class="w"> </span><span class="nv">host</span><span class="o">/</span><span class="mi">6697</span><span class="w"> </span><span class="o">-</span><span class="nv">tls</span><span class="w"> </span><span class="o">-</span><span class="nv">username</span><span class="o">=&lt;</span><span class="nv">username</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="nv">password</span><span class="o">=&lt;</span><span class="nv">yourpass</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="nv">autoconnect</span>
+<span class="o">/</span><span class="nv">set</span><span class="w"> </span><span class="nv">irc</span>.<span class="nv">server</span>.<span class="nv">znc</span>.<span class="nv">tls_fingerprint</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">fingerprint</span><span class="o">-</span><span class="nv">goes</span><span class="o">-</span><span class="nv">here</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="k">connect</span><span class="w"> </span><span class="nv">znc</span>
 </code></pre></div>
 
 <p>And you should be all&nbsp;set!</p>
