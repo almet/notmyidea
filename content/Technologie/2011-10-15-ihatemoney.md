@@ -33,7 +33,7 @@ There is no need to register for an account or whatnot, just enter a
 project name, a secret code and a contact email, invite friends and
 that's it (this was inspired by doodle)\!
 
-![Capture d'écran du site.](Blog/output/images/ihatemoney.png)
+![Capture d'écran du site.](/images/ihatemoney.png)
 
 You can try the project at <http://ihatemoney.notmyidea.org> for now,
 and the code lives at <https://github.com/spiral-project/ihatemoney/>.
