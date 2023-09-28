@@ -5665,7 +5665,7 @@ request&amp;#8221;; just before doing a request to the &lt;span class="caps"&gt;
 browser most of the time) asks the permission to the resource, with an
 &lt;span class="caps"&gt;OPTIONS&lt;/span&gt;&amp;nbsp;call.&lt;/p&gt;
 &lt;p&gt;The server answers, and tell what is available and what&amp;nbsp;isn&amp;#8217;t:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="Blog/output/images/cors_flow.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The CORS flow (from the HTML5 CORS tutorial)" src="/images/cors_flow.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;1a. The User-Agent, rather than doing the call directly, asks the
@@ -5942,7 +5942,7 @@ App Engine&lt;/em&gt;. Heureusement, c&amp;#8217;est open-source, et ça a été
 donner naissance à
 &lt;a href="https://github.com/bfirsh/whiskerboard"&gt;whiskerboard&lt;/a&gt; (la planche
 moustachue, pour les non&amp;nbsp;anglophones).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/status_board.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="/images/status_board.png"&gt;&lt;/p&gt;
 &lt;h2 id="verifier-le-statut-des-services"&gt;Vérifier le statut des&amp;nbsp;services&lt;/h2&gt;
 &lt;p&gt;Donc, c&amp;#8217;est chouette, c&amp;#8217;est facile à installer, tout ça, mais… mais ça ne fait en fait pas ce que je veux: ça ne fait que m&amp;#8217;afficher le statut des services, mais ça ne vérifie pas que tout est bien&amp;nbsp;&amp;#8220;up&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;Bon, un peu embêtant pour moi, parce que c&amp;#8217;est vraiment ça que je voulais. Pas grave, je sais un peu coder, autant que ça serve. J&amp;#8217;ai ajouté quelques fonctionnalités au soft, qui sont disponibles sur mon fork, sur github:: &lt;a href="https://github.com/almet/whiskerboard"&gt;https://github.com/almet/whiskerboard&lt;/a&gt;&amp;nbsp;.&lt;/p&gt;
@@ -6203,7 +6203,7 @@ and open&amp;nbsp;source.&lt;/p&gt;
 &lt;p&gt;In case you wonder, daybed is effectively the name of a couch. We chose
 this name because of the similarities (in the sound) with &lt;strong&gt;db&lt;/strong&gt;, and
 because we&amp;#8217;re using &lt;strong&gt;CouchDB&lt;/strong&gt; as a&amp;nbsp;backend.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="Blog/output/images/daybed.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Daybed is a big couch!" src="/images/daybed.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;We mainly hacked on daybed and are pretty close to the release of the
 first version, meaning that we have something&amp;nbsp;working.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://github.com/spiral-project/daybed"&gt;The code&lt;/a&gt; is available on
@@ -6323,7 +6323,7 @@ milieu pour donner un petit goût amer et le tour est joué. Enfin&amp;nbsp;pres
 &lt;p&gt;Première étape: &lt;strong&gt;le concassage&lt;/strong&gt;. On avait 6kg d&amp;#8217;orge maltée à
 concasser (plus exactement 6kg de malt pâle &lt;em&gt;&lt;span class="caps"&gt;7EDC&lt;/span&gt;&lt;/em&gt; et 500g de malt cara
 &lt;em&gt;&lt;span class="caps"&gt;50EDC&lt;/span&gt;&lt;/em&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image de concassage." src="Blog/output/images/concassage.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image de concassage." src="/images/concassage.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Attention, pas trop fin dis donc ! On ne veut pas de la poudre, on veut
 simplement permettre à l&amp;#8217;amidon de se dissoudre dans l&amp;#8217;eau. Si on
 concasse le malt trop fin, on se retrouve avec un dépôt dégeulasse au
@@ -6335,7 +6335,7 @@ long et fastidieux), On a utilisé… un moulin à malt ! Qui nous à permis
 de concasser les 6kg en 30 minutes (heureusement qu&amp;#8217;on était trois pour
 se relayer sur le moulin, parce que nos petits muscles fatiguaient assez
 vite; vous pouvez envisager de faire ça tout seul si vous êtes un&amp;nbsp;tennisman).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="C'est dur !" src="Blog/output/images/concasse.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="C'est dur !" src="/images/concasse.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;La seconde étape, &lt;strong&gt;l&amp;#8217;empatage&lt;/strong&gt;. Il s&amp;#8217;agit de faire chauffer notre orge
 maltée à différentes températures. Les fois précédentes, on avait
 utilisé plusieurs paliers de température, mais il semble que ça ne soit
@@ -6346,7 +6346,7 @@ erreur sur la route, on à eu peur de la contamination bactérienne et on
 bactéries s&amp;#8217;enfuient en courant. Je dis erreur parce que ça nous à pris
 pas loin de 3h30, inertie quand tu nous&amp;nbsp;tiens!&lt;/p&gt;
 &lt;p&gt;On se rends compte de la taille de la marmite un peu&amp;nbsp;là:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Une grosse marmite" src="Blog/output/images/marmite.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Une grosse marmite" src="/images/marmite.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Une fois l&amp;#8217;eau à température (54°C), il faut ajouter le malt et le
 laisser durant 30mn à cette température, puis augmenter jusqu&amp;#8217;à 65°C
 durant&amp;nbsp;1h.&lt;/p&gt;
@@ -6356,7 +6356,7 @@ l&amp;#8217;amidon qui s&amp;#8217;est dissout dans l&amp;#8217;eau et de mettre
 On a utilisé 10L d&amp;#8217;eau de rinçage qu&amp;#8217;on a fait chauffer à 78°C, en
 comptant sur le fait qu&amp;#8217;elle perdra de sa température (20°C à peu près)
 en étant utilisée. On a filtré deux fois pour être sûr de ne rien&amp;nbsp;perdre.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Filtrage filtrage..." src="Blog/output/images/filtrage.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Filtrage filtrage..." src="/images/filtrage.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;L&amp;#8217;étape d&amp;#8217;après (la quatrième, vous suivez), c&amp;#8217;est &lt;strong&gt;le houblonnage&lt;/strong&gt;.
 On va faire infuser notre &amp;#8220;solution aqueuse&amp;#8221; (wouah, on dirait de la
 chimie !) avec du houblon. Il faut porter l&amp;#8217;eau à ébullition et laisser
@@ -6365,11 +6365,11 @@ faire durant&amp;nbsp;1h.&lt;/p&gt;
 comme ça, mais en fait ça ne l&amp;#8217;est pas tant que ça: il faut réussir à
 passer notre liquide qui était en ébullition à 54°C en un temps
 acceptable. Pour ça, on a utilisé un serpentin confectionné&amp;nbsp;main.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Notre refroidisseur fait main par Fred." src="Blog/output/images/refroidisseur.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Notre refroidisseur fait main par Fred." src="/images/refroidisseur.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Ça nous a permis de passer de 100°C à 54°C en… 35 minutes quand même !
 (Nous avions essayé les fois précédentes de gérer ça à coup de baignoire
 et de glaçons, les temps n&amp;#8217;étaient absolument pas au&amp;nbsp;rendez-vous).&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Décidement pas." src="Blog/output/images/refroidissement.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Décidement pas." src="/images/refroidissement.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Je disais dernière étape, mais il ne faut pas oublier de rajouter les
 levures, qui elles vont faire tout le travail et transformer tout ça en…
 alcool ! Dans notre cas, on ajoute aussi dans la cuve de fermentation
@@ -7834,7 +7834,7 @@ features and provided feedback (thanks
 There is no need to register for an account or whatnot, just enter a
 project name, a secret code and a contact email, invite friends and
 that&amp;#8217;s it (this was inspired by&amp;nbsp;doodle)!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Capture d'écran du site." src="Blog/output/images/ihatemoney.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Capture d'écran du site." src="/images/ihatemoney.png"&gt;&lt;/p&gt;
 &lt;p&gt;You can try the project at &lt;a href="http://ihatemoney.notmyidea.org"&gt;http://ihatemoney.notmyidea.org&lt;/a&gt; for now,
 and the code lives at &lt;a href="https://github.com/spiral-project/ihatemoney/"&gt;https://github.com/spiral-project/ihatemoney/&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="features"&gt;Features&lt;/h2&gt;
