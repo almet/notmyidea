@@ -93,7 +93,7 @@ pourrait ressembler à ceci&amp;nbsp;:&lt;/p&gt;
 &lt;span class="n"&gt;collection_hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages : Perspectives pour l’été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains&amp;nbsp;mois.&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Service de nuages : Perspectives pour l’été</title><link href="https://blog.notmyidea.org/service-de-nuages-perspectives-pour-lete-fr.html" rel="alternate"></link><published>2015-07-07T00:00:00+02:00</published><updated>2015-07-07T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-07:/service-de-nuages-perspectives-pour-lete-fr.html</id><summary type="html">&lt;p class="first last"&gt;Le travail en cours et les fonctionnalités à venir pour les prochains&amp;nbsp;mois.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Mozilla a pour coutume d&amp;#8217;organiser régulièrement des semaines de travail où tous les employés
 sont réunis physiquement. Pour cette dernière édition, nous avons pu retrouver
@@ -258,7 +258,7 @@ construire une solution libre, générique, simple et auto-hébergeable pour le 
 de données sur le Web&amp;nbsp;:)&lt;/p&gt;
 &lt;img alt="Friday Night Party - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
+</content><category term="code"></category></entry><entry><title>Service de nuages : Achievement unlocked</title><link href="https://blog.notmyidea.org/service-de-nuages-achievement-unlocked-fr.html" rel="alternate"></link><published>2015-06-01T00:00:00+02:00</published><updated>2015-06-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-01:/service-de-nuages-achievement-unlocked-fr.html</id><summary type="html">&lt;p class="first last"&gt;Après près de 3 mois intensifs, nous venons de &lt;em&gt;tagguer&lt;/em&gt; Cliquet 2.0
 et Kinto 1.0&amp;nbsp;!&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Aujourd&amp;#8217;hui, c&amp;#8217;est jour de fête : nous venons de publier Cliquet &lt;strong&gt;2.0&lt;/strong&gt;
@@ -322,7 +322,7 @@ est &lt;em&gt;pluggable&lt;/em&gt;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#footnote-reference-4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La feuille de route de Kinto: &lt;a class="reference external" href="https://github.com/mozilla-services/kinto/wiki/roadmap"&gt;https://github.com/mozilla-services/kinto/wiki/roadmap&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto&amp;nbsp;?&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto&amp;nbsp;?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace&amp;nbsp;?&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="la-problematique"&gt;
@@ -605,7 +605,7 @@ un objet et également de pouvoir récupérer tous les objets d&amp;#8217;une
 collection pour un utilisateur si celui-ci n&amp;#8217;a pas accès à tous les
 records de la collection, ou toutes les collections du&amp;nbsp;bucket.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages : La gestion des permissions</title><link href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html" rel="alternate"></link><published>2015-05-01T00:00:00+02:00</published><updated>2015-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-01:/service-de-nuages-la-gestion-des-permissions-fr.html</id><summary type="html">&lt;p class="first last"&gt;Démystification du vocabulaire des permissions et proposition d&amp;#8217;implémentation pour&amp;nbsp;Kinto&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Service de nuages : La gestion des permissions</title><link href="https://blog.notmyidea.org/service-de-nuages-la-gestion-des-permissions-fr.html" rel="alternate"></link><published>2015-05-01T00:00:00+02:00</published><updated>2015-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-01:/service-de-nuages-la-gestion-des-permissions-fr.html</id><summary type="html">&lt;p class="first last"&gt;Démystification du vocabulaire des permissions et proposition d&amp;#8217;implémentation pour&amp;nbsp;Kinto&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Dans le cadre de la création d&amp;#8217;un service de stockage de données personnelles
 (Kinto), la gestion des permissions est un des gros challenges : qui doit avoir
@@ -1210,7 +1210,7 @@ donner aux applications qui agissent en son&amp;nbsp;nom.&lt;/p&gt;
 réflexions, n&amp;#8217;hésitez pas à nous interrompre pendant qu&amp;#8217;il est encore temps&amp;nbsp;!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages !</title><link href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="alternate"></link><published>2015-04-01T00:00:00+02:00</published><updated>2015-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-01:/service-de-nuages-fr.html</id><summary type="html">&lt;p class="first last"&gt;Retour sur le premier trimestre 2015: Readinglist, Kinto,&amp;nbsp;Cliquet.&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Service de nuages !</title><link href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="alternate"></link><published>2015-04-01T00:00:00+02:00</published><updated>2015-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-01:/service-de-nuages-fr.html</id><summary type="html">&lt;p class="first last"&gt;Retour sur le premier trimestre 2015: Readinglist, Kinto,&amp;nbsp;Cliquet.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Pas mal de changements depuis le début de l&amp;#8217;année pour l&amp;#8217;équipe
 «cloud-services»&amp;nbsp;francophone!&lt;/p&gt;
@@ -1281,4 +1281,4 @@ rassemblées dans le protocole (ou &lt;em&gt;Cliquet&lt;/em&gt;), certains point
 et de vous présenter notre vision via des exemples et&amp;nbsp;tutoriaux.&lt;/p&gt;
 &lt;p&gt;À bientôt, donc&amp;nbsp;!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry></feed>
+</content><category term="code"></category></entry></feed>

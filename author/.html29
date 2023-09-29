@@ -120,6 +120,7 @@ discovered <a href="https://hatch.pypa.io/">hatch</a></p>
 <p>This does the heavy-lifting for you, actually porting the <code>setup.py</code> files …</p>
 </section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/archlinux-et-mise-a-jour-du-keyring.html" rel="bookmark" title="Permalink to ArchLinux et mise à jour du keyring">ArchLinux et mise à jour du&nbsp;keyring</a></li>
     <li><a href="https://blog.notmyidea.org/python-packaging-with-hatch-pipx-and-zsh-environment-variables.html" rel="bookmark" title="Permalink to Python packaging with Hatch, pipx and Zsh environment variables">Python packaging with Hatch, pipx and Zsh environment&nbsp;variables</a></li>
     <li><a href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" rel="bookmark" title="Permalink to Profiling and speeding up Django and Pytest">Profiling and speeding up Django and&nbsp;Pytest</a></li>
     <li><a href="https://blog.notmyidea.org/separation-travail-et-loisirs.html" rel="bookmark" title="Permalink to Séparation travail et loisirs">Séparation travail et&nbsp;loisirs</a></li>
@@ -259,6 +260,9 @@ discovered <a href="https://hatch.pypa.io/">hatch</a></p>
     <li><a href="https://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="bookmark" title="Permalink to AMAP + Média = Paniers bio à 5e ?!"><span class="caps">AMAP</span> + Média = Paniers bio à 5e&nbsp;?!</a></li>
 </ul>
 </section>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
 
 </body>
 

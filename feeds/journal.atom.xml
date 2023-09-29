@@ -892,9 +892,9 @@ L&amp;#8217;avantage de ce matériel c&amp;#8217;est que c&amp;#8217;est la &lt;
 &lt;p&gt;Et quand on passe des tests à l’échelle, (de 20L à 1500L), on est moyennement rassurés&amp;nbsp;!&lt;/p&gt;
 &lt;p&gt;Après quelques brassins validés, on est un peu plus relax sur le sujet, et on a mis en place de quoi faire des expérimentations à petite échelle de manière simple : vu qu&amp;#8217;on produit du moût toutes les semaines, on en utilise une partie pour faire quelques tests : changement de levure, adjonctions, changement des températures de fermentation,&amp;nbsp;etc.&lt;/p&gt;
 &lt;p&gt;Ah ça, c’est pas les idées qui nous manquent :-) Et c&amp;#8217;est une super manière&amp;nbsp;d&amp;#8217;expérimenter.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de la Sobacha, une lager avec une infusion de sarrasin torréfié" src="/images/experimentations/sobacha.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de Monstrueuse Normalité, une New England IPA" src="/images/experimentations/monstrueuse-normalite.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de Chaînon Manquant, une Sour Pale Ale avec du Kiwi" src="/images/experimentations/chainon-manquant.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de la Sobacha, une lager avec une infusion de sarrasin torréfié" src="/images/un-an/sobacha.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de Monstrueuse Normalité, une New England IPA" src="/images/un-an/monstrueuse-normalite.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de Chaînon Manquant, une Sour Pale Ale avec du Kiwi" src="/images/un-an/chainon-manquant.png"&gt;&lt;/p&gt;
 &lt;h2 id="ouverture-au-public-evenements-et-equilibre"&gt;Ouverture au public, évènements et&amp;nbsp;équilibre&lt;/h2&gt;
 &lt;p&gt;On a pris le parti d&amp;#8217;ouvrir le magasin toutes les fins de semaine (le jeudi et vendredi de 17h à 19h) et on est hyper contents de faire visiter la brasserie aux personnes qui passent de temps à autre. Pour nous, ça fait partie des plaisirs du métier. Par contre, on avait clairement sous estimé le temps que ça nous prendrait. On accueille beaucoup et les gens sont curieux. La fabrication de bière reste encore aujourd’hui quelque chose de nouveau pour la plupart, et il faut satisfaire cette curiosité (il faut plus de brasseries&amp;nbsp;!).&lt;/p&gt;
 &lt;p&gt;Ce qui se passe en ce moment sur la scène brassicole est génial : beaucoup de nouvelles brasseries proposent des produits exceptionnels, et les évènements se multiplient aux quatre coins de la France. On adore partager, goûter, discuter, mais on ne pensait pas être autant sollicités par des évènements extérieurs, souvent sur des week-end, et parfois loin. &lt;strong&gt;On souhaite garder un équilibre entre notre vie personnelle et notre vie professionnelle&lt;/strong&gt;. Aller aux évènements aussi par plaisir. Être partout est probablement un des maux de notre temps ;-) À force de voir des brasseurs exténués, il y a de quoi se poser des questions sur la pérennité sur le long terme d’un rythme aussi&amp;nbsp;effréné.&lt;/p&gt;
@@ -1355,8 +1355,6 @@ sphère privée ce qui devrait l&amp;#8217;être à&amp;nbsp;priori.&lt;/p&gt;
 Enigmail et de le configurer correctement. Ce n&amp;#8217;est pas très compliqué
 et permet d&amp;#8217;avoir des échanges chiffrés. &lt;a href="https://emailselfdefense.fsf.org/fr/"&gt;Référez vous à ce
 guide&lt;/a&gt; pour des instructions pas à&amp;nbsp;pas.&lt;/p&gt;
-&lt;p&gt;La clé publique pour me contacter est
-&lt;a href="/static/alexis.notmyidea.org.asc"&gt;0x078805D867F56F12&lt;/a&gt;. Et vous&amp;nbsp;?&lt;/p&gt;
 &lt;p&gt;Je vous invite à aller voir le documentaire Citizen Four, qui passe en
 salles. Si vous ni avez pas accès, vous pouvez le visionner ici, et
 éventuellement faire un don aux auteurs ou associations qui gravitent
@@ -1553,7 +1551,7 @@ de génération de formulaires en ligne, qui ne soit pas centré sur les
 services de&amp;nbsp;google…&lt;/p&gt;
 &lt;p&gt;Allez, au boulot&amp;nbsp;!&lt;/p&gt;
 &lt;p&gt;&lt;span class="caps"&gt;PS&lt;/span&gt;: je me rends compte après relecture que ce billet fait echo à un
-billet que j&amp;#8217;ai écris juste alors que je terminais mes études, &lt;a href="%7Bfilename%7D2011.05.travailler-moins-mieux.rst"&gt;sur le
+billet que j&amp;#8217;ai écris juste alors que je terminais mes études, &lt;a href="https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html"&gt;sur le
 sens du travail et de
 l&amp;#8217;informatique&lt;/a&gt;, ça
 fait du bien&amp;nbsp;:)&lt;/p&gt;</content><category term="journal"></category></entry><entry><title>Retours sur deux ans à Mozilla</title><link href="https://blog.notmyidea.org/retours-sur-deux-ans-a-mozilla.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/retours-sur-deux-ans-a-mozilla.html</id><summary type="html">
@@ -1570,7 +1568,7 @@ restent&amp;nbsp;intacts.&lt;/p&gt;
 &lt;p&gt;Deux ans ça parait énorme, c&amp;#8217;est le temps le plus long que j&amp;#8217;ai passé à
 travailler sur un projet, avec quasiment les mêmes personnes. Si vous
 suivez un peu ces carnets, vous savez surement que j&amp;#8217;ai beaucoup
-travaillé avec &lt;a href="ziade.org"&gt;Tarek&lt;/a&gt; par&amp;nbsp;exemple.&lt;/p&gt;
+travaillé avec &lt;a href="https://ziade.org"&gt;Tarek&lt;/a&gt; par&amp;nbsp;exemple.&lt;/p&gt;
 &lt;p&gt;Ça a été (et c&amp;#8217;est toujours) un réel plaisir de bosser avec la personne
 dont j&amp;#8217;avais lu les livres pour apprendre le python, merci&amp;nbsp;!&lt;/p&gt;
 &lt;h2 id="services"&gt;Services&lt;/h2&gt;
@@ -1812,7 +1810,7 @@ que je veux me garder de coté, des pensées que je souhaite partager… Un
 endroit ou je peux venir écrire quelque chose et le compléter plus&amp;nbsp;tard.&lt;/p&gt;
 &lt;p&gt;Du coup, le flux Atom contiens désormais quelques notes sur des sujets
 variés. Ces notes ne sont pas relayées sur la page d&amp;#8217;accueil, mais vous
-pouvez les trouver dans &lt;a href="%7Ccategory%7Cnotes"&gt;la section notes&lt;/a&gt;.&lt;/p&gt;
+pouvez les trouver dans &lt;a href="/notes"&gt;la section notes&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Je ne sais pas encore si il s&amp;#8217;agit du meilleur endroit pour ça, mais peu
 importe, essayons. A bas la pudeur&amp;nbsp;rédactionelle.&lt;/p&gt;
 &lt;p&gt;J&amp;#8217;ai du au passage chambouler un peu vos agrégateurs, pardonnez moi&amp;nbsp;:)&lt;/p&gt;

@@ -67,6 +67,10 @@ h1 {
     text-decoration-style: unset;
   }
 
+  h1 small {
+    font-size: 0.7em;
+  }
+
 h2 {
   font-size: 1.3em;
 }
@@ -385,4 +389,39 @@ hr::after {
 
 #links ul {
   padding: 0;
+}
+
+a[data-size]::after {
+  content: attr(data-size);
+  vertical-align: super;
+  font-style: italic;
+  font-size: 10px;
+}
+
+a[data-size='2'] {
+  font-size: 1.3em;
+}
+
+a[data-size='3'] {
+  font-size: 1.6em;
+}
+
+a[data-size='4'] {
+  font-size: 1.8em;
+}
+
+a[data-size='5'] {
+  font-size: 2.2em;
+}
+
+#feed img {
+  weight: 25px;
+  width: 25px;
+}
+
+.book-cover {
+  float: right;
+  padding-right: 1em;
+  max-width: 128px;
+  max-height: 192px;
 }

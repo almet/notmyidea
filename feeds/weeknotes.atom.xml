@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-24T00:00:00+02:00</updated><entry><title>2023, Semaine 38</title><link href="https://blog.notmyidea.org/2023-semaine-38.html" rel="alternate"></link><published>2023-09-24T00:00:00+02:00</published><updated>2023-09-24T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-24:/2023-semaine-38.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-29T00:00:00+02:00</updated><entry><title>2023, Semaine 39</title><link href="https://blog.notmyidea.org/2023-semaine-39.html" rel="alternate"></link><published>2023-09-29T00:00:00+02:00</published><updated>2023-09-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-29:/2023-semaine-39.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques, pour finalement en changer et me questionner sur la partie &lt;strong&gt;metier&lt;/strong&gt;, ce qui me semblait plus intéressant. A partir du moment où j&amp;#8217;ai arrêté d&amp;#8217;essayer d&amp;#8217;appliquer une solution « déjà faite » j&amp;#8217;ai pu me questionner sur le modèle de données et aller de l&amp;#8217;avant. Étrangement c&amp;#8217;est quand j&amp;#8217;ai produit le moins de code que j&amp;#8217;ai trouvé que j&amp;#8217;étais le plus&amp;nbsp;productif.&lt;/dd&gt;
+&lt;dt&gt;Notmyidea&lt;/dt&gt;
+&lt;dd&gt;Je n&amp;#8217;ai pas trop avancé sur la partie structure juridique, mais les choses décantent et me paraissent plus clair que la semaine passée. Je penche en ce moment pour une solution en auto-entreprise pour les quelques premières missions, quitte à remettre en question ce choix par la suite si je trouve de nouveaux·elles client·es. Je me laisse le temps pour&amp;nbsp;décider.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai &lt;del&gt;procrastiné&lt;/del&gt; passé beaucoup plus de temps que prévu sur la mise en place d&amp;#8217;outils utiles pour moi, et à peaufiné mon site web. J&amp;#8217;ai maintenant un bouncer &lt;span class="caps"&gt;ZNC&lt;/span&gt; et un &lt;span class="caps"&gt;VPN&lt;/span&gt; fait maison qui me permettent de travailler dans de meilleures conditions. Je suis à la fois content d&amp;#8217;avoir pris le temps de mettre en place des outils, et en même temps j&amp;#8217;ai une impression de&amp;nbsp;procrastination.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des&amp;nbsp;joies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoir pris le temps d&amp;#8217;aller « à la ville » pour passer du temps avec des amis et&amp;nbsp;sociabiliser.&lt;/li&gt;
+&lt;li&gt;M&amp;#8217;écouter et décider de dormir sur place pour travailler aussi sur Rennes le&amp;nbsp;lendemain.&lt;/li&gt;
+&lt;li&gt;Aller à l&amp;#8217;espace de coworkig à côté de chez&amp;nbsp;moi.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de faire des choses peu importantes entassées dans ma todolist depuis trop&amp;nbsp;longtemps.&lt;/li&gt;
+&lt;li&gt;Récolter des fruits de discussions passées lors d&amp;#8217;une soirée. Vive les todo-list&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Voir qu&amp;#8217;une demande de modifications que j&amp;#8217;ai faite soit appréciée et intégrée&amp;nbsp;rapidement.&lt;/li&gt;
+&lt;li&gt;Dépanner le serveur de &lt;a href="https://github.com/almet/copanier"&gt;copanier&lt;/a&gt;, trouver le problème rapidement et le régler&amp;nbsp;facilement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des&amp;nbsp;peines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je suis retombé malade en fin de semaine, et donc bien fatigué. Ca impacte mon moral et ma capacité de&amp;nbsp;concentration.&lt;/li&gt;
+&lt;li&gt;Des discussions compliquées dans mon collectif de vie. Je suis content de poser des limites, mais je sens que je cherche toujours la validation des&amp;nbsp;autres.&lt;/li&gt;
+&lt;li&gt;Sentir que ma posture dans les conversations est plus ferme que par le passé. Je suis à la fois content de ne pas &lt;strong&gt;toujours&lt;/strong&gt; me remettre en question, mais j&amp;#8217;aimerai réussir à faire preuve de plus d&amp;#8217;ouverture. Il faut trouver&amp;nbsp;l&amp;#8217;équilibre &lt;/li&gt;
+&lt;li&gt;Triste de voir des conflits escalader alors que ça pourrait être&amp;nbsp;autrement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎮 J&amp;#8217;ai continué &lt;a href="https://fr.wikipedia.org/wiki/Baba_Is_You"&gt;Baba is you&lt;/a&gt; avec Arthur. C&amp;#8217;était sympa de se faire les reflexions à deux&amp;nbsp;cerveaux.&lt;/li&gt;
+&lt;li&gt;▶︎ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=dVzfNZN9NKI&amp;amp;list=PL8uoeex94UhFcwvAfWHybD7SfNgIUBRo-&amp;amp;index=128"&gt;Vu une présentation sur DuckDB&lt;/a&gt;, une base de données locale et minimaliste qui semble adaptée pour de la visualisation de données à grande&amp;nbsp;échelle.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2023, Semaine 38</title><link href="https://blog.notmyidea.org/2023-semaine-38.html" rel="alternate"></link><published>2023-09-24T00:00:00+02:00</published><updated>2023-09-24T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-24:/2023-semaine-38.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Framasoft&lt;/dt&gt;

@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-27T00:00:00+02:00</updated><entry><title>llm command-line tips</title><link href="https://blog.notmyidea.org/llm-command-line-tips.html" rel="alternate"></link><published>2023-09-27T00:00:00+02:00</published><updated>2023-09-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-27:/llm-command-line-tips.html</id><summary type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to talk to a &lt;span class="caps"&gt;SQLITE&lt;/span&gt; database and answer in json, and &lt;a href="https://github.com/jqlang/jq"&gt;jq&lt;/a&gt; a command-line tool capable of doing requests for&amp;nbsp;json.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-29T00:00:00+02:00</updated><entry><title>2023, Semaine 39</title><link href="https://blog.notmyidea.org/2023-semaine-39.html" rel="alternate"></link><published>2023-09-29T00:00:00+02:00</published><updated>2023-09-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-29:/2023-semaine-39.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques, pour finalement en changer et me questionner sur la partie &lt;strong&gt;metier&lt;/strong&gt;, ce qui me semblait plus intéressant. A partir du moment où j&amp;#8217;ai arrêté d&amp;#8217;essayer d&amp;#8217;appliquer une solution « déjà faite » j&amp;#8217;ai pu me questionner sur le modèle de données et aller de l&amp;#8217;avant. Étrangement c&amp;#8217;est quand j&amp;#8217;ai produit le moins de code que j&amp;#8217;ai trouvé que j&amp;#8217;étais le plus&amp;nbsp;productif.&lt;/dd&gt;
+&lt;dt&gt;Notmyidea&lt;/dt&gt;
+&lt;dd&gt;Je n&amp;#8217;ai pas trop avancé sur la partie structure juridique, mais les choses décantent et me paraissent plus clair que la semaine passée. Je penche en ce moment pour une solution en auto-entreprise pour les quelques premières missions, quitte à remettre en question ce choix par la suite si je trouve de nouveaux·elles client·es. Je me laisse le temps pour&amp;nbsp;décider.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai &lt;del&gt;procrastiné&lt;/del&gt; passé beaucoup plus de temps que prévu sur la mise en place d&amp;#8217;outils utiles pour moi, et à peaufiné mon site web. J&amp;#8217;ai maintenant un bouncer &lt;span class="caps"&gt;ZNC&lt;/span&gt; et un &lt;span class="caps"&gt;VPN&lt;/span&gt; fait maison qui me permettent de travailler dans de meilleures conditions. Je suis à la fois content d&amp;#8217;avoir pris le temps de mettre en place des outils, et en même temps j&amp;#8217;ai une impression de&amp;nbsp;procrastination.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des&amp;nbsp;joies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoir pris le temps d&amp;#8217;aller « à la ville » pour passer du temps avec des amis et&amp;nbsp;sociabiliser.&lt;/li&gt;
+&lt;li&gt;M&amp;#8217;écouter et décider de dormir sur place pour travailler aussi sur Rennes le&amp;nbsp;lendemain.&lt;/li&gt;
+&lt;li&gt;Aller à l&amp;#8217;espace de coworkig à côté de chez&amp;nbsp;moi.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de faire des choses peu importantes entassées dans ma todolist depuis trop&amp;nbsp;longtemps.&lt;/li&gt;
+&lt;li&gt;Récolter des fruits de discussions passées lors d&amp;#8217;une soirée. Vive les todo-list&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Voir qu&amp;#8217;une demande de modifications que j&amp;#8217;ai faite soit appréciée et intégrée&amp;nbsp;rapidement.&lt;/li&gt;
+&lt;li&gt;Dépanner le serveur de &lt;a href="https://github.com/almet/copanier"&gt;copanier&lt;/a&gt;, trouver le problème rapidement et le régler&amp;nbsp;facilement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des&amp;nbsp;peines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je suis retombé malade en fin de semaine, et donc bien fatigué. Ca impacte mon moral et ma capacité de&amp;nbsp;concentration.&lt;/li&gt;
+&lt;li&gt;Des discussions compliquées dans mon collectif de vie. Je suis content de poser des limites, mais je sens que je cherche toujours la validation des&amp;nbsp;autres.&lt;/li&gt;
+&lt;li&gt;Sentir que ma posture dans les conversations est plus ferme que par le passé. Je suis à la fois content de ne pas &lt;strong&gt;toujours&lt;/strong&gt; me remettre en question, mais j&amp;#8217;aimerai réussir à faire preuve de plus d&amp;#8217;ouverture. Il faut trouver&amp;nbsp;l&amp;#8217;équilibre &lt;/li&gt;
+&lt;li&gt;Triste de voir des conflits escalader alors que ça pourrait être&amp;nbsp;autrement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎮 J&amp;#8217;ai continué &lt;a href="https://fr.wikipedia.org/wiki/Baba_Is_You"&gt;Baba is you&lt;/a&gt; avec Arthur. C&amp;#8217;était sympa de se faire les reflexions à deux&amp;nbsp;cerveaux.&lt;/li&gt;
+&lt;li&gt;▶︎ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=dVzfNZN9NKI&amp;amp;list=PL8uoeex94UhFcwvAfWHybD7SfNgIUBRo-&amp;amp;index=128"&gt;Vu une présentation sur DuckDB&lt;/a&gt;, une base de données locale et minimaliste qui semble adaptée pour de la visualisation de données à grande&amp;nbsp;échelle.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>llm command-line tips</title><link href="https://blog.notmyidea.org/llm-command-line-tips.html" rel="alternate"></link><published>2023-09-27T00:00:00+02:00</published><updated>2023-09-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-27:/llm-command-line-tips.html</id><summary type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to talk to a &lt;span class="caps"&gt;SQLITE&lt;/span&gt; database and answer in json, and &lt;a href="https://github.com/jqlang/jq"&gt;jq&lt;/a&gt; a command-line tool capable of doing requests for&amp;nbsp;json.&lt;/p&gt;
 &lt;p&gt;All in all, it&amp;#8217;s pretty satisfying to use. I finally got a simple way to query databases! I&amp;#8217;m also using &lt;a href="https://github.com/charmbracelet/glow"&gt;glow&lt;/a&gt;, which is capable of transforming markdown into a better version on the&amp;nbsp;terminal.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sqlite-utils&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;llm&lt;span class="w"&gt; &lt;/span&gt;logs&lt;span class="w"&gt; &lt;/span&gt;path&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SELECT * FROM responses WHERE prompt LIKE &amp;#39;%search%&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;jq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.[].response&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;glow
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -755,7 +789,7 @@ sudo&lt;span class="w"&gt; &lt;/span&gt;/bin/systemctl&lt;span class="w"&gt; &lt
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo certbot --nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Voilà ! A ce moment là, tout doit être fonctionnel, il ne reste plus qu&amp;#8217;à configurer le Grafana pour grapher les données enregistrées dans&amp;nbsp;InfluxDB.&lt;/p&gt;</content><category term="technologie"></category><category term="Administration Système"></category></entry><entry><title>Réveil difficile</title><link href="https://blog.notmyidea.org/reveil-difficile.html" rel="alternate"></link><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-05-30:/reveil-difficile.html</id><summary type="html">&lt;p&gt;La discussion avait été transcendante. Difficile, même : mes repères s&amp;#8217;estompaient, semblaient flous et d&amp;#8217;un seul coup, se refermer sur moi-même. Je réalisais que ma place était ailleurs. Pas ailleurs physiquement, mais ailleurs &lt;em&gt;mentalement&lt;/em&gt;. Je réalisais que les préceptes qui « dirigeaient » ma vie, de manière tellement certaine, tellement évidente …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La discussion avait été transcendante. Difficile, même : mes repères s&amp;#8217;estompaient, semblaient flous et d&amp;#8217;un seul coup, se refermer sur moi-même. Je réalisais que ma place était ailleurs. Pas ailleurs physiquement, mais ailleurs &lt;em&gt;mentalement&lt;/em&gt;. Je réalisais que les préceptes qui « dirigeaient » ma vie, de manière tellement certaine, tellement évidente, venaient de&amp;nbsp;bouger.&lt;/p&gt;
+&lt;p&gt;Voilà ! A ce moment là, tout doit être fonctionnel, il ne reste plus qu&amp;#8217;à configurer le Grafana pour grapher les données enregistrées dans&amp;nbsp;InfluxDB.&lt;/p&gt;</content><category term="code"></category><category term="Administration Système"></category></entry><entry><title>Réveil difficile</title><link href="https://blog.notmyidea.org/reveil-difficile.html" rel="alternate"></link><published>2022-05-30T00:00:00+02:00</published><updated>2022-05-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2022-05-30:/reveil-difficile.html</id><summary type="html">&lt;p&gt;La discussion avait été transcendante. Difficile, même : mes repères s&amp;#8217;estompaient, semblaient flous et d&amp;#8217;un seul coup, se refermer sur moi-même. Je réalisais que ma place était ailleurs. Pas ailleurs physiquement, mais ailleurs &lt;em&gt;mentalement&lt;/em&gt;. Je réalisais que les préceptes qui « dirigeaient » ma vie, de manière tellement certaine, tellement évidente …&lt;/p&gt;</summary><content type="html">&lt;p&gt;La discussion avait été transcendante. Difficile, même : mes repères s&amp;#8217;estompaient, semblaient flous et d&amp;#8217;un seul coup, se refermer sur moi-même. Je réalisais que ma place était ailleurs. Pas ailleurs physiquement, mais ailleurs &lt;em&gt;mentalement&lt;/em&gt;. Je réalisais que les préceptes qui « dirigeaient » ma vie, de manière tellement certaine, tellement évidente, venaient de&amp;nbsp;bouger.&lt;/p&gt;
 &lt;p&gt;Comme si je sortais d&amp;#8217;un ensorcellement, que mon comportement — ma perception, même —  avaient étés durant des années différents, et que, enfin, je me réveillais. Avec un arrière-goût amer dans le fond du&amp;nbsp;palais.&lt;/p&gt;
 &lt;p&gt;L&amp;#8217;incantation ne commençait pas : ses effets finissaient par disparaître. Comme sorti du brouillard, une certitude : bien que je n&amp;#8217;étais pas le seul à réaliser le sort qui m&amp;#8217;avait été réservé, beaucoup d&amp;#8217;autres n&amp;#8217;en avaient pas du tout conscience. Voire même : ceux qui n&amp;#8217;en avaient pas conscience semblaient évoluer dans ce qui me semblait maintenant une béatitude &lt;em&gt;malaisante&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Certain⋅e⋅s s&amp;#8217;injectaient même volontairement des &lt;em&gt;doses&lt;/em&gt; de cette &lt;em&gt;potion&lt;/em&gt; pour que le brouillard ne se dissipe pas. Et je comprends pourquoi : les effets sont puissants, ils rendent les frontières lisses, colorent les interstices, remplacent les malaises par des joies&amp;nbsp;candides.&lt;/p&gt;
@@ -1772,9 +1806,9 @@ L&amp;#8217;avantage de ce matériel c&amp;#8217;est que c&amp;#8217;est la &lt;
 &lt;p&gt;Et quand on passe des tests à l’échelle, (de 20L à 1500L), on est moyennement rassurés&amp;nbsp;!&lt;/p&gt;
 &lt;p&gt;Après quelques brassins validés, on est un peu plus relax sur le sujet, et on a mis en place de quoi faire des expérimentations à petite échelle de manière simple : vu qu&amp;#8217;on produit du moût toutes les semaines, on en utilise une partie pour faire quelques tests : changement de levure, adjonctions, changement des températures de fermentation,&amp;nbsp;etc.&lt;/p&gt;
 &lt;p&gt;Ah ça, c’est pas les idées qui nous manquent :-) Et c&amp;#8217;est une super manière&amp;nbsp;d&amp;#8217;expérimenter.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de la Sobacha, une lager avec une infusion de sarrasin torréfié" src="/images/experimentations/sobacha.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de Monstrueuse Normalité, une New England IPA" src="/images/experimentations/monstrueuse-normalite.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Étiquette de Chaînon Manquant, une Sour Pale Ale avec du Kiwi" src="/images/experimentations/chainon-manquant.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de la Sobacha, une lager avec une infusion de sarrasin torréfié" src="/images/un-an/sobacha.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de Monstrueuse Normalité, une New England IPA" src="/images/un-an/monstrueuse-normalite.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Étiquette de Chaînon Manquant, une Sour Pale Ale avec du Kiwi" src="/images/un-an/chainon-manquant.png"&gt;&lt;/p&gt;
 &lt;h2 id="ouverture-au-public-evenements-et-equilibre"&gt;Ouverture au public, évènements et&amp;nbsp;équilibre&lt;/h2&gt;
 &lt;p&gt;On a pris le parti d&amp;#8217;ouvrir le magasin toutes les fins de semaine (le jeudi et vendredi de 17h à 19h) et on est hyper contents de faire visiter la brasserie aux personnes qui passent de temps à autre. Pour nous, ça fait partie des plaisirs du métier. Par contre, on avait clairement sous estimé le temps que ça nous prendrait. On accueille beaucoup et les gens sont curieux. La fabrication de bière reste encore aujourd’hui quelque chose de nouveau pour la plupart, et il faut satisfaire cette curiosité (il faut plus de brasseries&amp;nbsp;!).&lt;/p&gt;
 &lt;p&gt;Ce qui se passe en ce moment sur la scène brassicole est génial : beaucoup de nouvelles brasseries proposent des produits exceptionnels, et les évènements se multiplient aux quatre coins de la France. On adore partager, goûter, discuter, mais on ne pensait pas être autant sollicités par des évènements extérieurs, souvent sur des week-end, et parfois loin. &lt;strong&gt;On souhaite garder un équilibre entre notre vie personnelle et notre vie professionnelle&lt;/strong&gt;. Aller aux évènements aussi par plaisir. Être partout est probablement un des maux de notre temps ;-) À force de voir des brasseurs exténués, il y a de quoi se poser des questions sur la pérennité sur le long terme d’un rythme aussi&amp;nbsp;effréné.&lt;/p&gt;
@@ -1868,7 +1902,7 @@ paiements s&amp;#8217;effectuent directement entre&amp;nbsp;nous.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://gist.github.com/almet/8c77fafc9e487c02ded852ec4a91ae16"&gt;le code pour faire la répartition des&amp;nbsp;chèques&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.google.com/spreadsheets/d/1bnPRSvf2Q2RDxKerWnEqUyJjuCFePnVMq6pWo8LeA_k/edit?usp=sharing"&gt;une version « à remplir » de notre tableau de commandes&lt;/a&gt; (le mieux est d&amp;#8217;en faire une copie&amp;nbsp;!).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Bon groupement d&amp;#8217;achat&amp;nbsp;;)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Webnotes</title><link href="https://blog.notmyidea.org/webnotes.html" rel="alternate"></link><published>2018-02-25T00:00:00+01:00</published><updated>2018-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-02-25:/webnotes.html</id><summary type="html">&lt;p&gt;Quand je navigue en ligne, j&amp;#8217;aime bien prendre des notes sur ce que je lis. C&amp;#8217;est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j&amp;#8217;ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quand je navigue en ligne, j&amp;#8217;aime bien prendre des notes sur ce que je lis. C&amp;#8217;est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j&amp;#8217;ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière que je voulais, c&amp;#8217;est à&amp;nbsp;dire:&lt;/p&gt;
+&lt;p&gt;Bon groupement d&amp;#8217;achat&amp;nbsp;;)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Webnotes</title><link href="https://blog.notmyidea.org/webnotes.html" rel="alternate"></link><published>2018-02-25T00:00:00+01:00</published><updated>2018-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-02-25:/webnotes.html</id><summary type="html">&lt;p&gt;Quand je navigue en ligne, j&amp;#8217;aime bien prendre des notes sur ce que je lis. C&amp;#8217;est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j&amp;#8217;ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Quand je navigue en ligne, j&amp;#8217;aime bien prendre des notes sur ce que je lis. C&amp;#8217;est utile pour les retrouver plus tard. Il existe quelques outils pour ce genre de cas, mais j&amp;#8217;ai vraiment eu du mal à trouver un outil qui faisais ce que je voulais, de la manière que je voulais, c&amp;#8217;est à&amp;nbsp;dire:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;enregistrer une sélection de texte ainsi que son contexte: heure, site&amp;nbsp;web.&lt;/li&gt;
 &lt;li&gt;fonctionner sur&amp;nbsp;Firefox;&lt;/li&gt;
@@ -1879,7 +1913,7 @@ paiements s&amp;#8217;effectuent directement entre&amp;nbsp;nous.&lt;/p&gt;
 &lt;p&gt;J&amp;#8217;ai donc pris un peu de temps pour fabriquer mon outil de prises de notes, que j&amp;#8217;ai baptisé « Webnotes ». C&amp;#8217;est &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/wwebnotes/"&gt;une extension Firefox&lt;/a&gt;, qui se configure assez simplement, et qui stocke les données dans une instance de &lt;a href="http://kinto-storage.org/"&gt;Kinto&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/almet/webnotes/blob/master/webnotes.gif?raw=true" /&gt;&lt;/p&gt;
 &lt;p&gt;C&amp;#8217;est aussi simple que sélectionner du texte, faire « clic droit » puis « save as webnote », entrer un tag et le tour est joué&amp;nbsp;!&lt;/p&gt;
-&lt;p&gt;Mes notes sont disponibles &lt;a href="https://notes.notmyidea.org"&gt;sur notes.notmyidea.org&lt;/a&gt;, et voici &lt;a href="https://github.com/almet/webnotes"&gt;le lien vers les sources&lt;/a&gt;, si ça vous intéresse de regarder comment ça fonctionne&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Faire moins</title><link href="https://blog.notmyidea.org/faire-moins.html" rel="alternate"></link><published>2018-01-25T00:00:00+01:00</published><updated>2018-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-01-25:/faire-moins.html</id><summary type="html">&lt;p&gt;L&amp;#8217;an dernier, j&amp;#8217;ai décidé de faire moins de choses, ou plus exactement d&amp;#8217;arrêter de faire de nouvelles choses. Choix assez difficile: j&amp;#8217;aime découvrir de nouvelles pratiques, échanger sur des sujets que je connais pas, et surtout je crois que découvrir de nouvelles pratiques (sans nécessairement creuser …&lt;/p&gt;</summary><content type="html">&lt;p&gt;L&amp;#8217;an dernier, j&amp;#8217;ai décidé de faire moins de choses, ou plus exactement d&amp;#8217;arrêter de faire de nouvelles choses. Choix assez difficile: j&amp;#8217;aime découvrir de nouvelles pratiques, échanger sur des sujets que je connais pas, et surtout je crois que découvrir de nouvelles pratiques (sans nécessairement creuser un sujet en particulier) est l&amp;#8217;occasion de contribuer à éviter notre société&amp;nbsp;d&amp;#8217;experts.&lt;/p&gt;
+&lt;p&gt;Mes notes sont disponibles &lt;a href="https://notes.notmyidea.org"&gt;sur notes.notmyidea.org&lt;/a&gt;, et voici &lt;a href="https://github.com/almet/webnotes"&gt;le lien vers les sources&lt;/a&gt;, si ça vous intéresse de regarder comment ça fonctionne&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Faire moins</title><link href="https://blog.notmyidea.org/faire-moins.html" rel="alternate"></link><published>2018-01-25T00:00:00+01:00</published><updated>2018-01-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2018-01-25:/faire-moins.html</id><summary type="html">&lt;p&gt;L&amp;#8217;an dernier, j&amp;#8217;ai décidé de faire moins de choses, ou plus exactement d&amp;#8217;arrêter de faire de nouvelles choses. Choix assez difficile: j&amp;#8217;aime découvrir de nouvelles pratiques, échanger sur des sujets que je connais pas, et surtout je crois que découvrir de nouvelles pratiques (sans nécessairement creuser …&lt;/p&gt;</summary><content type="html">&lt;p&gt;L&amp;#8217;an dernier, j&amp;#8217;ai décidé de faire moins de choses, ou plus exactement d&amp;#8217;arrêter de faire de nouvelles choses. Choix assez difficile: j&amp;#8217;aime découvrir de nouvelles pratiques, échanger sur des sujets que je connais pas, et surtout je crois que découvrir de nouvelles pratiques (sans nécessairement creuser un sujet en particulier) est l&amp;#8217;occasion de contribuer à éviter notre société&amp;nbsp;d&amp;#8217;experts.&lt;/p&gt;
 &lt;p&gt;Le hic, c&amp;#8217;est que trop, c&amp;#8217;est trop. J&amp;#8217;ai donc décidé d&amp;#8217;arrêter, tout simplement, de faire de nouvelles choses, et puis avec le temps j&amp;#8217;ai même arreté de faire des choses que j&amp;#8217;avais commencé à faire (par exemple de l&amp;#8217;escalade), me libérant du&amp;nbsp;temps.&lt;/p&gt;
 &lt;p&gt;Enfin ! Je retrouve ce précieux temps. Je retrouve ces moments d&amp;#8217;ennui. Oui, je comprends bien que ça puisse parraître fou de voir quelqu&amp;#8217;un se réjouir de son ennui… Cet ennui me permet de creuser de nouvelles idées, de reprendre ce bouquin qu&amp;#8217;on avait laissé tomber sans trop de&amp;nbsp;raison.&lt;/p&gt;
 &lt;p&gt;Et surtout, c&amp;#8217;est se retrouver à contrôler son&amp;nbsp;engagement.&lt;/p&gt;</content><category term="journal"></category></entry><entry><title>NEIPA #3</title><link href="https://blog.notmyidea.org/neipa-3.html" rel="alternate"></link><published>2017-12-29T00:00:00+01:00</published><updated>2017-12-29T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2017-12-29:/neipa-3.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Voici quelques prises durant un de mes brassins. L&amp;#8217;idée est de pouvoir les relire et m&amp;#8217;améliorer au fur et à&amp;nbsp;mesure.&lt;/em&gt;&lt;/p&gt;
@@ -2206,7 +2240,7 @@ ajouter des champs de formulaire. Une fois ce travail effectué, vous appuyez su
   coté pour avoir accès aux&amp;nbsp;réponses.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Bref, en espérant que ça vous serve ! Un petit pas dans la direction des données
-rendues à leurs utilisateurs&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Cloisonnement des activités ?</title><link href="https://blog.notmyidea.org/cloisonnement-des-activites.html" rel="alternate"></link><published>2016-05-25T00:00:00+02:00</published><updated>2016-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-05-25:/cloisonnement-des-activites.html</id><summary type="html">&lt;p&gt;Je vous écris depuis un train, en rentrant de Bordeaux où j&amp;#8217;ai passé quelques
+rendues à leurs utilisateurs&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Cloisonnement des activités ?</title><link href="https://blog.notmyidea.org/cloisonnement-des-activites.html" rel="alternate"></link><published>2016-05-25T00:00:00+02:00</published><updated>2016-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-05-25:/cloisonnement-des-activites.html</id><summary type="html">&lt;p&gt;Je vous écris depuis un train, en rentrant de Bordeaux où j&amp;#8217;ai passé quelques
 jours à l&amp;#8217;occasion de &lt;a href="http://sudweb.fr/"&gt;SudWeb&lt;/a&gt;. Si vous ne connaissez pas
 cette conférence, il s&amp;#8217;agit d&amp;#8217;un moment avec des gens chouettes qui se posent
 des questions sur leur metier, comment le vivre et …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Je vous écris depuis un train, en rentrant de Bordeaux où j&amp;#8217;ai passé quelques
@@ -2398,7 +2432,7 @@ la lecture de &lt;a href="https://www.indolering.com/okturtles-dnschain-unblock-
 et interventions du développeur du projet m&amp;#8217;ont fait changer&amp;nbsp;d&amp;#8217;avis.&lt;/p&gt;
 &lt;p&gt;Reste encore la piste de &lt;em&gt;Namecoin Control&lt;/em&gt; que je n&amp;#8217;ai pas encore creusée.
 Peut-être pour un prochain billet. Toute piste de réflexion est bien sur la
-bienvenue sur ces&amp;nbsp;sujets!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Focusing on what matters</title><link href="https://blog.notmyidea.org/focusing-on-what-matters.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-17:/focusing-on-what-matters.html</id><summary type="html">&lt;p&gt;I do have a problem with&amp;nbsp;information.&lt;/p&gt;
+bienvenue sur ces&amp;nbsp;sujets!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Focusing on what matters</title><link href="https://blog.notmyidea.org/focusing-on-what-matters.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-17:/focusing-on-what-matters.html</id><summary type="html">&lt;p&gt;I do have a problem with&amp;nbsp;information.&lt;/p&gt;
 &lt;p&gt;You know. I &lt;strong&gt;have&lt;/strong&gt; to check my emails, irc, twitter, my feed reader
 etc. I need&amp;nbsp;to.&lt;/p&gt;
 &lt;p&gt;And this thing makes me feel uncomfortable at the end of the day,
@@ -2545,7 +2579,7 @@ un tas de petites ressources (par catégorie par ex.). Les gros médias pourraie
 &lt;h3 id="est-ce-quon-a-vraiment-besoin-dun-tracker"&gt;Est-ce qu&amp;#8217;on à vraiment besoin d&amp;#8217;un tracker&amp;nbsp;?&lt;/h3&gt;
 &lt;p&gt;Le support d&amp;#8217;une &lt;span class="caps"&gt;DHT&lt;/span&gt; &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;est souhaité&lt;/a&gt;,
 mais pour l&amp;#8217;instant pas encore implémenté. L&amp;#8217;utilisation de la &lt;span class="caps"&gt;DHT&lt;/span&gt; BitTorrent
-n&amp;#8217;est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas &lt;span class="caps"&gt;UDP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>L’horizon</title><link href="https://blog.notmyidea.org/lhorizon.html" rel="alternate"></link><published>2016-03-02T00:00:00+01:00</published><updated>2016-03-02T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-02:/lhorizon.html</id><summary type="html">&lt;p&gt;headline : Temps de changer d&amp;#8217;horizon. Mon départ de Mozilla et le début d&amp;#8217;une nouvelle histoire.
+n&amp;#8217;est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas &lt;span class="caps"&gt;UDP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>L’horizon</title><link href="https://blog.notmyidea.org/lhorizon.html" rel="alternate"></link><published>2016-03-02T00:00:00+01:00</published><updated>2016-03-02T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-02:/lhorizon.html</id><summary type="html">&lt;p&gt;headline : Temps de changer d&amp;#8217;horizon. Mon départ de Mozilla et le début d&amp;#8217;une nouvelle histoire.
 image :&amp;nbsp;images/horizon.jpg&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;L&amp;#8217;Utopie, c&amp;#8217;est l&amp;#8217;horizon. C&amp;#8217;est ce qui permet d&amp;#8217;avoir une direction,
@@ -2685,7 +2719,7 @@ pourrait ressembler à ceci&amp;nbsp;:&lt;/p&gt;
 &lt;span class="n"&gt;collection_hash&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Let’s Encrypt + HAProxy</title><link href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="alternate"></link><published>2016-02-11T00:00:00+01:00</published><updated>2016-02-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-02-11:/lets-encrypt-haproxy.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n&amp;#8217;est plus à jour. Il est maintenant (2018) possible d&amp;#8217;installer des certificats &lt;span class="caps"&gt;SSL&lt;/span&gt; Let&amp;#8217;s Encrypt d&amp;#8217;une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Let’s Encrypt + HAProxy</title><link href="https://blog.notmyidea.org/lets-encrypt-haproxy.html" rel="alternate"></link><published>2016-02-11T00:00:00+01:00</published><updated>2016-02-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-02-11:/lets-encrypt-haproxy.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n&amp;#8217;est plus à jour. Il est maintenant (2018) possible d&amp;#8217;installer des certificats &lt;span class="caps"&gt;SSL&lt;/span&gt; Let&amp;#8217;s Encrypt d&amp;#8217;une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;It’s time for the Web to take a big step forward in terms …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note : Cet article n&amp;#8217;est plus à jour. Il est maintenant (2018) possible d&amp;#8217;installer des certificats &lt;span class="caps"&gt;SSL&lt;/span&gt; Let&amp;#8217;s Encrypt d&amp;#8217;une manière beaucoup plus simple, en utilisant certbot (et le plugin nginx &lt;code&gt;certbot --nginx&lt;/code&gt;).&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2793,7 +2827,7 @@ compatible avec&amp;nbsp;HAProxy:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Et voila ! &lt;a href="https://github.com/almet/infra/"&gt;Le tout est dans un dépot
 github&lt;/a&gt;, si jamais ça peut vous servir,
-tant mieux&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Ateliers d’autodéfense numérique</title><link href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="alternate"></link><published>2016-01-14T00:00:00+01:00</published><updated>2016-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-01-14:/ateliers-dautodefense-numerique.html</id><summary type="html">&lt;p&gt;Il y a huit mois, je me rendais compte de l&amp;#8217;importance du choix des
+tant mieux&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Ateliers d’autodéfense numérique</title><link href="https://blog.notmyidea.org/ateliers-dautodefense-numerique.html" rel="alternate"></link><published>2016-01-14T00:00:00+01:00</published><updated>2016-01-14T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-01-14:/ateliers-dautodefense-numerique.html</id><summary type="html">&lt;p&gt;Il y a huit mois, je me rendais compte de l&amp;#8217;importance du choix des
 outils pour faire face à la surveillance généralisée, et notamment en
 rapport au chiffrement des données. Une de mes envies de l&amp;#8217;époque était
 l&amp;#8217;animation&amp;nbsp;d&amp;#8217;ateliers.&lt;/p&gt;
@@ -2921,7 +2955,7 @@ formation sur le sujet, j&amp;#8217;ai donc décidé de publier les nôtres, afi
 co-construire avec d&amp;#8217;autres des plans de&amp;nbsp;formation.&lt;/p&gt;
 &lt;p&gt;Ils sont pour l&amp;#8217;instant disponibles &lt;a href="http://autodefense-numerique.readthedocs.org/en/latest/"&gt;sur Read The
 Docs&lt;/a&gt;. Tous les
-retours sont évidemment les bienvenus&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Le mail doit-il mourir ?</title><link href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="alternate"></link><published>2015-11-24T00:00:00+01:00</published><updated>2015-11-24T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-11-24:/le-mail-doit-il-mourir.html</id><summary type="html">&lt;p&gt;J&amp;#8217;utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l&amp;#8217;ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des&amp;nbsp;messages.&lt;/p&gt;
+retours sont évidemment les bienvenus&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Le mail doit-il mourir ?</title><link href="https://blog.notmyidea.org/le-mail-doit-il-mourir.html" rel="alternate"></link><published>2015-11-24T00:00:00+01:00</published><updated>2015-11-24T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-11-24:/le-mail-doit-il-mourir.html</id><summary type="html">&lt;p&gt;J&amp;#8217;utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l&amp;#8217;ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des&amp;nbsp;messages.&lt;/p&gt;
 &lt;p&gt;Et même si j&amp;#8217;arrive à convaincre certains de …&lt;/p&gt;</summary><content type="html">&lt;p&gt;J&amp;#8217;utilise quotidiennement le protocole email, tant bien que mal, tout en sachant que l&amp;#8217;ensemble de mes messages passent en clair sur le réseau pour la plupart de mes conversations, puisque trop peu de monde utilise le chiffrement des&amp;nbsp;messages.&lt;/p&gt;
 &lt;p&gt;Et même si j&amp;#8217;arrive à convaincre certains de mes proches à installer &lt;span class="caps"&gt;PGP&lt;/span&gt;, je ne suis pas satisfait du résultat: les méta-données (qui contacte qui à quel
 moment, et pour lui dire quoi) transitent de toute manière, elles, en clair, à la vue de&amp;nbsp;tous.&lt;/p&gt;
@@ -2938,7 +2972,7 @@ mail&amp;nbsp;fonctionnel.&lt;/p&gt;
   incriminer l&amp;#8217;emmeteur du message&amp;nbsp;(deniability);&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Avec au moins ces besoins en tête, il semble qu&amp;#8217;une revue de l&amp;#8217;ensemble des projets existants pointe du doigt vers &lt;a href="https://github.com/agl/pond"&gt;pond&lt;/a&gt;, ou vers &lt;a href="https://www.whispersystems.org"&gt;Signal&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Malheureusement, Pond est le projet d&amp;#8217;une seule personne, qui veut plutôt utiliser ce code comme démonstration du concept en&amp;nbsp;question.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Web distribution signing</title><link href="https://blog.notmyidea.org/web-distribution-signing.html" rel="alternate"></link><published>2015-10-12T00:00:00+02:00</published><updated>2015-10-12T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-12:/web-distribution-signing.html</id><summary type="html">&lt;p&gt;&lt;em&gt;I&amp;#8217;m not a crypto expert, nor pretend to be one. These are thoughts I
+&lt;p&gt;Malheureusement, Pond est le projet d&amp;#8217;une seule personne, qui veut plutôt utiliser ce code comme démonstration du concept en&amp;nbsp;question.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Web distribution signing</title><link href="https://blog.notmyidea.org/web-distribution-signing.html" rel="alternate"></link><published>2015-10-12T00:00:00+02:00</published><updated>2015-10-12T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-10-12:/web-distribution-signing.html</id><summary type="html">&lt;p&gt;&lt;em&gt;I&amp;#8217;m not a crypto expert, nor pretend to be one. These are thoughts I
 want to share with the crypto community to actually see if any solution
 exists to solve this particular&amp;nbsp;problem.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;One &lt;a href="http://www.tonyarcieri.com/whats-wrong-with-webcrypto"&gt;often pointed&lt;/a&gt; flaw in
@@ -3037,7 +3071,7 @@ User-Agent (or the distributor of the User-Agent), a little green icon
 could be presented to the User, so they know that they can be confident
 about&amp;nbsp;this.&lt;/p&gt;
 &lt;p&gt;A bit like User-Agents do for &lt;span class="caps"&gt;SSL&lt;/span&gt;, but for the actual signature of the
-files being&amp;nbsp;viewed.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Service de nuages : Pourquoi avons-nous fait Cliquet ?</title><link href="https://blog.notmyidea.org/pourquoi-cliquet" rel="alternate"></link><published>2015-07-14T00:00:00+02:00</published><updated>2015-07-14T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-14:/pourquoi-cliquet</id><summary type="html">&lt;p class="first last"&gt;Basé sur Pyramid, Cliquet est un projet qui permet de se concentrer sur l&amp;#8217;essentiel
+files being&amp;nbsp;viewed.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Service de nuages : Pourquoi avons-nous fait Cliquet ?</title><link href="https://blog.notmyidea.org/pourquoi-cliquet" rel="alternate"></link><published>2015-07-14T00:00:00+02:00</published><updated>2015-07-14T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-14:/pourquoi-cliquet</id><summary type="html">&lt;p class="first last"&gt;Basé sur Pyramid, Cliquet est un projet qui permet de se concentrer sur l&amp;#8217;essentiel
 lors de la conception&amp;nbsp;d&amp;#8217;APIs.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tldr; Cliquet est un toolkit Python pour construire des APIs, qui implémente
@@ -3138,7 +3172,7 @@ pour des millions d&amp;#8217;utilisateurs et des retours d&amp;#8217;expérienc
 de &lt;em&gt;Firefox Sync&lt;/em&gt; pour la gestion de la concurrence et de&amp;nbsp;l&amp;#8217;«offline-first».&lt;/p&gt;
 &lt;p&gt;Il est &lt;a class="reference external" href="http://cliquet.readthedocs.org/en/latest/api/index.html"&gt;documenté en détail&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Dans un monde idéal, ce protocole serait versionné, et formalisé dans une &lt;span class="caps"&gt;RFC&lt;/span&gt;.
-En rêve, il existerait même plusieurs implémentations avec des technologies différentes
+En rêve, il existerait même plusieurs implémentations avec des codes différentes
 (Python, Go, Node, etc.). &lt;a class="footnote-reference" href="#footnote-2" id="footnote-reference-2"&gt;[2]&lt;/a&gt;&lt;/p&gt;
 &lt;table class="docutils footnote" frame="void" id="footnote-1" rules="none"&gt;
 &lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
@@ -3210,7 +3244,7 @@ au fur et à mesure que ses besoins se&amp;nbsp;précisent.&lt;/p&gt;
 mais rien n&amp;#8217;empêcherait d&amp;#8217;implémenter le stockage dans un modèle&amp;nbsp;relationnel.&lt;/p&gt;
 &lt;p&gt;Comme les composants peuvent être remplacés depuis la configuration, il est
 tout à fait possible d&amp;#8217;étendre &lt;em&gt;Cliquet&lt;/em&gt; avec des notions métiers ou des
-technologies exotiques ! Nous avons posé quelques idées dans &lt;a class="reference external" href="http://cliquet.readthedocs.org/en/latest/ecosystem.html"&gt;la documentation
+codes exotiques ! Nous avons posé quelques idées dans &lt;a class="reference external" href="http://cliquet.readthedocs.org/en/latest/ecosystem.html"&gt;la documentation
 de l&amp;#8217;éco-système&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Dans les prochaines semaines, nous allons introduire la notion d&amp;#8217;«évènements» (ou signaux),
 qui permettraient aux extensions de s&amp;#8217;interfacer beaucoup plus&amp;nbsp;proprement.&lt;/p&gt;
@@ -3361,7 +3395,7 @@ projets en&amp;nbsp;cascade.&lt;/li&gt;
 &lt;blockquote&gt;
 Pourquoi Python ?&lt;/blockquote&gt;
 &lt;p&gt;On prend beaucoup de plaisir à écrire du Python, et le calendrier annoncé
-initialement était très serré: pas question de tituber avec une technologie
+initialement était très serré: pas question de tituber avec une code
 mal maitrisée&amp;nbsp;!&lt;/p&gt;
 &lt;p&gt;Et puis, après avoir passé près d&amp;#8217;un an sur un projet Node.js, l&amp;#8217;équipe avait
 bien envie de refaire du&amp;nbsp;Python.&lt;/p&gt;
@@ -3431,7 +3465,7 @@ il y a de grandes chances que nous agissions pour s&amp;#8217;assurer que les ab
 et les mécanismes d&amp;#8217;extension fournis permettent de l&amp;#8217;implémenter sous forme&amp;nbsp;d&amp;#8217;extension.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Charte et événements non-mixtes au sein de l’Afpy</title><link href="https://blog.notmyidea.org/charte-et-evenements-non-mixtes-au-sein-de-lafpy.html" rel="alternate"></link><published>2015-07-09T00:00:00+02:00</published><updated>2015-07-09T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-09:/charte-et-evenements-non-mixtes-au-sein-de-lafpy.html</id><summary type="html">
+</content><category term="code"></category></entry><entry><title>Charte et événements non-mixtes au sein de l’Afpy</title><link href="https://blog.notmyidea.org/charte-et-evenements-non-mixtes-au-sein-de-lafpy.html" rel="alternate"></link><published>2015-07-09T00:00:00+02:00</published><updated>2015-07-09T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-07-09:/charte-et-evenements-non-mixtes-au-sein-de-lafpy.html</id><summary type="html">
 &lt;p&gt;&lt;em&gt;Mail envoyé sur la liste de diffusion de l&amp;#8217;&lt;span class="caps"&gt;AFPY&lt;/span&gt; en Juillet&amp;nbsp;2015&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Bonjour à toutes et&amp;nbsp;tous,&lt;/p&gt;
 &lt;p&gt;Récemment, l&amp;#8217;Afpy à pris la décision de ne pas relayer la tenue d&amp;#8217;un
@@ -3652,7 +3686,7 @@ construire une solution libre, générique, simple et auto-hébergeable pour le 
 de données sur le Web&amp;nbsp;:)&lt;/p&gt;
 &lt;img alt="Friday Night Party - CC0" class="align-center" src="https://blog.notmyidea.org/images/whistler/whistler-top-roof.jpg" /&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Rôles</title><link href="https://blog.notmyidea.org/roles.html" rel="alternate"></link><published>2015-06-29T00:00:00+02:00</published><updated>2015-06-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-29:/roles.html</id><summary type="html">&lt;p&gt;Headline  : De l&amp;#8217;importance des rôles informels et de leur partage au sein d&amp;#8217;un&amp;nbsp;groupe.&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Rôles</title><link href="https://blog.notmyidea.org/roles.html" rel="alternate"></link><published>2015-06-29T00:00:00+02:00</published><updated>2015-06-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-06-29:/roles.html</id><summary type="html">&lt;p&gt;Headline  : De l&amp;#8217;importance des rôles informels et de leur partage au sein d&amp;#8217;un&amp;nbsp;groupe.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Un […] dispositif consiste à tenter de faire bouger les rôles
 (pré)acquis ou qui se fixent dans le groupe, les pousser ailleurs que
@@ -3849,7 +3883,7 @@ est &lt;em&gt;pluggable&lt;/em&gt;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#footnote-reference-4"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;La feuille de route de Kinto: &lt;a class="reference external" href="https://github.com/mozilla-services/kinto/wiki/roadmap"&gt;https://github.com/mozilla-services/kinto/wiki/roadmap&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><category term="technologie"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto&amp;nbsp;?&lt;/p&gt;
+</content><category term="code"></category></entry><entry><title>Service de nuages : Stocker et interroger les permissions avec Kinto</title><link href="https://blog.notmyidea.org/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html" rel="alternate"></link><published>2015-05-26T00:00:00+02:00</published><updated>2015-05-26T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-26:/service-de-nuages-stocker-et-interroger-les-permissions-avec-kinto-fr.html</id><summary type="html">&lt;p class="first last"&gt;Comment faire pour stocker et interroger la base de données au sujet des permissions avec Kinto&amp;nbsp;?&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr: On a maintenant un super système de permission mais comment faire pour stocker et interroger ces permissions de manière efficace&amp;nbsp;?&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="la-problematique"&gt;
@@ -4132,7 +4166,7 @@ un objet et également de pouvoir récupérer tous les objets d&amp;#8217;une
 collection pour un utilisateur si celui-ci n&amp;#8217;a pas accès à tous les
 records de la collection, ou toutes les collections du&amp;nbsp;bucket.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Les problèmes de PGP</title><link href="https://blog.notmyidea.org/les-problemes-de-pgp.html" rel="alternate"></link><published>2015-05-25T00:00:00+02:00</published><updated>2015-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-25:/les-problemes-de-pgp.html</id><summary type="html">&lt;blockquote&gt;
+</content><category term="code"></category></entry><entry><title>Les problèmes de PGP</title><link href="https://blog.notmyidea.org/les-problemes-de-pgp.html" rel="alternate"></link><published>2015-05-25T00:00:00+02:00</published><updated>2015-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-25:/les-problemes-de-pgp.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Flip a bit in the communication between sender and recipient and they
 will experience decryption or verification errors. How high are the
 chances they will start to exchange the data in the clear rather than
@@ -4201,7 +4235,7 @@ qui explique comment configurer son installation&amp;nbsp;correctement.&lt;/p&gt
 &lt;p&gt;Le &lt;a href="https://bitmask.net/"&gt;projet Bitmask&lt;/a&gt; vise lui à rendre les outils
 de chiffrement d&amp;#8217;échanges de messages et de &lt;span class="caps"&gt;VPN&lt;/span&gt; simples à utiliser,
 encore quelque chose à&amp;nbsp;regarder.&lt;/p&gt;
-&lt;p&gt;Enfin bref, y&amp;#8217;a du&amp;nbsp;taf.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Travail et créativité</title><link href="https://blog.notmyidea.org/travail-et-creativite.html" rel="alternate"></link><published>2015-05-21T00:00:00+02:00</published><updated>2015-05-21T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-21:/travail-et-creativite.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;Enfin bref, y&amp;#8217;a du&amp;nbsp;taf.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Travail et créativité</title><link href="https://blog.notmyidea.org/travail-et-creativite.html" rel="alternate"></link><published>2015-05-21T00:00:00+02:00</published><updated>2015-05-21T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-21:/travail-et-creativite.html</id><summary type="html">&lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Low-risk, low-pressure, and love: The 3 rules of side projects.
 &amp;#8212; &lt;a href="https://open.bufferapp.com/side-projects-creative-hobbies/"&gt;The science of side&amp;nbsp;projects&lt;/a&gt;&lt;/p&gt;
@@ -4305,7 +4339,7 @@ exportées sur des serveurs de clés existants. C&amp;#8217;est quelque chose
 soulève des questions qui méritent qu&amp;#8217;on s&amp;#8217;y attarde un&amp;nbsp;brin.&lt;/p&gt;
 &lt;p&gt;Par ailleurs, &lt;a href="https://leap.se/nicknym"&gt;d&amp;#8217;autres projets qui visent des objectifs
 similaires&lt;/a&gt; existent, via le projet &lt;span class="caps"&gt;LEAP&lt;/span&gt;, mais
-je n&amp;#8217;ai pas encore&amp;nbsp;creusé.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Phrases de passe et bonnes pratiques</title><link href="https://blog.notmyidea.org/phrases-de-passe-et-bonnes-pratiques.html" rel="alternate"></link><published>2015-05-09T00:00:00+02:00</published><updated>2015-05-09T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-09:/phrases-de-passe-et-bonnes-pratiques.html</id><summary type="html">
+je n&amp;#8217;ai pas encore&amp;nbsp;creusé.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Phrases de passe et bonnes pratiques</title><link href="https://blog.notmyidea.org/phrases-de-passe-et-bonnes-pratiques.html" rel="alternate"></link><published>2015-05-09T00:00:00+02:00</published><updated>2015-05-09T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-09:/phrases-de-passe-et-bonnes-pratiques.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;headline&lt;br&gt;
     Communiquer de manière chiffrée n&amp;#8217;est pas aisée, et nécessite de
@@ -4369,7 +4403,7 @@ personnelles, en utilisant des phrases de passe plus&amp;nbsp;complexes.&lt;/p&g
 &lt;p&gt;Reste encore la question de la sauvegarde de ces clés privées de manière
 chiffrée, que je n&amp;#8217;ai pas encore résolue. Bref, tout cela me semble bien
 compliqué pour réussir à l&amp;#8217;expliquer à des novices, qui pour certains ne
-sont même pas sur de l&amp;#8217;intérêt de la&amp;nbsp;chose.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Chiffrement</title><link href="https://blog.notmyidea.org/chiffrement.html" rel="alternate"></link><published>2015-05-08T00:00:00+02:00</published><updated>2015-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-08:/chiffrement.html</id><summary type="html">
+sont même pas sur de l&amp;#8217;intérêt de la&amp;nbsp;chose.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Chiffrement</title><link href="https://blog.notmyidea.org/chiffrement.html" rel="alternate"></link><published>2015-05-08T00:00:00+02:00</published><updated>2015-05-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-08:/chiffrement.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;headline&lt;br&gt;
     Face a la surveillance généralisée, une seule solution, le
@@ -4434,8 +4468,6 @@ sphère privée ce qui devrait l&amp;#8217;être à&amp;nbsp;priori.&lt;/p&gt;
 Enigmail et de le configurer correctement. Ce n&amp;#8217;est pas très compliqué
 et permet d&amp;#8217;avoir des échanges chiffrés. &lt;a href="https://emailselfdefense.fsf.org/fr/"&gt;Référez vous à ce
 guide&lt;/a&gt; pour des instructions pas à&amp;nbsp;pas.&lt;/p&gt;
-&lt;p&gt;La clé publique pour me contacter est
-&lt;a href="/static/alexis.notmyidea.org.asc"&gt;0x078805D867F56F12&lt;/a&gt;. Et vous&amp;nbsp;?&lt;/p&gt;
 &lt;p&gt;Je vous invite à aller voir le documentaire Citizen Four, qui passe en
 salles. Si vous ni avez pas accès, vous pouvez le visionner ici, et
 éventuellement faire un don aux auteurs ou associations qui gravitent
@@ -5100,7 +5132,7 @@ donner aux applications qui agissent en son&amp;nbsp;nom.&lt;/p&gt;
 réflexions, n&amp;#8217;hésitez pas à nous interrompre pendant qu&amp;#8217;il est encore temps&amp;nbsp;!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Eco-système et stockage générique</title><link href="https://blog.notmyidea.org/eco-systeme-et-stockage-generique.html" rel="alternate"></link><published>2015-04-30T00:00:00+02:00</published><updated>2015-04-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-30:/eco-systeme-et-stockage-generique.html</id><summary type="html">
+</content><category term="code"></category></entry><entry><title>Eco-système et stockage générique</title><link href="https://blog.notmyidea.org/eco-systeme-et-stockage-generique.html" rel="alternate"></link><published>2015-04-30T00:00:00+02:00</published><updated>2015-04-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-30:/eco-systeme-et-stockage-generique.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;tl;dr Nous devons construire un service de suivi de paiements, et nous
 hésitons à continuer à nous entêter avec notre propre solution de&amp;nbsp;stockage/synchronisation.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Comme nous l&amp;#8217;écrivions &lt;a href="https://blog.notmyidea.org/service-de-nuages-fr.html"&gt;dans l&amp;#8217;article
@@ -5426,7 +5458,7 @@ Cloud Services&lt;/em&gt;!&lt;/p&gt;
 &lt;li&gt;Il existe le &lt;a href="https://sharesome.5apps.com/"&gt;projet Sharesome&lt;/a&gt; qui
     permet de partager publiquement des ressources de son &lt;em&gt;remote
     Storage&lt;/em&gt;.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="technologie"></category></entry><entry><title>Service de nuages !</title><link href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="alternate"></link><published>2015-04-01T00:00:00+02:00</published><updated>2015-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-01:/service-de-nuages-fr.html</id><summary type="html">&lt;p class="first last"&gt;Retour sur le premier trimestre 2015: Readinglist, Kinto,&amp;nbsp;Cliquet.&lt;/p&gt;
+&lt;/ol&gt;</content><category term="code"></category></entry><entry><title>Service de nuages !</title><link href="https://blog.notmyidea.org/service-de-nuages-fr.html" rel="alternate"></link><published>2015-04-01T00:00:00+02:00</published><updated>2015-04-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-04-01:/service-de-nuages-fr.html</id><summary type="html">&lt;p class="first last"&gt;Retour sur le premier trimestre 2015: Readinglist, Kinto,&amp;nbsp;Cliquet.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&lt;em&gt;Cet article est repris depuis le blog « Service de Nuages » de mon équipe à&amp;nbsp;Mozilla&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Pas mal de changements depuis le début de l&amp;#8217;année pour l&amp;#8217;équipe
 «cloud-services»&amp;nbsp;francophone!&lt;/p&gt;
@@ -5497,7 +5529,7 @@ rassemblées dans le protocole (ou &lt;em&gt;Cliquet&lt;/em&gt;), certains point
 et de vous présenter notre vision via des exemples et&amp;nbsp;tutoriaux.&lt;/p&gt;
 &lt;p&gt;À bientôt, donc&amp;nbsp;!&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="technologie"></category></entry><entry><title>Le secret du bonheur</title><link href="https://blog.notmyidea.org/le-secret-du-bonheur.html" rel="alternate"></link><published>2014-11-20T00:00:00+01:00</published><updated>2014-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-11-20:/le-secret-du-bonheur.html</id><summary type="html">
+</content><category term="code"></category></entry><entry><title>Le secret du bonheur</title><link href="https://blog.notmyidea.org/le-secret-du-bonheur.html" rel="alternate"></link><published>2014-11-20T00:00:00+01:00</published><updated>2014-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-11-20:/le-secret-du-bonheur.html</id><summary type="html">
 &lt;p&gt;Un enfant demande à son père&amp;nbsp;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Dis papa, quel est le secret pour être heureux&amp;nbsp;?&lt;/p&gt;
@@ -5727,7 +5759,7 @@ in case that helps you to integrate with your&amp;nbsp;projects.&lt;/p&gt;
     (that&amp;#8217;s a pyramid / cornice)&amp;nbsp;app.&lt;/li&gt;
 &lt;li&gt;It&amp;#8217;s also interesting to note that Kumar put together &lt;a href="http://hawkrest.readthedocs.org/en/latest/"&gt;hawkrest, for
     the django rest&amp;nbsp;framework&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="technologie"></category></entry><entry><title>Quel métier, quelle utilité ?</title><link href="https://blog.notmyidea.org/quel-metier-quelle-utilite.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/quel-metier-quelle-utilite.html</id><summary type="html">
+&lt;/ul&gt;</content><category term="code"></category></entry><entry><title>Quel métier, quelle utilité ?</title><link href="https://blog.notmyidea.org/quel-metier-quelle-utilite.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/quel-metier-quelle-utilite.html</id><summary type="html">
 &lt;p&gt;Aujourd&amp;#8217;hui, mon métier est d&amp;#8217;être développeur d&amp;#8217;applications. Imaginer
 des solutions techniques pour faire marcher des logiciels, puis écrire
 les lignes de code&amp;nbsp;nécessaires.&lt;/p&gt;
@@ -5822,7 +5854,7 @@ de génération de formulaires en ligne, qui ne soit pas centré sur les
 services de&amp;nbsp;google…&lt;/p&gt;
 &lt;p&gt;Allez, au boulot&amp;nbsp;!&lt;/p&gt;
 &lt;p&gt;&lt;span class="caps"&gt;PS&lt;/span&gt;: je me rends compte après relecture que ce billet fait echo à un
-billet que j&amp;#8217;ai écris juste alors que je terminais mes études, &lt;a href="%7Bfilename%7D2011.05.travailler-moins-mieux.rst"&gt;sur le
+billet que j&amp;#8217;ai écris juste alors que je terminais mes études, &lt;a href="https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html"&gt;sur le
 sens du travail et de
 l&amp;#8217;informatique&lt;/a&gt;, ça
 fait du bien&amp;nbsp;:)&lt;/p&gt;</content><category term="journal"></category></entry><entry><title>Retours sur deux ans à Mozilla</title><link href="https://blog.notmyidea.org/retours-sur-deux-ans-a-mozilla.html" rel="alternate"></link><published>2014-07-29T00:00:00+02:00</published><updated>2014-07-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2014-07-29:/retours-sur-deux-ans-a-mozilla.html</id><summary type="html">
@@ -5839,7 +5871,7 @@ restent&amp;nbsp;intacts.&lt;/p&gt;
 &lt;p&gt;Deux ans ça parait énorme, c&amp;#8217;est le temps le plus long que j&amp;#8217;ai passé à
 travailler sur un projet, avec quasiment les mêmes personnes. Si vous
 suivez un peu ces carnets, vous savez surement que j&amp;#8217;ai beaucoup
-travaillé avec &lt;a href="ziade.org"&gt;Tarek&lt;/a&gt; par&amp;nbsp;exemple.&lt;/p&gt;
+travaillé avec &lt;a href="https://ziade.org"&gt;Tarek&lt;/a&gt; par&amp;nbsp;exemple.&lt;/p&gt;
 &lt;p&gt;Ça a été (et c&amp;#8217;est toujours) un réel plaisir de bosser avec la personne
 dont j&amp;#8217;avais lu les livres pour apprendre le python, merci&amp;nbsp;!&lt;/p&gt;
 &lt;h2 id="services"&gt;Services&lt;/h2&gt;
@@ -6081,7 +6113,7 @@ que je veux me garder de coté, des pensées que je souhaite partager… Un
 endroit ou je peux venir écrire quelque chose et le compléter plus&amp;nbsp;tard.&lt;/p&gt;
 &lt;p&gt;Du coup, le flux Atom contiens désormais quelques notes sur des sujets
 variés. Ces notes ne sont pas relayées sur la page d&amp;#8217;accueil, mais vous
-pouvez les trouver dans &lt;a href="%7Ccategory%7Cnotes"&gt;la section notes&lt;/a&gt;.&lt;/p&gt;
+pouvez les trouver dans &lt;a href="/notes"&gt;la section notes&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Je ne sais pas encore si il s&amp;#8217;agit du meilleur endroit pour ça, mais peu
 importe, essayons. A bas la pudeur&amp;nbsp;rédactionelle.&lt;/p&gt;
 &lt;p&gt;J&amp;#8217;ai du au passage chambouler un peu vos agrégateurs, pardonnez moi&amp;nbsp;:)&lt;/p&gt;
@@ -6606,7 +6638,7 @@ want to either understand how &lt;span class="caps"&gt;CORS&lt;/span&gt; works, 
 &lt;/ul&gt;
 &lt;p&gt;Of course, the &lt;span class="caps"&gt;W3C&lt;/span&gt; specification is the best resource to rely on. This
 specification isn&amp;#8217;t hard to read, so you may want to go through it.
-Especially the &lt;a href="http://www.w3.org/TR/cors/#resource-processing-model"&gt;&amp;#8220;resource processing model&amp;#8221;&amp;nbsp;section&lt;/a&gt;&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>New year python meme, 2012</title><link href="https://blog.notmyidea.org/new-year-python-meme-2012.html" rel="alternate"></link><published>2013-01-07T00:00:00+01:00</published><updated>2013-01-07T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-01-07:/new-year-python-meme-2012.html</id><summary type="html">
+Especially the &lt;a href="http://www.w3.org/TR/cors/#resource-processing-model"&gt;&amp;#8220;resource processing model&amp;#8221;&amp;nbsp;section&lt;/a&gt;&lt;/p&gt;</content><category term="code"></category></entry><entry><title>New year python meme, 2012</title><link href="https://blog.notmyidea.org/new-year-python-meme-2012.html" rel="alternate"></link><published>2013-01-07T00:00:00+01:00</published><updated>2013-01-07T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2013-01-07:/new-year-python-meme-2012.html</id><summary type="html">
 &lt;p&gt;This series, also known as &amp;#8220;&lt;a href="http://ziade.org"&gt;Tarek Ziadé&lt;/a&gt; strikes
 again&amp;#8221;, is a good occasion to take a look back at 2012 and see what I&amp;#8217;ve
 done related to python. So, let&amp;#8217;s&amp;nbsp;try.&lt;/p&gt;
@@ -6761,7 +6793,7 @@ J&amp;#8217;utilisais haproxy + stunnel, et la négiciation &lt;span class="caps
 fois &lt;span class="caps"&gt;SSL&lt;/span&gt; et &lt;span class="caps"&gt;TLS&lt;/span&gt; activés, et SSLv2 désactivé, tout fonctionne&amp;nbsp;mieux.&lt;/p&gt;
 &lt;h2 id="et-voila"&gt;Et&amp;nbsp;voilà&lt;/h2&gt;
 &lt;p&gt;Finalement, j&amp;#8217;ai mon joli status-board qui tourne à merveille sur
-&lt;a href="http://status.lolnet.org"&gt;http://status.lolnet.org&lt;/a&gt;&amp;nbsp;:-)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Habitat collectif</title><link href="https://blog.notmyidea.org/habitat-collectif.html" rel="alternate"></link><published>2012-12-28T00:00:00+01:00</published><updated>2012-12-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-28:/habitat-collectif.html</id><summary type="html">
+&lt;a href="http://status.lolnet.org"&gt;http://status.lolnet.org&lt;/a&gt;&amp;nbsp;:-)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Habitat collectif</title><link href="https://blog.notmyidea.org/habitat-collectif.html" rel="alternate"></link><published>2012-12-28T00:00:00+01:00</published><updated>2012-12-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-28:/habitat-collectif.html</id><summary type="html">
 &lt;p&gt;Habiter à plusieurs, partager un lieu de vie, monter une communauté,
 changer nos modes de vie et prendre plus de temps les uns pour les&amp;nbsp;autres.&lt;/p&gt;
 &lt;p&gt;Ça fait réfléchir un peu quand même, non ? en tout cas ça marche chez&amp;nbsp;moi.&lt;/p&gt;
@@ -6835,7 +6867,7 @@ PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#
     user &amp;lt;monuser(root)&amp;gt;
     IdentityFile  &amp;lt;chemin vers ma clé ssh pour le serveur publique&amp;gt;
     hostname ip_serveur_publique+ip_serveur_privé
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="technologie"></category></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category></entry><entry><title>Gnome 3, extensions</title><link href="https://blog.notmyidea.org/gnome-3-extensions.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/gnome-3-extensions.html</id><summary type="html">
 &lt;p&gt;Après avoir tenté pendant un bout de temps unity, le bureau par defaut
 de ubuntu, j&amp;#8217;ai eu envie de changements, et j&amp;#8217;ai donc essayé un peu de
 regarder du coté de gnome 3, à&amp;nbsp;nouveau.&lt;/p&gt;
@@ -6878,7 +6910,7 @@ que je liste&amp;nbsp;ici.&lt;/p&gt;
     donc je ne sais pas encore si ça va rester, mais pourquoi&amp;nbsp;pas.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vous pouvez aller faire un tour sur &lt;a href="https://extensions.gnome.org/"&gt;https://extensions.gnome.org/&lt;/a&gt; pour
-en trouver d&amp;#8217;autres à votre&amp;nbsp;gout.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>“Groovy”</title><link href="https://blog.notmyidea.org/groovy.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/groovy.html</id><summary type="html">
+en trouver d&amp;#8217;autres à votre&amp;nbsp;gout.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>“Groovy”</title><link href="https://blog.notmyidea.org/groovy.html" rel="alternate"></link><published>2012-12-27T00:00:00+01:00</published><updated>2012-12-27T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-12-27:/groovy.html</id><summary type="html">
 &lt;p&gt;“Groovy”, c&amp;#8217;est comme ça que je l&amp;#8217;aime la musique: peut importe le style
 finalement, la bonne musique c&amp;#8217;est celle qui sonne, celle qui groove,
 celle qui fait que tu tapes du pied (le droit chez moi) et que que ta
@@ -7049,7 +7081,7 @@ use it, really quickly (these examples are how to interact with&amp;nbsp;daybed)
 
 &lt;p&gt;Finally, we were out of cheese so everyone headed back to their
 respective houses and&amp;nbsp;cities.&lt;/p&gt;
-&lt;p&gt;Until next&amp;nbsp;time?&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Bière maison !</title><link href="https://blog.notmyidea.org/biere-maison.html" rel="alternate"></link><published>2012-10-04T00:00:00+02:00</published><updated>2012-10-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-10-04:/biere-maison.html</id><summary type="html">
+&lt;p&gt;Until next&amp;nbsp;time?&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Bière maison !</title><link href="https://blog.notmyidea.org/biere-maison.html" rel="alternate"></link><published>2012-10-04T00:00:00+02:00</published><updated>2012-10-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-10-04:/biere-maison.html</id><summary type="html">
 &lt;p&gt;Et voilà, c&amp;#8217;est notre troisième brassin. On a commencé à faire notre
 propre bière (avec un ami, Fred) il y a quasiment un an maintenant, et
 après quelques dératés, même s&amp;#8217;il nous reste encore bien du chemin à
@@ -7328,7 +7360,7 @@ community again and discuss how Circus can evolve in ways that are
 interesting to&amp;nbsp;everyone.&lt;/p&gt;
 &lt;p&gt;Tarek and me are going to &lt;a href="http://python.ie/pycon/2012/"&gt;Pycon ireland&lt;/a&gt;,
 feel free to reach us if you&amp;#8217;re going there, we&amp;#8217;ll be happy to meet and
-enjoy&amp;nbsp;beers!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Pourquoi Mozilla?</title><link href="https://blog.notmyidea.org/pourquoi-mozilla.html" rel="alternate"></link><published>2012-07-16T00:00:00+02:00</published><updated>2012-07-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-07-16:/pourquoi-mozilla.html</id><summary type="html">
+enjoy&amp;nbsp;beers!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Pourquoi Mozilla?</title><link href="https://blog.notmyidea.org/pourquoi-mozilla.html" rel="alternate"></link><published>2012-07-16T00:00:00+02:00</published><updated>2012-07-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-07-16:/pourquoi-mozilla.html</id><summary type="html">
 &lt;p&gt;Depuis que j&amp;#8217;ai commencé à bosser chez Mozilla, je me retrouve assez
 souvent à expliquer ce que j&amp;#8217;y fais. J&amp;#8217;aime bien raconter l&amp;#8217;histoire de
 Mozilla, la mission, et comment je m&amp;#8217;y&amp;nbsp;rattache.&lt;/p&gt;
@@ -7746,7 +7778,7 @@ this service description tool: it looks at what&amp;#8217;s described and build-
 the documentation from&amp;nbsp;it.&lt;/p&gt;
 &lt;p&gt;The resulting branch is not merged yet. Still, you can &lt;a href="https://github.com/mozilla-services/cornice/tree/refactor-the-world"&gt;have a look at
 it&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Any suggestions are of course welcome&amp;nbsp;:-)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Bidouille</title><link href="https://blog.notmyidea.org/bidouille.html" rel="alternate"></link><published>2012-04-30T00:00:00+02:00</published><updated>2012-04-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-30:/bidouille.html</id><summary type="html">
+&lt;p&gt;Any suggestions are of course welcome&amp;nbsp;:-)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Bidouille</title><link href="https://blog.notmyidea.org/bidouille.html" rel="alternate"></link><published>2012-04-30T00:00:00+02:00</published><updated>2012-04-30T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-30:/bidouille.html</id><summary type="html">
 &lt;p&gt;Bidouille bidouille&amp;nbsp;bidouille.&lt;/p&gt;
 &lt;p&gt;Je pense que je suis un bidouilleur logiciel: j&amp;#8217;aime bien aller
 farfouiller dans le code pour comprendre comment tel ou tel programme
@@ -7862,7 +7894,7 @@ qu&amp;#8217;ils mentent avec leur soit disant&amp;nbsp;soleil).&lt;/p&gt;
 &lt;p&gt;Et c&amp;#8217;est sans parler de &lt;a href="http://jehaisleprintemps.net/blog/fr/2012/04/15/j-ecris-ton-nom/"&gt;la
 brasucade&lt;/a&gt;&amp;nbsp;…&lt;/p&gt;
 &lt;p&gt;Bref, vivement la prochaine (et allez, cette fois ci je ferais une
-présentation&amp;nbsp;!)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Génération de formulaires, geolocalisés ?</title><link href="https://blog.notmyidea.org/generation-de-formulaires-geolocalises.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/generation-de-formulaires-geolocalises.html</id><summary type="html">
+présentation&amp;nbsp;!)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Génération de formulaires, geolocalisés ?</title><link href="https://blog.notmyidea.org/generation-de-formulaires-geolocalises.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/generation-de-formulaires-geolocalises.html</id><summary type="html">
 &lt;p&gt;On a un plan. Un &amp;#8220;truc de&amp;nbsp;ouf&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;À plusieurs reprises, des amis m&amp;#8217;ont demandé de leur coder la même
 chose, à quelques détails près: une page web avec un formulaire qui
@@ -8047,7 +8079,7 @@ solutions ou&amp;nbsp;suggestions.&lt;/p&gt;
 &lt;a href="http://framapad.org/carto-forms"&gt;http://framapad.org/carto-forms&lt;/a&gt;. N&amp;#8217;hésitez pas à l&amp;#8217;éditer et à ajouter
 vos commentaires, c&amp;#8217;est son&amp;nbsp;objectif!&lt;/p&gt;
 &lt;p&gt;Merci à &lt;a href="http://sneakernet.fr/"&gt;Arnaud&lt;/a&gt; pour la relecture et la
-correction de quelques typos dans le texte&amp;nbsp;:)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Thoughts about a form generation service, GIS enabled</title><link href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/thoughts-about-a-form-generation-service-gis-enabled.html</id><summary type="html">
+correction de quelques typos dans le texte&amp;nbsp;:)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Thoughts about a form generation service, GIS enabled</title><link href="https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html" rel="alternate"></link><published>2012-04-02T00:00:00+02:00</published><updated>2012-04-02T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-04-02:/thoughts-about-a-form-generation-service-gis-enabled.html</id><summary type="html">
 &lt;p&gt;&lt;em&gt;Written by Alexis Métaireau &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Mathieu&amp;nbsp;Leplatre&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;We have a plan. A &amp;#8220;fucking good&amp;#8221;&amp;nbsp;one.&lt;/p&gt;
 &lt;p&gt;A bunch of friends asked me twice for quite the same thing: a webpage
@@ -8207,7 +8239,7 @@ is written in stone yet. Comments and proposals are&amp;nbsp;welcome!&lt;/p&gt;
 &lt;a href="http://framapad.org/carto-forms"&gt;http://framapad.org/carto-forms&lt;/a&gt;. Don&amp;#8217;t hesitate to add your thoughts
 and edit it, that&amp;#8217;s what it&amp;#8217;s made&amp;nbsp;for!&lt;/p&gt;
 &lt;p&gt;Thanks to &lt;a href="http://sneakernet.fr/"&gt;Arnaud&lt;/a&gt; and
-&lt;a href="http://qwerty.fuzz.me.uk/"&gt;Fuzzmz&lt;/a&gt; for proof-reading and typo&amp;nbsp;fixing.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Les dangers du livre numérique</title><link href="https://blog.notmyidea.org/les-dangers-du-livre-numerique.html" rel="alternate"></link><published>2012-01-23T00:00:00+01:00</published><updated>2012-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-01-23:/les-dangers-du-livre-numerique.html</id><summary type="html">
+&lt;a href="http://qwerty.fuzz.me.uk/"&gt;Fuzzmz&lt;/a&gt; for proof-reading and typo&amp;nbsp;fixing.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Les dangers du livre numérique</title><link href="https://blog.notmyidea.org/les-dangers-du-livre-numerique.html" rel="alternate"></link><published>2012-01-23T00:00:00+01:00</published><updated>2012-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2012-01-23:/les-dangers-du-livre-numerique.html</id><summary type="html">
 &lt;p&gt;Le framablog vient de publier &lt;a href="http://www.framablog.org/index.php/post/2012/01/22/stallman-ebook-livre-electronique"&gt;une traduction de l&amp;#8217;article de &lt;span class="caps"&gt;RMS&lt;/span&gt; à
 propos des dangers du livre
 électronique&lt;/a&gt;.
@@ -8455,7 +8487,7 @@ clients to discover services in a nice&amp;nbsp;way.&lt;/p&gt;
 &lt;p&gt;Of course, we are open to all your ideas and patches! If you feel
 haskish and want to see the sources, &lt;a href="https://github.com/mozilla-services/cornice"&gt;go grab them on
 github&lt;/a&gt; , commit and send
-us a pull&amp;nbsp;request!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Quels usages pour l’informatique ?</title><link href="https://blog.notmyidea.org/quels-usages-pour-linformatique.html" rel="alternate"></link><published>2011-12-01T00:00:00+01:00</published><updated>2011-12-01T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-12-01:/quels-usages-pour-linformatique.html</id><summary type="html">
+us a pull&amp;nbsp;request!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Quels usages pour l’informatique ?</title><link href="https://blog.notmyidea.org/quels-usages-pour-linformatique.html" rel="alternate"></link><published>2011-12-01T00:00:00+01:00</published><updated>2011-12-01T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-12-01:/quels-usages-pour-linformatique.html</id><summary type="html">
 &lt;p&gt;Quand on termine ses études, on s&amp;#8217;en pose un tas, des questions. Sur le
 métier que l&amp;#8217;on veut faire, sur ce que ça signifie, sur le sens et la
 valeur du travail. Et j&amp;#8217;en suis arrivé à faire un constat simple:
@@ -8633,7 +8665,7 @@ flask for this (and I should release&amp;nbsp;it!).&lt;/p&gt;
 and would be happy to work with new people and implement new ideas. If
 you have a nice idea about this, if you want to tweak it or to fill
 bugs. Don&amp;#8217;t hesitate a second! The project lives at
-&lt;a href="http://github.com/spiral-project/ihatemoney/"&gt;http://github.com/spiral-project/ihatemoney/&lt;/a&gt;&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>La simplicité volontaire contre le mythe de l’abondance</title><link href="https://blog.notmyidea.org/la-simplicite-volontaire-contre-le-mythe-de-labondance.html" rel="alternate"></link><published>2011-10-01T00:00:00+02:00</published><updated>2011-10-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-10-01:/la-simplicite-volontaire-contre-le-mythe-de-labondance.html</id><summary type="html">
+&lt;a href="http://github.com/spiral-project/ihatemoney/"&gt;http://github.com/spiral-project/ihatemoney/&lt;/a&gt;&lt;/p&gt;</content><category term="code"></category></entry><entry><title>La simplicité volontaire contre le mythe de l’abondance</title><link href="https://blog.notmyidea.org/la-simplicite-volontaire-contre-le-mythe-de-labondance.html" rel="alternate"></link><published>2011-10-01T00:00:00+02:00</published><updated>2011-10-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-10-01:/la-simplicite-volontaire-contre-le-mythe-de-labondance.html</id><summary type="html">
 &lt;p&gt;Paul Ariès dans la préface de &amp;#8220;&lt;a href="http://www.editionsladecouverte.fr/catalogue/index.php?ean13=9782707169747"&gt;La simplicité volontaire contre le mythe
 de
 l&amp;#8217;abondance&lt;/a&gt;&amp;#8221;&lt;/p&gt;
@@ -8697,7 +8729,7 @@ languages (and the resulting script would be easier) to do so, but the
 resulting graph would probably be way less&amp;nbsp;readable.&lt;/p&gt;
 &lt;p&gt;You can find the script &lt;a href="https://github.com/ametaireau/experiments"&gt;on my github
 account&lt;/a&gt;. Feel free to adapt
-it for whatever you want if you feel&amp;nbsp;hackish.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Pelican, 9 months later</title><link href="https://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><published>2011-07-25T00:00:00+02:00</published><updated>2011-07-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html</id><summary type="html">
+it for whatever you want if you feel&amp;nbsp;hackish.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Pelican, 9 months later</title><link href="https://blog.notmyidea.org/pelican-9-months-later.html" rel="alternate"></link><published>2011-07-25T00:00:00+02:00</published><updated>2011-07-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-07-25:/pelican-9-months-later.html</id><summary type="html">
 &lt;p&gt;Back in October, I released
 &lt;a href="http://docs.notmyidea.org/alexis/pelican"&gt;pelican&lt;/a&gt;, a little piece of
 code I wrote to power this weblog. I had simple needs: I wanted to be
@@ -8719,7 +8751,7 @@ different services such as twitter or piwik, import from dotclear and
 rss, fixed a number of mistakes and improved a lot the codebase. This
 was a proof that there is a bunch of people that are willing to make
 better softwares just for the sake of&amp;nbsp;fun.&lt;/p&gt;
-&lt;p&gt;Thank you, guys, you&amp;#8217;re why I like open source so&amp;nbsp;much.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Using JPype to bridge python and Java</title><link href="https://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><published>2011-06-11T00:00:00+02:00</published><updated>2011-06-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</id><summary type="html">
+&lt;p&gt;Thank you, guys, you&amp;#8217;re why I like open source so&amp;nbsp;much.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Using JPype to bridge python and Java</title><link href="https://blog.notmyidea.org/using-jpype-to-bridge-python-and-java.html" rel="alternate"></link><published>2011-06-11T00:00:00+02:00</published><updated>2011-06-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-06-11:/using-jpype-to-bridge-python-and-java.html</id><summary type="html">
 &lt;p&gt;Java provides some interesting libraries that have no exact equivalent
 in python. In my case, the awesome boilerpipe library allows me to
 remove uninteresting parts of &lt;span class="caps"&gt;HTML&lt;/span&gt; pages, like menus, footers and other
@@ -8797,7 +8829,7 @@ similar, but from&amp;nbsp;python&lt;/p&gt;
 &lt;p&gt;I must say I didn&amp;#8217;t thought it could work so easily. This will allow me
 to extract text content from URLs and remove the &lt;em&gt;boilerplate&lt;/em&gt; text
 easily for infuse (my master thesis project), without having to write
-java code,&amp;nbsp;nice!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Un coup de main pour mon mémoire !</title><link href="https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><published>2011-05-25T00:00:00+02:00</published><updated>2011-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html</id><summary type="html">
+java code,&amp;nbsp;nice!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Un coup de main pour mon mémoire !</title><link href="https://blog.notmyidea.org/un-coup-de-main-pour-mon-memoire.html" rel="alternate"></link><published>2011-05-25T00:00:00+02:00</published><updated>2011-05-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-05-25:/un-coup-de-main-pour-mon-memoire.html</id><summary type="html">
 &lt;p&gt;Ça y est, bientôt la fin. &lt;span class="caps"&gt;LA&lt;/span&gt; &lt;span class="caps"&gt;FIN&lt;/span&gt;. La fin des études, et le début du
 reste. En attendant je bosse sur mon mémoire de fin d&amp;#8217;études et j&amp;#8217;aurais
 besoin d&amp;#8217;un petit coup de&amp;nbsp;main.&lt;/p&gt;
@@ -8830,7 +8862,7 @@ téléchargé et le compte créé il faut renseigner vos identifiants dans
 le plugin en question, et c&amp;#8217;est&amp;nbsp;tout!&lt;/p&gt;
 &lt;p&gt;A votre bon cœur ! Je récupérerais probablement des données durant les
 2 prochains mois pour ensuite les analyser&amp;nbsp;correctement.&lt;/p&gt;
-&lt;p&gt;Merci pour votre aide&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Travailler moins pour mieux travailler ?</title><link href="https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html" rel="alternate"></link><published>2011-05-19T00:00:00+02:00</published><updated>2011-05-19T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-05-19:/travailler-moins-pour-mieux-travailler.html</id><summary type="html">
+&lt;p&gt;Merci pour votre aide&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Travailler moins pour mieux travailler ?</title><link href="https://blog.notmyidea.org/travailler-moins-pour-mieux-travailler.html" rel="alternate"></link><published>2011-05-19T00:00:00+02:00</published><updated>2011-05-19T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-05-19:/travailler-moins-pour-mieux-travailler.html</id><summary type="html">
 &lt;p&gt;Je viens de passer une semaine et demi quasiment hors-ligne et je dois
 dire que je suis assez impressionné du résultat: je suis de retour chez
 mes parents pour le &amp;#8220;easter break&amp;#8221; et j&amp;#8217;en ai profité pour donner un
@@ -9070,7 +9102,7 @@ complete novice in that&amp;nbsp;field.&lt;/p&gt;
 &lt;li&gt;Analyse web pages in order to categorize them. Processing their
     contents as well, to do some keyword based classification will be&amp;nbsp;done.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Lot of work on its way, yay&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="https://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><published>2011-03-16T00:00:00+01:00</published><updated>2011-03-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html</id><summary type="html">
+&lt;p&gt;Lot of work on its way, yay&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Working directly on your server? How to backup and sync your dev environment with unison</title><link href="https://blog.notmyidea.org/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html" rel="alternate"></link><published>2011-03-16T00:00:00+01:00</published><updated>2011-03-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-03-16:/working-directly-on-your-server-how-to-backup-and-sync-your-dev-environment-with-unison.html</id><summary type="html">
 &lt;p&gt;I have a server running freebsd since some time now, and was wondering
 about the possibility to directly have a development environment ready
 to use when I get a internet connexion, even if I&amp;#8217;m not on my&amp;nbsp;computer.&lt;/p&gt;
@@ -9226,7 +9258,7 @@ its&amp;nbsp;content.&lt;/p&gt;
 &lt;p&gt;And it comes from
 &lt;a href="http://ubuntuforums.org/showthread.php?p=10148738#post10148738"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;A sync takes about 20s + the upload time on my machine, which stay
-acceptable for all of my&amp;nbsp;developments.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Wrap up of the distutils2 paris’ sprint</title><link href="https://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-02-08T00:00:00+01:00</published><updated>2011-02-08T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html</id><summary type="html">
+acceptable for all of my&amp;nbsp;developments.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Wrap up of the distutils2 paris’ sprint</title><link href="https://blog.notmyidea.org/wrap-up-of-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-02-08T00:00:00+01:00</published><updated>2011-02-08T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-02-08:/wrap-up-of-the-distutils2-paris-sprint.html</id><summary type="html">
 &lt;p&gt;Finally, thanks to a bunch of people that helped me to pay my train and
 bus tickets, I&amp;#8217;ve made it to paris for the distutils2&amp;nbsp;sprint.&lt;/p&gt;
 &lt;p&gt;They have been a bit more than 10 people to come during the sprint, and
@@ -9268,7 +9300,7 @@ the tubes, and will be ready for a release (hopefully) at the end of the&amp;nbs
 providing us food, and to bearstech for providing some money for
 breakfast and&amp;nbsp;bears^Wbeers.&lt;/p&gt;
 &lt;p&gt;Again, a big thanks to all the people who gave me money to pay the
-transport, I really wasn&amp;#8217;t expecting such thing to happen&amp;nbsp;:-)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>PyPI on CouchDB</title><link href="https://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><published>2011-01-20T00:00:00+01:00</published><updated>2011-01-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html</id><summary type="html">
+transport, I really wasn&amp;#8217;t expecting such thing to happen&amp;nbsp;:-)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>PyPI on CouchDB</title><link href="https://blog.notmyidea.org/pypi-on-couchdb.html" rel="alternate"></link><published>2011-01-20T00:00:00+01:00</published><updated>2011-01-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-20:/pypi-on-couchdb.html</id><summary type="html">
 &lt;p&gt;By now, there are two ways to retrieve data from PyPI (the Python
 Package Index). You can both rely on xml/rpc or on the &amp;#8220;simple&amp;#8221; &lt;span class="caps"&gt;API&lt;/span&gt;. The
 simple &lt;span class="caps"&gt;API&lt;/span&gt; is not so simple to use as the name suggest, and have several
@@ -9357,7 +9389,7 @@ store in&amp;nbsp;couchdb:&lt;/p&gt;
 &lt;p&gt;The work I&amp;#8217;ve done by now is available on
 &lt;a href="https://bitbucket.org/ametaireau/pypioncouch/"&gt;https://bitbucket.org/ametaireau/pypioncouch/&lt;/a&gt;. Keep in mind that it&amp;#8217;s
 still a work in progress, and everything can break at any time. However,
-any feedback will be appreciated&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Help me to go to the distutils2 paris’ sprint</title><link href="https://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-01-15T00:00:00+01:00</published><updated>2011-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html</id><summary type="html">
+any feedback will be appreciated&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Help me to go to the distutils2 paris’ sprint</title><link href="https://blog.notmyidea.org/help-me-to-go-to-the-distutils2-paris-sprint.html" rel="alternate"></link><published>2011-01-15T00:00:00+01:00</published><updated>2011-01-15T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2011-01-15:/help-me-to-go-to-the-distutils2-paris-sprint.html</id><summary type="html">
 &lt;p&gt;&lt;strong&gt;Edit: Thanks to logilab and some amazing people, I can make it to
 paris for the sprint. Many thanks to them for the&amp;nbsp;support!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;There will be a distutils2 sprint from the 27th to the 30th of january,
@@ -9381,7 +9413,7 @@ help while&amp;nbsp;needed.&lt;/p&gt;
 &lt;p&gt;If you want to contribute some money to help me go there, feel free to
 use this chipin page:
 &lt;a href="http://ametaireau.chipin.com/distutils2-sprint-in-paris"&gt;http://ametaireau.chipin.com/distutils2-sprint-in-paris&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Thanks for your support&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Fork you! or how the social coding can help you</title><link href="https://blog.notmyidea.org/fork-you-or-how-the-social-coding-can-help-you.html" rel="alternate"></link><published>2010-11-05T00:00:00+01:00</published><updated>2010-11-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-11-05:/fork-you-or-how-the-social-coding-can-help-you.html</id><summary type="html">
+&lt;p&gt;Thanks for your support&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Fork you! or how the social coding can help you</title><link href="https://blog.notmyidea.org/fork-you-or-how-the-social-coding-can-help-you.html" rel="alternate"></link><published>2010-11-05T00:00:00+01:00</published><updated>2010-11-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-11-05:/fork-you-or-how-the-social-coding-can-help-you.html</id><summary type="html">
 &lt;p&gt;With &lt;a href="http://github.com"&gt;github&lt;/a&gt; and
 &lt;a href="http://www.bitbucket.org"&gt;bitbucket&lt;/a&gt; coming around, a lot of new usages
 appears for the developpers: it&amp;#8217;s now easy to get feedback on your
@@ -9544,7 +9576,7 @@ the command line tools curl, grep and tail (but really harder to&amp;nbsp;read).
     &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urlparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urljoin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;boxurl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;REBOOT_URL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;reboot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="technologie"></category></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="https://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><published>2010-10-11T00:00:00+02:00</published><updated>2010-10-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category></entry><entry><title>Dynamically change your gnome desktop wallpaper</title><link href="https://blog.notmyidea.org/dynamically-change-your-gnome-desktop-wallpaper.html" rel="alternate"></link><published>2010-10-11T00:00:00+02:00</published><updated>2010-10-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-11:/dynamically-change-your-gnome-desktop-wallpaper.html</id><summary type="html">
 &lt;p&gt;In gnome, you can can use a &lt;span class="caps"&gt;XML&lt;/span&gt; file to have a dynamic wallpaper. It&amp;#8217;s
 not so easy, and you can&amp;#8217;t just tell: use the pictures in this folder to
 do&amp;nbsp;so.&lt;/p&gt;
@@ -9598,7 +9630,7 @@ $ pip install gnome-background-generator
 &lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;try to set the background using gnome-appearance-&lt;/span&gt;
 &lt;span class="s1"&gt;                        properties&lt;/span&gt;
 &lt;span class="s1"&gt;  -b, --debug&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="technologie"></category></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category></entry><entry><title>How to install NGINX + PHP 5.3 on FreeBSD.</title><link href="https://blog.notmyidea.org/how-to-install-nginx-php-53-on-freebsd.html" rel="alternate"></link><published>2010-10-10T00:00:00+02:00</published><updated>2010-10-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-10:/how-to-install-nginx-php-53-on-freebsd.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;&amp;nbsp;2010-10-10&lt;/p&gt;
@@ -9666,7 +9698,7 @@ that will work without effort over&amp;nbsp;time.&lt;/p&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;And that&amp;#8217;s it&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><published>2010-10-06T00:00:00+02:00</published><updated>2010-10-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html</id><summary type="html">
+&lt;p&gt;And that&amp;#8217;s it&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Pelican, a simple static blog generator in python</title><link href="https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html" rel="alternate"></link><published>2010-10-06T00:00:00+02:00</published><updated>2010-10-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-10-06:/pelican-a-simple-static-blog-generator-in-python.html</id><summary type="html">
 &lt;p&gt;Those days, I&amp;#8217;ve wrote a little python application to fit my blogging
 needs. I&amp;#8217;m an occasional blogger, a vim lover, I like restructured text
 and DVCSes, so I&amp;#8217;ve made a little tool that makes good use of all&amp;nbsp;that.&lt;/p&gt;
@@ -9733,7 +9765,7 @@ optional&lt;span class="w"&gt; &lt;/span&gt;arguments:
 &lt;span class="w"&gt;  &lt;/span&gt;-b,&lt;span class="w"&gt; &lt;/span&gt;--debug
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Enjoy&amp;nbsp;:)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>An amazing summer of code working on distutils2</title><link href="https://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><published>2010-08-16T00:00:00+02:00</published><updated>2010-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html</id><summary type="html">
+&lt;p&gt;Enjoy&amp;nbsp;:)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>An amazing summer of code working on distutils2</title><link href="https://blog.notmyidea.org/an-amazing-summer-of-code-working-on-distutils2.html" rel="alternate"></link><published>2010-08-16T00:00:00+02:00</published><updated>2010-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-08-16:/an-amazing-summer-of-code-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;The &lt;a href="http://code.google.com/soc/"&gt;Google Summer of Code&lt;/a&gt; I&amp;#8217;ve spent
 working on &lt;a href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt; is over. It
 was a really amazing experience, for many&amp;nbsp;reasons.&lt;/p&gt;
@@ -9861,7 +9893,7 @@ into their offices from time to time, to share they cheerfulness ! Many
 thanks too to the Google Summer of Code program for setting up such an
 initiative. If you&amp;#8217;re a student, if you&amp;#8217;re interested about &lt;span class="caps"&gt;FOSS&lt;/span&gt;, dont
 hesitate any second, it&amp;#8217;s a really good opportunity to work on
-interesting&amp;nbsp;projects!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="https://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><published>2010-07-10T00:00:00+02:00</published><updated>2010-07-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-10:/sprinting-on-distutils2-in-tours.html</id><summary type="html">
+interesting&amp;nbsp;projects!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Sprinting on distutils2 in Tours</title><link href="https://blog.notmyidea.org/sprinting-on-distutils2-in-tours.html" rel="alternate"></link><published>2010-07-10T00:00:00+02:00</published><updated>2010-07-10T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-10:/sprinting-on-distutils2-in-tours.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;&amp;nbsp;2010-07-06&lt;/p&gt;
@@ -9947,7 +9979,7 @@ seems to be a must-read, so, I know what to&amp;nbsp;do.&lt;/p&gt;
 &lt;p&gt;It was really great. Next time, we&amp;#8217;ll need to focus a bit more on
 distutils2, and to have a bullet list of things to do, but days like
 this one are opportunities to catch ! We&amp;#8217;ll probably do another sprint
-in a few weeks, stay tuned&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="https://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><published>2010-07-06T00:00:00+02:00</published><updated>2010-07-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html</id><summary type="html">
+in a few weeks, stay tuned&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Introducing the distutils2 index crawlers</title><link href="https://blog.notmyidea.org/introducing-the-distutils2-index-crawlers.html" rel="alternate"></link><published>2010-07-06T00:00:00+02:00</published><updated>2010-07-06T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-07-06:/introducing-the-distutils2-index-crawlers.html</id><summary type="html">
 &lt;p&gt;I&amp;#8217;m working for about a month for distutils2, even if I was being a bit
 busy (as I had some class courses and exams to work&amp;nbsp;on)&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ll try do sum-up my general feelings here, and the work I&amp;#8217;ve made so
@@ -10051,7 +10083,7 @@ avoid some changes on the &lt;span class="caps"&gt;API&lt;/span&gt;, and some lo
 &lt;p&gt;Also, I&amp;#8217;ve set up &lt;a href="http://wiki.notmyidea.org/distutils2_schedule"&gt;a
 schedule&lt;/a&gt;, and the goal
 is to be sure everything will be ready in time, for the end of the
-summer. (And now, I need to learn to follow schedules&amp;nbsp;&amp;#8230;)&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="https://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><published>2010-06-25T00:00:00+02:00</published><updated>2010-06-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html</id><summary type="html">
+summer. (And now, I need to learn to follow schedules&amp;nbsp;&amp;#8230;)&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Use Restructured Text (ReST) to power your presentations</title><link href="https://blog.notmyidea.org/use-restructured-text-rest-to-power-your-presentations.html" rel="alternate"></link><published>2010-06-25T00:00:00+02:00</published><updated>2010-06-25T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-25:/use-restructured-text-rest-to-power-your-presentations.html</id><summary type="html">
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;date&lt;br&gt;&amp;nbsp;2010-06-25&lt;/p&gt;
@@ -10096,7 +10128,7 @@ source&lt;/a&gt;,
 used&lt;/a&gt;,
 and the command line to generate the &lt;span class="caps"&gt;PDF&lt;/span&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rst2pdf couchdb.rst -b1 -s ../slides.style
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="technologie"></category></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category></entry><entry><title>first week working on distutils2</title><link href="https://blog.notmyidea.org/first-week-working-on-distutils2.html" rel="alternate"></link><published>2010-06-04T00:00:00+02:00</published><updated>2010-06-04T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-06-04:/first-week-working-on-distutils2.html</id><summary type="html">
 &lt;p&gt;As I&amp;#8217;ve been working on &lt;a href="http://hg.python.org/distutils2/"&gt;Distutils2&lt;/a&gt;
 during the past week, taking part of the
 &lt;a href="http://code.google.com/intl/fr/soc/"&gt;&lt;span class="caps"&gt;GSOC&lt;/span&gt;&lt;/a&gt; program, here is a short
@@ -10158,7 +10190,7 @@ grabbed code, and do some software design work (to not expose all things
 as privates methods, have a clear &lt;span class="caps"&gt;API&lt;/span&gt;, and other things like this), then
 update the tests accordingly and write a documentation to make this&amp;nbsp;clear.&lt;/p&gt;
 &lt;p&gt;Next step is to a little client, as I&amp;#8217;ve &lt;a href="http://github.com/ametaireau/pypiclient"&gt;already started
-here&lt;/a&gt; I&amp;#8217;ll take you updated&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>A Distutils2 GSoC</title><link href="https://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><published>2010-05-01T00:00:00+02:00</published><updated>2010-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html</id><summary type="html">
+here&lt;/a&gt; I&amp;#8217;ll take you updated&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>A Distutils2 GSoC</title><link href="https://blog.notmyidea.org/a-distutils2-gsoc.html" rel="alternate"></link><published>2010-05-01T00:00:00+02:00</published><updated>2010-05-01T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-05-01:/a-distutils2-gsoc.html</id><summary type="html">
 &lt;p&gt;&lt;span class="caps"&gt;WOW&lt;/span&gt;. I&amp;#8217;ve been accepted to be a part of the &lt;a href="http://code.google.com/intl/fr/soc/"&gt;Google Summer Of
 Code&lt;/a&gt; program, and will work on
 &lt;a href="http://python.org/"&gt;python&lt;/a&gt; &lt;a href="http://hg.python.org/distutils2/"&gt;distutils2&lt;/a&gt;, with &lt;a href="http://pygsoc.wordpress.com/"&gt;a&lt;/a&gt; &lt;a href="http://konryd.blogspot.com/"&gt;lot&lt;/a&gt; &lt;a href="http://ziade.org/"&gt;of&lt;/a&gt; (intersting !) &lt;a href="http://zubin71.wordpress.com/"&gt;people&lt;/a&gt;.&lt;/p&gt;
@@ -10187,7 +10219,7 @@ the &lt;a href="http://www.python.org/dev/peps/pep-0376/"&gt;&lt;span class="ca
 &lt;li&gt;PyPI &lt;span class="caps"&gt;XML&lt;/span&gt;-&lt;span class="caps"&gt;RPC&lt;/span&gt; client for distutils 2:
     &lt;a href="http://bugs.python.org/issue8190"&gt;http://bugs.python.org/issue8190&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As I&amp;#8217;m relatively new to python, I&amp;#8217;ll need some extra work in order to apply all good practice, among other things that can make a developper-life joyful. I&amp;#8217;ll post here, each week, my advancement, and my tought about python and especialy python packaging&amp;nbsp;world.&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>Le temps des grâces, courrez-y !</title><link href="https://blog.notmyidea.org/le-temps-des-graces-courrez-y.html" rel="alternate"></link><published>2010-03-28T00:00:00+01:00</published><updated>2010-03-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-03-28:/le-temps-des-graces-courrez-y.html</id><summary type="html">
+&lt;p&gt;As I&amp;#8217;m relatively new to python, I&amp;#8217;ll need some extra work in order to apply all good practice, among other things that can make a developper-life joyful. I&amp;#8217;ll post here, each week, my advancement, and my tought about python and especialy python packaging&amp;nbsp;world.&lt;/p&gt;</content><category term="code"></category></entry><entry><title>Le temps des grâces, courrez-y !</title><link href="https://blog.notmyidea.org/le-temps-des-graces-courrez-y.html" rel="alternate"></link><published>2010-03-28T00:00:00+01:00</published><updated>2010-03-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2010-03-28:/le-temps-des-graces-courrez-y.html</id><summary type="html">
 &lt;p&gt;Ouf, notre &lt;a href="http://www.reseaugrappe.org"&gt;semaine de l&amp;#8217;environnement&lt;/a&gt;
 s&amp;#8217;est terminée, après un peu de neige et un brin de soleil quand il en
 fallait&amp;nbsp;!&lt;/p&gt;
@@ -10400,7 +10432,7 @@ python&lt;/a&gt; sur mon profil, peut
     c&amp;#8217;est ce qui m&amp;#8217;agaçait avec &lt;span class="caps"&gt;PHP&lt;/span&gt; qui est un langage à typage faible&amp;nbsp;dynamique.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Cous pouvez également aller regarder &lt;a href="http://video.pycon.fr/videos/free/53/"&gt;l&amp;#8217;atelier donné par Victor Stinner
-durant le Pyconfr 09&lt;/a&gt;. Have fun&amp;nbsp;!&lt;/p&gt;</content><category term="technologie"></category></entry><entry><title>AMAP + Média = Paniers bio à 5e ?!</title><link href="https://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="alternate"></link><published>2009-11-11T00:00:00+01:00</published><updated>2009-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2009-11-11:/amap-media-paniers-bio-a-5e.html</id><summary type="html">
+durant le Pyconfr 09&lt;/a&gt;. Have fun&amp;nbsp;!&lt;/p&gt;</content><category term="code"></category></entry><entry><title>AMAP + Média = Paniers bio à 5e ?!</title><link href="https://blog.notmyidea.org/amap-media-paniers-bio-a-5e.html" rel="alternate"></link><published>2009-11-11T00:00:00+01:00</published><updated>2009-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2009-11-11:/amap-media-paniers-bio-a-5e.html</id><summary type="html">
 &lt;p&gt;Le raccourci me semble un peu rapide. Et pourtant, il est emprunté bien
 trop souvent. La dernière &lt;em&gt;mes-utilisation&lt;/em&gt; que j&amp;#8217;ai à décrier est celle
 d&amp;#8217;un reportage télé, passé sur France 2 vendredi 23 Octobre (&lt;a href="http://docs.notmyidea.org/amap/amap-fr2.avi"&gt;voir la
