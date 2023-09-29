@@ -63,7 +63,7 @@ Obtenir la liste des "principals" d'un ACE
     d'une ACL (e.g. *modifier un enregistrement*).
 
 Avec le `système de permissions choisi
-<{filename}/technologie/2015-05-01-cliquet-permissions.rst>`_, les permissions d'un
+<{filename}/code/2015-05-01-cliquet-permissions.rst>`_, les permissions d'un
 objet héritent de celle de l'objet parent.
 
 Par exemple, avoir le droit d'écriture sur un *bucket* permet la

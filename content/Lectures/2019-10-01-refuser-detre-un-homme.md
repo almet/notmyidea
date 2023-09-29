@@ -3,7 +3,7 @@ author:  John Stolenberg
 tags: féminisme, masculinisme
 headline: Pour en finir avec la virilité
 read_on: Octobre 2019
-image: https://www.syllepse.net/syllepse_images/produits/refuser_d_etre_un_homme.jpg
+isbn: 978-2-84950-381-2
 
 ## Mise en situation historique et politique
 

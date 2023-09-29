@@ -3,3 +3,4 @@ markdown
 datefinder
 typogrify
 ghp-import
+requests

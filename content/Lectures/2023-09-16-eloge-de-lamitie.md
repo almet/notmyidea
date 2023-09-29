@@ -3,8 +3,8 @@ title: Éloge de l'amitié
 author: Geoffroy de Lagasnerie
 headline: Livre où il est question d'amitié, de ce qu'elle signifie dans un monde où le devenir-parent, les sociabilités familiales et le volontaire désintérêt dans les relations est la norme.
 tags: relations, amitié
+isbn: 9782080420015
 ---
-
 
 ## Citations
 

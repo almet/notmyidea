@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
+
+<dl id="categories">
 {% for category, articles in categories %}
-    <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+    {% if category in CATEGORIES_DESCRIPTION.keys() %}
+        <dt><h2><a href="/{{category.slug}}/">{{ CATEGORIES_DESCRIPTION[category][0] }}</a></h2></dt>
+        <dd>{{ CATEGORIES_DESCRIPTION[category][1] }}. {{ articles | length }} articles.</dd>
+    {% endif %}
 {% endfor %}
-</ul>
+</dl>
+
+
 {% endblock %}

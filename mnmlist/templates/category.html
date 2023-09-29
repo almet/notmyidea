@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 {% if category in CATEGORIES_DESCRIPTION.keys() %}
-<h1>{{ CATEGORIES_DESCRIPTION[category][0] }}</h1>
+<h1>{{ CATEGORIES_DESCRIPTION[category][0] }}
+  <a id="feed" href="{{ SITEURL }}/feeds/{{ category.slug }}.atom.xml"><img src="{{ SITEURL }}/theme/rss.svg" /></a>
+</h1>
 <p>{{ CATEGORIES_DESCRIPTION[category][1] }}</p>
 {% else %}
 

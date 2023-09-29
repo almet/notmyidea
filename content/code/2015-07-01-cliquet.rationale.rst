@@ -18,7 +18,7 @@ Les origines
 ============
 
 L'objectif pour le premier trimestre 2015 était de construire un service de
-stockage et de `synchronisation de listes de lecture <{filename}/technologie/2015-04-01-service-de-nuages.rst>`_.
+stockage et de `synchronisation de listes de lecture <{filename}/code/2015-04-01-service-de-nuages.rst>`_.
 
 Au démarrage du projet, nous avons tenté de rassembler toutes les bonnes pratiques
 et recommandations, venant de différentes équipes et surtout des derniers projets déployés.
@@ -142,10 +142,10 @@ de *Firefox Sync* pour la gestion de la concurrence et de l'«offline-first».
 Il est `documenté en détail <http://cliquet.readthedocs.org/en/latest/api/index.html>`_.
 
 Dans un monde idéal, ce protocole serait versionné, et formalisé dans une RFC.
-En rêve, il existerait même plusieurs implémentations avec des technologies différentes
+En rêve, il existerait même plusieurs implémentations avec des codes différentes
 (Python, Go, Node, etc.). [#]_
 
-.. [#] Voir notre `article dédié sur les permissions <{filename}/technologie/2015-05-01-cliquet-permissions.rst>`_
+.. [#] Voir notre `article dédié sur les permissions <{filename}/code/2015-05-01-cliquet-permissions.rst>`_
 .. [#] Rappel: nous sommes une toute petite équipe !
 
 
@@ -220,7 +220,7 @@ mais rien n'empêcherait d'implémenter le stockage dans un modèle relationnel.
 
 Comme les composants peuvent être remplacés depuis la configuration, il est
 tout à fait possible d'étendre *Cliquet* avec des notions métiers ou des
-technologies exotiques ! Nous avons posé quelques idées dans `la documentation
+codes exotiques ! Nous avons posé quelques idées dans `la documentation
 de l'éco-système <http://cliquet.readthedocs.org/en/latest/ecosystem.html>`_.
 
 Dans les prochaines semaines, nous allons introduire la notion d'«évènements» (ou signaux),
@@ -426,7 +426,7 @@ Quelques questions courantes
     Pourquoi Python ?
 
 On prend beaucoup de plaisir à écrire du Python, et le calendrier annoncé
-initialement était très serré: pas question de tituber avec une technologie
+initialement était très serré: pas question de tituber avec une code
 mal maitrisée !
 
 Et puis, après avoir passé près d'un an sur un projet Node.js, l'équipe avait

@@ -2,6 +2,7 @@
 title: Crucial Conversations
 author: Kerry Patterson, Stephen R. Covey, Joseph Grenny, Ron McMillan et Al Switzler
 headline: Un livre qui vient questionner nos manières d'intéragir lors des discussions cruciales de nos vies. Des outils pratiques pour éviter de rentrer dans les conflits.
+isbn: 9781260474183
 ---
 
 *Résumé rapide du livre, pour s'y retrouver*.
@@ -76,6 +77,7 @@ Concentrez-vous sur **ce que vous voulez réellement :
 - Demandez-vous ce que vous devriez faire pour aller vers ce que vous souhaitez réellement ?
 
 **Refusez le dualisme** :
+
 - Alors que vous considérez ce que vous voulez, notez quand vous vous piégez vous-même dans un dualisme.
 - Cherchez comment faire l'un **et** l'autre.
 - Clarifiez ce que vous ne souhaitez pas, ajoutez le à ce que vous voulez et demandez à votre cerveau de chercher des solutions pour retourner sur un dialogue sain.
@@ -87,6 +89,7 @@ Les histoires créent des émotions. Les émotions n'arrivent pas d'elles-mêmes
 Il peut être utile de séparer les faits des histoires qu'on se raconte pour pouvoir repenser nos émotions.
 
 Le schéma peut être le suivant :
+
 1. Voir et entendre (les faits)
 2. Se raconter une histoire
 3. Ressentir
@@ -109,6 +112,7 @@ Comment se rendre compte que la sécurité est mise en jeu ? Il faut apprendre �
 Pour sécuriser la conversation, il faut réussir à sortir du contenu de la conversation d'abord. L'idée étant de se rendre compte quand les gens deviennent violents ou silencieux, pour renouer le dialogue. Une fois que c'est fait on peut reprendre la discussion.
 
 Comprendre ce qui crée un risque pour la sécurité :
+
 - **Objectif commun** : Est-ce que les autres pensent que leurs objectifs sont importants pour vous ? Est-ce qu'ils ont confiance dans mes motivations ?
 - **Respect mutuel** : Est-ce que les autres pensent que vous les respectez ?
 
@@ -119,6 +123,7 @@ Pour commencer la discussion, **partagez vos bonnes intentions** : qu'est-ce que
 **Contrastez** pour régler les incompréhensions : Commencez par ce que vous ne voulez pas dire, puis expliquez ce que vous voulez dire.
 
 Créez un objectif commun lorsque vous vous rendez compte que les choses sont compliquées :
+
 - Dites que votre objectif est de trouver un but commun.
 - Reconnaissez les buts derrière les stratégies
 - Inventez un but commun

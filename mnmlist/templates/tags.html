@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<p>Voici une liste de tous les tags utilisés sur ce site :</p>
 <ul>
-{% for tag, articles in tags %}
-    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+
+{% for tag, articles in tags|sort(attribute='articles|length', reverse=true) %}
+     <a data-size="{% if articles | length > 1 %}{{articles | length }}{% endif %}" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
 {% endfor %}
 </ul>
 {% endblock %}

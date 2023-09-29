@@ -18,9 +18,7 @@ DEFAULT_DATE_FORMAT = "%d %B %Y"
 LINKS = []
 
 PLUGIN_PATHS = ["."]
-PLUGINS = [
-    "simplereader",
-]
+PLUGINS = ["simplereader", "isbn_downloader"]
 
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
@@ -53,5 +51,9 @@ CATEGORIES_DESCRIPTION = {
     "journal": (
         "Journal",
         "Quelques pensées partagées, bien souvent sur le monde du travail ou de la technologie.",
+    ),
+    "notes": (
+        "Carnet de notes",
+        "Prises bien souvent en regardant une vidéo ou un article en ligne. Je les mets ici pour pouvoir les retrouver quand le besoin se fait sentir.",
     ),
 }

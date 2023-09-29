@@ -119,3 +119,4 @@ même. La maintenance des serveurs fait donc partie du lot :-)
 
 - Master's degree in Software Engineering, University of Oxford Brookes.
 - BTS Informatique et Réseau, Angers.
+

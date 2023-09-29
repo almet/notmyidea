@@ -4,7 +4,12 @@
 
 <header>
 	{% if article.category == "Lectures" %}
-	<h1 class="post-title">« {{ article.title }} » par {{ article.author }}</h1>
+	{% if article.category == "Lectures" and article.isbn_cover %}
+	<div class="book-cover">
+		<img src="{{SITEURL}}/{{article.isbn_cover}}" />
+	</div>
+	{% endif %}
+	<h1 class="post-title">{{ article.title }}<small><br />par {{ article.author }}</small></h1>
 	{% if article.headline %}
 	<p><em>{{ article.headline }}</em></p>
 	{% endif %}
