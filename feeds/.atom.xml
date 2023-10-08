@@ -1,39 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-09-29T00:00:00+02:00</updated><entry><title>2023, Semaine 39</title><link href="https://blog.notmyidea.org/2023-semaine-39.html" rel="alternate"></link><published>2023-09-29T00:00:00+02:00</published><updated>2023-09-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-29:/2023-semaine-39.html</id><summary type="html">
-&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;Framasoft&lt;/dt&gt;
-&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
-&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;Framasoft&lt;/dt&gt;
-&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques, pour finalement en changer et me questionner sur la partie &lt;strong&gt;metier&lt;/strong&gt;, ce qui me semblait plus intéressant. A partir du moment où j&amp;#8217;ai arrêté d&amp;#8217;essayer d&amp;#8217;appliquer une solution « déjà faite » j&amp;#8217;ai pu me questionner sur le modèle de données et aller de l&amp;#8217;avant. Étrangement c&amp;#8217;est quand j&amp;#8217;ai produit le moins de code que j&amp;#8217;ai trouvé que j&amp;#8217;étais le plus&amp;nbsp;productif.&lt;/dd&gt;
-&lt;dt&gt;Notmyidea&lt;/dt&gt;
-&lt;dd&gt;Je n&amp;#8217;ai pas trop avancé sur la partie structure juridique, mais les choses décantent et me paraissent plus clair que la semaine passée. Je penche en ce moment pour une solution en auto-entreprise pour les quelques premières missions, quitte à remettre en question ce choix par la suite si je trouve de nouveaux·elles client·es. Je me laisse le temps pour&amp;nbsp;décider.&lt;/dd&gt;
-&lt;dd&gt;J&amp;#8217;ai &lt;del&gt;procrastiné&lt;/del&gt; passé beaucoup plus de temps que prévu sur la mise en place d&amp;#8217;outils utiles pour moi, et à peaufiné mon site web. J&amp;#8217;ai maintenant un bouncer &lt;span class="caps"&gt;ZNC&lt;/span&gt; et un &lt;span class="caps"&gt;VPN&lt;/span&gt; fait maison qui me permettent de travailler dans de meilleures conditions. Je suis à la fois content d&amp;#8217;avoir pris le temps de mettre en place des outils, et en même temps j&amp;#8217;ai une impression de&amp;nbsp;procrastination.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2 id="des-joies"&gt;Des&amp;nbsp;joies&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Avoir pris le temps d&amp;#8217;aller « à la ville » pour passer du temps avec des amis et&amp;nbsp;sociabiliser.&lt;/li&gt;
-&lt;li&gt;M&amp;#8217;écouter et décider de dormir sur place pour travailler aussi sur Rennes le&amp;nbsp;lendemain.&lt;/li&gt;
-&lt;li&gt;Aller à l&amp;#8217;espace de coworkig à côté de chez&amp;nbsp;moi.&lt;/li&gt;
-&lt;li&gt;Prendre le temps de faire des choses peu importantes entassées dans ma todolist depuis trop&amp;nbsp;longtemps.&lt;/li&gt;
-&lt;li&gt;Récolter des fruits de discussions passées lors d&amp;#8217;une soirée. Vive les todo-list&amp;nbsp;!&lt;/li&gt;
-&lt;li&gt;Voir qu&amp;#8217;une demande de modifications que j&amp;#8217;ai faite soit appréciée et intégrée&amp;nbsp;rapidement.&lt;/li&gt;
-&lt;li&gt;Dépanner le serveur de &lt;a href="https://github.com/almet/copanier"&gt;copanier&lt;/a&gt;, trouver le problème rapidement et le régler&amp;nbsp;facilement.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="des-peines"&gt;Des&amp;nbsp;peines&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Je suis retombé malade en fin de semaine, et donc bien fatigué. Ca impacte mon moral et ma capacité de&amp;nbsp;concentration.&lt;/li&gt;
-&lt;li&gt;Des discussions compliquées dans mon collectif de vie. Je suis content de poser des limites, mais je sens que je cherche toujours la validation des&amp;nbsp;autres.&lt;/li&gt;
-&lt;li&gt;Sentir que ma posture dans les conversations est plus ferme que par le passé. Je suis à la fois content de ne pas &lt;strong&gt;toujours&lt;/strong&gt; me remettre en question, mais j&amp;#8217;aimerai réussir à faire preuve de plus d&amp;#8217;ouverture. Il faut trouver&amp;nbsp;l&amp;#8217;équilibre &lt;/li&gt;
-&lt;li&gt;Triste de voir des conflits escalader alors que ça pourrait être&amp;nbsp;autrement.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🎮 J&amp;#8217;ai continué &lt;a href="https://fr.wikipedia.org/wiki/Baba_Is_You"&gt;Baba is you&lt;/a&gt; avec Arthur. C&amp;#8217;était sympa de se faire les reflexions à deux&amp;nbsp;cerveaux.&lt;/li&gt;
-&lt;li&gt;▶︎ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=dVzfNZN9NKI&amp;amp;list=PL8uoeex94UhFcwvAfWHybD7SfNgIUBRo-&amp;amp;index=128"&gt;Vu une présentation sur DuckDB&lt;/a&gt;, une base de données locale et minimaliste qui semble adaptée pour de la visualisation de données à grande&amp;nbsp;échelle.&lt;/li&gt;
-&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2023, Semaine 40</title><link href="https://blog.notmyidea.org/2023-semaine-40.html" rel="alternate"></link><published>2023-09-29T00:00:00+02:00</published><updated>2023-09-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-29:/2023-semaine-40.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-10-08T00:00:00+02:00</updated><entry><title>2023, Semaine 40</title><link href="https://blog.notmyidea.org/2023-semaine-40.html" rel="alternate"></link><published>2023-10-08T00:00:00+02:00</published><updated>2023-10-08T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-08:/2023-semaine-40.html</id><summary type="html">
 &lt;p&gt;Je me suis réservé les matins pour travailler, et je suis content du rythme que ça à donné à ma semaine. C&amp;#8217;était aussi le retour des pomodoros&amp;nbsp;!&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
@@ -83,6 +49,40 @@
 &lt;li&gt;🪗 Un concert de &lt;a href="https://www.compagnie-aziade.fr/victoria-delaroziere/"&gt;Victoria Delarozière&lt;/a&gt; à la&amp;nbsp;Canopée&lt;/li&gt;
 &lt;li&gt;🍿 J&amp;#8217;ai continué et bientôt terminé &lt;a href="https://www.france.tv/france-2/abysses/"&gt;Abysses&lt;/a&gt;. J&amp;#8217;aime bien le pitch de départ, mais les choses s&amp;#8217;essouflent un peu. C&amp;#8217;est dommage sur 8&amp;nbsp;épisodes.&lt;/li&gt;
 &lt;li&gt;🍿 Vu &lt;a href="https://fr.wikipedia.org/wiki/La_Favorite_(film)"&gt;La favorite&lt;/a&gt;, avec Olivia Coleman. C&amp;#8217;était… difficile de voir toute cette manipulation à l&amp;#8217;œuvre, et en même temps intéressant de le voir&amp;nbsp;documenté.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2023, Semaine 39</title><link href="https://blog.notmyidea.org/2023-semaine-39.html" rel="alternate"></link><published>2023-09-29T00:00:00+02:00</published><updated>2023-09-29T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-29:/2023-semaine-39.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Framasoft&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur l&amp;#8217;outil de supervision, en partant bille en tête sur une solution qui s&amp;#8217;est avérée ne pas être la plus simple à mettre en place. J&amp;#8217;ai passé pas mal de temps à questionner mes choix techniques, pour finalement en changer et me questionner sur la partie &lt;strong&gt;metier&lt;/strong&gt;, ce qui me semblait plus intéressant. A partir du moment où j&amp;#8217;ai arrêté d&amp;#8217;essayer d&amp;#8217;appliquer une solution « déjà faite » j&amp;#8217;ai pu me questionner sur le modèle de données et aller de l&amp;#8217;avant. Étrangement c&amp;#8217;est quand j&amp;#8217;ai produit le moins de code que j&amp;#8217;ai trouvé que j&amp;#8217;étais le plus&amp;nbsp;productif.&lt;/dd&gt;
+&lt;dt&gt;Notmyidea&lt;/dt&gt;
+&lt;dd&gt;Je n&amp;#8217;ai pas trop avancé sur la partie structure juridique, mais les choses décantent et me paraissent plus clair que la semaine passée. Je penche en ce moment pour une solution en auto-entreprise pour les quelques premières missions, quitte à remettre en question ce choix par la suite si je trouve de nouveaux·elles client·es. Je me laisse le temps pour&amp;nbsp;décider.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai &lt;del&gt;procrastiné&lt;/del&gt; passé beaucoup plus de temps que prévu sur la mise en place d&amp;#8217;outils utiles pour moi, et à peaufiné mon site web. J&amp;#8217;ai maintenant un bouncer &lt;span class="caps"&gt;ZNC&lt;/span&gt; et un &lt;span class="caps"&gt;VPN&lt;/span&gt; fait maison qui me permettent de travailler dans de meilleures conditions. Je suis à la fois content d&amp;#8217;avoir pris le temps de mettre en place des outils, et en même temps j&amp;#8217;ai une impression de&amp;nbsp;procrastination.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des&amp;nbsp;joies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoir pris le temps d&amp;#8217;aller « à la ville » pour passer du temps avec des amis et&amp;nbsp;sociabiliser.&lt;/li&gt;
+&lt;li&gt;M&amp;#8217;écouter et décider de dormir sur place pour travailler aussi sur Rennes le&amp;nbsp;lendemain.&lt;/li&gt;
+&lt;li&gt;Aller à l&amp;#8217;espace de coworkig à côté de chez&amp;nbsp;moi.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de faire des choses peu importantes entassées dans ma todolist depuis trop&amp;nbsp;longtemps.&lt;/li&gt;
+&lt;li&gt;Récolter des fruits de discussions passées lors d&amp;#8217;une soirée. Vive les todo-list&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Voir qu&amp;#8217;une demande de modifications que j&amp;#8217;ai faite soit appréciée et intégrée&amp;nbsp;rapidement.&lt;/li&gt;
+&lt;li&gt;Dépanner le serveur de &lt;a href="https://github.com/almet/copanier"&gt;copanier&lt;/a&gt;, trouver le problème rapidement et le régler&amp;nbsp;facilement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des&amp;nbsp;peines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je suis retombé malade en fin de semaine, et donc bien fatigué. Ca impacte mon moral et ma capacité de&amp;nbsp;concentration.&lt;/li&gt;
+&lt;li&gt;Des discussions compliquées dans mon collectif de vie. Je suis content de poser des limites, mais je sens que je cherche toujours la validation des&amp;nbsp;autres.&lt;/li&gt;
+&lt;li&gt;Sentir que ma posture dans les conversations est plus ferme que par le passé. Je suis à la fois content de ne pas &lt;strong&gt;toujours&lt;/strong&gt; me remettre en question, mais j&amp;#8217;aimerai réussir à faire preuve de plus d&amp;#8217;ouverture. Il faut trouver&amp;nbsp;l&amp;#8217;équilibre &lt;/li&gt;
+&lt;li&gt;Triste de voir des conflits escalader alors que ça pourrait être&amp;nbsp;autrement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎮 J&amp;#8217;ai continué &lt;a href="https://fr.wikipedia.org/wiki/Baba_Is_You"&gt;Baba is you&lt;/a&gt; avec Arthur. C&amp;#8217;était sympa de se faire les reflexions à deux&amp;nbsp;cerveaux.&lt;/li&gt;
+&lt;li&gt;▶︎ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=dVzfNZN9NKI&amp;amp;list=PL8uoeex94UhFcwvAfWHybD7SfNgIUBRo-&amp;amp;index=128"&gt;Vu une présentation sur DuckDB&lt;/a&gt;, une base de données locale et minimaliste qui semble adaptée pour de la visualisation de données à grande&amp;nbsp;échelle.&lt;/li&gt;
 &lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>llm command-line tips</title><link href="https://blog.notmyidea.org/llm-command-line-tips.html" rel="alternate"></link><published>2023-09-27T00:00:00+02:00</published><updated>2023-09-27T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-09-27:/llm-command-line-tips.html</id><summary type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;m using &lt;a href="https://llm.datasette.io"&gt;llm&lt;/a&gt; more and more, and today I had to find back prompts I used in the past. Here is a command I&amp;#8217;ve been using, which allows me to filter the results based on what I want. It leverages &lt;a href="https://sqlutils.datasette.io"&gt;sql-utils&lt;/a&gt;, a cli tool which is able to talk to a &lt;span class="caps"&gt;SQLITE&lt;/span&gt; database and answer in json, and &lt;a href="https://github.com/jqlang/jq"&gt;jq&lt;/a&gt; a command-line tool capable of doing requests for&amp;nbsp;json.&lt;/p&gt;
 &lt;p&gt;All in all, it&amp;#8217;s pretty satisfying to use. I finally got a simple way to query databases! I&amp;#8217;m also using &lt;a href="https://github.com/charmbracelet/glow"&gt;glow&lt;/a&gt;, which is capable of transforming markdown into a better version on the&amp;nbsp;terminal.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sqlite-utils&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;llm&lt;span class="w"&gt; &lt;/span&gt;logs&lt;span class="w"&gt; &lt;/span&gt;path&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SELECT * FROM responses WHERE prompt LIKE &amp;#39;%search%&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;jq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.[].response&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-r&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;glow
