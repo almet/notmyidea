@@ -425,3 +425,7 @@ a[data-size='5'] {
   max-width: 128px;
   max-height: 192px;
 }
+
+dd {
+  padding-bottom: 1em;
+}
