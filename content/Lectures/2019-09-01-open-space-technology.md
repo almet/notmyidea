@@ -3,7 +3,6 @@ author: Harrison Owen
 tags: organisation, open-space
 headline: A User's guide
 read_on: Septembre 2019
-isbn: 979-10-91772-19-8
 
 ## The invitation
 

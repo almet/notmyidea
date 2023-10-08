@@ -1,6 +1,7 @@
 output
 cache
 .venv
+.v
 __pycache__
 *:Zone.Identifier
 .obsidian
