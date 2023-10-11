@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Convert string to&nbsp;duration - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Convert string to&nbsp;duration</h1>
+	<time datetime="2023-10-11T00:00:00+02:00">11 octobre 2023</time>
+
+    
+</header>
+<article>
+    <p>I found myself wanting to convert a string to a duration (int), for some&nbsp;configuration.</p>
+<p>Something you can call like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;days&quot;</span><span class="p">)</span> <span class="c1"># returns 1</span>
+<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span> <span class="c1"># returns 24</span>
+<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span> <span class="c1"># returns 3 * 24 * 30</span>
+</code></pre></div>
+
+<p>The code&nbsp;:</p>
+<p><span class="dquo">&#8220;</span>`python
+from typing import&nbsp;Literal</p>
+<p>def string_to_duration(value: str, target: Literal[&#8220;days&#8221;, &#8220;hours&#8221;]):
+    &#8220;&#8221;&#8220;Convert a string to a number of hours, or days&#8221;&#8220;&#8221;
+    num = int(&#8220;&#8221;.join(filter(str.isdigit,&nbsp;value)))</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nv">target</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;hours&quot;</span>:
+<span class="w">    </span><span class="nv">reconvert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">True</span>
+
+<span class="k">if</span><span class="w"> </span><span class="s2">&quot;h&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">value</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">target</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;days&quot;</span>:
+<span class="w">        </span><span class="nv">raise</span><span class="w"> </span><span class="nv">ValueError</span><span class="ss">(</span><span class="s2">&quot;Invalid duration value&quot;</span>,<span class="w"> </span><span class="nv">value</span><span class="ss">)</span>
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span>
+<span class="w">    </span><span class="nv">reconvert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">False</span>
+<span class="nv">elif</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">value</span>:
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span>
+<span class="nv">elif</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">value</span>:
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">7</span>
+<span class="nv">elif</span><span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">value</span>:
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">30</span>
+<span class="nv">elif</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">value</span>:
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">365</span>
+<span class="k">else</span>:
+<span class="w">    </span><span class="nv">raise</span><span class="w"> </span><span class="nv">ValueError</span><span class="ss">(</span><span class="s2">&quot;Invalid duration value&quot;</span>,<span class="w"> </span><span class="nv">value</span><span class="ss">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="nv">target</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;hours&quot;</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">reconvert</span>:
+<span class="w">    </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">24</span>
+
+<span class="k">return</span><span class="w"> </span><span class="nv">num</span>
+</code></pre></div>
+
+<p><span class="dquo">&#8220;</span>&#8220;&#8220;</p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/python.html">#python</a>,         <a href="https://blog.notmyidea.org/tag/conversion.html">#conversion</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+
+</body>
+
+</html>
