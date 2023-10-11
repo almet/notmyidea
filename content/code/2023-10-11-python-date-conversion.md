@@ -46,4 +46,4 @@ def string_to_duration(value: str, target: Literal["days", "hours"]):
         num = num * 24
 
     return num
-``````
+```
