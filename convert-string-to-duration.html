@@ -34,40 +34,51 @@
 <article>
     <p>I found myself wanting to convert a string to a duration (int), for some&nbsp;configuration.</p>
 <p>Something you can call like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;days&quot;</span><span class="p">)</span> <span class="c1"># returns 1</span>
-<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span> <span class="c1"># returns 24</span>
-<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span> <span class="c1"># returns 3 * 24 * 30</span>
+<div class="highlight"><pre><span></span><code><span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;days&quot;</span><span class="p">)</span>
+<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span>
+<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span>
+<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;minutes&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>The code&nbsp;:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
 
-
-<span class="k">def</span> <span class="nf">string_to_duration</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;days&quot;</span><span class="p">,</span> <span class="s2">&quot;hours&quot;</span><span class="p">]):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a string to a number of hours, or days&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">string_to_duration</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;days&quot;</span><span class="p">,</span> <span class="s2">&quot;hours&quot;</span><span class="p">,</span> <span class="s2">&quot;minutes&quot;</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a string to a number of hours, days or minutes&quot;&quot;&quot;</span>
     <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">,</span> <span class="n">value</span><span class="p">)))</span>
 
-    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;hours&quot;</span><span class="p">:</span>
-        <span class="n">reconvert</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># It&#39;s not possible to convert from a smaller unit to a greater one:</span>
+    <span class="c1"># - hours and minutes cannot be converted to days</span>
+    <span class="c1"># - minutes cannot be converted to hours</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;days&quot;</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;h&quot;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">or</span> <span class="s2">&quot;m&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;mo&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span> <span class="ow">or</span> <span class="p">(</span>
+        <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;hours&quot;</span> <span class="ow">and</span> <span class="s2">&quot;m&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;mo&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Durations cannot be converted from a smaller to a greater unit. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(trying to convert &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
+    <span class="c1"># Consider we&#39;re converting to minutes, do the eventual multiplication at the end.</span>
     <span class="k">if</span> <span class="s2">&quot;h&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;days&quot;</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid duration value&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
-        <span class="n">reconvert</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">60</span>
     <span class="k">elif</span> <span class="s2">&quot;d&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>
     <span class="k">elif</span> <span class="s2">&quot;w&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">7</span>
-    <span class="k">elif</span> <span class="s2">&quot;m&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">30</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">7</span>
+    <span class="k">elif</span> <span class="s2">&quot;mo&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span>  <span class="c1"># considers 30d in a month</span>
     <span class="k">elif</span> <span class="s2">&quot;y&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">365</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">365</span>
+    <span class="k">elif</span> <span class="s2">&quot;m&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid duration value&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;hours&quot;</span> <span class="ow">and</span> <span class="n">reconvert</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">24</span>
+    <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;hours&quot;</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="k">elif</span> <span class="n">target</span> <span class="o">==</span> <span class="s2">&quot;days&quot;</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">24</span>
 
     <span class="k">return</span> <span class="n">num</span>
 </code></pre></div>
