@@ -7,9 +7,10 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The code&amp;nbsp;:&lt;/p&gt;
-&lt;p&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;`python
-from typing import&amp;nbsp;Literal&lt;/p&gt;
-&lt;p&gt;def string_to_duration …&lt;/p&gt;</description><pubDate>Wed, 11 Oct 2023 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2023-10-11:/convert-string-to-duration.html</guid><category>code</category><category>python</category><category>conversion</category></item><item><title>2023, Semaine 40</title><link>https://blog.notmyidea.org/2023-semaine-40.html</link><description>
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;string_to_duration&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><pubDate>Wed, 11 Oct 2023 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2023-10-11:/convert-string-to-duration.html</guid><category>code</category><category>python</category><category>conversion</category></item><item><title>2023, Semaine 40</title><link>https://blog.notmyidea.org/2023-semaine-40.html</link><description>
 &lt;p&gt;Je me suis réservé les matins pour travailler, et je suis content du rythme que ça à donné à ma semaine. C&amp;#8217;était aussi le retour des pomodoros&amp;nbsp;!&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
