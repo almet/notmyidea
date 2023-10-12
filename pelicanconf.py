@@ -50,7 +50,7 @@ CATEGORIES_DESCRIPTION = {
     ),
     "journal": (
         "Journal",
-        "Quelques pensées partagées, bien souvent sur le monde du travail ou de la technologie.",
+        "Quelques réfléxions, bien souvent autour du monde du travail ou de la technologie.",
     ),
     "notes": (
         "Carnet de notes",
