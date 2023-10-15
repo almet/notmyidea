@@ -8,6 +8,10 @@ DISQUS_SITENAME = "notmyidea"
 DEFAULT_PAGINATION = 3
 STATIC_PATHS = ["images", "docs"]
 
+EXTRA_PATH_METADATA = {
+    "docs/keybase.txt": {"path": "keybase.txt"},
+}
+
 SITEURL = ""
 RELATIVE_URLS = True
 
