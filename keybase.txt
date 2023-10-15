@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/ametaireau
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.notmyidea.org
+  * I am ametaireau (https://keybase.io/ametaireau) on keybase.
+  * I have a public key with fingerprint 48C0 AF3C CDB9 09C5 F0DA  2006 F220 DD6C A69A D079
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01200a0019e82db029bac22e6b2d6f4745a2dfb4f4f8d1035dd66d64fd521d8893b50a",
+      "fingerprint": "48c0af3ccdb909c5f0da2006f220dd6ca69ad079",
+      "host": "keybase.io",
+      "key_id": "f220dd6ca69ad079",
+      "kid": "0101af4b615f7520524ee2bbac2b186563e037da3b8a52c8d37f61e135b0e18f58300a",
+      "uid": "07d53c711cfea1d80d1f2ccb586e6c19",
+      "username": "ametaireau"
+    },
+    "service": {
+      "hostname": "blog.notmyidea.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1697402418,
+  "expire_in": 157680000,
+  "prev": "f9d3a6b3a030c6c9722d7f2c837fdbe5b9341820254979dd0480becd812867e1",
+  "seqno": 37,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMN6AnicbVJtUFRVGF5EELZIhTADJuIO1chueO6532vQZIKOIp8Ji5F47z3nLjdw
+d9ldPnYAFcsMTRtiYpIRaWjEwkwFBwMmR/nKUULDapaIgswmcKbUCWYUie4l/df5
+cc6c9zzP8z7vM6cvxN9g9Lv77FhRS8M1r9+Vix+XGLA5FVYQkgN5CUsFUYgXDlyE
+sNuTX6giwkIAEgIgAkAKmIdIAlCQRBlCzEoQsQrN0YwIkSLRCq3wiAQUgxDLIpZW
+EANJxPMCJTFAJMyEotpt2OV0qXaPJkvzMhAVSpaRJABBZhSARK0Rq0AINAVZZAUR
+AU7QiAUOt87QzEmiG8erDq2mXfIX7P0P/pFvQIoKLbEko3AMBAykMYaSbl4ieZZh
+KQwoDomUxIsMlHlEcQpLYpJiJIBJXmF4Ciz4LvlPjkMMJXMkKStY1OYCiFSgLEsM
+z2JWJvW+JW7ssos7sIbWdo+ourBYQlSZCa1eqspYj1af5SFGKnLY4u0Ozw6virAY
+73DZNA2ny+FxyI4i7b3A43G6LTrf43XqhDIs5T+UypdUO9Ly1Bil2OVWHXbCQmpI
+2aPq2iQrcDSANMmbCVzu1IzkqzqC4VgeaEvvg0v19AREiaxEiYACMisLHISI0+bi
+tTCQhBlJoDQRCCBDC5yAEKB5IGEZ8STkWQ6ThD5csd1BWChO8ynaNE23arOLnhIX
+Jqp6LuYtNvgZDYEBi/SPZjAGL3v0/QK7l86tvLBr1/XpAUPLH28NNA4MY+8D7801
+lw1v7Cy55B1ET5TLtfWzk0/F7N6SMnUutiB4Is3qO5zS3Hq1OjkstmusLbltvi39
+UpWlblHxOmPl9vNxgVv3HF59Ninv+Yq+nX2JZVeL66vGW2b+SZ0IjQ7vD+3O/HH/
+NNzUn348+qPTpm/m4rp8fnHZ1vH2kYDHb/0Z5v1hkLC2boqTv/MP+LWlbL5mMqGu
+8rPYbLVhZujYwbbaqMZW5bhY5mv079mYU9jQfMZUXzMitsz8lDh24fLyQ1kvudfs
+eXvF7W2jVUVBfSM3hvEHR5pTOz4ZRHWNeZ61PTRcMlq3jYuY953+q+7UmdK51hSq
+vfpk0JQ1Z96ZnXvtRk7Ub+cXj68wfb9x1hp5e6jPEmysT2yIjqp+8b2YzozwU4ds
+UdSbc4GvPTkxeXO23uEjcwIne2+FXfm0uQtuJvfl1FptXx4Ieqx+byYIbemuzUru
+uN8U4/pajZBPHB3qfmHZ+70H1tcsN2eEdG15buBo8cqEyOS09Nw7rb2bv33XR99b
+HzzCphlmjr38zjNRpqbkE6bQkOnK3f2W+x+uurvhdY9z9OkH3YPhSVOF5V90RZ2t
+/WXD1sKErtUZU6+Y0pZ0o1ebKjqWTt0xl0YO2Ix/T/+elWY6l/tV+yrfkbUF+ddP
+3vv583UHUWdnYdW+/UmZedu9w+a8dnfEv6hyxQQ=
+=i1zA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ametaireau
+
+==================================================================

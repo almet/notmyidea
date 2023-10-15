@@ -361,7 +361,7 @@ pour les filles, tu sais, un &amp;#8220;truc de&amp;nbsp;gonzesse&amp;#8221;.&lt
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt;&amp;nbsp;!)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d&amp;#8217;hôte en hôte
 séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &lt;span class="gs"&gt;*+*&lt;/span&gt;
         ProxyCommand ssh $(echo %h | sed
 &amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><pubDate>Thu, 27 Dec 2012 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2012-12-27:/astuces-ssh.html</guid><category>code</category></item><item><title>Gnome 3, extensions</title><link>https://blog.notmyidea.org/gnome-3-extensions.html</link><description>
 &lt;p&gt;Après avoir tenté pendant un bout de temps unity, le bureau par defaut

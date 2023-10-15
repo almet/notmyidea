@@ -154,7 +154,7 @@ some feedback from the&nbsp;sync:</p>
 <p>This is probably perfectible, but that does the&nbsp;job.</p>
 <p>Last step is to tell you machine to run that frequently. That&#8217;s what
 crontab is made for, so let&#8217;s <code>crontab -e</code>:</p>
-<div class="highlight"><pre><span></span><code>    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
+<div class="highlight"><pre><span></span><code>    $ <span class="gs">* *</span>/3 <span class="gs">* *</span> * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 </code></pre></div>
 
 <p>The \~/.Xdbus allows cron to communicate with your X11 session. Here is
