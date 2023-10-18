@@ -29,6 +29,12 @@
     </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2023-10-18T00:00:00+02:00">18 octobre 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlalchemy.html">SQLAlchemy</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/python.html">Python</a>    <h1><a href="https://blog.notmyidea.org/using-distinct-in-parent-child-relationships.html" id="page-title">Using <span class="caps">DISTINCT</span> in Parent-Child&nbsp;Relationships</a></h1>
+    How to get parent and most-recent child in a one-to-many relationship
+</section>
+<section class="section index">
     <time datetime="2023-10-11T00:00:00+02:00">11 octobre 2023</time>
 
         <a class='tag' href="https://blog.notmyidea.org/tag/python.html">python</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/conversion.html">conversion</a>    <h1><a href="https://blog.notmyidea.org/convert-string-to-duration.html" id="page-title">Convert string to&nbsp;duration</a></h1>
@@ -117,17 +123,8 @@ takes me multiple commits to find the correct configuration, which is…&nbsp;su
 <p>I discovered today <a href="https://github.com/firecow/gitlab-ci-local">Gitlab <span class="caps">CI</span>
 local</a> which makes it possible …</p>
 </section>
-<section class="section index">
-    <time datetime="2023-08-18T00:00:00+02:00">18 août 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/arch-linux.html">arch-linux</a>    <h1><a href="https://blog.notmyidea.org/archlinux-et-mise-a-jour-du-keyring.html" id="page-title">ArchLinux et mise à jour du&nbsp;keyring</a></h1>
-    
-<p>Pour les mises à jour Arch, j&#8217;utilise <a href="https://github.com/Jguer/yay">yay</a>. Je
-ne fais les mises à jour que de manière semi-régulière, et parfois après une
-longue période je me retrouve avec des soucis de clé qui ne sont plus à jour ou&nbsp;manquantes.</p>
-<p>Avec une utilisation fréquente du système, aucun problème …</p>
-</section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/creating-an-online-space-to-share-markdown-files.html" rel="bookmark" title="Permalink to Creating an online space to share markdown files">Creating an online space to share markdown&nbsp;files</a></li>
     <li><a href="https://blog.notmyidea.org/conversion-dun-fichier-svg-en-faviconico.html" rel="bookmark" title="Permalink to Conversion d’un fichier svg en favicon.ico">Conversion d&#8217;un fichier svg en&nbsp;favicon.ico</a></li>
     <li><a href="https://blog.notmyidea.org/decouverte-de-nouveaux-outils-pour-le-developpement-llm-helix-et-plus.html" rel="bookmark" title="Permalink to Découverte de nouveaux outils pour le développement: LLM, Helix et plus">Découverte de nouveaux outils pour le développement: <span class="caps">LLM</span>, Helix et&nbsp;plus</a></li>
     <li><a href="https://blog.notmyidea.org/running-the-gitlab-ci-locally.html" rel="bookmark" title="Permalink to Running the Gitlab CI locally">Running the Gitlab <span class="caps">CI</span>&nbsp;locally</a></li>

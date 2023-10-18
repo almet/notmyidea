@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Using <span class="caps">DISTINCT</span> in Parent-Child&nbsp;Relationships - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Using <span class="caps">DISTINCT</span> in Parent-Child&nbsp;Relationships</h1>
+	<p><em>How to get parent and most-recent child in a one-to-many relationship</em></p>
+	<time datetime="2023-10-18T00:00:00+02:00">18 octobre 2023</time>
+
+    
+</header>
+<article>
+    <p>Let&#8217;s say you have a model defined like this, with a Parent and a Child&nbsp;table:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;parent&quot;</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">childs</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Child&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;parent&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;child&quot;</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">parent_id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;parent.id&quot;</span><span class="p">))</span>
+    <span class="n">parent</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="s2">&quot;Parent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;children&quot;</span><span class="p">)</span>
+
+    <span class="n">born_at</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">()</span>
+</code></pre></div>
+
+<p>I&#8217;ve tried many ways, with complex subqueries and the like, before finding out <a href="https://www.sqlitetutorial.net/sqlite-distinct/">the <span class="caps">DISTINCT</span> <span class="caps">SQL</span> statement</a>.</p>
+<p>So, if you want to retrieve the parent with it&#8217;s more recent child, you can do it like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">Child</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Child</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">distinct</span><span class="p">(</span><span class="n">Parent</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">Parent</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">desc</span><span class="p">(</span><span class="n">Child</span><span class="o">.</span><span class="n">born_at</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/sql.html">#SQL</a>,         <a href="https://blog.notmyidea.org/tag/sqlalchemy.html">#SQLAlchemy</a>,         <a href="https://blog.notmyidea.org/tag/python.html">#Python</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>
