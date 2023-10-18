@@ -37,6 +37,7 @@ MENU = [
     ("Code, etc.", "/code/", "code"),
     ("Notes hebdo", "/weeknotes/", "weeknotes"),
     ("Lectures", "/lectures/", "lectures"),
+    ("Projets", "/projets.html", "projets"),
 ]
 
 CATEGORIES_DESCRIPTION = {

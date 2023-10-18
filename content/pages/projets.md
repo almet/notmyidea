@@ -1,19 +1,13 @@
 ---
-save_as: index.html
-slug: index
+save_as: projets.html
+slug: projets
 ---
-# Alexis Métaireau
 
-👋 **Bienvenue par ici**. Developpeur et Brasseur, je suis intéressé par les
-dynamiques collectives, les libertés numériques et la facilitation.
-
-Pour me contacter, envoyez-moi un email sur ``alexis`` ``@`` ``notmyidea.org``.
-
----
+# Projets
 
 Tombé dans le chaudron de l'informatique étant petit, j'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des années.
-Voici quelques logiciels pour lesquels j'ai participé de façon significative.
-Vous pouvez aussi aller faire un tour sur ma page
+
+Voici quelques logiciels que j'ai initié, ou bien auxquels j'ai participé. Vous pouvez aussi aller faire un tour sur ma page
 [Github](https://github.com/almet) ou [Gitlab](https://gitlab.com/almet) pour
 voir d'autres contributions.
 
@@ -65,53 +59,6 @@ valeurs de coopération, de partage et de gastronomie. J'en suis parti à l'ét�
 d'un réseau d'associations « porteuses de projets en environnement ». Un bon
 moyen de rencontrer d'autres personnes animées par des valeurs collectivistes,
 et de chercher à s'organiser contre l'artificialisation du monde.
-
----
-
-## 🌟 Valeurs et intérets
-
-Logiciel Libre
-: Je travaille pour et avec du logiciel libre depuis des années. C'est à la
-fois un plaisir et une évidence. J'ai pu rencontrer un état d'esprit et une
-culture d'ouverture dont j'aurais du mal à me passer !
-
-Coopération et médiation
-: J'aime travailler en collaboration avec d'autres personnes et trouver comment
-faire pour que nos interactions soient les plus saines possibles. La qualité
-des interactions m'intéresse autant que le travail en tant que tel. 
-
-
-Pragmatisme
-: Tendre vers la perfection veut aussi dire ne pas trop s'attarder sur
-certains détails. Parfois, « le mieux est l'ennemi du bien ».
-
-Bonne humeur
-: Parce qu'on a qu'une vie, alors autant se marrer :-) #yolo
-
----
-
-## 🧑‍🔧Technologie
-
-Python
-: J'ai l'habitude d'utiliser le language [Python](https://python.org) au
-quotidien, il s'agit de mon couteau suisse. Je suis familier avec son écosystème
-et sa communauté.
-
-Linux
-: J'utilise [Linux](https://kernel.org/) en tant que système d'exploitation,
-ainsi que pour la gestion de mes serveurs. Je suis à l'aise avec les systèmes
-[Arch Linux](https://archlinux.org/) et [Debian](https://debian.org).
-
-Frontend
-: Bien que ça ne soit pas ma spécialité, j'ai pris beaucoup de plaisir
-à travailler avec le langage [Elm](https://elm-lang.org/), qui permet de
-travailler de manière sereine côté *front*, grace à un typage fort. J'ai surtout
-travaillé sur des petits projets. Je suis à l'aise avec du HTML, du CSS ou du
-JavaScript.
-
-Administration Système
-: Je m'occupe de faire tourner quelques services pour des tiers et pour moi
-même. La maintenance des serveurs fait donc partie du lot :-)
 
 ---
 
