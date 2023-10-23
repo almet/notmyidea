@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-10-16T00:00:00+02:00</updated><entry><title>2023, Semaine 41</title><link href="https://blog.notmyidea.org/2023-semaine-41.html" rel="alternate"></link><published>2023-10-16T00:00:00+02:00</published><updated>2023-10-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-16:/2023-semaine-41.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-10-23T00:00:00+02:00</updated><entry><title>2023, Semaine 42</title><link href="https://blog.notmyidea.org/2023-semaine-42.html" rel="alternate"></link><published>2023-10-23T00:00:00+02:00</published><updated>2023-10-23T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-23:/2023-semaine-42.html</id><summary type="html">
+&lt;p&gt;J&amp;#8217;ai passé la majeure partie de ma semaine seul, ponctuée par quelques ballades en bord de mer. J&amp;#8217;ai pu reprendre contact avec la technologie et bien avancer sur le projet&amp;nbsp;Argos.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;Framasoft /&amp;nbsp;Argos&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;Quatrième et dernière semaine rémunérée sur le projet. Je suis …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;p&gt;J&amp;#8217;ai passé la majeure partie de ma semaine seul, ponctuée par quelques ballades en bord de mer. J&amp;#8217;ai pu reprendre contact avec la technologie et bien avancer sur le projet&amp;nbsp;Argos.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;Framasoft /&amp;nbsp;Argos&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;Quatrième et dernière semaine rémunérée sur le projet. Je suis très content de là ou en est le projet. J&amp;#8217;ai pris le temps d&amp;#8217;ajouter de l&amp;#8217;intégration continue, des tests et de la&amp;nbsp;documentation.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai passé plus de temps que prévu à installer et à rendre fonctionnel PostgreSQL sur ma machine, et je me souviens que c&amp;#8217;est souvent le cas pour moi. J&amp;#8217;ai fini par écrire un mini tutoriel dans la documentation à ce propos, en espérant que ça&amp;nbsp;serve.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai pu tester l&amp;#8217;installation et l&amp;#8217;utilisation de l&amp;#8217;outil sur plusieurs systèmes d&amp;#8217;exploitation, et en même temps tester la virtualisation &lt;span class="caps"&gt;QEMU&lt;/span&gt; depuis mon&amp;nbsp;ordinateur.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai passé du temps à écrire des requêtes &lt;span class="caps"&gt;SQL&lt;/span&gt; avec SQLAlchemy, en trouvant ça beaucoup plus compliqué que de&amp;nbsp;raison…&lt;/dd&gt;
+&lt;dd&gt;On a pu se faire une réunion de fin où j&amp;#8217;ai validé avec Luc que le travail effectué correspondait bien à leurs attentes. Je suis content de réaliser que les choix techniques faits permettent d&amp;#8217;avoir une performance satisfaisante et de pouvoir tester toute l&amp;#8217;infrastructure depuis une seule&amp;nbsp;machine.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;Umap&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;le tuilage est presque parfait puisque je vais pouvoir commencer à travailler sur Umap début Novembre. L&amp;#8217;idée est de travailler à une solution autour de la synchronisation de données géographiques. Je vous en dis plus&amp;nbsp;bientôt.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai pris le temps d&amp;#8217;installer l&amp;#8217;outil et de commencer à me familiariser avec le&amp;nbsp;code.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à passer en revue des projets qui font de la synchronisation de données en temps&amp;nbsp;réel.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;Notmyidea&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai passé du temps à me renseigner sur les protocoles &lt;span class="caps"&gt;VPN&lt;/span&gt; et leurs alternatives. J&amp;#8217;ai rencontré Wireguard qui me semble être une approche minimaliste et&amp;nbsp;sécure.&lt;/dd&gt;
+&lt;dd&gt;Je continue d&amp;#8217;osciller à propos du statut juridique à adopter pour mon activité pro. Je me fixe la semaine prochaine&amp;nbsp;:-)&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des&amp;nbsp;joies&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Passer du temps seul, apprécier le silence et le manque de sollicitations. L&amp;#8217;organisation quotidienne est quand même grandement&amp;nbsp;simplifiée.&lt;/li&gt;
+&lt;li&gt;Me promener et découvrir des espèces d&amp;#8217;oiseaux que je ne connaissais pas, à mon propre&amp;nbsp;rythme.&lt;/li&gt;
+&lt;li&gt;Assumer mon rapport à la technologie auprès de tiers. « Oui, je suis un geek et je crois qu&amp;#8217;il ne faut pas laisser la technologie uniquement aux puissant•es&amp;nbsp;».&lt;/li&gt;
+&lt;li&gt;Rentrer chez moi et être content de retrouver certaines dynamiques&amp;nbsp;collectives.&lt;/li&gt;
+&lt;li&gt;Réussir à clarifier mes besoins en avance pour permettre d&amp;#8217;éviter une frustration qui aurait pu arriver&amp;nbsp;sinon.&lt;/li&gt;
+&lt;li&gt;Revenir sur des conflits passés et pouvoir en parler avec du recul, et avec une analyse différente, en utilisant une approche&amp;nbsp;systémique.&lt;/li&gt;
+&lt;li&gt;Réussir à écouter une conversation et ne donner mon avis que si on me le&amp;nbsp;demande.&lt;/li&gt;
+&lt;li&gt;Revivre des effluves d&amp;#8217;été, à la fois posé en haut de la pointe du Roselier (St Brieuc), à la fois en voyant &lt;a href="https://www.youtube.com/watch?v=2JEZLOaDKus&amp;amp;feature=youtu.be"&gt;l&amp;#8217;after-movie du festival l&amp;#8217;Été de&amp;nbsp;Vaour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Avoir un remerciement pour une position pas évidente que j&amp;#8217;ai eu avec un ami il y a quelques années, avec du recul. Ça soigne&amp;nbsp;:-)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des&amp;nbsp;peines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Voir les réactions viriles et bloquantes de certains hommes dans le public durant des&amp;nbsp;concerts.&lt;/li&gt;
+&lt;li&gt;Intervenir pour « gérer un mec bourré » en soirée qui semblait ne pas comprendre que son comportement était déplacé. Je suis content de la manière dont les choses se sont passées, mais triste de voir qu&amp;#8217;on en est toujours&amp;nbsp;là.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎵 J&amp;#8217;ai découvert deux groupes en live : &lt;a href="https://fr.wikipedia.org/wiki/The_Inspector_Cluzo"&gt;The inspector Cluzo&lt;/a&gt; et &lt;a href="https://www.wikiwand.com/fr/Ko_Ko_Mo_(groupe_de_rock_fran%C3%A7ais)"&gt;Kokomo&lt;/a&gt; durant un festival. J&amp;#8217;ai beaucoup aimé l&amp;#8217;émotion qui ressortait des deux, si on mets de côté le côté un peu viril qui peut parfois en sortir. Ça fait du bien de voir de la musique&amp;nbsp;live.&lt;/li&gt;
+&lt;li&gt;🗯️ &lt;a href="https://www.youtube.com/watch?v=zYoPYLqWcp4&amp;amp;themeRefresh=1"&gt;Julia Cagé, François Ruffin, Thomas Piketty sur Médiapart&lt;/a&gt;. J&amp;#8217;ai trouvé les analyses de Julia Cagé et Thomas Piketty intéressante, mais malheureusement le ton de Ruffin assez fatiguant. Ça doit être fatiguant de ne pas répondre aux questions qu&amp;#8217;on se fait poser. Malgré tout une vidéo&amp;nbsp;intéressante.&lt;/li&gt;
+&lt;li&gt;📖 J&amp;#8217;ai lu &lt;a href="https://arenes.fr/livre/paroles-dhonneur/"&gt;Paroles d&amp;#8217;honneur&lt;/a&gt; de Leïla Slimani et Laetitia Coryn, qui parle du rapport à la sexualité au Maroc. J&amp;#8217;ai beaucoup aimé à la fois le discours, le ton et les&amp;nbsp;illustrations.&lt;/li&gt;
+&lt;li&gt;▶︎ &lt;a href="https://www.youtube.com/watch?v=w6PLAmhjt50"&gt;La &lt;span class="caps"&gt;MISERE&lt;/span&gt; des hommes &lt;span class="caps"&gt;SOUS&lt;/span&gt; &lt;span class="caps"&gt;LES&lt;/span&gt; &lt;span class="caps"&gt;DRAPS&lt;/span&gt;&lt;/a&gt; et &lt;a href="https://www.youtube.com/watch?v=cb7zlAkiSGw"&gt;&lt;span class="caps"&gt;ETRE&lt;/span&gt; &lt;span class="caps"&gt;UN&lt;/span&gt; &lt;span class="caps"&gt;HOMME&lt;/span&gt; : L&amp;#8217;homme alpha&lt;/a&gt;, deux vidéos de Léo, qui parlent respectivement de la « misère sexuelle » et de la compétition entre hommes. Plusieurs bouts font écho chez moi, sur des questions qui m&amp;#8217;animent depuis longtemps autour de la&amp;nbsp;compétition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="technique"&gt;Technique&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai été content de lire ce document qui introduit les &lt;span class="caps"&gt;CRDT&lt;/span&gt; en 2019&amp;nbsp;https://www.inkandswitch.com/local-first/&lt;/li&gt;
+&lt;li&gt;Anthropic semble réussir à &lt;a href="https://nitter.net/anthropicai/status/1709986949711200722"&gt;isoler les neurones d&amp;#8217;un réseau neuronal&lt;/a&gt; pour qu&amp;#8217;ils se spécialisent sur une seule tache, grace à de l&amp;#8217;apprentissage par dictionnaire&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Simon Willison &lt;a href="https://simonwillison.net/2023/May/2/download-esm/"&gt;à fait un outil qui permet de récupérer une version ECMAScript d&amp;#8217;une bibliothèque &lt;span class="caps"&gt;JS&lt;/span&gt; de votre choix&lt;/a&gt;, en passant par npm et jsdelivr, et David Larlet &lt;a href="https://gitlab.com/davidbgk/umap-stats/-/blob/main/npm.py"&gt;à fait quelque chose de similaire&lt;/a&gt;, qui s&amp;#8217;intègre facilement aux fichiers &lt;code&gt;pyproject.toml&lt;/code&gt; utiles en&amp;nbsp;python)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://drivendata.co/blog/python-packaging-2023"&gt;Une explication de l&amp;#8217;état du packaging en python&lt;/a&gt; qui m&amp;#8217;a fait du bien. J&amp;#8217;ai fait un &lt;abbr title="Google Summer of Code"&gt;&lt;span class="caps"&gt;GSOC&lt;/span&gt;&lt;/abbr&gt; en 2010 — il y a 13 ans ! — sur le sujet du packaging, je suis content de voir que ça à beaucoup avancé, mais malheureusement que les choses ne sont pas encore très simples à&amp;nbsp;comprendre.&lt;/li&gt;
+&lt;li&gt;Une vidéo de SimonW &lt;a href="https://www.youtube.com/watch?v=qw4PrtyvJI0&amp;amp;t=24953s"&gt;ou il résumé l&amp;#8217;année qu&amp;#8217;on vient de passer du point de vue de l&amp;#8217;&lt;span class="caps"&gt;AI&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2023, Semaine 41</title><link href="https://blog.notmyidea.org/2023-semaine-41.html" rel="alternate"></link><published>2023-10-16T00:00:00+02:00</published><updated>2023-10-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-16:/2023-semaine-41.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;strong&gt;Framasoft /&amp;nbsp;Argos&lt;/strong&gt;&lt;/dt&gt;
