@@ -97,7 +97,7 @@ the current code&nbsp;base.</p>
 <li>The server is here mainly to handle access rights, store the data and send it over to the&nbsp;clients.</li>
 <li>The actual rendering and modifications of the map are directly done in JavaScript, on the&nbsp;clients.</li>
 </ul>
-<p>The data is split in multiple layers. At the time of writing, concurrent writes to the same layers are not possible, as one edit would potentially overwrite the other one. It&#8217;s possible to have concurrent edits on different layers,&nbsp;though.</p>
+<p>The data is split in multiple layers. At the time of writing, concurrent writes to the same layers are not possible, as one edit would potentially overwrite the other. It&#8217;s possible to have concurrent edits on different layers,&nbsp;though.</p>
 <p>When a change occurs, <a href="https://github.com/umap-project/umap/blob/c16a01778b4686a562d97fde1cfd3433777d7590/umap/views.py#L917-L948">each <code>DataLayer</code> is sent by the client to the server</a>.</p>
 <ul>
 <li>The data is updated on the&nbsp;server.</li>
@@ -110,17 +110,17 @@ the current code&nbsp;base.</p>
 <ul>
 <li>On one side are the properties (matching the <code>_umap_options</code>), and on the other, the geojson data (the Features&nbsp;key).</li>
 <li>Each feature is composed of three&nbsp;keys:</li>
-<li>geometry: the actual geo&nbsp;object</li>
-<li>properties: the data associated with&nbsp;it</li>
-<li>style: just styling information which goes with it, if&nbsp;any.</li>
+<li><strong>geometry</strong>: the actual geo&nbsp;object</li>
+<li><strong>properties</strong>: the data associated with&nbsp;it</li>
+<li><strong>style</strong>: just styling information which goes with it, if&nbsp;any.</li>
 </ul>
 <p><img alt="JSON representation of the umap options" src="/images/umap/umap-options.png">
 <img alt="JSON representation of the umap features" src="/images/umap/umap-features.png"></p>
 <h2 id="real-time-collaboration-the-different-approaches">Real-time collaboration : the different&nbsp;approaches</h2>
 <p>Behind the &#8220;real-time collaboration&#8221; name, we have&nbsp;:</p>
 <ol>
-<li><strong>Streaming of the changes to the clients</strong>: when you&#8217;re working with other persons on the same map, you can see their edits at the moment they&nbsp;happen.</li>
-<li><strong>Concurrent changes</strong>: some changes can happen on the same data concurrently. In such a case, we need to merge them together and be able&nbsp;to  </li>
+<li>The <strong>streaming of the changes to the clients</strong>: when you&#8217;re working with other persons on the same map, you can see their edits at the moment they&nbsp;happen.</li>
+<li>The ability to handle <strong>concurrent changes</strong>: some changes can happen on the same data concurrently. In such a case, we need to merge them together and be able&nbsp;to  </li>
 <li><strong>Offline editing</strong>: in some cases, one needs to map data but doesn&#8217;t have access to a network. Changes happen on a local device and is then synced with other devices / the server&nbsp;;</li>
 </ol>
 <p><em>Keep in mind these notes are just food for toughs, and that other approaches might be discovered on the&nbsp;way</em></p>
@@ -336,7 +336,15 @@ poster="https://nuage.b.delire.party/s/kpP9ijfqabmKxnr">
             type="video/mp4">
 </video>
 
-<p>And, that&#8217;s all for this&nbsp;week! </p>
+<p>It&#8217;s very rough, but the point was mainly to see how the library can be used, and what the <span class="caps">API</span> looks like. I&#8217;ve found that&nbsp;:</p>
+<ul>
+<li>The <code>patches</code> object that&#8217;s being sent to the <code>handle.on</code> subscribers is very chatty: it contains all the changes, and I have to filter it to get what I&nbsp;want.</li>
+<li>I was expecting the objects to be sent on one go, but it&#8217;s creating an operation for each change. For instance, setting a new object to a key will result in multiple events, as it will firstly create the object, and the populate&nbsp;it.</li>
+<li>Here I need to keep track of all the edits, but I&#8217;m not sure how that will work out with for instance the offline use-case (or with limited connectivity). That&#8217;s what I&#8217;m going to find out next week, I guess&nbsp;:-)</li>
+<li>The team behind Automerge is very welcoming, and was prompt to answer me when&nbsp;needed.</li>
+<li>There seem to be another <span class="caps">API</span> <code>Automerge.getHistory()</code>, and <code>Automerge.diff()</code> to get a patch between the different docs, which might prove more helpful than getting all the small&nbsp;patches.</li>
+</ul>
+<p>We&#8217;ll figure that out next week, I&nbsp;guess!</p>
 	<p>
         <a href="https://blog.notmyidea.org/tag/python.html">#Python</a>,         <a href="https://blog.notmyidea.org/tag/crdt.html">#CRDT</a>,         <a href="https://blog.notmyidea.org/tag/sync.html">#Sync</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
 	</p>
