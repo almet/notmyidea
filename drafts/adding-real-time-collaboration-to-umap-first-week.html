@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Adding Real-Time Collaboration to uMap, first&nbsp;week - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Adding Real-Time Collaboration to uMap, first&nbsp;week</h1>
+	<time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>Last week, I&#8217;ve been lucky to start working on <a href="https://github.com/umap-project/umap/">uMap</a>, an open-source map-making tool to create and share customizable maps, based on Open Street Map&nbsp;data.</p>
+<p>My goal is to add real-time collaboration to uMap, but <strong>we first want to be sure to understand the issue correctly</strong>. There are multiple ways to solve this, so one part of the journey is to understand the problem properly (then, we&#8217;ll be able to chose the right path&nbsp;forward).</p>
+<p>Part of the work is documenting it, so expect to see some blog posts around this in the&nbsp;future.</p>
+<p>Also, this is made possible via the generous help of <a href="http://scopyleft.fr/">ScopyLeft</a>, so thanks to&nbsp;them!</p>
+<h2 id="installation">Installation</h2>
+<p>I&#8217;ve started by installing uMap on my machine, made it work and read the codebase. uMap is written in Python and Django, and using old school Javascript, specifically using the Leaflet library for <span class="caps">SIG</span>-related&nbsp;interface.</p>
+<p>Installing uMap was simple. On a&nbsp;mac:</p>
+<ol>
+<li>Create the venv and activate&nbsp;it</li>
+</ol>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+
+<ol>
+<li>Install the deps : <code>brew install postgis</code> (this will take some time to&nbsp;complete)</li>
+</ol>
+<div class="highlight"><pre><span></span><code>createuser<span class="w"> </span>umap
+createdb<span class="w"> </span>umap<span class="w"> </span>-O<span class="w"> </span>umap
+psql<span class="w"> </span>umap<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis&quot;</span>
+</code></pre></div>
+
+<ol>
+<li>Copy the default config with <code>cp umap/settings/local.py.sample umap.conf</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copy the default config to umap.conf</span>
+cp<span class="w"> </span>umap/settings/local.py.sample<span class="w"> </span>umap.conf
+<span class="nb">export</span><span class="w"> </span><span class="nv">UMAP_SETTINGS</span><span class="o">=</span>~/dev/umap/umap.conf
+make<span class="w"> </span>install
+make<span class="w"> </span>installjs
+make<span class="w"> </span>vendors
+umap<span class="w"> </span>migrate
+umap<span class="w"> </span>runserver
+</code></pre></div>
+
+<h2 id="and-youre-done">And you&#8217;re&nbsp;done!</h2>
+<p>On Arch Linux, I had to do some changes, but all in all it was&nbsp;simple:</p>
+<div class="highlight"><pre><span></span><code>createuser<span class="w"> </span>umap<span class="w"> </span>-U<span class="w"> </span>postgres
+createdb<span class="w"> </span>umap<span class="w"> </span>-O<span class="w"> </span>umap<span class="w"> </span>-U<span class="w"> </span>postgres
+psql<span class="w"> </span>umap<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis&quot;</span><span class="w"> </span>-Upostgres
+</code></pre></div>
+
+<p>Depending on your installation, you might need to change the <span class="caps">USER</span> that connects the&nbsp;database.</p>
+<p>The configuration could look like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ENGINE&quot;</span><span class="p">:</span> <span class="s2">&quot;django.contrib.gis.db.backends.postgis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;umap&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;USER&quot;</span><span class="p">:</span> <span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="how-its-currently-working">How it&#8217;s currently&nbsp;working</h2>
+<p>With everything working on my machine, I took some time to read the code and understand
+the current code&nbsp;base.</p>
+<p>Here are my findings&nbsp;:</p>
+<ul>
+<li>uMap is currently using a classical client/server architecture where&nbsp;:</li>
+<li>The server is here mainly to handle access rights, store the data and send it over to the&nbsp;clients.</li>
+<li>The actual rendering and modifications of the map are directly done in JavaScript, on the&nbsp;clients.</li>
+</ul>
+<p>The data is split in multiple layers. At the time of writing, concurrent writes to the same layers are not possible, as one edit would potentially overwrite the other one. It&#8217;s possible to have concurrent edits on different layers,&nbsp;though.</p>
+<p>When a change occurs, <a href="https://github.com/umap-project/umap/blob/master/umap/views.py#L917-L948">each <code>DataLayer</code> is sent by the client to the server</a>.</p>
+<ul>
+<li>The data is updated on the&nbsp;server.</li>
+<li><strong>If the data has been modified by another client</strong>, an <code>HTTP 422 (Unprocessable Entity)</code> status is returned, which makes it possible to detect conflicts. The users are prompted about it, and asked if they want to overwrite the&nbsp;changes.</li>
+<li>The files are stored as geojson files on the server as <code>{datalayer.pk}_{timestamp}.geojson</code>. <a href="https://github.com/umap-project/umap/blob/master/umap/models.py#L426:L426">A history of the last changes is preserved</a> (The default settings preserves the last 10&nbsp;revisions).</li>
+<li>The data is stored <a href="https://github.com/umap-project/umap/blob/master/umap/static/umap/js/umap.js#L158-L163">in a Leaflet object</a> and <a href="https://github.com/umap-project/umap/blob/master/umap/static/umap/js/umap.js#L1095:L1095">backups are made manually</a> (it does not seem that changes are saved&nbsp;automatically).</li>
+</ul>
+<h3 id="data">Data</h3>
+<p>Each layer consists&nbsp;of:</p>
+<ul>
+<li>On one side are the properties (matching the <code>_umap_options</code>), and on the other, the geojson data (the Features&nbsp;key).</li>
+<li>Each feature is composed of three&nbsp;keys:</li>
+<li>geometry: the actual geo&nbsp;object</li>
+<li>properties: the data associated with&nbsp;it</li>
+<li>style: just styling information which goes with it, if&nbsp;any.</li>
+</ul>
+<p><img alt="JSON representation of the umap options" src="/images/umap/umap-options.png">
+<img alt="JSON representation of the umap features" src="/images/umap/umap-features.png"></p>
+<h2 id="real-time-collaboration-the-different-approaches">Real-time collaboration : the different&nbsp;approaches</h2>
+<p>Behind the &#8220;real-time collaboration&#8221; name, we have&nbsp;:</p>
+<ol>
+<li><strong>Streaming of the changes to the clients</strong>: when you&#8217;re working with other persons on the same map, you can see their edits at the moment they&nbsp;happen.</li>
+<li><strong>Concurrent changes</strong>: some changes can happen on the same data concurrently. In such a case, we need to merge them together and be able&nbsp;to  </li>
+<li><strong>Offline editing</strong>: in some cases, one needs to map data but doesn&#8217;t have access to a network. Changes happen on a local device and is then synced with other devices / the server&nbsp;;</li>
+</ol>
+<p><em>Keep in mind these notes are just food for toughs, and that other approaches might be discovered on the&nbsp;way</em></p>
+<p>I&#8217;ve tried to come up with the different approaches I can follow in order to add the collaboration
+features we&nbsp;want.</p>
+<ul>
+<li><strong><span class="caps">JSON</span> Patch and <span class="caps">JSON</span> Merge Patch</strong>: Two specifications by the <span class="caps">IETF</span> which define a format for generating and using diffs on json files. In this scenario, we could send the diffs from the clients to the server, and let it merge&nbsp;everything.</li>
+<li><strong>Using CRDTs</strong>: Conflict-Free Resolution Data Types are one of the other options we have lying around. The technology has been used mainly to solve concurrent editing on text documents (like <a href="https://github.com/ether/etherpad-lite">etherpad-lite</a>), but should work fine on&nbsp;trees.</li>
+</ul>
+<h3 id="json-patch-and-json-merge-patch"><span class="caps">JSON</span> Patch and <span class="caps">JSON</span> Merge&nbsp;Patch</h3>
+<p>I&#8217;ve stumbled on two <span class="caps">IETF</span> specifications for <a href="https://datatracker.ietf.org/doc/html/rfc6902"><span class="caps">JSON</span> Patch</a> and <a href="https://datatracker.ietf.org/doc/html/rfc7396"><span class="caps">JSON</span> Merge Patch</a> which respectively define how <span class="caps">JSON</span> diffs could be defined and&nbsp;applied.</p>
+<p>There are multiple libraries for this, and at least one for <a href="https://github.com/OpenDataServices/json-merge-patch">Python</a>, <a href="https://docs.rs/json-patch/latest/json_patch/">Rust</a> and <a href="https://www.npmjs.com/package/json-merge-patch"><span class="caps">JS</span></a>.</p>
+<p>It&#8217;s even <a href="https://redis.io/commands/json.merge/">supported by the Redis database</a>, which might come handy in case we want to stream the changes with&nbsp;it.</p>
+<p>If you&#8217;re making edits to the map without changing all the data all the time, it&#8217;s possible to generate diffs. For instance, let&#8217;s take this simplified data (it&#8217;s not valid geojson, but it should be enough for&nbsp;testing):</p>
+<p>source.json</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;not_changed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whatever&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>And now let&#8217;s add a new object right after the first one&nbsp;:</p>
+<p>destination.geojson</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;another-value&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;not_changed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;whatever&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>If we generate a&nbsp;diff:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipx</span> <span class="n">install</span> <span class="n">json</span><span class="o">-</span><span class="n">merge</span><span class="o">-</span><span class="n">patch</span>
+<span class="n">json</span><span class="o">-</span><span class="n">merge</span><span class="o">-</span><span class="n">patch</span> <span class="n">create</span><span class="o">-</span><span class="n">patch</span> <span class="n">source</span><span class="o">.</span><span class="n">json</span> <span class="n">destination</span><span class="o">.</span><span class="n">json</span>
+<span class="p">{</span>
+    <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;another-value&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Multiple things to note&nbsp;here:</p>
+<ol>
+<li>It&#8217;s a valid <span class="caps">JSON</span>&nbsp;object</li>
+<li>It doesn&#8217;t reproduce the <code>not_changed</code> key</li>
+<li>But… I was expecting to see only the new item to show up. Instead, we are getting two items here, because it&#8217;s replacing the &#8220;features&#8221; key with everything&nbsp;inside.</li>
+</ol>
+<p>This is actually what <a href="https://datatracker.ietf.org/doc/html/rfc6902#section-4.1">the specification defines</a>:</p>
+<blockquote>
+<p>4.1.&nbsp;add</p>
+<p>The &#8220;add&#8221; operation performs one of the following functions,
+ depending upon what the target location&nbsp;references:</p>
+<p>o  If the target location specifies an array index, a new value is
+    inserted into the array at the specified&nbsp;index.</p>
+<p>o  If the target location specifies an object member that does not
+    already exist, a new member is added to the&nbsp;object</p>
+<p>o  <strong>If the target location specifies an object member that does exist,
+    that member&#8217;s value is&nbsp;replaced.</strong></p>
+</blockquote>
+<p>It seems to bad for us, as in our case this will happen each time a new feature is added to the feature&nbsp;collection.</p>
+<p>It&#8217;s not working out of the box, but we could probably hack something together by having all features defined by a unique id, and send this to the server. We wouldn&#8217;t be using vanilla <code>geojson</code> files though, but adding some complexity on top of&nbsp;it.</p>
+<p>At this point, I&#8217;ve left this here and went to experiment with the other ideas. After all, the goal here is not (yet) to have something functional, but to clarify how the different options would play&nbsp;off.</p>
+<h3 id="using-crdts">Using&nbsp;CRDTs</h3>
+<p>I&#8217;ve had a look at the two main CRDTs implementation that seem to get traction these days : <a href="https://automerge.org/">Automerge</a> and <a href="https://github.com/yjs/yjs">Yjs</a>.</p>
+<p>I&#8217;ve first tried to make Automerge work with Python, but the <a href="https://github.com/automerge/automerge-py">Automerge-py</a> repository is outdated now and won&#8217;t build. I realized at this point that we might not even need a python&nbsp;implementation: </p>
+<p>In this scenario, the server could just stream the changes from one client to the other, and the <span class="caps">CRDT</span> will guarantee that the structures will be similar on both clients. It&#8217;s handy because it means we won&#8217;t have to implement the <span class="caps">CRDT</span> logic on the server&nbsp;side. </p>
+<p>Let&#8217;s do some JavaScript, then. A simple Leaflet map would look like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">L</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;leaflet&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s1">&#39;leaflet/dist/leaflet.css&#39;</span><span class="p">;</span>
+
+<span class="c1">// Initialize the map and set its view to our chosen geographical coordinates and a zoom level:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">48.1173</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.6778</span><span class="p">],</span><span class="w"> </span><span class="mf">13</span><span class="p">);</span>
+
+<span class="c1">// Add a tile layer to add to our map, in this case using Open Street Map</span>
+<span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">maxZoom</span><span class="o">:</span><span class="w"> </span><span class="kt">19</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">attribution</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;© OpenStreetMap contributors&#39;</span>
+<span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+
+<span class="c1">// Initialize a GeoJSON layer and add it to the map</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">geojsonFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Initial Feature&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;popupContent&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;This is where the journey begins!&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">0.09</span><span class="p">,</span><span class="w"> </span><span class="mf">51.505</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">geojsonLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">geoJSON</span><span class="p">(</span><span class="nx">geojsonFeature</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">onEachFeature</span><span class="o">:</span><span class="w"> </span><span class="kt">function</span><span class="w"> </span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="nx">layer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">popupContent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">layer</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">properties</span><span class="p">.</span><span class="nx">popupContent</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+
+<span class="c1">// Add new features to the map with a click</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">onMapClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;New Feature&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;popupContent&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;You clicked the map at &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="p">.</span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="p">.</span><span class="nx">lat</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Add the new feature to the geojson layer</span>
+<span class="w">    </span><span class="nx">geojsonLayer</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="nx">newFeature</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onMapClick</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Nothing fancy here, just a map which adds markers when you click. Now let&#8217;s add&nbsp;automerge:</p>
+<p>We add a bunch of imports, the goal here will be to sync between tabs of the same browser. Automerge <a href="https://automerge.org/blog/2023/11/06/automerge-repo/">announced an automerge-repo</a> library to help with all the wiring-up, so let&#8217;s try it&nbsp;out!</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">DocHandle</span><span class="p">,</span><span class="w"> </span><span class="nx">isValidAutomergeUrl</span><span class="p">,</span><span class="w"> </span><span class="nx">Repo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@automerge/automerge-repo&#39;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BroadcastChannelNetworkAdapter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@automerge/automerge-repo-network-broadcastchannel&#39;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IndexedDBStorageAdapter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@automerge/automerge-repo-storage-indexeddb&quot;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">v4</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">uuidv4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;uuid&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>These were just import. Don&#8217;t bother too much. The next section does the&nbsp;following:</p>
+<ul>
+<li>Instantiate an &#8220;automerge repo&#8221;, which helps to send the right messages to the other peers if needed&nbsp;;</li>
+<li>Add a mechanism to create and initialize a repository if&nbsp;needed,</li>
+<li>or otherwise look for an existing one, based on a hash passed in the <span class="caps">URI</span>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Add an automerge repository. Sync to </span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Repo</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">BroadcastChannelNetworkAdapter</span><span class="p">()],</span>
+<span class="w">    </span><span class="nx">storage</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">IndexedDBStorageAdapter</span><span class="p">(),</span>
+<span class="p">});</span>
+
+<span class="c1">// Automerge-repo exposes an handle, which is mainly a wrapper around the library internals.</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">handle</span><span class="o">:</span><span class="w"> </span><span class="kt">DocHandle</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">rootDocUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isValidAutomergeUrl</span><span class="p">(</span><span class="nx">rootDocUrl</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">repo</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">rootDocUrl</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">handle</span><span class="p">.</span><span class="nx">doc</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Once we&#39;ve found the data in the browser, let&#39;s add the features to the geojson layer.</span>
+<span class="w">    </span><span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">features</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">feature</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">geojsonLayer</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="nx">feature</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">repo</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">handle</span><span class="p">.</span><span class="nx">doc</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">doc</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Let&#8217;s change the <code>onMapClick</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">onMapClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uuidv4</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// ... What was there previously</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newFeature</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uuid</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Add the new feature to the geojson layer.</span>
+<span class="w">    </span><span class="c1">// Here we use the handle to do the change.</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">doc</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">features</span><span class="p">[</span><span class="nx">uuid</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newFeature</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>And on the other side of the logic, let&#8217;s listen to the&nbsp;changes:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">handle</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">({</span><span class="nx">doc</span><span class="p">,</span><span class="w"> </span><span class="nx">patches</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// &quot;patches&quot; is a list of all the changes that happened to the tree.</span>
+<span class="w">    </span><span class="c1">// Because we&#39;re sending JS objects, a lot of patches events are being sent.</span>
+<span class="w">    </span><span class="c1">// </span>
+<span class="w">    </span><span class="c1">// Filter to only keep first-level events (we currently don&#39;t want to reflect</span>
+<span class="w">    </span><span class="c1">// changes down the tree — yet)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;patches&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">patches</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">inserted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">patches</span><span class="p">.</span><span class="nx">filter</span><span class="p">(({</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">action</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">path</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;features&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">action</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;put&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">inserted</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(({</span><span class="nx">path</span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">path</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">newFeature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">features</span><span class="p">[</span><span class="nx">uuid</span><span class="p">];</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Adding a new feature at position </span><span class="si">${</span><span class="nx">uuid</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">geojsonLayer</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="nx">newFeature</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>And… It&#8217;s working, here is a little video capture of two tabs working together&nbsp;:-)</p>
+<video controls preload="none" width="100%"
+poster="https://nuage.b.delire.party/s/kpP9ijfqabmKxnr">
+    <source src="https://nuage.b.delire.party/s/kpP9ijfqabmKxnr/download"
+            type="video/mp4">
+</video>
+
+<p>And, that&#8217;s all for this&nbsp;week! </p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/python.html">#Python</a>,         <a href="https://blog.notmyidea.org/tag/crdt.html">#CRDT</a>,         <a href="https://blog.notmyidea.org/tag/sync.html">#Sync</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>
