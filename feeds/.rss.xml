@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Sat, 11 Nov 2023 00:00:00 +0100</lastBuildDate><item><title>2023, Semaine 45</title><link>https://blog.notmyidea.org/2023-semaine-45.html</link><description>
+<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Sun, 12 Nov 2023 00:00:00 +0100</lastBuildDate><item><title>Deploying and customizing datasette</title><link>https://blog.notmyidea.org/deploying-and-customizing-datasette.html</link><description>&lt;p&gt;First, create the venv and install&amp;nbsp;everything&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Create and activate venv&lt;/span&gt;
+python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv
+&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;venv/bin/activate
+
+&lt;span class="c1"&gt;# Install datasette…&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette
+
+&lt;span class="c1"&gt;# … and the plugins&lt;/span&gt;
+datasette&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette-render-markdown&lt;span class="w"&gt; &lt;/span&gt;datasette-dashboards&lt;span class="w"&gt; &lt;/span&gt;datasette-dateutil
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I was curious how much all of this was weighting. &lt;span class="caps"&gt;30MB&lt;/span&gt; seems pretty reasonable to&amp;nbsp;me.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# All of …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><pubDate>Sun, 12 Nov 2023 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2023-11-12:/deploying-and-customizing-datasette.html</guid><category>code</category><category>Datasette</category><category>Deployment</category></item><item><title>2023, Semaine 45</title><link>https://blog.notmyidea.org/2023-semaine-45.html</link><description>
 &lt;p&gt;Une reprise après deux semaines de pause. Première semaine sur uMap, et beaucoup&amp;nbsp;d&amp;#8217;à-côtés.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;

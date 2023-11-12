@@ -29,6 +29,12 @@
     </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2023-11-12T00:00:00+01:00">12 novembre 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/deployment.html">Deployment</a>    <h1><a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html" id="page-title">Deploying and customizing&nbsp;datasette</a></h1>
+    Step by step follow-up on how I've deployed it and added custom templates on top.
+</section>
+<section class="section index">
     <time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
 
         <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/graphs.html">Graphs</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>    <h1><a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" id="page-title">Using Datasette for tracking my professional&nbsp;activity</a></h1>
@@ -108,18 +114,8 @@
 <p>Il y a plusieurs sites qui permettent de faire ça automatiquement, mais j&#8217;aime bien faire les choses depuis mon terminal, voici donc une commande qui permet de faire ça simplement, en utilisant <a href="https://imagemagick.org/">ImageMagick</a>. Merci à <a href="https://gist.github.com/azam/3b6995a29b9f079282f3">ce&nbsp;gist</a></p>
 <div class="highlight"><pre><span></span><code>convert<span class="w"> </span>-density<span class="w"> </span>256x256<span class="w"> </span>-background<span class="w"> </span>transparent<span class="w"> </span>favicon.svg<span class="w"> </span>-define<span class="w"> </span>icon:auto-resize<span class="w"> </span>-colors<span class="w"> </span><span class="m">256 …</span></code></pre></div>
 </section>
-<section class="section index">
-    <time datetime="2023-09-12T00:00:00+02:00">12 septembre 2023</time>
-
-    <h1><a href="https://blog.notmyidea.org/decouverte-de-nouveaux-outils-pour-le-developpement-llm-helix-et-plus.html" id="page-title">Découverte de nouveaux outils pour le développement: <span class="caps">LLM</span>, Helix et&nbsp;plus</a></h1>
-    
-<h2 id="llm"><span class="caps">LLM</span></h2>
 <ul>
-<li><a href="https://localai.io/model-compatibility/">LocalAI</a> permet de faire tourner des modèles en local avec la même <span class="caps">API</span> <span class="caps">HTTP</span> que celle&nbsp;d&#8217;OpenAI</li>
-<li><a href="https://github.com/bofenghuang/vigogne">Le modèle Vigogne</a> est un modèle entrainé (<em>fine-tuned</em>) avec des données en Français. Notamment <a href="https://huggingface.co/bofenghuang/vigogne-2-7b-chat/tree/v1.0">ce modèle</a>qui prends <span class="caps">LLAMA2</span> en&nbsp;entrée.</li>
-<li><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> semble être un framework pour travailler avec les différents …</li></ul>
-</section>
-<ul>
+    <li><a href="https://blog.notmyidea.org/setting-up-a-irc-bouncer-with-znc.html" rel="bookmark" title="Permalink to Setting up a IRC Bouncer with ZNC">Setting up a <span class="caps">IRC</span> Bouncer with <span class="caps">ZNC</span></a></li>
     <li><a href="https://blog.notmyidea.org/2023-semaine-38.html" rel="bookmark" title="Permalink to 2023, Semaine 38">2023, Semaine&nbsp;38</a></li>
     <li><a href="https://blog.notmyidea.org/how-to-run-the-vigogne-model-locally.html" rel="bookmark" title="Permalink to How to run the vigogne model locally">How to run the vigogne model&nbsp;locally</a></li>
     <li><a href="https://blog.notmyidea.org/creating-a-simple-command-line-to-post-snippets-on-gitlab.html" rel="bookmark" title="Permalink to Creating a simple command line to post snippets on Gitlab">Creating a simple command line to post snippets on&nbsp;Gitlab</a></li>

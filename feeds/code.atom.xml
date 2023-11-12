@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-11T00:00:00+01:00</updated><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-12T00:00:00+01:00</updated><entry><title>Deploying and customizing datasette</title><link href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html" rel="alternate"></link><published>2023-11-12T00:00:00+01:00</published><updated>2023-11-12T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-12:/deploying-and-customizing-datasette.html</id><summary type="html">&lt;p&gt;First, create the venv and install&amp;nbsp;everything&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Create and activate venv&lt;/span&gt;
+python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv
+&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;venv/bin/activate
+
+&lt;span class="c1"&gt;# Install datasette…&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette
+
+&lt;span class="c1"&gt;# … and the plugins&lt;/span&gt;
+datasette&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette-render-markdown&lt;span class="w"&gt; &lt;/span&gt;datasette-dashboards&lt;span class="w"&gt; &lt;/span&gt;datasette-dateutil
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I was curious how much all of this was weighting. &lt;span class="caps"&gt;30MB&lt;/span&gt; seems pretty reasonable to&amp;nbsp;me.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# All of …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;First, create the venv and install&amp;nbsp;everything&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Create and activate venv&lt;/span&gt;
+python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv
+&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;venv/bin/activate
+
+&lt;span class="c1"&gt;# Install datasette…&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette
+
+&lt;span class="c1"&gt;# … and the plugins&lt;/span&gt;
+datasette&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;datasette-render-markdown&lt;span class="w"&gt; &lt;/span&gt;datasette-dashboards&lt;span class="w"&gt; &lt;/span&gt;datasette-dateutil
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I was curious how much all of this was weighting. &lt;span class="caps"&gt;30MB&lt;/span&gt; seems pretty reasonable to&amp;nbsp;me.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# All of this weights 30Mb&lt;/span&gt;
+du&lt;span class="w"&gt; &lt;/span&gt;-sh&lt;span class="w"&gt; &lt;/span&gt;venv
+30M&lt;span class="w"&gt; &lt;/span&gt;venv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="adding-authentication"&gt;Adding&amp;nbsp;authentication&lt;/h2&gt;
+&lt;p&gt;Datasette doesn&amp;#8217;t provide authentication by default, so &lt;a href="https://docs.datasette.io/en/stable/authentication.html"&gt;you have to use a plugin for this&lt;/a&gt;. I&amp;#8217;ll be using &lt;a href="https://github.com/simonw/datasette-auth-github"&gt;Github authentication&lt;/a&gt; for now as it seems simple to&amp;nbsp;add:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install datasette-auth-github
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I&amp;#8217;ve had to create a new github application and export the variables to my server, and add some configuration to my &lt;code&gt;metadata.yaml&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;allow&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;gh_login&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;almet&lt;/span&gt;
+
+&lt;span class="nt"&gt;plugins&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;datasette-auth-github&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;client_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$env&amp;quot;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;GITHUB_CLIENT_ID&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;client_secret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$env&amp;quot;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;GITHUB_CLIENT_SECRET&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If that&amp;#8217;s useful to you, here is &lt;a href="https://gitlab.com/almet/timetracker-datasette-deploy"&gt;the git repository&lt;/a&gt; I&amp;#8217;m deploying to my&amp;nbsp;server.&lt;/p&gt;
+&lt;h2 id="using-templates"&gt;Using&amp;nbsp;templates&lt;/h2&gt;
+&lt;p&gt;Okay, I now want to be able to send an &lt;span class="caps"&gt;URL&lt;/span&gt; to the people I&amp;#8217;m working with, on which they can see what I&amp;#8217;ve been doing, and what I&amp;#8217;ve been using my time&amp;nbsp;on.&lt;/p&gt;
+&lt;p&gt;It was pretty simple to do, and kind of weird to basically do what I&amp;#8217;ve been doing back in the days for my first &lt;span class="caps"&gt;PHP&lt;/span&gt; applications : put &lt;span class="caps"&gt;SQL&lt;/span&gt; statements in the templates !&amp;nbsp;heh.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve added a template with what I want to do. It has the side-effect of being able to propose a read-only view to a private&amp;nbsp;database.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;{{project}}
+    {% for row in sql(&amp;quot;SELECT SUM(CAST(duration AS REAL)) as total_hours FROM journal WHERE project = &amp;#39;&amp;quot; + project + &amp;quot;&amp;#39;;&amp;quot;, database=&amp;quot;db&amp;quot;) %}
+({{ row[&amp;quot;total_hours&amp;quot;] }} heures)
+{% endfor %}
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    {% for row in sql(&amp;quot;select date, CAST(duration AS REAL) as duration, content from journal where project = &amp;#39;&amp;quot; + project + &amp;quot;&amp;#39; order by date DESC&amp;quot;, database=&amp;quot;db&amp;quot;) %}
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;{{ row[&amp;quot;date&amp;quot;] }} ({{ row[&amp;quot;duration&amp;quot;] }} heures)&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;dd&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;{{ render_markdown(row[&amp;quot;content&amp;quot;]) }}&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;dd&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    {% endfor %}
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;dl&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Which looks like this&amp;nbsp;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/datasette/custom-template.png"&gt;&lt;/p&gt;</content><category term="code"></category><category term="Datasette"></category><category term="Deployment"></category></entry><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time I&amp;#8217;ve worked on such and such project. A discussion with &lt;a href="https://thom4.net/"&gt;Thomas&lt;/a&gt; made me realize it would be nice to track all this in a spreadsheet of some sort, which I was doing until&amp;nbsp;today.&lt;/p&gt;
 &lt;p&gt;Spreadsheets are nice, but they don&amp;#8217;t play well with rich content, and doing graphs with them is kind of tricky. So I went ahead and setup everything in&amp;nbsp;Datasette.&lt;/p&gt;

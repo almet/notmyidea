@@ -73,8 +73,24 @@ du<span class="w"> </span>-sh<span class="w"> </span>venv
 
 <p>If that&#8217;s useful to you, here is <a href="https://gitlab.com/almet/timetracker-datasette-deploy">the git repository</a> I&#8217;m deploying to my&nbsp;server.</p>
 <h2 id="using-templates">Using&nbsp;templates</h2>
-<p>Okay, I now want to be able to send my clients an <span class="caps">URL</span> on which they can see what I&#8217;ve been doing, and what I&#8217;ve been using my time&nbsp;on.</p>
-<p>The&nbsp;documentation</p>
+<p>Okay, I now want to be able to send an <span class="caps">URL</span> to the people I&#8217;m working with, on which they can see what I&#8217;ve been doing, and what I&#8217;ve been using my time&nbsp;on.</p>
+<p>It was pretty simple to do, and kind of weird to basically do what I&#8217;ve been doing back in the days for my first <span class="caps">PHP</span> applications : put <span class="caps">SQL</span> statements in the templates !&nbsp;heh.</p>
+<p>I&#8217;ve added a template with what I want to do. It has the side-effect of being able to propose a read-only view to a private&nbsp;database.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{project}}
+    {% for row in sql(&quot;SELECT SUM(CAST(duration AS REAL)) as total_hours FROM journal WHERE project = &#39;&quot; + project + &quot;&#39;;&quot;, database=&quot;db&quot;) %}
+({{ row[&quot;total_hours&quot;] }} heures)
+{% endfor %}
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">dl</span><span class="p">&gt;</span>
+    {% for row in sql(&quot;select date, CAST(duration AS REAL) as duration, content from journal where project = &#39;&quot; + project + &quot;&#39; order by date DESC&quot;, database=&quot;db&quot;) %}
+        <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>{{ row[&quot;date&quot;] }} ({{ row[&quot;duration&quot;] }} heures)<span class="p">&lt;/</span><span class="nt">dt</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">dd</span><span class="p">&gt;</span>{{ render_markdown(row[&quot;content&quot;]) }}<span class="p">&lt;/</span><span class="nt">dd</span><span class="p">&gt;</span>
+    {% endfor %}
+<span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Which looks like this&nbsp;:</p>
+<p><img alt="Alt text" src="/images/datasette/custom-template.png"></p>
 	<p>
         <a href="https://blog.notmyidea.org/tag/datasette.html">#Datasette</a>,         <a href="https://blog.notmyidea.org/tag/deployment.html">#Deployment</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
 	</p>
