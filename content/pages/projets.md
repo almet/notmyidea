@@ -22,7 +22,7 @@ le [Noyau Linux](https://www.kernel.org/pelican.html) et
 : Un site web qui permet de gérer les dépenses de groupes, [créé fin
 2011](https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html).
 Il est possible de rentrer qui à payé quoi, et pour qui, et une balance est
-gérée pour vous.
+gérée pour vous. Je maintiens une instance ouverte sur [ihatemoney.org](https://ihatemoney.org).
 
 [Kinto](https://github.com/kinto/kinto)
 : Un backend générique pour des applications Web. J'ai initié ce projet avec

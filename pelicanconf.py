@@ -43,11 +43,11 @@ MENU = [
 CATEGORIES_DESCRIPTION = {
     "weeknotes": (
         "Notes hebdo",
-        "Chaque semaine, je fais un petit résumé de ce qui s'est passé. Cela m'aide à garder le fil de mes idées et de mes différents projets. Un bon moyen de faire un pause et d'observer la semaine sous un autre angle.",
+        "Chaque semaine, je fais un petit résumé de ce qui s'est passé. Cela m'aide à garder le fil de mes idées et de mes différents projets. Un bon moyen de faire une pause et d'observer la semaine sous un autre angle.",
     ),
     "lectures": (
         "Notes de lecture",
-        "Quelques notes prises au détour d'une lecture, plutôt pour ne pas les oublier, et me remémorer le livre quand j'en ai besoin.",
+        "Quelques notes prises au détour d'une lecture, plutôt pour ne pas les oublier et me remémorer le livre quand j'en ai besoin.",
     ),
     "code": (
         "Code, etc.",
