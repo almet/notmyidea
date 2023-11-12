@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Using Datasette for tracking my professional&nbsp;activity - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Using Datasette for tracking my professional&nbsp;activity</h1>
+	<time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>I&#8217;ve been following Simon Willison since quite some time, but I&#8217;ve actually never played with his main project <a href="https://datasette.io">Datasette</a>&nbsp;before.</p>
+<p>As I&#8217;m going back into development, I&#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time I&#8217;ve worked on such and such project. A discussion with <a href="https://thom4.net/">Thomas</a> made me realize it would be nice to track all this in a spreadsheet of some sort, which I was doing until&nbsp;today.</p>
+<p>Spreadsheets are nice, but they don&#8217;t play well with rich content, and doing graphs with them is kind of tricky. So I went ahead and setup everything in&nbsp;Datasette.</p>
+<p>First of all, I&#8217;ve imported my <code>.csv</code> file into a sqlite&nbsp;database: </p>
+<div class="highlight"><pre><span></span><code>sqlite3<span class="w"> </span>-csv<span class="w"> </span>-header<span class="w"> </span>db.sqlite<span class="w"> </span><span class="s2">&quot;.import journal.csv journal&quot;</span>
+</code></pre></div>
+
+<p>Then, I used <a href="https://sqlite-utils.datasette.io/en/stable/">sqlite-utils</a> to do some tidying and changed the columns&nbsp;names:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Rename a column</span>
+sqlite-utils<span class="w"> </span>transform<span class="w"> </span>journal<span class="w"> </span>--rename<span class="w"> </span><span class="s2">&quot;quoi ?&quot;</span><span class="w"> </span>content
+
+<span class="c1"># Make everything look similar</span>
+sqlite-utils<span class="w"> </span>update<span class="w"> </span>db.sqlite<span class="w"> </span>journal<span class="w"> </span>project<span class="w"> </span><span class="s1">&#39;value.replace(&quot;Umap&quot;, &quot;uMap&quot;)&#39;</span>
+</code></pre></div>
+
+<p>Here is my database&nbsp;schema:</p>
+<div class="highlight"><pre><span></span><code>sqlite-utils<span class="w"> </span>schema<span class="w"> </span>db.sqlite
+CREATE<span class="w"> </span>TABLE<span class="w"> </span><span class="s2">&quot;journal&quot;</span><span class="w"> </span><span class="o">(</span>
+<span class="w">   </span><span class="o">[</span>date<span class="o">]</span><span class="w"> </span>TEXT,
+<span class="w">   </span><span class="o">[</span>project<span class="o">]</span><span class="w"> </span>TEXT,
+<span class="w">   </span><span class="o">[</span>duration<span class="o">]</span><span class="w"> </span>TEXT,
+<span class="w">   </span><span class="o">[</span>where<span class="o">]</span><span class="w"> </span>TEXT,
+<span class="w">   </span><span class="o">[</span>content<span class="o">]</span><span class="w"> </span>TEXT,
+<span class="w">   </span><span class="o">[</span>paid_work<span class="o">]</span><span class="w"> </span>INTEGER
+<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+
+<p>And then installed datasette, with a few plugins, and ran&nbsp;it:</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>datasette
+datasette<span class="w"> </span>install<span class="w"> </span>datasette-render-markdown<span class="w"> </span>datasette-write-ui<span class="w"> </span>datasette-dashboards<span class="w"> </span>datasette-dateutil
+</code></pre></div>
+
+<p>I then came up with a few <span class="caps">SQL</span> queries which are&nbsp;useful:</p>
+<p>How much I&#8217;ve worked per&nbsp;project:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">sqlite</span><span class="w"> </span><span class="ss">&quot;SELECT project, SUM(CAST(duration AS REAL)) as total_duration FROM journal GROUP BY project;&quot;</span>
+<span class="p">[</span><span class="err">{</span><span class="ss">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Argos&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;total_duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;IDLV&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;total_duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Notmyidea&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;total_duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Sam&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;total_duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;uMap&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;total_duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">]</span>
+</code></pre></div>
+
+<p>How much I&#8217;ve worked per week, in total (I&#8217;ve redacted the results for&nbsp;privacy):</p>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="n">db</span><span class="p">.</span><span class="n">sqlite</span><span class="w"> </span><span class="ss">&quot;SELECT strftime(&#39;%Y-W%W&#39;, date) AS week, SUM(CAST(duration AS REAL)) AS hours FROM journal GROUP BY week ORDER BY week;&quot;</span>
+
+<span class="p">[</span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W21&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W22&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W23&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W25&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W29&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W37&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W39&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W40&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W41&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W42&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W44&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">,</span>
+<span class="w"> </span><span class="err">{</span><span class="ss">&quot;week&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;2023-W45&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">XX</span><span class="err">}</span><span class="p">]</span>
+</code></pre></div>
+
+<p>I then created a quick dashboard with this, which looks like&nbsp;this:</p>
+<p><img alt="Capture d'écran du dashboard, heures par semaine" src="/images/datasette/hours-per-week.png">
+<img alt="Capture d'écran du dashboard, heures par projet" src="/images/datasette/hours-per-project.png"></p>
+<p>Using this&nbsp;configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">datasette-render-markdown</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">columns</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;content&quot;</span>
+<span class="w">  </span><span class="nt">datasette-dashboards</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">my-dashboard</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Notmyidea</span>
+<span class="w">      </span><span class="nt">filters</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">project</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Projet</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">select</span>
+<span class="w">          </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">          </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SELECT DISTINCT project FROM journal WHERE project IS NOT NULL ORDER BY project ASC</span>
+<span class="w">      </span><span class="nt">layout</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">hours-per-project</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">entries</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">hours-per-week</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">charts</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">hours-per-project</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nombre d&#39;heures par projet</span>
+<span class="w">          </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SELECT project, SUM(CAST(duration AS REAL)) as total FROM journal GROUP BY project;</span>
+<span class="w">          </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">          </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vega-lite</span>
+<span class="w">          </span><span class="nt">display</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">mark</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">arc</span><span class="p p-Indicator">,</span><span class="nt"> tooltip</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">color</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> field</span><span class="p">:</span><span class="w"> </span><span class="nv">project</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">nominal</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">              </span><span class="nt">theta</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> field</span><span class="p">:</span><span class="w"> </span><span class="nv">total</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">quantitative</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">        </span><span class="nt">hours-per-week</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Heures par semaine</span>
+<span class="w">          </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SELECT strftime(&#39;%Y-W%W&#39;, date) AS week, SUM(CAST(duration AS REAL)) AS hours FROM journal GROUP BY week ORDER BY week;</span>
+<span class="w">          </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">          </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vega-lite</span>
+<span class="w">          </span><span class="nt">display</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">mark</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">bar</span><span class="p p-Indicator">,</span><span class="nt"> tooltip</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> field</span><span class="p">:</span><span class="w"> </span><span class="nv">week</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">ordinal</span><span class="p p-Indicator">}</span>
+<span class="w">              </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> field</span><span class="p">:</span><span class="w"> </span><span class="nv">hours</span><span class="p p-Indicator">,</span><span class="nt"> type</span><span class="p">:</span><span class="w"> </span><span class="nv">quantitative</span><span class="w"> </span><span class="p p-Indicator">}</span>
+
+<span class="w">        </span><span class="nt">entries</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Journal</span>
+<span class="w">          </span><span class="nt">db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">          </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SELECT * FROM journal WHERE TRUE [[ AND project = :project ]] ORDER BY date DESC</span>
+<span class="w">          </span><span class="nt">library</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">table</span>
+<span class="w">          </span><span class="nt">display</span><span class="p">:</span>
+</code></pre></div>
+
+<p>You can then run datasette&nbsp;with:</p>
+<div class="highlight"><pre><span></span><code>datasette<span class="w"> </span>db.sqlite<span class="w"> </span>--root<span class="w"> </span>--metadata<span class="w"> </span>metadata.yaml
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/datasette.html">#Datasette</a>,         <a href="https://blog.notmyidea.org/tag/graphs.html">#Graphs</a>,         <a href="https://blog.notmyidea.org/tag/sqlite.html">#SQLite</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>

@@ -29,6 +29,13 @@
     </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/graphs.html">Graphs</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlite.html">SQLite</a>    <h1><a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" id="page-title">Using Datasette for tracking my professional&nbsp;activity</a></h1>
+    <p>I&#8217;ve been following Simon Willison since quite some time, but I&#8217;ve actually never played with his main project <a href="https://datasette.io">Datasette</a>&nbsp;before.</p>
+<p>As I&#8217;m going back into development, I&#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …</p>
+</section>
+<section class="section index">
     <time datetime="2023-10-18T00:00:00+02:00">18 octobre 2023</time>
 
         <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlalchemy.html">SQLAlchemy</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/python.html">Python</a>    <h1><a href="https://blog.notmyidea.org/using-distinct-in-parent-child-relationships.html" id="page-title">Using <span class="caps">DISTINCT</span> in Parent-Child&nbsp;Relationships</a></h1>
@@ -112,18 +119,8 @@
 <li><a href="https://github.com/bofenghuang/vigogne">Le modèle Vigogne</a> est un modèle entrainé (<em>fine-tuned</em>) avec des données en Français. Notamment <a href="https://huggingface.co/bofenghuang/vigogne-2-7b-chat/tree/v1.0">ce modèle</a>qui prends <span class="caps">LLAMA2</span> en&nbsp;entrée.</li>
 <li><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> semble être un framework pour travailler avec les différents …</li></ul>
 </section>
-<section class="section index">
-    <time datetime="2023-08-19T00:00:00+02:00">19 août 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/gitlab.html">gitlab</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/docker.html">docker</a>    <h1><a href="https://blog.notmyidea.org/running-the-gitlab-ci-locally.html" id="page-title">Running the Gitlab <span class="caps">CI</span>&nbsp;locally</a></h1>
-    
-<p>Sometimes, I need to change how the continuous integration is setup, and I find
-myself pushing to a branch to test if my changes are working. Oftentimes, it
-takes me multiple commits to find the correct configuration, which is…&nbsp;suboptimal.</p>
-<p>I discovered today <a href="https://github.com/firecow/gitlab-ci-local">Gitlab <span class="caps">CI</span>
-local</a> which makes it possible …</p>
-</section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/how-to-run-the-vigogne-model-locally.html" rel="bookmark" title="Permalink to How to run the vigogne model locally">How to run the vigogne model&nbsp;locally</a></li>
     <li><a href="https://blog.notmyidea.org/creating-a-simple-command-line-to-post-snippets-on-gitlab.html" rel="bookmark" title="Permalink to Creating a simple command line to post snippets on Gitlab">Creating a simple command line to post snippets on&nbsp;Gitlab</a></li>
     <li><a href="https://blog.notmyidea.org/creating-an-online-space-to-share-markdown-files.html" rel="bookmark" title="Permalink to Creating an online space to share markdown files">Creating an online space to share markdown&nbsp;files</a></li>
     <li><a href="https://blog.notmyidea.org/conversion-dun-fichier-svg-en-faviconico.html" rel="bookmark" title="Permalink to Conversion d’un fichier svg en favicon.ico">Conversion d&#8217;un fichier svg en&nbsp;favicon.ico</a></li>
