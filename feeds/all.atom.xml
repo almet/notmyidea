@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-11T00:00:00+01:00</updated><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-11T00:00:00+01:00</updated><entry><title>2023, Semaine 45</title><link href="https://blog.notmyidea.org/2023-semaine-45.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/2023-semaine-45.html</id><summary type="html">
+&lt;p&gt;Une reprise après deux semaines de pause. Première semaine sur uMap, et beaucoup&amp;nbsp;d&amp;#8217;à-côtés.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://umap.openstreetmap.fr/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur le projet, que je rejoins pour quelques temps, aux côté de David, Yohan, Aurélie et Sophie. L&amp;#8217;idée est de travailler spécifiquement sur …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;p&gt;Une reprise après deux semaines de pause. Première semaine sur uMap, et beaucoup&amp;nbsp;d&amp;#8217;à-côtés.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://umap.openstreetmap.fr/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à travailler sur le projet, que je rejoins pour quelques temps, aux côté de David, Yohan, Aurélie et Sophie. L&amp;#8217;idée est de travailler spécifiquement sur la collaboration temps réel sur les cartes. J&amp;#8217;ai commencé par lire le code existant, puis par faire un état de l&amp;#8217;art des solutions existantes. Prendre le temps de lire le code, de comparer les différents approches, et de mesurer leurs&amp;nbsp;impacts.&lt;/dd&gt;
+&lt;dd&gt;David et Yohan m&amp;#8217;ont proposé d&amp;#8217;écrire de documenter mon travail, j&amp;#8217;ai donc fait &lt;a href="/adding-real-time-collaboration-to-umap-first-week.html"&gt;un premier billet de blog&lt;/a&gt; (en anglais) sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://framasoft.frama.io/framaspace/argos/"&gt;Argos&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai pu échanger sur le code que j&amp;#8217;ai fait avec Matthieu. Ses yeux sont plus avertis, et j&amp;#8217;ai pu avoir des retours intéressants. J&amp;#8217;ai appris entre autres l’existence d&amp;#8217;&lt;a href="https://github.com/mozilla-services/telescope"&gt;un projet similaire&lt;/a&gt; chez Mozilla, qui recouvre une partie des mêmes usages. Quelques pistes intéressantes la bas. Je n&amp;#8217;ai pas encore pris le temps d&amp;#8217;intégrer les changements, mais j&amp;#8217;aime beaucoup l&amp;#8217;idée de faire des revues de code de ce&amp;nbsp;type.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai déployé Chariotte sur l&amp;#8217;infrastructure d&amp;#8217;AlwaysData, qui nous propose &lt;a href="https://www.alwaysdata.com/fr/open-source/"&gt;un hébergement gratuit, en tant que projet open source&lt;/a&gt;. Tout s&amp;#8217;est passé très simplement et sans&amp;nbsp;accrocs.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://notmyidea.org/"&gt;Notmyidea&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai enfin créé la structure pour porter mon activité salariée. Pour le moment je pars sur une auto-entreprise. Le choix se fait après de nombreuses tergiversations. Je suis content d&amp;#8217;écouter mon besoin de limiter mon investissement collectif pour le&amp;nbsp;moment.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai pris le temps de mettre à jour la page &lt;a href="/projets.html"&gt;Projets&lt;/a&gt; pour la rendre plus&amp;nbsp;lisible.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai utilisé Datasette pour faire un suivi des heures que je passe sur chaque projet, et rédigé &lt;a href="/using-datasette-for-tracking-my-professional-activity.html"&gt;un article de blog sur le sujet&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ressentir mon envie de reprendre à faire de la technique après deux semaines à faire autre&amp;nbsp;chose.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de mesurer la dynamique existante d&amp;#8217;un groupe avant de faire des&amp;nbsp;propositions.&lt;/li&gt;
+&lt;li&gt;Réussir ne pas me laisser envahir par des émotions qui ne sont pas les&amp;nbsp;miennes.&lt;/li&gt;
+&lt;li&gt;Réunir des amis et amis pour un atelier d&amp;#8217;écriture. Être content d&amp;#8217;entendre les textes des&amp;nbsp;autres.&lt;/li&gt;
+&lt;li&gt;Prendre le temps d&amp;#8217;une après-midi pour échanger en toute&amp;nbsp;simplicité.&lt;/li&gt;
+&lt;li&gt;Ressentir de la joie en écoutant de la musique. C&amp;#8217;est simple, mais ça marche tellement&amp;nbsp;bien.&lt;/li&gt;
+&lt;li&gt;Apprécier une session de brainstorming&amp;nbsp;technique.&lt;/li&gt;
+&lt;li&gt;Recroiser des personnes du milieu brassicole sans&amp;nbsp;stresser.&lt;/li&gt;
+&lt;li&gt;Faire de la revue de code avec Matthieu, en profiter pour se donner des&amp;nbsp;nouvelles.&lt;/li&gt;
+&lt;li&gt;Avoir du temps seul sans contraintes horaires et me sentir productif à ce moment&amp;nbsp;là.&lt;/li&gt;
+&lt;li&gt;Me retrouver dans une voiture sous la pluie battante, entouré d&amp;#8217;amies, en écoutant Clara Ysé à&amp;nbsp;fond.&lt;/li&gt;
+&lt;li&gt;Participer à un temps d&amp;#8217;échange de&amp;nbsp;compétences. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je me suis senti fatigué de passer une après-midi en réunion. Triste de ne pas l&amp;#8217;avoir anticipé alors qu&amp;#8217;on me l&amp;#8217;avait servi sur un&amp;nbsp;plateau.&lt;/li&gt;
+&lt;li&gt;Mon rythme s&amp;#8217;améliore, mais cette semaine était trop&amp;nbsp;remplie.&lt;/li&gt;
+&lt;li&gt;Peut-être la conséquence : je suis fatigué et en train de tomber&amp;nbsp;malade.&lt;/li&gt;
+&lt;li&gt;Je me suis senti parfois anxieux et triste au&amp;nbsp;réveil.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai annulé un week-end qui me donnait envie pour éviter de contaminer tout le monde. À la fois frustré et content de prendre soin (de moi et des&amp;nbsp;autres).&lt;/li&gt;
+&lt;li&gt;Je me suis senti désorganisé et « flottant » durant ma dernière semaine de&amp;nbsp;pause.&lt;/li&gt;
+&lt;li&gt;Me sentir jugé dans une conversation et ne pas prendre la distance nécessaire avec les&amp;nbsp;interlocuteurs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎬 Vu &lt;a href="https://fr.wikipedia.org/wiki/The_Old_Oak"&gt;The Old Oak&lt;/a&gt;, de Ken Loach. J&amp;#8217;aime beaucoup la finesse du propos, j&amp;#8217;ai fondu en larmes à la fin du film. Ça fait autant de bien que ça questionne sur mes&amp;nbsp;engagements.&lt;/li&gt;
+&lt;li&gt;🎬 Vu &lt;a href="https://fr.wikipedia.org/wiki/Victoria_(film,_2016)"&gt;Victoria&lt;/a&gt; de Justine&amp;nbsp;Triet.&lt;/li&gt;
+&lt;li&gt;🎵 Vu en concert &lt;a href="https://fr.wikipedia.org/wiki/Juliette_(chanteuse)"&gt;Juliette&lt;/a&gt;. J&amp;#8217;ai bien aimé certains textes, ça me donne envie de les écouter plus en&amp;nbsp;détail.&lt;/li&gt;
+&lt;li&gt;🎵 Vu en concert &lt;a href="https://fr.wikipedia.org/wiki/French_79"&gt;French79&lt;/a&gt;, ça fait du bien d&amp;#8217;avoir des vibes positives&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;📖 J&amp;#8217;ai commencé à lire Spin, de Robert Charles&amp;nbsp;Wilson.&lt;/li&gt;
+&lt;li&gt;🕸️ Un article d&amp;#8217;Acrimed sur &lt;a href="https://www.acrimed.org/Conflit-israelo-palestinien-calomnies-mediatiques"&gt;le traitement du conflit israélo-palestinien dans les médias&amp;nbsp;Français&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎵 J&amp;#8217;ai découvert &lt;a href="https://www.youtube.com/watch?v=YvQAYUb9mu8"&gt;Clara Ysé&lt;/a&gt;. Quelle puissance&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/sous-les-radars/burn-out-militant-mal-ou-symptome-2399524"&gt;Burn-out militant, mal ou symptome ?&lt;/a&gt; dans l&amp;#8217;émission « sous les radars&amp;nbsp;».&lt;/li&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/sous-les-radars/logement-la-fin-de-la-france-des-proprietaires-3511615"&gt;Logement : la fin de la France des propriétaires&amp;nbsp;?&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="technique"&gt;Technique&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai lu &lt;a href="https://community.openstreetmap.org/t/overturemaps-org-big-businesses-osmf-alternative/6760/7"&gt;un thread à propos de Overturemaps sur le forum de &lt;span class="caps"&gt;OSM&lt;/span&gt;&lt;/a&gt;, assez éclairant sur ce qu&amp;#8217;est Overture Maps, et la potentielle menace pour &lt;span class="caps"&gt;OSM&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;▶︎ Simon Willison à fait &lt;a href="https://www.youtube.com/watch?v=ArnMdc-ICCM&amp;amp;t"&gt;une présentation sur les embeddings&lt;/a&gt;, comment ils fonctionnent et comment les&amp;nbsp;utiliser. &lt;/li&gt;
+&lt;li&gt;▶︎ Une présentation sur &lt;a href="https://www.youtube.com/watch?v=x7drE24geUw"&gt;le fonctionnement interne et l&amp;#8217;état de l&amp;#8217;art des CRDTs&lt;/a&gt; par Martin&amp;nbsp;Kleppmann&lt;/li&gt;
+&lt;li&gt;🕸️ J&amp;#8217;ai découvert &lt;a href="Freesound..org"&gt;https://freesound.org/&lt;/a&gt; grace à Sam : une bibliothèque de sons libres de&amp;nbsp;droits.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time I&amp;#8217;ve worked on such and such project. A discussion with &lt;a href="https://thom4.net/"&gt;Thomas&lt;/a&gt; made me realize it would be nice to track all this in a spreadsheet of some sort, which I was doing until&amp;nbsp;today.&lt;/p&gt;
 &lt;p&gt;Spreadsheets are nice, but they don&amp;#8217;t play well with rich content, and doing graphs with them is kind of tricky. So I went ahead and setup everything in&amp;nbsp;Datasette.&lt;/p&gt;
@@ -59,7 +123,7 @@ datasette&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/
 &lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;week&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;2023-W45&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hours&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;XX&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;I then created a quick dashboard with this, which looks like&amp;nbsp;this:&lt;/p&gt;
+&lt;p&gt;I then created a quick dashboard using &lt;a href="https://github.com/rclement/datasette-dashboards"&gt;datasette-dashboard&lt;/a&gt;, which looks like&amp;nbsp;this:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Capture d'écran du dashboard, heures par semaine" src="/images/datasette/hours-per-week.png"&gt;
 &lt;img alt="Capture d'écran du dashboard, heures par projet" src="/images/datasette/hours-per-project.png"&gt;&lt;/p&gt;
 &lt;p&gt;Using this&amp;nbsp;configuration:&lt;/p&gt;
@@ -110,9 +174,9 @@ datasette&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/
 &lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="nt"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;You can then run datasette&amp;nbsp;with:&lt;/p&gt;
+&lt;p&gt;And ran datasette&amp;nbsp;with:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;datasette&lt;span class="w"&gt; &lt;/span&gt;db.sqlite&lt;span class="w"&gt; &lt;/span&gt;--root&lt;span class="w"&gt; &lt;/span&gt;--metadata&lt;span class="w"&gt; &lt;/span&gt;metadata.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="Datasette"></category><category term="Graphs"></category><category term="SQLite"></category></entry><entry><title>2023, Semaine 42</title><link href="https://blog.notmyidea.org/2023-semaine-42.html" rel="alternate"></link><published>2023-10-23T00:00:00+02:00</published><updated>2023-10-23T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-23:/2023-semaine-42.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="Datasette"></category><category term="Graphs"></category><category term="SQL"></category></entry><entry><title>2023, Semaine 42</title><link href="https://blog.notmyidea.org/2023-semaine-42.html" rel="alternate"></link><published>2023-10-23T00:00:00+02:00</published><updated>2023-10-23T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-10-23:/2023-semaine-42.html</id><summary type="html">
 &lt;p&gt;J&amp;#8217;ai passé la majeure partie de ma semaine seul, ponctuée par quelques ballades en bord de mer. J&amp;#8217;ai pu reprendre contact avec la technologie et bien avancer sur le projet&amp;nbsp;Argos.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;

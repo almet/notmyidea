@@ -31,7 +31,7 @@
 <section class="section index">
     <time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
 
-        <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/graphs.html">Graphs</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlite.html">SQLite</a>    <h1><a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" id="page-title">Using Datasette for tracking my professional&nbsp;activity</a></h1>
+        <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/graphs.html">Graphs</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>    <h1><a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" id="page-title">Using Datasette for tracking my professional&nbsp;activity</a></h1>
     <p>I&#8217;ve been following Simon Willison since quite some time, but I&#8217;ve actually never played with his main project <a href="https://datasette.io">Datasette</a>&nbsp;before.</p>
 <p>As I&#8217;m going back into development, I&#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …</p>
 </section>
@@ -120,6 +120,7 @@
 <li><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> semble être un framework pour travailler avec les différents …</li></ul>
 </section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/2023-semaine-38.html" rel="bookmark" title="Permalink to 2023, Semaine 38">2023, Semaine&nbsp;38</a></li>
     <li><a href="https://blog.notmyidea.org/how-to-run-the-vigogne-model-locally.html" rel="bookmark" title="Permalink to How to run the vigogne model locally">How to run the vigogne model&nbsp;locally</a></li>
     <li><a href="https://blog.notmyidea.org/creating-a-simple-command-line-to-post-snippets-on-gitlab.html" rel="bookmark" title="Permalink to Creating a simple command line to post snippets on Gitlab">Creating a simple command line to post snippets on&nbsp;Gitlab</a></li>
     <li><a href="https://blog.notmyidea.org/creating-an-online-space-to-share-markdown-files.html" rel="bookmark" title="Permalink to Creating an online space to share markdown files">Creating an online space to share markdown&nbsp;files</a></li>
