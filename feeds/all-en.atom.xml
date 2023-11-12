@@ -3,14 +3,14 @@
 &lt;p&gt;Une reprise après deux semaines de pause. Première semaine sur uMap, et beaucoup&amp;nbsp;d&amp;#8217;à-côtés.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;strong&gt;&lt;a href="https://umap.openstreetmap.fr/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
 &lt;dd&gt;J&amp;#8217;ai commencé à travailler sur le projet, que je rejoins pour quelques temps, aux côté de David, Yohan, Aurélie et Sophie. L&amp;#8217;idée est de travailler spécifiquement sur …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
 &lt;p&gt;Une reprise après deux semaines de pause. Première semaine sur uMap, et beaucoup&amp;nbsp;d&amp;#8217;à-côtés.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
-&lt;dt&gt;&lt;strong&gt;&lt;a href="https://umap.openstreetmap.fr/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
 &lt;dd&gt;J&amp;#8217;ai commencé à travailler sur le projet, que je rejoins pour quelques temps, aux côté de David, Yohan, Aurélie et Sophie. L&amp;#8217;idée est de travailler spécifiquement sur la collaboration temps réel sur les cartes. J&amp;#8217;ai commencé par lire le code existant, puis par faire un état de l&amp;#8217;art des solutions existantes. Prendre le temps de lire le code, de comparer les différents approches, et de mesurer leurs&amp;nbsp;impacts.&lt;/dd&gt;
-&lt;dd&gt;David et Yohan m&amp;#8217;ont proposé d&amp;#8217;écrire de documenter mon travail, j&amp;#8217;ai donc fait &lt;a href="/adding-real-time-collaboration-to-umap-first-week.html"&gt;un premier billet de blog&lt;/a&gt; (en anglais) sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dd&gt;David et Yohan m&amp;#8217;ont proposé d&amp;#8217;écrire de documenter mon travail, j&amp;#8217;ai donc fait &lt;a href=""&gt;un premier billet de blog, à paraître&lt;/a&gt; (en anglais) sur le&amp;nbsp;sujet.&lt;/dd&gt;
 &lt;dt&gt;&lt;strong&gt;&lt;a href="https://framasoft.frama.io/framaspace/argos/"&gt;Argos&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
 &lt;dd&gt;J&amp;#8217;ai pu échanger sur le code que j&amp;#8217;ai fait avec Matthieu. Ses yeux sont plus avertis, et j&amp;#8217;ai pu avoir des retours intéressants. J&amp;#8217;ai appris entre autres l’existence d&amp;#8217;&lt;a href="https://github.com/mozilla-services/telescope"&gt;un projet similaire&lt;/a&gt; chez Mozilla, qui recouvre une partie des mêmes usages. Quelques pistes intéressantes la bas. Je n&amp;#8217;ai pas encore pris le temps d&amp;#8217;intégrer les changements, mais j&amp;#8217;aime beaucoup l&amp;#8217;idée de faire des revues de code de ce&amp;nbsp;type.&lt;/dd&gt;
 &lt;dt&gt;&lt;strong&gt;&lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
@@ -43,7 +43,7 @@
 &lt;li&gt;Je me suis senti parfois anxieux et triste au&amp;nbsp;réveil.&lt;/li&gt;
 &lt;li&gt;J&amp;#8217;ai annulé un week-end qui me donnait envie pour éviter de contaminer tout le monde. À la fois frustré et content de prendre soin (de moi et des&amp;nbsp;autres).&lt;/li&gt;
 &lt;li&gt;Je me suis senti désorganisé et « flottant » durant ma dernière semaine de&amp;nbsp;pause.&lt;/li&gt;
-&lt;li&gt;Ne pas prendre la distance nécessaire avec mes interlocuteurs alors que je me sentais jugé (à tord ou à&amp;nbsp;raison)&lt;/li&gt;
+&lt;li&gt;Ne pas prendre la distance nécessaire avec mes interlocuteurs alors que je me sentais jugé (à tord ou à&amp;nbsp;raison).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
 &lt;ul&gt;

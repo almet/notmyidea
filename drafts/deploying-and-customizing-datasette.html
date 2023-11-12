@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Deploying and customizing&nbsp;datasette - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Deploying and customizing&nbsp;datasette</h1>
+	<p><em>Step by step follow-up on how I've deployed it and added custom templates on top.</em></p>
+	<time datetime="2023-11-12T00:00:00+01:00">12 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>First, create the venv and install&nbsp;everything</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create and activate venv</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># Install datasette…</span>
+pip<span class="w"> </span>install<span class="w"> </span>datasette
+
+<span class="c1"># … and the plugins</span>
+datasette<span class="w"> </span>install<span class="w"> </span>datasette-render-markdown<span class="w"> </span>datasette-dashboards<span class="w"> </span>datasette-dateutil
+</code></pre></div>
+
+<p>I was curious how much all of this was weighting. <span class="caps">30MB</span> seems pretty reasonable to&nbsp;me.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># All of this weights 30Mb</span>
+du<span class="w"> </span>-sh<span class="w"> </span>venv
+30M<span class="w"> </span>venv
+</code></pre></div>
+
+<h2 id="adding-authentication">Adding&nbsp;authentication</h2>
+<p>Datasette doesn&#8217;t provide authentication by default, so <a href="https://docs.datasette.io/en/stable/authentication.html">you have to use a plugin for this</a>. I&#8217;ll be using <a href="https://github.com/simonw/datasette-auth-github">Github authentication</a> for now as it seems simple to&nbsp;add:</p>
+<div class="highlight"><pre><span></span><code>pip install datasette-auth-github
+</code></pre></div>
+
+<p>I&#8217;ve had to create a new github application and export the variables to my server, and add some configuration to my <code>metadata.yaml</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">allow</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gh_login</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">almet</span>
+
+<span class="nt">plugins</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">datasette-auth-github</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">client_id</span><span class="p">:</span>
+<span class="w">      </span><span class="s">&quot;$env&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITHUB_CLIENT_ID</span>
+<span class="w">    </span><span class="nt">client_secret</span><span class="p">:</span>
+<span class="w">      </span><span class="s">&quot;$env&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GITHUB_CLIENT_SECRET</span>
+</code></pre></div>
+
+<p>If that&#8217;s useful to you, here is <a href="https://gitlab.com/almet/timetracker-datasette-deploy">the git repository</a> I&#8217;m deploying to my&nbsp;server.</p>
+<h2 id="using-templates">Using&nbsp;templates</h2>
+<p>Okay, I now want to be able to send my clients an <span class="caps">URL</span> on which they can see what I&#8217;ve been doing, and what I&#8217;ve been using my time&nbsp;on.</p>
+<p>The&nbsp;documentation</p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/datasette.html">#Datasette</a>,         <a href="https://blog.notmyidea.org/tag/deployment.html">#Deployment</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>
