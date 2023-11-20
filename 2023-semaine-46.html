@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>2023, Semaine&nbsp;46 - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">2023, Semaine&nbsp;46</h1>
+	<p><em>Deuxième semaine de travail sur uMap.</em></p>
+	<time datetime="2023-11-20T00:00:00+01:00">20 novembre 2023</time>
+
+    
+</header>
+<article>
+    
+<p>Une semaine de progrès en cartographie et stockage de données. J&#8217;ai senti le besoin de mieux m&#8217;organiser pour améliorer l&#8217;équilibre travail /&nbsp;perso.</p>
+<h2 id="ce-qui-sest-passe">Ce qui s&#8217;est&nbsp;passé</h2>
+<p><strong><a href="https://github.com/umap-project/umap/">uMap</a></strong></p>
+<p>Je continue mon exploration autour des solutions techniques pour faire de la cartographie temps réelle. J&#8217;ai pris le temps de comprendre différents concepts qui m&#8217;échappaient dans le monde du <span class="caps">SIG</span>. Je comprends maintenant mieux à quoi servent des projets comme <a href="https://docs.protomaps.com/pmtiles/">pmtiles</a> par&nbsp;exemple.</p>
+<p>On a fait de la revue de code avec Yohann sur une manière de faire de la résolution de conflits de manière optimiste, la <span class="caps">PR</span> est presque&nbsp;prête.</p>
+<p>J&#8217;ai exploré ensuite les différentes possibilités de stockage de données,  entre autres en me disant que peut-être SQLite était une bonne piste. J&#8217;ai pu faire des tests d&#8217;utilisation de SQLite dans le navigateur, ce qui fonctionne, <a href="https://github.com/vlcn-io/cr-sqlite">et permet de la réplication en utilisant des CRDTs en interne</a>&nbsp;!</p>
+<p><strong><a href="https://chariotte.fr/">Chariotte</a></strong></p>
+<p>J&#8217;ai passé un peu de temps à préparer la migration vers les services d&#8217;AlwaysData. Je me sens rouillé. Tout marche, mais me prends plus de temps que&nbsp;prévu.</p>
+<p><strong>Le groupe, le&nbsp;jeu</strong></p>
+<p>On a bossé une journée avec <a href="https://www.samuelgenin.fr">Sam</a>, et on a découvert <a href="https://github.com/klembot/twinejs">TwineJS</a>, un outil qui permet de travailler sur des histoires à choix multiples. J&#8217;ai fait un outil qui permet d&#8217;importer le format Twee dans notre (futur)&nbsp;jeu.ÒÒ</p>
+<p><strong>Notmyidea</strong></p>
+<p>J&#8217;ai pris du temps cette semaine pour mettre en place une station de travail digne de ce nom. Si je n&#8217;ai pas terminé, je suis content de pouvoir utiliser <a href="https://asahilinux.org/">Asahi Linux</a> sur mon Mac. Certains logiciels (dont Keybase) ne sont pas disponible pour cette architecture logicielle, ce qui m&#8217;a donné du fil à&nbsp;retordre.</p>
+<p>J&#8217;espère bientôt pouvoir migrer complètement dessus, et me faire une session de travail et une session perso comme j&#8217;ai pu faire par le&nbsp;passé.</p>
+<h2 id="des-joies">Des joies&nbsp;🤗</h2>
+<ul>
+<li>Prendre une journée pour faire complètement autre chose. C&#8217;est super de pouvoir m&#8217;organiser comme je&nbsp;l&#8217;entends.</li>
+<li>Recommencer à faire du trombone avec d&#8217;autres personnes. Je ne pensais pas que ça me donnerait autant&nbsp;d&#8217;énergie.</li>
+<li>J&#8217;arrive à mettre des mots sur ce qui s&#8217;est passé pour moi cet été. Je suis content,&nbsp;j&#8217;avance.</li>
+<li>Je prends toujours du plaisir à coder en&nbsp;Elm.</li>
+<li>J&#8217;ai pris beaucoup de plaisir à monter en compétences sur les sujets autour du stockage hors ligne et sur la synchronisation de&nbsp;données.</li>
+<li>Récupérer un lit et meubler ma chambre avec une grande bibliothèque ! C&#8217;est fou comme ça peut faire la&nbsp;différence.</li>
+<li>Avoir un soutien émotionnel extérieur qui ne pèse pas sur mes proches. Je mesure combien ça m&#8217;est précieux et ce que j&#8217;en&nbsp;retire.</li>
+<li>Réussir à expliciter mes besoins auprès de mes&nbsp;proches. </li>
+<li>Une super soirée hors du temps à discuter, se marrer, manger. Qu&#8217;est-ce que ça fait du bien&nbsp;!</li>
+<li>Sentir que l&#8217;approche systémiste m&#8217;aide à mieux analyser certains&nbsp;conflits.</li>
+</ul>
+<h2 id="des-peines">Des peines&nbsp;😬</h2>
+<ul>
+<li>J&#8217;ai culpabilisé à prendre du temps pour apprendre des choses que je ne sais pas, alors même que c&#8217;est ce pour quoi je suis payé. Heureusement que l&#8217;équipe est bienveillante :-) La vie n&#8217;est pas une compétition&nbsp;!</li>
+<li>j&#8217;ai senti les choses flotter à plusieurs reprises lors d&#8217;une visio, alors que j&#8217;aurais aimé plus de cadre. J&#8217;ai envie de me prendre un temps de préparation pour rendre ces moments plus&nbsp;utiles.</li>
+<li>J&#8217;étais désorganisé durant ma semaine de travail. J&#8217;ai fini par couper les sources de distractions (chat, mails). J&#8217;ai envie de commencer cette semaine par une session de planning, on verra ou ça me&nbsp;mène.</li>
+</ul>
+<h2 id="vu-lu-ecoute">Vu, lu,&nbsp;écouté</h2>
+<ul>
+<li>🎧 Écouté <a href="https://www.radiofrance.fr/franceculture/podcasts/serie-israel-palestine-les-mots-de-la-guerre">une série de podcasts courts autour du conflit israélo-palestinien</a> sur France Culture. Faire des définitions me parle bien et donne beaucoup du contexte que je&nbsp;manquais.</li>
+<li>🫣 Je suis allé à l&#8217;opéra de Rennes et j&#8217;ai détesté l&#8217;expérience. L&#8217;impression de voir une culture de l&#8217;ancien monde se reproduire en direct.&nbsp;Brrr.</li>
+</ul>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>

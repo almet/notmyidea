@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Importing a PostgreSQL dump under a different table&nbsp;name - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Importing a PostgreSQL dump under a different table&nbsp;name</h1>
+	<p><em>Simple commands to help you during an import</em></p>
+	<time datetime="2023-11-20T00:00:00+01:00">20 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>For <a href="https://chariotte.fr">Chariotte</a>, I&#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&nbsp;system.</p>
+<h2 id="decrypting-the-dump">Decrypting the&nbsp;dump</h2>
+<p>First off, the import I received was encrypted, so I had to decrypt it. It took me some time to figure out that both my private <strong>and public</strong> keys needed to be imported to the pgp. Once that was done, I could decrypt&nbsp;with</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Decrypt the file</span>
+gpg<span class="w"> </span>--decrypt<span class="w"> </span>hb_chariotte_prod.pgdump.asc<span class="w"> </span>&gt;<span class="w"> </span>hb_chariotte_prod.pgdump
+
+<span class="c1"># Upload it to the server with scp</span>
+scp<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w">  </span>chariotte:.
+</code></pre></div>
+
+<h2 id="importing-while-changing-acls-and-table-name">Importing while changing ACLs and table&nbsp;name</h2>
+<p>On the server, here is the command to change the name of the database and the user. The file I received was using the so-called &#8220;custom&#8221; format, which is not editable with a simple editor, so you have to export it to <span class="caps">SQL</span> first, and then edit it before running the actual&nbsp;queries.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Convert to SQL, then replace the table name with the new one, and finally run the SQL statements.</span>
+pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/hb_chariotte_prod/chariotte_temp/g&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>chariotte_temp<span class="w"> </span>-d<span class="w"> </span>chariotte_temp<span class="w"> </span>-h<span class="w"> </span>yourhost
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/postgresql.html">#postgresql</a>,         <a href="https://blog.notmyidea.org/tag/sysadmin.html">#sysadmin</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>

@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-12T00:00:00+01:00</updated><entry><title>Deploying and customizing datasette</title><link href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html" rel="alternate"></link><published>2023-11-12T00:00:00+01:00</published><updated>2023-11-12T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-12:/deploying-and-customizing-datasette.html</id><summary type="html">&lt;p&gt;First, create the venv and install&amp;nbsp;everything&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-20T00:00:00+01:00</updated><entry><title>2023, Semaine 46</title><link href="https://blog.notmyidea.org/2023-semaine-46.html" rel="alternate"></link><published>2023-11-20T00:00:00+01:00</published><updated>2023-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-20:/2023-semaine-46.html</id><summary type="html">
+&lt;p&gt;Une semaine de progrès en cartographie et stockage de données. J&amp;#8217;ai senti le besoin de mieux m&amp;#8217;organiser pour améliorer l&amp;#8217;équilibre travail /&amp;nbsp;perso.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Je continue mon exploration autour des solutions techniques pour faire de la cartographie temps réelle. J&amp;#8217;ai pris le …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Une semaine de progrès en cartographie et stockage de données. J&amp;#8217;ai senti le besoin de mieux m&amp;#8217;organiser pour améliorer l&amp;#8217;équilibre travail /&amp;nbsp;perso.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Je continue mon exploration autour des solutions techniques pour faire de la cartographie temps réelle. J&amp;#8217;ai pris le temps de comprendre différents concepts qui m&amp;#8217;échappaient dans le monde du &lt;span class="caps"&gt;SIG&lt;/span&gt;. Je comprends maintenant mieux à quoi servent des projets comme &lt;a href="https://docs.protomaps.com/pmtiles/"&gt;pmtiles&lt;/a&gt; par&amp;nbsp;exemple.&lt;/p&gt;
+&lt;p&gt;On a fait de la revue de code avec Yohann sur une manière de faire de la résolution de conflits de manière optimiste, la &lt;span class="caps"&gt;PR&lt;/span&gt; est presque&amp;nbsp;prête.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai exploré ensuite les différentes possibilités de stockage de données,  entre autres en me disant que peut-être SQLite était une bonne piste. J&amp;#8217;ai pu faire des tests d&amp;#8217;utilisation de SQLite dans le navigateur, ce qui fonctionne, &lt;a href="https://github.com/vlcn-io/cr-sqlite"&gt;et permet de la réplication en utilisant des CRDTs en interne&lt;/a&gt;&amp;nbsp;!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai passé un peu de temps à préparer la migration vers les services d&amp;#8217;AlwaysData. Je me sens rouillé. Tout marche, mais me prends plus de temps que&amp;nbsp;prévu.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le groupe, le&amp;nbsp;jeu&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On a bossé une journée avec &lt;a href="https://www.samuelgenin.fr"&gt;Sam&lt;/a&gt;, et on a découvert &lt;a href="https://github.com/klembot/twinejs"&gt;TwineJS&lt;/a&gt;, un outil qui permet de travailler sur des histoires à choix multiples. J&amp;#8217;ai fait un outil qui permet d&amp;#8217;importer le format Twee dans notre (futur)&amp;nbsp;jeu.ÒÒ&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notmyidea&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai pris du temps cette semaine pour mettre en place une station de travail digne de ce nom. Si je n&amp;#8217;ai pas terminé, je suis content de pouvoir utiliser &lt;a href="https://asahilinux.org/"&gt;Asahi Linux&lt;/a&gt; sur mon Mac. Certains logiciels (dont Keybase) ne sont pas disponible pour cette architecture logicielle, ce qui m&amp;#8217;a donné du fil à&amp;nbsp;retordre.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;espère bientôt pouvoir migrer complètement dessus, et me faire une session de travail et une session perso comme j&amp;#8217;ai pu faire par le&amp;nbsp;passé.&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Prendre une journée pour faire complètement autre chose. C&amp;#8217;est super de pouvoir m&amp;#8217;organiser comme je&amp;nbsp;l&amp;#8217;entends.&lt;/li&gt;
+&lt;li&gt;Recommencer à faire du trombone avec d&amp;#8217;autres personnes. Je ne pensais pas que ça me donnerait autant&amp;nbsp;d&amp;#8217;énergie.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;arrive à mettre des mots sur ce qui s&amp;#8217;est passé pour moi cet été. Je suis content,&amp;nbsp;j&amp;#8217;avance.&lt;/li&gt;
+&lt;li&gt;Je prends toujours du plaisir à coder en&amp;nbsp;Elm.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai pris beaucoup de plaisir à monter en compétences sur les sujets autour du stockage hors ligne et sur la synchronisation de&amp;nbsp;données.&lt;/li&gt;
+&lt;li&gt;Récupérer un lit et meubler ma chambre avec une grande bibliothèque ! C&amp;#8217;est fou comme ça peut faire la&amp;nbsp;différence.&lt;/li&gt;
+&lt;li&gt;Avoir un soutien émotionnel extérieur qui ne pèse pas sur mes proches. Je mesure combien ça m&amp;#8217;est précieux et ce que j&amp;#8217;en&amp;nbsp;retire.&lt;/li&gt;
+&lt;li&gt;Réussir à expliciter mes besoins auprès de mes&amp;nbsp;proches. &lt;/li&gt;
+&lt;li&gt;Une super soirée hors du temps à discuter, se marrer, manger. Qu&amp;#8217;est-ce que ça fait du bien&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Sentir que l&amp;#8217;approche systémiste m&amp;#8217;aide à mieux analyser certains&amp;nbsp;conflits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai culpabilisé à prendre du temps pour apprendre des choses que je ne sais pas, alors même que c&amp;#8217;est ce pour quoi je suis payé. Heureusement que l&amp;#8217;équipe est bienveillante :-) La vie n&amp;#8217;est pas une compétition&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;j&amp;#8217;ai senti les choses flotter à plusieurs reprises lors d&amp;#8217;une visio, alors que j&amp;#8217;aurais aimé plus de cadre. J&amp;#8217;ai envie de me prendre un temps de préparation pour rendre ces moments plus&amp;nbsp;utiles.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;étais désorganisé durant ma semaine de travail. J&amp;#8217;ai fini par couper les sources de distractions (chat, mails). J&amp;#8217;ai envie de commencer cette semaine par une session de planning, on verra ou ça me&amp;nbsp;mène.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/serie-israel-palestine-les-mots-de-la-guerre"&gt;une série de podcasts courts autour du conflit israélo-palestinien&lt;/a&gt; sur France Culture. Faire des définitions me parle bien et donne beaucoup du contexte que je&amp;nbsp;manquais.&lt;/li&gt;
+&lt;li&gt;🫣 Je suis allé à l&amp;#8217;opéra de Rennes et j&amp;#8217;ai détesté l&amp;#8217;expérience. L&amp;#8217;impression de voir une culture de l&amp;#8217;ancien monde se reproduire en direct.&amp;nbsp;Brrr.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>Importing a PostgreSQL dump under a different table name</title><link href="https://blog.notmyidea.org/importing-a-postgresql-dump-under-a-different-table-name.html" rel="alternate"></link><published>2023-11-20T00:00:00+01:00</published><updated>2023-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-20:/importing-a-postgresql-dump-under-a-different-table-name.html</id><summary type="html">&lt;p&gt;For &lt;a href="https://chariotte.fr"&gt;Chariotte&lt;/a&gt;, I&amp;#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&amp;nbsp;system.&lt;/p&gt;
+&lt;h2 id="decrypting-the-dump"&gt;Decrypting the&amp;nbsp;dump&lt;/h2&gt;
+&lt;p&gt;First off …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For &lt;a href="https://chariotte.fr"&gt;Chariotte&lt;/a&gt;, I&amp;#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&amp;nbsp;system.&lt;/p&gt;
+&lt;h2 id="decrypting-the-dump"&gt;Decrypting the&amp;nbsp;dump&lt;/h2&gt;
+&lt;p&gt;First off, the import I received was encrypted, so I had to decrypt it. It took me some time to figure out that both my private &lt;strong&gt;and public&lt;/strong&gt; keys needed to be imported to the pgp. Once that was done, I could decrypt&amp;nbsp;with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Decrypt the file&lt;/span&gt;
+gpg&lt;span class="w"&gt; &lt;/span&gt;--decrypt&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump.asc&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump
+
+&lt;span class="c1"&gt;# Upload it to the server with scp&lt;/span&gt;
+scp&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump&lt;span class="w"&gt;  &lt;/span&gt;chariotte:.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="importing-while-changing-acls-and-table-name"&gt;Importing while changing ACLs and table&amp;nbsp;name&lt;/h2&gt;
+&lt;p&gt;On the server, here is the command to change the name of the database and the user. The file I received was using the so-called &amp;#8220;custom&amp;#8221; format, which is not editable with a simple editor, so you have to export it to &lt;span class="caps"&gt;SQL&lt;/span&gt; first, and then edit it before running the actual&amp;nbsp;queries.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Convert to SQL, then replace the table name with the new one, and finally run the SQL statements.&lt;/span&gt;
+pg_restore&lt;span class="w"&gt; &lt;/span&gt;-C&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s/hb_chariotte_prod/chariotte_temp/g&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;psql&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;chariotte_temp&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;chariotte_temp&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt; &lt;/span&gt;yourhost
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="postgresql"></category><category term="sysadmin"></category></entry><entry><title>Deploying and customizing datasette</title><link href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html" rel="alternate"></link><published>2023-11-12T00:00:00+01:00</published><updated>2023-11-12T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-12:/deploying-and-customizing-datasette.html</id><summary type="html">&lt;p&gt;First, create the venv and install&amp;nbsp;everything&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Create and activate venv&lt;/span&gt;
 python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv
 &lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;venv/bin/activate
