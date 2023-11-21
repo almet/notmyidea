@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-20T00:00:00+01:00</updated><entry><title>Importing a PostgreSQL dump under a different table name</title><link href="https://blog.notmyidea.org/importing-a-postgresql-dump-under-a-different-table-name.html" rel="alternate"></link><published>2023-11-20T00:00:00+01:00</published><updated>2023-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-20:/importing-a-postgresql-dump-under-a-different-table-name.html</id><summary type="html">&lt;p&gt;For &lt;a href="https://chariotte.fr"&gt;Chariotte&lt;/a&gt;, I&amp;#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&amp;nbsp;system.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-21T00:00:00+01:00</updated><entry><title>Adding Real-Time Collaboration to uMap, second week</title><link href="https://blog.notmyidea.org/adding-real-time-collaboration-to-umap-second-week.html" rel="alternate"></link><published>2023-11-21T00:00:00+01:00</published><updated>2023-11-21T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-21:/adding-real-time-collaboration-to-umap-second-week.html</id><summary type="html">&lt;p&gt;I continued working on &lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;, an open-source map-making tool to create and share customizable maps, based on Open Street Map&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;Here is a summary of what I&amp;nbsp;did:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I reviewed, rebased and made some minor changes to &lt;a href="https://github.com/umap-project/umap/pull/772"&gt;a pull request which makes it possible to merge geojson features together …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I continued working on &lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;, an open-source map-making tool to create and share customizable maps, based on Open Street Map&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;Here is a summary of what I&amp;nbsp;did:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I reviewed, rebased and made some minor changes to &lt;a href="https://github.com/umap-project/umap/pull/772"&gt;a pull request which makes it possible to merge geojson features together&lt;/a&gt;&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;I&amp;#8217;ve explored around the idea of using SQLite inside the browser, for two reasons : it could make it possible to use the &lt;a href="https://www.gaia-gis.it/fossil/libspatialite/index"&gt;Spatialite&lt;/a&gt; extension, and it might help us to implement a &lt;span class="caps"&gt;CRDT&lt;/span&gt; with &lt;a href="https://github.com/vlcn-io/cr-sqlite"&gt;cr-sqlite&lt;/a&gt;&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;I learned a lot about the &lt;span class="caps"&gt;SIG&lt;/span&gt; field. This is a wide ecosystem with lots of moving parts, which I understand a bit better&amp;nbsp;now.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="the-optimistic-merge-approach"&gt;The optimistic-merge&amp;nbsp;approach&lt;/h2&gt;
+&lt;p&gt;There were an open pull request implementing an &amp;#8220;optimistic merge&amp;#8221;. We spent some time together with Yohan to understand what the pull request is doing, discuss it and made a few&amp;nbsp;changes.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s the logic of the&amp;nbsp;changes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On the server-side, we detect if we have a conflict between the incoming changes and what&amp;#8217;s stored on the server (is the last document save fresher than the &lt;code&gt;IF-UNMODIFIED-SINCE&lt;/code&gt; header we get ?)&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;In case of conflict, find back the reference document in the history (let&amp;#8217;s name this the &amp;#8220;local reference&amp;#8221;)&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Merge the 3 documents together, that is&amp;nbsp;:&lt;/li&gt;
+&lt;li&gt;Find what the the incoming changes are, by comparing the incoming doc to the local&amp;nbsp;reference.&lt;/li&gt;
+&lt;li&gt;Re-apply the changes on top of the latest&amp;nbsp;doc.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;One could compare this logic to what happens when you do a &lt;code&gt;git rebase&lt;/code&gt;. Here is some&amp;nbsp;pseudo-code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;merge_features&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;incoming&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Finds the changes between reference and entrant, and reapplies them on top of latest.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;entrant&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt;
+
+    &lt;span class="n"&gt;reference_deleted&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;incoming_added&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_difference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;incoming&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Ensure that items changed in the reference weren&amp;#39;t also changed in the latest.&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;removed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;reference_removed&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;removed&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;latest&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;ConflictError&lt;/span&gt;
+
+    &lt;span class="n"&gt;merged&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latest&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Reapply the changes on top of the latest.&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;removed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;reference_removed&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;merged&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;removed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;incoming_added&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;merged&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;added&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;merged&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The pull request is not ready yet, as I still want to add tests with real data, and enhance the naming, but that&amp;#8217;s a step in the right direction&amp;nbsp;:-)&lt;/p&gt;
+&lt;h2 id="using-sqlite-in-the-browser"&gt;Using SQLite in the&amp;nbsp;browser&lt;/h2&gt;
+&lt;p&gt;At the moment, (almost) everything is stored on the server side as GeoJSON files. They are simple to use, to read and to write, and having them on the storage makes it easy to handle multiple&amp;nbsp;revisions.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve been asked to challenge this idea for a moment. What if we were using some other technology to store the data? What would that give us? What would be the&amp;nbsp;challenges?&lt;/p&gt;
+&lt;p&gt;I went with SQLite, just to see what this would&amp;nbsp;mean.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SQLite is originally not made to work on a web browser, but thanks to Web Assembly, it&amp;#8217;s possible to use it. It&amp;#8217;s not &lt;strong&gt;that&lt;/strong&gt; big, but the library weights&amp;nbsp;2Mb.&lt;/li&gt;
+&lt;li&gt;With projects such as &lt;a href="https://github.com/vlcn-io/cr-sqlite"&gt;&lt;span class="caps"&gt;CR&lt;/span&gt;-SQLite&lt;/a&gt;, you get a way to add CRDTs on top of SQLite databases. Meaning that the clients could send their changes to other clients or to the server, and that it would be easy to integrate&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;The clients could retrieve just some part of the data to the server (e.g. by specifying a bounding box), which gives it the possibility to not load everything in memory if that&amp;#8217;s not&amp;nbsp;needed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to see how it would work, and what would be the challenges around this technology. I wrote a small application with it. Turns out writing to a local in-browser SQLite&amp;nbsp;works.&lt;/p&gt;
+&lt;p&gt;Here is what it would look&amp;nbsp;like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each client will get a copy of the database, alongside a version&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;When clients send changes, you can just send the data since the last version&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Databases can be merged without loosing data, the operations done in &lt;span class="caps"&gt;SQL&lt;/span&gt; will trigger writes to a specific table, which will be used as a &lt;span class="caps"&gt;CRDT&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;#8217;m not sure SQLite by itself is useful here. It sure is fun, but I don&amp;#8217;t see what we get in comparison with a more classical &lt;span class="caps"&gt;CRDT&lt;/span&gt; approach, except complexity. The technology is still quite young and rough to the edges, and uses Rust and WebASM, which are still strange beasts to&amp;nbsp;me.  &lt;/p&gt;
+&lt;h2 id="related-projects-in-the-sig-field"&gt;Related projects in the &lt;span class="caps"&gt;SIG&lt;/span&gt;&amp;nbsp;field&lt;/h2&gt;
+&lt;p&gt;Here are some interesting projects I&amp;#8217;ve found this week&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://allartk.github.io/leaflet.offline/"&gt;Leaflet.offline&lt;/a&gt; allows to store the tiles offline&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mapbox/geojson-vt"&gt;geojson-vt&lt;/a&gt; uses the concept of &amp;#8220;vector tiles&amp;#8221; I didn&amp;#8217;t know about. Tiles can return binary or vectorial data, which can be useful to just get the data in one specific bounding box This allows us for instance to store GeoJSON in vector&amp;nbsp;tiles.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mapbox/mapbox-gl-js"&gt;mapbox-gl-js&lt;/a&gt; makes it possible to render &lt;span class="caps"&gt;SIG&lt;/span&gt;-related data using WebGL (no connection with&amp;nbsp;Leaflet)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/BenjaminVadant/leaflet-ugeojson"&gt;leaflet-ugeojson&lt;/a&gt; and &lt;a href="https://github.com/jieter/Leaflet.Sync"&gt;leaflet.Sync&lt;/a&gt; allows multiple people to share the same view on a&amp;nbsp;map.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Two libraries seems useful for&amp;nbsp;us:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/ATran31/Leaflet-GeoSSE"&gt;Leaflet-GeoSSE&lt;/a&gt; makes it possible to use &lt;span class="caps"&gt;SSE&lt;/span&gt; (Server Sent Events) to update local data. It uses events (create, update, delete) and keys in the GeoJSON&amp;nbsp;features..&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/perliedman/leaflet-realtime"&gt;Leaflet Realtime&lt;/a&gt; does something a bit similar, but doesn&amp;#8217;t take care of the transport. It&amp;#8217;s meant to be used to track remote elements (a &lt;span class="caps"&gt;GPS&lt;/span&gt; tracker for&amp;nbsp;instance)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;#8217;m noting&amp;nbsp;that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In the two libraries, unique identifiers are added to the &lt;code&gt;features&lt;/code&gt; to allow for&amp;nbsp;updates.&lt;/li&gt;
+&lt;li&gt;None of these libraries makes it possible to track local changes. That&amp;#8217;s what&amp;#8217;s left to&amp;nbsp;find.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="how-to-transport-the-data"&gt;How to transport the&amp;nbsp;data?&lt;/h2&gt;
+&lt;p&gt;One of the related subjects is transportation of the data between the client and the server. When we&amp;#8217;ll get the local changes, we&amp;#8217;ll need to find a way to send this data to the other clients, and ultimately to the&amp;nbsp;server.&lt;/p&gt;
+&lt;p&gt;There are multiple ways to do this, and I spent some time trying to figure out the pros and cons of each approach. Here is a&amp;nbsp;list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WebRTC, the &lt;span class="caps"&gt;P2P&lt;/span&gt; approach&lt;/strong&gt;. You let the clients talk to each other. I&amp;#8217;m not sure where the server fits in this scenario. I&amp;#8217;ve yet to figure-out how this works out in real-case scenarii, where you&amp;#8217;re working behind a &lt;span class="caps"&gt;NAT&lt;/span&gt;, for instance. Also, what&amp;#8217;s the requirement on &lt;span class="caps"&gt;STUN&lt;/span&gt; / Turn servers,&amp;nbsp;etc. &lt;/li&gt;
+&lt;li&gt;Using &lt;strong&gt;WebSockets&lt;/strong&gt; seems nice at the first glance, but I&amp;#8217;m concerned about the resources this could take on the server. The requirement we have on &amp;#8220;real-time&amp;#8221; is not that big (e.g. if it&amp;#8217;s not immediate, it&amp;#8217;s&amp;nbsp;okay).&lt;/li&gt;
+&lt;li&gt;Using &lt;strong&gt;Server Sent Events&lt;/strong&gt; is another way to solve this, it seems lighter on the client and on the server. The server still needs to keep connexion opens, but I&amp;#8217;ve found some proxies which will do that for you, so it would be something to put between the uMap server and the &lt;span class="caps"&gt;HTTP&lt;/span&gt;&amp;nbsp;server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Polling&lt;/strong&gt; means less connexion open, but also that the server will need to keep track of the messages the clients have to get. It&amp;#8217;s easily solvable with a Redis queue for&amp;nbsp;instance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All of these scenarii are possible, and each of them has pros and cons. I&amp;#8217;ll be working on a document this week to better understand what&amp;#8217;s hidden behind each of these, so we can ultimately make a&amp;nbsp;choice.&lt;/p&gt;
+&lt;h3 id="server-sent-events-sse"&gt;Server-Sent Events (&lt;span class="caps"&gt;SSE&lt;/span&gt;)&lt;/h3&gt;
+&lt;p&gt;Here are some notes about &lt;span class="caps"&gt;SSE&lt;/span&gt;. I&amp;#8217;ve learned&amp;nbsp;that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="caps"&gt;SSE&lt;/span&gt; makes it so that server connections never ends (so it consumes a&amp;nbsp;process?)&lt;/li&gt;
+&lt;li&gt;There is a library in Django for this, named &lt;a href="https://github.com/fanout/django-eventstream"&gt;dajngo-eventstream&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://channels.readthedocs.io/en/latest/"&gt;Django channels&lt;/a&gt; aims at using &lt;span class="caps"&gt;ASGI&lt;/span&gt; for certain parts of the&amp;nbsp;app.&lt;/li&gt;
+&lt;li&gt;You don&amp;#8217;t have to handle all this in Django. It&amp;#8217;s possible to delegate it to &lt;a href="https://github.com/fastly/pushpin"&gt;pushpin&lt;/a&gt;, a proxy, using &lt;a href="https://github.com/fanout/django-grip"&gt;django-grip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It&amp;#8217;s questioning me in terms of infrastructure&amp;nbsp;changes.&lt;/p&gt;</content><category term="code"></category><category term="Python"></category><category term="CRDT"></category><category term="Sync"></category><category term="uMap"></category></entry><entry><title>Importing a PostgreSQL dump under a different database name</title><link href="https://blog.notmyidea.org/importing-a-postgresql-dump-under-a-different-database-name.html" rel="alternate"></link><published>2023-11-20T00:00:00+01:00</published><updated>2023-11-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-20:/importing-a-postgresql-dump-under-a-different-database-name.html</id><summary type="html">&lt;p&gt;For &lt;a href="https://chariotte.fr"&gt;Chariotte&lt;/a&gt;, I&amp;#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&amp;nbsp;system.&lt;/p&gt;
 &lt;h2 id="decrypting-the-dump"&gt;Decrypting the&amp;nbsp;dump&lt;/h2&gt;
 &lt;p&gt;First off …&lt;/p&gt;</summary><content type="html">&lt;p&gt;For &lt;a href="https://chariotte.fr"&gt;Chariotte&lt;/a&gt;, I&amp;#8217;ve had to do an import from one system to the other. I had no control on the export I received. It contained the database name and the ACLs, which I had to change to match the ones on the new&amp;nbsp;system.&lt;/p&gt;
 &lt;h2 id="decrypting-the-dump"&gt;Decrypting the&amp;nbsp;dump&lt;/h2&gt;
@@ -11,7 +109,7 @@ gpg&lt;span class="w"&gt; &lt;/span&gt;--decrypt&lt;span class="w"&gt; &lt;/span
 scp&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump&lt;span class="w"&gt;  &lt;/span&gt;chariotte:.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id="importing-while-changing-acls-and-table-name"&gt;Importing while changing ACLs and table&amp;nbsp;name&lt;/h2&gt;
+&lt;h2 id="importing-while-changing-acls-and-database-name"&gt;Importing while changing ACLs and database&amp;nbsp;name&lt;/h2&gt;
 &lt;p&gt;On the server, here is the command to change the name of the database and the user. The file I received was using the so-called &amp;#8220;custom&amp;#8221; format, which is not editable with a simple editor, so you have to export it to &lt;span class="caps"&gt;SQL&lt;/span&gt; first, and then edit it before running the actual&amp;nbsp;queries.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Convert to SQL, then replace the table name with the new one, and finally run the SQL statements.&lt;/span&gt;
 pg_restore&lt;span class="w"&gt; &lt;/span&gt;-C&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;hb_chariotte_prod.pgdump&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;sed&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s/hb_chariotte_prod/chariotte_temp/g&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;psql&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;chariotte_temp&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;chariotte_temp&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt; &lt;/span&gt;yourhost
@@ -82,7 +180,317 @@ du&lt;span class="w"&gt; &lt;/span&gt;-sh&lt;span class="w"&gt; &lt;/span&gt;ven
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Which looks like this&amp;nbsp;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Alt text" src="/images/datasette/custom-template.png"&gt;&lt;/p&gt;</content><category term="code"></category><category term="Datasette"></category><category term="Deployment"></category></entry><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/datasette/custom-template.png"&gt;&lt;/p&gt;</content><category term="code"></category><category term="Datasette"></category><category term="Deployment"></category></entry><entry><title>Adding Real-Time Collaboration to uMap, first week</title><link href="https://blog.notmyidea.org/adding-real-time-collaboration-to-umap-first-week.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/adding-real-time-collaboration-to-umap-first-week.html</id><summary type="html">&lt;p&gt;Last week, I&amp;#8217;ve been lucky to start working on &lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;, an open-source map-making tool to create and share customizable maps, based on Open Street Map&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;My goal is to add real-time collaboration to uMap, but &lt;strong&gt;we first want to be sure to understand the issue correctly&lt;/strong&gt;. There are …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Last week, I&amp;#8217;ve been lucky to start working on &lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;, an open-source map-making tool to create and share customizable maps, based on Open Street Map&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;My goal is to add real-time collaboration to uMap, but &lt;strong&gt;we first want to be sure to understand the issue correctly&lt;/strong&gt;. There are multiple ways to solve this, so one part of the journey is to understand the problem properly (then, we&amp;#8217;ll be able to chose the right path&amp;nbsp;forward).&lt;/p&gt;
+&lt;p&gt;Part of the work is documenting it, so expect to see some blog posts around this in the&amp;nbsp;future.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;ve started by installing uMap on my machine, made it work and read the codebase. uMap is written in Python and Django, and using old school Javascript, specifically using the Leaflet library for &lt;span class="caps"&gt;SIG&lt;/span&gt;-related&amp;nbsp;interface.&lt;/p&gt;
+&lt;p&gt;Installing uMap was simple. On a&amp;nbsp;mac:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create the venv and activate&amp;nbsp;it&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;venv&lt;span class="w"&gt; &lt;/span&gt;venv
+&lt;span class="nb"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;venv/bin/activate
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install the deps : &lt;code&gt;brew install postgis&lt;/code&gt; (this will take some time to&amp;nbsp;complete)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;createuser&lt;span class="w"&gt; &lt;/span&gt;umap
+createdb&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-O&lt;span class="w"&gt; &lt;/span&gt;umap
+psql&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CREATE EXTENSION postgis&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Copy the default config with &lt;code&gt;cp umap/settings/local.py.sample umap.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Copy the default config to umap.conf&lt;/span&gt;
+cp&lt;span class="w"&gt; &lt;/span&gt;umap/settings/local.py.sample&lt;span class="w"&gt; &lt;/span&gt;umap.conf
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;UMAP_SETTINGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~/dev/umap/umap.conf
+make&lt;span class="w"&gt; &lt;/span&gt;install
+make&lt;span class="w"&gt; &lt;/span&gt;installjs
+make&lt;span class="w"&gt; &lt;/span&gt;vendors
+umap&lt;span class="w"&gt; &lt;/span&gt;migrate
+umap&lt;span class="w"&gt; &lt;/span&gt;runserver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="and-youre-done"&gt;And you&amp;#8217;re&amp;nbsp;done!&lt;/h2&gt;
+&lt;p&gt;On Arch Linux, I had to do some changes, but all in all it was&amp;nbsp;simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;createuser&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;postgres
+createdb&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-O&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;postgres
+psql&lt;span class="w"&gt; &lt;/span&gt;umap&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CREATE EXTENSION postgis&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-Upostgres
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Depending on your installation, you might need to change the &lt;span class="caps"&gt;USER&lt;/span&gt; that connects the&amp;nbsp;database.&lt;/p&gt;
+&lt;p&gt;The configuration could look like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;default&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;ENGINE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;django.contrib.gis.db.backends.postgis&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;NAME&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;umap&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;USER&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;postgres&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="how-its-currently-working"&gt;How it&amp;#8217;s currently&amp;nbsp;working&lt;/h2&gt;
+&lt;p&gt;With everything working on my machine, I took some time to read the code and understand
+the current code&amp;nbsp;base.&lt;/p&gt;
+&lt;p&gt;Here are my findings&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uMap is currently using a classical client/server architecture where&amp;nbsp;:&lt;/li&gt;
+&lt;li&gt;The server is here mainly to handle access rights, store the data and send it over to the&amp;nbsp;clients.&lt;/li&gt;
+&lt;li&gt;The actual rendering and modifications of the map are directly done in JavaScript, on the&amp;nbsp;clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The data is split in multiple layers. At the time of writing, concurrent writes to the same layers are not possible, as one edit would potentially overwrite the other. It&amp;#8217;s possible to have concurrent edits on different layers,&amp;nbsp;though.&lt;/p&gt;
+&lt;p&gt;When a change occurs, &lt;a href="https://github.com/umap-project/umap/blob/c16a01778b4686a562d97fde1cfd3433777d7590/umap/views.py#L917-L948"&gt;each &lt;code&gt;DataLayer&lt;/code&gt; is sent by the client to the server&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The data is updated on the&amp;nbsp;server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If the data has been modified by another client&lt;/strong&gt;, an &lt;code&gt;HTTP 422 (Unprocessable Entity)&lt;/code&gt; status is returned, which makes it possible to detect conflicts. The users are prompted about it, and asked if they want to overwrite the&amp;nbsp;changes.&lt;/li&gt;
+&lt;li&gt;The files are stored as geojson files on the server as &lt;code&gt;{datalayer.pk}_{timestamp}.geojson&lt;/code&gt;. &lt;a href="https://github.com/umap-project/umap/blob/c16a01778b4686a562d97fde1cfd3433777d7590/umap/models.py#L426-L433"&gt;A history of the last changes is preserved&lt;/a&gt; (The default settings preserves the last 10&amp;nbsp;revisions).&lt;/li&gt;
+&lt;li&gt;The data is stored &lt;a href="https://github.com/umap-project/umap/blob/c16a01778b4686a562d97fde1cfd3433777d7590/umap/static/umap/js/umap.js#L158-L163"&gt;in a Leaflet object&lt;/a&gt; and &lt;a href="https://github.com/umap-project/umap/blob/c16a01778b4686a562d97fde1cfd3433777d7590/umap/static/umap/js/umap.js#L1095:L1095"&gt;backups are made manually&lt;/a&gt; (it does not seem that changes are saved&amp;nbsp;automatically).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="data"&gt;Data&lt;/h3&gt;
+&lt;p&gt;Each layer consists&amp;nbsp;of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On one side are the properties (matching the &lt;code&gt;_umap_options&lt;/code&gt;), and on the other, the geojson data (the Features&amp;nbsp;key).&lt;/li&gt;
+&lt;li&gt;Each feature is composed of three&amp;nbsp;keys:&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;geometry&lt;/strong&gt;: the actual geo&amp;nbsp;object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;properties&lt;/strong&gt;: the data associated with&amp;nbsp;it&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;style&lt;/strong&gt;: just styling information which goes with it, if&amp;nbsp;any.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="JSON representation of the umap options" src="/images/umap/umap-options.png"&gt;
+&lt;img alt="JSON representation of the umap features" src="/images/umap/umap-features.png"&gt;&lt;/p&gt;
+&lt;h2 id="real-time-collaboration-the-different-approaches"&gt;Real-time collaboration : the different&amp;nbsp;approaches&lt;/h2&gt;
+&lt;p&gt;Behind the &amp;#8220;real-time collaboration&amp;#8221; name, we have&amp;nbsp;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;streaming of the changes to the clients&lt;/strong&gt;: when you&amp;#8217;re working with other persons on the same map, you can see their edits at the moment they&amp;nbsp;happen.&lt;/li&gt;
+&lt;li&gt;The ability to handle &lt;strong&gt;concurrent changes&lt;/strong&gt;: some changes can happen on the same data concurrently. In such a case, we need to merge them together and be able&amp;nbsp;to  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Offline editing&lt;/strong&gt;: in some cases, one needs to map data but doesn&amp;#8217;t have access to a network. Changes happen on a local device and is then synced with other devices / the server&amp;nbsp;;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Keep in mind these notes are just food for toughs, and that other approaches might be discovered on the&amp;nbsp;way&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve tried to come up with the different approaches I can follow in order to add the collaboration
+features we&amp;nbsp;want.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span class="caps"&gt;JSON&lt;/span&gt; Patch and &lt;span class="caps"&gt;JSON&lt;/span&gt; Merge Patch&lt;/strong&gt;: Two specifications by the &lt;span class="caps"&gt;IETF&lt;/span&gt; which define a format for generating and using diffs on json files. In this scenario, we could send the diffs from the clients to the server, and let it merge&amp;nbsp;everything.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Using CRDTs&lt;/strong&gt;: Conflict-Free Resolution Data Types are one of the other options we have lying around. The technology has been used mainly to solve concurrent editing on text documents (like &lt;a href="https://github.com/ether/etherpad-lite"&gt;etherpad-lite&lt;/a&gt;), but should work fine on&amp;nbsp;trees.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="json-patch-and-json-merge-patch"&gt;&lt;span class="caps"&gt;JSON&lt;/span&gt; Patch and &lt;span class="caps"&gt;JSON&lt;/span&gt; Merge&amp;nbsp;Patch&lt;/h3&gt;
+&lt;p&gt;I&amp;#8217;ve stumbled on two &lt;span class="caps"&gt;IETF&lt;/span&gt; specifications for &lt;a href="https://datatracker.ietf.org/doc/html/rfc6902"&gt;&lt;span class="caps"&gt;JSON&lt;/span&gt; Patch&lt;/a&gt; and &lt;a href="https://datatracker.ietf.org/doc/html/rfc7396"&gt;&lt;span class="caps"&gt;JSON&lt;/span&gt; Merge Patch&lt;/a&gt; which respectively define how &lt;span class="caps"&gt;JSON&lt;/span&gt; diffs could be defined and&amp;nbsp;applied.&lt;/p&gt;
+&lt;p&gt;There are multiple libraries for this, and at least one for &lt;a href="https://github.com/OpenDataServices/json-merge-patch"&gt;Python&lt;/a&gt;, &lt;a href="https://docs.rs/json-patch/latest/json_patch/"&gt;Rust&lt;/a&gt; and &lt;a href="https://www.npmjs.com/package/json-merge-patch"&gt;&lt;span class="caps"&gt;JS&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s even &lt;a href="https://redis.io/commands/json.merge/"&gt;supported by the Redis database&lt;/a&gt;, which might come handy in case we want to stream the changes with&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;If you&amp;#8217;re making edits to the map without changing all the data all the time, it&amp;#8217;s possible to generate diffs. For instance, let&amp;#8217;s take this simplified data (it&amp;#8217;s not valid geojson, but it should be enough for&amp;nbsp;testing):&lt;/p&gt;
+&lt;p&gt;source.json&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;features&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;not_changed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;whatever&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And now let&amp;#8217;s add a new object right after the first one&amp;nbsp;:&lt;/p&gt;
+&lt;p&gt;destination.geojson&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;features&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;another-value&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;not_changed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;whatever&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If we generate a&amp;nbsp;diff:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pipx&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;merge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;patch&lt;/span&gt;
+&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;merge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;patch&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;patch&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;features&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;another-value&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Multiple things to note&amp;nbsp;here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It&amp;#8217;s a valid &lt;span class="caps"&gt;JSON&lt;/span&gt;&amp;nbsp;object&lt;/li&gt;
+&lt;li&gt;It doesn&amp;#8217;t reproduce the &lt;code&gt;not_changed&lt;/code&gt; key&lt;/li&gt;
+&lt;li&gt;But… I was expecting to see only the new item to show up. Instead, we are getting two items here, because it&amp;#8217;s replacing the &amp;#8220;features&amp;#8221; key with everything&amp;nbsp;inside.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is actually what &lt;a href="https://datatracker.ietf.org/doc/html/rfc6902#section-4.1"&gt;the specification defines&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;4.1.&amp;nbsp;add&lt;/p&gt;
+&lt;p&gt;The &amp;#8220;add&amp;#8221; operation performs one of the following functions,
+ depending upon what the target location&amp;nbsp;references:&lt;/p&gt;
+&lt;p&gt;o  If the target location specifies an array index, a new value is
+    inserted into the array at the specified&amp;nbsp;index.&lt;/p&gt;
+&lt;p&gt;o  If the target location specifies an object member that does not
+    already exist, a new member is added to the&amp;nbsp;object&lt;/p&gt;
+&lt;p&gt;o  &lt;strong&gt;If the target location specifies an object member that does exist,
+    that member&amp;#8217;s value is&amp;nbsp;replaced.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It seems too bad for us, as this will happen each time a new feature is added to the feature&amp;nbsp;collection.&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s not working out of the box, but we could probably hack something together by having all features defined by a unique id, and send this to the server. We wouldn&amp;#8217;t be using vanilla &lt;code&gt;geojson&lt;/code&gt; files though, but adding some complexity on top of&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;At this point, I&amp;#8217;ve left this here and went to experiment with the other ideas. After all, the goal here is not (yet) to have something functional, but to clarify how the different options would play&amp;nbsp;off.&lt;/p&gt;
+&lt;h3 id="using-crdts"&gt;Using&amp;nbsp;CRDTs&lt;/h3&gt;
+&lt;p&gt;I&amp;#8217;ve had a look at the two main CRDTs implementation that seem to get traction these days : &lt;a href="https://automerge.org/"&gt;Automerge&lt;/a&gt; and &lt;a href="https://github.com/yjs/yjs"&gt;Yjs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve first tried to make Automerge work with Python, but the &lt;a href="https://github.com/automerge/automerge-py"&gt;Automerge-py&lt;/a&gt; repository is outdated now and won&amp;#8217;t build. I realized at this point that we might not even need a python&amp;nbsp;implementation: &lt;/p&gt;
+&lt;p&gt;In this scenario, the server could just stream the changes from one client to the other, and the &lt;span class="caps"&gt;CRDT&lt;/span&gt; will guarantee that the structures will be similar on both clients. It&amp;#8217;s handy because it means we won&amp;#8217;t have to implement the &lt;span class="caps"&gt;CRDT&lt;/span&gt; logic on the server&amp;nbsp;side. &lt;/p&gt;
+&lt;p&gt;Let&amp;#8217;s do some JavaScript, then. A simple Leaflet map would look like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;leaflet&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;leaflet/dist/leaflet.css&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Initialize the map and set its view to our chosen geographical coordinates and a zoom level:&lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;setView&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;48.1173&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.6778&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;13&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Add a tile layer to add to our map, in this case using Open Street Map&lt;/span&gt;
+&lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;tileLayer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;maxZoom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;attribution&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;© OpenStreetMap contributors&amp;#39;&lt;/span&gt;
+&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Initialize a GeoJSON layer and add it to the map&lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;geojsonFeature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Feature&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Initial Feature&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;popupContent&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This is where the journey begins!&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;geometry&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Point&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;coordinates&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.09&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;51.505&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;geojsonLayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;L&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;geoJSON&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;geojsonFeature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;onEachFeature&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;layer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;properties&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;properties&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;popupContent&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nx"&gt;layer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bindPopup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;properties&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;popupContent&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}).&lt;/span&gt;&lt;span class="nx"&gt;addTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Add new features to the map with a click&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;onMapClick&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Feature&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;New Feature&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;popupContent&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;You clicked the map at &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;latlng&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toString&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;geometry&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Point&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;coordinates&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;latlng&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;lng&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;latlng&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;lat&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Add the new feature to the geojson layer&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;geojsonLayer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;onMapClick&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nothing fancy here, just a map which adds markers when you click. Now let&amp;#8217;s add&amp;nbsp;automerge:&lt;/p&gt;
+&lt;p&gt;We add a bunch of imports, the goal here will be to sync between tabs of the same browser. Automerge &lt;a href="https://automerge.org/blog/2023/11/06/automerge-repo/"&gt;announced an automerge-repo&lt;/a&gt; library to help with all the wiring-up, so let&amp;#8217;s try it&amp;nbsp;out!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;DocHandle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;isValidAutomergeUrl&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Repo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;@automerge/automerge-repo&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;BroadcastChannelNetworkAdapter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;@automerge/automerge-repo-network-broadcastchannel&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;IndexedDBStorageAdapter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;@automerge/automerge-repo-storage-indexeddb&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;v4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;as&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;uuidv4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;uuid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;These were just import. Don&amp;#8217;t bother too much. The next section does the&amp;nbsp;following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instantiate an &amp;#8220;automerge repo&amp;#8221;, which helps to send the right messages to the other peers if needed&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Add a mechanism to create and initialize a repository if&amp;nbsp;needed,&lt;/li&gt;
+&lt;li&gt;or otherwise look for an existing one, based on a hash passed in the &lt;span class="caps"&gt;URI&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// Add an automerge repository. Sync to &lt;/span&gt;
+&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;repo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Repo&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;network&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ow"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;BroadcastChannelNetworkAdapter&lt;/span&gt;&lt;span class="p"&gt;()],&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;storage&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;IndexedDBStorageAdapter&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Automerge-repo exposes an handle, which is mainly a wrapper around the library internals.&lt;/span&gt;
+&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;DocHandle&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;unknown&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;rootDocUrl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;substring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;isValidAutomergeUrl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;rootDocUrl&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;rootDocUrl&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;await&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Once we&amp;#39;ve found the data in the browser, let&amp;#39;s add the features to the geojson layer.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;features&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;geojsonLayer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;repo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;await&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;change&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;features&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{});&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Let&amp;#8217;s change the &lt;code&gt;onMapClick&lt;/code&gt; function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;onMapClick&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;uuidv4&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// ... What was there previously&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Add the new feature to the geojson layer.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Here we use the handle to do the change.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;change&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;features&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And on the other side of the logic, let&amp;#8217;s listen to the&amp;nbsp;changes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;handle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;change&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;patches&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// &amp;quot;patches&amp;quot; is a list of all the changes that happened to the tree.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Because we&amp;#39;re sending JS objects, a lot of patches events are being sent.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// &lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// Filter to only keep first-level events (we currently don&amp;#39;t want to reflect&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// changes down the tree — yet)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;patches&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;patches&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;inserted&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;patches&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(({&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;action&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;features&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;action&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;put&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;inserted&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(({&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;doc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;features&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Adding a new feature at position &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;uuid&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nx"&gt;geojsonLayer&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;newFeature&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And… It&amp;#8217;s working, here is a little video capture of two tabs working together&amp;nbsp;:-)&lt;/p&gt;
+&lt;video controls preload="none" width="100%"
+poster="https://nuage.b.delire.party/s/kpP9ijfqabmKxnr"&gt;
+    &lt;source src="https://nuage.b.delire.party/s/kpP9ijfqabmKxnr/download"
+            type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;p&gt;It&amp;#8217;s very rough, but the point was mainly to see how the library can be used, and what the &lt;span class="caps"&gt;API&lt;/span&gt; looks like. I&amp;#8217;ve found that&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;patches&lt;/code&gt; object that&amp;#8217;s being sent to the &lt;code&gt;handle.on&lt;/code&gt; subscribers is very chatty: it contains all the changes, and I have to filter it to get what I&amp;nbsp;want.&lt;/li&gt;
+&lt;li&gt;I was expecting the objects to be sent on one go, but it&amp;#8217;s creating an operation for each change. For instance, setting a new object to a key will result in multiple events, as it will firstly create the object, and the populate&amp;nbsp;it.&lt;/li&gt;
+&lt;li&gt;Here I need to keep track of all the edits, but I&amp;#8217;m not sure how that will work out with for instance the offline use-case (or with limited connectivity). That&amp;#8217;s what I&amp;#8217;m going to find out next week, I guess&amp;nbsp;:-)&lt;/li&gt;
+&lt;li&gt;The team behind Automerge is very welcoming, and was prompt to answer me when&amp;nbsp;needed.&lt;/li&gt;
+&lt;li&gt;There seem to be another &lt;span class="caps"&gt;API&lt;/span&gt; &lt;code&gt;Automerge.getHistory()&lt;/code&gt;, and &lt;code&gt;Automerge.diff()&lt;/code&gt; to get a patch between the different docs, which might prove more helpful than getting all the small&amp;nbsp;patches.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We&amp;#8217;ll figure that out next week, I&amp;nbsp;guess!&lt;/p&gt;</content><category term="code"></category><category term="Python"></category><category term="CRDT"></category><category term="Sync"></category><category term="uMap"></category></entry><entry><title>Using Datasette for tracking my professional activity</title><link href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" rel="alternate"></link><published>2023-11-11T00:00:00+01:00</published><updated>2023-11-11T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-11:/using-datasette-for-tracking-my-professional-activity.html</id><summary type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I&amp;#8217;ve been following Simon Willison since quite some time, but I&amp;#8217;ve actually never played with his main project &lt;a href="https://datasette.io"&gt;Datasette&lt;/a&gt;&amp;nbsp;before.&lt;/p&gt;
 &lt;p&gt;As I&amp;#8217;m going back into development, I&amp;#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time I&amp;#8217;ve worked on such and such project. A discussion with &lt;a href="https://thom4.net/"&gt;Thomas&lt;/a&gt; made me realize it would be nice to track all this in a spreadsheet of some sort, which I was doing until&amp;nbsp;today.&lt;/p&gt;
 &lt;p&gt;Spreadsheets are nice, but they don&amp;#8217;t play well with rich content, and doing graphs with them is kind of tricky. So I went ahead and setup everything in&amp;nbsp;Datasette.&lt;/p&gt;

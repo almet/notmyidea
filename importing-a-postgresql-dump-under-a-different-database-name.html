@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Importing a PostgreSQL dump under a different table&nbsp;name - Alexis Métaireau</title>
+    <title>Importing a PostgreSQL dump under a different database&nbsp;name - Alexis Métaireau</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
@@ -29,7 +29,7 @@
     </section>
 
 <header>
-	<h1 class="post-title">Importing a PostgreSQL dump under a different table&nbsp;name</h1>
+	<h1 class="post-title">Importing a PostgreSQL dump under a different database&nbsp;name</h1>
 	<p><em>Simple commands to help you during an import</em></p>
 	<time datetime="2023-11-20T00:00:00+01:00">20 novembre 2023</time>
 
@@ -46,7 +46,7 @@ gpg<span class="w"> </span>--decrypt<span class="w"> </span>hb_chariotte_prod.pg
 scp<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w">  </span>chariotte:.
 </code></pre></div>
 
-<h2 id="importing-while-changing-acls-and-table-name">Importing while changing ACLs and table&nbsp;name</h2>
+<h2 id="importing-while-changing-acls-and-database-name">Importing while changing ACLs and database&nbsp;name</h2>
 <p>On the server, here is the command to change the name of the database and the user. The file I received was using the so-called &#8220;custom&#8221; format, which is not editable with a simple editor, so you have to export it to <span class="caps">SQL</span> first, and then edit it before running the actual&nbsp;queries.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Convert to SQL, then replace the table name with the new one, and finally run the SQL statements.</span>
 pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/hb_chariotte_prod/chariotte_temp/g&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>chariotte_temp<span class="w"> </span>-d<span class="w"> </span>chariotte_temp<span class="w"> </span>-h<span class="w"> </span>yourhost

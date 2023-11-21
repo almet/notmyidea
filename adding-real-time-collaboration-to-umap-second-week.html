@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Adding Real-Time Collaboration to uMap, second&nbsp;week - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class="selected"
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+
+<header>
+	<h1 class="post-title">Adding Real-Time Collaboration to uMap, second&nbsp;week</h1>
+	<p><em>A heads-up on what I've been doing this week on uMap</em></p>
+	<time datetime="2023-11-21T00:00:00+01:00">21 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>I continued working on <a href="https://github.com/umap-project/umap/">uMap</a>, an open-source map-making tool to create and share customizable maps, based on Open Street Map&nbsp;data.</p>
+<p>Here is a summary of what I&nbsp;did:</p>
+<ul>
+<li>I reviewed, rebased and made some minor changes to <a href="https://github.com/umap-project/umap/pull/772">a pull request which makes it possible to merge geojson features together</a>&nbsp;;</li>
+<li>I&#8217;ve explored around the idea of using SQLite inside the browser, for two reasons : it could make it possible to use the <a href="https://www.gaia-gis.it/fossil/libspatialite/index">Spatialite</a> extension, and it might help us to implement a <span class="caps">CRDT</span> with <a href="https://github.com/vlcn-io/cr-sqlite">cr-sqlite</a>&nbsp;;</li>
+<li>I learned a lot about the <span class="caps">SIG</span> field. This is a wide ecosystem with lots of moving parts, which I understand a bit better&nbsp;now.</li>
+</ul>
+<h2 id="the-optimistic-merge-approach">The optimistic-merge&nbsp;approach</h2>
+<p>There were an open pull request implementing an &#8220;optimistic merge&#8221;. We spent some time together with Yohan to understand what the pull request is doing, discuss it and made a few&nbsp;changes.</p>
+<p>Here&#8217;s the logic of the&nbsp;changes:</p>
+<ol>
+<li>On the server-side, we detect if we have a conflict between the incoming changes and what&#8217;s stored on the server (is the last document save fresher than the <code>IF-UNMODIFIED-SINCE</code> header we get ?)&nbsp;;</li>
+<li>In case of conflict, find back the reference document in the history (let&#8217;s name this the &#8220;local reference&#8221;)&nbsp;;</li>
+<li>Merge the 3 documents together, that is&nbsp;:</li>
+<li>Find what the the incoming changes are, by comparing the incoming doc to the local&nbsp;reference.</li>
+<li>Re-apply the changes on top of the latest&nbsp;doc.</li>
+</ol>
+<p>One could compare this logic to what happens when you do a <code>git rebase</code>. Here is some&nbsp;pseudo-code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">merge_features</span><span class="p">(</span><span class="n">reference</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">latest</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">incoming</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Finds the changes between reference and entrant, and reapplies them on top of latest.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">latest</span> <span class="o">==</span> <span class="n">entrant</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">latest</span>
+
+    <span class="n">reference_deleted</span><span class="p">,</span> <span class="n">incoming_added</span> <span class="o">=</span> <span class="n">get_difference</span><span class="p">(</span><span class="n">reference</span><span class="p">,</span> <span class="n">incoming</span><span class="p">)</span>
+
+    <span class="c1"># Ensure that items changed in the reference weren&#39;t also changed in the latest.</span>
+    <span class="k">for</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">reference_removed</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">removed</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">latest</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ConflictError</span>
+
+    <span class="n">merged</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+    <span class="c1"># Reapply the changes on top of the latest.</span>
+    <span class="k">for</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">reference_removed</span><span class="p">:</span>
+        <span class="n">merged</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">removed</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">added</span> <span class="ow">in</span> <span class="n">incoming_added</span><span class="p">:</span>
+        <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">added</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">merged</span>
+</code></pre></div>
+
+<p>The pull request is not ready yet, as I still want to add tests with real data, and enhance the naming, but that&#8217;s a step in the right direction&nbsp;:-)</p>
+<h2 id="using-sqlite-in-the-browser">Using SQLite in the&nbsp;browser</h2>
+<p>At the moment, (almost) everything is stored on the server side as GeoJSON files. They are simple to use, to read and to write, and having them on the storage makes it easy to handle multiple&nbsp;revisions.</p>
+<p>I&#8217;ve been asked to challenge this idea for a moment. What if we were using some other technology to store the data? What would that give us? What would be the&nbsp;challenges?</p>
+<p>I went with SQLite, just to see what this would&nbsp;mean.</p>
+<ul>
+<li>SQLite is originally not made to work on a web browser, but thanks to Web Assembly, it&#8217;s possible to use it. It&#8217;s not <strong>that</strong> big, but the library weights&nbsp;2Mb.</li>
+<li>With projects such as <a href="https://github.com/vlcn-io/cr-sqlite"><span class="caps">CR</span>-SQLite</a>, you get a way to add CRDTs on top of SQLite databases. Meaning that the clients could send their changes to other clients or to the server, and that it would be easy to integrate&nbsp;;</li>
+<li>The clients could retrieve just some part of the data to the server (e.g. by specifying a bounding box), which gives it the possibility to not load everything in memory if that&#8217;s not&nbsp;needed.</li>
+</ul>
+<p>I wanted to see how it would work, and what would be the challenges around this technology. I wrote a small application with it. Turns out writing to a local in-browser SQLite&nbsp;works.</p>
+<p>Here is what it would look&nbsp;like:</p>
+<ul>
+<li>Each client will get a copy of the database, alongside a version&nbsp;;</li>
+<li>When clients send changes, you can just send the data since the last version&nbsp;;</li>
+<li>Databases can be merged without loosing data, the operations done in <span class="caps">SQL</span> will trigger writes to a specific table, which will be used as a <span class="caps">CRDT</span>.</li>
+</ul>
+<p>I&#8217;m not sure SQLite by itself is useful here. It sure is fun, but I don&#8217;t see what we get in comparison with a more classical <span class="caps">CRDT</span> approach, except complexity. The technology is still quite young and rough to the edges, and uses Rust and WebASM, which are still strange beasts to&nbsp;me.  </p>
+<h2 id="related-projects-in-the-sig-field">Related projects in the <span class="caps">SIG</span>&nbsp;field</h2>
+<p>Here are some interesting projects I&#8217;ve found this week&nbsp;:</p>
+<ul>
+<li><a href="https://allartk.github.io/leaflet.offline/">Leaflet.offline</a> allows to store the tiles offline&nbsp;;</li>
+<li><a href="https://github.com/mapbox/geojson-vt">geojson-vt</a> uses the concept of &#8220;vector tiles&#8221; I didn&#8217;t know about. Tiles can return binary or vectorial data, which can be useful to just get the data in one specific bounding box This allows us for instance to store GeoJSON in vector&nbsp;tiles.</li>
+<li><a href="https://github.com/mapbox/mapbox-gl-js">mapbox-gl-js</a> makes it possible to render <span class="caps">SIG</span>-related data using WebGL (no connection with&nbsp;Leaflet)</li>
+<li><a href="https://github.com/BenjaminVadant/leaflet-ugeojson">leaflet-ugeojson</a> and <a href="https://github.com/jieter/Leaflet.Sync">leaflet.Sync</a> allows multiple people to share the same view on a&nbsp;map.</li>
+</ul>
+<p>Two libraries seems useful for&nbsp;us:</p>
+<ul>
+<li><a href="https://github.com/ATran31/Leaflet-GeoSSE">Leaflet-GeoSSE</a> makes it possible to use <span class="caps">SSE</span> (Server Sent Events) to update local data. It uses events (create, update, delete) and keys in the GeoJSON&nbsp;features..</li>
+<li><a href="https://github.com/perliedman/leaflet-realtime">Leaflet Realtime</a> does something a bit similar, but doesn&#8217;t take care of the transport. It&#8217;s meant to be used to track remote elements (a <span class="caps">GPS</span> tracker for&nbsp;instance)</li>
+</ul>
+<p>I&#8217;m noting&nbsp;that:</p>
+<ul>
+<li>In the two libraries, unique identifiers are added to the <code>features</code> to allow for&nbsp;updates.</li>
+<li>None of these libraries makes it possible to track local changes. That&#8217;s what&#8217;s left to&nbsp;find.</li>
+</ul>
+<h2 id="how-to-transport-the-data">How to transport the&nbsp;data?</h2>
+<p>One of the related subjects is transportation of the data between the client and the server. When we&#8217;ll get the local changes, we&#8217;ll need to find a way to send this data to the other clients, and ultimately to the&nbsp;server.</p>
+<p>There are multiple ways to do this, and I spent some time trying to figure out the pros and cons of each approach. Here is a&nbsp;list:</p>
+<ul>
+<li><strong>WebRTC, the <span class="caps">P2P</span> approach</strong>. You let the clients talk to each other. I&#8217;m not sure where the server fits in this scenario. I&#8217;ve yet to figure-out how this works out in real-case scenarii, where you&#8217;re working behind a <span class="caps">NAT</span>, for instance. Also, what&#8217;s the requirement on <span class="caps">STUN</span> / Turn servers,&nbsp;etc. </li>
+<li>Using <strong>WebSockets</strong> seems nice at the first glance, but I&#8217;m concerned about the resources this could take on the server. The requirement we have on &#8220;real-time&#8221; is not that big (e.g. if it&#8217;s not immediate, it&#8217;s&nbsp;okay).</li>
+<li>Using <strong>Server Sent Events</strong> is another way to solve this, it seems lighter on the client and on the server. The server still needs to keep connexion opens, but I&#8217;ve found some proxies which will do that for you, so it would be something to put between the uMap server and the <span class="caps">HTTP</span>&nbsp;server.</li>
+<li><strong>Polling</strong> means less connexion open, but also that the server will need to keep track of the messages the clients have to get. It&#8217;s easily solvable with a Redis queue for&nbsp;instance.</li>
+</ul>
+<p>All of these scenarii are possible, and each of them has pros and cons. I&#8217;ll be working on a document this week to better understand what&#8217;s hidden behind each of these, so we can ultimately make a&nbsp;choice.</p>
+<h3 id="server-sent-events-sse">Server-Sent Events (<span class="caps">SSE</span>)</h3>
+<p>Here are some notes about <span class="caps">SSE</span>. I&#8217;ve learned&nbsp;that:</p>
+<ul>
+<li><span class="caps">SSE</span> makes it so that server connections never ends (so it consumes a&nbsp;process?)</li>
+<li>There is a library in Django for this, named <a href="https://github.com/fanout/django-eventstream">dajngo-eventstream</a></li>
+<li><a href="https://channels.readthedocs.io/en/latest/">Django channels</a> aims at using <span class="caps">ASGI</span> for certain parts of the&nbsp;app.</li>
+<li>You don&#8217;t have to handle all this in Django. It&#8217;s possible to delegate it to <a href="https://github.com/fastly/pushpin">pushpin</a>, a proxy, using <a href="https://github.com/fanout/django-grip">django-grip</a></li>
+</ul>
+<p>It&#8217;s questioning me in terms of infrastructure&nbsp;changes.</p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/python.html">#Python</a>,         <a href="https://blog.notmyidea.org/tag/crdt.html">#CRDT</a>,         <a href="https://blog.notmyidea.org/tag/sync.html">#Sync</a>,         <a href="https://blog.notmyidea.org/tag/umap.html">#uMap</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>
