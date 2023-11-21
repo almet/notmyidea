@@ -93,7 +93,7 @@
 &lt;p&gt;Here are some notes about &lt;span class="caps"&gt;SSE&lt;/span&gt;. I&amp;#8217;ve learned&amp;nbsp;that:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="caps"&gt;SSE&lt;/span&gt; makes it so that server connections never ends (so it consumes a&amp;nbsp;process?)&lt;/li&gt;
-&lt;li&gt;There is a library in Django for this, named &lt;a href="https://github.com/fanout/django-eventstream"&gt;dajngo-eventstream&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;There is a library in Django for this, named &lt;a href="https://github.com/fanout/django-eventstream"&gt;django-eventstream&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://channels.readthedocs.io/en/latest/"&gt;Django channels&lt;/a&gt; aims at using &lt;span class="caps"&gt;ASGI&lt;/span&gt; for certain parts of the&amp;nbsp;app.&lt;/li&gt;
 &lt;li&gt;You don&amp;#8217;t have to handle all this in Django. It&amp;#8217;s possible to delegate it to &lt;a href="https://github.com/fastly/pushpin"&gt;pushpin&lt;/a&gt;, a proxy, using &lt;a href="https://github.com/fanout/django-grip"&gt;django-grip&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
