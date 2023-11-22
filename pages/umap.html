@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>uMap - Alexis Métaireau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://blog.notmyidea.org/theme/css/main.css?v2" type="text/css" />
+    <link href="https://blog.notmyidea.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="Alexis Métaireau ATOM Feed" />
+</head>
+
+<body>
+    <div id="content">
+    <section id="links">
+    <ul>
+        <li><a class="main" href="/">Alexis Métaireau</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/journal/index.html">Journal</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/code/">Code, etc.</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/lectures/">Lectures</a></li>
+        <li><a class=""
+            href="https://blog.notmyidea.org/projets.html">Projets</a></li>
+    </ul>
+    </section>
+<header>
+</header>
+<article>
+    <h2 id="mardi-23112023">Mardi 23/11/2023&nbsp;()</h2>
+<p>J&#8217;ai exploré l&#8217;utilisation de Websockets pour le transport, entre autre sa consommation mémoire, il semblerait que ce soit tout à fait acceptable (1gb de mémoire permet de gérer 1500 connexions&nbsp;concurrentes).</p>
+<p>WebRTC n&#8217;est <a href="https://gitlab.torproject.org/legacy/trac/-/issues/8178">actuellement pas supporté par Tor Browser </a>(<a href="https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41021">pour le moment</a>), donc j&#8217;imagine que c&#8217;est une fausse&nbsp;piste.</p>
+<h2 id="lundi-22112023-8h">Lundi 22/11/2023&nbsp;(8h)</h2>
+<p>Une matinée passée à la fois à préparer la semaine et à rédiger un résumé de ce que j&#8217;ai fait la semaine dernière.
+J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de merge de la <span class="caps">PR</span> de Biondi biondo, pour pouvoir l&#8217;expliquer dans un article de&nbsp;blog.</p>
+<p>L&#8217;après-midi j&#8217;ai participé à la weekly et lu l&#8217;article de blog de Figma qui explique leur approche pour implementer du temps&nbsp;réel.</p>
+<p>J&#8217;avance petit à petite sur la piste d&#8217;utiliser un <span class="caps">CRDT</span> &#8220;maison&#8221;, voire pas de <span class="caps">CRDT</span> du tout, en fonction de nos besoins réels. Un <span class="caps">CRDT</span> nous permettrait d&#8217;avoir plusieurs personnes qui travaillent en même temps sur une même feature (au sens GeoJSON), mais je ne sais pas encore si c&#8217;est un cas d&#8217;usage&nbsp;réel.</p>
+<h2 id="vendredi-17112023-6h">Vendredi 17/11/2023&nbsp;(6h)</h2>
+<p>J&#8217;ai passé du temps pour essayer de comprendre comment utiliser SQLite en local à l&#8217;intérieur d&#8217;un navigateur, en utilisant <a href="https://vlcn.io/docs/cr-sqlite/intro">cr-sqlite</a>. J&#8217;ai un prototype qui fonctionne à peu près et qui permet de récupérer les éditions en local pour les synchroniser avec une autre base&nbsp;SQLite.</p>
+<p>Fait un point avec l&#8217;équipe sur l&#8217;avancement général&nbsp;l&#8217;après-midi.</p>
+<p>Ensuite continué à creuser sur l&#8217;utilisation de SQLite avec&nbsp;cr-sqlite.</p>
+<p>Il faut donc:
+- Des clients qui savent quelle est leur version de la base de données qu&#8217;ils ont.
+- Lorsqu&#8217;ils envoie des modifications, on peut demander les modifs depuis la version qui était envoyée précédement.
+- Les bases de données peuvent-êtres mergées sans perte de données. Les opérations étant faites en <span class="caps">SQL</span>, un <span class="caps">CRDT</span> est en fait créé.
+- On peut récupérer un fichier SQLite en sortie et l&#8217;envoyer au serveur / le stocker en&nbsp;local.</p>
+<ul>
+<li>Exemple d&#8217;un syncer dans vlcn -&nbsp;https://github.com/vlcn-io/example-rest/blob/main/src/Syncer.ts</li>
+<li>https://observablehq.com/@tantaman/cr-sqlite-basic-setup</li>
+</ul>
+<h2 id="mardi-14112023-8h">Mardi 14/11/2023&nbsp;(8h)</h2>
+<p>Une matinée passée avec Yohan pour à la fois <a href="https://github.com/umap-project/umap/pull/772/">avancer sur la <span class="caps">PR</span> pour merger des conflits simples</a>. On a passé le code en revue et fait quelques changements cosmétiques qui devraient aider à la compréhension&nbsp;générale.</p>
+<p>La deuxième partie de la matinée à été utilisée pour discuter des découvertes et des questions que je me pose quand à comment faire pour ajouter ces fonctions de collaboration temps&nbsp;réel.</p>
+<p>Plusieurs trucs à noter :
+- Il est possible de challenger l&#8217;utilisation de geoJSON pour le stockage des données. On a parlé entre autres de pmtiles et de&nbsp;sqlite.</p>
+<p>J&#8217;ai passé un début d&#8217;après-midi à installer mon environnement de travail sur Linux, puis j&#8217;ai :
+- terminé de rebaser la pull request pour faire un merge optimiste.
+- amélioré la vitesse d&#8217;execution des&nbsp;tests</p>
+<p>Découvertes :
+- https://www.geopackage.org/
+-&nbsp;https://vlcn.io/docs/js/reactivity</p>
+<h2 id="lundi-13112023-8h">Lundi 13/11/2023&nbsp;(8h)</h2>
+<h3 id="leaflet-et-synchronisation">Leaflet et&nbsp;synchronisation</h3>
+<p>J&#8217;ai cherché à comprendre comment il serait possible de s&#8217;intégrer avec Leaflet. Je connais assez mal l&#8217;écosystème donc j&#8217;ai cherché les plugins autour de stockage de données et de la&nbsp;synchronisation.</p>
+<p>Beaucoup de clicks, de lecture et de compréhension des contours de l&#8217;écosystème <span class="caps">SIG</span>, et de l&#8217;écosystème de&nbsp;Leaflet.</p>
+<p>Deux bibliothèques me paraissent intéressantes dans notre&nbsp;cas:</p>
+<ul>
+<li><a href="https://github.com/ATran31/Leaflet-GeoSSE">Leaflet-GeoSSE</a>permet d&#8217;utiliser <span class="caps">SSE</span> (Server Sent Events) pour mettre à jour les données en local. Ça utilise des évènements (create, update, delete) et des clés dans les features&nbsp;GeoJSON.</li>
+<li><a href="https://github.com/perliedman/leaflet-realtime">Leaflet Realtime</a> fait un travail un peu similaire, mais ne parle pas du transport. C&#8217;est pensé pour faire du suivi sur un élément externe (tracker <span class="caps">GPS</span> par&nbsp;exemple)</li>
+</ul>
+<p>Je note que :
+- Dans les deux bibliothèques, des identifiants uniques sont donnés aux <code>features</code> pour pouvoir gérer leurs mises à jour.
+- Aucune des deux bibliothèque ne gère les ajouts de données et les modifications en local. C&#8217;est une partie qui me reste à&nbsp;trouver.</p>
+<h3 id="server-sent-events-sse">Server-Sent Events (<span class="caps">SSE</span>)</h3>
+<p>Tout ça m&#8217;a fait penser aux <span class="caps">SSE</span>, et au fait que je n&#8217;ai jamais implémenté ça dans une application en&nbsp;python.</p>
+<p>J&#8217;ai donc continué ma lecture sur ces sujets. J&#8217;ai appris que&nbsp;:</p>
+<ul>
+<li>Les <span class="caps">SSE</span> font que la connexion au serveur ne s&#8217;arrête jamais, (et donc potentiellement consomme un process&nbsp;?)</li>
+<li>Il y a une bibliothèque en Django pour gérer ça, nommée <a href="https://github.com/fanout/django-eventstream">dajngo-eventstream</a></li>
+<li><a href="https://channels.readthedocs.io/en/latest/">Django channels</a> est un projet qui vise à utiliser de l&#8217;<span class="caps">ASGI</span> pour certaines&nbsp;parties.</li>
+<li>La bonne nouvelle, c&#8217;est qu&#8217;il n&#8217;est pas forcement nécessaire de tout gérer avec Django. Il est possible de déléguer ça à <a href="https://github.com/fastly/pushpin">pushpin</a>, un proxy, en utilisant <a href="https://github.com/fanout/django-grip">django-grip</a></li>
+</ul>
+<p>Ça me questionne sur la complexité de l&#8217;opération en terme de&nbsp;déploiement.</p>
+<p>Vu qu&#8217;il s&#8217;agit à priori plus de clients qui travaillent ensemble, peut-être qu&#8217;un possibilité serait de les faire communiquer ensemble directement (en utilisant WebRTC par&nbsp;exemple).</p>
+<h3 id="etat-de-webrtc-en-2023">État de WebRTC en&nbsp;2023</h3>
+<p>Django pourrait jouer le role du serveur <span class="caps">STUN</span> (pour que le client connaisse son <span class="caps">IP</span> publique) et/ou <span class="caps">TURN</span> (pour faire le relai des messages si les clients n&#8217;arrivent pas à communiquer ensemble). Dans le cas du serveur <span class="caps">TURN</span>, on se retrouve avec la même problématique de déploiement plus&nbsp;complexe.</p>
+<p>Pros :
+- Aucune charge sur le&nbsp;serveur</p>
+<p>Cons :
+- Chaque client est connecté à tous les autres, et donc ça peut ne pas fonctionner si beaucoup d&#8217;éditions simultanées ont&nbsp;lieu.</p>
+<h2 id="-httpsgithubcomyjsy-webrtc">-&nbsp;https://github.com/yjs/y-webrtc</h2>
+<p>Quelques autres liens que j&#8217;ai trouvé utiles :
+- <a href="https://allartk.github.io/leaflet.offline/">Leaflet.offline</a> permet de stocker des données de tuile hors-ligne
+- <a href="https://github.com/mapbox/geojson-vt">geojson-vt</a>introduit le concept de &#8220;vector tiles&#8221; que je ne connaissais pas. Les tuiles peuvent donc retourner des données binaires (raster) ou bien des données vectorielles.
+  Ce projet permet de stocker du geojson dans des tuiles vectorielles.
+- <a href="https://github.com/mapbox/mapbox-gl-js">mapbox-gl-js</a> permet de faire un rendu de données cartographiques en utilisant WebGL (aucun lien avec Leaflet)
+- <a href="https://github.com/BenjaminVadant/leaflet-ugeojson">leaflet-ugeojson</a> et <a href="https://github.com/jieter/Leaflet.Sync">leaflet.Sync</a> permettent d&#8217;avoir des cartes dont la vue est&nbsp;synchronisée</p>
+<h2 id="mardi-07112023-8h">Mardi 07/11/2023&nbsp;(8h)</h2>
+<ul>
+<li>Lu la documentation&nbsp;d&#8217;automerge</li>
+<li>Commencé à faire un prototype pour voir le fonctionnement d&#8217;automerge en&nbsp;python</li>
+<li>Installé les dépendances rust, compilé&nbsp;automerge</li>
+<li>Réunion discussion avec Yohan sur mes questions et sur les différentes&nbsp;pistes</li>
+</ul>
+<h2 id="lundi-06112023-4h">Lundi 06/11/2023&nbsp;(4h)</h2>
+<ul>
+<li>Lu le code qui est dans uMap actuellement pour comprendre le fonctionnement&nbsp;actuel</li>
+<li>Commencé à rédiger un document avec les différentes options pour faire de la&nbsp;synchro</li>
+<li>Fais des recherches sur les différentes options pour faire de la&nbsp;synchro</li>
+</ul>
+</article>
+    <footer>
+    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
+    </footer>
+</div>
+</body>
+
+</html>
