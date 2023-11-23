@@ -1,5 +1,5 @@
 ---
-title: Importing a PostgreSQL dump under a different table name
+title: Importing a PostgreSQL dump under a different database name
 headline: Simple commands to help you during an import
 tags: postgresql, sysadmin
 ---
@@ -18,7 +18,7 @@ gpg --decrypt hb_chariotte_prod.pgdump.asc > hb_chariotte_prod.pgdump
 scp hb_chariotte_prod.pgdump  chariotte:.
 ```
 
-## Importing while changing ACLs and table name
+## Importing while changing ACLs and database name
 
 On the server, here is the command to change the name of the database and the user. The file I received was using the so-called "custom" format, which is not editable with a simple editor, so you have to export it to SQL first, and then edit it before running the actual queries.
 

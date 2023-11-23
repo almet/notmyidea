@@ -6,21 +6,21 @@
 {% endblock extra_head %}
 {% block content %}
   <header>
-    <h1 class="post-title">
-      {{ page.title }}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if "total_days" in page.metadata.keys() %}
       {% set percentage = page.metadata.worklog['percentage'] %}
       {% set total_blocks = 10 %}
       {% set percentage_value = (percentage / 100.0) %}
-      {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor')) | int %}
+      {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor') ) | int %}
       {% set empty_blocks = total_blocks - full_blocks %}
       <div class="progressbar">
         {# Display full blocks #}
         {% for i in range(full_blocks) %}▓{% endfor %}
         {# Display empty blocks #}
         {% for i in range(empty_blocks) %}░{% endfor %}
-        {{ percentage }}%
+        {{ percentage }}% ({{ page.metadata.worklog['done_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
       </div>
-    </h1>
+    {% endif %}
   </header>
   <article>
     <div id="vis"></div>
@@ -37,7 +37,7 @@
           "values": [
           {% for date, item in page.metadata.worklog.data.items() %}
             {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}},
-            {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volonteer_hours'] }}},
+            {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volunteer_hours'] }}},
           {% endfor %}
           ]
         }

@@ -1,12 +1,13 @@
-import os.path
-from datetime import datetime
 import locale
+import os.path
+import re
+from datetime import datetime
+from pathlib import Path
 
 from markdown.preprocessors import Preprocessor
 from pelican import signals
 from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
-import re
 
 locale.setlocale(locale.LC_TIME, "fr_FR")
 
@@ -24,7 +25,7 @@ class WorklogPreprocessor(Preprocessor):
         (?:,\s*(\d{1,2})h\s*bénévoles)? # Optionally 'volunteer hours 'bénévoles'
         ,?                            # An optional comma
         \s*                           # Optional whitespace
-        (?:plaisir\s+)?               # Optionally 'plaisir' (text) followed by whitespace
+        (?:fun\s+)?                   # Optionally 'fun' (text) followed by whitespace
         (\d)/5                        # Happiness rating (mandatory, always present)
         \)                            # Closing parenthesis
         """,
@@ -40,36 +41,54 @@ class WorklogPreprocessor(Preprocessor):
         for line in lines:
             if line.startswith("##"):
                 match = re.search(self.pattern, line)
-                print(match)
-                if match:
-                    (
-                        day_of_week,
-                        day,
-                        month,
-                        year,
-                        payed_hours,
-                        volonteer_hours,
-                        happiness,
-                    ) = match.groups()
+                if not match:
+                    raise ValueError("Unable to parse worklog title", line)
+                (
+                    day_of_week,
+                    day,
+                    month,
+                    year,
+                    payed_hours,
+                    volunteer_hours,
+                    happiness,
+                ) = match.groups()
 
-                    volonteer_hours = int(volonteer_hours) if volonteer_hours else 0
-                    payed_hours = int(payed_hours)
-                    happiness = int(happiness)
+                volunteer_hours = int(volunteer_hours) if volunteer_hours else 0
+                payed_hours = int(payed_hours)
+                happiness = int(happiness)
 
-                    date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
-                    self.data[date.strftime("%Y-%m-%d")] = {
-                        "payed_hours": payed_hours,
-                        "volonteer_hours": volonteer_hours,
-                        "happyness": happiness,
-                    }
+                date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
+                self.data[date.strftime("%Y-%m-%d")] = {
+                    "payed_hours": payed_hours,
+                    "volunteer_hours": volunteer_hours,
+                    "happyness": happiness,
+                }
 
-                    # Replace the line with just the date
-                    new_lines.append(f"## 🗓️ {day_of_week} {day} {month} {year}")
-                else:
-                    new_lines.append(line)
+                # Replace the line with just the date
+                new_lines.append(f"## 🗓️ {day_of_week} {day} {month} {year}")
             else:
                 new_lines.append(line)
         return new_lines
+
+    def compute_data(self, metadata):
+        done_hours = sum([item["payed_hours"] for item in self.data.values()])
+
+        data = dict(
+            data=self.data,
+            done_hours=done_hours,
+            template="worklog",
+        )
+
+        if "total_days" in metadata:
+            total_hours = int(metadata["total_days"]) * 7
+            data.update(
+                dict(
+                    total_hours=total_hours,
+                    percentage=round(done_hours / total_hours * 100),
+                )
+            )
+
+        return data
 
 
 class SimpleReader(MarkdownReader):
@@ -85,8 +104,10 @@ class SimpleReader(MarkdownReader):
         self._source_path = source_path
         self._md = Markdown(**self.settings["MARKDOWN"])
 
-        worklog = WorklogPreprocessor(self._md)
-        if "worklog" in source_path:
+        is_worklog = Path(source_path).parent.match("pages/worklog")
+
+        if is_worklog:
+            worklog = WorklogPreprocessor(self._md)
             self._md.preprocessors.register(worklog, "worklog", 20)
 
         with pelican_open(source_path) as text:
@@ -98,16 +119,8 @@ class SimpleReader(MarkdownReader):
             metadata = {}
 
         # Add the worklog info to the metadata
-        if "worklog" in source_path:
-            done_hours = sum([item["payed_hours"] for item in worklog.data.values()])
-            total_hours = int(metadata["total_days"]) * 8
-            metadata["worklog"] = {
-                "data": worklog.data,
-                "total_hours": total_hours,
-                "done_hours": done_hours,
-                "percentage": round(done_hours / total_hours * 100),
-            }
-            print(metadata)
+        if is_worklog:
+            metadata["worklog"] = worklog.compute_data(metadata)
 
         # Add the TOC to the metadata.
         if len(self._md.toc) > 300:
