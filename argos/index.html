@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Argos - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+  <header>
+    <h1 class="post-title">Argos</h1>
+      <div class="progressbar">
+▓▓▓▓▓▓▓▓▓▓        102% (57h / 56 prévues)
+      </div>
+  </header>
+  <article>
+    <div id="vis"></div>
+    <h2 id="mardi-23-novembre-2023">🗓️ Mardi 23 Novembre&nbsp;2023</h2>
+<p>J&#8217;ai passé un peu de temps à répondre a des tickets, merger et faire des petites modifications dans le code, c&#8217;était très&nbsp;plaisant.</p>
+<p>Il est maintenant <a href="https://framagit.org/framasoft/framaspace/argos/-/merge_requests/8">possible de lancer le serveur depuis l&#8217;extérieur du venv</a>, et j&#8217;ai lu quelques demandes de modifications de&nbsp;Luc.</p>
+<h2 id="jeudi-16-novembre-2023">🗓️ Jeudi 16 Novembre&nbsp;2023</h2>
+<ul>
+<li><a href="https://framagit.org/framasoft/framaspace/argos/-/merge_requests/6">Migré vers la nouvelle manière de définir la config dans&nbsp;Pydantic</a></li>
+</ul>
+<h2 id="lundi-06-novembre-2023">🗓️ Lundi 06 Novembre&nbsp;2023</h2>
+<p>J&#8217;ai passé un peu de temps avec Matthieu Leplatre pour faire une revue du code que j&#8217;ai&nbsp;écrit. </p>
+<h2 id="jeudi-19-octobre-2023">🗓️ Jeudi 19 Octobre&nbsp;2023</h2>
+<p>Préparation de la discussion avec Luc, puis j&#8217;ai ajouté de la documentation et j&#8217;ai fait pas mal de&nbsp;finitions.</p>
+<h2 id="mercredi-18-octobre-2023">🗓️ Mercredi 18 Octobre&nbsp;2023</h2>
+<p>J&#8217;ai passé une journée de travail dessus.
+Beaucoup de choses faites. La base de code est plus solide, et surtout testée ce qui me&nbsp;rassure.</p>
+<h2 id="mardi-17-octobre-2023">🗓️ Mardi 17 Octobre&nbsp;2023</h2>
+<ul>
+<li>J&#8217;ai ajouté les dépendences dans le&nbsp;pyproject.toml</li>
+<li>Updated the <span class="caps">CLI</span>&nbsp;interface</li>
+</ul>
+<h2 id="mercredi-11-octobre-2023">🗓️ Mercredi 11 Octobre&nbsp;2023</h2>
+<p>J&#8217;ai passé la journée dessus.Il me reste 3 demi&nbsp;journées.</p>
+<p>J&#8217;ai passé beaucoup de temps à mettre en place des tests au niveau de l&#8217;app. La manière dont l&#8217;application était initialisée ne permettait pas de l&#8217;utiliser dans les tests. Je n&#8217;ai pas tout à fait terminé, mais je pense que c&#8217;est le moment pour essayer de passer à PostgreSQL, parce que c&#8217;est ce qui va tourner en&nbsp;production.</p>
+<p>De ce que je comprends, plusieurs approches :
+1. Utiliser une connection pool
+2. Faire des requêtes en asynchrone (voir <a href="https://docs.sqlalchemy.org/en/14/orm/extensions/asyncio.html">la doc</a>)</p>
+<p>Je suis vraiment pas loin d&#8217;un truc bien, j&#8217;aimerai quand même vraiment avoir des tests pour tester les cas limites, là beaucoup de choses se font à vue et j&#8217;ai peur que des bugs ne se&nbsp;cachent.</p>
+<p>Fait&nbsp;:</p>
+<ul>
+<li>[x] Ajouter une notion de sévérité dans la&nbsp;config</li>
+<li>[x] Ajouter une notion de fréquence dans la&nbsp;config</li>
+</ul>
+<h2 id="mardi-10-octobre-2023">🗓️ Mardi 10 Octobre&nbsp;2023</h2>
+<ul>
+<li>[x] Sécuriser les appels des agents au&nbsp;backend</li>
+<li>[x] Ajouter le support pour les&nbsp;!include</li>
+</ul>
+<h2 id="lundi-09-octobre-2023">🗓️ Lundi 09 Octobre&nbsp;2023</h2>
+<ul>
+<li>[x] Terminer le backend de vérification <span class="caps">SSL</span></li>
+<li>[x] Décider comment faire pour faire remonter les différents niveaux d&#8217;alerte (L&#8217;agent ne devrait pas décider, c&#8217;est le travail du&nbsp;serveur)</li>
+</ul>
+<p>J&#8217;ai pas mal refactoré le code, et c&#8217;est maintenant possible de faire une partie des checks (la finalisation) côté serveur. Nous avons aussi maintenant un check <span class="caps">SSL</span>&nbsp;fonctionnel.</p>
+<p>La base de données gère maintenant une relation, et j&#8217;ai commencé à écrire quelques tests également, ainsi que packagé ça dans un package&nbsp;python.</p>
+<p>C&#8217;était plutôt une journée un peu décousue, mais je suis content du résultat. C&#8217;était beaucoup de grosses modifications et donc avoir le temps de le faire pour avoir le contexte en tête aide pas&nbsp;mal.</p>
+<h2 id="jeudi-05-octobre-2023">🗓️ Jeudi 05 Octobre&nbsp;2023</h2>
+<p>Je n&#8217;ai pas pris de&nbsp;notes.</p>
+<h2 id="mercredi-04-octobre-2023">🗓️ Mercredi 04 Octobre&nbsp;2023</h2>
+<p>J&#8217;ai pu avancer, mais je me suis confronté à plusieurs soucis de concentration. Ici au coworking c&#8217;est aussi un endroit pour socialiser, et donc je suis moins efficace. Les pomodoros m&#8217;aident à me recentrer, j&#8217;ai quasiment une <span class="caps">API</span> fonctionnelle. Je galère un peu avec Pydantic parce que je ne le connais pas encore bien, j&#8217;espère que ce sont des efforts qui vont payer sur le long&nbsp;terme.</p>
+<p>La prochaine fois je pense avancer sur les requêtes pour ordonnancer tout ça, et faire quelques tests pour valider que tout marche bien comme je&nbsp;veux.</p>
+<h2 id="mardi-03-octobre-2023">🗓️ Mardi 03 Octobre&nbsp;2023</h2>
+<p>Session de travail assez agréable. J&#8217;ai commencé à faire fonctionner l&#8217;outil, et je commence maintenant à travailler sur les checks en tant que tels. Je sens qu&#8217;il t a quelques fragilités au niveau de la structure des données (schémas / validation avec&nbsp;Pydantic).</p>
+<p>Je pense que la prochaine étape sera de faire tous les checks, et de les faire retourner des données à l&#8217;<span class="caps">API</span>. Puis ensuite de s&#8217;assurer que les jobs ne sont pas distribués à plusieurs workers en&nbsp;paralelle.</p>
+<h2 id="lundi-02-octobre-2023">🗓️ Lundi 02 Octobre&nbsp;2023</h2>
+<p>Je suis content de cette session de travail. J&#8217;ai repensé encore une fois le modèle de données pour arriver à quelque chose qui me semble mieux. J&#8217;ai continué à travailler sur la codebase avec fastapi que je trouve plus élégante et sur laquelle il sera possible de passer en asynchrone&nbsp;ensuite.</p>
+<p>Les fichiers de configuration, une fois parsés, permettent de créer les enregistrements dans la base de données. La première version de l&#8217;<span class="caps">API</span> est bientôt prête. La prochaine étape est de bosser sur les&nbsp;workers.</p>
+<h2 id="mercredi-27-septembre-2023">🗓️ Mercredi 27 Septembre&nbsp;2023</h2>
+<p>1h pour mettre en place un bouncer <span class="caps">ZNC</span>. J&#8217;ai plutôt fait des recherches sur des outils alternatifs pour l&#8217;<span class="caps">API</span>, suite à mon impression de passer du temps à refaire des choses qui sont déjà fournies par d&#8217;autres outils. J&#8217;espère que c&#8217;était une bonne idée ! Le prix à payer pour me remettre le pied à l&#8217;étrier. En fin de journée j&#8217;ai réussi à vraiment réfléchir au problème métier, et à déterminer un bon modèle de données ainsi que des scénarios d&#8217;utilisation. Au final, je pense qu&#8217;il faut passer par fastapi (qui propose de l&#8217;asynchrone <span class="caps">ASGI</span> de base) mais rester sur SQLAlchemy (Pewee à une <span class="caps">API</span> qui semble plus simple, mais qui ne supporte pas très bien l&#8217;asynchronicité). Pour la suite, je pense qu&#8217;il faut que je me concentre plus sur les fonctionalités de&nbsp;base.</p>
+<h2 id="mardi-26-septembre-2023">🗓️ Mardi 26 Septembre&nbsp;2023</h2>
+<p>J&#8217;ai continué de bootstrapper et j&#8217;ai importé des bouts de codes qui manquaient pour lancer le serveur web, gérer la configuration du service, la gestion de la base de données, des migrations&nbsp;etc.</p>
+<h2 id="lundi-25-septembre-2023">🗓️ Lundi 25 Septembre&nbsp;2023</h2>
+<p>J&#8217;ai commencé à boostraper le projet, fait un module qui est capable de lire le fichier de configuration (en <span class="caps">YAML</span>) et de valider que ce qui s&#8217;y trouve est correct. J&#8217;utilise Pydantic pour ça, que je ne connaissais&nbsp;pas.</p>
+  </article>
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 500,
+      "height": 200,
+      "data": 
+        {
+          "name": "table",
+          "values": [
+            {"date": "2023-11-23", "series": "Rémunéré", "count": 0},
+            {"date": "2023-11-23", "series": "Bénévole", "count": 1},
+            {"date": "2023-11-16", "series": "Rémunéré", "count": 0},
+            {"date": "2023-11-16", "series": "Bénévole", "count": 1},
+            {"date": "2023-11-06", "series": "Rémunéré", "count": 0},
+            {"date": "2023-11-06", "series": "Bénévole", "count": 2},
+            {"date": "2023-10-19", "series": "Rémunéré", "count": 6},
+            {"date": "2023-10-19", "series": "Bénévole", "count": 2},
+            {"date": "2023-10-18", "series": "Rémunéré", "count": 7},
+            {"date": "2023-10-18", "series": "Bénévole", "count": 1},
+            {"date": "2023-10-17", "series": "Rémunéré", "count": 1},
+            {"date": "2023-10-17", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-11", "series": "Rémunéré", "count": 7},
+            {"date": "2023-10-11", "series": "Bénévole", "count": 1},
+            {"date": "2023-10-10", "series": "Rémunéré", "count": 5},
+            {"date": "2023-10-10", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-09", "series": "Rémunéré", "count": 7},
+            {"date": "2023-10-09", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-05", "series": "Rémunéré", "count": 2},
+            {"date": "2023-10-05", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-04", "series": "Rémunéré", "count": 4},
+            {"date": "2023-10-04", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-03", "series": "Rémunéré", "count": 3},
+            {"date": "2023-10-03", "series": "Bénévole", "count": 0},
+            {"date": "2023-10-02", "series": "Rémunéré", "count": 4},
+            {"date": "2023-10-02", "series": "Bénévole", "count": 0},
+            {"date": "2023-09-27", "series": "Rémunéré", "count": 4},
+            {"date": "2023-09-27", "series": "Bénévole", "count": 0},
+            {"date": "2023-09-26", "series": "Rémunéré", "count": 4},
+            {"date": "2023-09-26", "series": "Bénévole", "count": 0},
+            {"date": "2023-09-25", "series": "Rémunéré", "count": 3},
+            {"date": "2023-09-25", "series": "Bénévole", "count": 0},
+          ]
+        }
+      ,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "field": "date",
+          "axis": {"format": "%d/%m"},
+          "title": "Date",
+          "step": 1,
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "count",
+          "title": "Heures",
+        },
+        "color": {
+          "field": "series",
+          "scale": {
+            "domain": ["Bénévole", "Rémunéré"],
+            "range": ["#e7ba52", "#1f77b4"]
+          },
+          "title": "Type d'heures"
+        }
+      }
+    };
+
+  	vegaEmbed("#vis", spec)
+    	// result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+  </script>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

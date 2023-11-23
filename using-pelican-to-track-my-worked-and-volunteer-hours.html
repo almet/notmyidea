@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Using pelican to track my worked and volunteer&nbsp;hours - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+
+<header>
+	<h1 class="post-title">Using pelican to track my worked and volunteer&nbsp;hours</h1>
+	<p><em>Graphs, progress-bars and python-markdown extensions</em></p>
+	<time datetime="2023-11-23T00:00:00+01:00">23 novembre 2023</time>
+
+    
+</header>
+<article>
+    <p>I was tracking my hours in Datasette (<a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html">article</a> and <a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html">follow-up</a>), but I wasn&#8217;t really happy with the editing&nbsp;process.</p>
+<p>I&#8217;ve seen <a href="https://larlet.fr/david">David</a> notes, which made me want to do something&nbsp;similar.</p>
+<p>I&#8217;m consigning everything in markdown files and as such, was already keeping track of everything this way already. Tracking my hours should be simple otherwise I might just oversee it. So I hacked something together with <a href="https://github.com/getpelican/pelican">pelican</a> (the software I wrote for this&nbsp;blog).</p>
+<p><img alt="A graph showing the worked hours and volunteer hours" src="/images/pelican/worklog.png"></p>
+<p>It&#8217;s doing the&nbsp;following:</p>
+<ol>
+<li>Defines a specific format for my worklog&nbsp;entries</li>
+<li>Parses them (using a regexp), does some computation and&nbsp;;</li>
+<li>Uses a specific template to display a graph and progress&nbsp;bar.</li>
+</ol>
+<h2 id="reading-information-from-the-titles">Reading information from the&nbsp;titles</h2>
+<p>I actually took the format I&#8217;ve been already using in my log, and enhanced it a bit.
+Basically, the files look likes this (I&#8217;m writing in&nbsp;french):</p>
+<div class="highlight"><pre><span></span><code>---
+title: My project
+<span class="gu">total_days: 25</span>
+<span class="gu">---</span>
+
+<span class="gu">## Mardi 23 Novembre 2023 (9h, 5/5)</span>
+
+What I did this day.
+I can include [<span class="nt">links</span>](<span class="na">https://domain.tld</span>) and whatever I want.
+It won&#39;t be processed.
+
+<span class="gu">## Lundi 22 Novembre 2023 (8h rémunérées, 2h bénévoles, 4/5)</span>
+
+Something else.
+</code></pre></div>
+
+<p>Basically, the second titles (h2) are parsed, and should have the following structure:
+<code>{day_of_week} {day} {month} {year} ({worked_hours}(, optional {volunteer_hours}), {fun_rank})</code></p>
+<p>The goal here is to retrieve all of this, so I asked ChatGPT for a regexp and iterated on the result which got&nbsp;me:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        (\w+)\s+                      # Day name</span>
+<span class="sd">        (\d{1,2})\s+                  # Day number</span>
+<span class="sd">        ([\wéû]+)\s+                  # Month name</span>
+<span class="sd">        (\d{4})\s+                    # Year</span>
+<span class="sd">        \(</span>
+<span class="sd">        (\d{1,2})h                    # Hours (mandatory)</span>
+<span class="sd">        (?:\s+facturées)?             # Optionally &#39;facturées&#39;, if not present, assume hours are &#39;facturées&#39;</span>
+<span class="sd">        (?:,\s*(\d{1,2})h\s*bénévoles)? # Optionally &#39;volunteer hours &#39;bénévoles&#39;</span>
+<span class="sd">        ,?                            # An optional comma</span>
+<span class="sd">        \s*                           # Optional whitespace</span>
+<span class="sd">        (?:fun\s+)?                   # Optionally &#39;fun&#39; (text) followed by whitespace</span>
+<span class="sd">        (\d)/5                        # Happiness rating (mandatory, always present)</span>
+<span class="sd">        \)                            # Closing parenthesis</span>
+<span class="sd">        &quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+
+<h2 id="the-markdown-preprocessor">The markdown&nbsp;preprocessor</h2>
+<p>I&#8217;m already using a custom pelican plugin, which makes it possible to have pelican behave exactly the way I want. For instance, it&#8217;s getting the date from the&nbsp;filesystem.</p>
+<p>I just had to add some features to it. The way I&#8217;m doing this is by <a href="https://docs.getpelican.com/en/3.6.2/plugins.html#how-to-create-a-new-reader">using a custom Markdown reader</a>, on which I add extensions and custom&nbsp;processors.</p>
+<p>In my case, I added a preprocessor which will only run when we are handling the worklog. It makes it possible to change what&#8217;s being read, before the markdown lib actually transforms it to <span class="caps">HTML</span>.</p>
+<p>Here is the code for&nbsp;it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">WorklogPreprocessor</span><span class="p">(</span><span class="n">Preprocessor</span><span class="p">):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;the regexp we&#39;ve seen earlier&quot;</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+        <span class="n">new_lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;##&quot;</span><span class="p">):</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unable to parse worklog title&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                <span class="p">(</span>
+                    <span class="n">day_of_week</span><span class="p">,</span>
+                    <span class="n">day</span><span class="p">,</span>
+                    <span class="n">month</span><span class="p">,</span>
+                    <span class="n">year</span><span class="p">,</span>
+                    <span class="n">payed_hours</span><span class="p">,</span>
+                    <span class="n">volunteer_hours</span><span class="p">,</span>
+                    <span class="n">happiness</span><span class="p">,</span>
+                <span class="p">)</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+
+                <span class="n">volunteer_hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">volunteer_hours</span><span class="p">)</span> <span class="k">if</span> <span class="n">volunteer_hours</span> <span class="k">else</span> <span class="mi">0</span>
+                <span class="n">payed_hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">payed_hours</span><span class="p">)</span>
+                <span class="n">happiness</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">happiness</span><span class="p">)</span>
+
+                <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> %B %Y&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;payed_hours&quot;</span><span class="p">:</span> <span class="n">payed_hours</span><span class="p">,</span>
+                    <span class="s2">&quot;volunteer_hours&quot;</span><span class="p">:</span> <span class="n">volunteer_hours</span><span class="p">,</span>
+                    <span class="s2">&quot;happyness&quot;</span><span class="p">:</span> <span class="n">happiness</span><span class="p">,</span>
+                <span class="p">}</span>
+
+                <span class="c1"># Replace the line with just the date</span>
+                <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;## 🗓️ </span><span class="si">{</span><span class="n">day_of_week</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_lines</span>
+</code></pre></div>
+
+<p>It does the following when it encounters a h2&nbsp;line:</p>
+<ul>
+<li>try to parse&nbsp;it</li>
+<li>store the data&nbsp;locally</li>
+<li>replace the line with a simpler&nbsp;version</li>
+<li>If if doesn&#8217;t work, error&nbsp;out.</li>
+</ul>
+<p>I&#8217;ve also added some computations on top of it, which makes it possible to display a percentage of completion for the project, if &#8220;payed_hours&#8221; was present in the metadata, and makes it use a specific template (see&nbsp;later).</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">compute_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
+    <span class="n">done_hours</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;payed_hours&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">done_hours</span><span class="o">=</span><span class="n">done_hours</span><span class="p">,</span>
+        <span class="n">template</span><span class="o">=</span><span class="s2">&quot;worklog&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;total_days&quot;</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">:</span>
+        <span class="n">total_hours</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;total_days&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">7</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">total_hours</span><span class="o">=</span><span class="n">total_hours</span><span class="p">,</span>
+                <span class="n">percentage</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">done_hours</span> <span class="o">/</span> <span class="n">total_hours</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+</code></pre></div>
+
+<h2 id="plugging-this-with-pelican">Plugging this with&nbsp;pelican</h2>
+<p>Here&#8217;s the code for extending a custom reader, basically adding a pre-processor and adding back its data in the document&nbsp;metadata:</p>
+<div class="highlight"><pre><span></span><code><span class="n">is_worklog</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;pages/worklog&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">is_worklog</span><span class="p">:</span>
+    <span class="n">worklog</span> <span class="o">=</span> <span class="n">WorklogPreprocessor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_md</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_md</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">worklog</span><span class="p">,</span> <span class="s2">&quot;worklog&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># process the markdown, and then</span>
+
+<span class="k">if</span> <span class="n">is_worklog</span><span class="p">:</span>
+    <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;worklog&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">worklog</span><span class="o">.</span><span class="n">compute_data</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="adding-a-graph">Adding a&nbsp;graph</h2>
+<p>Okay, everything is parsed, but it&#8217;s not yet displayed on the pages. I&#8217;m using <a href="https://vega.github.io/vega-lite/docs/">vega-lite</a> to display a&nbsp;graph.</p>
+<p>Here is my template for this (stored in <code>template/worklog.html</code>), it&#8217;s doing a stacked bar chart with my&nbsp;data.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;$schema&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://vega.github.io/schema/vega-lite/v5.json&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;width&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;height&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;data&quot;</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;values&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">metadata</span><span class="p">.</span><span class="nx">worklog</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">items</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">            </span><span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ date }}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;series&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Rémunéré&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;count&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">item</span><span class="p">[</span><span class="s1">&#39;payed_hours&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}}},</span>
+<span class="w">            </span><span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ date }}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;series&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bénévole&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;count&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">item</span><span class="p">[</span><span class="s1">&#39;volunteer_hours&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}}},</span>
+<span class="w">          </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endfor</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;mark&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;encoding&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;timeUnit&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;unit&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;step&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;axis&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;%d/%m&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;step&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;aggregate&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Heures&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;field&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;series&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;scale&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;domain&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Bénévole&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Rémunéré&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;range&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;#e7ba52&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Type d&#39;heures&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nx">vegaEmbed</span><span class="p">(</span><span class="s2">&quot;#vis&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">spec</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// result.view provides access to the Vega View API</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">);</span>
+</code></pre></div>
+
+<p>I&#8217;ve also added a small progress bar, made with unicode, which looks like&nbsp;this.</p>
+<div class="highlight"><pre><span></span><code>▓▓░░░░░░░░ 29% (51h / 175 prévues) 
+</code></pre></div>
+
+<p>Here is the code for&nbsp;it:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="s2">&quot;total_days&quot;</span> <span class="k">in</span> <span class="nv">page.metadata.keys</span><span class="o">()</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">percentage</span> <span class="o">=</span> <span class="nv">page.metadata.worklog</span><span class="o">[</span><span class="s1">&#39;percentage&#39;</span><span class="o">]</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">total_blocks</span> <span class="o">=</span> <span class="m">10</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">percentage_value</span> <span class="o">=</span> <span class="o">(</span><span class="nv">percentage</span> <span class="o">/</span> <span class="m">100.0</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">full_blocks</span> <span class="o">=</span> <span class="o">((</span><span class="nv">percentage_value</span> <span class="o">*</span> <span class="nv">total_blocks</span><span class="o">)</span> <span class="o">|</span> <span class="nf">round</span><span class="o">(</span><span class="m">0</span><span class="o">,</span> <span class="s1">&#39;floor&#39;</span><span class="o">)</span> <span class="o">)</span> <span class="o">|</span> <span class="nf">int</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">empty_blocks</span> <span class="o">=</span> <span class="nv">total_blocks</span> <span class="o">-</span> <span class="nv">full_blocks</span> <span class="cp">%}</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;progressbar&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="c">{# Display full blocks #}</span>
+<span class="w">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="nv">full_blocks</span><span class="o">)</span> <span class="cp">%}</span>▓<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="w">        </span><span class="c">{# Display empty blocks #}</span>
+<span class="w">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="nv">empty_blocks</span><span class="o">)</span> <span class="cp">%}</span>░<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="w">        </span><span class="cp">{{</span> <span class="nv">percentage</span> <span class="cp">}}</span>%<span class="w"> </span>(<span class="cp">{{</span> <span class="nv">page.metadata.worklog</span><span class="o">[</span><span class="s1">&#39;done_hours&#39;</span><span class="o">]</span> <span class="cp">}}</span>h<span class="w"> </span>/<span class="w"> </span><span class="cp">{{</span> <span class="nv">page.metadata.worklog</span><span class="o">[</span><span class="s1">&#39;total_hours&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="w"> </span>prévues)
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/pelican.html">#Pelican</a>,         <a href="https://blog.notmyidea.org/tag/work.html">#Work</a>,         <a href="https://blog.notmyidea.org/tag/vega.html">#Vega</a>,         <a href="https://blog.notmyidea.org/tag/markdown.html">#Markdown</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

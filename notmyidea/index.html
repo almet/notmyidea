@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Notmyidea - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+  <header>
+    <h1 class="post-title">Notmyidea</h1>
+  </header>
+  <article>
+    <div id="vis"></div>
+    <h2 id="mercredi-23-novembre-2023">🗓️ Mercredi 23 Novembre&nbsp;2023</h2>
+<p>J&#8217;ai passé du temps à coder un système qui me permet de faire le suivi de mes heures, par&nbsp;projet.</p>
+  </article>
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 500,
+      "height": 200,
+      "data": 
+        {
+          "name": "table",
+          "values": [
+            {"date": "2023-11-23", "series": "Rémunéré", "count": 0},
+            {"date": "2023-11-23", "series": "Bénévole", "count": 5},
+          ]
+        }
+      ,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "field": "date",
+          "axis": {"format": "%d/%m"},
+          "title": "Date",
+          "step": 1,
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "count",
+          "title": "Heures",
+        },
+        "color": {
+          "field": "series",
+          "scale": {
+            "domain": ["Bénévole", "Rémunéré"],
+            "range": ["#e7ba52", "#1f77b4"]
+          },
+          "title": "Type d'heures"
+        }
+      }
+    };
+
+  	vegaEmbed("#vis", spec)
+    	// result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+  </script>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>
