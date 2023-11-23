@@ -1,43 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}?v2" type="text/css" />
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
-        title="{{ SITENAME }} ATOM Feed" />
-    {% if FEED_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/atom+xml" rel="alternate"
-        title="{{ SITENAME }} RSS Feed" />
-    {% endif %}
-</head>
-
-<body>
-    <div id="content">
-    <section id="links">
-    <ul>
-        {% for (title, url, selected) in MENU %}
-        {% if loop.first %}
-        <li><a class="main" href="/">{{ SITENAME }}</a></li>
+<html lang="fr">
+    <head>
+        <title>
+            {% block title %}{{ SITENAME }}{% endblock %}
+        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}?v2"
+              type="text/css" />
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"
+              type="application/atom+xml"
+              rel="alternate"
+              title="{{ SITENAME }} ATOM Feed" />
+        {% if FEED_RSS %}
+            <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"
+                  type="application/atom+xml"
+                  rel="alternate"
+                  title="{{ SITENAME }} RSS Feed" />
         {% endif %}
-        <li><a class="{%
-            if page_name == selected
-            or (category and category.name == selected)
-            or (page and page.slug == selected)
-            %}selected{% endif %}"
-            href="{{SITEURL}}{{ url }}">{{ title }}</a></li>
-        {% endfor %}
-    </ul>
-    </section>
-    {% include 'github.html' %}
-    {% block content %}
-    {% endblock %}
-    <footer>
-    <a id="feed" href="/feeds/all.atom.xml"><img src="/theme/rss.svg" /></a>
-    </footer>
-</div>
-</body>
-
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                    {% for (title, url, selected) in MENU %}
+                        {% if loop.first %}
+                            <li>
+                                <a class="main" href="/">{{ SITENAME }}</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a class="{% if page_name == selected or (category and category.name == selected) or (page and page.slug == selected) %}selected{% endif %}"
+                               href="{{ SITEURL }}{{ url }}">{{ title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% include 'github.html' %}
+            {% block content %}{% endblock %}
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
 </html>

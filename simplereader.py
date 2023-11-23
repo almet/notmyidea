@@ -1,20 +1,72 @@
 import os.path
 from datetime import datetime
+import locale
 
-from datefinder import find_dates
 from markdown.preprocessors import Preprocessor
 from pelican import signals
-from pelican.readers import Category, Markdown, MarkdownReader, pelican_open
+from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
+import re
+
+locale.setlocale(locale.LC_TIME, "fr_FR")
 
 
-class BlockquotesPreprocessor(Preprocessor):
+class WorklogPreprocessor(Preprocessor):
+    pattern = re.compile(
+        r"""
+        (\w+)\s+                      # Day name
+        (\d{1,2})\s+                  # Day number
+        ([\wéû]+)\s+                  # Month name
+        (\d{4})\s+                    # Year
+        \(
+        (\d{1,2})h                    # Hours (mandatory)
+        (?:\s+facturées)?             # Optionally 'facturées', if not present, assume hours are 'facturées'
+        (?:,\s*(\d{1,2})h\s*bénévoles)? # Optionally 'volunteer hours 'bénévoles'
+        ,?                            # An optional comma
+        \s*                           # Optional whitespace
+        (?:plaisir\s+)?               # Optionally 'plaisir' (text) followed by whitespace
+        (\d)/5                        # Happiness rating (mandatory, always present)
+        \)                            # Closing parenthesis
+        """,
+        re.VERBOSE | re.UNICODE,
+    )
+
+    def __init__(self, *args, **kwargs):
+        self.data = {}
+        super().__init__(*args, **kwargs)
+
     def run(self, lines):
         new_lines = []
         for line in lines:
-            if line.startswith(">"):
-                # new_lines.append("&nbsp;")
-                new_lines.append(line)
+            if line.startswith("##"):
+                match = re.search(self.pattern, line)
+                print(match)
+                if match:
+                    (
+                        day_of_week,
+                        day,
+                        month,
+                        year,
+                        payed_hours,
+                        volonteer_hours,
+                        happiness,
+                    ) = match.groups()
+
+                    volonteer_hours = int(volonteer_hours) if volonteer_hours else 0
+                    payed_hours = int(payed_hours)
+                    happiness = int(happiness)
+
+                    date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
+                    self.data[date.strftime("%Y-%m-%d")] = {
+                        "payed_hours": payed_hours,
+                        "volonteer_hours": volonteer_hours,
+                        "happyness": happiness,
+                    }
+
+                    # Replace the line with just the date
+                    new_lines.append(f"## 🗓️ {day_of_week} {day} {month} {year}")
+                else:
+                    new_lines.append(line)
             else:
                 new_lines.append(line)
         return new_lines
@@ -32,10 +84,10 @@ class SimpleReader(MarkdownReader):
     def read(self, source_path):
         self._source_path = source_path
         self._md = Markdown(**self.settings["MARKDOWN"])
-        if "Lectures" in source_path:
-            self._md.preprocessors.register(
-                BlockquotesPreprocessor(self._md), "blockquotes", 10
-            )
+
+        worklog = WorklogPreprocessor(self._md)
+        if "worklog" in source_path:
+            self._md.preprocessors.register(worklog, "worklog", 20)
 
         with pelican_open(source_path) as text:
             content = self._md.convert(text)
@@ -45,11 +97,23 @@ class SimpleReader(MarkdownReader):
         else:
             metadata = {}
 
+        # Add the worklog info to the metadata
+        if "worklog" in source_path:
+            done_hours = sum([item["payed_hours"] for item in worklog.data.values()])
+            total_hours = int(metadata["total_days"]) * 8
+            metadata["worklog"] = {
+                "data": worklog.data,
+                "total_hours": total_hours,
+                "done_hours": done_hours,
+                "percentage": round(done_hours / total_hours * 100),
+            }
+            print(metadata)
+
         # Add the TOC to the metadata.
         if len(self._md.toc) > 300:
             metadata["table_of_contents"] = self._md.toc
 
-        # Get the title from the first h1
+        # Get the title from the first title
         if "title" not in metadata and len(self._md.toc_tokens):
             first_title = self._md.toc_tokens[0]
             metadata["title"] = first_title["name"]

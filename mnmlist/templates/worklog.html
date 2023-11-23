@@ -1,0 +1,75 @@
+{% extends "page.html" %}
+{% block extra_head %}
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+{% endblock extra_head %}
+{% block content %}
+  <header>
+    <h1 class="post-title">
+      {{ page.title }}
+      {% set percentage = page.metadata.worklog['percentage'] %}
+      {% set total_blocks = 10 %}
+      {% set percentage_value = (percentage / 100.0) %}
+      {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor')) | int %}
+      {% set empty_blocks = total_blocks - full_blocks %}
+      <div class="progressbar">
+        {# Display full blocks #}
+        {% for i in range(full_blocks) %}▓{% endfor %}
+        {# Display empty blocks #}
+        {% for i in range(empty_blocks) %}░{% endfor %}
+        {{ percentage }}%
+      </div>
+    </h1>
+  </header>
+  <article>
+    <div id="vis"></div>
+    {{ page.content }}
+  </article>
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 500,
+      "height": 200,
+      "data": 
+        {
+          "name": "table",
+          "values": [
+          {% for date, item in page.metadata.worklog.data.items() %}
+            {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}},
+            {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volonteer_hours'] }}},
+          {% endfor %}
+          ]
+        }
+      ,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "field": "date",
+          "axis": {"format": "%d/%m"},
+          "title": "Date",
+          "step": 1,
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "count",
+          "title": "Heures",
+        },
+        "color": {
+          "field": "series",
+          "scale": {
+            "domain": ["Bénévole", "Rémunéré"],
+            "range": ["#e7ba52", "#1f77b4"]
+          },
+          "title": "Type d'heures"
+        }
+      }
+    };
+
+  	vegaEmbed("#vis", spec)
+    	// result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+  </script>
+{% endblock content %}
