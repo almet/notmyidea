@@ -12,3 +12,4 @@ publish:
 	echo "blog.notmyidea.org" > output/CNAME
 	.v/bin/ghp-import -n output
 	git push origin gh-pages
+	git push
