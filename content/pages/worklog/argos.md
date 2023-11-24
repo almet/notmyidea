@@ -5,6 +5,10 @@ template: worklog
 total_days: 8
 ---
 
+## Jeudi 23 Novembre 2023 (0h, 1h bénévoles, 3/5)
+
+J'ai fait de la revue de code ([pylint](https://framagit.org/framasoft/framaspace/argos/-/merge_requests/12), [ajout des notifs mail](https://framagit.org/framasoft/framaspace/argos/-/merge_requests/13#notes)), [ajouté de la documentation](https://framagit.org/framasoft/framaspace/argos/-/merge_requests/14) pour systemd
+
 ## Mardi 23 Novembre 2023 (0h, 1h bénévoles, 5/5)
 
 J'ai passé un peu de temps à répondre a des tickets, merger et faire des petites modifications dans le code, c'était très plaisant.
