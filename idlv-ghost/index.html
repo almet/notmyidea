@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+<span class="caps">IDLV</span>, site web vers&nbsp;ghost - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+  <header>
+    <h1 class="post-title"><span class="caps">IDLV</span>, site web vers&nbsp;ghost</h1>
+      <div>
+▓▓▓▓▓▓▓▓▓▓        100% (14h / 14 prévues)
+      </div>
+      <ul>
+        <li>14h rémunérées</li>
+        <li>6h bénévoles</li>
+      </ul>
+  </header>
+  <article>
+    <div id="vis"></div>
+    <h2 id="lundi-30-octobre-2023">🗓️ Lundi 30 octobre&nbsp;2023</h2>
+<p>Incorporation des changements de&nbsp;Charly</p>
+<h2 id="mercredi-13-septembre-2023">🗓️ Mercredi 13 septembre&nbsp;2023</h2>
+<p>Incorporation des changements suite à&nbsp;discussion</p>
+<h2 id="jeudi-20-juillet-2023">🗓️ Jeudi 20 juillet&nbsp;2023</h2>
+<p>(Depuis les&nbsp;vacances)</p>
+<p>Réponse à un mail de&nbsp;Charly</p>
+<h2 id="vendredi-23-juin-2023">🗓️ Vendredi 23 juin&nbsp;2023</h2>
+<p>Ajout de la fonctionnalité de&nbsp;galerie.</p>
+<h2 id="jeudi-22-juin-2023">🗓️ Jeudi 22 juin&nbsp;2023</h2>
+<p>Mail + recherches photoswipe&nbsp;ghost.</p>
+<h2 id="mardi-06-juin-2023">🗓️ Mardi 06 juin&nbsp;2023</h2>
+<ul>
+<li>Déploiement sur&nbsp;Alwaysdata.</li>
+<li>Discussion avec leur&nbsp;support.</li>
+<li>Copie des données déjà&nbsp;importées</li>
+<li>Création des comptes pour Marin et&nbsp;Laura</li>
+</ul>
+<h2 id="lundi-05-juin-2023">🗓️ Lundi 05 juin&nbsp;2023</h2>
+<p>(Dans le&nbsp;train)</p>
+<ul>
+<li>Fini l&#8217;intégration du thème&nbsp;(quasiment)</li>
+<li>Importé quelques posts (mais c&#8217;est très long) et toutes les pages du site&nbsp;actuel.</li>
+<li>Me renseigner sur le fonctionnement de l&#8217;export de données dans Ghost. Il faudra faire un vrai backup des données et des&nbsp;fichiers.</li>
+</ul>
+<h2 id="jeudi-01-juin-2023">🗓️ Jeudi 01 juin&nbsp;2023</h2>
+<p>(Dans le&nbsp;train)</p>
+<ul>
+<li>Commencé le thème. Mieux compris le fonctionnement de Hugo (ma foi, c&#8217;est&nbsp;barré).</li>
+<li>Modifié le thème de base de Ghost pour reprendre l&#8217;aspect du site&nbsp;actuel.</li>
+<li>Me familiariser avec&nbsp;scss.</li>
+<li>Comprendre qu&#8217;il est possible de faire un yarn dev pour que les modifications du thème en local se retrouvent sur&nbsp;l&#8217;interface.</li>
+</ul>
+<h2 id="jeudi-25-mai-2023">🗓️ Jeudi 25 mai&nbsp;2023</h2>
+<ul>
+<li>Installation de Ghost&nbsp;localement.</li>
+<li>Récupération de l&#8217;ancien site. Se rendre compte que les templates ne sont pas à&nbsp;jour.</li>
+<li>Conditions tarifaires de AlwaysData : 7€/mois payés annuellement (=84€<span class="caps">HT</span> = 100,8€ à&nbsp;l&#8217;année)</li>
+<li>Lu <a href="https://handlebarsjs.com/guide/block-helpers.html#raw-blocks">la doc de Handlebar</a> et de Ghost pour les templates&nbsp;https://ghost.org/docs/themes/structure/</li>
+<li>Fait un test d&#8217;installation de Ghost sur&nbsp;Alwaysdata</li>
+</ul>
+  </article>
+  <script>
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 500,
+      "height": 200,
+      "data": 
+        {
+          "name": "table",
+          "values": [
+            {"date": "2023-10-30", "series": "Rémunéré", "count": 0},
+            {"date": "2023-10-30", "series": "Bénévole", "count": 1},
+            {"date": "2023-09-13", "series": "Rémunéré", "count": 0},
+            {"date": "2023-09-13", "series": "Bénévole", "count": 3},
+            {"date": "2023-07-20", "series": "Rémunéré", "count": 0},
+            {"date": "2023-07-20", "series": "Bénévole", "count": 1},
+            {"date": "2023-06-23", "series": "Rémunéré", "count": 1},
+            {"date": "2023-06-23", "series": "Bénévole", "count": 1},
+            {"date": "2023-06-22", "series": "Rémunéré", "count": 1},
+            {"date": "2023-06-22", "series": "Bénévole", "count": 0},
+            {"date": "2023-06-06", "series": "Rémunéré", "count": 3},
+            {"date": "2023-06-06", "series": "Bénévole", "count": 0},
+            {"date": "2023-06-05", "series": "Rémunéré", "count": 4},
+            {"date": "2023-06-05", "series": "Bénévole", "count": 0},
+            {"date": "2023-06-01", "series": "Rémunéré", "count": 3},
+            {"date": "2023-06-01", "series": "Bénévole", "count": 0},
+            {"date": "2023-05-25", "series": "Rémunéré", "count": 2},
+            {"date": "2023-05-25", "series": "Bénévole", "count": 0},
+          ]
+        }
+      ,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "field": "date",
+          "axis": {"format": "%d/%m"},
+          "title": "Date",
+          "step": 1,
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "count",
+          "title": "Heures",
+        },
+        "color": {
+          "field": "series",
+          "scale": {
+            "domain": ["Bénévole", "Rémunéré"],
+            "range": ["#e7ba52", "#1f77b4"]
+          },
+          "title": "Type d'heures"
+        }
+      }
+    };
+
+  	vegaEmbed("#vis", spec)
+    	// result.view provides access to the Vega View API
+      .then(result => console.log(result))
+      .catch(console.warn);
+  </script>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -47,31 +47,35 @@ uMap - Alexis Métaireau        </title>
             </section>
   <header>
     <h1 class="post-title">uMap</h1>
-      <div class="progressbar">
+      <div>
 ▓▓▓░░░░░░░        31% (54h / 175 prévues)
       </div>
+      <ul>
+        <li>54h rémunérées</li>
+        <li>4h bénévoles</li>
+      </ul>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="jeudi-25-novembre-2023">🗓️ Jeudi 25 Novembre&nbsp;2023</h2>
+    <h2 id="samedi-25-novembre-2023">🗓️ Samedi 25 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps pour faire passer les tests dans le <span class="caps">CI</span>, et résolu quelques problèmes au&nbsp;passage.</p>
-<h2 id="mercredi-24-novembre-2023">🗓️ Mercredi 24 Novembre&nbsp;2023</h2>
+<h2 id="vendredi-24-novembre-2023">🗓️ Vendredi 24 novembre&nbsp;2023</h2>
 <p>J&#8217;ai exploré l&#8217;utilisation de Websockets pour le transport, entre autre sa consommation mémoire, il semblerait que ce soit tout à fait acceptable (1gb de mémoire permet de gérer 1500 connexions&nbsp;concurrentes).</p>
 <p>WebRTC n&#8217;est <a href="https://gitlab.torproject.org/legacy/trac/-/issues/8178">actuellement pas supporté par Tor Browser </a>(<a href="https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41021">pour le moment</a>), donc j&#8217;imagine que c&#8217;est une fausse&nbsp;piste.</p>
 <p>J&#8217;ai repassé un bon coup sur la <span class="caps">PR</span> du merge optimiste. Je suis content du résultat: le code et des tests me semblent plus lisibles et&nbsp;compréhensibles.</p>
 <p>L&#8217;après-midi à été passée avec Yohan qui m&#8217;a fait un tour du frontend. J&#8217;en ai profité pour prendre des notes que je pense publier dans la documentation. C&#8217;était très utile d&#8217;avoir ses explications, le code n&#8217;est pas si simple à prendre en&nbsp;main.</p>
-<h2 id="mardi-23-novembre-2023">🗓️ Mardi 23 Novembre&nbsp;2023</h2>
+<h2 id="jeudi-23-novembre-2023">🗓️ Jeudi 23 novembre&nbsp;2023</h2>
 <p>Une matinée passée à la fois à préparer la semaine et à rédiger un résumé de ce que j&#8217;ai fait la semaine dernière.
 J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de merge de la <span class="caps">PR</span> de Biondi biondo, pour pouvoir l&#8217;expliquer dans un article de&nbsp;blog.</p>
 <p>L&#8217;après-midi j&#8217;ai participé à la weekly et lu l&#8217;article de blog de Figma qui explique leur approche pour implementer du temps&nbsp;réel.</p>
 <p>J&#8217;avance petit à petite sur la piste d&#8217;utiliser un <span class="caps">CRDT</span> &#8220;maison&#8221;, voire pas de <span class="caps">CRDT</span> du tout, en fonction de nos besoins réels. Un <span class="caps">CRDT</span> nous permettrait d&#8217;avoir plusieurs personnes qui travaillent en même temps sur une même feature (au sens GeoJSON), mais je ne sais pas encore si c&#8217;est un cas d&#8217;usage&nbsp;réel.</p>
-<h2 id="samedi-18-novembre-2023">🗓️ Samedi 18 Novembre&nbsp;2023</h2>
+<h2 id="samedi-18-novembre-2023">🗓️ Samedi 18 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé un peu de temps à intégrer l&#8217;intégration continue de Github. Je pensais que ce serait rapide mais je ne devais pas être très&nbsp;réveillé…</p>
-<h2 id="vendredi-17-novembre-2023">🗓️ Vendredi 17 Novembre&nbsp;2023</h2>
+<h2 id="vendredi-17-novembre-2023">🗓️ Vendredi 17 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps pour essayer de comprendre comment utiliser SQLite en local à l&#8217;intérieur d&#8217;un navigateur, en utilisant <a href="https://vlcn.io/docs/cr-sqlite/intro">cr-sqlite</a>. J&#8217;ai un prototype qui fonctionne à peu près et qui permet de récupérer les éditions en local pour les synchroniser avec une autre base&nbsp;SQLite.</p>
 <p>Fait un point avec l&#8217;équipe sur l&#8217;avancement général&nbsp;l&#8217;après-midi.</p>
 <p>Ensuite continué à creuser sur l&#8217;utilisation de SQLite avec&nbsp;cr-sqlite.</p>
-<h2 id="mardi-14-novembre-2023">🗓️ Mardi 14 Novembre&nbsp;2023</h2>
+<h2 id="mardi-14-novembre-2023">🗓️ Mardi 14 novembre&nbsp;2023</h2>
 <p>Une matinée passée avec Yohan pour à la fois <a href="https://github.com/umap-project/umap/pull/772/">avancer sur la <span class="caps">PR</span> pour merger des conflits simples</a>. On a passé le code en revue et fait quelques changements cosmétiques qui devraient aider à la compréhension&nbsp;générale.</p>
 <p>La deuxième partie de la matinée à été utilisée pour discuter des découvertes et des questions que je me pose quand à comment faire pour ajouter ces fonctions de collaboration temps&nbsp;réel.</p>
 <p>Plusieurs trucs à noter :
@@ -82,18 +86,18 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
 <p>Découvertes :
 - https://www.geopackage.org/
 -&nbsp;https://vlcn.io/docs/js/reactivity</p>
-<h2 id="lundi-13-novembre-2023">🗓️ Lundi 13 Novembre&nbsp;2023</h2>
+<h2 id="lundi-13-novembre-2023">🗓️ Lundi 13 novembre&nbsp;2023</h2>
 <p>J&#8217;ai cherché à comprendre comment il serait possible de s&#8217;intégrer avec Leaflet. Je connais assez mal l&#8217;écosystème donc j&#8217;ai cherché les plugins autour de stockage de données et de la&nbsp;synchronisation.</p>
 <p>Beaucoup de clicks, de lecture et de compréhension des contours de l&#8217;écosystème <span class="caps">SIG</span>, et de l&#8217;écosystème de&nbsp;Leaflet.</p>
 <p>J&#8217;ai aussi creusé autour des <span class="caps">SSE</span> et de WebRTC, question de comprendre les limites et avantages de&nbsp;chacun.</p>
-<h2 id="mardi-07-novembre-2023">🗓️ Mardi 07 Novembre&nbsp;2023</h2>
+<h2 id="mardi-07-novembre-2023">🗓️ Mardi 07 novembre&nbsp;2023</h2>
 <ul>
 <li>Lu la documentation&nbsp;d&#8217;automerge</li>
 <li>Commencé à faire un prototype pour voir le fonctionnement d&#8217;automerge en&nbsp;python</li>
 <li>Installé les dépendances rust, compilé&nbsp;automerge</li>
 <li>Réunion discussion avec Yohan sur mes questions et sur les différentes&nbsp;pistes</li>
 </ul>
-<h2 id="lundi-06-novembre-2023">🗓️ Lundi 06 Novembre&nbsp;2023</h2>
+<h2 id="lundi-06-novembre-2023">🗓️ Lundi 06 novembre&nbsp;2023</h2>
 <ul>
 <li>Lu le code qui est dans uMap actuellement pour comprendre le fonctionnement&nbsp;actuel</li>
 <li>Commencé à rédiger un document avec les différentes options pour faire de la&nbsp;synchro</li>
