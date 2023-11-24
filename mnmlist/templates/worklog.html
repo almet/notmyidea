@@ -13,13 +13,17 @@
       {% set percentage_value = (percentage / 100.0) %}
       {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor') ) | int %}
       {% set empty_blocks = total_blocks - full_blocks %}
-      <div class="progressbar">
+      <div>
         {# Display full blocks #}
         {% for i in range(full_blocks) %}▓{% endfor %}
         {# Display empty blocks #}
         {% for i in range(empty_blocks) %}░{% endfor %}
-        {{ percentage }}% ({{ page.metadata.worklog['done_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
+        {{ percentage }}% ({{ page.metadata.worklog['payed_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
       </div>
+      <ul>
+        <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
+        <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
+      </ul>
     {% endif %}
   </header>
   <article>

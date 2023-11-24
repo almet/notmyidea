@@ -15,7 +15,7 @@ locale.setlocale(locale.LC_TIME, "fr_FR")
 class WorklogPreprocessor(Preprocessor):
     pattern = re.compile(
         r"""
-        (\w+)\s+                      # Day name
+        (?:(\w+)\s+)?                    # Day name
         (\d{1,2})\s+                  # Day number
         ([\wéû]+)\s+                  # Month name
         (\d{4})\s+                    # Year
@@ -63,19 +63,21 @@ class WorklogPreprocessor(Preprocessor):
                     "volunteer_hours": volunteer_hours,
                     "happyness": happiness,
                 }
+                displayed_date = date.strftime("%A %d %B %Y")
 
                 # Replace the line with just the date
-                new_lines.append(f"## 🗓️ {day_of_week} {day} {month} {year}")
+                new_lines.append(f"## 🗓️ {displayed_date}")
             else:
                 new_lines.append(line)
         return new_lines
 
     def compute_data(self, metadata):
-        done_hours = sum([item["payed_hours"] for item in self.data.values()])
-
+        payed_hours = sum([item["payed_hours"] for item in self.data.values()])
+        volunteer_hours = sum([item["volunteer_hours"] for item in self.data.values()])
         data = dict(
             data=self.data,
-            done_hours=done_hours,
+            payed_hours=payed_hours,
+            volunteer_hours=volunteer_hours,
             template="worklog",
         )
 
@@ -84,7 +86,7 @@ class WorklogPreprocessor(Preprocessor):
             data.update(
                 dict(
                     total_hours=total_hours,
-                    percentage=round(done_hours / total_hours * 100),
+                    percentage=round(payed_hours / total_hours * 100),
                 )
             )
 

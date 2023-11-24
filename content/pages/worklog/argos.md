@@ -1,8 +1,8 @@
 ---
 title: Argos
 save_as: argos/index.html
-template: worklog
 total_days: 8
+template: worklog
 ---
 
 ## Jeudi 23 Novembre 2023 (0h, 1h bénévoles, 3/5)
