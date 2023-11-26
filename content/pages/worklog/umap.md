@@ -4,11 +4,18 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
-## Jeudi 25 Novembre 2023 (3h, 4/5)
+
+## Vendredi 24 Novembre 2023 (2h, 3/5)
+
+Réunion d'avancement et point avec David et Yohan pour préparer la suite concernant NLNet.
+
+Je suis content d'avoir préparé le point, et je mesure l'importance donnée aux personnes dans les process.
+
+## Jeudi 23 Novembre 2023 (3h, 4/5)
 
 J'ai passé du temps pour faire passer les tests dans le CI, et résolu quelques problèmes au passage.
 
-## Mercredi 24 Novembre 2023 (9h, 5/5)
+## Mercredi 22 Novembre 2023 (9h, 5/5)
 
 J'ai exploré l'utilisation de Websockets pour le transport, entre autre sa consommation mémoire, il semblerait que ce soit tout à fait acceptable (1gb de mémoire permet de gérer 1500 connexions concurrentes).
 
@@ -18,7 +25,7 @@ J'ai repassé un bon coup sur la PR du merge optimiste. Je suis content du résu
 
 L'après-midi à été passée avec Yohan qui m'a fait un tour du frontend. J'en ai profité pour prendre des notes que je pense publier dans la documentation. C'était très utile d'avoir ses explications, le code n'est pas si simple à prendre en main.
 
-## Mardi 23 Novembre 2023 (8h, 4/5)
+## Mardi 21 Novembre 2023 (8h, 4/5)
 
 Une matinée passée à la fois à préparer la semaine et à rédiger un résumé de ce que j'ai fait la semaine dernière.
 J'ai passé un peu plus de temps à comprendre en profondeur le code de merge de la PR de Biondi biondo, pour pouvoir l'expliquer dans un article de blog.
