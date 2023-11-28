@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-23T00:00:00+01:00</updated><entry><title>Using pelican to track my worked and volunteer hours</title><link href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html" rel="alternate"></link><published>2023-11-23T00:00:00+01:00</published><updated>2023-11-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-23:/using-pelican-to-track-my-worked-and-volunteer-hours.html</id><summary type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-28T00:00:00+01:00</updated><entry><title>2023, Semaine 47</title><link href="https://blog.notmyidea.org/2023-semaine-47.html" rel="alternate"></link><published>2023-11-28T00:00:00+01:00</published><updated>2023-11-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-28:/2023-semaine-47.html</id><summary type="html">
+&lt;p&gt;Un équilibre perso/pro qui s&amp;#8217;améliore, même si les limites sont encores poreuses. Les outils mis en place aident, je suis content de déjà récolter quelques&amp;nbsp;fruits.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Troisième semaine de travail sur&amp;nbsp;uMap.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai pris du temps pour &lt;a href="https://github.com/umap-project/umap/pull/1413"&gt;ajouter de l&amp;#8217;intégration …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Un équilibre perso/pro qui s&amp;#8217;améliore, même si les limites sont encores poreuses. Les outils mis en place aident, je suis content de déjà récolter quelques&amp;nbsp;fruits.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Troisième semaine de travail sur&amp;nbsp;uMap.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai pris du temps pour &lt;a href="https://github.com/umap-project/umap/pull/1413"&gt;ajouter de l&amp;#8217;intégration continue&lt;/a&gt; sur le projet, et j&amp;#8217;ai avancé sur du code existant pour ajouter une fonctionnalité de merge des données&amp;nbsp;clients.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai continué d&amp;#8217;avancer sur le fond du sujet, mais pas autant que je l&amp;#8217;aurais voulu. On a aussi eu la confirmation qu&amp;#8217;on allait recevoir des sous de la part&amp;nbsp;d&amp;#8217;NLNet!&lt;/p&gt;
+&lt;p&gt;Certains aspects s&amp;#8217;éclaircissent en terme de&amp;nbsp;design.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notmyidea&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai ajouté &lt;a href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html"&gt;un système de suivi de mes heures&lt;/a&gt; à ce blog, ce qui me permet déjà de mieux me rendre compte de mon engagement bénévole sur différents&amp;nbsp;projets.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Argos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai fait de la revue de code pour le projet, et quelques petites modifications cosmétiques. C&amp;#8217;est chouette de voir Luc s&amp;#8217;emparer du truc et l&amp;#8217;utiliser en conditions&amp;nbsp;réelles.&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Prendre le temps d&amp;#8217;organiser ma semaine, et sentir les bénéfices en terme de sentiment d&amp;#8217;accomplissement. Ça me permet d&amp;#8217;être moins dur avec moi&amp;nbsp;même.&lt;/li&gt;
+&lt;li&gt;Me coucher tôt et lire 📖, quand j&amp;#8217;y arrive&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Passer du temps très concentré sur un sujet, jusqu&amp;#8217;à arriver au bout&amp;nbsp;🙌&lt;/li&gt;
+&lt;li&gt;Utiliser ces notes pour comprendre les outils qui me sont utiles (préparer une réunion, préparer ma semaine, cadrer plus mon activité pro,&amp;nbsp;etc.)&lt;/li&gt;
+&lt;li&gt;Avoir un espace calme pour me concentrer et&amp;nbsp;travailler&lt;/li&gt;
+&lt;li&gt;Lire dans le salon, au coin du feu, en écoutant de la musique au&amp;nbsp;casque.&lt;/li&gt;
+&lt;li&gt;Avoir des retours sur les notes que je publie pour l&amp;#8217;ajout de fonctionnalités sur&amp;nbsp;uMap.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Voir une tentative d&amp;#8217;ouverture de discussion ne pas être&amp;nbsp;saisie.&lt;/li&gt;
+&lt;li&gt;Beaucoup d&amp;#8217;évènements amicaux annulés pour cause de&amp;nbsp;maladie&lt;/li&gt;
+&lt;li&gt;Je me sens moins efficace que ce que je voudrais: beaucoup de temps d&amp;#8217;organisation, de passage d&amp;#8217;un sujet à l&amp;#8217;autre qui ne m&amp;#8217;aide pas à me concentrer. Je me demande si travailler de manière plus linéaire sur les sujets ne m&amp;#8217;aiderait&amp;nbsp;pas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/france-culture-va-plus-loin-l-invite-e-des-matins/la-gauche-identitaire-contre-la-democratie-1307905"&gt;La gauche identitaire contre la démocratie ?&lt;/a&gt;. Je ne sais pas trop quoi en penser, mais j&amp;#8217;aime l&amp;#8217;idée de questioner ce qui est identitaire, pourquoi, et ce qu&amp;#8217;on y&amp;nbsp;trouve.&lt;/li&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/serie-cancer-la-nouvelle-ere"&gt;Cancer, la nouvelle ère&lt;/a&gt; sur &lt;span class="caps"&gt;LSD&lt;/span&gt;. Les témoignages sont intéressants et me permettent une meilleure&amp;nbsp;compréhension.&lt;/li&gt;
+&lt;li&gt;📖 J&amp;#8217;ai repris la lecture de « Le conflit n&amp;#8217;est pas une agression » que j&amp;#8217;avais complètement&amp;nbsp;oublié!&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>Using pelican to track my worked and volunteer hours</title><link href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html" rel="alternate"></link><published>2023-11-23T00:00:00+01:00</published><updated>2023-11-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-23:/using-pelican-to-track-my-worked-and-volunteer-hours.html</id><summary type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;m consigning everything in markdown files and as such, was already keeping track of everything this …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;

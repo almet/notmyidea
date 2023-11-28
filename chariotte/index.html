@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <title>
-Notmyidea - Alexis Métaireau        </title>
+Chariotte - Alexis Métaireau        </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
@@ -46,12 +46,19 @@ Notmyidea - Alexis Métaireau        </title>
                 </ul>
             </section>
   <header>
-    <h1 class="post-title">Notmyidea</h1>
+    <h1 class="post-title">Chariotte</h1>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="jeudi-23-novembre-2023">🗓️ Jeudi 23 novembre&nbsp;2023</h2>
-<p>J&#8217;ai passé du temps à coder un système qui me permet de faire le suivi de mes heures, par&nbsp;projet.make</p>
+    <h2 id="lundi-27-novembre-2023">🗓️ Lundi 27 novembre&nbsp;2023</h2>
+<p>Chariotte.fr est maintenant hébergé par Alwaysdata !
+Arthur m&#8217;a envoyé les données puis j&#8217;ai fait la commande suivante&nbsp;:</p>
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--decrypt<span class="w"> </span>hb_chariotte_prod.pgdump.asc<span class="w"> </span>&gt;<span class="w"> </span>hb_chariotte_prod.pgdump
+scp<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w">  </span>chariotte:..
+pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span>hb_chariotte_prod.pgdump<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/hb_chariotte_prod/chariotte_prod/g&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>chariotte_prod<span class="w"> </span>-d<span class="w"> </span>chariotte_prod<span class="w"> </span>-h<span class="w"> </span>postgresql-chariotte.alwaysdata.net
+</code></pre></div>
+
+<p>Le soir, j&#8217;ai tenté de comprendre pourquoi les mails ne sont pas envoyés. Sans trop réussir&nbsp;malheureusement.</p>
   </article>
   <script>
     const spec = {
@@ -62,8 +69,8 @@ Notmyidea - Alexis Métaireau        </title>
         {
           "name": "table",
           "values": [
-            {"date": "2023-11-23", "series": "Rémunéré", "count": 0},
-            {"date": "2023-11-23", "series": "Bénévole", "count": 5},
+            {"date": "2023-11-27", "series": "Rémunéré", "count": 0},
+            {"date": "2023-11-27", "series": "Bénévole", "count": 4},
           ]
         }
       ,
