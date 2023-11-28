@@ -65,7 +65,6 @@ class WorklogPreprocessor(Preprocessor):
                     "happyness": happiness,
                 }
                 displayed_date = date.strftime("%A %d %B %Y")
-                print(displayed_date)
 
                 # Replace the line with just the date
                 new_lines.append(f"## 🗓️ {displayed_date}")

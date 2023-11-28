@@ -5,6 +5,16 @@ template: worklog
 total_days: 25
 ---
 
+## Mardi 28 Novembre 2023 ()
+
+Le matin, j'ai préparé un document pour le Memorium of Understanding pour NLNet, question de clarifier ce sur quoi on s'entend.
+
+## Lundi 27 Novembre 2023 (8h, 4/5)
+
+Matinée passée à organiser ma semaine, à participer a la présentation de NLNet (très bon accueil, et clarifications utiles), puis à faire un petit tour de uMap côté front avec Yohan.
+
+L'après-midi j'ai commencé à intégrer les notes que j'ai prises sur le côté JS à la documentation actuelle, et j'en ai profité pour refaire un tour sur la documentation actuelle pour la simplifier et la clarifier.
+
 ## Vendredi 24 Novembre 2023 (2h, 3/5)
 
 Réunion d'avancement et point avec David et Yohan pour préparer la suite concernant NLNet.
