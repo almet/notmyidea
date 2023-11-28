@@ -5,9 +5,6 @@ template: worklog
 total_days: 25
 ---
 
-## Mardi 28 Novembre 2023 ()
-
-Le matin, j'ai préparé un document pour le Memorium of Understanding pour NLNet, question de clarifier ce sur quoi on s'entend.
 
 ## Lundi 27 Novembre 2023 (8h, 4/5)
 
