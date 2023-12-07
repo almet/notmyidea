@@ -56,9 +56,7 @@ class WorklogPreprocessor(Preprocessor):
                 volunteer_hours = int(volunteer_hours) if volunteer_hours else 0
                 payed_hours = int(payed_hours)
                 happiness = int(happiness)
-                print(day, month, year)
                 date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
-                print(date)
                 self.data[date.strftime("%Y-%m-%d")] = {
                     "payed_hours": payed_hours,
                     "volunteer_hours": volunteer_hours,

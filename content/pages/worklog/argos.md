@@ -4,6 +4,9 @@ save_as: argos/index.html
 total_days: 8
 template: worklog
 ---
+## Jeudi 07 Décembre 2023 (0h, 1h bénévoles, 2/5)
+
+Revue de code.
 
 ## Jeudi 23 Novembre 2023 (0h, 1h bénévoles, 3/5)
 

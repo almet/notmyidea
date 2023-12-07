@@ -5,6 +5,31 @@ template: worklog
 total_days: 25
 ---
 
+## Mercredi 06 Décembre 2023 (6h, 3/5)
+
+J'ai terminé de faire quelques légers changements dans la documentation, avant de me plonger dans le code javascript et de commencer à faire du refactoring.
+
+J'ai passé du temps à comprendre comment avoir côte à côte des modules ES6 et du code de type « script ». J'ai ensuite commencé à créer des modules javascript en charge de la sauvegarde des données. En tirant les fils je me rends compte qu'il va sans doute falloir que je repasse sur le code qui s'occupe des requêtes XHR à l'ancienne, pour le remplacer par de l'async/await.
+
+J'avais oublié à quel point faire des requêtes depuis le navigateur était compliqué à l'époque !
+
+## Mardi 05 Décembre 2023 (8h, 4/5)
+
+J'ai mis à plat ce que j'ai appris ces dernières semaines sur le projet, pour pouvoir décider vers où aller pour la suite des évènements.
+
+Une discussion avec Yohan me fait pencher vers la piste que je mettais de côté à cause des changements qui sont nécessaires côté client: les CRDTs.
+
+## Mercredi 29 Novembre 2023 (5h, 3/5)
+
+J'ai passé du temps sur la PR du merge optimiste, pour essayer de changer le fonctionnement qui passe actuellement par la modification des champs de formulaires envoyés, ce que je ne trouve pas très clean.
+
+Le travail pour faire autrement me semble trop important pour le moment, on accepte la PR telle quelle, avec l'idée de passer par une API plus tard, avec la refonte avec DRF.
+
+J'ai aussi travaillé sur la documentation.
+
+## Mardi 28 Novembre 2023 (4h, 2/5)
+
+Travail de projection pour NLNet, puis réunion l'après-midi. J'ai ensuite repris les recherches pour affiner l'utilisation des CRDTs.
 
 ## Lundi 27 Novembre 2023 (8h, 4/5)
 
