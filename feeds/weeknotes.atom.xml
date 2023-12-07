@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-28T00:00:00+01:00</updated><entry><title>2023, Semaine 47</title><link href="https://blog.notmyidea.org/2023-semaine-47.html" rel="alternate"></link><published>2023-11-28T00:00:00+01:00</published><updated>2023-11-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-28:/2023-semaine-47.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-12-05T00:00:00+01:00</updated><entry><title>2023, Semaine 48</title><link href="https://blog.notmyidea.org/2023-semaine-48.html" rel="alternate"></link><published>2023-12-05T00:00:00+01:00</published><updated>2023-12-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-12-05:/2023-semaine-48.html</id><summary type="html">
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Quatrième semaine de travail sur uMap. J&amp;#8217;ai suivi l&amp;#8217;onboarding de NLNet (l&amp;#8217;occasion de découvrir quelques chouettes projets), puis affiné un document pour qu&amp;#8217;on se mette d&amp;#8217;accord sur le déroulé&amp;nbsp;attendu.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai commencé à enregistrer les connaissances que j&amp;#8217;ai sur la base de …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Quatrième semaine de travail sur uMap. J&amp;#8217;ai suivi l&amp;#8217;onboarding de NLNet (l&amp;#8217;occasion de découvrir quelques chouettes projets), puis affiné un document pour qu&amp;#8217;on se mette d&amp;#8217;accord sur le déroulé&amp;nbsp;attendu.&lt;/p&gt;
+&lt;p&gt;J&amp;#8217;ai commencé à enregistrer les connaissances que j&amp;#8217;ai sur la base de code dans de la documentation, et profité de l&amp;#8217;occasion pour « faire un peu de tri&amp;nbsp;».&lt;/p&gt;
+&lt;p&gt;Le code pour faire du merge de manière optimiste &lt;a href="https://github.com/umap-project/umap/pull/772/files"&gt;est intégré&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://framagit.org/framasoft/framaspace/argos"&gt;Argos&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Quelques revues de code pour le projet (&lt;a href="https://framagit.org/framasoft/framaspace/argos"&gt;maintenant public&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sentir que je suis plus léger de manière générale. Content de laisser la brasserie là ou elle&amp;nbsp;est.&lt;/li&gt;
+&lt;li&gt;Récolter les fruits de gestion de conflits&amp;nbsp;passées.&lt;/li&gt;
+&lt;li&gt;Provoquer un appel téléphonique pour prendre quelques&amp;nbsp;nouvelles.&lt;/li&gt;
+&lt;li&gt;Sentir que les rencontres me sont plus&amp;nbsp;faciles.&lt;/li&gt;
+&lt;li&gt;Prendre le temps d&amp;#8217;être là pour des proches qui en avaient&amp;nbsp;besoin. &lt;/li&gt;
+&lt;li&gt;Réaliser que je passe du temps à interpréter les signaux extérieurs, et que je peux simplement demander une&amp;nbsp;clarification.&lt;/li&gt;
+&lt;li&gt;Jouer avec de la musique avec d&amp;#8217;autres personnes, le retour du trombone&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Prendre le temps d&amp;#8217;écouter quelques&amp;nbsp;podcasts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai passé trop de temps en réunion par rapport aux deux jours de travail que j&amp;#8217;ai sur&amp;nbsp;uMap.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai parfois eu du mal à me concentrer, peut-être l&amp;#8217;occasion de me remettre aux &lt;a href="https://www.wikiwand.com/fr/Technique_Pomodoro"&gt;pomodoros&lt;/a&gt;&amp;nbsp;🤔&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute"&gt;Vu, lu,&amp;nbsp;écouté&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="https://darknetdiaries.com/episode/139"&gt;Darknet Diaries 139: D3f4ult&lt;/a&gt;, qui nous parle de hacking à l&amp;#8217;ancienne, ça fait tout bizarre de se dire que ça s&amp;#8217;est déroulé durant ma jeunesse, et que j&amp;#8217;ai beaucoup de points communs&amp;nbsp;culturels.&lt;/li&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="http://www.wnycstudios.org/story/shrink-2311/"&gt;Radiolab: Shrink&lt;/a&gt; qui parle de la découverte des &lt;a href="https://fr.wikipedia.org/wiki/Virus_g%C3%A9ant?"&gt;virus géants&lt;/a&gt; d&amp;#8217;une manière tout à fait&amp;nbsp;accessible. &lt;/li&gt;
+&lt;li&gt;🎧 Écouté &lt;a href="http://www.wnycstudios.org/story/boy-man/"&gt;Radiolab: Boy Man&lt;/a&gt;, un témoignage sur la puberté&amp;nbsp;précoce&lt;/li&gt;
+&lt;li&gt;🎵 (Oublié de dire que j&amp;#8217;avais) découvert &lt;a href="https://brulerdanser.bandcamp.com/album/bruler-danser"&gt;Bruler Danser, de Lisette Lombé et Cloé du Trèfle&lt;/a&gt;. Un album slam sur de la musique électronique, des paroles très chouettes, une histoire qu&amp;#8217;on à envie de&amp;nbsp;réécouter. &lt;/li&gt;
+&lt;li&gt;📖 Continué et quasi terminé la lecture de « Le conflit n&amp;#8217;est pas une agression ». J&amp;#8217;en apprécie plusieurs morceaux, les relire les faits résonner chez&amp;nbsp;moi.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2023, Semaine 47</title><link href="https://blog.notmyidea.org/2023-semaine-47.html" rel="alternate"></link><published>2023-11-28T00:00:00+01:00</published><updated>2023-11-28T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-28:/2023-semaine-47.html</id><summary type="html">
 &lt;p&gt;Un équilibre perso/pro qui s&amp;#8217;améliore, même si les limites sont encores poreuses. Les outils mis en place aident, je suis content de déjà récolter quelques&amp;nbsp;fruits.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/umap-project/umap/"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;

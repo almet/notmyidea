@@ -48,16 +48,29 @@ uMap - Alexis Métaireau        </title>
   <header>
     <h1 class="post-title">uMap</h1>
       <div>
-▓▓▓░░░░░░░        37% (64h / 175 prévues)
+▓▓▓▓▓░░░░░        50% (87h / 175 prévues)
       </div>
       <ul>
-        <li>64h rémunérées</li>
+        <li>87h rémunérées</li>
         <li>4h bénévoles</li>
       </ul>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="lundi-27-novembre-2023">🗓️ Lundi 27 novembre&nbsp;2023</h2>
+    <h2 id="mercredi-06-decembre-2023">🗓️ Mercredi 06 décembre&nbsp;2023</h2>
+<p>J&#8217;ai terminé de faire quelques légers changements dans la documentation, avant de me plonger dans le code javascript et de commencer à faire du&nbsp;refactoring.</p>
+<p>J&#8217;ai passé du temps à comprendre comment avoir côte à côte des modules <span class="caps">ES6</span> et du code de type « script ». J&#8217;ai ensuite commencé à créer des modules javascript en charge de la sauvegarde des données. En tirant les fils je me rends compte qu&#8217;il va sans doute falloir que je repasse sur le code qui s&#8217;occupe des requêtes <span class="caps">XHR</span> à l&#8217;ancienne, pour le remplacer par de&nbsp;l&#8217;async/await.</p>
+<p>J&#8217;avais oublié à quel point faire des requêtes depuis le navigateur était compliqué à l&#8217;époque&nbsp;!</p>
+<h2 id="mardi-05-decembre-2023">🗓️ Mardi 05 décembre&nbsp;2023</h2>
+<p>J&#8217;ai mis à plat ce que j&#8217;ai appris ces dernières semaines sur le projet, pour pouvoir décider vers où aller pour la suite des&nbsp;évènements.</p>
+<p>Une discussion avec Yohan me fait pencher vers la piste que je mettais de côté à cause des changements qui sont nécessaires côté client: les&nbsp;CRDTs.</p>
+<h2 id="mercredi-29-novembre-2023">🗓️ Mercredi 29 novembre&nbsp;2023</h2>
+<p>J&#8217;ai passé du temps sur la <span class="caps">PR</span> du merge optimiste, pour essayer de changer le fonctionnement qui passe actuellement par la modification des champs de formulaires envoyés, ce que je ne trouve pas très&nbsp;clean.</p>
+<p>Le travail pour faire autrement me semble trop important pour le moment, on accepte la <span class="caps">PR</span> telle quelle, avec l&#8217;idée de passer par une <span class="caps">API</span> plus tard, avec la refonte avec <span class="caps">DRF</span>.</p>
+<p>J&#8217;ai aussi travaillé sur la&nbsp;documentation.</p>
+<h2 id="mardi-28-novembre-2023">🗓️ Mardi 28 novembre&nbsp;2023</h2>
+<p>Travail de projection pour NLNet, puis réunion l&#8217;après-midi. J&#8217;ai ensuite repris les recherches pour affiner l&#8217;utilisation des&nbsp;CRDTs.</p>
+<h2 id="lundi-27-novembre-2023">🗓️ Lundi 27 novembre&nbsp;2023</h2>
 <p>Matinée passée à organiser ma semaine, à participer a la présentation de NLNet (très bon accueil, et clarifications utiles), puis à faire un petit tour de uMap côté front avec&nbsp;Yohan.</p>
 <p>L&#8217;après-midi j&#8217;ai commencé à intégrer les notes que j&#8217;ai prises sur le côté <span class="caps">JS</span> à la documentation actuelle, et j&#8217;en ai profité pour refaire un tour sur la documentation actuelle pour la simplifier et la&nbsp;clarifier.</p>
 <h2 id="vendredi-24-novembre-2023">🗓️ Vendredi 24 novembre&nbsp;2023</h2>
@@ -119,6 +132,14 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2023-12-06", "series": "Rémunéré", "count": 6},
+            {"date": "2023-12-06", "series": "Bénévole", "count": 0},
+            {"date": "2023-12-05", "series": "Rémunéré", "count": 8},
+            {"date": "2023-12-05", "series": "Bénévole", "count": 0},
+            {"date": "2023-11-29", "series": "Rémunéré", "count": 5},
+            {"date": "2023-11-29", "series": "Bénévole", "count": 0},
+            {"date": "2023-11-28", "series": "Rémunéré", "count": 4},
+            {"date": "2023-11-28", "series": "Bénévole", "count": 0},
             {"date": "2023-11-27", "series": "Rémunéré", "count": 8},
             {"date": "2023-11-27", "series": "Bénévole", "count": 0},
             {"date": "2023-11-24", "series": "Rémunéré", "count": 2},
