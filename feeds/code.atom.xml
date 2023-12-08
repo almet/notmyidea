@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-23T00:00:00+01:00</updated><entry><title>Using pelican to track my worked and volunteer hours</title><link href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html" rel="alternate"></link><published>2023-11-23T00:00:00+01:00</published><updated>2023-11-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-23:/using-pelican-to-track-my-worked-and-volunteer-hours.html</id><summary type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - code</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/code.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-12-08T00:00:00+01:00</updated><entry><title>Rescuing a broken asahi linux workstation</title><link href="https://blog.notmyidea.org/rescuing-a-broken-asahi-linux-workstation.html" rel="alternate"></link><published>2023-12-08T00:00:00+01:00</published><updated>2023-12-08T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-12-08:/rescuing-a-broken-asahi-linux-workstation.html</id><summary type="html">&lt;p&gt;On my main machine, I&amp;#8217;m currently using &lt;a href="asahilinux.org/"&gt;Asahi Linux&lt;/a&gt; (on a macbook m1). I&amp;#8217;ve recently broken my system, which wasn&amp;#8217;t able to boot because of a broken &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;On my previous setups, I was able to easily plug an usb key and boot to it to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;On my main machine, I&amp;#8217;m currently using &lt;a href="asahilinux.org/"&gt;Asahi Linux&lt;/a&gt; (on a macbook m1). I&amp;#8217;ve recently broken my system, which wasn&amp;#8217;t able to boot because of a broken &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;On my previous setups, I was able to easily plug an usb key and boot to it to solve my issues, but here I wasn&amp;#8217;t sure how to deal with&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;After playing a bit (without much luck) with &lt;a href="https://github.com/leifliddy/fedora-macos-asahi-qemu/"&gt;qemu and vagrant&lt;/a&gt;, someone pointed me to the right direction: using alpine&amp;nbsp;linux.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s what I did to solve my broken&amp;nbsp;install:&lt;/p&gt;
+&lt;p&gt;First, install this alpine linux on a&amp;nbsp;key.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.alpinelinux.org/~mps/m1/m1-usb-alpine-install.img.xz"&gt;Download the iso image here&lt;/a&gt;, and copy it to a key. I&amp;#8217;m not sure why, but &lt;code&gt;dd&lt;/code&gt; didn&amp;#8217;t work for me, and I ended up using another tool to create the usb from the&amp;nbsp;iso. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# When booting, press a key to enter u-boot. Then:&lt;/span&gt;
+env&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;boot_efi_bootmgr
+run&lt;span class="w"&gt; &lt;/span&gt;bootcmd_usb0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Which should get you a session. When connected, do the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# to find the parition you want to mount, marked EFI something&lt;/span&gt;
+lsblk&lt;span class="w"&gt; &lt;/span&gt;-f
+mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;EFI - FEDOR&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/mnt
+
+&lt;span class="c1"&gt;# Install the wifi firmware&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/lib/firmware
+tar&lt;span class="w"&gt; &lt;/span&gt;xvf&lt;span class="w"&gt; &lt;/span&gt;/mnt/vendor/firmware.tar
+/root/update-vendor-firmware
+rm&lt;span class="w"&gt; &lt;/span&gt;/etc/modprobe.d/blacklist-brcmfmac.conf
+modprobe&lt;span class="w"&gt; &lt;/span&gt;brcmfmac
+
+&lt;span class="c1"&gt;# Connect to the wifi&lt;/span&gt;
+/etc/init.d/iwd&lt;span class="w"&gt; &lt;/span&gt;start
+iwctl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In my case, I wanted to mount a btrfs filesystem to fix something&amp;nbsp;inside.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;apk&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;btrfs-progs
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;btrfs&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/etc/modules
+modprobe&lt;span class="w"&gt; &lt;/span&gt;btrfs
+mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;LABEL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fedora&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/opt/fedora
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I then could access the filesystem, and made a fix to&amp;nbsp;it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://arvanta.net/alpine/install-alpine-m1/&lt;/li&gt;
+&lt;li&gt;https://arvanta.net/alpine/iwd-howto/&lt;/li&gt;
+&lt;li&gt;https://wiki.alpinelinux.org/wiki/Btrfs&lt;/li&gt;
+&lt;/ul&gt;</content><category term="code"></category><category term="Linux"></category><category term="Asahi"></category></entry><entry><title>Using pelican to track my worked and volunteer hours</title><link href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html" rel="alternate"></link><published>2023-11-23T00:00:00+01:00</published><updated>2023-11-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-23:/using-pelican-to-track-my-worked-and-volunteer-hours.html</id><summary type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;m consigning everything in markdown files and as such, was already keeping track of everything this …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;
@@ -1007,9 +1050,9 @@ Version&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, in weechat&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/server add znc host/6697 -tls -username=&amp;lt;username&amp;gt; -password=&amp;lt;yourpass&amp;gt; -autoconnect
-/set irc.server.znc.tls_fingerprint &amp;lt;fingerprint-goes-here&amp;gt;
-/connect znc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;znc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;host&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6697&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;tls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;username&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;yourpass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;autoconnect&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;irc&lt;/span&gt;.&lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;znc&lt;/span&gt;.&lt;span class="nv"&gt;tls_fingerprint&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;fingerprint&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;goes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;here&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;connect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;znc&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And you should be all&amp;nbsp;set!&lt;/p&gt;
@@ -1072,8 +1115,8 @@ llm&lt;span class="w"&gt; &lt;/span&gt;models&lt;span class="w"&gt; &lt;/span&gt
 &lt;p&gt;It also, &lt;a href="https://caddyserver.com/docs/automatic-https"&gt;setups automatically and transparently &lt;span class="caps"&gt;SSL&lt;/span&gt; certificates&lt;/a&gt; for you (using Let&amp;#8217;s Encrypt!), so I wanted to have a&amp;nbsp;look.&lt;/p&gt;
 &lt;p&gt;Here is the Caddy configuration file I&amp;#8217;m now using&amp;nbsp;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;md.notmyidea.org {
-        root &lt;span class="gs"&gt;* /home/caddy/md.notmyidea.org&lt;/span&gt;
-&lt;span class="gs"&gt;        rewrite *&lt;/span&gt; /index.html
+        root * /home/caddy/md.notmyidea.org
+        rewrite * /index.html
         file_server
         templates
         encode zstd gzip
@@ -2139,19 +2182,19 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 &lt;p&gt;Voici la section de la configuration de HAProxy (et &lt;a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72"&gt;la configuration
 complete&lt;/a&gt;
 si ça peut être&amp;nbsp;utile):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;frontend http
-    bind 0.0.0.0:80
-    mode http
-    default_backend nginx_server
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;frontend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;bind&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;default_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;nginx_server&lt;/span&gt;
 
-    acl letsencrypt_check path_beg /.well-known/acme-challenge
-    use_backend letsencrypt_backend if letsencrypt_check
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;acl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;path_beg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;.&lt;span class="nv"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;challenge&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;use_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-    redirect scheme https code 301 if !{ ssl_fc } !letsencrypt_check
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;redirect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;scheme&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;301&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;{&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ssl_fc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;}&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
 
-backend letsencrypt_backend
-    http-request set-header Host letsencrypt.requests
-    dispatch 127.0.0.1:8000
+&lt;span class="nv"&gt;backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;Host&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;.&lt;span class="nv"&gt;requests&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;dispatch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;8000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et celle de &lt;span class="caps"&gt;NGINX&lt;/span&gt;:&lt;/p&gt;
@@ -5072,7 +5115,7 @@ fois &lt;span class="caps"&gt;SSL&lt;/span&gt; et &lt;span class="caps"&gt;TLS&l
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt;&amp;nbsp;!)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d&amp;#8217;hôte en hôte
 séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &lt;span class="gs"&gt;*+*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
         ProxyCommand ssh $(echo %h | sed
 &amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;h2 id="tunelling"&gt;Tunelling&lt;/h2&gt;
@@ -5084,7 +5127,7 @@ séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt;&amp;nbsp;!)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d&amp;#8217;hôte en hôte
 séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &lt;span class="gs"&gt;*+*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
         ProxyCommand ssh $(echo %h | sed
 &amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)
 PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)
@@ -6646,7 +6689,7 @@ some feedback from the&amp;nbsp;sync:&lt;/p&gt;
 &lt;p&gt;This is probably perfectible, but that does the&amp;nbsp;job.&lt;/p&gt;
 &lt;p&gt;Last step is to tell you machine to run that frequently. That&amp;#8217;s what
 crontab is made for, so let&amp;#8217;s &lt;code&gt;crontab -e&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ &lt;span class="gs"&gt;* *&lt;/span&gt;/3 &lt;span class="gs"&gt;* *&lt;/span&gt; * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The \~/.Xdbus allows cron to communicate with your X11 session. Here is

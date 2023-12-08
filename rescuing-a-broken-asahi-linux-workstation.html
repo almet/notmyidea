@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Rescuing a broken asahi linux&nbsp;workstation - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+
+<header>
+	<h1 class="post-title">Rescuing a broken asahi linux&nbsp;workstation</h1>
+	<p><em>How I used Alpine linux as a rescue system</em></p>
+	<time datetime="2023-12-08T00:00:00+01:00">08 décembre 2023</time>
+
+    
+</header>
+<article>
+    <p>On my main machine, I&#8217;m currently using <a href="asahilinux.org/">Asahi Linux</a> (on a macbook m1). I&#8217;ve recently broken my system, which wasn&#8217;t able to boot because of a broken <code>/etc/fstab</code>.</p>
+<p>On my previous setups, I was able to easily plug an usb key and boot to it to solve my issues, but here I wasn&#8217;t sure how to deal with&nbsp;it.</p>
+<p>After playing a bit (without much luck) with <a href="https://github.com/leifliddy/fedora-macos-asahi-qemu/">qemu and vagrant</a>, someone pointed me to the right direction: using alpine&nbsp;linux.</p>
+<p>Here&#8217;s what I did to solve my broken&nbsp;install:</p>
+<p>First, install this alpine linux on a&nbsp;key.</p>
+<p><a href="https://dev.alpinelinux.org/~mps/m1/m1-usb-alpine-install.img.xz">Download the iso image here</a>, and copy it to a key. I&#8217;m not sure why, but <code>dd</code> didn&#8217;t work for me, and I ended up using another tool to create the usb from the&nbsp;iso. </p>
+<div class="highlight"><pre><span></span><code><span class="c1"># When booting, press a key to enter u-boot. Then:</span>
+env<span class="w"> </span><span class="nb">set</span><span class="w"> </span>boot_efi_bootmgr
+run<span class="w"> </span>bootcmd_usb0
+</code></pre></div>
+
+<p>Which should get you a session. When connected, do the&nbsp;following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># to find the parition you want to mount, marked EFI something</span>
+lsblk<span class="w"> </span>-f
+mount<span class="w"> </span><span class="nv">label</span><span class="o">=</span><span class="s2">&quot;EFI - FEDOR&quot;</span><span class="w"> </span>/mnt
+
+<span class="c1"># Install the wifi firmware</span>
+<span class="nb">cd</span><span class="w"> </span>/lib/firmware
+tar<span class="w"> </span>xvf<span class="w"> </span>/mnt/vendor/firmware.tar
+/root/update-vendor-firmware
+rm<span class="w"> </span>/etc/modprobe.d/blacklist-brcmfmac.conf
+modprobe<span class="w"> </span>brcmfmac
+
+<span class="c1"># Connect to the wifi</span>
+/etc/init.d/iwd<span class="w"> </span>start
+iwctl
+</code></pre></div>
+
+<p>In my case, I wanted to mount a btrfs filesystem to fix something&nbsp;inside.</p>
+<div class="highlight"><pre><span></span><code>apk<span class="w"> </span>add<span class="w"> </span>btrfs-progs
+<span class="nb">echo</span><span class="w"> </span>btrfs<span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/modules
+modprobe<span class="w"> </span>btrfs
+mount<span class="w"> </span><span class="nv">LABEL</span><span class="o">=</span><span class="s2">&quot;fedora&quot;</span><span class="w"> </span>/opt/fedora
+</code></pre></div>
+
+<p>I then could access the filesystem, and made a fix to&nbsp;it.</p>
+<hr>
+<p>Resources:</p>
+<ul>
+<li>https://arvanta.net/alpine/install-alpine-m1/</li>
+<li>https://arvanta.net/alpine/iwd-howto/</li>
+<li>https://wiki.alpinelinux.org/wiki/Btrfs</li>
+</ul>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/linux.html">#Linux</a>,         <a href="https://blog.notmyidea.org/tag/asahi.html">#Asahi</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>
