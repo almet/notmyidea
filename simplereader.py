@@ -9,7 +9,10 @@ from pelican import signals
 from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
 
-locale.setlocale(locale.LC_TIME, "fr_FR.UTF8")
+try:
+    locale.setlocale(locale.LC_TIME, "fr_FR.UTF8")
+except:
+    locale.setlocale(locale.LC_TIME, "fr_FR")
 
 
 class WorklogPreprocessor(Preprocessor):
