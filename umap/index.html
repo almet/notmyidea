@@ -48,16 +48,21 @@ uMap - Alexis Métaireau        </title>
   <header>
     <h1 class="post-title">uMap</h1>
       <div>
-▓▓▓▓▓▓░░░░        69% (120h / 175 prévues)
+▓▓▓▓▓▓▓░░░        74% (129h / 175 prévues)
       </div>
       <ul>
-        <li>120h rémunérées</li>
+        <li>129h rémunérées</li>
         <li>4h bénévoles</li>
       </ul>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="samedi-16-decembre-2023">🗓️ Samedi 16 décembre&nbsp;2023</h2>
+    <h2 id="lundi-18-decembre-2023">🗓️ Lundi 18 décembre&nbsp;2023</h2>
+<p>J&#8217;ai creusé sur mon idée de faire en sorte de synchroniser un point, j&#8217;ai une meilleure compréhension de ou m&#8217;insérer dans le code, et j&#8217;ai pu commencer à coder un bout de code qui fait la connexion avec le&nbsp;stockage.</p>
+<p>J&#8217;ai aussi commencé à coder la partie stockage, en mettant de côté pour le moment la partie <span class="caps">CRDT</span> en tant que telle, j&#8217;ai l&#8217;impression de voir comment ça va fonctionner&nbsp;maintenant.</p>
+<p>J&#8217;ai découvert la documentation de Leaflet <a href="https://leafletjs.com/reference.html#class">sur comment les objets fonctionnent</a> et la documentation de <a href="http://leaflet.github.io/Leaflet.Editable/doc/api.html#editable">Leaflet Editable</a> qui étaient en fait des lectures indispensables à la bonne compréhension du code de&nbsp;umap.</p>
+<p>On a terminé la journée avec une session de pair avec Yohan qui était vraiment bien :  j&#8217;avais des questions précises et on a pu avancer ensemble vers plus de&nbsp;clarté.</p>
+<h2 id="samedi-16-decembre-2023">🗓️ Samedi 16 décembre&nbsp;2023</h2>
 <p>J&#8217;ai eu envie de commencer à m&#8217;intégrer avec uMap, pour ce qui est de la synchronisation des données. Pas forcement pour faire les choses <em>en version finale</em>, mais plutôt pour avancer un peu sur ma compréhension du code de manière&nbsp;générale.</p>
 <p>Objectif: faire de la synchronisation de données pour un point. Quand il est ajouté sur une carte, je veux pouvoir récupérer un évènement de l&#8217;autre côté et l&#8217;afficher sur cette seconde carte. Éventuellement j&#8217;aimerai bien pouvoir suivre le drag-n-drop&nbsp;également.</p>
 <p>J&#8217;ai passé l&#8217;aprèm à mettre des petits points d&#8217;arrêts dans mon navigateur web, pour mieux comprendre où ce serait le plus logique de m&#8217;insérer pour voir les modifications sur la carte, pour enfin commencer à ajouter <code>Y.js</code> dans le code (en tant que&nbsp;module).</p>
@@ -157,6 +162,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2023-12-18", "series": "Rémunéré", "count": 9},
+            {"date": "2023-12-18", "series": "Bénévole", "count": 0},
             {"date": "2023-12-16", "series": "Rémunéré", "count": 4},
             {"date": "2023-12-16", "series": "Bénévole", "count": 0},
             {"date": "2023-12-15", "series": "Rémunéré", "count": 7},
