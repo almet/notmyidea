@@ -4,12 +4,12 @@ save_as: argos/index.html
 total_days: 8
 template: worklog
 ---
-## Samedi 16 Décembre 2023 (0h, 5h, 5/5)
+## Samedi 16 Décembre 2023 (0h, 5h bénévoles, 5/5)
 
 J'ai ajouté le support de [Alembic](https://alembic.sqlalchemy.org), pour permettre de faire des migrations de base de données. C'était assez chouette de découvrir comment ça fonctionne : ça fait longtemps que je l'utilise sur d'autres projets mais ce n'était pas moi qui l'avait mis en place.
 
 J'ai aussi passé un peu de temps à faire des petits changements à droite à gauche.
-## Jeudi 14 Décembre 2023 (0h, 1h bénévole, 5/5)
+## Jeudi 14 Décembre 2023 (0h, 1h bénévoles, 5/5)
 
 Echanges avec Luc pour faire le tour des merge requests, et un petit temps de bilan général sur le projet.
 Content de recevoir des retours positifs sur le travail effectué.

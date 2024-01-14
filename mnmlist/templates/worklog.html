@@ -7,24 +7,45 @@
 {% block content %}
   <header>
     <h1 class="post-title">{{ page.title }}</h1>
-    {% if "total_days" in page.metadata.keys() %}
-      {% set percentage = page.metadata.worklog['percentage'] %}
-      {% set total_blocks = 10 %}
-      {% set percentage_value = (percentage / 100.0) %}
-      {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor') ) | int %}
-      {% set empty_blocks = total_blocks - full_blocks %}
-      <div>
-        {# Display full blocks #}
-        {% for i in range(full_blocks) %}▓{% endfor %}
-        {# Display empty blocks #}
-        {% for i in range(empty_blocks) %}░{% endfor %}
-        {{ percentage }}% ({{ page.metadata.worklog['payed_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
-      </div>
-      <ul>
-        <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
-        <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
-      </ul>
-    {% endif %}
+    <details>
+      <summary>Stats</summary>
+      {% if "total_days" in page.metadata.keys() %}
+        {% set percentage = page.metadata.worklog['percentage'] %}
+        {% set total_blocks = 10 %}
+        {% set percentage_value = (percentage / 100.0) %}
+        {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor') ) | int %}
+        {% set empty_blocks = total_blocks - full_blocks %}
+        <div>
+          {# Display full blocks #}
+          {% for i in range(full_blocks) %}▓{% endfor %}
+          {# Display empty blocks #}
+          {% for i in range(empty_blocks) %}░{% endfor %}
+          {{ percentage }}% ({{ page.metadata.worklog['payed_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
+        </div>
+        <ul>
+          <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
+          <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
+        </ul>
+      {% endif %}
+      <table>
+        <thead>
+          <tr>
+            <td>Mois</td>
+            <td>Heures</td>
+            <td>Jours</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for month, amount in page.metadata.worklog.payed_monthly.items() %}
+            <tr>
+              <td>{{ month }}</td>
+              <td>{{ amount }}</td>
+              <td>{{ (amount / 7.0) | round(1) }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </details>
   </header>
   <article>
     <div id="vis"></div>

@@ -4,6 +4,108 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+## Vendredi 12 Janvier 2023 (3h)
+
+J'ai continué à coder la piste initiée mercredi. Je me rends compte qu'il me
+faudra peut-être un moyen de faire du lien entre les données, et que cette
+information soit stockée quelque part (pour des re-rendus en cascade, si des
+données sont dépendantes d'autres données).
+
+En tout cas, j'ai une interface un peu plus claire pour le Mixin de `rerender`.
+
+
+## Mercredi 10 Janvier 2023 (7h, 4/5)
+
+La piste des IDs est finalement écartée pour l'instant, je ne suis pas encore
+certain d'en avoir besoin, peut-être qu'il n'est pas utile d'identifier les
+features de manière unique au niveau de la base de données, et que cette
+information n'est utile que de manière ponctuelle pour la synchronisation de
+données (avec les CRDTs).
+
+On a changé d'approche avec Yohan pour commencer à coder et voir ou ça
+bloquerait. On a commencé par ajouter de la synchro sur les champs du
+formbuilder de la carte.
+
+Je suis assez surpris par la relative simplicité de la tâche: je m'attendais à
+quelque chose de bien plus compliqué, mais — en tout cas pour le formbuilder —
+c'est assez simple puisque lui modifie des données qui lui sont extérieures. Il
+est donc possible de se connecter sur son étape finale pour updater les données
+à synchroniser.
+
+Actuellement, des `callbacks` sont définis manuellement par le code qui appelle
+le formbuilder (pour re-rendre les éléments qui en ont besoin), on factorise
+tout ça, pour faire en sorte que les données qui viennent de l'extérieur mettent
+aussi à jour l'interface.
+
+Je suis content de réussir à avancer sur des trucs un peu plus concrets. Aussi
+très content des discussions « en off » avec Yohan. L'impression qu'on réussi à
+commencer à désamorcer certains trucs avant qu'ils ne s'installent.
+
+En fin de journée, je repasse sur la proposition de Json Joy qui me semble
+intéressante en terme d'API, et plus tournée vers des composants réutilisables.
+
+Avec un peu de recul, les avancées de ces quelques jours ne sont pas techniques,
+mais humainess. On a passé du temps à confronter des approches, avant de se
+rendre compte qu'il s'agissait *aussi* de peurs chez l'un et chez l'autre, ce
+qui nous a permis  de trouver un moyen de travailler ensemble plus efficacement.
+Frustrant de ne pas avoir avancé techniquement, mais l'impression d'être sur de
+bons rails humains, et d'avoir pu dégrossir certains aspects du code pour me les
+rendre compréhensibles.
+
+## Mardi 09 Janvier 2023 (8h, 3/5)
+
+On discute avec Yohan de comment faire pour avancer, on commence à travailler
+en pair pour plutôt décider se séparer le travail au lieu de le faire ensemble.
+
+Yohan s'occupera de faire une séparation du code qui fait le « rendering », je
+travaille sur la partie qui fait la synchronisation de données, qui va utiliser
+les APIs exposées par Yohan.
+
+Ce choix m'aide à me sentir plus à l'aise: je n'ai pas besoin de faire trop
+de refactoring sur un code que je ne connais pas et qui me demande beaucoup de
+temps de lecture et de compréhension.
+
+Une discussion avec David me fait imaginer un scénario que j'avais oublié:
+faire une bibliothèque Leaflet qui permet de faire de la synchro de données, de
+manière générique. J'aime bien le fait que ça propose une séparation claire de
+qui fait quoi, et permettrait d'avoir une frontière bien définie avec le code
+actuel.
+
+Je ne trouve pas trop ma place dans la weekly qui est plus orientée décisions
+stratégiques que updates des uns et des autres. Ça me pose question, j'aimerai
+bien réussir à aborder le sujet lors d'un prochain point.
+
+Je travaille sur un bout de code qui ajoute la gestion des identifiants sur les
+features GeoJSON, et j'ajoute un test dans playwright (c'est plaisant). Utiliser
+des UUIDs (v4) voudrait dire avoir 36bits * 12 000 000 layers * 50 features =
+21,6GB de données en plus sur la base de données de OSMFR.
+
+Partir sur des identifiants plus courts permet d'utiliser moins d'espace.
+
+Je suis content des bouts de discussions qu'on a pu avoir, qui entament une
+réflexion sur la manière dont on travaille ensemble, ce qu'on attends l'un de
+l'autre. Je me rends compte que ma confiance en moi est faible, et que j'ai
+besoin de la conforter avant d'être efficace pour travailler avec d'autres.
+
+Content de la découverte, et d'avoir pu l'expliciter auprès de Yohan.
+J'espère que ça débouchera sur quelque chose de sain et productif.
+
+## Lundi 08 Janvier 2023 (9h, 3/5)
+
+Matinée passée et début d'après midi avec Yohan à faire une release de uMap puis
+à faire du bugfix dessus ensuite. Fin d'après-midi à discuter de la manière dont
+on peut imaginer la suite du travail ensemble. On patine un peu, on a du mal à
+trouver une manière de fonctionner qui nous convienne à tous les deux.
+
+## Lundi 18 Décembre 2023 (9h, 5/5)
+
+J'ai creusé sur mon idée de faire en sorte de synchroniser un point, j'ai une meilleure compréhension de ou m'insérer dans le code, et j'ai pu commencer à coder un bout de code qui fait la connexion avec le stockage.
+
+J'ai aussi commencé à coder la partie stockage, en mettant de côté pour le moment la partie CRDT en tant que telle, j'ai l'impression de voir comment ça va fonctionner maintenant, et l'intégration avec Y.JS me semble difficile sans utiliser de bundler js, ce qui est peut-être un signe qu'il faut aller voir ailleurs (Json Joy me fait de l'oeil)
+
+J'ai découvert la documentation de Leaflet [sur comment les objets fonctionnent](https://leafletjs.com/reference.html#class) et la documentation de [Leaflet Editable](http://leaflet.github.io/Leaflet.Editable/doc/api.html#editable) qui étaient en fait des lectures indispensables à la bonne compréhension du code de umap.
+
+On a terminé la journée avec une session de pair avec Yohan qui était vraiment bien :  j'avais des questions précises et on a pu avancer ensemble vers plus de clarté.
 
 ## Samedi 16 Décembre 2023 (4h, 5/5)
 
@@ -15,9 +117,10 @@ J'ai passé l'aprèm à mettre des petits points d'arrêts dans mon navigateur w
 
 Le fait qu'on utilise pas de bundler rends les choses un peu plus compliquées, mais je suis content d'avoir la main sur comment les choses sont faites.
 
-J'ai un peu bloqué sur l'utilisation de Y.JS, qui s'attends à ce que d'autres modules soient disponibles dans des namespaces specifiques, ce qui ne correspond pas vraiment à nos pratiques.
+J'ai un peu bloqué sur l'utilisation de Y.JS, qui s'attends à ce que d'autres modules soient disponibles dans des namespaces spécifiques, ce qui ne correspond pas vraiment à nos pratiques.
 
 J'ai découvert [import maps]() et j'ai commencé à les utiliser, mais ça ne semble pas suffire pour notre approche "simpliste". En tout cas, pas pour Y.JS (https://github.com/yjs/yjs/issues/325)
+
 ## Vendredi 15 Décembre 2023 (7h, 3/5)
 
 🚗 J'ai travaillé depuis la maison, suite à des soucis de voiture. 
@@ -28,7 +131,8 @@ J'ai pu discuter avec Vincent puis avec David du sujet. Je suis content [de l'ap
 
 J'en ai profité pour [ajouter mes apprentissages](https://github.com/umap-project/umap/pull/1471) dans la documentation développeur, le genre d'informations que je récupère à droite à gauche et qui sont utiles pour pouvoir contribuer.
 
-J'ai un peu réorganisé mes notes autour des différents challenges qu'on a sur ce projet concernant les différents aspects (stockage, réactivité, réconcialition des données, transport). Et entre autre autour de la partie transport.
+J'ai un peu réorganisé mes notes autour des différents challenges qu'on a sur ce projet concernant les différents aspects (stockage, réactivité, réconcialiation des données, transport). Et entre autre autour de la partie transport.
+
 ## Jeudi 14 Décembre 2023 (8h, 5/5)
 
 Réunion le matin avec Yohan et NLNet, l'idée était de valider notre plan d'action, et c'est bon. Les documents sont signés on est surs d'avoir le financement. Sacrée nouvelle :-)
@@ -41,7 +145,7 @@ L'après-midi j'ai passé un peu de temps pour voir comment on pourrait utiliser
 
 ## Mercredi 13 Décembre 2023 (2h, 3/5)
 
-
+Je n'ai pas pris de notes.
 
 ## Mardi 12 Décembre 2023 (4h, 4/5)
 

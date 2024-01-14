@@ -18,6 +18,8 @@ RELATIVE_URLS = True
 TIMEZONE = "Europe/Paris"
 LOCALE = "fr_FR"
 
+TAG_FEED_ATOM = "feeds/tags/{slug}.atom.xml"
+
 DEFAULT_DATE_FORMAT = "%d %B %Y"
 LINKS = []
 

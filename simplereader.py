@@ -1,6 +1,7 @@
 import locale
 import os.path
 import re
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
@@ -11,14 +12,14 @@ from pelican.utils import get_date, slugify
 
 try:
     locale.setlocale(locale.LC_TIME, "fr_FR.UTF8")
-except:
+except Exception:
     locale.setlocale(locale.LC_TIME, "fr_FR")
 
 
 class WorklogPreprocessor(Preprocessor):
     pattern = re.compile(
         r"""
-        (?:(\w+)\s+)?                    # Day name
+        (?:(\w+)\s+)?                 # Day name
         (\d{1,2})\s+                  # Day number
         ([\wéû]+)\s+                  # Month name
         (\d{4})\s+                    # Year
@@ -37,6 +38,7 @@ class WorklogPreprocessor(Preprocessor):
 
     def __init__(self, *args, **kwargs):
         self.data = {}
+        self.payed_monthly = defaultdict(int)
         super().__init__(*args, **kwargs)
 
     def run(self, lines):
@@ -63,8 +65,9 @@ class WorklogPreprocessor(Preprocessor):
                 self.data[date.strftime("%Y-%m-%d")] = {
                     "payed_hours": payed_hours,
                     "volunteer_hours": volunteer_hours,
-                    "happyness": happiness,
+                    "happiness": happiness,
                 }
+                self.payed_monthly[date.strftime("%Y/%m")] += payed_hours
                 displayed_date = date.strftime("%A %d %B %Y")
 
                 # Replace the line with just the date
@@ -74,15 +77,20 @@ class WorklogPreprocessor(Preprocessor):
         return new_lines
 
     def compute_data(self, metadata):
+        """Do the operations on the data.
+
+        This is run once, after everything has been parsed
+        """
         payed_hours = sum([item["payed_hours"] for item in self.data.values()])
         volunteer_hours = sum([item["volunteer_hours"] for item in self.data.values()])
+
         data = dict(
             data=self.data,
             payed_hours=payed_hours,
             volunteer_hours=volunteer_hours,
+            payed_monthly=self.payed_monthly,
             template="worklog",
         )
-
         if "total_days" in metadata:
             total_hours = int(metadata["total_days"]) * 7
             data.update(

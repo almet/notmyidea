@@ -1,9 +1,15 @@
 ---
-title: IDLV, site web vers ghost
+title: Indiens dans la ville
 save_as: idlv-ghost/index.html
 total_days: 2
 template: worklog
 ---
+
+Transformation d'un site web depuis hugo vers ghost.
+
+## 12 Janvier 2023 (1h, 4/5)
+
+Changement de la pagination par défaut. J'ai mis du temps à trouver ou était le bon réglage, mais c'était très simple une fois trouvé. Je m'attendais à trouver l'information dans l'admin, mais cela fait partie des réglages du thème.
 
 ## 30 Octobre 2023 (0h, 1h bénévoles, 2/5)
 
@@ -19,11 +25,11 @@ Incorporation des changements suite à discussion
 
 Réponse à un mail de Charly
 
-## 23 Juin 2023 (1h, 1h bénévoles, 3/5)
+## 23 Juin 2023 (0h, 2h bénévoles, 3/5)
 
 Ajout de la fonctionnalité de galerie.
 
-## 22 Juin 2023 (1h, 2/5)
+## 22 Juin 2023 (0h, 1h bénévoles, 2/5)
 
 Mail + recherches photoswipe ghost.
 
