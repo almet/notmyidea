@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - packaging</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tags/packaging.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-08-17T00:00:00+02:00</updated><entry><title>Python packaging with Hatch, pipx and Zsh environment variables</title><link href="https://blog.notmyidea.org/python-packaging-with-hatch-pipx-and-zsh-environment-variables.html" rel="alternate"></link><published>2023-08-17T00:00:00+02:00</published><updated>2023-08-17T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-08-17:/python-packaging-with-hatch-pipx-and-zsh-environment-variables.html</id><summary type="html">
+&lt;p&gt;It&amp;#8217;s been a while I didn&amp;#8217;t packaged something new. I recently remembered an old
+package of mine that needed some attention :
+&lt;a href="https://gitlab.com/almet/debts"&gt;debts&lt;/a&gt;. It&amp;#8217;s now time to package it, so I
+discovered &lt;a href="https://hatch.pypa.io/"&gt;hatch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;hatch new&amp;nbsp;&amp;#8212;init&lt;/p&gt;
+&lt;p&gt;This does the heavy-lifting for you, actually porting the &lt;code&gt;setup.py&lt;/code&gt; files …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;It&amp;#8217;s been a while I didn&amp;#8217;t packaged something new. I recently remembered an old
+package of mine that needed some attention :
+&lt;a href="https://gitlab.com/almet/debts"&gt;debts&lt;/a&gt;. It&amp;#8217;s now time to package it, so I
+discovered &lt;a href="https://hatch.pypa.io/"&gt;hatch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;hatch new&amp;nbsp;&amp;#8212;init&lt;/p&gt;
+&lt;p&gt;This does the heavy-lifting for you, actually porting the &lt;code&gt;setup.py&lt;/code&gt; files to the
+new way of packaging with python (with a &lt;code&gt;pyproject.toml&lt;/code&gt; file)&lt;/p&gt;
+&lt;p&gt;Then &lt;code&gt;hatch shell&lt;/code&gt; will create a development environment, install dependencies,
+check the &lt;code&gt;pyproject.toml&lt;/code&gt; file in one command, and give you a shell to test
+whatever you need to&amp;nbsp;test.&lt;/p&gt;
+&lt;h2 id="isolating-system-packages"&gt;Isolating system&amp;nbsp;packages&lt;/h2&gt;
+&lt;p&gt;I discovered that &lt;a href="https://github.com/pypa/pipx"&gt;pipx&lt;/a&gt; is a convenient way to
+install user-facing applications on my system. I use multiple virtual
+environments for my different projects, but not for the install that are used&amp;nbsp;system-wide.&lt;/p&gt;
+&lt;p&gt;pipx seems to solve this, and avoid using &lt;code&gt;sudo pip install x&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="manipulating-env-variables-with-zsh"&gt;Manipulating env variables with&amp;nbsp;Zsh&lt;/h2&gt;
+&lt;p&gt;I use &lt;a href="https://www.zsh.org/"&gt;Zsh&lt;/a&gt; as my main shell for years, and I just
+discovered that it&amp;#8217;s possible to manipulate environment variables in an easy&amp;nbsp;way.&lt;/p&gt;
+&lt;p&gt;If you&amp;#8217;re like me, you never remember how to add something to your path. You
+can actually use &lt;code&gt;+=&lt;/code&gt;, like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;path&lt;/span&gt;&lt;span class="o"&gt;+=(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/Users/alexis/.local/bin&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="python"></category><category term="packaging"></category><category term="zsh"></category></entry></feed>

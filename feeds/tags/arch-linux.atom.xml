@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - arch-linux</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tags/arch-linux.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-08-18T00:00:00+02:00</updated><entry><title>ArchLinux et mise à jour du keyring</title><link href="https://blog.notmyidea.org/archlinux-et-mise-a-jour-du-keyring.html" rel="alternate"></link><published>2023-08-18T00:00:00+02:00</published><updated>2023-08-18T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-08-18:/archlinux-et-mise-a-jour-du-keyring.html</id><summary type="html">
+&lt;p&gt;Pour les mises à jour Arch, j&amp;#8217;utilise &lt;a href="https://github.com/Jguer/yay"&gt;yay&lt;/a&gt;. Je
+ne fais les mises à jour que de manière semi-régulière, et parfois après une
+longue période je me retrouve avec des soucis de clé qui ne sont plus à jour ou&amp;nbsp;manquantes.&lt;/p&gt;
+&lt;p&gt;Avec une utilisation fréquente du système, aucun problème …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Pour les mises à jour Arch, j&amp;#8217;utilise &lt;a href="https://github.com/Jguer/yay"&gt;yay&lt;/a&gt;. Je
+ne fais les mises à jour que de manière semi-régulière, et parfois après une
+longue période je me retrouve avec des soucis de clé qui ne sont plus à jour ou&amp;nbsp;manquantes.&lt;/p&gt;
+&lt;p&gt;Avec une utilisation fréquente du système, aucun problème ne se pose car un
+service s&amp;#8217;occupe de faire la mise à jour des clés de manière&amp;nbsp;automatique.&lt;/p&gt;
+&lt;p&gt;Pour résoudre le souci, il suffit de mettre à jour le paquet
+&lt;code&gt;archlinux-keyring&lt;/code&gt;, comme décrit &lt;a href="https://wiki.archlinux.org/title/Pacman/Package_signing"&gt;dans la page Wiki qui va
+bien&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo pacman -S archlinux-keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="arch-linux"></category></entry></feed>

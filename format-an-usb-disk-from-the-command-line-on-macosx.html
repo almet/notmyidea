@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Format an <span class="caps">USB</span> disk from the command-line on&nbsp;MacOSX - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+
+<header>
+	<h1 class="post-title">Format an <span class="caps">USB</span> disk from the command-line on&nbsp;MacOSX</h1>
+	<time datetime="2023-12-25T00:00:00+01:00">25 décembre 2023</time>
+
+    
+</header>
+<article>
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>diskutil<span class="w"> </span>unmountDisk<span class="w"> </span>/dev/disk5
+sudo<span class="w"> </span>diskutil<span class="w"> </span>eraseDisk<span class="w"> </span><span class="s2">&quot;MS-DOS FAT32&quot;</span><span class="w"> </span>Brocolis<span class="w"> </span>/dev/disk
+</code></pre></div>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

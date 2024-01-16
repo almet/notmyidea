@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - pytest</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tags/pytest.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-08-16T00:00:00+02:00</updated><entry><title>Profiling and speeding up Django and Pytest</title><link href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" rel="alternate"></link><published>2023-08-16T00:00:00+02:00</published><updated>2023-08-16T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-08-16:/profiling-and-speeding-up-django-and-pytest.html</id><summary type="html">
+&lt;p&gt;&lt;a href="https://yaal.coop/"&gt;Éloi&lt;/a&gt; made &lt;a href="https://github.com/spiral-project/ihatemoney/issues/1214"&gt;a pull request on
+IHateMoney&lt;/a&gt; to
+speedup the tests, with some great tooling for pytest that I wasn&amp;#8217;t aware&amp;nbsp;of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-xdist/"&gt;pytest-xdist&lt;/a&gt; allows to run tests in
+  parallel, using &lt;code&gt;-n auto&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-profiling/"&gt;pytest-profiling&lt;/a&gt; makes it easy
+  to get the call stack and time the function calls that take most …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">
+&lt;p&gt;&lt;a href="https://yaal.coop/"&gt;Éloi&lt;/a&gt; made &lt;a href="https://github.com/spiral-project/ihatemoney/issues/1214"&gt;a pull request on
+IHateMoney&lt;/a&gt; to
+speedup the tests, with some great tooling for pytest that I wasn&amp;#8217;t aware&amp;nbsp;of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-xdist/"&gt;pytest-xdist&lt;/a&gt; allows to run tests in
+  parallel, using &lt;code&gt;-n auto&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/pytest-profiling/"&gt;pytest-profiling&lt;/a&gt; makes it easy
+  to get the call stack and time the function calls that take most of the&amp;nbsp;time.&lt;/li&gt;
+&lt;li&gt;You can them analyse the &lt;code&gt;.prof&lt;/code&gt; files with
+  &lt;a href="https://pypi.org/project/snakeviz/"&gt;Snakeviz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, I spent some time using these on the tests for &lt;a href="https://chariotte.fr"&gt;La
+Chariotte&lt;/a&gt;, because they were&amp;nbsp;slow.&lt;/p&gt;
+&lt;p&gt;I found two things&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Login calls are costly in the test, and it&amp;#8217;s possible to speed things up&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;On my machine, calls to resolve my hostname were slow, using 5s during the
+  tests for a lookup that wasn&amp;#8217;t even&amp;nbsp;useful.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="changing-the-hashing-algorithm-to-speedup-tests"&gt;Changing the hashing algorithm to speedup&amp;nbsp;tests&lt;/h2&gt;
+&lt;p&gt;By default, Django uses a slow (but secure !) hashing mechanism for checking
+the user credentials. In the tests, we don&amp;#8217;t need this security, but we need
+the&amp;nbsp;speed.&lt;/p&gt;
+&lt;p&gt;Changing them to use &lt;span class="caps"&gt;MD5&lt;/span&gt; turns out to be a way to greatly speed them up! Here
+is how to do it with a pytest fixture&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nd"&gt;@pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fixture&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;autouse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;password_hasher_setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;# Use a weaker password hasher during tests, for speed&lt;/span&gt;
+    &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PASSWORD_HASHERS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;django.contrib.auth.hashers.MD5PasswordHasher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="speeding-dns-lookups"&gt;Speeding &lt;span class="caps"&gt;DNS&lt;/span&gt;&amp;nbsp;lookups&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;m currently using a MacOSX machine, and for for whatever reason, the local
+lookup was not configured properly on my machine. I don&amp;#8217;t think I did anything
+specific to get this wrong, so it might be your case too. Calls to resolve the
+local domain were tooking&amp;nbsp;5s.&lt;/p&gt;
+&lt;p&gt;If the answer to &lt;code&gt;scutil --get LocalHostName&lt;/code&gt;, &lt;code&gt;hostname&lt;/code&gt; and &lt;code&gt;scutil --get
+HostName&lt;/code&gt; differ, then you might be in this case. Here is the fix&amp;nbsp;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;scutil&lt;span class="w"&gt; &lt;/span&gt;--set&lt;span class="w"&gt; &lt;/span&gt;HostName&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;YourHostName&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="django"></category><category term="pytest"></category></entry></feed>

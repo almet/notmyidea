@@ -47,10 +47,29 @@ Notmyidea - Alexis Métaireau        </title>
             </section>
   <header>
     <h1 class="post-title">Notmyidea</h1>
+    <details>
+      <summary>Stats</summary>
+      <table>
+        <thead>
+          <tr>
+            <td>Mois</td>
+            <td>Heures</td>
+            <td>Jours</td>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>2023/11</td>
+              <td>0</td>
+              <td>0.0</td>
+            </tr>
+        </tbody>
+      </table>
+    </details>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="jeudi-23-novembre-2023">🗓️ Jeudi 23 novembre&nbsp;2023</h2>
+    <h2 id="jeudi-23-novembre-2023">🗓️ jeudi 23 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps à coder un système qui me permet de faire le suivi de mes heures, par&nbsp;projet.make</p>
   </article>
   <script>
@@ -70,11 +89,10 @@ Notmyidea - Alexis Métaireau        </title>
       "mark": "bar",
       "encoding": {
         "x": {
-          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "timeUnit": {"unit": "", "utc": true},
           "field": "date",
           "axis": {"format": "%d/%m"},
-          "title": "Date",
-          "step": 1,
+          "title": "Date"
         },
         "y": {
           "aggregate": "sum",
@@ -86,8 +104,7 @@ Notmyidea - Alexis Métaireau        </title>
           "scale": {
             "domain": ["Bénévole", "Rémunéré"],
             "range": ["#e7ba52", "#1f77b4"]
-          },
-          "title": "Type d'heures"
+          }
         }
       }
     };

@@ -47,14 +47,47 @@ Chariotte - Alexis Métaireau        </title>
             </section>
   <header>
     <h1 class="post-title">Chariotte</h1>
+    <details>
+      <summary>Stats</summary>
+      <table>
+        <thead>
+          <tr>
+            <td>Mois</td>
+            <td>Heures</td>
+            <td>Jours</td>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>2024/01</td>
+              <td>0</td>
+              <td>0.0</td>
+            </tr>
+            <tr>
+              <td>2023/12</td>
+              <td>0</td>
+              <td>0.0</td>
+            </tr>
+            <tr>
+              <td>2023/11</td>
+              <td>0</td>
+              <td>0.0</td>
+            </tr>
+        </tbody>
+      </table>
+    </details>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="dimanche-17-decembre-2023">🗓️ Dimanche 17 décembre&nbsp;2023</h2>
+    <h2 id="mardi-16-janvier-2024">🗓️ mardi 16 janvier&nbsp;2024</h2>
+<p>J&#8217;ai fait le tour des <span class="caps">MR</span> en attente pour mettre quelques&nbsp;commentaires.</p>
+<h2 id="lundi-15-janvier-2024">🗓️ lundi 15 janvier&nbsp;2024</h2>
+<p>On a passé en revue les <span class="caps">MR</span> en attente, et on a pu se mettre d&#8217;accord sur une manière d&#8217;avancer, en travaillant au consentement. On a pu mettre en pratique et c&#8217;était chouette. Je suis content de voir des freins se lever de mon côté à ce&nbsp;niveau.</p>
+<h2 id="dimanche-17-decembre-2023">🗓️ dimanche 17 décembre&nbsp;2023</h2>
 <p>J&#8217;ai passé beaucoup de temps pour essayer de comprendre pourquoi les emails n&#8217;étaient pas envoyés lors de la récupération de mot de passe. J&#8217;ai fini par trouver en utilisant un bon vieux debugger, comme quoi c&#8217;est la solution à privilégier autant que&nbsp;possible.</p>
 <p>Le code actuel utilise <code>username</code> comme un champ de stockage d&#8217;emails, et Django avait du mal à retrouver ses petits (il cherchait dans le champ <code>email</code> sans succès). J&#8217;ai fini par trouver la solution. Je suis content de réussir à remonter en compétences sur le debug de django, même si je pensais que ça me prendrais moins de temps&nbsp;:-)</p>
 <p>J&#8217;ai aussi mis en place de la&nbsp;documentation.</p>
-<h2 id="lundi-27-novembre-2023">🗓️ Lundi 27 novembre&nbsp;2023</h2>
+<h2 id="lundi-27-novembre-2023">🗓️ lundi 27 novembre&nbsp;2023</h2>
 <p>Chariotte.fr est maintenant hébergé par Alwaysdata !
 Arthur m&#8217;a envoyé les données puis j&#8217;ai fait la commande suivante&nbsp;:</p>
 <div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--decrypt<span class="w"> </span>hb_chariotte_prod.pgdump.asc<span class="w"> </span>&gt;<span class="w"> </span>hb_chariotte_prod.pgdump
@@ -73,6 +106,10 @@ pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> <
         {
           "name": "table",
           "values": [
+            {"date": "2024-01-16", "series": "Rémunéré", "count": 0},
+            {"date": "2024-01-16", "series": "Bénévole", "count": 1},
+            {"date": "2024-01-15", "series": "Rémunéré", "count": 0},
+            {"date": "2024-01-15", "series": "Bénévole", "count": 2},
             {"date": "2023-12-17", "series": "Rémunéré", "count": 0},
             {"date": "2023-12-17", "series": "Bénévole", "count": 8},
             {"date": "2023-11-27", "series": "Rémunéré", "count": 0},
@@ -83,11 +120,10 @@ pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> <
       "mark": "bar",
       "encoding": {
         "x": {
-          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "timeUnit": {"unit": "", "utc": true},
           "field": "date",
           "axis": {"format": "%d/%m"},
-          "title": "Date",
-          "step": 1,
+          "title": "Date"
         },
         "y": {
           "aggregate": "sum",
@@ -99,8 +135,7 @@ pg_restore<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> <
           "scale": {
             "domain": ["Bénévole", "Rémunéré"],
             "range": ["#e7ba52", "#1f77b4"]
-          },
-          "title": "Type d'heures"
+          }
         }
       }
     };

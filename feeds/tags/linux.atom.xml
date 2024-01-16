@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Linux</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tags/linux.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-12-08T00:00:00+01:00</updated><entry><title>Rescuing a broken asahi linux workstation</title><link href="https://blog.notmyidea.org/rescuing-a-broken-asahi-linux-workstation.html" rel="alternate"></link><published>2023-12-08T00:00:00+01:00</published><updated>2023-12-08T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-12-08:/rescuing-a-broken-asahi-linux-workstation.html</id><summary type="html">&lt;p&gt;On my main machine, I&amp;#8217;m currently using &lt;a href="asahilinux.org/"&gt;Asahi Linux&lt;/a&gt; (on a macbook m1). I&amp;#8217;ve recently broken my system, which wasn&amp;#8217;t able to boot because of a broken &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;On my previous setups, I was able to easily plug an usb key and boot to it to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;On my main machine, I&amp;#8217;m currently using &lt;a href="asahilinux.org/"&gt;Asahi Linux&lt;/a&gt; (on a macbook m1). I&amp;#8217;ve recently broken my system, which wasn&amp;#8217;t able to boot because of a broken &lt;code&gt;/etc/fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;On my previous setups, I was able to easily plug an usb key and boot to it to solve my issues, but here I wasn&amp;#8217;t sure how to deal with&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;After playing a bit (without much luck) with &lt;a href="https://github.com/leifliddy/fedora-macos-asahi-qemu/"&gt;qemu and vagrant&lt;/a&gt;, someone pointed me to the right direction: using alpine&amp;nbsp;linux.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s what I did to solve my broken&amp;nbsp;install:&lt;/p&gt;
+&lt;p&gt;First, install this alpine linux on a&amp;nbsp;key.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.alpinelinux.org/~mps/m1/m1-usb-alpine-install.img.xz"&gt;Download the iso image here&lt;/a&gt;, and copy it to a key. I&amp;#8217;m not sure why, but &lt;code&gt;dd&lt;/code&gt; didn&amp;#8217;t work for me, and I ended up using another tool to create the usb from the&amp;nbsp;iso. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# When booting, press a key to enter u-boot. Then:&lt;/span&gt;
+env&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;boot_efi_bootmgr
+run&lt;span class="w"&gt; &lt;/span&gt;bootcmd_usb0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Which should get you a session. When connected, do the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# to find the parition you want to mount, marked EFI something&lt;/span&gt;
+lsblk&lt;span class="w"&gt; &lt;/span&gt;-f
+mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;EFI - FEDOR&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/mnt
+
+&lt;span class="c1"&gt;# Install the wifi firmware&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/lib/firmware
+tar&lt;span class="w"&gt; &lt;/span&gt;xvf&lt;span class="w"&gt; &lt;/span&gt;/mnt/vendor/firmware.tar
+/root/update-vendor-firmware
+rm&lt;span class="w"&gt; &lt;/span&gt;/etc/modprobe.d/blacklist-brcmfmac.conf
+modprobe&lt;span class="w"&gt; &lt;/span&gt;brcmfmac
+
+&lt;span class="c1"&gt;# Connect to the wifi&lt;/span&gt;
+/etc/init.d/iwd&lt;span class="w"&gt; &lt;/span&gt;start
+iwctl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In my case, I wanted to mount a btrfs filesystem to fix something&amp;nbsp;inside.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;apk&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;btrfs-progs
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;btrfs&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/etc/modules
+modprobe&lt;span class="w"&gt; &lt;/span&gt;btrfs
+mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;LABEL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fedora&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/opt/fedora
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I then could access the filesystem, and made a fix to&amp;nbsp;it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://arvanta.net/alpine/install-alpine-m1/&lt;/li&gt;
+&lt;li&gt;https://arvanta.net/alpine/iwd-howto/&lt;/li&gt;
+&lt;li&gt;https://wiki.alpinelinux.org/wiki/Btrfs&lt;/li&gt;
+&lt;/ul&gt;</content><category term="code"></category><category term="Linux"></category><category term="Asahi"></category></entry></feed>

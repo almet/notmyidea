@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - Markdown</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/tags/markdown.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2023-11-23T00:00:00+01:00</updated><entry><title>Using pelican to track my worked and volunteer hours</title><link href="https://blog.notmyidea.org/using-pelican-to-track-my-worked-and-volunteer-hours.html" rel="alternate"></link><published>2023-11-23T00:00:00+01:00</published><updated>2023-11-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2023-11-23:/using-pelican-to-track-my-worked-and-volunteer-hours.html</id><summary type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m consigning everything in markdown files and as such, was already keeping track of everything this …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I was tracking my hours in Datasette (&lt;a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html"&gt;article&lt;/a&gt; and &lt;a href="https://blog.notmyidea.org/deploying-and-customizing-datasette.html"&gt;follow-up&lt;/a&gt;), but I wasn&amp;#8217;t really happy with the editing&amp;nbsp;process.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve seen &lt;a href="https://larlet.fr/david"&gt;David&lt;/a&gt; notes, which made me want to do something&amp;nbsp;similar.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m consigning everything in markdown files and as such, was already keeping track of everything this way already. Tracking my hours should be simple otherwise I might just oversee it. So I hacked something together with &lt;a href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt; (the software I wrote for this&amp;nbsp;blog).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="A graph showing the worked hours and volunteer hours" src="/images/pelican/worklog.png"&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s doing the&amp;nbsp;following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Defines a specific format for my worklog&amp;nbsp;entries&lt;/li&gt;
+&lt;li&gt;Parses them (using a regexp), does some computation and&amp;nbsp;;&lt;/li&gt;
+&lt;li&gt;Uses a specific template to display a graph and progress&amp;nbsp;bar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="reading-information-from-the-titles"&gt;Reading information from the&amp;nbsp;titles&lt;/h2&gt;
+&lt;p&gt;I actually took the format I&amp;#8217;ve been already using in my log, and enhanced it a bit.
+Basically, the files look likes this (I&amp;#8217;m writing in&amp;nbsp;french):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;---
+title: My project
+&lt;span class="gu"&gt;total_days: 25&lt;/span&gt;
+&lt;span class="gu"&gt;---&lt;/span&gt;
+
+&lt;span class="gu"&gt;## Mardi 23 Novembre 2023 (9h, 5/5)&lt;/span&gt;
+
+What I did this day.
+I can include [&lt;span class="nt"&gt;links&lt;/span&gt;](&lt;span class="na"&gt;https://domain.tld&lt;/span&gt;) and whatever I want.
+It won&amp;#39;t be processed.
+
+&lt;span class="gu"&gt;## Lundi 22 Novembre 2023 (8h rémunérées, 2h bénévoles, 4/5)&lt;/span&gt;
+
+Something else.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Basically, the second titles (h2) are parsed, and should have the following structure:
+&lt;code&gt;{day_of_week} {day} {month} {year} ({worked_hours}(, optional {volunteer_hours}), {fun_rank})&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The goal here is to retrieve all of this, so I asked ChatGPT for a regexp and iterated on the result which got&amp;nbsp;me:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        (\w+)\s+                      # Day name&lt;/span&gt;
+&lt;span class="sd"&gt;        (\d{1,2})\s+                  # Day number&lt;/span&gt;
+&lt;span class="sd"&gt;        ([\wéû]+)\s+                  # Month name&lt;/span&gt;
+&lt;span class="sd"&gt;        (\d{4})\s+                    # Year&lt;/span&gt;
+&lt;span class="sd"&gt;        \(&lt;/span&gt;
+&lt;span class="sd"&gt;        (\d{1,2})h                    # Hours (mandatory)&lt;/span&gt;
+&lt;span class="sd"&gt;        (?:\s+facturées)?             # Optionally &amp;#39;facturées&amp;#39;, if not present, assume hours are &amp;#39;facturées&amp;#39;&lt;/span&gt;
+&lt;span class="sd"&gt;        (?:,\s*(\d{1,2})h\s*bénévoles)? # Optionally &amp;#39;volunteer hours &amp;#39;bénévoles&amp;#39;&lt;/span&gt;
+&lt;span class="sd"&gt;        ,?                            # An optional comma&lt;/span&gt;
+&lt;span class="sd"&gt;        \s*                           # Optional whitespace&lt;/span&gt;
+&lt;span class="sd"&gt;        (?:fun\s+)?                   # Optionally &amp;#39;fun&amp;#39; (text) followed by whitespace&lt;/span&gt;
+&lt;span class="sd"&gt;        (\d)/5                        # Happiness rating (mandatory, always present)&lt;/span&gt;
+&lt;span class="sd"&gt;        \)                            # Closing parenthesis&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;VERBOSE&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UNICODE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="the-markdown-preprocessor"&gt;The markdown&amp;nbsp;preprocessor&lt;/h2&gt;
+&lt;p&gt;I&amp;#8217;m already using a custom pelican plugin, which makes it possible to have pelican behave exactly the way I want. For instance, it&amp;#8217;s getting the date from the&amp;nbsp;filesystem.&lt;/p&gt;
+&lt;p&gt;I just had to add some features to it. The way I&amp;#8217;m doing this is by &lt;a href="https://docs.getpelican.com/en/3.6.2/plugins.html#how-to-create-a-new-reader"&gt;using a custom Markdown reader&lt;/a&gt;, on which I add extensions and custom&amp;nbsp;processors.&lt;/p&gt;
+&lt;p&gt;In my case, I added a preprocessor which will only run when we are handling the worklog. It makes it possible to change what&amp;#8217;s being read, before the markdown lib actually transforms it to &lt;span class="caps"&gt;HTML&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Here is the code for&amp;nbsp;it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WorklogPreprocessor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Preprocessor&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;the regexp we&amp;#39;ve seen earlier&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;new_lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;##&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                &lt;span class="n"&gt;match&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Unable to parse worklog title&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="p"&gt;(&lt;/span&gt;
+                    &lt;span class="n"&gt;day_of_week&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;payed_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;volunteer_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;happiness&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+                &lt;span class="n"&gt;volunteer_hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;volunteer_hours&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;volunteer_hours&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+                &lt;span class="n"&gt;payed_hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;payed_hours&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="n"&gt;happiness&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;happiness&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+                &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt; %B %Y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;payed_hours&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;payed_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;volunteer_hours&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;volunteer_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;happyness&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;happiness&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+
+                &lt;span class="c1"&gt;# Replace the line with just the date&lt;/span&gt;
+                &lt;span class="n"&gt;new_lines&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;## 🗓️ &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;day_of_week&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;day&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;new_lines&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;new_lines&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It does the following when it encounters a h2&amp;nbsp;line:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;try to parse&amp;nbsp;it&lt;/li&gt;
+&lt;li&gt;store the data&amp;nbsp;locally&lt;/li&gt;
+&lt;li&gt;replace the line with a simpler&amp;nbsp;version&lt;/li&gt;
+&lt;li&gt;If if doesn&amp;#8217;t work, error&amp;nbsp;out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;#8217;ve also added some computations on top of it, which makes it possible to display a percentage of completion for the project, if &amp;#8220;payed_hours&amp;#8221; was present in the metadata, and makes it use a specific template (see&amp;nbsp;later).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;compute_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;done_hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;payed_hours&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()])&lt;/span&gt;
+
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;done_hours&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;done_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;worklog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;total_days&amp;quot;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;total_hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;total_days&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+        &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+                &lt;span class="n"&gt;total_hours&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;total_hours&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="n"&gt;percentage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;round&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;done_hours&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;total_hours&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="plugging-this-with-pelican"&gt;Plugging this with&amp;nbsp;pelican&lt;/h2&gt;
+&lt;p&gt;Here&amp;#8217;s the code for extending a custom reader, basically adding a pre-processor and adding back its data in the document&amp;nbsp;metadata:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;is_worklog&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pages/worklog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;is_worklog&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;worklog&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WorklogPreprocessor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_md&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_md&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;preprocessors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;worklog&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;worklog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# process the markdown, and then&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;is_worklog&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;worklog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;worklog&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compute_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="adding-a-graph"&gt;Adding a&amp;nbsp;graph&lt;/h2&gt;
+&lt;p&gt;Okay, everything is parsed, but it&amp;#8217;s not yet displayed on the pages. I&amp;#8217;m using &lt;a href="https://vega.github.io/vega-lite/docs/"&gt;vega-lite&lt;/a&gt; to display a&amp;nbsp;graph.&lt;/p&gt;
+&lt;p&gt;Here is my template for this (stored in &lt;code&gt;template/worklog.html&lt;/code&gt;), it&amp;#8217;s doing a stacked bar chart with my&amp;nbsp;data.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;const&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;spec&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;$schema&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;https://vega.github.io/schema/vega-lite/v5.json&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;width&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;height&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;table&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;values&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;item&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;page&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;worklog&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{{ date }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;series&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Rémunéré&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;payed_hours&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}}},&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{{ date }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;series&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Bénévole&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;volunteer_hours&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}}},&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;endfor&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mark&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;encoding&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;timeUnit&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;unit&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dayofyear&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;step&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;field&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;axis&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;format&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;%d/%m&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Date&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;step&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aggregate&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sum&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;field&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Heures&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;field&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;series&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;scale&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;domain&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Bénévole&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Rémunéré&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;range&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#e7ba52&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#1f77b4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Type d&amp;#39;heures&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;vegaEmbed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#vis&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;spec&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c1"&gt;// result.view provides access to the Vega View API&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;=&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;catch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;warn&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I&amp;#8217;ve also added a small progress bar, made with unicode, which looks like&amp;nbsp;this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;▓▓░░░░░░░░ 29% (51h / 175 prévues) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is the code for&amp;nbsp;it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;total_days&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;page.metadata.keys&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;percentage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;page.metadata.worklog&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;percentage&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;total_blocks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;percentage_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;percentage&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="m"&gt;100.0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;full_blocks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;percentage_value&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;total_blocks&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;round&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;floor&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nf"&gt;int&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;empty_blocks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;total_blocks&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;full_blocks&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;progressbar&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c"&gt;{# Display full blocks #}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;full_blocks&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;▓&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endfor&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="c"&gt;{# Display empty blocks #}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;empty_blocks&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;░&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endfor&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;percentage&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;%&lt;span class="w"&gt; &lt;/span&gt;(&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;page.metadata.worklog&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;done_hours&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;h&lt;span class="w"&gt; &lt;/span&gt;/&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;page.metadata.worklog&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;total_hours&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;prévues)
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="Pelican"></category><category term="Work"></category><category term="Vega"></category><category term="Markdown"></category></entry></feed>
