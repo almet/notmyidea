@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-16T00:00:00+01:00</updated><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all-en.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-23T00:00:00+01:00</updated><entry><title>Ce qui s’est passé</title><link href="https://blog.notmyidea.org/ce-qui-sest-passe.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-23:/ce-qui-sest-passe.html</id><summary type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se …&lt;/p&gt;</summary><content type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se connecter avec &lt;a href="https://github.com/yohanboniface/Leaflet.FormBuilder"&gt;Leaflet Formbuilder&lt;/a&gt;, mais j&amp;#8217;ai encore du mal à aller au bout, plutôt du à&amp;nbsp;une &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🫙 &lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On a pu se faire notre première réunion dev, avancer sur notre prise de décision, et défaire des nœuds de compréhension entre nous. Content de la direction que les choses&amp;nbsp;prennent.&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Apprécier des rencontres et discussions techniques autour de la protection de la vie privée, des retours du 37C3 et des présentations de différents projets. Content de voir que des connexions continuent à se faire, et que uMap est utilisé dans des cadres&amp;nbsp;militants.&lt;/li&gt;
+&lt;li&gt;Faire une proposition d&amp;#8217;organisation collective qui amène à des discussions intéressantes dans un cadre&amp;nbsp;associatif. &lt;/li&gt;
+&lt;li&gt;Reprendre les ateliers d&amp;#8217;écriture avec les ami·es, c&amp;#8217;est toujours un moment de partage agréable et&amp;nbsp;créatif.&lt;/li&gt;
+&lt;li&gt;Recevoir l&amp;#8217;écoute de mes proches, avec des conseils avisés et réfléchis. Sentir qu&amp;#8217;un nœud se défait, et que c&amp;#8217;est moi qui doit&amp;nbsp;bouger.&lt;/li&gt;
+&lt;li&gt;Réussir à amener des sujets complexes et (un peu) chargés émotionellement sur la table, sans que ceux-ci ne prennent toute la place. Se donner le temp de démeler les choses. Je suis content de là ou en est mon collectif de&amp;nbsp;vie.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de mettre de l&amp;#8217;ordre dans mes notes de&amp;nbsp;confs!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je me suis senti dépassé et frustré par des blocages décisionnels, des discussions difficiles à avoir correctement. J&amp;#8217;aimerai mieux clarifier les besoins de tout le monde avant les discussions, et donner une meilleure place aux&amp;nbsp;miens.&lt;/li&gt;
+&lt;li&gt;Je n&amp;#8217;ai pas réussi à calmer un moment de détresse (temporaire) à coup de méditation et de sieste, faute d&amp;#8217;outils avec moi. A mieux prévoir la prochaine&amp;nbsp;fois.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai passé beaucoup de temps à faire en sorte que mon ordinateur (sous Asahi Linux) fonctionne correctement. Je suis à la fois plus à l&amp;#8217;aise sous Linux, et à la fois qu&amp;#8217;à moitié convaincu de devoir passer autant de temps sur de la&amp;nbsp;configuration.&lt;/li&gt;
+&lt;li&gt;Je me suis senti vulnérable et retomber dans le creux de la vague suite à des discussions difficiles et des échos de situations passées. J&amp;#8217;aimerai mieux faire la part des&amp;nbsp;choses.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal dormi à cause du bruit de la route dans la chambre où j&amp;#8217;étais. J&amp;#8217;aimerai mieux mesurer à quel point le calme est important pour moi et prévoir à&amp;nbsp;l&amp;#8217;avance.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal au dos et mon corps me rappelle que je devrais faire du sport. J&amp;#8217;aimerai le prendre au&amp;nbsp;sérieux!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute-citations"&gt;Vu, lu, écouté,&amp;nbsp;citations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📽 &lt;a href="https://www.finite-film.com/"&gt;Finite&lt;/a&gt;, l&amp;#8217;histoire de plusieurs luttes en Allemagne et en Angleterre contre des mines de&amp;nbsp;charbon.&lt;/li&gt;
+&lt;li&gt;⏯️ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=DEcwa68f-jY"&gt;dotJS 2019 - James Long - CRDTs for&amp;nbsp;Mortals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📽 Oppenheimer, de Christopher Nolan (avec Cylian Murphy), assez decevant&amp;nbsp;malheureusement&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.libreavous.org/195-framasoft-un-an-de-coin-coin"&gt;Framasoft, un an de coin&amp;nbsp;coin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.youtube.com/watch?v=gcUzjfEJpGI"&gt;Devenir meilleur ne vous rendra pas plus&amp;nbsp;heureux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai assisté à une « Conférence Poétique » de &lt;a href="https://maelledubourg.fr/"&gt;Maëlle Dubourg&lt;/a&gt; « Elle revient de l’Île des Nummes », ça fait du bien de voyager et de réver un peu&amp;nbsp;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Une personne peut se faire exclure à vie de certains collectifs, lieux ou associations pour des propos parfois tenus des années auparavant. Un groupe souvent auto-désigné prend en charge le conflit sans qu’aucune limite ne soit fixée. Il peut y avoir des effets de “surpuissance du groupe” où, sous prétexte de luttes (légitimes) contre les oppressions, on légitime absolument tout : exclusion, harcèlement, humiliations publiques, violences physiques… Et la désescalade est souvent impossible.
+À mon sens, l’exclusion doit toujours être cadrée dans le temps et la personne exclue, accompagnée (dans l’idéal), pour qu’elle puisse comprendre ce qui lui est reproché et comment elle peut réparer la situation.
+—&amp;nbsp;https://cqfd-journal.org/Se-reapproprier-nos-conflits&lt;/p&gt;
+&lt;p&gt;On s&amp;#8217;en sert comme exemple pour montrer pourquoi il ne faut jamais faire de révolution, mais la grande terreur qui à suivi la commune, les massacres des peuples [&amp;#8230;] c&amp;#8217;était pire que la terreur et c&amp;#8217;est la terreur imposée par ceux qui disent nous voulons veut garder le&amp;nbsp;pouvoir.&lt;/p&gt;
+&lt;p&gt;Cela fait partie des mythes de notre histoire, « les révolutionnaires sont violents ». Non, la violence vient de la contre attaque de ceux que l&amp;#8217;on tente de  déposséder, et ceux qui sont dépossédés sont ceux qui disposent du pouvoir économique et social, et la violence survient quand ils disent « nous allons garder le pouvoir ».
+— Ken Loach, dans &lt;a href="https://www.film-documentaire.fr/4DACTION/w_fiche_film/69384_0"&gt;Les Héritiers de la&amp;nbsp;Commune&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="weeknotes"></category></entry><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
 &lt;p&gt;De retour après trois semaines off qui m&amp;#8217;ont fait du bien, passées entre ami·es, famille et un petit passage au&amp;nbsp;37C3.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -4424,109 +4467,4 @@ and I&amp;#8217;ll report back in here my findings. Here&amp;#8217;s the&amp;nbs
 &lt;li&gt;Stay away from the Internet during the morning. I&amp;#8217;ll not connect if
     I don&amp;#8217;t need&amp;nbsp;to.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let&amp;#8217;s see how it goes&amp;nbsp;:)&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Retours sur un atelier ZeroNet</title><link href="https://blog.notmyidea.org/retours-sur-un-atelier-zeronet.html" rel="alternate"></link><published>2016-03-17T00:00:00+01:00</published><updated>2016-03-17T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2016-03-17:/retours-sur-un-atelier-zeronet.html</id><summary type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l&amp;#8217;&lt;span class="caps"&gt;INSA&lt;/span&gt; de&amp;nbsp;Rennes.&lt;/p&gt;
-&lt;p&gt;L&amp;#8217;évènement s&amp;#8217;étant rempli au delà de toutes les espérances, on m&amp;#8217;a proposé de
-venir y tenir un atelier, que j&amp;#8217;ai proposé sur &lt;a href="https://zeronet.io"&gt;ZeroNet&lt;/a&gt;, un
-petit projet fort sympathique qui pourrait devenir une …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mardi dernier se tenait &lt;a href="http://biblio.insa-rennes.fr/crypto"&gt;une &lt;em&gt;cryptoparty&lt;/em&gt;&lt;/a&gt; dans les locaux de l&amp;#8217;&lt;span class="caps"&gt;INSA&lt;/span&gt; de&amp;nbsp;Rennes.&lt;/p&gt;
-&lt;p&gt;L&amp;#8217;évènement s&amp;#8217;étant rempli au delà de toutes les espérances, on m&amp;#8217;a proposé de
-venir y tenir un atelier, que j&amp;#8217;ai proposé sur &lt;a href="https://zeronet.io"&gt;ZeroNet&lt;/a&gt;, un
-petit projet fort sympathique qui pourrait devenir une nouvelle manière de
-distribuer le Web, permettant notamment d&amp;#8217;éviter la&amp;nbsp;censure.&lt;/p&gt;
-&lt;p&gt;Avant toute autre chose, merci énormément à l&amp;#8217;équipe de la bibliothèque de
-l&amp;#8217;&lt;span class="caps"&gt;INSA&lt;/span&gt; pour l&amp;#8217;organisation de cet évènement qui à une réelle portée&amp;nbsp;politique.&lt;/p&gt;
-&lt;h2 id="un-peu-dhistoire"&gt;Un peu&amp;nbsp;d&amp;#8217;histoire&lt;/h2&gt;
-&lt;p&gt;Il me semble que Tim Bernes Lee (l&amp;#8217;inventeur du Web) avait prévu le Web comme un
-protocole décentralisé. Chacun hébergerait ses données et les servirait aux
-autres, qui pourraient alors y&amp;nbsp;accéder.&lt;/p&gt;
-&lt;p&gt;Avec ce fonctionnement, impossible alors d&amp;#8217;accéder à des sites si leur auteur
-n&amp;#8217;est pas en ligne. Qu&amp;#8217;à cela ne tienne, on s&amp;#8217;est mis à avoir des machines qui
-restent connectées au réseau 24 heures par jour. Et puis une machine ne
-suffisant plus, on a eu des fermes de machines dans des &lt;em&gt;data centers&lt;/em&gt; etc afin
-de supporter les milliers d&amp;#8217;utilisateurs des&amp;nbsp;sites.&lt;/p&gt;
-&lt;h2 id="un-web-decentralise"&gt;Un Web&amp;nbsp;décentralisé&lt;/h2&gt;
-&lt;p&gt;ZeroNet permet (entre autres) de répondre à ce problème en proposant une manière alternative de &lt;strong&gt;distribuer le Web&lt;/strong&gt;, en pair à pair. Lors d&amp;#8217;une visite d&amp;#8217;un&amp;nbsp;site:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Vous contactez un &lt;em&gt;tracker&lt;/em&gt; BitTorrent pour connaitre la liste des autres
-   visiteurs du site (les &lt;em&gt;pairs&lt;/em&gt;).&lt;/li&gt;
-&lt;li&gt;Vous demandez aux &lt;em&gt;pairs&lt;/em&gt; de vous donner les fichiers du&amp;nbsp;site.&lt;/li&gt;
-&lt;li&gt;Vous validez que les fichiers servis sont bien les bons (en vérifiant la
-   signature&amp;nbsp;attachée).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;N&amp;#8217;importe quel visiteur devient alors un &lt;em&gt;pair&lt;/em&gt;, qui sert le site aux autres&amp;nbsp;visiteurs.&lt;/p&gt;
-&lt;p&gt;Parmi les nombreux avantages de cette approche, je note particulièrement&amp;nbsp;que:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Il est très difficile de censurer un site — Il est sur l&amp;#8217;ensemble des machines
-  des&amp;nbsp;visiteurs.&lt;/li&gt;
-&lt;li&gt;Les attaques par &lt;em&gt;fingerprinting&lt;/em&gt; sont impossibles: le navigateur Web se
-  connecte à un serveur &lt;em&gt;proxy&lt;/em&gt;&amp;nbsp;local.&lt;/li&gt;
-&lt;li&gt;Vous détenez directement vos données et (par design) ne les donnez pas à des
-  silos (Facebook, Google,&amp;nbsp;etc.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Si vous êtes interessés par une démonstration rapide, j&amp;#8217;ai enregistré une vidéo
-de 10 minutes où je parle en anglais avec une voix très&amp;nbsp;grave.&lt;/p&gt;
-&lt;video controls="" src="http://alexis.notmyidea.org/zeronet.webm" width=800&gt;&lt;/video&gt;
-
-&lt;h2 id="atelier"&gt;Atelier&lt;/h2&gt;
-&lt;p&gt;Pour l&amp;#8217;atelier, j&amp;#8217;ai choisi de faire une présentation rapide du projet (&lt;a href="https://blog.notmyidea.org/docs/zeronet-presentation-fr.pdf"&gt;j&amp;#8217;ai
-traduit les slides&lt;/a&gt; anglais
-pour l&amp;#8217;occasion — &lt;a href="https://docs.google.com/presentation/d/158C_-V1ueNaaKHMBMBgGOVhunb9xrXzB3hC_g1N53c0/edit?usp=sharing"&gt;accès aux sources&lt;/a&gt;)
-avant d&amp;#8217;installer ZeroNet sur les machines et de l&amp;#8217;utiliser pour publier un&amp;nbsp;site.&lt;/p&gt;
-&lt;h3 id="partager-sur-le-reseau-local"&gt;Partager sur le réseau&amp;nbsp;local&lt;/h3&gt;
-&lt;p&gt;Nous avons eu des soucis à cause du réseau (un peu congestionné) sur lequel
-les ports utilisés pour la discussion entre &lt;em&gt;pairs&lt;/em&gt; étaient fermés. Il est bien
-sur possible de faire tourner le tout de manière indépendante du reste du réseau,
-mais je n&amp;#8217;avais pas prévu le&amp;nbsp;coup.&lt;/p&gt;
-&lt;p&gt;Voici donc comment faire pour contourner le&amp;nbsp;souci:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Installer et lancer un &lt;em&gt;tracker&lt;/em&gt; BitTorrent (De manière surprenante,
-   &lt;a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=685575"&gt;rien n&amp;#8217;est packagé pour debian pour l&amp;#8217;instant&lt;/a&gt;)
-   J&amp;#8217;ai choisi d&amp;#8217;installer &lt;a href="http://erdgeist.org/arts/software/opentracker/#build-instructions"&gt;OpenTracker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ensuite lancer ZeroNet avec des options&amp;nbsp;spécifiques.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;zeronet.py&lt;span class="w"&gt; &lt;/span&gt;--trackers&lt;span class="w"&gt; &lt;/span&gt;udp://localhost:6969&lt;span class="w"&gt; &lt;/span&gt;--ip_external&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;192&lt;/span&gt;.168.43.207
-$&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;zeronet.py&lt;span class="w"&gt; &lt;/span&gt;--trackers&lt;span class="w"&gt; &lt;/span&gt;udp://192.168.43.207:6969&lt;span class="w"&gt; &lt;/span&gt;--ip_external&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;192&lt;/span&gt;.168.43.172
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Il est nécessaire de spécifier l&amp;#8217;adresse &lt;span class="caps"&gt;IP&lt;/span&gt; externe que chaque nœud expose pour
-éviter qu&amp;#8217;elle n&amp;#8217;essaye d&amp;#8217;aller la trouver par elle même: nous voulons l&amp;#8217;adresse
-du réseau local, et non pas l&amp;#8217;adresse&amp;nbsp;internet.&lt;/p&gt;
-&lt;p&gt;La prochaine fois je tenterais de venir avec un HotSpot Wifi et un tracker
-BitTorrent dans la&amp;nbsp;poche!&lt;/p&gt;
-&lt;h2 id="questions-reponses"&gt;Questions /&amp;nbsp;Réponses&lt;/h2&gt;
-&lt;p&gt;Il y avait quelques questions intéressantes auxquelles je n&amp;#8217;ai pas toujours su
-répondre sur le moment. Après quelques recherches, je rajoute des détails&amp;nbsp;ici.&lt;/p&gt;
-&lt;h3 id="torrent-tor-breche-de-secu"&gt;Torrent + Tor = brèche de sécu&amp;nbsp;?&lt;/h3&gt;
-&lt;p&gt;Il me semblait avoir entendu parler de problèmes de &lt;em&gt;dé-anonymisation&lt;/em&gt;
-&lt;a href="https://hal.inria.fr/file/index/docid/471556/filename/TorBT.pdf"&gt;lors de l&amp;#8217;utilisation de BitTorrent par dessus Tor&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Dans certains cas, certains clients torrents (uTorrent, BitSpirit, etc)
-écrivent directement votre adresse &lt;span class="caps"&gt;IP&lt;/span&gt; dans l&amp;#8217;information qui est envoyée
-au tracker et/ou aux autres pairs.
-—&amp;nbsp;https://blog.torproject.org/blog/bittorrent-over-tor-isnt-good-idea&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/274"&gt;Ce n&amp;#8217;est pas le cas de ZeroNet&lt;/a&gt;, ce qui évacue le&amp;nbsp;souci.&lt;/p&gt;
-&lt;h3 id="zeromail-cest-lent-non"&gt;ZeroMail, c&amp;#8217;est lent non&amp;nbsp;?&lt;/h3&gt;
-&lt;p&gt;Une des applications de démo, &lt;em&gt;ZeroMail&lt;/em&gt;, propose un mécanisme qui permet de
-s&amp;#8217;envoyer des messages chiffrés sur un réseau pair à pair. L&amp;#8217;approche choisie
-est de chiffrer les messages avec la clé du destinataire et de le mettre dans
-un &lt;em&gt;pot commun&lt;/em&gt;. Tout le monde essaye de déchiffrer tous les messages, mais ne
-peut déchiffrer que les&amp;nbsp;siens.&lt;/p&gt;
-&lt;p&gt;Cela permet de ne &lt;strong&gt;pas&lt;/strong&gt; fuiter de méta-données, &lt;a href="https://blog.notmyidea.org/les-problemes-de-pgp.html"&gt;à l&amp;#8217;inverse de &lt;span class="caps"&gt;PGP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Je n&amp;#8217;ai en fait pas de réponse claire à donner à cette question: l&amp;#8217;auteur de
-ZeroNet me disait que &lt;span class="caps"&gt;10MB&lt;/span&gt; (la limite de taille d&amp;#8217;un site, par défaut)
-correspondait à beaucoup de place pour stocker des messages, et qu&amp;#8217;il était
-possible de supprimer les anciens messages une fois qu&amp;#8217;ils sont lus par&amp;nbsp;exemple.&lt;/p&gt;
-&lt;p&gt;Une autre solution à laquelle je pensait était de créer un &lt;em&gt;ZeroSite&lt;/em&gt; pour
-chaque récipient, mais on connait à ce moment là le nombre de messages qu&amp;#8217;un
-utilisateur peut&amp;nbsp;recevoir.&lt;/p&gt;
-&lt;p&gt;Je vois plusieurs problèmes avec le design actuel de ZeroMail (il me semble
-assez facile d&amp;#8217;y faire un déni de service par exemple). A&amp;nbsp;creuser.&lt;/p&gt;
-&lt;h3 id="comment-heberger-des-tres-gros-sites"&gt;Comment héberger des très gros sites&amp;nbsp;?&lt;/h3&gt;
-&lt;p&gt;Par exemple, comment faire pour héberger Wikipedia&amp;nbsp;?&lt;/p&gt;
-&lt;p&gt;Il semble que la meilleure manière de faire serait de séparer Wikipedia en
-un tas de petites ressources (par catégorie par ex.). Les gros médias pourraient
-être considérés optionnels (et donc téléchargés uniquement à la&amp;nbsp;demande)&lt;/p&gt;
-&lt;h3 id="est-ce-quon-a-vraiment-besoin-dun-tracker"&gt;Est-ce qu&amp;#8217;on à vraiment besoin d&amp;#8217;un tracker&amp;nbsp;?&lt;/h3&gt;
-&lt;p&gt;Le support d&amp;#8217;une &lt;span class="caps"&gt;DHT&lt;/span&gt; &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;est souhaité&lt;/a&gt;,
-mais pour l&amp;#8217;instant pas encore implémenté. L&amp;#8217;utilisation de la &lt;span class="caps"&gt;DHT&lt;/span&gt; BitTorrent
-n&amp;#8217;est pas une option puisque &lt;a href="https://github.com/HelloZeroNet/ZeroNet/issues/57"&gt;Tor ne supporte pas &lt;span class="caps"&gt;UDP&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;</content><category term="code"></category></entry></feed>
+&lt;p&gt;Let&amp;#8217;s see how it goes&amp;nbsp;:)&lt;/p&gt;</content><category term="Journal"></category></entry></feed>

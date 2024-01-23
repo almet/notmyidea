@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-16T00:00:00+01:00</updated><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-23T00:00:00+01:00</updated><entry><title>Ce qui s’est passé</title><link href="https://blog.notmyidea.org/ce-qui-sest-passe.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-23:/ce-qui-sest-passe.html</id><summary type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se …&lt;/p&gt;</summary><content type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se connecter avec &lt;a href="https://github.com/yohanboniface/Leaflet.FormBuilder"&gt;Leaflet Formbuilder&lt;/a&gt;, mais j&amp;#8217;ai encore du mal à aller au bout, plutôt du à&amp;nbsp;une &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🫙 &lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On a pu se faire notre première réunion dev, avancer sur notre prise de décision, et défaire des nœuds de compréhension entre nous. Content de la direction que les choses&amp;nbsp;prennent.&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Apprécier des rencontres et discussions techniques autour de la protection de la vie privée, des retours du 37C3 et des présentations de différents projets. Content de voir que des connexions continuent à se faire, et que uMap est utilisé dans des cadres&amp;nbsp;militants.&lt;/li&gt;
+&lt;li&gt;Faire une proposition d&amp;#8217;organisation collective qui amène à des discussions intéressantes dans un cadre&amp;nbsp;associatif. &lt;/li&gt;
+&lt;li&gt;Reprendre les ateliers d&amp;#8217;écriture avec les ami·es, c&amp;#8217;est toujours un moment de partage agréable et&amp;nbsp;créatif.&lt;/li&gt;
+&lt;li&gt;Recevoir l&amp;#8217;écoute de mes proches, avec des conseils avisés et réfléchis. Sentir qu&amp;#8217;un nœud se défait, et que c&amp;#8217;est moi qui doit&amp;nbsp;bouger.&lt;/li&gt;
+&lt;li&gt;Réussir à amener des sujets complexes et (un peu) chargés émotionellement sur la table, sans que ceux-ci ne prennent toute la place. Se donner le temp de démeler les choses. Je suis content de là ou en est mon collectif de&amp;nbsp;vie.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de mettre de l&amp;#8217;ordre dans mes notes de&amp;nbsp;confs!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je me suis senti dépassé et frustré par des blocages décisionnels, des discussions difficiles à avoir correctement. J&amp;#8217;aimerai mieux clarifier les besoins de tout le monde avant les discussions, et donner une meilleure place aux&amp;nbsp;miens.&lt;/li&gt;
+&lt;li&gt;Je n&amp;#8217;ai pas réussi à calmer un moment de détresse (temporaire) à coup de méditation et de sieste, faute d&amp;#8217;outils avec moi. A mieux prévoir la prochaine&amp;nbsp;fois.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai passé beaucoup de temps à faire en sorte que mon ordinateur (sous Asahi Linux) fonctionne correctement. Je suis à la fois plus à l&amp;#8217;aise sous Linux, et à la fois qu&amp;#8217;à moitié convaincu de devoir passer autant de temps sur de la&amp;nbsp;configuration.&lt;/li&gt;
+&lt;li&gt;Je me suis senti vulnérable et retomber dans le creux de la vague suite à des discussions difficiles et des échos de situations passées. J&amp;#8217;aimerai mieux faire la part des&amp;nbsp;choses.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal dormi à cause du bruit de la route dans la chambre où j&amp;#8217;étais. J&amp;#8217;aimerai mieux mesurer à quel point le calme est important pour moi et prévoir à&amp;nbsp;l&amp;#8217;avance.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal au dos et mon corps me rappelle que je devrais faire du sport. J&amp;#8217;aimerai le prendre au&amp;nbsp;sérieux!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute-citations"&gt;Vu, lu, écouté,&amp;nbsp;citations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📽 &lt;a href="https://www.finite-film.com/"&gt;Finite&lt;/a&gt;, l&amp;#8217;histoire de plusieurs luttes en Allemagne et en Angleterre contre des mines de&amp;nbsp;charbon.&lt;/li&gt;
+&lt;li&gt;⏯️ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=DEcwa68f-jY"&gt;dotJS 2019 - James Long - CRDTs for&amp;nbsp;Mortals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📽 Oppenheimer, de Christopher Nolan (avec Cylian Murphy), assez decevant&amp;nbsp;malheureusement&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.libreavous.org/195-framasoft-un-an-de-coin-coin"&gt;Framasoft, un an de coin&amp;nbsp;coin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.youtube.com/watch?v=gcUzjfEJpGI"&gt;Devenir meilleur ne vous rendra pas plus&amp;nbsp;heureux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai assisté à une « Conférence Poétique » de &lt;a href="https://maelledubourg.fr/"&gt;Maëlle Dubourg&lt;/a&gt; « Elle revient de l’Île des Nummes », ça fait du bien de voyager et de réver un peu&amp;nbsp;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Une personne peut se faire exclure à vie de certains collectifs, lieux ou associations pour des propos parfois tenus des années auparavant. Un groupe souvent auto-désigné prend en charge le conflit sans qu’aucune limite ne soit fixée. Il peut y avoir des effets de “surpuissance du groupe” où, sous prétexte de luttes (légitimes) contre les oppressions, on légitime absolument tout : exclusion, harcèlement, humiliations publiques, violences physiques… Et la désescalade est souvent impossible.
+À mon sens, l’exclusion doit toujours être cadrée dans le temps et la personne exclue, accompagnée (dans l’idéal), pour qu’elle puisse comprendre ce qui lui est reproché et comment elle peut réparer la situation.
+—&amp;nbsp;https://cqfd-journal.org/Se-reapproprier-nos-conflits&lt;/p&gt;
+&lt;p&gt;On s&amp;#8217;en sert comme exemple pour montrer pourquoi il ne faut jamais faire de révolution, mais la grande terreur qui à suivi la commune, les massacres des peuples [&amp;#8230;] c&amp;#8217;était pire que la terreur et c&amp;#8217;est la terreur imposée par ceux qui disent nous voulons veut garder le&amp;nbsp;pouvoir.&lt;/p&gt;
+&lt;p&gt;Cela fait partie des mythes de notre histoire, « les révolutionnaires sont violents ». Non, la violence vient de la contre attaque de ceux que l&amp;#8217;on tente de  déposséder, et ceux qui sont dépossédés sont ceux qui disposent du pouvoir économique et social, et la violence survient quand ils disent « nous allons garder le pouvoir ».
+— Ken Loach, dans &lt;a href="https://www.film-documentaire.fr/4DACTION/w_fiche_film/69384_0"&gt;Les Héritiers de la&amp;nbsp;Commune&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="weeknotes"></category></entry><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
 &lt;p&gt;De retour après trois semaines off qui m&amp;#8217;ont fait du bien, passées entre ami·es, famille et un petit passage au&amp;nbsp;37C3.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;

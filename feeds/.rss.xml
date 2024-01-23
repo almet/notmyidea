@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Tue, 16 Jan 2024 00:00:00 +0100</lastBuildDate><item><title>2024, Semaine 2</title><link>https://blog.notmyidea.org/2024-semaine-2.html</link><description>
+<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0100</lastBuildDate><item><title>Ce qui s’est passé</title><link>https://blog.notmyidea.org/ce-qui-sest-passe.html</link><description>&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se …&lt;/p&gt;</description><pubDate>Tue, 23 Jan 2024 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2024-01-23:/ce-qui-sest-passe.html</guid><category>weeknotes</category></item><item><title>2024, Semaine 2</title><link>https://blog.notmyidea.org/2024-semaine-2.html</link><description>
 &lt;p&gt;De retour après trois semaines off qui m&amp;#8217;ont fait du bien, passées entre ami·es, famille et un petit passage au&amp;nbsp;37C3.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -298,12 +301,4 @@ trying to hunt down the man in the&amp;nbsp;middle?&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Je ne m&amp;#8217;étais jamais fais la remarque, mais les projets dont je suis le
 plus fier sont effectivement des &lt;em&gt;side projects&lt;/em&gt;. Des projets que j&amp;#8217;ai
-commencé parce que j&amp;#8217;en avais l&amp;#8217;envie …&lt;/p&gt;</description><pubDate>Thu, 21 May 2015 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2015-05-21:/travail-et-creativite.html</guid><category>Journal</category></item><item><title>Simplifier les preuves d’identités</title><link>https://blog.notmyidea.org/simplifier-les-preuves-didentites.html</link><description>
-&lt;ul&gt;
-&lt;li&gt;headline&lt;br&gt;
-    Qu&amp;#8217;est-ce que Keybase.io et comment essayent-ils de simplifier la
-    création de preuves&amp;nbsp;d&amp;#8217;identité.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;L&amp;#8217;un des problèmes non réellement résolu actuellement quant au
-chiffrement des échanges est lié à l&amp;#8217;authenticité des clés. Si quelqu&amp;#8217;un
-décide de publier une clé en mon nom, et en …&lt;/p&gt;</description><pubDate>Mon, 11 May 2015 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2015-05-11:/simplifier-les-preuves-didentites.html</guid><category>code</category></item></channel></rss>
+commencé parce que j&amp;#8217;en avais l&amp;#8217;envie …&lt;/p&gt;</description><pubDate>Thu, 21 May 2015 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2015-05-21:/travail-et-creativite.html</guid><category>Journal</category></item></channel></rss>

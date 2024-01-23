@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-16T00:00:00+01:00</updated><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-23T00:00:00+01:00</updated><entry><title>Ce qui s’est passé</title><link href="https://blog.notmyidea.org/ce-qui-sest-passe.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-23:/ce-qui-sest-passe.html</id><summary type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se …&lt;/p&gt;</summary><content type="html">&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
+&lt;p&gt;Peu d&amp;#8217;avancées techniques, j&amp;#8217;ai un prototype sur comment se connecter avec &lt;a href="https://github.com/yohanboniface/Leaflet.FormBuilder"&gt;Leaflet Formbuilder&lt;/a&gt;, mais j&amp;#8217;ai encore du mal à aller au bout, plutôt du à&amp;nbsp;une &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;🫙 &lt;a href="https://chariotte.fr/"&gt;Chariotte&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On a pu se faire notre première réunion dev, avancer sur notre prise de décision, et défaire des nœuds de compréhension entre nous. Content de la direction que les choses&amp;nbsp;prennent.&lt;/p&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Apprécier des rencontres et discussions techniques autour de la protection de la vie privée, des retours du 37C3 et des présentations de différents projets. Content de voir que des connexions continuent à se faire, et que uMap est utilisé dans des cadres&amp;nbsp;militants.&lt;/li&gt;
+&lt;li&gt;Faire une proposition d&amp;#8217;organisation collective qui amène à des discussions intéressantes dans un cadre&amp;nbsp;associatif. &lt;/li&gt;
+&lt;li&gt;Reprendre les ateliers d&amp;#8217;écriture avec les ami·es, c&amp;#8217;est toujours un moment de partage agréable et&amp;nbsp;créatif.&lt;/li&gt;
+&lt;li&gt;Recevoir l&amp;#8217;écoute de mes proches, avec des conseils avisés et réfléchis. Sentir qu&amp;#8217;un nœud se défait, et que c&amp;#8217;est moi qui doit&amp;nbsp;bouger.&lt;/li&gt;
+&lt;li&gt;Réussir à amener des sujets complexes et (un peu) chargés émotionellement sur la table, sans que ceux-ci ne prennent toute la place. Se donner le temp de démeler les choses. Je suis content de là ou en est mon collectif de&amp;nbsp;vie.&lt;/li&gt;
+&lt;li&gt;Prendre le temps de mettre de l&amp;#8217;ordre dans mes notes de&amp;nbsp;confs!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Je me suis senti dépassé et frustré par des blocages décisionnels, des discussions difficiles à avoir correctement. J&amp;#8217;aimerai mieux clarifier les besoins de tout le monde avant les discussions, et donner une meilleure place aux&amp;nbsp;miens.&lt;/li&gt;
+&lt;li&gt;Je n&amp;#8217;ai pas réussi à calmer un moment de détresse (temporaire) à coup de méditation et de sieste, faute d&amp;#8217;outils avec moi. A mieux prévoir la prochaine&amp;nbsp;fois.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai passé beaucoup de temps à faire en sorte que mon ordinateur (sous Asahi Linux) fonctionne correctement. Je suis à la fois plus à l&amp;#8217;aise sous Linux, et à la fois qu&amp;#8217;à moitié convaincu de devoir passer autant de temps sur de la&amp;nbsp;configuration.&lt;/li&gt;
+&lt;li&gt;Je me suis senti vulnérable et retomber dans le creux de la vague suite à des discussions difficiles et des échos de situations passées. J&amp;#8217;aimerai mieux faire la part des&amp;nbsp;choses.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal dormi à cause du bruit de la route dans la chambre où j&amp;#8217;étais. J&amp;#8217;aimerai mieux mesurer à quel point le calme est important pour moi et prévoir à&amp;nbsp;l&amp;#8217;avance.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai mal au dos et mon corps me rappelle que je devrais faire du sport. J&amp;#8217;aimerai le prendre au&amp;nbsp;sérieux!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute-citations"&gt;Vu, lu, écouté,&amp;nbsp;citations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📽 &lt;a href="https://www.finite-film.com/"&gt;Finite&lt;/a&gt;, l&amp;#8217;histoire de plusieurs luttes en Allemagne et en Angleterre contre des mines de&amp;nbsp;charbon.&lt;/li&gt;
+&lt;li&gt;⏯️ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=DEcwa68f-jY"&gt;dotJS 2019 - James Long - CRDTs for&amp;nbsp;Mortals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📽 Oppenheimer, de Christopher Nolan (avec Cylian Murphy), assez decevant&amp;nbsp;malheureusement&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.libreavous.org/195-framasoft-un-an-de-coin-coin"&gt;Framasoft, un an de coin&amp;nbsp;coin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.youtube.com/watch?v=gcUzjfEJpGI"&gt;Devenir meilleur ne vous rendra pas plus&amp;nbsp;heureux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai assisté à une « Conférence Poétique » de &lt;a href="https://maelledubourg.fr/"&gt;Maëlle Dubourg&lt;/a&gt; « Elle revient de l’Île des Nummes », ça fait du bien de voyager et de réver un peu&amp;nbsp;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Une personne peut se faire exclure à vie de certains collectifs, lieux ou associations pour des propos parfois tenus des années auparavant. Un groupe souvent auto-désigné prend en charge le conflit sans qu’aucune limite ne soit fixée. Il peut y avoir des effets de “surpuissance du groupe” où, sous prétexte de luttes (légitimes) contre les oppressions, on légitime absolument tout : exclusion, harcèlement, humiliations publiques, violences physiques… Et la désescalade est souvent impossible.
+À mon sens, l’exclusion doit toujours être cadrée dans le temps et la personne exclue, accompagnée (dans l’idéal), pour qu’elle puisse comprendre ce qui lui est reproché et comment elle peut réparer la situation.
+—&amp;nbsp;https://cqfd-journal.org/Se-reapproprier-nos-conflits&lt;/p&gt;
+&lt;p&gt;On s&amp;#8217;en sert comme exemple pour montrer pourquoi il ne faut jamais faire de révolution, mais la grande terreur qui à suivi la commune, les massacres des peuples [&amp;#8230;] c&amp;#8217;était pire que la terreur et c&amp;#8217;est la terreur imposée par ceux qui disent nous voulons veut garder le&amp;nbsp;pouvoir.&lt;/p&gt;
+&lt;p&gt;Cela fait partie des mythes de notre histoire, « les révolutionnaires sont violents ». Non, la violence vient de la contre attaque de ceux que l&amp;#8217;on tente de  déposséder, et ceux qui sont dépossédés sont ceux qui disposent du pouvoir économique et social, et la violence survient quand ils disent « nous allons garder le pouvoir ».
+— Ken Loach, dans &lt;a href="https://www.film-documentaire.fr/4DACTION/w_fiche_film/69384_0"&gt;Les Héritiers de la&amp;nbsp;Commune&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="weeknotes"></category></entry><entry><title>2024, Semaine 2</title><link href="https://blog.notmyidea.org/2024-semaine-2.html" rel="alternate"></link><published>2024-01-16T00:00:00+01:00</published><updated>2024-01-16T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-16:/2024-semaine-2.html</id><summary type="html">
 &lt;p&gt;De retour après trois semaines off qui m&amp;#8217;ont fait du bien, passées entre ami·es, famille et un petit passage au&amp;nbsp;37C3.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -5675,86 +5718,4 @@ trouvent leur compte, mais il s&amp;#8217;agit nécessairement de projets non
 &lt;em&gt;commandités&lt;/em&gt; par&amp;nbsp;l&amp;#8217;extérieur.&lt;/p&gt;
 &lt;p&gt;Encore un signal dans la direction du travailler moins, cette fois ci
 pour être plus&amp;nbsp;créatif.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Soupa'Soups." src="/images/soupasoups.jpg"&gt;&lt;/p&gt;</content><category term="Journal"></category></entry><entry><title>Simplifier les preuves d’identités</title><link href="https://blog.notmyidea.org/simplifier-les-preuves-didentites.html" rel="alternate"></link><published>2015-05-11T00:00:00+02:00</published><updated>2015-05-11T00:00:00+02:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2015-05-11:/simplifier-les-preuves-didentites.html</id><summary type="html">
-&lt;ul&gt;
-&lt;li&gt;headline&lt;br&gt;
-    Qu&amp;#8217;est-ce que Keybase.io et comment essayent-ils de simplifier la
-    création de preuves&amp;nbsp;d&amp;#8217;identité.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;L&amp;#8217;un des problèmes non réellement résolu actuellement quant au
-chiffrement des échanges est lié à l&amp;#8217;authenticité des clés. Si quelqu&amp;#8217;un
-décide de publier une clé en mon nom, et en …&lt;/p&gt;</summary><content type="html">
-&lt;ul&gt;
-&lt;li&gt;headline&lt;br&gt;
-    Qu&amp;#8217;est-ce que Keybase.io et comment essayent-ils de simplifier la
-    création de preuves&amp;nbsp;d&amp;#8217;identité.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;L&amp;#8217;un des problèmes non réellement résolu actuellement quant au
-chiffrement des échanges est lié à l&amp;#8217;authenticité des clés. Si quelqu&amp;#8217;un
-décide de publier une clé en mon nom, et en utilisant mon adresse email,
-cela lui est assez&amp;nbsp;facile.&lt;/p&gt;
-&lt;p&gt;Il est donc nécessaire d&amp;#8217;avoir des moyens de prouver que la clé publique
-que j&amp;#8217;utilise est réellement la&amp;nbsp;mienne.&lt;/p&gt;
-&lt;p&gt;Traditionnellement, il est nécessaire de faire signer ma clé publique
-par d&amp;#8217;autres personnes, via une rencontre en personne ou des échanges
-hors du réseau. C&amp;#8217;est par exemple ce qui est réalisé lors des &lt;a href="https://fr.wikipedia.org/wiki/Key_signing_party"&gt;Key
-Signing parties&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Une manière simple d&amp;#8217;effectuer ces vérifications serait, en plus de
-donner son adresse email, sa signature de clé, ou a minima de donner un
-mot clé pour valider que les échanges proviennent bien de la bonne&amp;nbsp;personne.&lt;/p&gt;
-&lt;p&gt;&lt;span class="caps"&gt;PGP&lt;/span&gt; propose un mécanisme de signature des clés d&amp;#8217;autrui, une fois celles
-ci validées, ce qui permet de placer sa confiance dans les signataires
-de la&amp;nbsp;clé.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://keybase.io"&gt;Keybase.io&lt;/a&gt; est un service qui vise à rendre la
-création de ces preuves plus facile, en partant du principe qu&amp;#8217;il est
-possible d&amp;#8217;utiliser différents moyens afin de prouver l&amp;#8217;identité des
-personnes. Par exemple, leurs comptes Twitter, GitHub ou leurs noms de
-domaines. De la même manière qu&amp;#8217;il est possible de signer (valider) les
-clés de nos amis, il est possible de les &amp;#8220;tracker&amp;#8221; selon le jargon de&amp;nbsp;keybase.&lt;/p&gt;
-&lt;p&gt;Donc, en somme, &lt;em&gt;Keybase.io&lt;/em&gt; est un annuaire, qui tente de rendre plus
-facile la création de preuves.&amp;nbsp;Bien.&lt;/p&gt;
-&lt;h2 id="quelques-points-dombre"&gt;Quelques points&amp;nbsp;d&amp;#8217;ombre&lt;/h2&gt;
-&lt;p&gt;Il s&amp;#8217;agit d&amp;#8217;une &lt;em&gt;startup&lt;/em&gt; américaine, domiciliée dans le Delaware, qui
-se trouve être un des paradis fiscaux qui &lt;a href="https://fr.wikipedia.org/wiki/Delaware"&gt;est connu pour être un
-paradis fiscal au coeur même des
-États-Unis&lt;/a&gt;. Je ne veux pas
-faire de raccourcis trop rapides, bien évidemment, alors &lt;a href="https://github.com/keybase/keybase-issues/issues/1569"&gt;j&amp;#8217;ai ouvert un
-ticket sur GitHub pour en savoir
-plus&lt;/a&gt; (après
-tout, le fait d&amp;#8217;être un paradis fiscal permet peut-être d&amp;#8217;échapper à
-certaines lois sur la requêtes de données). D&amp;#8217;autant plus étonnant, la
-startup n&amp;#8217;a pour l&amp;#8217;instant &lt;a href="https://github.com/keybase/keybase-issues/issues/788"&gt;pas de &lt;em&gt;business
-model&lt;/em&gt;&lt;/a&gt; (ce qui en
-un sens est assez rassurant, même si on peut se poser la question de
-pourquoi faire une startup dans ces cas&amp;nbsp;là).&lt;/p&gt;
-&lt;p&gt;Le service (bien qu&amp;#8217;en Alpha), n&amp;#8217;est pas mis à disposition sous licence
-libre, ce qui pour l&amp;#8217;instant empêche quiconque de créer son propre
-serveur Keybase. &lt;a href="https://github.com/keybase/"&gt;Une partie des composants, cependant, le sont (open
-source)&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;J&amp;#8217;ai du mal à croire en des initiatives qui veulent sauver le monde,
-mais dans leur coin, je ne comprends pas pourquoi il n&amp;#8217;y à pas de
-documentation sur comment monter son propre serveur, ou comment les
-aider à travailler sur la fédération. Mais bon, c&amp;#8217;est pour l&amp;#8217;instant une
-initiative encore fraîche, et je lui laisse le bénéfice du&amp;nbsp;doute.&lt;/p&gt;
-&lt;p&gt;Sur le long terme, une infrastructure comme &lt;em&gt;Keybase.io&lt;/em&gt;, devra
-évidemment être
-&lt;a href="https://github.com/keybase/keybase-issues/issues/162"&gt;distribuée&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;We&amp;#8217;ve been talking about a total decentralization, but we have to
-solve a couple things, synchronization in particular. Right now
-someone can mirror us and a client can trust a mirror just as easily
-as the server at keybase.io, but there needs to be a way of announcing
-proofs to any server and having them cooperate with each other. We&amp;#8217;d
-be so happy to get this&amp;nbsp;right.&lt;/p&gt;
-&lt;p&gt;&amp;#8212; &lt;a href="http://chris.beams.io/posts/keybase/"&gt;Chris Coyne, co-founder of&amp;nbsp;Keybase&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Afin de se &amp;#8220;passer&amp;#8221; de leur service centralisé, les preuves générées
-(qui sont la force du système qu&amp;#8217;ils mettent en place) pourraient être
-exportées sur des serveurs de clés existants. C&amp;#8217;est quelque chose
-&lt;a href="https://github.com/keybase/keybase-issues/issues/890"&gt;qu&amp;#8217;ils souhaitent réaliser
-.&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Bref, une initiative quand même importante et utile, même si elle
-soulève des questions qui méritent qu&amp;#8217;on s&amp;#8217;y attarde un&amp;nbsp;brin.&lt;/p&gt;
-&lt;p&gt;Par ailleurs, &lt;a href="https://leap.se/nicknym"&gt;d&amp;#8217;autres projets qui visent des objectifs
-similaires&lt;/a&gt; existent, via le projet &lt;span class="caps"&gt;LEAP&lt;/span&gt;, mais
-je n&amp;#8217;ai pas encore&amp;nbsp;creusé.&lt;/p&gt;</content><category term="code"></category></entry></feed>
+&lt;p&gt;&lt;img alt="Soupa'Soups." src="/images/soupasoups.jpg"&gt;&lt;/p&gt;</content><category term="Journal"></category></entry></feed>
