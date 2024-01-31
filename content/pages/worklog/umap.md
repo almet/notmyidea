@@ -5,7 +5,13 @@ template: worklog
 total_days: 25
 ---
 
-## Lundi 29 Janvier 2024 (5/5)
+## Mardi 30 Janvier 2024 (6h, 5/5)
+
+J'ai passé du temps à refondre le code déjà écrit concernant la synchronisation. L'API se clarifie et se simplifie, ça fait du bien. On a fait une session de pair avec David durant laquelle on a pu trouver comment écouter les événements qui sont lancés lors de la création d'un point, et j'ai fini par supprimer tout un tas de complexité qui n'était pas nécessaire.
+
+Je suis plus content du code actuel, plus simple et direct, et aussi plus facile à modifier. Bien dormir m'aide à être plus concentré !
+
+## Lundi 29 Janvier 2024 (6h, 5/5)
 
 Avec Yohan, on s'attaque à un bug dans les tests de l'algorithme de merge des layers. L'idée est d'attendre que certaines requêtes soient passées pour continuer les tests dans playwright (merci [`page.expect_response`](https://playwright.dev/python/docs/network#variations)).
 
@@ -13,10 +19,11 @@ On se rends compte que ce qu'on pensait être un test intermittent est en fait u
 
 On a ensuite discuté avec David + Yohan de plusieurs aspects, autour de la solution à ce problème (surement des headers maison pour éviter des soucis avec les `ETAGs` et leur utilisation par des proxy intermédiaires)
 
-On continue avec une discussion sur notre système de versioning et sur l'idée de faire une 2.0 pour introduire des changements importants.
+On continue avec une discussion sur notre système de versioning et sur l'idée de faire une 2.0 pour introduire des changements importants. La discussion est moins tendue que la dernière fois c'est chouette :-)
+
 ## Mercredi 24 Janvier 2024 (5h, 3/5)
 
-Session rapide de pair avec David, on avance sur  
+Session rapide de pair avec David, on avance sur  la connection websocket et leur intégration avec les formulaires.
 
 ## Mardi 23 Janvier 2024 (5h, 4/5)
 
