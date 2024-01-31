@@ -70,11 +70,10 @@
       "mark": "bar",
       "encoding": {
         "x": {
-          "timeUnit": {"unit": "dayofyear", "step": 1},
+          "timeUnit": {"unit": "", "utc": true},
           "field": "date",
           "axis": {"format": "%d/%m"},
-          "title": "Date",
-          "step": 1,
+          "title": "Date"
         },
         "y": {
           "aggregate": "sum",
@@ -86,8 +85,7 @@
           "scale": {
             "domain": ["Bénévole", "Rémunéré"],
             "range": ["#e7ba52", "#1f77b4"]
-          },
-          "title": "Type d'heures"
+          }
         }
       }
     };

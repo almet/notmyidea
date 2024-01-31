@@ -3,6 +3,14 @@ title: Chariotte
 save_as: chariotte/index.html
 template: worklog
 ---
+## Mardi 16 Janvier 2024 (0h, 1h bénévoles, 5/5)
+
+J'ai fait le tour des MR en attente pour mettre quelques commentaires.
+
+## Lundi 15 Janvier 2024 (0h, 2h bénévoles, 4/5)
+
+On a passé en revue les MR en attente, et on a pu se mettre d'accord sur une manière d'avancer, en travaillant au consentement. On a pu mettre en pratique et c'était chouette. Je suis content de voir des freins se lever de mon côté à ce niveau.
+
 ## Dimanche 17 Décembre 2023 (0h, 8h bénévoles, 4/5)
 
 J'ai passé beaucoup de temps pour essayer de comprendre pourquoi les emails n'étaient pas envoyés lors de la récupération de mot de passe. J'ai fini par trouver en utilisant un bon vieux debugger, comme quoi c'est la solution à privilégier autant que possible.

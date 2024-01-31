@@ -4,7 +4,45 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
-## Vendredi 12 Janvier 2023 (3h)
+
+## Lundi 29 Janvier 2024 (5/5)
+
+Avec Yohan, on s'attaque à un bug dans les tests de l'algorithme de merge des layers. L'idée est d'attendre que certaines requêtes soient passées pour continuer les tests dans playwright (merci [`page.expect_response`](https://playwright.dev/python/docs/network#variations)).
+
+On se rends compte que ce qu'on pensait être un test intermittent est en fait un bug: les headers `Last-Modified` et consort sont en fait à la seconde prêt, et les fichiers correspondants stockés sur le serveur à la milliseconde, ce qui fait qu'il peut y avoir prise de pinceaux dans le tapis, et le mauvais fichier est utilisé dans la reconstruction.
+
+On a ensuite discuté avec David + Yohan de plusieurs aspects, autour de la solution à ce problème (surement des headers maison pour éviter des soucis avec les `ETAGs` et leur utilisation par des proxy intermédiaires)
+
+On continue avec une discussion sur notre système de versioning et sur l'idée de faire une 2.0 pour introduire des changements importants.
+## Mercredi 24 Janvier 2024 (5h, 3/5)
+
+Session rapide de pair avec David, on avance sur  
+
+## Mardi 23 Janvier 2024 (5h, 4/5)
+
+J'ai ajouté le support de la synchro pour les metadonnées de la carte sur mon prototype, j'ai fait des messages websockets + une infrastructure légère qui permet de voir venir les autres types de synchro. Je passe par l'écrasement des données de l'autre carte plutôt que par des CRDTs. Pour le moment pas de gestion de l'offline, mais je me dis que c'est secondaire.
+
+## Lundi 22 Janvier 2024 (7h, 2/5)
+
+Je continue sur mon prototype de synchronisation. Je commence à connecter la partie websockets, avec une implémentation avec [websockets](https://websockets.readthedocs.io) en python.
+
+L'après-midi, j'essaye d'aller plus loin et pour les besoins de la démo de plugger [Y-WebSocket](https://github.com/yjs/y-websocket), mais je bloque (encore) sur l'utilisation de modules JS. J'essaye de contourner en faisant des pirouettes avec webpack (pour qu'il expose un module attaché à la fenêtre), mais je me retrouve face à des soucis de recursion infinie que j'ai du mal à comprendre.
+
+Je me dis que peut-être que [Json-Joy](https://jsonjoy.com/) sera utile ici, et je commence à le plugger dans le code que j'ai fait, avant de me rendre compte que son API est un peu différente de celle de Y.js ou Automerge. Je ne comprends pas tout à fait comment utiliser le projet et je perds du temps la dessus. Je n'ai pas réussi à trouver beaucoup d'exemples d'utilisation et ça me questionne sur la documentation et l'usage réel de ce projet.
+
+## Mardi 16 Janvier 2024 (3h, 0/5)
+
+Discussion avec David et Yohan autour de notre manière de s'outiller. J'ai du mal à comprendre ce qui bloque, mais j'ai l'impression qu'on patine. J'ai l'impression d'apporter plus d'inconfort que l'inverse, et je ressors de la réunion avec un sentiment de frustration.
+
+## Lundi 15 Janvier 2024 (3h, 3/5)
+
+Une réunion avec toute l'équipe durant laquelle j'ai pu poser des questions
+sur notre manière de nous organiser, et sur le role de la réunion hebdomadaire.
+Je suis content de l'avoir fait, hate de voir comment les choses vont évoluer.
+
+Une courte session avec David pour échanger sur l'approche prise pour le moment.
+
+## Vendredi 12 Janvier 2024 (3h, 3/5)
 
 J'ai continué à coder la piste initiée mercredi. Je me rends compte qu'il me
 faudra peut-être un moyen de faire du lien entre les données, et que cette
@@ -14,7 +52,7 @@ données sont dépendantes d'autres données).
 En tout cas, j'ai une interface un peu plus claire pour le Mixin de `rerender`.
 
 
-## Mercredi 10 Janvier 2023 (7h, 4/5)
+## Mercredi 10 Janvier 2024 (7h, 4/5)
 
 La piste des IDs est finalement écartée pour l'instant, je ne suis pas encore
 certain d'en avoir besoin, peut-être qu'il n'est pas utile d'identifier les
@@ -52,7 +90,7 @@ Frustrant de ne pas avoir avancé techniquement, mais l'impression d'être sur d
 bons rails humains, et d'avoir pu dégrossir certains aspects du code pour me les
 rendre compréhensibles.
 
-## Mardi 09 Janvier 2023 (8h, 3/5)
+## Mardi 09 Janvier 2024 (8h, 3/5)
 
 On discute avec Yohan de comment faire pour avancer, on commence à travailler
 en pair pour plutôt décider se séparer le travail au lieu de le faire ensemble.
@@ -90,7 +128,7 @@ besoin de la conforter avant d'être efficace pour travailler avec d'autres.
 Content de la découverte, et d'avoir pu l'expliciter auprès de Yohan.
 J'espère que ça débouchera sur quelque chose de sain et productif.
 
-## Lundi 08 Janvier 2023 (9h, 3/5)
+## Lundi 08 Janvier 2024 (9h, 3/5)
 
 Matinée passée et début d'après midi avec Yohan à faire une release de uMap puis
 à faire du bugfix dessus ensuite. Fin d'après-midi à discuter de la manière dont

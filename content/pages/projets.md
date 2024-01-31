@@ -5,37 +5,38 @@ slug: projets
 
 # Projets
 
-Tombé dans le chaudron de l'informatique étant petit, j'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des années.
+J'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des années, et bien souvent j'ai passé la main sur certains projets que j'ai initié, pour pouvoir faire autre chose.
 
-Voici quelques logiciels que j'ai initié, ou bien auxquels j'ai participé. Vous pouvez aussi aller faire un tour sur ma page
-[Github](https://github.com/almet) ou [Gitlab](https://gitlab.com/almet) pour
-voir d'autres contributions.
+Voici quelques logiciels que j'ai initié, ou bien auxquels j'ai participé. Vous pouvez aussi aller faire un tour sur mes dépots publics ([Github](https://github.com/almet) ou [Gitlab](https://gitlab.com/almet))
 
-[Pelican](http://getpelican.com)
-: Un générateur de site statique [créé en
-2010](https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html).
-Ce site fonctionne grace à ce logiciel, et il est utilisé par des projets comme
-le [Noyau Linux](https://www.kernel.org/pelican.html) et
-[Debian](https://bits.debian.org/pages/about.html). L'idée est de pouvoir transformer des fichiers [au format Markdown](https://fr.wikipedia.org/wiki/Markdown) en un site web qui ne sera pas regénéré à chaque requête, et qui est donc très facile à héberger.
+[Générateur de motifs jacquard (tricot)](https://bekeko.notmyidea.org/) (2022)
+: Un petit logiciel pour faciliter la vie d'une amie qui fabrique des chaussons à la main. L'idée est de pouvoir choisir des motifs et des couleurs, et de se rendre compte du résultat. ([codé en Elm](https://github.com/almet/bekeko))
 
-[I Hate Money](http://ihatemoney.org)
+[Copanier](https://github.com/spiral-project/copanier) (2019-2024)
+: Un logiciel web créé en 2019, qui permet d'organiser des groupements
+d'achats. Ce logiciel à d'abord été écrit par [Yohan
+Boniface](https://yohanboniface.me/) et je l'ai ensuite repris et adapté à
+l'usage d'un groupement auquel je participe. ([codé en python](https://github.com/almet/copanier))
+
+[I Hate Money](http://ihatemoney.org) (2011-2023)
 : Un site web qui permet de gérer les dépenses de groupes, [créé fin
 2011](https://blog.notmyidea.org/how-are-you-handling-your-shared-expenses.html).
 Il est possible de rentrer qui à payé quoi, et pour qui, et une balance est
-gérée pour vous. Je maintiens une instance ouverte sur [ihatemoney.org](https://ihatemoney.org).
+gérée pour vous. Je maintiens une instance ouverte sur [ihatemoney.org](https://ihatemoney.org). ([codé en python+flask](https://github.com/spiral-project/ihatemoney))
 
-[Kinto](https://github.com/kinto/kinto)
+[Kinto](https://github.com/kinto/kinto) (2012-2015)
 : Un backend générique pour des applications Web. J'ai initié ce projet avec
 des collègues [en
 2012](https://blog.notmyidea.org/thoughts-about-a-form-generation-service-gis-enabled.html)
 alors que je travaillais pour Mozilla. Le projet est actuellement utilisé pour
-gérer la synchronisation de certaines données dans Firefox.
+gérer la synchronisation de certaines données dans Firefox. ([codé en python+pyramid](https://github.com/Kinto/kinto))
 
-[Copanier](https://github.com/spiral-project/copanier)
-: Un logiciel web créé en 2019, qui permet d'organiser des groupements
-d'achats. Ce logiciel à d'abord été écrit par [Yohan
-Boniface](https://yohanboniface.me/) et je l'ai ensuite repris et adapté à
-l'usage d'un groupement auquel je participe.
+[Pelican](http://getpelican.com) (2010-2020)
+: Un générateur de site statique [créé en
+2010](https://blog.notmyidea.org/pelican-a-simple-static-blog-generator-in-python.html).
+Ce site fonctionne grace à ce logiciel, et il est utilisé par des projets comme
+le [Noyau Linux](https://www.kernel.org/pelican.html) et
+[Debian](https://bits.debian.org/pages/about.html). L'idée est de pouvoir transformer des fichiers [au format Markdown](https://fr.wikipedia.org/wiki/Markdown) en un site web qui ne sera pas regénéré à chaque requête, et qui est donc très facile à héberger. ([codé en python](https://github.com/getpelican/pelican))
 
 ---
 
