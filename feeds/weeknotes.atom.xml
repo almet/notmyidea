@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-23T00:00:00+01:00</updated><entry><title>2024, Semaine 3</title><link href="https://blog.notmyidea.org/2024-semaine-3.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-23:/2024-semaine-3.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-31T00:00:00+01:00</updated><entry><title>Notes hebdo #14</title><link href="https://blog.notmyidea.org/notes-hebdo-14.html" rel="alternate"></link><published>2024-01-31T00:00:00+01:00</published><updated>2024-01-31T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-31:/notes-hebdo-14.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;9ème semaine sur le&amp;nbsp;projet&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai changé d&amp;#8217;approche et je ne cherche pour le moment plus à intégrer des CRDTs dans la base de code actuelle, ce qui me permet de me concentrer sur les aspects&amp;nbsp;métiers.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai eu un premier …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;9ème semaine sur le&amp;nbsp;projet&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai changé d&amp;#8217;approche et je ne cherche pour le moment plus à intégrer des CRDTs dans la base de code actuelle, ce qui me permet de me concentrer sur les aspects&amp;nbsp;métiers.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai eu un premier bout de démo à base de websockets et d&amp;#8217;évènements qui transitent d&amp;#8217;un client à&amp;nbsp;l&amp;#8217;autre.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🫙 &lt;a href="https://notmyidea.org/"&gt;Notmyidea&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;J&amp;#8217;ai changé la manière de comptabiliser les semaines, ce qui me permet d&amp;#8217;y voir plus clair sur l&amp;#8217;investissement dans chaque&amp;nbsp;projet.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sentir que j&amp;#8217;ai de l&amp;#8217;énergie pour voir des gens durant la&amp;nbsp;semaine.&lt;/li&gt;
+&lt;li&gt;Prendre le temps d&amp;#8217;une session de cinéma matinal, et improviser un repas et des discussions&amp;nbsp;ensuite.&lt;/li&gt;
+&lt;li&gt;Me sentir accueilli dans la fanfare de laquelle je fais maintenant partie. C&amp;#8217;est super de mesurer les attentions à mon égard (solo de trombone&amp;nbsp;!)&lt;/li&gt;
+&lt;li&gt;M&amp;#8217;autoriser à me reposer et à décaller un évènement qui aurait été de&amp;nbsp;trop.&lt;/li&gt;
+&lt;li&gt;Clarifier la méthodologie de prise de décisions dans un groupe naissant. J&amp;#8217;ai l&amp;#8217;impression de rendre service aux futurs&amp;nbsp;impliqués.&lt;/li&gt;
+&lt;li&gt;Réussir à mettre à distance des émotions qui ne sont pas les miennes, tout en offrant un soutien&amp;nbsp;émotionnel.&lt;/li&gt;
+&lt;li&gt;Préparer un gros repas pour la famille, pour pouvoir décharger les personnes qui s&amp;#8217;en occupent&amp;nbsp;habituellement.&lt;/li&gt;
+&lt;li&gt;Mesurer une amélioration des conditions de la dicussion suite à changement de posture de ma part. Je suis content de débloquer la&amp;nbsp;situation…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;…et en même temps je suis déçu que ça n&amp;#8217;ai pas été une discussion collective. J&amp;#8217;aimerai être plus patient et plus outillé pour savoir comment mener ces&amp;nbsp;discussions.&lt;/li&gt;
+&lt;li&gt;Je me sens seul face a une demande de clarification que j&amp;#8217;ai faite qui reste pour le moment sans&amp;nbsp;réponse.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-ecoute-citations"&gt;Vu, lu, écouté,&amp;nbsp;citations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;🍿 « Les herbes sèches » (de Nuri Bilge Ceylan, avec Deniz Celiloğlu). J&amp;#8217;ai apprécié à la fois l&amp;#8217;image et la photographie, mais aussi le rapport au temps qui évolue au fur et à mesure du film. Le temps long (3h15 !) permet d&amp;#8217;être dans la tête du personnage, et de venir questionner (par la suite) la question de la complicité, de la protection des intérêts, le rapport à la vérité. L&amp;#8217;impact des traumatismes sur nos quotidiens, et le temps nécessaire pour comprendre, et aller de l&amp;#8217;avant. Tout ça en filligrane.&amp;nbsp;👏&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🍿 « Les passagers de la nuit » (de Mikhaël Hers et Maud Hameline, avec Charlotte Ginsbourg, Noée Abita). L&amp;#8217;histoire d&amp;#8217;une femme qui reprends pied dans la vie, de rencontres et de beaux moments de partage. J&amp;#8217;aime beaucoup la douceur qui se dégage de ce&amp;nbsp;film.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>2024, Semaine 3</title><link href="https://blog.notmyidea.org/2024-semaine-3.html" rel="alternate"></link><published>2024-01-23T00:00:00+01:00</published><updated>2024-01-23T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-23:/2024-semaine-3.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Deux petites demi-journées de travail. Des discussions en collectif sur ce qu&amp;#8217;on attends de nos réunions hebdo, et une discussion sur les orientations techniques et sur notre manière de prendre des&amp;nbsp;décisions.&lt;/p&gt;
