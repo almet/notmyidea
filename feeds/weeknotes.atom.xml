@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-01-31T00:00:00+01:00</updated><entry><title>Notes hebdo #14</title><link href="https://blog.notmyidea.org/notes-hebdo-14.html" rel="alternate"></link><published>2024-01-31T00:00:00+01:00</published><updated>2024-01-31T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-31:/notes-hebdo-14.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau - weeknotes</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/weeknotes.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-05T00:00:00+01:00</updated><entry><title>Notes hebdo #15</title><link href="https://blog.notmyidea.org/notes-hebdo-15.html" rel="alternate"></link><published>2024-02-05T00:00:00+01:00</published><updated>2024-02-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-05:/notes-hebdo-15.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://idlv.co"&gt;&lt;span class="caps"&gt;IDLV&lt;/span&gt;.co&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Le site web est maintenant public&amp;nbsp;!&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;10ème semaine, on dépasse les&amp;nbsp;200h.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai fais une session de travail « en ermite », et j&amp;#8217;ai trouvé ça utile pour&amp;nbsp;avancer.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai &lt;a href="https://files.notmyidea.org/umap-sync-features.webm"&gt;une démo de synchro qui fonctionne&lt;/a&gt;&amp;nbsp;!&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🫙 &lt;a href="https://notmyidea.org/"&gt;Notmyidea&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai passé du …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;a href="https://idlv.co"&gt;&lt;span class="caps"&gt;IDLV&lt;/span&gt;.co&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;Le site web est maintenant public&amp;nbsp;!&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;10ème semaine, on dépasse les&amp;nbsp;200h.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai fais une session de travail « en ermite », et j&amp;#8217;ai trouvé ça utile pour&amp;nbsp;avancer.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai &lt;a href="https://files.notmyidea.org/umap-sync-features.webm"&gt;une démo de synchro qui fonctionne&lt;/a&gt;&amp;nbsp;!&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🫙 &lt;a href="https://notmyidea.org/"&gt;Notmyidea&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai passé du temps à encore changer mon setup de travail. Ressortir mon x230 me fait me rendre compte comment le clavier est agréable, et comment ça change concrètement mon expérience quotidienne. Même si cet ordinateur commence à être un peu vieux, je l&amp;#8217;utilise pour la semaine et c&amp;#8217;est agréable / je me sens bien&amp;nbsp;dessus.&lt;/dd&gt;
+&lt;dt&gt;&lt;strong&gt;🚨&lt;a href="https://framagit.org/framasoft/framaspace/argos"&gt;Argos&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;Petite session de pair programming avec Luc, dans laquelle on discute de comment ajouter des tests avec&amp;nbsp;pytest.&lt;/dd&gt;
+&lt;dd&gt;On en profite pour faire un tour rapide des quelques requêtes de fusion en attente, et de tester que les migrations fonctionnent bien chez&amp;nbsp;lui.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;On a décidé de mettre fin à un projet avec Sam parce qu&amp;#8217;il ne nous amusait plus vraiment. Content de ne pas en faire tout un plat, &lt;a href="https://legroupe.notmyidea.org/"&gt;on s&amp;#8217;est quand même bien amusé&lt;/a&gt;&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Réussir à prendre de la distance avec certaines situations&amp;nbsp;conflictuelles.&lt;/li&gt;
+&lt;li&gt;Profiter du calme, prendre le&amp;nbsp;temps.&lt;/li&gt;
+&lt;li&gt;Refaire de la méditation. J&amp;#8217;avais&amp;nbsp;oublié.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ma capacité de concentration n&amp;#8217;est plus ce qu&amp;#8217;elle était, et je sens que le changement de quotidien (passer de brasseur à développeur) n&amp;#8217;est pas encore fluide pour moi. Je mets en place des astuces pour&amp;nbsp;m&amp;#8217;aider.&lt;/li&gt;
+&lt;li&gt;Je passe parfois trop de temps à penser aux problèmes futurs, plutôt qu&amp;#8217;à coder concrètement ce qui me semble être bien. J&amp;#8217;essaye d&amp;#8217;inverser la tendance pour avancer plus&amp;nbsp;efficacement.&lt;/li&gt;
+&lt;li&gt;Je me sens triste de voir encore à l&amp;#8217;œuvre des dynamiques de bouc-émissérisation qui viennent faire enfler des conflits. Je réussis à demander le pas de côté à chacun⋅e pour permettre des discussions&amp;nbsp;fertiles.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai pris beaucoup d&amp;#8217;énergie pour gérer des situations qui ne m&amp;#8217;appartiennent pas. Je suis à la fois content de le faire pour démêler les choses, et en même temps fatigué. Parfois il faut du temps, et accepter que d&amp;#8217;autres ne sont pas au même endroit que&amp;nbsp;nous.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lu-etc"&gt;Lu,&amp;nbsp;etc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai terminé « Spin » de Robert Charles Wilson. Un roman de &lt;span class="caps"&gt;SF&lt;/span&gt;, avec des concepts intéressants sur la gestion du temps et son implication pour une civilisation. J&amp;#8217;ai malheureusement trouvé l&amp;#8217;écriture (ou la traduction ?) pas passionnante, et l&amp;#8217;histoire d&amp;#8217;amour non plus. Ça manque d&amp;#8217;imagination sur les rapports de pouvoirs :p Certains passages sont vraiment chouettes du point de vue « imagination scientifique » ceci dit, et il y a une certain poésie malgré&amp;nbsp;tout.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai commencé et terminé « Terres Rebelles » (le voyage zapatiste en Europe) de Lisa Lugrin, une &lt;span class="caps"&gt;BD&lt;/span&gt; sympathique, colorée et&amp;nbsp;positive.&lt;/li&gt;
+&lt;li&gt;Commencé « L&amp;#8217;art de conter nos expériences collectives, faire récit à l&amp;#8217;heure du storytelling » de Benjamin Roux (éditions du commun). Je suis content de mettre la main&amp;nbsp;dessus.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="notes"&gt;Notes&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Maybe you’ve heard of it? It’s called &lt;span class="caps"&gt;HTML&lt;/span&gt;, and it works with &lt;a href="https://custom-elements-everywhere.com"&gt;every Javascript framework&lt;/a&gt;. For all their warts, the fact that web components get this interoperability for free is a &lt;em&gt;ridiculously powerful advantage&lt;/em&gt;, and libraries that don’t exploit it are leaving a lot of potential users on the table.
+—&amp;nbsp;https://jakelazaroff.com/words/the-web-component-success-story/&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="weeknotes"></category></entry><entry><title>Notes hebdo #14</title><link href="https://blog.notmyidea.org/notes-hebdo-14.html" rel="alternate"></link><published>2024-01-31T00:00:00+01:00</published><updated>2024-01-31T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-01-31:/notes-hebdo-14.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
