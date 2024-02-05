@@ -5,6 +5,21 @@ template: worklog
 total_days: 25
 ---
 
+## Jeudi 01 Février 2024 ()
+
+1h: discussion avec Yohan autour de l'API pour les requêtes, pour réussir à utiliser des classes natives JavaScript plutôt que de passer par des évènements « à la » Leaflet.
+
+
+## Mercredi 31 Janvier 2024 (8h, 5/5)
+
+J'ai enfin réussi à me concentrer. J'ai continué la réécriture et la simplification du code existant, puis j'ai ajouté du code qui pemret l'ajout d'un marker et sa modification.
+Ça commence à ressembler un peu plus à quelque chose, j'ai l'impression de débloquer des bouts de trucs qui me tenaient en haleine et mécontent.
+J'ai pu faire une petite vidéo de démo en fin de session.
+
+<video controls width="80%">
+  <source src="https://files.notmyidea.org/umap-sync-features.webm" type="video/webm">
+</video>
+
 ## Mardi 30 Janvier 2024 (6h, 5/5)
 
 J'ai passé du temps à refondre le code déjà écrit concernant la synchronisation. L'API se clarifie et se simplifie, ça fait du bien. On a fait une session de pair avec David durant laquelle on a pu trouver comment écouter les événements qui sont lancés lors de la création d'un point, et j'ai fini par supprimer tout un tas de complexité qui n'était pas nécessaire.

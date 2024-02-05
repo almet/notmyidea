@@ -4,6 +4,11 @@ save_as: argos/index.html
 total_days: 8
 template: worklog
 ---
+## Jeudi 1 Février 2023 (0h, 1h bénévoles, 4/5)
+
+Petite session de pair programming avec Luc, dans laquelle on discute de comment ajouter des tests avec pytest.
+On en profite pour faire un tour rapide des quelques requêtes de fusion en attente, et de tester que les migrations fonctionnent bien chez lui.
+
 ## Samedi 16 Décembre 2023 (0h, 5h bénévoles, 5/5)
 
 J'ai ajouté le support de [Alembic](https://alembic.sqlalchemy.org), pour permettre de faire des migrations de base de données. C'était assez chouette de découvrir comment ça fonctionne : ça fait longtemps que je l'utilise sur d'autres projets mais ce n'était pas moi qui l'avait mis en place.
