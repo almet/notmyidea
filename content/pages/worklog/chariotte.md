@@ -3,6 +3,10 @@ title: Chariotte
 save_as: chariotte/index.html
 template: worklog
 ---
+## Lundi 5 Février 2024 (0h, 3h bénévoles, 4/5)
+
+Réunion de dev: on a passé toutes les MR en attente, et on a ensuite discuté de ce qu'on allait intégrer pour la suite. Les discussions sont dans l'ensemble assez fluide, même si il faut rassurer sur mes intentions. Dans la foulé je déploie et je fais une petite proposition de fusion concernant des changements sur le footer
+
 ## Mardi 16 Janvier 2024 (0h, 1h bénévoles, 5/5)
 
 J'ai fait le tour des MR en attente pour mettre quelques commentaires.

@@ -4,11 +4,25 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+## Lundi 11 Février 2024 (7h, 5/5)
 
-## Jeudi 01 Février 2024 ()
+Une session matinale de pair avec Yohan durant laquelle on discute de comment synchroniser l'éditeur tabulaire (on se rends compte qu'il n'y a pas besoin de grand chose), et du protocole de synchronisation. On se dit que ce serait surement mieux de réutiliser certaines parties du code plutôt que de les recréer (sérialisation et désérialisation des coordonées des features).
 
-1h: discussion avec Yohan autour de l'API pour les requêtes, pour réussir à utiliser des classes natives JavaScript plutôt que de passer par des évènements « à la » Leaflet.
+Je change donc le code en fonction, puis on se fait une petite réunion hebdomadaire ou on parle principalement du financement du projet. On se capte ensuite avec David. J'aimerai extraire quelques bouts de ce que j'ai fait pour en faire des *pull requests* et je lui demande des retours avant d'aller plus loin.
 
+Je termine la journée par la rédaction d'un article de blog sur mon avancée générale sur le sujet.
+
+## Jeudi 08 Février 2024 (6h, 4/5)
+
+Je n'ai pas pris de notes.
+
+## Lundi 05 Février 2024 (4h, 3/5)
+
+Je commence par ajouter la suppression des points dans ma démo, ce qui fonctionne, et on se fait une petite session rapide avec Yohan pendant laquelle je lui demande de m'éclairer sur les endroits dans le code où je pourrais me connecter. On avance vite et ça fonctionne. J'enchaine avec la retrospective qui permet de soulever quelques points intéressants, mais qui semble frustrante pour l'équipe. On clarifie ensuite certains aspects autour du financement du projet avec David et Yohan.
+
+## Jeudi 01 Février 2024 (1h, 3/5)
+
+Discussion avec Yohan autour de l'API pour les requêtes, pour réussir à utiliser des classes natives JavaScript plutôt que de passer par des évènements « à la » Leaflet.
 
 ## Mercredi 31 Janvier 2024 (8h, 5/5)
 
