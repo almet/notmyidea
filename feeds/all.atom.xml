@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-05T00:00:00+01:00</updated><entry><title>Notes hebdo #15</title><link href="https://blog.notmyidea.org/notes-hebdo-15.html" rel="alternate"></link><published>2024-02-05T00:00:00+01:00</published><updated>2024-02-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-05:/notes-hebdo-15.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-13T00:00:00+01:00</updated><entry><title>Notes hebdo #16</title><link href="https://blog.notmyidea.org/notes-hebdo-16.html" rel="alternate"></link><published>2024-02-13T00:00:00+01:00</published><updated>2024-02-13T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-13:/notes-hebdo-16.html</id><summary type="html">
+&lt;p&gt;Une bonne semaine assez sympathique, entre Angers et Rennes. Je récupère de l&amp;#8217;énergie (encore, c&amp;#8217;est dingue) et je réussis à faire des avancées en terme de motivation&amp;nbsp;générale.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;On à commencé à clarifier certains aspects économiques du projet lors d&amp;#8217;une discussion …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;p&gt;Une bonne semaine assez sympathique, entre Angers et Rennes. Je récupère de l&amp;#8217;énergie (encore, c&amp;#8217;est dingue) et je réussis à faire des avancées en terme de motivation&amp;nbsp;générale.&lt;/p&gt;
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;On à commencé à clarifier certains aspects économiques du projet lors d&amp;#8217;une discussion avec David et Yohan. C&amp;#8217;est chouette que ça se fasse même si je ne suis pas encore tout à fait à l&amp;#8217;aise sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dd&gt;On a fait une rétrospective d&amp;#8217;équipe avec tout le monde. Ça aurait pu être mieux, mais ça à quand même fluidifié certains trucs chez&amp;nbsp;moi.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai continué à progresser sur les aspects pratiques de la synchronisation. J&amp;#8217;arrive maintenant à synchroniser différents types de points (&lt;code&gt;Marker&lt;/code&gt;, &lt;code&gt;Polyline&lt;/code&gt;, &lt;code&gt;Polygon&lt;/code&gt;) ainsi que les données&amp;nbsp;associées.&lt;/dd&gt;
+&lt;dt&gt;🧺 &lt;a href="https://chariotte.fr/"&gt;La&amp;nbsp;Chariotte&lt;/a&gt;&lt;/dt&gt;
+&lt;dd&gt;On a fait notre seconde réunion de dev, pour voir les avancées de tout le monde, se synchroniser et débloquer les personnes qui&amp;nbsp;l&amp;#8217;étaient. &lt;/dd&gt;
+&lt;dd&gt;On a aussi planifié ce qu&amp;#8217;on souhaitait voir dans la prochaine&amp;nbsp;version.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Prendre ~~une~~ ~~deux~~ trois soirées pour lire. C&amp;#8217;est vraiment agréable d&amp;#8217;avoir le temps pour&amp;nbsp;avancer.&lt;/li&gt;
+&lt;li&gt;Discuter de choses problématiques sans que ce soit un&amp;nbsp;problème.&lt;/li&gt;
+&lt;li&gt;Voir des changements s&amp;#8217;opérer suite à des demandes. C&amp;#8217;est tellement appréciable&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Refaire du bricolage: j&amp;#8217;ai commencé à réparer une &lt;em&gt;dremel&lt;/em&gt; qui tombe parfois en panne. Je prends beaucoup de plaisir à comprendre ce qui ne fonctionne pas et  à réparer (aussi quand ce n&amp;#8217;est pas&amp;nbsp;numérique).&lt;/li&gt;
+&lt;li&gt;Méditer m&amp;#8217;apporte beaucoup de soutien pour contrôler les débordements émotionnels. C&amp;#8217;est utile d&amp;#8217;avoir un outil pour nettoyer des pensées&amp;nbsp;négatives.&lt;/li&gt;
+&lt;li&gt;Clarifier les jours où je travaille et m&amp;#8217;y tenir. Ouvrir et fermer le contexte m&amp;#8217;aide à être plus dedans quand j&amp;#8217;y suis, et à ne pas déborder sur d&amp;#8217;autres&amp;nbsp;moments.&lt;/li&gt;
+&lt;li&gt;M&amp;#8217;installer un ordinateur spécifique pour travailler sur uMap, pour m&amp;#8217;aider à cloisonner,&amp;nbsp;justement.&lt;/li&gt;
+&lt;li&gt;Prendre du plaisir à jouer et à improviser avec un autre soliste à la fanfare. C&amp;#8217;est tellement grisant&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;Mesurer les pas que je fais en terme de confiance en&amp;nbsp;moi.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;ai eu du mal à trouver le sommeil à plusieurs reprises, surement un mélange entre un changement de rythme (je me couche parfois trop tard…) et un thé trop&amp;nbsp;tardif…&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai arrondi les angles plutôt que de mettre les formes pour ne pas froisser. J&amp;#8217;aimerai être plus concis et clair, sans pour autant revenir sur ce que je&amp;nbsp;propose.&lt;/li&gt;
+&lt;li&gt;J&amp;#8217;ai l&amp;#8217;impression de perdre du temps à refaire des choses déjà existantes pour le projet de la chariotte, et ça me questionne. Peut-être que le besoin avec mon groupement d&amp;#8217;achat n&amp;#8217;est pas partagé ? J&amp;#8217;aimerai l&amp;#8217;accepter si c&amp;#8217;était le&amp;nbsp;cas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lu-etc"&gt;Lu,&amp;nbsp;etc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📖 Terminé « L&amp;#8217;art de conter nos expériences collectives, faire récit à l&amp;#8217;heure du storytelling » de Benjamin Roux (éditions du commun). &lt;a href="https://blog.notmyidea.org/lart-de-conter-nos-experiences-collectives.html"&gt;notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📖 Lu « Tout plaquer ? » de Anne Humbert. Bien que certaines critiques me semblent justes (la question du privilège de pouvoir changer de métier), le ton général m&amp;#8217;a plutôt déplu. J&amp;#8217;aurais aimé y voir moins de biais&amp;nbsp;personnels.&lt;/li&gt;
+&lt;li&gt;📖  Continué la lecture de « Le conflit n&amp;#8217;est pas une agression ». Je mets du temps à le finir parce que je relis beaucoup certains passages. Rien de compliqué mais ça éclaire beaucoup des situations dans lesquelles j&amp;#8217;ai pu être, ou je suis. C&amp;#8217;est chouette ! Bientôt les notes de&amp;nbsp;lecture.&lt;/li&gt;
+&lt;li&gt;🍿  Vu « Le livre des solutions » de Michel Gondry, j&amp;#8217;ai passé un très bon moment, à la fois à me perdre dans la folie du personnage principal, à la fois à en rire par moments. Je ne m&amp;#8217;attendais pas à ça, et c&amp;#8217;était un bon moment (même si, clairement, la patience des gens…&amp;nbsp;!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="notes"&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Un article de &lt;span class="caps"&gt;MDN&lt;/span&gt; sur comment écrire de la doc: https://developer.mozilla.org/en-&lt;span class="caps"&gt;US&lt;/span&gt;/blog/technical-writing/ &lt;/li&gt;
+&lt;/ul&gt;</content><category term="weeknotes"></category></entry><entry><title>Notes hebdo #15</title><link href="https://blog.notmyidea.org/notes-hebdo-15.html" rel="alternate"></link><published>2024-02-05T00:00:00+01:00</published><updated>2024-02-05T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-05:/notes-hebdo-15.html</id><summary type="html">
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;&lt;a href="https://idlv.co"&gt;&lt;span class="caps"&gt;IDLV&lt;/span&gt;.co&lt;/a&gt;&lt;/dt&gt;
