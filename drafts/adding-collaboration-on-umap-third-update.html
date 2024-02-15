@@ -240,10 +240,6 @@ message, change the data and rerender the&nbsp;properties:</p>
 <span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">renderProperties</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
 </code></pre></div>
 
-<video controls width="80%">
-  <source src="https://files.notmyidea.org/umap-minisync.webm" type="video/webm">
-</video>
-
 <h2 id="syncing-features">Syncing&nbsp;features</h2>
 <p>At this stage I was able to sync the properties of the map. A
 small victory, but not the end of the&nbsp;trip.</p>
@@ -254,21 +250,28 @@ ones). All of them share some code in the <code>FeatureMixin</code> class.</p>
 <p>That seems a good place to do the&nbsp;changes.</p>
 <p>I did a few&nbsp;changes:</p>
 <ul>
-<li>Each feature now has an identifier, so clients know they&#8217;re talking about the same thing. This identifier is also stored in the database, so that persisted GeoJSON don&#8217;t have to recreate&nbsp;ids.</li>
-<li>I&#8217;ve added an <code>upsert</code> verb, because we don&#8217;t have any way (from the interface) to make a distinction between the creation of a new feature and its&nbsp;modification</li>
+<li>Each feature now has an identifier, so clients know they&#8217;re talking about the
+  same thing. This identifier is also stored in the database when&nbsp;saved.</li>
+<li>I&#8217;ve added an <code>upsert</code> verb, because we don&#8217;t have any way (from the
+  interface) to make a distinction between the creation of a new feature and
+  its modification. The way we intercept the creation of a feature (or its
+  update) is to use Leaflet Editable&#8217;s <code>editable:drawing:commit</code> event.  We just
+  have to listen to it and then send the appropriate messages&nbsp;!</li>
 </ul>
-<p>The way we intercept the creation of a feature (or its update) is to use Leaflet Editable&#8217;s <code>editable:drawing:commit</code> event. We
-just have to listen to it and then send the appropriate messages&nbsp;!</p>
 <p>After some giggling around (ah, everybody wants to create a new protocol !) I
-went with reusing GeoJSON. It allowed me to have a better understanding of how Leaflet is using latlongs. That&#8217;s a multi-dimensional array, with variable width, depending on the type of geometry and the number of points in each of&nbsp;these.</p>
+went with reusing GeoJSON. It allowed me to have a better understanding of how
+Leaflet is using latlongs. That&#8217;s a multi-dimensional array, with variable
+width, depending on the type of geometry and the number of shapes in each of&nbsp;these.</p>
 <p>Clearly not something I want to redo, so I&#8217;m now reusing some Leaflet code, which handles this serialization for&nbsp;me.</p>
-<p>I&#8217;m now able to sync different kind of features with their properties (the video is just showing points, but it&#8217;s also working with polygons and&nbsp;polylines)</p>
+<p>I&#8217;m now able to sync different types of features with their&nbsp;properties.</p>
 <video controls width="80%">
-  <source src="https://files.notmyidea.org/umap-sync-features.webm" type="video/webm">
+  <source src="/images/umap/sync-features.webm" type="video/webm">
 </video>
 
 <h2 id="whats-next">What&#8217;s next&nbsp;?</h2>
-<p>While I&#8217;m able to sync map properties, features and their properties, I&#8217;m not yet syncing layers. That&#8217;s the next step! I also plan to make some pull requests with the interesting bits I&#8217;m sure will go in the final&nbsp;implementation:</p>
+<p>While I&#8217;m able to sync map properties, features and their properties, I&#8217;m not
+yet syncing layers. That&#8217;s the next step! I also plan to make some pull
+requests with the interesting bits I&#8217;m sure will go in the final&nbsp;implementation:</p>
 <ul>
 <li>adding ids to&nbsp;features</li>
 <li>having a way to map properties with how they render the&nbsp;interface</li>
