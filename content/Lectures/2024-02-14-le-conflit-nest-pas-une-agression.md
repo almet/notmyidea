@@ -5,9 +5,9 @@ headline:  Rhétorique de la souffrance, responsabilité collective et devoir de
 tags: conflit, agression, facilitation
 isbn: 9782490077489
 ---
-J'ai commencé ce livre en fin d'été, et je l'ai lu par petits morceaux. Pas que ce soit difficile à lire, mais plutôt parce que j'avais besoin de lire et relire certains passages. Certains passages faisant écho à des situations que j'ai pu traverser, que ce soit dans le cadre pro ou ailleurs.
+J'ai commencé ce livre en fin d'été, et je l'ai lu par petits morceaux. Pas que ce soit difficile à lire, mais plutôt parce que j'avais envie/besoin de lire et de relire certains passages qui faisaient écho à des situations que j'ai pu traverser, que ce soit dans le cadre pro ou ailleurs.
 
-Dans l'ensemble, et si je devais retenir quelque chose de ce livre, je crois que c'est le travail autour de ce que l'autrice nomme « l'escalade du conflit ». Son propos me semble être que considérer le conflit comme une agression ne permet pas de discuter des choses de manière sereine, et que donc il faut réussir à ne pas rentrer dans cette escalade.
+Si je devais ne retenir qu'une chose de ce livre, ce serait le travail autour de « l'escalade du conflit ». Le propos principal de Sarah Schulmann me semble être qu'il est important de detecter et d'éviter les mécaniques d'escalade (du conflit vers l'agression), cette escalade pouvant être une distraction pour éviter de discuter réellement des problèmes.
 
 Quelques morceaux choisis:
 
@@ -22,7 +22,7 @@ Quelques morceaux choisis:
 
 ---
 
-> S'opposer à la domination masculine ne revient cependant pas à prétendre que les femmes sont transparentes à elles-mêmes. Et si l'autre personne mettait le doigt sur quelque chose que je n'étais pas en mesure d'exprimer toute seule ? **Est-ce que ça me mettrait en colère ou est-ce que je refuserais de voir la réalité ? Plutôt que de me livrer à l'introspection, est-ce que je trouverais une manière de l'accuser ?** Et si elle m'aidait, au contraire, à reconnaître cette réalité ou à en prendre conscience ?
+> Et si l'autre personne mettait le doigt sur quelque chose que je n'étais pas en mesure d'exprimer toute seule ? **Est-ce que ça me mettrait en colère ou est-ce que je refuserais de voir la réalité ? Plutôt que de me livrer à l'introspection, est-ce que je trouverais une manière de l'accuser ?** Et si elle m'aidait, au contraire, à reconnaître cette réalité ou à en prendre conscience ?
 
 Je trouve intéressante la manière dont les choses sont posées. L'idée étant de permettre à tout·e un·e chacun·e de mieux se connaitre, et de prendre conscience de nos fonctionnements construits pour pouvoir les dépasser.
 
@@ -120,4 +120,4 @@ En guise de conclusion :
 
 ---
  
- > Si nous appartenons à des groupes qui ne sont pas capables d'autocritique, et qui sanctionne en conséquence la différence, nous nous joindrons à l'effort collectif, qui revient à fuir, exclure et mépriser. **Mais si nous nous trouvons dans des groupes qui promeuvent l'acceptation, qui font en sorte de créer des conditions de communication, et qui reconnaissent que les gens sont porteurs de contradiction, nous serons capables de composer avec la nature réelle du conflit** : son caractère collectif, d'une part, et, d'autre part, le fait qu'il ne peut pas se régler en faisant usage de cruauté, en faisant courir des rumeurs, en promulguant des lois, où on emprisonna des gens, en envahissant et en occupant leur territoire.
+ > Si nous appartenons à des groupes qui ne sont pas capables d'autocritique, et qui sanctionnent en conséquence la différence, nous nous joindrons à l'effort collectif qui revient à fuir, exclure et mépriser. **Mais si nous nous trouvons dans des groupes qui promeuvent l'acceptation, qui font en sorte de créer des conditions de communication, et qui reconnaissent que les gens sont porteurs de contradiction, nous serons capables de composer avec la nature réelle du conflit** : son caractère collectif, d'une part, et, d'autre part, le fait qu'il ne peut pas se régler en faisant usage de cruauté, en faisant courir des rumeurs, en promulguant des lois, où on emprisonna des gens, en envahissant et en occupant leur territoire.
