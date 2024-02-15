@@ -253,6 +253,7 @@ header a {
 
 header h1 {
   margin-bottom: 30px;
+  display: inline-block;
 }
 
 

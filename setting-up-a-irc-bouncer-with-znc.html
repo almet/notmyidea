@@ -144,9 +144,9 @@ Version<span class="w"> </span>=<span class="w"> </span>1.8.2
 </code></pre></div>
 
 <p>Then, in weechat&nbsp;:</p>
-<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="nv">server</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="nv">znc</span><span class="w"> </span><span class="nv">host</span><span class="o">/</span><span class="mi">6697</span><span class="w"> </span><span class="o">-</span><span class="nv">tls</span><span class="w"> </span><span class="o">-</span><span class="nv">username</span><span class="o">=&lt;</span><span class="nv">username</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="nv">password</span><span class="o">=&lt;</span><span class="nv">yourpass</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="nv">autoconnect</span>
-<span class="o">/</span><span class="nv">set</span><span class="w"> </span><span class="nv">irc</span>.<span class="nv">server</span>.<span class="nv">znc</span>.<span class="nv">tls_fingerprint</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">fingerprint</span><span class="o">-</span><span class="nv">goes</span><span class="o">-</span><span class="nv">here</span><span class="o">&gt;</span>
-<span class="o">/</span><span class="k">connect</span><span class="w"> </span><span class="nv">znc</span>
+<div class="highlight"><pre><span></span><code>/server add znc host/6697 -tls -username=&lt;username&gt; -password=&lt;yourpass&gt; -autoconnect
+/set irc.server.znc.tls_fingerprint &lt;fingerprint-goes-here&gt;
+/connect znc
 </code></pre></div>
 
 <p>And you should be all&nbsp;set!</p>

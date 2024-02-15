@@ -1296,9 +1296,9 @@ Version&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, in weechat&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;znc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;host&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6697&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;tls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;username&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;yourpass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;autoconnect&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;irc&lt;/span&gt;.&lt;span class="nv"&gt;server&lt;/span&gt;.&lt;span class="nv"&gt;znc&lt;/span&gt;.&lt;span class="nv"&gt;tls_fingerprint&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;fingerprint&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;goes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;here&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;connect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;znc&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/server add znc host/6697 -tls -username=&amp;lt;username&amp;gt; -password=&amp;lt;yourpass&amp;gt; -autoconnect
+/set irc.server.znc.tls_fingerprint &amp;lt;fingerprint-goes-here&amp;gt;
+/connect znc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And you should be all&amp;nbsp;set!&lt;/p&gt;
@@ -1361,8 +1361,8 @@ llm&lt;span class="w"&gt; &lt;/span&gt;models&lt;span class="w"&gt; &lt;/span&gt
 &lt;p&gt;It also, &lt;a href="https://caddyserver.com/docs/automatic-https"&gt;setups automatically and transparently &lt;span class="caps"&gt;SSL&lt;/span&gt; certificates&lt;/a&gt; for you (using Let&amp;#8217;s Encrypt!), so I wanted to have a&amp;nbsp;look.&lt;/p&gt;
 &lt;p&gt;Here is the Caddy configuration file I&amp;#8217;m now using&amp;nbsp;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;md.notmyidea.org {
-        root * /home/caddy/md.notmyidea.org
-        rewrite * /index.html
+        root &lt;span class="gs"&gt;* /home/caddy/md.notmyidea.org&lt;/span&gt;
+&lt;span class="gs"&gt;        rewrite *&lt;/span&gt; /index.html
         file_server
         templates
         encode zstd gzip
@@ -2428,19 +2428,19 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 &lt;p&gt;Voici la section de la configuration de HAProxy (et &lt;a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72"&gt;la configuration
 complete&lt;/a&gt;
 si ça peut être&amp;nbsp;utile):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;frontend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;bind&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;:&lt;span class="mi"&gt;80&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;mode&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;default_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;nginx_server&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;frontend http
+    bind 0.0.0.0:80
+    mode http
+    default_backend nginx_server
 
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;acl&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;path_beg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;.&lt;span class="nv"&gt;well&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;known&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;acme&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;challenge&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;use_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
+    acl letsencrypt_check path_beg /.well-known/acme-challenge
+    use_backend letsencrypt_backend if letsencrypt_check
 
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;redirect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;scheme&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;https&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;301&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;{&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ssl_fc&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;}&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_check&lt;/span&gt;
+    redirect scheme https code 301 if !{ ssl_fc } !letsencrypt_check
 
-&lt;span class="nv"&gt;backend&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt_backend&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;request&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;header&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;Host&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;letsencrypt&lt;/span&gt;.&lt;span class="nv"&gt;requests&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;dispatch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;127&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;8000&lt;/span&gt;
+backend letsencrypt_backend
+    http-request set-header Host letsencrypt.requests
+    dispatch 127.0.0.1:8000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Et celle de &lt;span class="caps"&gt;NGINX&lt;/span&gt;:&lt;/p&gt;
@@ -5361,7 +5361,7 @@ fois &lt;span class="caps"&gt;SSL&lt;/span&gt; et &lt;span class="caps"&gt;TLS&l
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt;&amp;nbsp;!)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d&amp;#8217;hôte en hôte
 séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &lt;span class="gs"&gt;*+*&lt;/span&gt;
         ProxyCommand ssh $(echo %h | sed
 &amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">
 &lt;h2 id="tunelling"&gt;Tunelling&lt;/h2&gt;
@@ -5373,7 +5373,7 @@ séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
 &lt;p&gt;(merci &lt;a href="http://majerti.fr"&gt;gaston&lt;/a&gt;&amp;nbsp;!)&lt;/p&gt;
 &lt;p&gt;La directive suivante dans .ssh/config permet de sauter d&amp;#8217;hôte en hôte
 séparés par des &amp;#8220;+&amp;#8221;&amp;nbsp;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host *+*
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Host &lt;span class="gs"&gt;*+*&lt;/span&gt;
         ProxyCommand ssh $(echo %h | sed
 &amp;#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&amp;#39;)
 PATH=.:\$PATH nc -w1 $(echo %h | sed &amp;#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&amp;#39;)
@@ -6935,7 +6935,7 @@ some feedback from the&amp;nbsp;sync:&lt;/p&gt;
 &lt;p&gt;This is probably perfectible, but that does the&amp;nbsp;job.&lt;/p&gt;
 &lt;p&gt;Last step is to tell you machine to run that frequently. That&amp;#8217;s what
 crontab is made for, so let&amp;#8217;s &lt;code&gt;crontab -e&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ * */3 * * * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    $ &lt;span class="gs"&gt;* *&lt;/span&gt;/3 &lt;span class="gs"&gt;* *&lt;/span&gt; * . ~/.Xdbus; /usr/bin/python /home/alexis/dev/python/unison-syncer/sync.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The \~/.Xdbus allows cron to communicate with your X11 session. Here is
