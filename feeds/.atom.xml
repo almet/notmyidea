@@ -56,29 +56,30 @@ yet, but I&amp;#8217;ve made some progress that I will relate&amp;nbsp;here.&lt;
 &lt;h2 id="javascript-modules"&gt;JavaScript&amp;nbsp;modules&lt;/h2&gt;
 &lt;p&gt;uMap has been there &lt;a href="https://github.com/
 umap-project/umap/commit/0cce7f9e2a19c83fa76645d7773d39d54f357c43"&gt;since 2012&lt;/a&gt;, at a time
-when &lt;span class="caps"&gt;ES6&lt;/span&gt; &lt;a href="https://fr.wikipedia.org/wiki/ECMAScript"&gt;wasn&amp;#8217;t out there&amp;nbsp;yet&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;At the time, it wasn&amp;#8217;t possible to use JavaScript modules, nor modern JavaScript
+when &lt;span class="caps"&gt;ES6&lt;/span&gt; &lt;a href="https://fr.wikipedia.org/wiki/ECMAScript"&gt;wasn&amp;#8217;t out there yet&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At that time, it wasn&amp;#8217;t possible to use JavaScript modules, nor modern JavaScript
 syntax. The project stayed with these requirements for a long time, in order to support
-people with old browsers. But as time goes on, we can now have access to more&amp;nbsp;features.&lt;/p&gt;
-&lt;p&gt;The team has been working hard on bringing modules to the mix, and it
-wasn&amp;#8217;t a piece of cake. But, the result is here: we&amp;#8217;re &lt;a href="https://github.com/umap-project/umap/pull/1463/files"&gt;now able to use modern
+people with old browsers. But as time goes on, we now have access to more browser features,
+and it&amp;#8217;s now possible to use&amp;nbsp;modules!&lt;/p&gt;
+&lt;p&gt;The team has been working hard on bringing modules to the mix. It 
+wasn&amp;#8217;t a piece of cake, but the result is here: we&amp;#8217;re &lt;a href="https://github.com/umap-project/umap/pull/1463/files"&gt;now able to use modern
 JavaSript modules&lt;/a&gt; and we
-are now more confident &lt;a href="https://github.com/umap-project/umap/commit/65f1cdd6b4569657ef5e219d9b377fec85c41958"&gt;about which features of the languages we can use or&amp;nbsp;not&lt;/a&gt;&lt;/p&gt;
+are now more confident &lt;a href="https://github.com/umap-project/umap/commit/65f1cdd6b4569657ef5e219d9b377fec85c41958"&gt;about which features of the browser we can use or
+not&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;I then spent ~way too much~ some time trying to integrate existing CRDTs like
+&lt;p&gt;I then spent some time trying to integrate existing CRDTs like
 Automerge and &lt;span class="caps"&gt;YJS&lt;/span&gt; in our project. These two libs are unfortunately expecting us to
 use a bundler, which we aren&amp;#8217;t&amp;nbsp;currently.&lt;/p&gt;
-&lt;p&gt;uMap is plain old JavaScript. It&amp;#8217;s not using react or any other framework. The way
-I see this is that it makes it possible for us to have something &amp;#8220;close to the
-metal&amp;#8221;, if that means anything when it comes to web development. We&amp;#8217;re not tied
-to the development pace of these frameworks, and have more control on what we
-do. It&amp;#8217;s easier to&amp;nbsp;debug.&lt;/p&gt;
+&lt;p&gt;uMap is plain old JavaScript, and as such is not using react or any other framework. The way
+I see this is that it makes it possible to have something &amp;#8220;close to the
+metal&amp;#8221; (if that means anything when it comes to web&amp;nbsp;development).&lt;/p&gt;
+&lt;p&gt;As a result, we&amp;#8217;re not tied to the development pace of these frameworks, and have more
+control on what we do (read &amp;#8220;it&amp;#8217;s easier to&amp;nbsp;debug&amp;#8221;).&lt;/p&gt;
 &lt;p&gt;So, after making tweaks and learning how &amp;#8220;modules&amp;#8221;, &amp;#8220;requires&amp;#8221; and &amp;#8220;bundling&amp;#8221;
-was working, I ultimately decided to take a break from this path, to work on the
+are working, I ultimately decided to take a break from this path, to work on the
 wiring with uMap. After all, CRDTs might not even be the way forward for&amp;nbsp;us.&lt;/p&gt;
 &lt;h2 id="internals"&gt;Internals&lt;/h2&gt;
-&lt;p&gt;I was not expecting this to be easy and was a bit afraid. Mostly because I&amp;#8217;m out of my
-comfort zone. After some time with the head under the water, I&amp;#8217;m now able to better
+&lt;p&gt;After some time with the head under the water, I&amp;#8217;m now able to better
 understand the big picture, and I&amp;#8217;m not getting lost in the details like I was at&amp;nbsp;first.&lt;/p&gt;
 &lt;p&gt;Let me try to summarize what I&amp;#8217;ve&amp;nbsp;learned.&lt;/p&gt;
 &lt;p&gt;uMap appears to be doing a lot of different things, but in the end&amp;nbsp;it&amp;#8217;s:&lt;/p&gt;

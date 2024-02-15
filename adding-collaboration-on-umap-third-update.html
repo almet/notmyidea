@@ -56,29 +56,30 @@ yet, but I&#8217;ve made some progress that I will relate&nbsp;here.</p>
 <h2 id="javascript-modules">JavaScript&nbsp;modules</h2>
 <p>uMap has been there <a href="https://github.com/
 umap-project/umap/commit/0cce7f9e2a19c83fa76645d7773d39d54f357c43">since 2012</a>, at a time
-when <span class="caps">ES6</span> <a href="https://fr.wikipedia.org/wiki/ECMAScript">wasn&#8217;t out there&nbsp;yet</a></p>
-<p>At the time, it wasn&#8217;t possible to use JavaScript modules, nor modern JavaScript
+when <span class="caps">ES6</span> <a href="https://fr.wikipedia.org/wiki/ECMAScript">wasn&#8217;t out there yet</a>.</p>
+<p>At that time, it wasn&#8217;t possible to use JavaScript modules, nor modern JavaScript
 syntax. The project stayed with these requirements for a long time, in order to support
-people with old browsers. But as time goes on, we can now have access to more&nbsp;features.</p>
-<p>The team has been working hard on bringing modules to the mix, and it
-wasn&#8217;t a piece of cake. But, the result is here: we&#8217;re <a href="https://github.com/umap-project/umap/pull/1463/files">now able to use modern
+people with old browsers. But as time goes on, we now have access to more browser features,
+and it&#8217;s now possible to use&nbsp;modules!</p>
+<p>The team has been working hard on bringing modules to the mix. It 
+wasn&#8217;t a piece of cake, but the result is here: we&#8217;re <a href="https://github.com/umap-project/umap/pull/1463/files">now able to use modern
 JavaSript modules</a> and we
-are now more confident <a href="https://github.com/umap-project/umap/commit/65f1cdd6b4569657ef5e219d9b377fec85c41958">about which features of the languages we can use or&nbsp;not</a></p>
+are now more confident <a href="https://github.com/umap-project/umap/commit/65f1cdd6b4569657ef5e219d9b377fec85c41958">about which features of the browser we can use or
+not</a>.</p>
 <hr>
-<p>I then spent ~way too much~ some time trying to integrate existing CRDTs like
+<p>I then spent some time trying to integrate existing CRDTs like
 Automerge and <span class="caps">YJS</span> in our project. These two libs are unfortunately expecting us to
 use a bundler, which we aren&#8217;t&nbsp;currently.</p>
-<p>uMap is plain old JavaScript. It&#8217;s not using react or any other framework. The way
-I see this is that it makes it possible for us to have something &#8220;close to the
-metal&#8221;, if that means anything when it comes to web development. We&#8217;re not tied
-to the development pace of these frameworks, and have more control on what we
-do. It&#8217;s easier to&nbsp;debug.</p>
+<p>uMap is plain old JavaScript, and as such is not using react or any other framework. The way
+I see this is that it makes it possible to have something &#8220;close to the
+metal&#8221; (if that means anything when it comes to web&nbsp;development).</p>
+<p>As a result, we&#8217;re not tied to the development pace of these frameworks, and have more
+control on what we do (read &#8220;it&#8217;s easier to&nbsp;debug&#8221;).</p>
 <p>So, after making tweaks and learning how &#8220;modules&#8221;, &#8220;requires&#8221; and &#8220;bundling&#8221;
-was working, I ultimately decided to take a break from this path, to work on the
+are working, I ultimately decided to take a break from this path, to work on the
 wiring with uMap. After all, CRDTs might not even be the way forward for&nbsp;us.</p>
 <h2 id="internals">Internals</h2>
-<p>I was not expecting this to be easy and was a bit afraid. Mostly because I&#8217;m out of my
-comfort zone. After some time with the head under the water, I&#8217;m now able to better
+<p>After some time with the head under the water, I&#8217;m now able to better
 understand the big picture, and I&#8217;m not getting lost in the details like I was at&nbsp;first.</p>
 <p>Let me try to summarize what I&#8217;ve&nbsp;learned.</p>
 <p>uMap appears to be doing a lot of different things, but in the end&nbsp;it&#8217;s:</p>
