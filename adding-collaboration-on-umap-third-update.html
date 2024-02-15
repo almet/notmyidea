@@ -85,7 +85,7 @@ understand the big picture, and I&#8217;m not getting lost in the details like I
 <ul>
 <li>Using <a href="https://leafletjs.com/">Leaflet.js</a> to render <em>features</em> on the map&nbsp;;</li>
 <li>Using <a href="https://github.com/Leaflet/Leaflet.Editable">Leaflet Editable</a> to edit
-  complex forms, like polylines, polygons, and to draw markers&nbsp;;</li>
+  complex shapes, like polylines, polygons, and to draw markers&nbsp;;</li>
 <li>Using the <a href="https://github.com/yohanboniface/Leaflet.FormBuilder">Formbuilder</a>
   to expose a way for the users to edit the features, and the data of the&nbsp;map</li>
 <li>Serializing the layers to and from <a href="https://geojson.org/">GeoJSON</a>. That&#8217;s
@@ -106,7 +106,7 @@ guess) where the data is stored. It&#8217;s what uMap serializes. It contains th
 features (with their properties). But that&#8217;s the trick: these features are named
 <em>layers</em> by&nbsp;Leaflet.</p>
 <h4 id="geojson-and-leaflet">GeoJSON and&nbsp;Leaflet</h4>
-<p>We&#8217;re using GeoJSON to share data with the server, but we&#8217;re using Laflet
+<p>We&#8217;re using GeoJSON to share data with the server, but we&#8217;re using Leaflet
 internally. And these two have different way of naming&nbsp;things.</p>
 <p>The different geometries are named differently (a leaflet <code>Marker</code> is a GeoJSON
 <code>Point</code>), and their coordinates are stored differently: Leaflet stores <code>lat,
@@ -122,7 +122,7 @@ a rerendering of the&nbsp;interface.</p>
 get updated without being centralized. It&#8217;s just a different&nbsp;paradigm.</p>
 <h2 id="a-syncing-proof-of-concept">A syncing proof of&nbsp;concept</h2>
 <p>With that in mind, I started thinking about a simple way to implement&nbsp;syncing. </p>
-<p>I let aside all the thinking about how this would relate with CRDTs. It can
+<p>I left aside all the thinking about how this would relate with CRDTs. It can
 be useful, but later. For now, I &#8220;just&#8221; want to synchronize two maps. I want a
 proof of concept to do informed&nbsp;decisions.</p>
 <h3 id="syncing-map-properties">Syncing map&nbsp;properties</h3>
@@ -165,8 +165,8 @@ which will be able to rerender&nbsp;itself.</p>
 way is probably&nbsp;websockets.</p>
 <p>Here is a simple code which will relay messages from one websocket to the other
 connected clients. It&#8217;s not the final code, it&#8217;s just for demo&nbsp;puposes.</p>
-<p>A basic way to do this on the server side is to use python&#8217;s [websockets]
-(https://websockets.readthedocs.io/)&nbsp;library.</p>
+<p>A basic way to do this on the server side is to use python&#8217;s
+<a href="https://websockets.readthedocs.io/">websockets</a>&nbsp;library.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">import</span> <span class="nn">websockets</span>
 <span class="kn">from</span> <span class="nn">websockets.server</span> <span class="kn">import</span> <span class="n">serve</span>
@@ -268,14 +268,18 @@ width, depending on the type of geometry and the number of shapes in each of&nbs
   <source src="/images/umap/sync-features.webm" type="video/webm">
 </video>
 
+<p>Point properties are also editable, using the already-existing table editor. I
+was expecting this to require some work but it&#8217;s just working without more&nbsp;changes.</p>
 <h2 id="whats-next">What&#8217;s next&nbsp;?</h2>
-<p>While I&#8217;m able to sync map properties, features and their properties, I&#8217;m not
+<p>I&#8217;m able to sync map properties, features and their properties, but I&#8217;m not
 yet syncing layers. That&#8217;s the next step! I also plan to make some pull
 requests with the interesting bits I&#8217;m sure will go in the final&nbsp;implementation:</p>
 <ul>
-<li>adding ids to&nbsp;features</li>
-<li>having a way to map properties with how they render the&nbsp;interface</li>
+<li>Adding ids to features, so we have a way to refer to&nbsp;them.</li>
+<li>Having a way to map properties with how they render the interface, the <code>renderProperties</code> bits.</li>
 </ul>
+<p>When this demo will be working, I&#8217;ll probably spend some time updating it with the latest changes (umap is moving a lot these weeks).
+I will probably focus on how to integrate websockets in the server side, and then will see how to leverage (maybe) some magic from CRDTs, if we need&nbsp;it.</p>
 <p>See you for the next&nbsp;update!</p>
 	<p>
         <a href="https://blog.notmyidea.org/tag/umap.html">#umap</a>,         <a href="https://blog.notmyidea.org/tag/geojson.html">#geojson</a>,         <a href="https://blog.notmyidea.org/tag/websockets.html">#websockets</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
