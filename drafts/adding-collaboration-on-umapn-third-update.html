@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Adding collaboration on uMapn, third&nbsp;update - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+
+<header>
+	<h1 class="post-title">Adding collaboration on uMapn, third&nbsp;update</h1>
+	<time datetime="2024-02-12T00:00:00+01:00">12 février 2024</time>
+
+    
+</header>
+<article>
+    <p>I&#8217;ve spent the last few weeks working on <a href="https://umap-project.org">uMap</a>, still
+with the goal of bringing real-time collaboration to the maps. I&#8217;m not there
+yet, but I&#8217;ve made some progress that I will relate&nbsp;here.</p>
+<h2 id="javasript-modules">JavaSript&nbsp;modules</h2>
+<p>uMap is an &#8220;old&#8221; project. It&#8217;s been there <a href="https://github.com/
+umap-project/umap/commit/0cce7f9e2a19c83fa76645d7773d39d54f357c43">since 2012</a>, at a time
+when <span class="caps">ES6</span> [wasn&#8217;t out there yet](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_6_(<span class="caps">ES6</span>)</p>
+<p>As a result, it wasn&#8217;t possible to use JavaScript modules, nor modern JavaScript&nbsp;syntax.</p>
+<p>The team has been working hard on bringing modules to the mix, and it
+wasn&#8217;t a piece of cake. But, the result is here: we&#8217;re <a href="https://github.com/umap-project/umap/pull/1463/files">now able to use modern
+JavaSript modules</a> and we
+are now more confident about which features of the languages we can use or&nbsp;not.</p>
+<hr>
+<p>I then spent ~way too much~ some time trying to integrate existing CRDTs like
+Automerge and <span class="caps">YJS</span> in our project. These two libs are unfortunately expecting us to
+use a bundler, which we aren&#8217;t&nbsp;currently.</p>
+<p>uMap is plain old JavaScript. It&#8217;s not using react or any other framework. The way
+I see this is that it makes it possible for us to have something &#8220;close to the
+metal&#8221;, if that means anything when it comes to web&nbsp;development.</p>
+<p>So, after making tweaks and learning how &#8220;modules&#8221;, &#8220;requires&#8221; and &#8220;bundling&#8221;
+was working, I ultimately decided to take a break from this path, to work on the
+wiring with uMap. After all, CRDTs might not even be the way forward for&nbsp;us.</p>
+<h2 id="internals">Internals</h2>
+<p>So, I went for the deep dive into uMap internals. To be frank, I was expecting
+this to be hard : there is a lot of code, some legacy, and at first I was the
+head under the water, not able to understand how all this code was working&nbsp;together.</p>
+<p>After some time, I can now wrap my head around the logic of the project. As one
+could expect, it&#8217;s not the complexity that was overflooding me, but the fact
+that it&#8217;s sometimes not simple to get the big picture. To phrase it otherwise,
+it was easy to get lost into the&nbsp;details.</p>
+<p>Let me try to summarize what I&#8217;ve&nbsp;learned.</p>
+<p>uMap apears to be doing a lot of different things, but in the end&nbsp;it&#8217;s:</p>
+<ul>
+<li>Using <a href="https://leafletjs.com/">Leaflet.js</a> to render <em>features</em> on the map&nbsp;;</li>
+<li>Using <a href="https://github.com/Leaflet/Leaflet.Editable">Leaflet Editable</a> to edit
+  complex forms, like polylines, polygons, and to draw markers&nbsp;;</li>
+<li>Using the <a href="https://github.com/yohanboniface/Leaflet.FormBuilder">Formbuilder</a>
+  to expose a way for the users to edit the features, and the data of the&nbsp;map</li>
+<li>Serializing the layers to and from <a href="https://geojson.org/">GeoJSON</a>. That&#8217;s
+  what&#8217;s being sent to and received from the&nbsp;server.</li>
+<li>Providing different layer types (marker cluster, chloropleth, etc) to display
+  the data in different&nbsp;ways.</li>
+</ul>
+<h3 id="naming-matters">Naming&nbsp;matters</h3>
+<p>There is some naming overlap between the different projects we&#8217;re using, and
+it&#8217;s important to have these small clarifications in&nbsp;mind:</p>
+<h4 id="leaflet-layers-and-umap-features">Leaflet layers and uMap&nbsp;features</h4>
+<p><strong>In Leaflet, everything is a layer</strong>. What we call <em>features</em> in geoJSON are
+leaflet layers, and even a (uMap) layer is a layer. We need to be extra careful
+what are our inputs and outputs in this&nbsp;context.</p>
+<p>We actually have different layers concepts: the <em>datalayer</em> and the different
+kind of layers (chloropleth, marker cluster, etc). A datalayer, is (as you can
+guess) where the data is stored. It&#8217;s what uMap serializes. It contains the
+features (with their properties). But that&#8217;s the trick: these features are named
+<em>layers</em> by&nbsp;Leaflet.</p>
+<h4 id="geojson-and-leaflet">GeoJSON and&nbsp;Leaflet</h4>
+<p>We&#8217;re using GeoJSON to share data with the server, but we&#8217;re using Laflet
+internally. And these two have different way of naming&nbsp;things.</p>
+<p>The different geometries are named differently (a leaflet <code>Marker</code> is a GeoJSON
+<code>Point</code>), and their coordinates are stored differently: Leaflet stores <code>lat,
+long</code> where GeoJSON stores <code>long, lat</code>. Not a big deal, but it&#8217;s a good thing
+to&nbsp;know.</p>
+<p>Leaflet stores data in <code>options</code>, where GeoJSON stores it in <code>properties</code>.</p>
+<h3 id="this-is-not-reactive-programming">This is not reactive&nbsp;programming</h3>
+<p>I was expecting the frontend to be organised similarly to Elm apps (or React
+apps): a global state and a data flow (<a href="https:// react-redux.js.org/
+introduction/getting-started">a la redux</a>), with events changing the data that will trigger
+a rerendering of the&nbsp;interface.</p>
+<p>Things work differently for us: different components can write to the map, and
+get updated without being centralized. It&#8217;s just a different&nbsp;paradigm.</p>
+<h2 id="a-syncing-proof-of-concept">A syncing proof of&nbsp;concept</h2>
+<p>With that in mind, I started thinking about a simple way to implement&nbsp;syncing. </p>
+<p>I let aside all the thinking about how this would relate with CRDTs. It can
+be useful, but later. For now, I &#8220;just&#8221; want to synchronize two maps. I want a
+proof of concept to do informed&nbsp;decisions.</p>
+<h3 id="syncing-map-properties">Syncing map&nbsp;properties</h3>
+<p>I started syncing map properties. Things like the name of the map, the default
+color and type of the marker, the description, the default zoom level,&nbsp;etc.</p>
+<p>All of these are handled by &#8220;the formbuilder&#8221;. You pass it an object, a list of
+properties and a callback to call when an update happens, and it will build for
+you form&nbsp;inputs.</p>
+<p>Taken from the documentation (and&nbsp;simplified):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">tilelayerFields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BlurInput&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;display name&#39;</span><span class="p">}],</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;maxZoom&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BlurIntInput&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;max zoom&#39;</span><span class="p">}],</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;minZoom&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BlurIntInput&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;min zoom&#39;</span><span class="p">}],</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;attribution&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BlurInput&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;attribution&#39;</span><span class="p">}],</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;tms&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CheckBox&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">helpText</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;TMS format&#39;</span><span class="p">}]</span>
+<span class="p">];</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">FormBuilder</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span><span class="w"> </span><span class="nx">tilelayerFields</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="nx">myCallback</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">callbackContext</span><span class="o">:</span><span class="w"> </span><span class="k">this</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>In uMap, the formbuilder is used for every form you see on the right panel. Map
+properties are stored in the <code>map</code> object.</p>
+<p>We want two different clients work together. When one changes the value of a
+property, the other client needs to be updated, and update its&nbsp;interface.</p>
+<p>I&#8217;ve started by creating a mapping of property names to rerender-methods, and
+added a method <code>renderProperties(properties)</code> which updates the interface,
+depending on the properties passed to&nbsp;it.</p>
+<p>We now have two important&nbsp;things:</p>
+<ol>
+<li>Some code getting called each time a property is changed&nbsp;;</li>
+<li>A way to refresh the right interface when a property is&nbsp;changed.</li>
+</ol>
+<p>In other words, from one client we can send the message to the other client,
+which will be able to rerender&nbsp;itself.</p>
+<p>Looks like a&nbsp;plan.</p>
+<h2 id="websockets">Websockets</h2>
+<p>We need a way for the data to go from one side to the other. The easiest
+way is probably&nbsp;websockets.</p>
+<p>Here is a simple code which will relay messages from one websocket to the other
+connected clients. It&#8217;s not the final code, it&#8217;s just for demo&nbsp;puposes.</p>
+<p>A basic way to do this on the server side is to use python&#8217;s [websockets]
+(https://websockets.readthedocs.io/)&nbsp;library.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">websockets</span>
+<span class="kn">from</span> <span class="nn">websockets.server</span> <span class="kn">import</span> <span class="n">serve</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Just relay all messages to other connected peers for now</span>
+
+<span class="n">CONNECTIONS</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">join_and_listen</span><span class="p">(</span><span class="n">websocket</span><span class="p">):</span>
+    <span class="n">CONNECTIONS</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">websocket</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">websocket</span><span class="p">:</span>
+            <span class="c1"># recompute the peers-list at the time of message-sending.</span>
+            <span class="c1"># doing so beforehand would miss new connections</span>
+            <span class="n">peers</span> <span class="o">=</span> <span class="n">CONNECTIONS</span> <span class="o">-</span> <span class="p">{</span><span class="n">websocket</span><span class="p">}</span>
+            <span class="n">websockets</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">peers</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">CONNECTIONS</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">websocket</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">websocket</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="c1"># The first event should always be &#39;join&#39;</span>
+    <span class="k">assert</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;join&quot;</span>
+    <span class="k">await</span> <span class="n">join_and_listen</span><span class="p">(</span><span class="n">websocket</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">serve</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8001</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">()</span>  <span class="c1"># run forever</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+
+<p>On the client side, it&#8217;s fairly easy as well. I won&#8217;t even cover it&nbsp;here.</p>
+<p>We now have a way to send data from one client to the other.
+Let&#8217;s consider the actions we do as &#8220;verbs&#8221;. For now, we&#8217;re just updating
+properties values, so we just need the <code>update</code> verb.</p>
+<h2 id="code-architecture">Code&nbsp;architecture</h2>
+<p>We need different&nbsp;parts:</p>
+<ul>
+<li>the <strong>transport</strong>, which connects to the websockets, sends and receives&nbsp;messages.</li>
+<li>the <strong>message sender</strong> to relat local messages to the other&nbsp;party.</li>
+<li>the <strong>message receiver</strong> that&#8217;s being called each time we receive a&nbsp;message.</li>
+<li>the <strong>sync engine</strong> which glues everything&nbsp;together</li>
+<li>Different <strong>updaters</strong>, which knows how to apply received messages, the goal being
+  to update the interface in the&nbsp;end.</li>
+</ul>
+<p>When receiving a message it will be routed to the correct updater, which will
+know what to do with&nbsp;it.</p>
+<p>In our case, its fairly simple: when updating the <code>name</code> property, we send a
+message with <code>name</code> and <code>value</code>. We also need to send along some additional
+info: the <code>subject</code>.</p>
+<p>In our case, it&#8217;s <code>map</code> because we&#8217;re updating map&nbsp;properties.</p>
+<p>When initializing the <code>map</code>, we&#8217;re initializing the <code>SyncEngine</code>, like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// inside the map</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">syncEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">umap</span><span class="p">.</span><span class="nx">SyncEngine</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+<span class="c1">// Then, when we need to send data to the other party</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">syncEngine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">obj</span><span class="p">.</span><span class="nx">getSyncEngine</span><span class="p">()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">obj</span><span class="p">.</span><span class="nx">getSyncSubject</span><span class="p">()</span>
+
+<span class="nx">syncEngine</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">field</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The code on the other side of the wire is simple enough: when you receive the
+message, change the data and rerender the&nbsp;properties:</p>
+<div class="highlight"><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="nx">updateObjectValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">renderProperties</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+</code></pre></div>
+
+<video controls width="80%">
+  <source src="https://files.notmyidea.org/umap-minisync.webm" type="video/webm">
+</video>
+
+<h2 id="syncing-features">Syncing&nbsp;features</h2>
+<p>At this stage I was able to sync the properties of the map. A
+small victory, but not the end of the&nbsp;trip.</p>
+<p>The next step was to add syncing for features: markers, polygon and polylines,
+alongside their&nbsp;properties.</p>
+<p>All of these features have a uMap class representation (which extends Leaflets
+ones). All of them share some code in the <code>FeatureMixin</code> class.</p>
+<p>That seems a good place to do the&nbsp;changes.</p>
+<p>I did a few&nbsp;changes:</p>
+<ul>
+<li>Each feature now has an identifier, so clients know they&#8217;re talking about the same thing. This identifier is also stored in the database, so that persisted GeoJSON don&#8217;t have to recreate&nbsp;ids.</li>
+<li>I&#8217;ve added an <code>upsert</code> verb, because we don&#8217;t have any way (from the interface) to make a distinction between the creation of a new feature and its&nbsp;modification</li>
+</ul>
+<p>The way we intercept the creation of a feature (or its update) is to use Leaflet Editable&#8217;s <code>editable:drawing:commit</code> event. We
+just have to listen to it and then send the appropriate messages&nbsp;!</p>
+<p>After some giggling around (ah, everybody wants to create a new protocol !) I
+went with reusing GeoJSON. It allowed me to have a better understanding of how Leaflet is using latlongs. That&#8217;s a multi-dimensional array, with variable width, depending on the type of geometry and the number of points in each of&nbsp;these.</p>
+<p>Clearly not something I want to redo, so I&#8217;m now reusing some Leaflet code, which handles this serialization for&nbsp;me.</p>
+<p>I&#8217;m now able to sync different kind of features with their properties (the video is just showing points, but it&#8217;s also working with polygons and&nbsp;polylines)</p>
+<video controls width="80%">
+  <source src="https://files.notmyidea.org/umap-sync-features.webm" type="video/webm">
+</video>
+
+<h2 id="whats-next">What&#8217;s next&nbsp;?</h2>
+<p>While I&#8217;m able to sync map properties, features and their properties, I&#8217;m not yet syncing layers. That&#8217;s the next step! I also plan to make some pull requests with the interesting bits I&#8217;m sure will go in the final&nbsp;implementation:</p>
+<ul>
+<li>adding ids to&nbsp;features</li>
+<li>having a way to map properties with how they render the&nbsp;interface</li>
+</ul>
+<p>See you for the next&nbsp;update!</p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/umap.html">#umap</a>,         <a href="https://blog.notmyidea.org/tag/geojson.html">#geojson</a>,         <a href="https://blog.notmyidea.org/tag/websockets.html">#websockets</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

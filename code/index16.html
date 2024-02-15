@@ -49,6 +49,16 @@ Alexis Métaireau        </title>
         <section class="section index">
 
 <section class="section index">
+    <time datetime="2024-02-08T00:00:00+01:00">08 février 2024</time>
+
+    <h1><a href="https://blog.notmyidea.org/returning-objects-from-an-arrow-function.html" id="page-title">Returning objects from an arrow&nbsp;function</a></h1>
+    <p>When using an arrow function in JavaScript, I was expecting to be able to return objects, but ended up with returning <code>undefined</code> values.</p>
+<p>Turns out it&#8217;s not possible to return directly objects from inside the arrow function because they&#8217;re confused as&nbsp;statements.</p>
+<p>This is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body">covered by <span class="caps">MDN</span></a>.</p>
+<p>To …</p>
+    <br />
+        <a class='tag' href="https://blog.notmyidea.org/tag/javascript.html">Javascript</a></section>
+<section class="section index">
     <time datetime="2023-12-25T00:00:00+01:00">25 décembre 2023</time>
 
     <h1><a href="https://blog.notmyidea.org/format-an-usb-disk-from-the-command-line-on-macosx.html" id="page-title">Format an <span class="caps">USB</span> disk from the command-line on&nbsp;MacOSX</a></h1>
@@ -114,25 +124,9 @@ sudo<span class="w"> </span>diskutil<span class="w"> </span>eraseDisk<span class
     How to get parent and most-recent child in a one-to-many relationship
     <br />
         <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sqlalchemy.html">SQLAlchemy</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/python.html">Python</a></section>
-<section class="section index">
-    <time datetime="2023-10-11T00:00:00+02:00">11 octobre 2023</time>
-
-    <h1><a href="https://blog.notmyidea.org/convert-string-to-duration.html" id="page-title">Convert string to&nbsp;duration</a></h1>
-    <p>I found myself wanting to convert a string to a duration (int), for some&nbsp;configuration.</p>
-<p>Something you can call like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;days&quot;</span><span class="p">)</span>
-<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;1d&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span>
-<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;hours&quot;</span><span class="p">)</span>
-<span class="n">string_to_duration</span><span class="p">(</span><span class="s2">&quot;3m&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;minutes&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-<p>The code&nbsp;:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
-
-<span class="k">def</span> <span class="nf">string_to_duration</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;days …</span></code></pre></div>
-    <br />
-        <a class='tag' href="https://blog.notmyidea.org/tag/python.html">python</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/conversion.html">conversion</a></section>
 <ul>
+
+      <li><a href="https://blog.notmyidea.org/convert-string-to-duration.html" rel="bookmark" title="Permalink to Convert string to duration">Convert string to&nbsp;duration</a></li>
 
       <li><a href="https://blog.notmyidea.org/llm-command-line-tips.html" rel="bookmark" title="Permalink to llm command-line tips">llm command-line&nbsp;tips</a></li>
 

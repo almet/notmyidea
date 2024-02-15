@@ -106,19 +106,19 @@ nginx qui sert des fichiers statiques (ceux contenus dans
 <p>Voici la section de la configuration de HAProxy (et <a href="https://github.com/almet/infra/blob/master/haproxy/haproxy.cfg#L63-L72">la configuration
 complete</a>
 si ça peut être&nbsp;utile):</p>
-<div class="highlight"><pre><span></span><code>frontend http
-    bind 0.0.0.0:80
-    mode http
-    default_backend nginx_server
+<div class="highlight"><pre><span></span><code><span class="nv">frontend</span><span class="w"> </span><span class="nv">http</span>
+<span class="w">    </span><span class="nv">bind</span><span class="w"> </span><span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">0</span>:<span class="mi">80</span>
+<span class="w">    </span><span class="nv">mode</span><span class="w"> </span><span class="nv">http</span>
+<span class="w">    </span><span class="nv">default_backend</span><span class="w"> </span><span class="nv">nginx_server</span>
 
-    acl letsencrypt_check path_beg /.well-known/acme-challenge
-    use_backend letsencrypt_backend if letsencrypt_check
+<span class="w">    </span><span class="nv">acl</span><span class="w"> </span><span class="nv">letsencrypt_check</span><span class="w"> </span><span class="nv">path_beg</span><span class="w"> </span><span class="o">/</span>.<span class="nv">well</span><span class="o">-</span><span class="nv">known</span><span class="o">/</span><span class="nv">acme</span><span class="o">-</span><span class="nv">challenge</span>
+<span class="w">    </span><span class="nv">use_backend</span><span class="w"> </span><span class="nv">letsencrypt_backend</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">letsencrypt_check</span>
 
-    redirect scheme https code 301 if !{ ssl_fc } !letsencrypt_check
+<span class="w">    </span><span class="nv">redirect</span><span class="w"> </span><span class="nv">scheme</span><span class="w"> </span><span class="nv">https</span><span class="w"> </span><span class="nv">code</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">!</span>{<span class="w"> </span><span class="nv">ssl_fc</span><span class="w"> </span>}<span class="w"> </span><span class="o">!</span><span class="nv">letsencrypt_check</span>
 
-backend letsencrypt_backend
-    http-request set-header Host letsencrypt.requests
-    dispatch 127.0.0.1:8000
+<span class="nv">backend</span><span class="w"> </span><span class="nv">letsencrypt_backend</span>
+<span class="w">    </span><span class="nv">http</span><span class="o">-</span><span class="nv">request</span><span class="w"> </span><span class="nv">set</span><span class="o">-</span><span class="nv">header</span><span class="w"> </span><span class="nv">Host</span><span class="w"> </span><span class="nv">letsencrypt</span>.<span class="nv">requests</span>
+<span class="w">    </span><span class="nv">dispatch</span><span class="w"> </span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">8000</span>
 </code></pre></div>
 
 <p>Et celle de <span class="caps">NGINX</span>:</p>
