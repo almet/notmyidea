@@ -4,6 +4,44 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+
+## Lundi 19 Février 2024 (8h, 4/5)
+
+Un bout de temps pour debugger des histoires d'agent ssh qui n'utilise plus la
+passphrase par defaut avec gnome-keyring. Il se trouve que depuis la version
+46, la fonctionalité ssh [est maintenant désactivée par defaut](https://
+wiki.archlinux.org/title/GNOME/Keyring#SSH_keys). Ça aura permis de mieux comprendre
+le fonctionnement des agents SSH.
+
+On enchaine sur un bug dans le deploiement avec Docker, mais sans avoir accès aux logs
+c'est compliqué d'y voir clair. A priori quelque chose se passe mal, affaire à suivre.
+
+Je reprends sur la synchro des layers, et je me rends compte qu'il n'est en fait pas
+nécessaire d'avoir accès aux formbuilders lors de la phase d'update (c'est
+uniquement utile pour rerendre les formbuilder si ils sont actuellement
+ouverts). Peut-être utile, mais pas indispensable.
+
+On enchaine le début d'ap-s midi avec Aurélie, et on décide d'avancer sur l'expérience
+utilisateur pour la synchro. Je suis content de discuter de ça, c'est nouveau pour moi.
+
+Weekly, puis discussion avec David et Yohan sur la suite des évènements, on décide d'utiliser
+des UUIDs plutôt que des IDs de base de Django. C'est pas si simple ! J'en profite pour
+redécouvrir les migrations avec Django.
+
+On s'arrête au milieu de la session, hate de prendre la suite.
+
+
+## Jeudi 15 Février 2024 (7h, 4/5)
+
+Le matin j'ai terminé l'article d'update, puis j'ai enchainé sur la
+synchronisation des layers. C'est un peu plus compliqué que pour le reste des
+features, et je suis donc content de le faire en dernier. Je fais un peu de
+refactoring. Je dois arrêter au milieu pour enchaine sur ma soirée. Il faudra
+réussir à mapper les `properties` avec les `formbuilders` qui vont bien, pour
+que le client qui reçoit puisse appliquer les modifications utiles.
+
+Une bonne journée, j'aurais aimé continuer et ne pas laisser au milieu :-)
+
 ## Lundi 11 Février 2024 (7h, 5/5)
 
 Une session matinale de pair avec Yohan durant laquelle on discute de comment synchroniser l'éditeur tabulaire (on se rends compte qu'il n'y a pas besoin de grand chose), et du protocole de synchronisation. On se dit que ce serait surement mieux de réutiliser certaines parties du code plutôt que de les recréer (sérialisation et désérialisation des coordonées des features).
