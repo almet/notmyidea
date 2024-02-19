@@ -57,8 +57,8 @@ Creating an online space to share markdown&nbsp;files - Alexis Métaireau       
 <p>It also, <a href="https://caddyserver.com/docs/automatic-https">setups automatically and transparently <span class="caps">SSL</span> certificates</a> for you (using Let&#8217;s Encrypt!), so I wanted to have a&nbsp;look.</p>
 <p>Here is the Caddy configuration file I&#8217;m now using&nbsp;:</p>
 <div class="highlight"><pre><span></span><code>md.notmyidea.org {
-        root <span class="gs">* /home/caddy/md.notmyidea.org</span>
-<span class="gs">        rewrite *</span> /index.html
+        root * /home/caddy/md.notmyidea.org
+        rewrite * /index.html
         file_server
         templates
         encode zstd gzip

@@ -50,10 +50,10 @@ uMap - Alexis Métaireau        </title>
     <details>
       <summary>Stats</summary>
         <div>
-▓▓▓▓▓▓▓▓▓▓▓▓          124% (217h / 175 prévues)
+▓▓▓▓▓▓▓▓▓▓▓▓▓          133% (232h / 175 prévues)
         </div>
         <ul>
-          <li>217h rémunérées</li>
+          <li>232h rémunérées</li>
           <li>4h bénévoles</li>
         </ul>
       <table>
@@ -67,8 +67,8 @@ uMap - Alexis Métaireau        </title>
         <tbody>
             <tr>
               <td>2024/02</td>
-              <td>18</td>
-              <td>2.6</td>
+              <td>33</td>
+              <td>4.7</td>
             </tr>
             <tr>
               <td>2024/01</td>
@@ -91,17 +91,43 @@ uMap - Alexis Métaireau        </title>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="dimanche-11-fevrier-2024">🗓️ Dimanche 11 février&nbsp;2024</h2>
+    <h2 id="lundi-19-fevrier-2024">🗓️ lundi 19 février&nbsp;2024</h2>
+<p>Un bout de temps pour debugger des histoires d&#8217;agent ssh qui n&#8217;utilise plus la
+passphrase par defaut avec gnome-keyring. Il se trouve que depuis la version
+46, la fonctionalité ssh <a href="https://
+wiki.archlinux.org/title/GNOME/Keyring#SSH_keys">est maintenant désactivée par defaut</a>. Ça aura permis de mieux comprendre
+le fonctionnement des agents <span class="caps">SSH</span>.</p>
+<p>On enchaine sur un bug dans le deploiement avec Docker, mais sans avoir accès aux logs
+c&#8217;est compliqué d&#8217;y voir clair. A priori quelque chose se passe mal, affaire à&nbsp;suivre.</p>
+<p>Je reprends sur la synchro des layers, et je me rends compte qu&#8217;il n&#8217;est en fait pas
+nécessaire d&#8217;avoir accès aux formbuilders lors de la phase d&#8217;update (c&#8217;est
+uniquement utile pour rerendre les formbuilder si ils sont actuellement
+ouverts). Peut-être utile, mais pas&nbsp;indispensable.</p>
+<p>On enchaine le début d&#8217;ap-s midi avec Aurélie, et on décide d&#8217;avancer sur l&#8217;expérience
+utilisateur pour la synchro. Je suis content de discuter de ça, c&#8217;est nouveau pour&nbsp;moi.</p>
+<p>Weekly, puis discussion avec David et Yohan sur la suite des évènements, on décide d&#8217;utiliser
+des UUIDs plutôt que des IDs de base de Django. C&#8217;est pas si simple ! J&#8217;en profite pour
+redécouvrir les migrations avec&nbsp;Django.</p>
+<p>On s&#8217;arrête au milieu de la session, hate de prendre la&nbsp;suite.</p>
+<h2 id="jeudi-15-fevrier-2024">🗓️ jeudi 15 février&nbsp;2024</h2>
+<p>Le matin j&#8217;ai terminé l&#8217;article d&#8217;update, puis j&#8217;ai enchainé sur la
+synchronisation des layers. C&#8217;est un peu plus compliqué que pour le reste des
+features, et je suis donc content de le faire en dernier. Je fais un peu de
+refactoring. Je dois arrêter au milieu pour enchaine sur ma soirée. Il faudra
+réussir à mapper les <code>properties</code> avec les <code>formbuilders</code> qui vont bien, pour
+que le client qui reçoit puisse appliquer les modifications&nbsp;utiles.</p>
+<p>Une bonne journée, j&#8217;aurais aimé continuer et ne pas laisser au milieu&nbsp;:-)</p>
+<h2 id="dimanche-11-fevrier-2024">🗓️ dimanche 11 février&nbsp;2024</h2>
 <p>Une session matinale de pair avec Yohan durant laquelle on discute de comment synchroniser l&#8217;éditeur tabulaire (on se rends compte qu&#8217;il n&#8217;y a pas besoin de grand chose), et du protocole de synchronisation. On se dit que ce serait surement mieux de réutiliser certaines parties du code plutôt que de les recréer (sérialisation et désérialisation des coordonées des&nbsp;features).</p>
 <p>Je change donc le code en fonction, puis on se fait une petite réunion hebdomadaire ou on parle principalement du financement du projet. On se capte ensuite avec David. J&#8217;aimerai extraire quelques bouts de ce que j&#8217;ai fait pour en faire des <em>pull requests</em> et je lui demande des retours avant d&#8217;aller plus&nbsp;loin.</p>
 <p>Je termine la journée par la rédaction d&#8217;un article de blog sur mon avancée générale sur le&nbsp;sujet.</p>
-<h2 id="jeudi-08-fevrier-2024">🗓️ Jeudi 08 février&nbsp;2024</h2>
+<h2 id="jeudi-08-fevrier-2024">🗓️ jeudi 08 février&nbsp;2024</h2>
 <p>Je n&#8217;ai pas pris de&nbsp;notes.</p>
-<h2 id="lundi-05-fevrier-2024">🗓️ Lundi 05 février&nbsp;2024</h2>
+<h2 id="lundi-05-fevrier-2024">🗓️ lundi 05 février&nbsp;2024</h2>
 <p>Je commence par ajouter la suppression des points dans ma démo, ce qui fonctionne, et on se fait une petite session rapide avec Yohan pendant laquelle je lui demande de m&#8217;éclairer sur les endroits dans le code où je pourrais me connecter. On avance vite et ça fonctionne. J&#8217;enchaine avec la retrospective qui permet de soulever quelques points intéressants, mais qui semble frustrante pour l&#8217;équipe. On clarifie ensuite certains aspects autour du financement du projet avec David et&nbsp;Yohan.</p>
-<h2 id="jeudi-01-fevrier-2024">🗓️ Jeudi 01 février&nbsp;2024</h2>
+<h2 id="jeudi-01-fevrier-2024">🗓️ jeudi 01 février&nbsp;2024</h2>
 <p>Discussion avec Yohan autour de l&#8217;<span class="caps">API</span> pour les requêtes, pour réussir à utiliser des classes natives JavaScript plutôt que de passer par des évènements « à la »&nbsp;Leaflet.</p>
-<h2 id="mercredi-31-janvier-2024">🗓️ Mercredi 31 janvier&nbsp;2024</h2>
+<h2 id="mercredi-31-janvier-2024">🗓️ mercredi 31 janvier&nbsp;2024</h2>
 <p>J&#8217;ai enfin réussi à me concentrer. J&#8217;ai continué la réécriture et la simplification du code existant, puis j&#8217;ai ajouté du code qui pemret l&#8217;ajout d&#8217;un marker et sa modification.
 Ça commence à ressembler un peu plus à quelque chose, j&#8217;ai l&#8217;impression de débloquer des bouts de trucs qui me tenaient en haleine et mécontent.
 J&#8217;ai pu faire une petite vidéo de démo en fin de&nbsp;session.</p>
@@ -109,36 +135,36 @@ J&#8217;ai pu faire une petite vidéo de démo en fin de&nbsp;session.</p>
   <source src="https://files.notmyidea.org/umap-sync-features.webm" type="video/webm">
 </video>
 
-<h2 id="mardi-30-janvier-2024">🗓️ Mardi 30 janvier&nbsp;2024</h2>
+<h2 id="mardi-30-janvier-2024">🗓️ mardi 30 janvier&nbsp;2024</h2>
 <p>J&#8217;ai passé du temps à refondre le code déjà écrit concernant la synchronisation. L&#8217;<span class="caps">API</span> se clarifie et se simplifie, ça fait du bien. On a fait une session de pair avec David durant laquelle on a pu trouver comment écouter les événements qui sont lancés lors de la création d&#8217;un point, et j&#8217;ai fini par supprimer tout un tas de complexité qui n&#8217;était pas&nbsp;nécessaire.</p>
 <p>Je suis plus content du code actuel, plus simple et direct, et aussi plus facile à modifier. Bien dormir m&#8217;aide à être plus concentré&nbsp;!</p>
-<h2 id="lundi-29-janvier-2024">🗓️ Lundi 29 janvier&nbsp;2024</h2>
+<h2 id="lundi-29-janvier-2024">🗓️ lundi 29 janvier&nbsp;2024</h2>
 <p>Avec Yohan, on s&#8217;attaque à un bug dans les tests de l&#8217;algorithme de merge des layers. L&#8217;idée est d&#8217;attendre que certaines requêtes soient passées pour continuer les tests dans playwright (merci <a href="https://playwright.dev/python/docs/network#variations"><code>page.expect_response</code></a>).</p>
 <p>On se rends compte que ce qu&#8217;on pensait être un test intermittent est en fait un bug: les headers <code>Last-Modified</code> et consort sont en fait à la seconde prêt, et les fichiers correspondants stockés sur le serveur à la milliseconde, ce qui fait qu&#8217;il peut y avoir prise de pinceaux dans le tapis, et le mauvais fichier est utilisé dans la&nbsp;reconstruction.</p>
 <p>On a ensuite discuté avec David + Yohan de plusieurs aspects, autour de la solution à ce problème (surement des headers maison pour éviter des soucis avec les <code>ETAGs</code> et leur utilisation par des proxy&nbsp;intermédiaires)</p>
 <p>On continue avec une discussion sur notre système de versioning et sur l&#8217;idée de faire une 2.0 pour introduire des changements importants. La discussion est moins tendue que la dernière fois c&#8217;est chouette&nbsp;:-)</p>
-<h2 id="mercredi-24-janvier-2024">🗓️ Mercredi 24 janvier&nbsp;2024</h2>
+<h2 id="mercredi-24-janvier-2024">🗓️ mercredi 24 janvier&nbsp;2024</h2>
 <p>Session rapide de pair avec David, on avance sur  la connection websocket et leur intégration avec les&nbsp;formulaires.</p>
-<h2 id="mardi-23-janvier-2024">🗓️ Mardi 23 janvier&nbsp;2024</h2>
+<h2 id="mardi-23-janvier-2024">🗓️ mardi 23 janvier&nbsp;2024</h2>
 <p>J&#8217;ai ajouté le support de la synchro pour les metadonnées de la carte sur mon prototype, j&#8217;ai fait des messages websockets + une infrastructure légère qui permet de voir venir les autres types de synchro. Je passe par l&#8217;écrasement des données de l&#8217;autre carte plutôt que par des CRDTs. Pour le moment pas de gestion de l&#8217;offline, mais je me dis que c&#8217;est&nbsp;secondaire.</p>
-<h2 id="lundi-22-janvier-2024">🗓️ Lundi 22 janvier&nbsp;2024</h2>
+<h2 id="lundi-22-janvier-2024">🗓️ lundi 22 janvier&nbsp;2024</h2>
 <p>Je continue sur mon prototype de synchronisation. Je commence à connecter la partie websockets, avec une implémentation avec <a href="https://websockets.readthedocs.io">websockets</a> en&nbsp;python.</p>
 <p>L&#8217;après-midi, j&#8217;essaye d&#8217;aller plus loin et pour les besoins de la démo de plugger <a href="https://github.com/yjs/y-websocket">Y-WebSocket</a>, mais je bloque (encore) sur l&#8217;utilisation de modules <span class="caps">JS</span>. J&#8217;essaye de contourner en faisant des pirouettes avec webpack (pour qu&#8217;il expose un module attaché à la fenêtre), mais je me retrouve face à des soucis de recursion infinie que j&#8217;ai du mal à&nbsp;comprendre.</p>
 <p>Je me dis que peut-être que <a href="https://jsonjoy.com/">Json-Joy</a> sera utile ici, et je commence à le plugger dans le code que j&#8217;ai fait, avant de me rendre compte que son <span class="caps">API</span> est un peu différente de celle de Y.js ou Automerge. Je ne comprends pas tout à fait comment utiliser le projet et je perds du temps la dessus. Je n&#8217;ai pas réussi à trouver beaucoup d&#8217;exemples d&#8217;utilisation et ça me questionne sur la documentation et l&#8217;usage réel de ce&nbsp;projet.</p>
-<h2 id="mardi-16-janvier-2024">🗓️ Mardi 16 janvier&nbsp;2024</h2>
+<h2 id="mardi-16-janvier-2024">🗓️ mardi 16 janvier&nbsp;2024</h2>
 <p>Discussion avec David et Yohan autour de notre manière de s&#8217;outiller. J&#8217;ai du mal à comprendre ce qui bloque, mais j&#8217;ai l&#8217;impression qu&#8217;on patine. J&#8217;ai l&#8217;impression d&#8217;apporter plus d&#8217;inconfort que l&#8217;inverse, et je ressors de la réunion avec un sentiment de&nbsp;frustration.</p>
-<h2 id="lundi-15-janvier-2024">🗓️ Lundi 15 janvier&nbsp;2024</h2>
+<h2 id="lundi-15-janvier-2024">🗓️ lundi 15 janvier&nbsp;2024</h2>
 <p>Une réunion avec toute l&#8217;équipe durant laquelle j&#8217;ai pu poser des questions
 sur notre manière de nous organiser, et sur le role de la réunion hebdomadaire.
 Je suis content de l&#8217;avoir fait, hate de voir comment les choses vont&nbsp;évoluer.</p>
 <p>Une courte session avec David pour échanger sur l&#8217;approche prise pour le&nbsp;moment.</p>
-<h2 id="vendredi-12-janvier-2024">🗓️ Vendredi 12 janvier&nbsp;2024</h2>
+<h2 id="vendredi-12-janvier-2024">🗓️ vendredi 12 janvier&nbsp;2024</h2>
 <p>J&#8217;ai continué à coder la piste initiée mercredi. Je me rends compte qu&#8217;il me
 faudra peut-être un moyen de faire du lien entre les données, et que cette
 information soit stockée quelque part (pour des re-rendus en cascade, si des
 données sont dépendantes d&#8217;autres&nbsp;données).</p>
 <p>En tout cas, j&#8217;ai une interface un peu plus claire pour le Mixin de <code>rerender</code>.</p>
-<h2 id="mercredi-10-janvier-2024">🗓️ Mercredi 10 janvier&nbsp;2024</h2>
+<h2 id="mercredi-10-janvier-2024">🗓️ mercredi 10 janvier&nbsp;2024</h2>
 <p>La piste des IDs est finalement écartée pour l&#8217;instant, je ne suis pas encore
 certain d&#8217;en avoir besoin, peut-être qu&#8217;il n&#8217;est pas utile d&#8217;identifier les
 features de manière unique au niveau de la base de données, et que cette
@@ -168,7 +194,7 @@ qui nous a permis  de trouver un moyen de travailler ensemble plus efficacement.
 Frustrant de ne pas avoir avancé techniquement, mais l&#8217;impression d&#8217;être sur de
 bons rails humains, et d&#8217;avoir pu dégrossir certains aspects du code pour me les
 rendre&nbsp;compréhensibles.</p>
-<h2 id="mardi-09-janvier-2024">🗓️ Mardi 09 janvier&nbsp;2024</h2>
+<h2 id="mardi-09-janvier-2024">🗓️ mardi 09 janvier&nbsp;2024</h2>
 <p>On discute avec Yohan de comment faire pour avancer, on commence à travailler
 en pair pour plutôt décider se séparer le travail au lieu de le faire&nbsp;ensemble.</p>
 <p>Yohan s&#8217;occupera de faire une séparation du code qui fait le « rendering », je
@@ -195,80 +221,80 @@ l&#8217;autre. Je me rends compte que ma confiance en moi est faible, et que j&#
 besoin de la conforter avant d&#8217;être efficace pour travailler avec&nbsp;d&#8217;autres.</p>
 <p>Content de la découverte, et d&#8217;avoir pu l&#8217;expliciter auprès de Yohan.
 J&#8217;espère que ça débouchera sur quelque chose de sain et&nbsp;productif.</p>
-<h2 id="lundi-08-janvier-2024">🗓️ Lundi 08 janvier&nbsp;2024</h2>
+<h2 id="lundi-08-janvier-2024">🗓️ lundi 08 janvier&nbsp;2024</h2>
 <p>Matinée passée et début d&#8217;après midi avec Yohan à faire une release de uMap puis
 à faire du bugfix dessus ensuite. Fin d&#8217;après-midi à discuter de la manière dont
 on peut imaginer la suite du travail ensemble. On patine un peu, on a du mal à
 trouver une manière de fonctionner qui nous convienne à tous les&nbsp;deux.</p>
-<h2 id="lundi-18-decembre-2023">🗓️ Lundi 18 décembre&nbsp;2023</h2>
+<h2 id="lundi-18-decembre-2023">🗓️ lundi 18 décembre&nbsp;2023</h2>
 <p>J&#8217;ai creusé sur mon idée de faire en sorte de synchroniser un point, j&#8217;ai une meilleure compréhension de ou m&#8217;insérer dans le code, et j&#8217;ai pu commencer à coder un bout de code qui fait la connexion avec le&nbsp;stockage.</p>
 <p>J&#8217;ai aussi commencé à coder la partie stockage, en mettant de côté pour le moment la partie <span class="caps">CRDT</span> en tant que telle, j&#8217;ai l&#8217;impression de voir comment ça va fonctionner maintenant, et l&#8217;intégration avec Y.<span class="caps">JS</span> me semble difficile sans utiliser de bundler js, ce qui est peut-être un signe qu&#8217;il faut aller voir ailleurs (Json Joy me fait de&nbsp;l&#8217;oeil)</p>
 <p>J&#8217;ai découvert la documentation de Leaflet <a href="https://leafletjs.com/reference.html#class">sur comment les objets fonctionnent</a> et la documentation de <a href="http://leaflet.github.io/Leaflet.Editable/doc/api.html#editable">Leaflet Editable</a> qui étaient en fait des lectures indispensables à la bonne compréhension du code de&nbsp;umap.</p>
 <p>On a terminé la journée avec une session de pair avec Yohan qui était vraiment bien :  j&#8217;avais des questions précises et on a pu avancer ensemble vers plus de&nbsp;clarté.</p>
-<h2 id="samedi-16-decembre-2023">🗓️ Samedi 16 décembre&nbsp;2023</h2>
+<h2 id="samedi-16-decembre-2023">🗓️ samedi 16 décembre&nbsp;2023</h2>
 <p>J&#8217;ai eu envie de commencer à m&#8217;intégrer avec uMap, pour ce qui est de la synchronisation des données. Pas forcement pour faire les choses <em>en version finale</em>, mais plutôt pour avancer un peu sur ma compréhension du code de manière&nbsp;générale.</p>
 <p>Objectif: faire de la synchronisation de données pour un point. Quand il est ajouté sur une carte, je veux pouvoir récupérer un évènement de l&#8217;autre côté et l&#8217;afficher sur cette seconde carte. Éventuellement j&#8217;aimerai bien pouvoir suivre le drag-n-drop&nbsp;également.</p>
 <p>J&#8217;ai passé l&#8217;aprèm à mettre des petits points d&#8217;arrêts dans mon navigateur web, pour mieux comprendre où ce serait le plus logique de m&#8217;insérer pour voir les modifications sur la carte, pour enfin commencer à ajouter <code>Y.js</code> dans le code (en tant que&nbsp;module).</p>
 <p>Le fait qu&#8217;on utilise pas de bundler rends les choses un peu plus compliquées, mais je suis content d&#8217;avoir la main sur comment les choses sont&nbsp;faites.</p>
 <p>J&#8217;ai un peu bloqué sur l&#8217;utilisation de Y.<span class="caps">JS</span>, qui s&#8217;attends à ce que d&#8217;autres modules soient disponibles dans des namespaces spécifiques, ce qui ne correspond pas vraiment à nos&nbsp;pratiques.</p>
 <p>J&#8217;ai découvert <a href="">import maps</a> et j&#8217;ai commencé à les utiliser, mais ça ne semble pas suffire pour notre approche &#8220;simpliste&#8221;. En tout cas, pas pour Y.<span class="caps">JS</span>&nbsp;(https://github.com/yjs/yjs/issues/325)</p>
-<h2 id="vendredi-15-decembre-2023">🗓️ Vendredi 15 décembre&nbsp;2023</h2>
+<h2 id="vendredi-15-decembre-2023">🗓️ vendredi 15 décembre&nbsp;2023</h2>
 <p>🚗 J&#8217;ai travaillé depuis la maison, suite à des soucis de&nbsp;voiture. </p>
 <p>J&#8217;ai continué le travail sur l&#8217;ajout de l&#8217;utilisation de modules Javascript, pour pouvoir gérer les imports et les exports, plutôt que d&#8217;avoir tout dans le namespace&nbsp;global.</p>
 <p>J&#8217;ai pu discuter avec Vincent puis avec David du sujet. Je suis content <a href="https://github.com/umap-project/umap/pull/1463">de l&#8217;approche prise</a>, qui devrait permettre de moderniser un peu la base de code, sans pour autant utiliser des technologies de transpilation, ni de bundling qui rendent l&#8217;expérience développeur plus&nbsp;complexe.</p>
 <p>J&#8217;en ai profité pour <a href="https://github.com/umap-project/umap/pull/1471">ajouter mes apprentissages</a> dans la documentation développeur, le genre d&#8217;informations que je récupère à droite à gauche et qui sont utiles pour pouvoir&nbsp;contribuer.</p>
 <p>J&#8217;ai un peu réorganisé mes notes autour des différents challenges qu&#8217;on a sur ce projet concernant les différents aspects (stockage, réactivité, réconcialiation des données, transport). Et entre autre autour de la partie&nbsp;transport.</p>
-<h2 id="jeudi-14-decembre-2023">🗓️ Jeudi 14 décembre&nbsp;2023</h2>
+<h2 id="jeudi-14-decembre-2023">🗓️ jeudi 14 décembre&nbsp;2023</h2>
 <p>Réunion le matin avec Yohan et NLNet, l&#8217;idée était de valider notre plan d&#8217;action, et c&#8217;est bon. Les documents sont signés on est surs d&#8217;avoir le financement. Sacrée nouvelle&nbsp;:-)</p>
 <p>J&#8217;ai découvert au passage quelques bibliothèques intéressantes (<a href="https://jsonjoy.com/"><span class="caps">JSON</span> Joy</a> et <a href="https://p2panda.org/">p2panda</a>), qui pourraient potentiellement nous&nbsp;intéresser. </p>
 <p>J&#8217;ai passé un peu de temps en amont pour retravailler la proposition qu&#8217;on leur avait faite, et après pour leur donner dans le format qu&#8217;iels&nbsp;souhaitaient.</p>
 <p>L&#8217;après-midi j&#8217;ai passé un peu de temps pour voir comment on pourrait utiliser des modules <span class="caps">JS</span> dans umap sans tout changer pour autant&nbsp;😇</p>
-<h2 id="mercredi-13-decembre-2023">🗓️ Mercredi 13 décembre&nbsp;2023</h2>
+<h2 id="mercredi-13-decembre-2023">🗓️ mercredi 13 décembre&nbsp;2023</h2>
 <p>Je n&#8217;ai pas pris de&nbsp;notes.</p>
-<h2 id="mardi-12-decembre-2023">🗓️ Mardi 12 décembre&nbsp;2023</h2>
+<h2 id="mardi-12-decembre-2023">🗓️ mardi 12 décembre&nbsp;2023</h2>
 <p>Matinée loupée suite à une blessure au poignet la veille au soir. Après-midi passée en partie avec David pour mettre en place l&#8217;utilisation de web&nbsp;components.</p>
-<h2 id="lundi-11-decembre-2023">🗓️ Lundi 11 décembre&nbsp;2023</h2>
+<h2 id="lundi-11-decembre-2023">🗓️ lundi 11 décembre&nbsp;2023</h2>
 <p>Matinée passée à imaginer comment les données pourraient êtres structurées dans le client, et comment l&#8217;interface pourrait se faire avec les objets&nbsp;leaflet.</p>
 <p>Après-midi à faire un point humain, puis un point technique, avec la rencontre de (peut-être ?) notre prochaine&nbsp;bizdev.</p>
 <p>Discussion technique avec David. Peut-être qu&#8217;un algorithme de merge qui serait présent sur le serveur et sur le client pourrait nous permettre de nous passer de la complexité des&nbsp;CRDTs?</p>
-<h2 id="mercredi-06-decembre-2023">🗓️ Mercredi 06 décembre&nbsp;2023</h2>
+<h2 id="mercredi-06-decembre-2023">🗓️ mercredi 06 décembre&nbsp;2023</h2>
 <p>J&#8217;ai terminé de faire quelques légers changements dans la documentation, avant de me plonger dans le code javascript et de commencer à faire du&nbsp;refactoring.</p>
 <p>J&#8217;ai passé du temps à comprendre comment avoir côte à côte des modules <span class="caps">ES6</span> et du code de type « script ». J&#8217;ai ensuite commencé à créer des modules javascript en charge de la sauvegarde des données. En tirant les fils je me rends compte qu&#8217;il va sans doute falloir que je repasse sur le code qui s&#8217;occupe des requêtes <span class="caps">XHR</span> à l&#8217;ancienne, pour le remplacer par de&nbsp;l&#8217;async/await.</p>
 <p>J&#8217;avais oublié à quel point faire des requêtes depuis le navigateur était compliqué à l&#8217;époque&nbsp;!</p>
-<h2 id="mardi-05-decembre-2023">🗓️ Mardi 05 décembre&nbsp;2023</h2>
+<h2 id="mardi-05-decembre-2023">🗓️ mardi 05 décembre&nbsp;2023</h2>
 <p>J&#8217;ai mis à plat ce que j&#8217;ai appris ces dernières semaines sur le projet, pour pouvoir décider vers où aller pour la suite des&nbsp;évènements.</p>
 <p>Une discussion avec Yohan me fait pencher vers la piste que je mettais de côté à cause des changements qui sont nécessaires côté client: les&nbsp;CRDTs.</p>
-<h2 id="mercredi-29-novembre-2023">🗓️ Mercredi 29 novembre&nbsp;2023</h2>
+<h2 id="mercredi-29-novembre-2023">🗓️ mercredi 29 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps sur la <span class="caps">PR</span> du merge optimiste, pour essayer de changer le fonctionnement qui passe actuellement par la modification des champs de formulaires envoyés, ce que je ne trouve pas très&nbsp;clean.</p>
 <p>Le travail pour faire autrement me semble trop important pour le moment, on accepte la <span class="caps">PR</span> telle quelle, avec l&#8217;idée de passer par une <span class="caps">API</span> plus tard, avec la refonte avec <span class="caps">DRF</span>.</p>
 <p>J&#8217;ai aussi travaillé sur la&nbsp;documentation.</p>
-<h2 id="mardi-28-novembre-2023">🗓️ Mardi 28 novembre&nbsp;2023</h2>
+<h2 id="mardi-28-novembre-2023">🗓️ mardi 28 novembre&nbsp;2023</h2>
 <p>Travail de projection pour NLNet, puis réunion l&#8217;après-midi. J&#8217;ai ensuite repris les recherches pour affiner l&#8217;utilisation des&nbsp;CRDTs.</p>
-<h2 id="lundi-27-novembre-2023">🗓️ Lundi 27 novembre&nbsp;2023</h2>
+<h2 id="lundi-27-novembre-2023">🗓️ lundi 27 novembre&nbsp;2023</h2>
 <p>Matinée passée à organiser ma semaine, à participer a la présentation de NLNet (très bon accueil, et clarifications utiles), puis à faire un petit tour de uMap côté front avec&nbsp;Yohan.</p>
 <p>L&#8217;après-midi j&#8217;ai commencé à intégrer les notes que j&#8217;ai prises sur le côté <span class="caps">JS</span> à la documentation actuelle, et j&#8217;en ai profité pour refaire un tour sur la documentation actuelle pour la simplifier et la&nbsp;clarifier.</p>
-<h2 id="vendredi-24-novembre-2023">🗓️ Vendredi 24 novembre&nbsp;2023</h2>
+<h2 id="vendredi-24-novembre-2023">🗓️ vendredi 24 novembre&nbsp;2023</h2>
 <p>Réunion d&#8217;avancement et point avec David et Yohan pour préparer la suite concernant&nbsp;NLNet.</p>
 <p>Je suis content d&#8217;avoir préparé le point, et je mesure l&#8217;importance donnée aux personnes dans les&nbsp;process.</p>
-<h2 id="jeudi-23-novembre-2023">🗓️ Jeudi 23 novembre&nbsp;2023</h2>
+<h2 id="jeudi-23-novembre-2023">🗓️ jeudi 23 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps pour faire passer les tests dans le <span class="caps">CI</span>, et résolu quelques problèmes au&nbsp;passage.</p>
-<h2 id="mercredi-22-novembre-2023">🗓️ Mercredi 22 novembre&nbsp;2023</h2>
+<h2 id="mercredi-22-novembre-2023">🗓️ mercredi 22 novembre&nbsp;2023</h2>
 <p>J&#8217;ai exploré l&#8217;utilisation de Websockets pour le transport, entre autre sa consommation mémoire, il semblerait que ce soit tout à fait acceptable (1gb de mémoire permet de gérer 1500 connexions&nbsp;concurrentes).</p>
 <p>WebRTC n&#8217;est <a href="https://gitlab.torproject.org/legacy/trac/-/issues/8178">actuellement pas supporté par Tor Browser </a>(<a href="https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/41021">pour le moment</a>), donc j&#8217;imagine que c&#8217;est une fausse&nbsp;piste.</p>
 <p>J&#8217;ai repassé un bon coup sur la <span class="caps">PR</span> du merge optimiste. Je suis content du résultat: le code et des tests me semblent plus lisibles et&nbsp;compréhensibles.</p>
 <p>L&#8217;après-midi à été passée avec Yohan qui m&#8217;a fait un tour du frontend. J&#8217;en ai profité pour prendre des notes que je pense publier dans la documentation. C&#8217;était très utile d&#8217;avoir ses explications, le code n&#8217;est pas si simple à prendre en&nbsp;main.</p>
-<h2 id="mardi-21-novembre-2023">🗓️ Mardi 21 novembre&nbsp;2023</h2>
+<h2 id="mardi-21-novembre-2023">🗓️ mardi 21 novembre&nbsp;2023</h2>
 <p>Une matinée passée à la fois à préparer la semaine et à rédiger un résumé de ce que j&#8217;ai fait la semaine dernière.
 J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de merge de la <span class="caps">PR</span> de Biondi biondo, pour pouvoir l&#8217;expliquer dans un article de&nbsp;blog.</p>
 <p>L&#8217;après-midi j&#8217;ai participé à la weekly et lu l&#8217;article de blog de Figma qui explique leur approche pour implementer du temps&nbsp;réel.</p>
 <p>J&#8217;avance petit à petite sur la piste d&#8217;utiliser un <span class="caps">CRDT</span> &#8220;maison&#8221;, voire pas de <span class="caps">CRDT</span> du tout, en fonction de nos besoins réels. Un <span class="caps">CRDT</span> nous permettrait d&#8217;avoir plusieurs personnes qui travaillent en même temps sur une même feature (au sens GeoJSON), mais je ne sais pas encore si c&#8217;est un cas d&#8217;usage&nbsp;réel.</p>
-<h2 id="samedi-18-novembre-2023">🗓️ Samedi 18 novembre&nbsp;2023</h2>
+<h2 id="samedi-18-novembre-2023">🗓️ samedi 18 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé un peu de temps à intégrer l&#8217;intégration continue de Github. Je pensais que ce serait rapide mais je ne devais pas être très&nbsp;réveillé…</p>
-<h2 id="vendredi-17-novembre-2023">🗓️ Vendredi 17 novembre&nbsp;2023</h2>
+<h2 id="vendredi-17-novembre-2023">🗓️ vendredi 17 novembre&nbsp;2023</h2>
 <p>J&#8217;ai passé du temps pour essayer de comprendre comment utiliser SQLite en local à l&#8217;intérieur d&#8217;un navigateur, en utilisant <a href="https://vlcn.io/docs/cr-sqlite/intro">cr-sqlite</a>. J&#8217;ai un prototype qui fonctionne à peu près et qui permet de récupérer les éditions en local pour les synchroniser avec une autre base&nbsp;SQLite.</p>
 <p>Fait un point avec l&#8217;équipe sur l&#8217;avancement général&nbsp;l&#8217;après-midi.</p>
 <p>Ensuite continué à creuser sur l&#8217;utilisation de SQLite avec&nbsp;cr-sqlite.</p>
-<h2 id="mardi-14-novembre-2023">🗓️ Mardi 14 novembre&nbsp;2023</h2>
+<h2 id="mardi-14-novembre-2023">🗓️ mardi 14 novembre&nbsp;2023</h2>
 <p>Une matinée passée avec Yohan pour à la fois <a href="https://github.com/umap-project/umap/pull/772/">avancer sur la <span class="caps">PR</span> pour merger des conflits simples</a>. On a passé le code en revue et fait quelques changements cosmétiques qui devraient aider à la compréhension&nbsp;générale.</p>
 <p>La deuxième partie de la matinée à été utilisée pour discuter des découvertes et des questions que je me pose quand à comment faire pour ajouter ces fonctions de collaboration temps&nbsp;réel.</p>
 <p>Plusieurs trucs à noter :
@@ -279,18 +305,18 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
 <p>Découvertes :
 - https://www.geopackage.org/
 -&nbsp;https://vlcn.io/docs/js/reactivity</p>
-<h2 id="lundi-13-novembre-2023">🗓️ Lundi 13 novembre&nbsp;2023</h2>
+<h2 id="lundi-13-novembre-2023">🗓️ lundi 13 novembre&nbsp;2023</h2>
 <p>J&#8217;ai cherché à comprendre comment il serait possible de s&#8217;intégrer avec Leaflet. Je connais assez mal l&#8217;écosystème donc j&#8217;ai cherché les plugins autour de stockage de données et de la&nbsp;synchronisation.</p>
 <p>Beaucoup de clicks, de lecture et de compréhension des contours de l&#8217;écosystème <span class="caps">SIG</span>, et de l&#8217;écosystème de&nbsp;Leaflet.</p>
 <p>J&#8217;ai aussi creusé autour des <span class="caps">SSE</span> et de WebRTC, question de comprendre les limites et avantages de&nbsp;chacun.</p>
-<h2 id="mardi-07-novembre-2023">🗓️ Mardi 07 novembre&nbsp;2023</h2>
+<h2 id="mardi-07-novembre-2023">🗓️ mardi 07 novembre&nbsp;2023</h2>
 <ul>
 <li>Lu la documentation&nbsp;d&#8217;automerge</li>
 <li>Commencé à faire un prototype pour voir le fonctionnement d&#8217;automerge en&nbsp;python</li>
 <li>Installé les dépendances rust, compilé&nbsp;automerge</li>
 <li>Réunion discussion avec Yohan sur mes questions et sur les différentes&nbsp;pistes</li>
 </ul>
-<h2 id="lundi-06-novembre-2023">🗓️ Lundi 06 novembre&nbsp;2023</h2>
+<h2 id="lundi-06-novembre-2023">🗓️ lundi 06 novembre&nbsp;2023</h2>
 <ul>
 <li>Lu le code qui est dans uMap actuellement pour comprendre le fonctionnement&nbsp;actuel</li>
 <li>Commencé à rédiger un document avec les différentes options pour faire de la&nbsp;synchro</li>
@@ -306,6 +332,10 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2024-02-19", "series": "Rémunéré", "count": 8},
+            {"date": "2024-02-19", "series": "Bénévole", "count": 0},
+            {"date": "2024-02-15", "series": "Rémunéré", "count": 7},
+            {"date": "2024-02-15", "series": "Bénévole", "count": 0},
             {"date": "2024-02-11", "series": "Rémunéré", "count": 7},
             {"date": "2024-02-11", "series": "Bénévole", "count": 0},
             {"date": "2024-02-08", "series": "Rémunéré", "count": 6},
