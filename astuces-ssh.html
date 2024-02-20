@@ -60,7 +60,7 @@ Astuces <span class="caps">SSH</span> - Alexis Métaireau        </title>
 <p>(merci <a href="http://majerti.fr">gaston</a>&nbsp;!)</p>
 <p>La directive suivante dans .ssh/config permet de sauter d&#8217;hôte en hôte
 séparés par des &#8220;+&#8221;&nbsp;:</p>
-<div class="highlight"><pre><span></span><code>Host *+*
+<div class="highlight"><pre><span></span><code>Host <span class="gs">*+*</span>
         ProxyCommand ssh $(echo %h | sed
 &#39;s/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /&#39;)
 PATH=.:\$PATH nc -w1 $(echo %h | sed &#39;s/^.*+//;/:/!s/$/ %p/;s/:/ /&#39;)
