@@ -50,10 +50,10 @@ uMap - Alexis Métaireau        </title>
     <details>
       <summary>Stats</summary>
         <div>
-▓▓▓▓▓▓▓▓▓▓▓▓▓          133% (232h / 175 prévues)
+▓▓▓▓▓▓▓▓▓▓▓▓▓          138% (242h / 175 prévues)
         </div>
         <ul>
-          <li>232h rémunérées</li>
+          <li>242h rémunérées</li>
           <li>4h bénévoles</li>
         </ul>
       <table>
@@ -67,8 +67,8 @@ uMap - Alexis Métaireau        </title>
         <tbody>
             <tr>
               <td>2024/02</td>
-              <td>33</td>
-              <td>4.7</td>
+              <td>43</td>
+              <td>6.1</td>
             </tr>
             <tr>
               <td>2024/01</td>
@@ -91,7 +91,17 @@ uMap - Alexis Métaireau        </title>
   </header>
   <article>
     <div id="vis"></div>
-    <h2 id="lundi-19-fevrier-2024">🗓️ Lundi 19 février&nbsp;2024</h2>
+    <h2 id="jeudi-22-fevrier-2024">🗓️ Jeudi 22 février&nbsp;2024</h2>
+<p>Une bonne grosse journée :-) J&#8217;ai avancé sur le changement vers des UUIDs pour
+les layers, je suis pas encore sur que ce soit la version finale mais ça avance
+dans la bonne direction. J&#8217;ai l&#8217;impression que je vais devoir aller voir d&#8217;un
+peu plus près les entrailles de Django et des migrations pour pouvoir récupérer
+le bon nom des contraintes qui sont générées par l&#8217;<span class="caps">ORM</span>.</p>
+<p>J&#8217;en ai profité pour remettre au gout du jour la <span class="caps">PR</span> sur les IDs des features, et
+pour commencer à travailler sur le problème du <code>Last-Modified</code> qui ne peut pas
+avoir plus d&#8217;une requête à la même seconde, ce qui nous cause des&nbsp;soucis.</p>
+<p>C&#8217;est chouette de faire quelques pull requests&nbsp;:-)</p>
+<h2 id="lundi-19-fevrier-2024">🗓️ Lundi 19 février&nbsp;2024</h2>
 <p>Un bout de temps pour debugger des histoires d&#8217;agent ssh qui n&#8217;utilise plus la
 passphrase par defaut avec gnome-keyring. Il se trouve que depuis la version
 46, la fonctionalité ssh <a href="https://
@@ -332,6 +342,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2024-02-22", "series": "Rémunéré", "count": 10},
+            {"date": "2024-02-22", "series": "Bénévole", "count": 0},
             {"date": "2024-02-19", "series": "Rémunéré", "count": 8},
             {"date": "2024-02-19", "series": "Bénévole", "count": 0},
             {"date": "2024-02-15", "series": "Rémunéré", "count": 7},

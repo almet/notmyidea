@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <title>
-django - Alexis Métaireau        </title>
+Changing the primary key of a model in&nbsp;Django - Alexis Métaireau        </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet"
@@ -25,7 +25,7 @@ django - Alexis Métaireau        </title>
                                href="https://blog.notmyidea.org/journal/index.html">Journal</a>
                         </li>
                         <li>
-                            <a class=""
+                            <a class="selected"
                                href="https://blog.notmyidea.org/code/">Code, etc.</a>
                         </li>
                         <li>
@@ -42,35 +42,37 @@ django - Alexis Métaireau        </title>
                         </li>
                 </ul>
             </section>
-<h1>Tag « django »</h1>
-<section class="section index">
-    <time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
 
-        <a class='tag' href="https://blog.notmyidea.org/tag/django.html">django</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/orm.html">orm</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/migrations.html">migrations</a>    <h1><a href="https://blog.notmyidea.org/changing-the-primary-key-of-a-model-in-django.html" id="page-title">Changing the primary key of a model in&nbsp;Django</a></h1>
+<header>
+	<h1 class="post-title">Changing the primary key of a model in&nbsp;Django</h1>
+	<time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
+
+    
+</header>
+<article>
     <p>I had to change the primary key of a django model, and I wanted to create a migration for this.
 The previous model was using django&nbsp;ids.</p>
 <p>The migrations will need to do the following&nbsp;things:</p>
 <ul>
 <li>Create a new <code>uuid</code> field/column in the&nbsp;database</li>
-<li>Iterate over the existing items …</li></ul>
-</section>
-<section class="section index">
-    <time datetime="2023-08-16T00:00:00+02:00">16 août 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/django.html">django</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/pytest.html">pytest</a>    <h1><a href="https://blog.notmyidea.org/profiling-and-speeding-up-django-and-pytest.html" id="page-title">Profiling and speeding up Django and&nbsp;Pytest</a></h1>
-    
-<p><a href="https://yaal.coop/">Éloi</a> made <a href="https://github.com/spiral-project/ihatemoney/issues/1214">a pull request on
-IHateMoney</a> to
-speedup the tests, with some great tooling for pytest that I wasn&#8217;t aware&nbsp;of:</p>
-<ul>
-<li><a href="https://pypi.org/project/pytest-xdist/">pytest-xdist</a> allows to run tests in
-  parallel, using <code>-n auto</code></li>
-<li><a href="https://pypi.org/project/pytest-profiling/">pytest-profiling</a> makes it easy
-  to get the call stack and time the function calls that take most …</li></ul>
-</section>
-<ul>
+<li>Iterate over the existing items in the table, to generate an uuid for&nbsp;them</li>
+<li>Update the eventual references to the model so that it continues to&nbsp;work.</li>
+<li>Change the old primary key to a different&nbsp;type</li>
+<li>Mark the new primary key as&nbsp;such</li>
 </ul>
-</section>
+<p>Create the new field in the&nbsp;model</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+<p>To generate the migrations I did <code>django-admin makemigrations</code>. The migration looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<p>Running the tests, I figured out that the URLs will need to be updated as well. I found <a href="https://gist.github.com/luzfcb/186ee28b368450035e056228615db999">a regexp for&nbsp;UUIDs</a></p>
+	<p>
+        <a href="https://blog.notmyidea.org/tag/django.html">#django</a>,         <a href="https://blog.notmyidea.org/tag/orm.html">#orm</a>,         <a href="https://blog.notmyidea.org/tag/migrations.html">#migrations</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+	</p>
+</article>
             <footer>
                 <a id="feed" href="/feeds/all.atom.xml">
                     <img alt="RSS Logo" src="/theme/rss.svg" />

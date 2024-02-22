@@ -44,6 +44,17 @@ Alexis Métaireau -         </title>
             </section>
 <h1></h1>
 <section class="section index">
+    <time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
+
+        <a class='tag' href="https://blog.notmyidea.org/tag/django.html">django</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/orm.html">orm</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/migrations.html">migrations</a>    <h1><a href="https://blog.notmyidea.org/changing-the-primary-key-of-a-model-in-django.html" id="page-title">Changing the primary key of a model in&nbsp;Django</a></h1>
+    <p>I had to change the primary key of a django model, and I wanted to create a migration for this.
+The previous model was using django&nbsp;ids.</p>
+<p>The migrations will need to do the following&nbsp;things:</p>
+<ul>
+<li>Create a new <code>uuid</code> field/column in the&nbsp;database</li>
+<li>Iterate over the existing items …</li></ul>
+</section>
+<section class="section index">
     <time datetime="2024-02-12T00:00:00+01:00">12 février 2024</time>
 
         <a class='tag' href="https://blog.notmyidea.org/tag/umap.html">umap</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/geojson.html">geojson</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/websockets.html">websockets</a>    <h1><a href="https://blog.notmyidea.org/adding-collaboration-on-umap-third-update.html" id="page-title">Adding collaboration on uMap, third&nbsp;update</a></h1>
@@ -108,14 +119,8 @@ sudo<span class="w"> </span>diskutil<span class="w"> </span>eraseDisk<span class
         <a class='tag' href="https://blog.notmyidea.org/tag/python.html">Python</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/crdt.html">CRDT</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sync.html">Sync</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/umap.html">uMap</a>    <h1><a href="https://blog.notmyidea.org/adding-real-time-collaboration-to-umap-first-week.html" id="page-title">Adding Real-Time Collaboration to uMap, first&nbsp;week</a></h1>
     A heads-up on what I've been doing this week on uMap
 </section>
-<section class="section index">
-    <time datetime="2023-11-11T00:00:00+01:00">11 novembre 2023</time>
-
-        <a class='tag' href="https://blog.notmyidea.org/tag/datasette.html">Datasette</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/graphs.html">Graphs</a>,         <a class='tag' href="https://blog.notmyidea.org/tag/sql.html">SQL</a>    <h1><a href="https://blog.notmyidea.org/using-datasette-for-tracking-my-professional-activity.html" id="page-title">Using Datasette for tracking my professional&nbsp;activity</a></h1>
-    <p>I&#8217;ve been following Simon Willison since quite some time, but I&#8217;ve actually never played with his main project <a href="https://datasette.io">Datasette</a>&nbsp;before.</p>
-<p>As I&#8217;m going back into development, I&#8217;m trying to track where my time goes, to be able to find patterns, and just remember how much time …</p>
-</section>
 <ul>
+    <li><a href="https://blog.notmyidea.org/2023-semaine-49-et-50.html" rel="bookmark" title="Permalink to 2023, Semaine 49 et 50">2023, Semaine 49 et&nbsp;50</a></li>
     <li><a href="https://blog.notmyidea.org/rescuing-a-broken-asahi-linux-workstation.html" rel="bookmark" title="Permalink to Rescuing a broken asahi linux workstation">Rescuing a broken asahi linux&nbsp;workstation</a></li>
     <li><a href="https://blog.notmyidea.org/2023-semaine-48.html" rel="bookmark" title="Permalink to 2023, Semaine 48">2023, Semaine&nbsp;48</a></li>
     <li><a href="https://blog.notmyidea.org/2023-semaine-47.html" rel="bookmark" title="Permalink to 2023, Semaine 47">2023, Semaine&nbsp;47</a></li>

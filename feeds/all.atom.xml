@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-20T00:00:00+01:00</updated><entry><title>Notes hebdo #17</title><link href="https://blog.notmyidea.org/notes-hebdo-17.html" rel="alternate"></link><published>2024-02-20T00:00:00+01:00</published><updated>2024-02-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-20:/notes-hebdo-17.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/all.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-22T00:00:00+01:00</updated><entry><title>Changing the primary key of a model in Django</title><link href="https://blog.notmyidea.org/changing-the-primary-key-of-a-model-in-django.html" rel="alternate"></link><published>2024-02-22T00:00:00+01:00</published><updated>2024-02-22T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-22:/changing-the-primary-key-of-a-model-in-django.html</id><summary type="html">&lt;p&gt;I had to change the primary key of a django model, and I wanted to create a migration for this.
+The previous model was using django&amp;nbsp;ids.&lt;/p&gt;
+&lt;p&gt;The migrations will need to do the following&amp;nbsp;things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new &lt;code&gt;uuid&lt;/code&gt; field/column in the&amp;nbsp;database&lt;/li&gt;
+&lt;li&gt;Iterate over the existing items …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I had to change the primary key of a django model, and I wanted to create a migration for this.
+The previous model was using django&amp;nbsp;ids.&lt;/p&gt;
+&lt;p&gt;The migrations will need to do the following&amp;nbsp;things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new &lt;code&gt;uuid&lt;/code&gt; field/column in the&amp;nbsp;database&lt;/li&gt;
+&lt;li&gt;Iterate over the existing items in the table, to generate an uuid for&amp;nbsp;them&lt;/li&gt;
+&lt;li&gt;Update the eventual references to the model so that it continues to&amp;nbsp;work.&lt;/li&gt;
+&lt;li&gt;Change the old primary key to a different&amp;nbsp;type&lt;/li&gt;
+&lt;li&gt;Mark the new primary key as&amp;nbsp;such&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Create the new field in the&amp;nbsp;model&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class="n"&gt;uuid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UUIDField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unique&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;uuid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uuid4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;editable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To generate the migrations I did &lt;code&gt;django-admin makemigrations&lt;/code&gt;. The migration looks like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Running the tests, I figured out that the URLs will need to be updated as well. I found &lt;a href="https://gist.github.com/luzfcb/186ee28b368450035e056228615db999"&gt;a regexp for&amp;nbsp;UUIDs&lt;/a&gt;&lt;/p&gt;</content><category term="code"></category><category term="django"></category><category term="orm"></category><category term="migrations"></category></entry><entry><title>Notes hebdo #17</title><link href="https://blog.notmyidea.org/notes-hebdo-17.html" rel="alternate"></link><published>2024-02-20T00:00:00+01:00</published><updated>2024-02-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-20:/notes-hebdo-17.html</id><summary type="html">
 &lt;p&gt;Un super début de semaine, une perte d&amp;#8217;énergie puis du temps pour moi et de la lecture. Content de voir le chemin parcouru sur uMap depuis que j&amp;#8217;ai&amp;nbsp;commencé.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;

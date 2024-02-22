@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Tue, 20 Feb 2024 00:00:00 +0100</lastBuildDate><item><title>Notes hebdo #17</title><link>https://blog.notmyidea.org/notes-hebdo-17.html</link><description>
+<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Thu, 22 Feb 2024 00:00:00 +0100</lastBuildDate><item><title>Changing the primary key of a model in Django</title><link>https://blog.notmyidea.org/changing-the-primary-key-of-a-model-in-django.html</link><description>&lt;p&gt;I had to change the primary key of a django model, and I wanted to create a migration for this.
+The previous model was using django&amp;nbsp;ids.&lt;/p&gt;
+&lt;p&gt;The migrations will need to do the following&amp;nbsp;things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new &lt;code&gt;uuid&lt;/code&gt; field/column in the&amp;nbsp;database&lt;/li&gt;
+&lt;li&gt;Iterate over the existing items …&lt;/li&gt;&lt;/ul&gt;</description><pubDate>Thu, 22 Feb 2024 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2024-02-22:/changing-the-primary-key-of-a-model-in-django.html</guid><category>code</category><category>django</category><category>orm</category><category>migrations</category></item><item><title>Notes hebdo #17</title><link>https://blog.notmyidea.org/notes-hebdo-17.html</link><description>
 &lt;p&gt;Un super début de semaine, une perte d&amp;#8217;énergie puis du temps pour moi et de la lecture. Content de voir le chemin parcouru sur uMap depuis que j&amp;#8217;ai&amp;nbsp;commencé.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;
