@@ -5,6 +5,31 @@ template: worklog
 total_days: 25
 ---
 
+## Samedi 24 Février 2024 (4h, 5/5)
+
+J'ai suivi mon envie de creuser sur les CRDT, je sens qu'on est bientôt prêts pour
+pouvoir avancer sur le sujet, mais je manque d'une bonne compréhension des différentes
+libs, de ce qu'elles proposent (API), et de comment on va les utiliser.
+
+J'ai pris l'approche « article » et donc j'ai commencé la rédaction d'un article de
+comparaison des différentes approches (ce qu'attends NLNet, d'ailleurs). C'est chouette
+de voir que j'avance petit à petit, et que le chemin pour arriver à destination, même si
+il n'est pas complètement clair, est au moins visible.
+
+## Jeudi 22 Février 2024 (10h, 5/5)
+
+Une bonne grosse journée :-) J'ai avancé sur le changement vers des UUIDs pour
+les layers, je suis pas encore sur que ce soit la version finale mais ça avance
+dans la bonne direction. J'ai l'impression que je vais devoir aller voir d'un
+peu plus près les entrailles de Django et des migrations pour pouvoir récupérer
+le bon nom des contraintes qui sont générées par l'ORM.
+
+J'en ai profité pour remettre au gout du jour la PR sur les IDs des features, et
+pour commencer à travailler sur le problème du `Last-Modified` qui ne peut pas
+avoir plus d'une requête à la même seconde, ce qui nous cause des soucis.
+
+C'est chouette de faire quelques pull requests :-)
+
 ## Lundi 19 Février 2024 (8h, 4/5)
 
 Un bout de temps pour debugger des histoires d'agent ssh qui n'utilise plus la

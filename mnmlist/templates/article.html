@@ -1,38 +1,44 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} - {{ super() }}{% endblock %}
 {% block content %}
-
-<header>
-	{% if article.category == "Lectures" %}
-	{% if article.category == "Lectures" and article.isbn_cover %}
-	<div class="book-cover">
-		<img src="{{SITEURL}}/{{article.isbn_cover}}" />
-	</div>
-	{% endif %}
-	<h1 class="post-title">{{ article.title }}<small><br />par {{ article.author }}</small></h1>
-	{% if article.headline %}
-	<p><em>{{ article.headline }}</em></p>
-	{% endif %}
-	<time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
-	{% else %}
-	<h1 class="post-title">{{ article.title }}</h1>
-	{% if article.headline %}
-	<p><em>{{ article.headline }}</em></p>
-	{% endif %}
-	<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-	{% endif %}
-
-    
+    <header>
+        {% if article.category == "Lectures" %}
+            {% if article.category == "Lectures" and article.isbn_cover %}
+                <div class="book-cover">
+                    <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+                </div>
+            {% endif %}
+            <h1 class="post-title">
+                {{ article.title }}<small>
+                <br />
+            par {{ article.author }}</small>
+        </h1>
+        {% if article.headline %}
+            <p>
+                <em>{{ article.headline }}</em>
+            </p>
+        {% endif %}
+        <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+    {% else %}
+        <h1 class="post-title">{{ article.title }}</h1>
+        {% if article.headline %}
+            <p>
+                <em>{{ article.headline }}</em>
+            </p>
+        {% endif %}
+        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+    {% endif %}
 </header>
 <article>
     {{ article.content }}
-	{% if article.tags %}
-	<p>
-	  {% for tag in article.tags %}
-        <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-	  - Posté dans la catégorie <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-	</p>
-	{% endif %}
+    {% if article.tags %}
+        <p>
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>
+                {% if not loop.last %},{% endif %}
+            {% endfor %}
+            - Posté dans la catégorie <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        </p>
+    {% endif %}
 </article>
 {% endblock %}

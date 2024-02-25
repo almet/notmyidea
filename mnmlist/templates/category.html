@@ -1,44 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-{% if category in CATEGORIES_DESCRIPTION.keys() %}
-<h1>{{ CATEGORIES_DESCRIPTION[category][0] }}
-  <a id="feed" href="{{ SITEURL }}/feeds/{{ category.slug }}.atom.xml"><img src="{{ SITEURL }}/theme/rss.svg" /></a>
-</h1>
-<p>{{ CATEGORIES_DESCRIPTION[category][1] }}</p>
-{% else %}
-
-<h1> {{ category }}</h1>
-{% endif %}
-        <section class="section index">
-
-{% for article in articles | batch(10) | first %}
-<section class="section index">
-    {% if not HIDE_DATE %}
-    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-    {% endif %}
-
-    <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
-    {% if article.headline %}
-    {{ article.headline }}
+    {% if category in CATEGORIES_DESCRIPTION.keys() %}
+        <h1>
+            {{ CATEGORIES_DESCRIPTION[category][0] }}
+            <a id="feed" href="{{ SITEURL }}/feeds/{{ category.slug }}.atom.xml">
+                <img src="{{ SITEURL }}/theme/rss.svg" />
+            </a>
+        </h1>
+        <p>{{ CATEGORIES_DESCRIPTION[category][1] }}</p>
     {% else %}
-    {{ article.summary }}
+        <h1>{{ category }}</h1>
     {% endif %}
-    <br />
-	  {% for tag in article.tags %}
-        <a class='tag' href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-</section>
-{% endfor %}
-<ul>
-{% for batch in articles | batch(10) %}
-    {% if not loop.first %}
-      {% for article in batch %}
-
-      <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{
-              article.title }}</a></li>
-      {% endfor %}
-    {% endif %}
-{% endfor %}
-</ul>
-</section>
+    <section class="section index">
+        {% if category != "lectures" %}
+            <ul>
+                {% for year, year_articles in articles | groupby('date.year') | reverse %}
+                    <h2>{{ year }}</h2>
+                    {% for article in year_articles %}
+                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title}}</a>,
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            {% for article in articles %}
+                <div class="book">
+                    {% if article.category == "Lectures" and article.isbn_cover %}
+                        <div class="book-cover">
+                            <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+                        </div>
+                    {% endif %}
+                    <h1 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><small> <br /> par {{ article.author }}</small> </h1>
+                    {% if article.headline %}
+                        <p> <em>{{ article.headline }}</em> </p>
+                    {% endif %}
+                    <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+                </div>
+                <hr />
+        {% endfor %}
+    </section>
+{% endif %}
 {% endblock %}

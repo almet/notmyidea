@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<header>
-  <h1>Archives</h1>
-</header>
-<section id="content" class="body">
-<dl>
-{% for year, articles in dates | groupby("date.year") | reverse %}
-    <dt>{{ year }}</dt>
-    {% for article in articles %}
-      <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
-    {% endfor %}
-{% endfor %}
-</dl>
-</section>
+    <header>
+        <h1>Archives</h1>
+    </header>
+    <section id="content" class="body">
+        <dl>
+            {% for year, articles in dates | groupby("date.year") | reverse %}
+                <dt>{{ year }}</dt>
+                {% for article in articles %}
+                    <dd>
+                        <a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a>
+                    </dd>
+                {% endfor %}
+            {% endfor %}
+        </dl>
+    </section>
 {% endblock %}
