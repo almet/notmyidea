@@ -42,36 +42,80 @@ Changing the primary key of a model in&nbsp;Django - Alexis Métaireau        </
                         </li>
                 </ul>
             </section>
-
-<header>
-	<h1 class="post-title">Changing the primary key of a model in&nbsp;Django</h1>
-	<time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
-
-    
+    <header>
+        <h1 class="post-title">Changing the primary key of a model in&nbsp;Django</h1>
+        <time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
 </header>
 <article>
-    <p>I had to change the primary key of a django model, and I wanted to create a migration for this.
-The previous model was using django&nbsp;ids.</p>
-<p>The migrations will need to do the following&nbsp;things:</p>
+    <p>I had to change the primary key of a django model, and I wanted to create a
+migration for&nbsp;this.</p>
+<p>The previous model was using django <a href="https://
+docs.djangoproject.com/en/5.0/topics/db/models/#automatic-primary-key-fields">automatic primary key&nbsp;fields</a></p>
+<p>I firstly changed the model to include the new <code>uuid</code> field, and added the <code>id</code>
+field (the old primary key), like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span>
+        <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Then I create the migration,&nbsp;they:</p>
 <ul>
 <li>Create a new <code>uuid</code> field/column in the&nbsp;database</li>
 <li>Iterate over the existing items in the table, to generate an uuid for&nbsp;them</li>
-<li>Update the eventual references to the model so that it continues to&nbsp;work.</li>
+<li>Update the eventual references to the model so that it continues to&nbsp;work</li>
 <li>Change the old primary key to a different&nbsp;type</li>
+<li>Drop the old&nbsp;index</li>
 <li>Mark the new primary key as&nbsp;such</li>
 </ul>
-<p>Create the new field in the&nbsp;model</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div>
+<p>To generate the migrations I did <code>django-admin makemigrations</code>, and iterated on
+it. Here is the migration I ended up&nbsp;with:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uuid</span>
 
-<p>To generate the migrations I did <code>django-admin makemigrations</code>. The migration looks like&nbsp;this:</p>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">migrations</span><span class="p">,</span> <span class="n">models</span>
 
-<p>Running the tests, I figured out that the URLs will need to be updated as well. I found <a href="https://gist.github.com/luzfcb/186ee28b368450035e056228615db999">a regexp for&nbsp;UUIDs</a></p>
-	<p>
-        <a href="https://blog.notmyidea.org/tag/django.html">#django</a>,         <a href="https://blog.notmyidea.org/tag/orm.html">#orm</a>,         <a href="https://blog.notmyidea.org/tag/migrations.html">#migrations</a>	  - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
-	</p>
+<span class="c1"># This is done in pure python, but can probably be faster with SQL queries directly</span>
+<span class="c1"># for a large database.</span>
+<span class="k">def</span> <span class="nf">gen_uuid</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+    <span class="n">DataLayer</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">&quot;umap&quot;</span><span class="p">,</span> <span class="s2">&quot;DataLayer&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">DataLayer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update_fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">])</span>
+
+
+<span class="k">class</span> <span class="nc">Migration</span><span class="p">(</span><span class="n">migrations</span><span class="o">.</span><span class="n">Migration</span><span class="p">):</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;umap&quot;</span><span class="p">,</span> <span class="s2">&quot;0017_migrate_to_openstreetmap_oauth2&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">operations</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">AddField</span><span class="p">(</span>
+            <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;datalayer&quot;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="p">),</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">RunPython</span><span class="p">(</span><span class="n">gen_uuid</span><span class="p">,</span> <span class="n">reverse_code</span><span class="o">=</span><span class="n">migrations</span><span class="o">.</span><span class="n">RunPython</span><span class="o">.</span><span class="n">noop</span><span class="p">),</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">RunSQL</span><span class="p">(</span>
+            <span class="s2">&quot;ALTER TABLE umap_datalayer DROP CONSTRAINT umap_datalayer_pkey&quot;</span>
+        <span class="p">),</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">AlterField</span><span class="p">(</span>
+            <span class="s2">&quot;datalayer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">AlterField</span><span class="p">(</span>
+            <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;datalayer&quot;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span>
+                <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+</code></pre></div>
+        <p>
+                <a href="https://blog.notmyidea.org/tag/django.html">#django</a>
+,                <a href="https://blog.notmyidea.org/tag/orm.html">#orm</a>
+,                <a href="https://blog.notmyidea.org/tag/migrations.html">#migrations</a>
+            - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+        </p>
 </article>
             <footer>
                 <a id="feed" href="/feeds/all.atom.xml">

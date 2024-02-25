@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Tue, 20 Feb 2024 00:00:00 +0100</lastBuildDate><item><title>Notes hebdo #17</title><link>https://blog.notmyidea.org/notes-hebdo-17.html</link><description>
+<rss version="2.0"><channel><title>Alexis Métaireau</title><link>https://blog.notmyidea.org/</link><description></description><lastBuildDate>Sun, 25 Feb 2024 00:00:00 +0100</lastBuildDate><item><title>Notes hebdo #18</title><link>https://blog.notmyidea.org/notes-hebdo-18.html</link><description>
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai terminé mon expérimentation sur la synchronisation, ça fonctionne en mode « démo » et ça me donne une compréhension du code suffisante pour avancer sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à discuter avec Aurélie de comment faire pour la partie expérience utilisateur·ice. C …&lt;/dd&gt;&lt;/dl&gt;</description><pubDate>Sun, 25 Feb 2024 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2024-02-25:/notes-hebdo-18.html</guid><category>weeknotes</category></item><item><title>Using uuids in URLs in a Django app</title><link>https://blog.notmyidea.org/using-uuids-in-urls-in-a-django-app.html</link><description>&lt;p&gt;After adding a regexp for uuids (which are quite hard to regexp for), I
+discovered that Django &lt;a href="https://docs.djangoproject.com/
+en/5.0/topics/http/urls/#path-converters"&gt;offers path converters&lt;/a&gt;, making this a piece of&amp;nbsp;cake.&lt;/p&gt;
+&lt;p&gt;I was using old school &lt;code&gt;re_path&lt;/code&gt; paths in my &lt;code&gt;urls.py&lt;/code&gt;, but it&amp;#8217;s possible to
+replace them with &lt;code&gt;path&lt;/code&gt;, like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;url_patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;path …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><pubDate>Thu, 22 Feb 2024 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:blog.notmyidea.org,2024-02-22:/using-uuids-in-urls-in-a-django-app.html</guid><category>code</category><category>django</category><category>urls</category><category>uuid</category></item><item><title>Notes hebdo #17</title><link>https://blog.notmyidea.org/notes-hebdo-17.html</link><description>
 &lt;p&gt;Un super début de semaine, une perte d&amp;#8217;énergie puis du temps pour moi et de la lecture. Content de voir le chemin parcouru sur uMap depuis que j&amp;#8217;ai&amp;nbsp;commencé.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;

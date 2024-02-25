@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-20T00:00:00+01:00</updated><entry><title>Notes hebdo #17</title><link href="https://blog.notmyidea.org/notes-hebdo-17.html" rel="alternate"></link><published>2024-02-20T00:00:00+01:00</published><updated>2024-02-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-20:/notes-hebdo-17.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexis Métaireau</title><link href="https://blog.notmyidea.org/" rel="alternate"></link><link href="https://blog.notmyidea.org/feeds/.atom.xml" rel="self"></link><id>https://blog.notmyidea.org/</id><updated>2024-02-25T00:00:00+01:00</updated><entry><title>Notes hebdo #18</title><link href="https://blog.notmyidea.org/notes-hebdo-18.html" rel="alternate"></link><published>2024-02-25T00:00:00+01:00</published><updated>2024-02-25T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-25:/notes-hebdo-18.html</id><summary type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai terminé mon expérimentation sur la synchronisation, ça fonctionne en mode « démo » et ça me donne une compréhension du code suffisante pour avancer sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à discuter avec Aurélie de comment faire pour la partie expérience utilisateur·ice. C …&lt;/dd&gt;&lt;/dl&gt;</summary><content type="html">
+&lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;strong&gt;🗺️ &lt;a href="https://umap-projet.org"&gt;uMap&lt;/a&gt;&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai terminé mon expérimentation sur la synchronisation, ça fonctionne en mode « démo » et ça me donne une compréhension du code suffisante pour avancer sur le&amp;nbsp;sujet.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai commencé à discuter avec Aurélie de comment faire pour la partie expérience utilisateur·ice. C&amp;#8217;est chouette parce que je connais mal cette partie. Hâte d&amp;#8217;avancer la dessus&amp;nbsp;!&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai proposé quelques modifications pour ajouter des identifiants uniques, &lt;a href="https://github.com/umap-project/umap/pull/1649"&gt;pour chaque feature&lt;/a&gt;, et &lt;a href="https://github.com/umap-project/umap/pull/1630"&gt;pour chaque layer&lt;/a&gt;.&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai avancé sur le choix des bibliothèques pour la partie &lt;span class="caps"&gt;CRDT&lt;/span&gt;, plutôt que d&amp;#8217;avancer sur un protocole maison comme j&amp;#8217;ai pu le faire par le passé. Ce n&amp;#8217;est pas encore clair, mais je me donne un cadre d&amp;#8217;analyse qui me parait intéressant, et en lien avec ce qu&amp;#8217;on avait décidé pour la proposition à NLNet (ce qui me permettra d&amp;#8217;être&amp;nbsp;payé)&lt;/dd&gt;
+&lt;dt&gt;🎵 &lt;strong&gt;Musique&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;On a travaillé sur la musique du solo de clown d&amp;#8217;Emeline, et repris le travail entamé l&amp;#8217;année dernière. J&amp;#8217;ai fait des changements pour utiliser la vue « session » d&amp;#8217;Ableton, pour que la musique s&amp;#8217;adapte à son jeu et pas&amp;nbsp;l&amp;#8217;inverse. &lt;/dd&gt;
+&lt;dd&gt;On a relancé les défis artistiques avec Sam et Sim: on se donne des contraintes et on réalise une musique avec. &lt;a href="https://soundcloud.com/the-lost-triangle/du-souffle"&gt;J&amp;#8217;ai passé un bon moment&lt;/a&gt;, reggae style&amp;nbsp;:-)&lt;/dd&gt;
+&lt;dd&gt;Je continue la fanfare et c&amp;#8217;est toujours aussi plaisant. Avoir le temps de travailler avant les répétions, c&amp;#8217;est&amp;nbsp;génial.&lt;/dd&gt;
+&lt;dt&gt;🧰 &lt;strong&gt;Réparations,&amp;nbsp;etc&lt;/strong&gt;&lt;/dt&gt;
+&lt;dd&gt;J&amp;#8217;ai prolongé la durée de vie d&amp;#8217;un macbook pro 7,1 (de 2011) grâce au travail de &lt;a href="https://dortania.github.io/OpenCore-Legacy-Patcher/"&gt;Open Core Legacy Patcher&lt;/a&gt; et cette &lt;a href="https://gist.github.com/wolfiediscord/d02d5d30898c8cacd6b5c1ab83af95b9#Discord-Servers-for-Support"&gt;liste de&amp;nbsp;conseils&lt;/a&gt;&lt;/dd&gt;
+&lt;dd&gt;J&amp;#8217;ai profité du travail pour le clown d&amp;#8217;Emeline pour faire remarcher un vieux launchpad, dans l&amp;#8217;espoir qu&amp;#8217;il permette de ne pas être rivé à l&amp;#8217;écran en cadre « live&amp;nbsp;»&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id="des-joies"&gt;Des joies&amp;nbsp;🤗&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Discuter méthodologie avec Aurélie, pour savoir comment intégrer la fonctionnalité de collaboration dans uMap. Content de m&amp;#8217;éloigner un instant de la technique pour essayer d&amp;#8217;avoir un regard un plus global sur ce que j&amp;#8217;essaye de&amp;nbsp;faire.&lt;/li&gt;
+&lt;li&gt;Prendre du plaisir à travailler sur des aspects techniques pour&amp;nbsp;uMap.&lt;/li&gt;
+&lt;li&gt;Faire plusieurs sessions de &lt;em&gt;pair programming&lt;/em&gt; et de discussions avec différentes personnes dans la même&amp;nbsp;journée.&lt;/li&gt;
+&lt;li&gt;Proposer mon aide de manière concrète à des gens qui me l&amp;#8217;avaient demandé au fil d&amp;#8217;une discussion, et ne m&amp;#8217;avaient pas relancés. C&amp;#8217;était chouette de m&amp;#8217;organiser pour rendre ça&amp;nbsp;possible.&lt;/li&gt;
+&lt;li&gt;Comprendre mes besoins, proposer une discussion simple pour éviter les malentendus et passer à autre chose une fois le sujet&amp;nbsp;clos.&lt;/li&gt;
+&lt;li&gt;Reprendre le sport ! C&amp;#8217;était bien, même j&amp;#8217;ai un peu mal&amp;nbsp;partout.&lt;/li&gt;
+&lt;li&gt;Me réserver du temps personnel pour lire, jouer et accepter que c&amp;#8217;est ce dont j&amp;#8217;ai&amp;nbsp;besoin.&lt;/li&gt;
+&lt;li&gt;Je continue d&amp;#8217;adorer aller au brass band. Quel plaisir de retrouver un espace de jeu musical, en toute&amp;nbsp;bienveillance.&lt;/li&gt;
+&lt;li&gt;Réussir à dépasser un petit conflit en mettant fin à la discussion après plusieurs tentatives pour clarifier mon&amp;nbsp;besoin.&lt;/li&gt;
+&lt;li&gt;Lire la nuit, prendre des notes et avoir le temps de dormir le lendemain matin.&amp;nbsp;#oiseaudenuit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="des-peines"&gt;Des peines&amp;nbsp;😬&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;J&amp;#8217;aurais aimé avoir plus de temps pour avancer en pair avec les collègues. J&amp;#8217;aimerai trouver des créneaux qui sont plus propices au travail un peu suivi. Trouver le rythme n&amp;#8217;est pas toujours évident à deux jours par semaine sur&amp;nbsp;uMap.&lt;/li&gt;
+&lt;li&gt;Je me sens parfois perdre mes moyens quand je travaille en pair, j&amp;#8217;aimerai mieux comprendre ce qui se passe chez moi, et que le regard de l&amp;#8217;autre prenne moins de place pour arriver sur des échanges plus sereins et&amp;nbsp;fluides.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vu-lu-etc"&gt;Vu, Lu,&amp;nbsp;etc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🍿 Vu « La crise » de Coline Serreau, avec au moins &lt;a href="https://www.youtube.com/watch?v=YxwWFIkXcuA"&gt;deux&lt;/a&gt; &lt;a href="https://www.youtube.com/watch?v=rIP7e0IZL9I"&gt;extraits&lt;/a&gt;&amp;nbsp;mémorables.&lt;/li&gt;
+&lt;li&gt;🍿 Vu « Sans jamais nous connaitre », avec Andrew Scott et Paul Mescal. Malgré quelques longueurs j&amp;#8217;ai trouvé le film intéressant, beaucoup de tendresse et d&amp;#8217;amour. Beaucoup de tristesse&amp;nbsp;aussi.&lt;/li&gt;
+&lt;li&gt;⏯ &lt;a href="https://www.youtube.com/watch?app=desktop&amp;amp;v=PrWDrTLB7fU&amp;amp;feature=youtu.be"&gt;Sortir du capitalisme, mode d&amp;#8217;emploi, sur blast&lt;/a&gt; avec des modèles économiques alternatifs. Le premier modèle concerne une approche à travers l&amp;#8217;investissement, et comment cet investissement pourraient être géré de manière démocratique plutôt que d&amp;#8217;être laissé à la « main invisible du marché ». Je suis un peu triste de ne pas voir le sujet de la prise de décision plus creusé, ça me semble être un point crucial laissé pour le moment en attente. L&amp;#8217;interviewé s&amp;#8217;en sort avec une galipette en disant que c&amp;#8217;est parce que les gens n&amp;#8217;ont jamais tenté d&amp;#8217;utiliser ça, et qu&amp;#8217;en pratique c&amp;#8217;est très simple, et j&amp;#8217;avoue avoir un autre rapport au&amp;nbsp;sujet.&lt;/li&gt;
+&lt;li&gt;⏯ &lt;a href="https://fosdem.org/2024/schedule/event/fosdem-2024-3009-advances-in-garage-the-low-tech-storage-platform-for-geo-distributed-clusters/"&gt;Une conférence sur Garage&lt;/a&gt;, de &lt;a href="https://deuxfleurs.fr"&gt;deuxfleurs&lt;/a&gt;, un outil pour faciliter le stockage de données de manière décentralisée. Ça donne vraiment envie d&amp;#8217;essayer de mettre en place quelque chose de similaire&amp;nbsp;!&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.radiofrance.fr/franceculture/podcasts/les-pieds-sur-terre/hacking-sauvage-7643861"&gt;Les pieds sur terre, Hacking Sauvage&lt;/a&gt;, un épisode qui parle de harcèlement numérique. Assez dingue et&amp;nbsp;révoltant.&lt;/li&gt;
+&lt;li&gt;🎧 &lt;a href="https://www.youtube.com/watch?v=BgC68CR1qN4"&gt;&lt;span class="caps"&gt;K.O.&lt;/span&gt; pour le véganisme ? - Valéry Giroux (Épisode spécial)&lt;/a&gt;, un épisode de podcast qui vient parler de l&amp;#8217;anti spécisme du point de vue&amp;nbsp;philosophique.&lt;/li&gt;
+&lt;li&gt;🎵Redécouvert &lt;a href="https://babel-label.bandcamp.com/track/ho-chi-minh"&gt;&lt;span class="caps"&gt;HERMIA&lt;/span&gt; &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;CECCALDI&lt;/span&gt; &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;DARRIFOURCQ&lt;/span&gt;&lt;/a&gt; avec leur album de free jazz « God at the casino ».&amp;nbsp;Génial.&lt;/li&gt;
+&lt;li&gt;🎵Découvert &lt;a href="https://www.youtube.com/watch?v=KRT-tIn9yeE"&gt;Craven Faults&lt;/a&gt;, de la musique ambiant progressive qui me rappelle &lt;a href="https://www.youtube.com/watch?v=yLuOzNeHw5I"&gt;des vibes de Archive / Lights&lt;/a&gt;. Si vous êtes en recherche de concentration et que vous aimez la répétition, en voici 26&amp;nbsp;minutes.&lt;/li&gt;
+&lt;li&gt;📖 J&amp;#8217;ai continué « Oser la confiance&amp;nbsp;»&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="notes"&gt;Notes&lt;/h2&gt;
+&lt;h3 id="le-principe-de-shirky"&gt;Le principe de&amp;nbsp;Shirky&lt;/h3&gt;
+&lt;p&gt;Je découvre via Jan Wildeboer &lt;a href="https://effectiviology.com/shirky-principle/"&gt;le « principe de Shirky »&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;em&gt;Shirky principle&lt;/em&gt; is the adage that “institutions will try to preserve the problem to which they are the solution”. More broadly, it can also be characterized as the adage that “every entity tends to prolong the problem it is&amp;nbsp;solving”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Je trouve ça intéressant de comparer ça à l&amp;#8217;« homéostasie » (merci&amp;nbsp;Thomas):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En biologie et en systémique, l’homéostasie est un phénomène par lequel un facteur clé (par exemple, la température) est maintenu autour d&amp;#8217;une valeur bénéfique pour le système considéré, grâce à un processus de&amp;nbsp;régulation. &lt;/p&gt;
+&lt;p&gt;– &lt;a href="https://fr.wikipedia.org/wiki/Hom%C3%A9ostasie"&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="bluesky-mastodon"&gt;Bluesky &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt;&amp;nbsp;Mastodon&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Composable moderation:&lt;/strong&gt; Moderation on Bluesky is not tied to your server, like it is on Mastodon. Defederation, a way of addressing moderation issues in Mastodon by disconnecting servers, is not as relevant on Bluesky because there are other layers to the system. Server operators can set rules for what content they will host, but tools like blocklists and moderation services are what help communities self-organize around moderation preferences. We’ve already integrated block and mute lists, and the tooling for independent moderation services is coming&amp;nbsp;soon.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Composable feeds:&lt;/strong&gt; We designed your timeline on Bluesky so that it’s not tied to your server. Anyone can build a feed, and there are currently over 40,000 algorithmic feeds to choose from. Your Mastodon timeline is only made up of posts from accounts you follow, and does not pull together posts from the whole network like Bluesky’s custom&amp;nbsp;feeds.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Account portability:&lt;/strong&gt; We designed federated hosting on Bluesky so that you can move servers easily. Moving hosting services should be like changing your cell phone provider — you should be able to keep your identity and data. Changing servers on Bluesky doesn’t disrupt your username, friends, or&amp;nbsp;posts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;—&amp;nbsp;https://bsky.social/about/blog/02-22-2024-open-social-web&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Je ne voulais pas regarder du côté de Bluesky tant que les promesses (de fédération) n&amp;#8217;étaient pas concrètes. Je suis content de voir que c&amp;#8217;est fédéré, open source, et que ça réponds à certains besoins de la communauté d&amp;#8217;une manière&amp;nbsp;différente.&lt;/p&gt;
+&lt;p&gt;Plusieurs retours me font mieux comprendre ce que Mastodon permet et terme de protection et de soin des&amp;nbsp;usagers.&lt;/p&gt;
+&lt;p&gt;Un retour&amp;nbsp;intéressant:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As someone who belongs to several identities which are often the target of hate, &lt;strong&gt;I do not actually want a global conversation, or moderation services that let me block users or content.&lt;/strong&gt;
+&lt;em&gt;I do not want to be on the same network as the people who hate me.&lt;/em&gt;
+&amp;#8220;Global conversation&amp;#8221; is great for some people. It&amp;#8217;s really bad for&amp;nbsp;others.&lt;/p&gt;
+&lt;p&gt;https://mastodon.social/@tess/111977331532402530&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bluesky travaille plutôt à rendre des espaces publics et fédérés, sans prendre en compte les aspects de différente visibilité des&amp;nbsp;messages.&lt;/p&gt;
+&lt;p&gt;C&amp;#8217;est ce qui semble ressortir &lt;a href="https://bsky.social/about/blog/5-19-2023-user-faq"&gt;dans leur &lt;span class="caps"&gt;FAQ&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Bluesky is a public social network. Think of your posts as blog posts – &lt;strong&gt;anyone on the web can see them&lt;/strong&gt;, even those without an invite code.
+[&amp;#8230;]
+Specifically:
+- &lt;strong&gt;Posts and likes are public.&lt;/strong&gt;
+&lt;strong&gt;- Blocks are public.&lt;/strong&gt;
+- Mutes are private, but mutelists are public lists. Your mutelist subscriptions are private.
+- Invites and invite trees are&amp;nbsp;private.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Je n&amp;#8217;arrive pas encore à y voir clair sur l&amp;#8217;approche prise par Bluesky concernant la modération. Est-ce que c&amp;#8217;est remettre à l&amp;#8217;utilisateur les clés de la modération (avec la charge émotionnelle et politique qui va avec) ? A&amp;nbsp;suivre.&lt;/p&gt;</content><category term="weeknotes"></category></entry><entry><title>Using uuids in URLs in a Django app</title><link href="https://blog.notmyidea.org/using-uuids-in-urls-in-a-django-app.html" rel="alternate"></link><published>2024-02-22T00:00:00+01:00</published><updated>2024-02-22T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-22:/using-uuids-in-urls-in-a-django-app.html</id><summary type="html">&lt;p&gt;After adding a regexp for uuids (which are quite hard to regexp for), I
+discovered that Django &lt;a href="https://docs.djangoproject.com/
+en/5.0/topics/http/urls/#path-converters"&gt;offers path converters&lt;/a&gt;, making this a piece of&amp;nbsp;cake.&lt;/p&gt;
+&lt;p&gt;I was using old school &lt;code&gt;re_path&lt;/code&gt; paths in my &lt;code&gt;urls.py&lt;/code&gt;, but it&amp;#8217;s possible to
+replace them with &lt;code&gt;path&lt;/code&gt;, like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;url_patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;path …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;After adding a regexp for uuids (which are quite hard to regexp for), I
+discovered that Django &lt;a href="https://docs.djangoproject.com/
+en/5.0/topics/http/urls/#path-converters"&gt;offers path converters&lt;/a&gt;, making this a piece of&amp;nbsp;cake.&lt;/p&gt;
+&lt;p&gt;I was using old school &lt;code&gt;re_path&lt;/code&gt; paths in my &lt;code&gt;urls.py&lt;/code&gt;, but it&amp;#8217;s possible to
+replace them with &lt;code&gt;path&lt;/code&gt;, like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;url_patterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;datalayer/&amp;lt;int:map_id&amp;gt;/&amp;lt;uuid:pk&amp;gt;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataLayerView&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;datalayer_view&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A few default path converters are defined (str, int, slug, uuid, path), but it&amp;#8217;s
+also possible to define your own, as specified in the&amp;nbsp;docs.&lt;/p&gt;</content><category term="code"></category><category term="django"></category><category term="urls"></category><category term="uuid"></category></entry><entry><title>Notes hebdo #17</title><link href="https://blog.notmyidea.org/notes-hebdo-17.html" rel="alternate"></link><published>2024-02-20T00:00:00+01:00</published><updated>2024-02-20T00:00:00+01:00</updated><author><name></name></author><id>tag:blog.notmyidea.org,2024-02-20:/notes-hebdo-17.html</id><summary type="html">
 &lt;p&gt;Un super début de semaine, une perte d&amp;#8217;énergie puis du temps pour moi et de la lecture. Content de voir le chemin parcouru sur uMap depuis que j&amp;#8217;ai&amp;nbsp;commencé.&lt;/p&gt;
 &lt;h2 id="ce-qui-sest-passe"&gt;Ce qui s&amp;#8217;est&amp;nbsp;passé&lt;/h2&gt;
 &lt;dl&gt;

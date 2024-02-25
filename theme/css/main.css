@@ -13,7 +13,7 @@
 :root {
   --main-bg-color: #ffffff;
   --border-color: #ACACAC;
-  --code-bg-color: #e5e5e2;
+  --code-bg-color: #f6f6f6;
   --quote-bg-color: #f6f6f6;
   --link-color: #BB7DD4;
   --text-color: #2d2d2d;
@@ -196,7 +196,6 @@ a {
   color: inherit;
   text-decoration-color: var(--link-color);
   text-decoration-thickness: 3px;
-  font-weight: 600;
 }
 
 a:hover {
@@ -253,7 +252,6 @@ header a {
 
 header h1 {
   margin-bottom: 30px;
-  display: inline-block;
 }
 
 
@@ -329,6 +327,14 @@ section.index h1 {
   padding-bottom: 10px;
 }
 
+p code {
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; 
+  background: var(--code-bg-color);
+  padding: 2px 4px;
+  font-size: .9em;
+  line-height: 1;
+  border-radius: 6px;
+}
 
 .note {
   background: var(--code-bg-color);

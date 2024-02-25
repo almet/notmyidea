@@ -12,9 +12,9 @@ uMap - Alexis Métaireau        </title>
               type="application/atom+xml"
               rel="alternate"
               title="Alexis Métaireau ATOM Feed" />
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     </head>
     <body>
         <div id="content">
@@ -45,53 +45,61 @@ uMap - Alexis Métaireau        </title>
                         </li>
                 </ul>
             </section>
-  <header>
-    <h1 class="post-title">uMap</h1>
-    <details>
-      <summary>Stats</summary>
-        <div>
-▓▓▓▓▓▓▓▓▓▓▓▓▓          138% (242h / 175 prévues)
-        </div>
-        <ul>
-          <li>242h rémunérées</li>
-          <li>4h bénévoles</li>
-        </ul>
-      <table>
-        <thead>
-          <tr>
-            <td>Mois</td>
-            <td>Heures</td>
-            <td>Jours</td>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td>2024/02</td>
-              <td>43</td>
-              <td>6.1</td>
-            </tr>
-            <tr>
-              <td>2024/01</td>
-              <td>70</td>
-              <td>10.0</td>
-            </tr>
-            <tr>
-              <td>2023/12</td>
-              <td>56</td>
-              <td>8.0</td>
-            </tr>
-            <tr>
-              <td>2023/11</td>
-              <td>73</td>
-              <td>10.4</td>
-            </tr>
-        </tbody>
-      </table>
-    </details>
-  </header>
-  <article>
-    <div id="vis"></div>
-    <h2 id="jeudi-22-fevrier-2024">🗓️ Jeudi 22 février&nbsp;2024</h2>
+    <header>
+        <h1 class="post-title">uMap</h1>
+        <details>
+            <summary>Stats</summary>
+                <div>
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    141% (246h / 175 prévues)
+                </div>
+                <ul>
+                    <li>246h rémunérées</li>
+                    <li>4h bénévoles</li>
+                </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Mois</td>
+                        <td>Heures</td>
+                        <td>Jours</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>2024/02</td>
+                            <td>47</td>
+                            <td>6.7</td>
+                        </tr>
+                        <tr>
+                            <td>2024/01</td>
+                            <td>70</td>
+                            <td>10.0</td>
+                        </tr>
+                        <tr>
+                            <td>2023/12</td>
+                            <td>56</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td>2023/11</td>
+                            <td>73</td>
+                            <td>10.4</td>
+                        </tr>
+                </tbody>
+            </table>
+        </details>
+    </header>
+    <article>
+        <div id="vis"></div>
+        <h2 id="samedi-24-fevrier-2024">🗓️ Samedi 24 février&nbsp;2024</h2>
+<p>J&#8217;ai suivi mon envie de creuser sur les <span class="caps">CRDT</span>, je sens qu&#8217;on est bientôt prêts pour
+pouvoir avancer sur le sujet, mais je manque d&#8217;une bonne compréhension des différentes
+libs, de ce qu&#8217;elles proposent (<span class="caps">API</span>), et de comment on va les&nbsp;utiliser.</p>
+<p>J&#8217;ai pris l&#8217;approche « article » et donc j&#8217;ai commencé la rédaction d&#8217;un article de
+comparaison des différentes approches (ce qu&#8217;attends NLNet, d&#8217;ailleurs). C&#8217;est chouette
+de voir que j&#8217;avance petit à petit, et que le chemin pour arriver à destination, même si
+il n&#8217;est pas complètement clair, est au moins&nbsp;visible.</p>
+<h2 id="jeudi-22-fevrier-2024">🗓️ Jeudi 22 février&nbsp;2024</h2>
 <p>Une bonne grosse journée :-) J&#8217;ai avancé sur le changement vers des UUIDs pour
 les layers, je suis pas encore sur que ce soit la version finale mais ça avance
 dans la bonne direction. J&#8217;ai l&#8217;impression que je vais devoir aller voir d&#8217;un
@@ -332,8 +340,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
 <li>Commencé à rédiger un document avec les différentes options pour faire de la&nbsp;synchro</li>
 <li>Fais des recherches sur les différentes options pour faire de la&nbsp;synchro</li>
 </ul>
-  </article>
-  <script>
+    </article>
+    <script>
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 500,
@@ -342,6 +350,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2024-02-24", "series": "Rémunéré", "count": 4},
+            {"date": "2024-02-24", "series": "Bénévole", "count": 0},
             {"date": "2024-02-22", "series": "Rémunéré", "count": 10},
             {"date": "2024-02-22", "series": "Bénévole", "count": 0},
             {"date": "2024-02-19", "series": "Rémunéré", "count": 8},
@@ -454,7 +464,7 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
     	// result.view provides access to the Vega View API
       .then(result => console.log(result))
       .catch(console.warn);
-  </script>
+    </script>
             <footer>
                 <a id="feed" href="/feeds/all.atom.xml">
                     <img alt="RSS Logo" src="/theme/rss.svg" />

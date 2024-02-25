@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+CRDTs - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+    <header>
+        <h1 class="post-title">CRDTs</h1>
+        <time datetime="2024-02-24T00:00:00+01:00">24 février 2024</time>
+</header>
+<article>
+    <p>As discussed in a previous article, I&#8217;m now able to send messages
+when markers are added, or properties are updated on the&nbsp;map.</p>
+<p>So far, the way I&#8217;ve added collaboration features on uMap is by a) catching when
+changes are done on the interface, b) sending messages to the other party and c)
+applying the changes on the receiving&nbsp;client.</p>
+<p>This works well in general, but it doesn&#8217;t take care of conflicts handling,
+especially when disconnection can&nbsp;happen.</p>
+<p>One way to do this is to use CRDTs (Conflict-free Resolution Data Types).
+You can see CRDTs as a specific type of data that&#8217;s able to merge its state with
+other states without generating conflicts. Append-only sets are probably the
+most common type of <span class="caps">CRDT</span>: if multiple parties add the same element, it will be
+present only once, because it&#8217;s how sets&nbsp;work.</p>
+<h2 id="requirements">Requirements</h2>
+<p>I&#8217;m looking for something&nbsp;that:</p>
+<ul>
+<li><strong>Stores key/value pairs</strong>, for most of the case, a Last Writer Wins (<span class="caps">LWW</span>)
+  register might be&nbsp;enough</li>
+<li><strong>Propagates the changes</strong> to another&nbsp;party</li>
+<li><strong>Handles disconnections</strong>, so that it&#8217;s possible to reconcialiate local
+  changes with remote ones when getting back&nbsp;online</li>
+</ul>
+<p>The <span class="caps">API</span> could be as simple as&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// A callback is called when new values are received</span>
+<span class="c1">// We would obviously need a way to distinguish between local and remote changes</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Store</span><span class="p">(</span><span class="nx">onUpdate</span><span class="o">=</span><span class="nx">callback</span><span class="p">)</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>One thing that I would like to clarify is how does these lib work when peers get offline, and back online. I suppose I will want something&nbsp;like:</p>
+<ol>
+<li>When you loose the connection, you continue to apply the changes locally, but
+messages are piling&nbsp;up</li>
+<li>When you&#8217;re getting back online, you need a way to sync with other clients.
+One way to handle this is to ask the other peers for changes since the last
+known update, and then reapply your changes, which should&nbsp;sync.</li>
+</ol>
+<h2 id="whats-the-complexity-about">What&#8217;s the complexity&nbsp;about?</h2>
+<p>CRDTs are intimidating. When trying to understand what&#8217;s going on, I felt I was
+missing some context. A lot of terms aren&#8217;t familiar to me, and as such, it&#8217;s easy
+to feel a bit&nbsp;lost.</p>
+<p>It turns out that what I&#8217;m trying to do is rather simple. Don&#8217;t get me wrong,
+CRDTs are solving a hard problem, but mainly they&#8217;re solving a problem we don&#8217;t
+have: lists. We&#8217;re mainly interested in maps and&nbsp;registers.</p>
+<h2 id="yata-and-rga"><span class="caps">YATA</span> and <span class="caps">RGA</span></h2>
+<p>The two popular CRDTs implementation out there use different approaches for the
+virtual&nbsp;counter:</p>
+<blockquote>
+<ul>
+<li><span class="caps">RGA</span> maintains a single globally incremented counter (which can be ordinary
+  integer value), that&#8217;s updated anytime we detect that remote insert has an id
+  with sequence number higher that local counter. Therefore every time, we produce
+  a new insert operation, we give it a highest counter value known at the&nbsp;time.</li>
+<li><span class="caps">YATA</span> also uses a single integer value, however unlike in case of <span class="caps">RGA</span> we
+  don&#8217;t use a single counter shared with other replicas, but rather let each
+  peer keep its own, which is incremented monotonically only by that peer. Since
+  increments are monotonic, we can also use them to detect missing operations eg.
+  updates marked as A:1 and A:3 imply, that there must be another (potentially
+  missing) update A:2.Y.js and&nbsp;Automerge.</li>
+</ul>
+</blockquote>
+<h2 id="yjs">Y.js</h2>
+<p><span class="caps">YJS</span> uses <span class="caps">YATA</span> (Yet Another Transformation Approach), which is a delta-state based&nbsp;variant.</p>
+<p>The <span class="caps">API</span> seem to offer what we look for, and provides a way to <a href="https://docs.yjs.dev/api/shared-types/y.map#observing-changes-y.mapevent">observe&nbsp;changes</a></p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Y</span><span class="p">.</span><span class="nx">Doc</span><span class="p">()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ydoc</span><span class="p">.</span><span class="nx">getMap</span><span class="p">()</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">observe</span><span class="p">((</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// read the keys that changed</span>
+<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">keysChanged</span>
+
+<span class="w">  </span><span class="c1">// If I need to iterate on the keys, or get the old values, it&#39;s possible.</span>
+<span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">changes</span><span class="p">.</span><span class="nx">keys</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">change</span><span class="p">,</span><span class="w"> </span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">map</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>Pros:</p>
+<ul>
+<li>Awareness&nbsp;support</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li></li>
+</ul>
+<h2 id="automerge">Automerge</h2>
+<p>The <span class="caps">API</span> looks like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">repo</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="p">})</span>
+</code></pre></div>
+
+<h3 id="pros">Pros</h3>
+<ul>
+<li><a href="https://automerge.org/docs/documents/conflicts/">get informed when a conflict&nbsp;occured</a></li>
+<li><a href="https://automerge.org/docs/repositories/ephemeral/">an <span class="caps">API</span> to send ephemeral&nbsp;messages</a></li>
+</ul>
+<h3 id="cons">Cons</h3>
+<ul>
+<li>Documentation hard to understand. I didn&#8217;t see what&#8217;s getting passed to the
+callback for observers, for&nbsp;instance.</li>
+</ul>
+<h2 id="json-joy"><span class="caps">JSON</span>&nbsp;Joy</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="nx">Model</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;json-joy/es2020/json-crdt&#39;</span><span class="p">;</span>
+
+<span class="c1">// Create a new JSON CRDT document.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Model</span><span class="p">.</span><span class="nx">withLogicalClock</span><span class="p">();</span>
+
+<span class="c1">// Find &quot;obj&quot; object node at path [].</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">model</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">obj</span><span class="p">([]);</span>
+
+<span class="c1">// Overwrite the &quot;counter&quot; last-write-wins register to 25.</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span><span class="w"> </span><span class="nx">counter</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+
+<p>Pros:</p>
+<ul>
+<li>Low&nbsp;level</li>
+<li>Atomic&nbsp;libraries</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Doesn&#8217;t provide high level interface for&nbsp;sync</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<p><span class="caps">YATA</span> / <span class="caps">RGA</span> are two different types of&nbsp;CRDTs, </p>
+<p>There are two types of CRDTs: state-based (convergent) and operation-based&nbsp;(commutative).</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Size</th>
+<th>Bundler</th>
+<th>Conflicts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/yjs/yjs">Y.js</a></td>
+<td><span class="caps">YATA</span></td>
+<td>Not sure</td>
+<td><a href="https://github.com/yjs/yjs/issues/282">required</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://automerge.org">Automerge</a></td>
+<td><span class="caps">RGA</span></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://jsonjoy.com">Json Joy</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rxdb.info/crdt.html"><span class="caps">RXDB</span></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://www.bartoszsypytkowski.com/the-state-of-a-state-based-crdts/">Bartosz Sypytkowski</a> introduction on CRDTs, with practical
+exemples is very&nbsp;intuitive.</li>
+<li><a href="https://jzhao.xyz/thoughts/CRDT-Implementations#replicated-growable-array-rga"></a></li>
+</ul>
+        <p>
+                <a href="https://blog.notmyidea.org/tag/crdts.html">#crdts</a>
+,                <a href="https://blog.notmyidea.org/tag/umap.html">#umap</a>
+,                <a href="https://blog.notmyidea.org/tag/sync.html">#sync</a>
+            - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+        </p>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

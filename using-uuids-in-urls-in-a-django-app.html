@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>
+Using uuids in URLs in a Django&nbsp;app - Alexis Métaireau        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://blog.notmyidea.org/theme/css/main.css?v2"
+              type="text/css" />
+        <link href="https://blog.notmyidea.org/feeds/all.atom.xml"
+              type="application/atom+xml"
+              rel="alternate"
+              title="Alexis Métaireau ATOM Feed" />
+    </head>
+    <body>
+        <div id="content">
+            <section id="links">
+                <ul>
+                            <li>
+                                <a class="main" href="/">Alexis Métaireau</a>
+                            </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/journal/index.html">Journal</a>
+                        </li>
+                        <li>
+                            <a class="selected"
+                               href="https://blog.notmyidea.org/code/">Code, etc.</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/weeknotes/">Notes hebdo</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/lectures/">Lectures</a>
+                        </li>
+                        <li>
+                            <a class=""
+                               href="https://blog.notmyidea.org/projets.html">Projets</a>
+                        </li>
+                </ul>
+            </section>
+    <header>
+        <h1 class="post-title">Using uuids in URLs in a Django&nbsp;app</h1>
+        <time datetime="2024-02-22T00:00:00+01:00">22 février 2024</time>
+</header>
+<article>
+    <p>After adding a regexp for uuids (which are quite hard to regexp for), I
+discovered that Django <a href="https://docs.djangoproject.com/
+en/5.0/topics/http/urls/#path-converters">offers path converters</a>, making this a piece of&nbsp;cake.</p>
+<p>I was using old school <code>re_path</code> paths in my <code>urls.py</code>, but it&#8217;s possible to
+replace them with <code>path</code>, like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">url_patterns</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">path</span><span class="p">(</span>
+        <span class="s2">&quot;datalayer/&lt;int:map_id&gt;/&lt;uuid:pk&gt;/&quot;</span><span class="p">,</span>
+        <span class="n">views</span><span class="o">.</span><span class="n">DataLayerView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;datalayer_view&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>A few default path converters are defined (str, int, slug, uuid, path), but it&#8217;s
+also possible to define your own, as specified in the&nbsp;docs.</p>
+        <p>
+                <a href="https://blog.notmyidea.org/tag/django.html">#django</a>
+,                <a href="https://blog.notmyidea.org/tag/urls.html">#urls</a>
+,                <a href="https://blog.notmyidea.org/tag/uuid.html">#uuid</a>
+            - Posté dans la catégorie <a href="https://blog.notmyidea.org/code/">code</a>
+        </p>
+</article>
+            <footer>
+                <a id="feed" href="/feeds/all.atom.xml">
+                    <img alt="RSS Logo" src="/theme/rss.svg" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>
