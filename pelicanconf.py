@@ -63,4 +63,8 @@ CATEGORIES_DESCRIPTION = {
         "Carnet de notes",
         "Prises bien souvent en regardant une vidéo ou un article en ligne. Je les mets ici pour pouvoir les retrouver quand le besoin se fait sentir.",
     ),
+    "ecriture": (
+        "Écriture",
+        "Textes rédigés lors d'ateliers d'écriture",
+    ),
 }

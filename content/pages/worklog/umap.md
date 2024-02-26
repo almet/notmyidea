@@ -5,6 +5,12 @@ template: worklog
 total_days: 25
 ---
 
+## Lundi 26 Février 2024 (10h, 5/5)
+
+J'ai continué le passage vers les uuids pour les datalayers, le matin j'ai finalement trouvé un moyen de récupérer le nom de la contrainte, et l'après midi on a passé un peu de temps avec yohan pour faire de la migration de données pour les utilisateurs qui font un usage un peu détourné des datalayers (en les utilisant en remoteUrl).
+
+Weekly, et puis on a discuté avec David et Yohan de comment on pourrait faire évoluer le formbuilder dans le futur. Une des pistes serait de faire des forms un peu à la django, qui pourraient ensuite se rendre de manière automatique. On a discuté du fait de passer sur une formule HTML un peu plus directe (plutôt que de manipuler le DOM en JavaScript), mais pour le moment on reste la dessus.
+
 ## Samedi 24 Février 2024 (4h, 5/5)
 
 J'ai suivi mon envie de creuser sur les CRDT, je sens qu'on est bientôt prêts pour
