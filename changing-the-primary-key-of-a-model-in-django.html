@@ -59,14 +59,13 @@ field (the old primary key), like&nbsp;this:</p>
     <span class="nb">id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Then I create the migration,&nbsp;they:</p>
+<p>Then I created the migration,&nbsp;it:</p>
 <ul>
-<li>Create a new <code>uuid</code> field/column in the&nbsp;database</li>
-<li>Iterate over the existing items in the table, to generate an uuid for&nbsp;them</li>
-<li>Update the eventual references to the model so that it continues to&nbsp;work</li>
+<li>Adds a new <code>uuid</code> field/column in the&nbsp;database</li>
+<li>Iterate over the existing items in the table, and generates an uuid for&nbsp;them</li>
 <li>Change the old primary key to a different&nbsp;type</li>
 <li>Drop the old&nbsp;index</li>
-<li>Mark the new primary key as&nbsp;such</li>
+<li>Mark the new uuid as a primary&nbsp;key.</li>
 </ul>
 <p>To generate the migrations I did <code>django-admin makemigrations</code>, and iterated on
 it. Here is the migration I ended up&nbsp;with:</p>
@@ -74,41 +73,64 @@ it. Here is the migration I ended up&nbsp;with:</p>
 
 <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">migrations</span><span class="p">,</span> <span class="n">models</span>
 
-<span class="c1"># This is done in pure python, but can probably be faster with SQL queries directly</span>
-<span class="c1"># for a large database.</span>
-<span class="k">def</span> <span class="nf">gen_uuid</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
-    <span class="n">DataLayer</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">&quot;umap&quot;</span><span class="p">,</span> <span class="s2">&quot;DataLayer&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">DataLayer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update_fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">])</span>
-
-
 <span class="k">class</span> <span class="nc">Migration</span><span class="p">(</span><span class="n">migrations</span><span class="o">.</span><span class="n">Migration</span><span class="p">):</span>
     <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;umap&quot;</span><span class="p">,</span> <span class="s2">&quot;0017_migrate_to_openstreetmap_oauth2&quot;</span><span class="p">),</span>
     <span class="p">]</span>
 
     <span class="n">operations</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1"># Add the new uuid field</span>
         <span class="n">migrations</span><span class="o">.</span><span class="n">AddField</span><span class="p">(</span>
             <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;datalayer&quot;</span><span class="p">,</span>
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
-            <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span>
+                <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">serialize</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">),</span>
         <span class="p">),</span>
-        <span class="n">migrations</span><span class="o">.</span><span class="n">RunPython</span><span class="p">(</span><span class="n">gen_uuid</span><span class="p">,</span> <span class="n">reverse_code</span><span class="o">=</span><span class="n">migrations</span><span class="o">.</span><span class="n">RunPython</span><span class="o">.</span><span class="n">noop</span><span class="p">),</span>
-        <span class="n">migrations</span><span class="o">.</span><span class="n">RunSQL</span><span class="p">(</span>
-            <span class="s2">&quot;ALTER TABLE umap_datalayer DROP CONSTRAINT umap_datalayer_pkey&quot;</span>
-        <span class="p">),</span>
+        <span class="c1"># Generate UUIDs for existing records</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">RunSQL</span><span class="p">(</span><span class="s2">&quot;UPDATE umap_datalayer SET uuid = gen_random_uuid()&quot;</span><span class="p">),</span>
+        <span class="c1"># Remove the primary key constraint</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">RunSQL</span><span class="p">(</span><span class="s2">&quot;ALTER TABLE umap_datalayer DROP CONSTRAINT umap_datalayer_pk&quot;</span><span class="p">),</span>
+        <span class="c1"># Drop the &quot;id&quot; primary key…</span>
         <span class="n">migrations</span><span class="o">.</span><span class="n">AlterField</span><span class="p">(</span>
             <span class="s2">&quot;datalayer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="p">),</span>
+        <span class="c1"># … to put it back on the &quot;uuid&quot;</span>
         <span class="n">migrations</span><span class="o">.</span><span class="n">AlterField</span><span class="p">(</span>
             <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;datalayer&quot;</span><span class="p">,</span>
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
             <span class="n">field</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">UUIDField</span><span class="p">(</span>
-                <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span> <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span>
+                <span class="n">default</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">,</span>
+                <span class="n">editable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">serialize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">),</span>
     <span class="p">]</span>
+</code></pre></div>
+
+<h2 id="generating-uuids-in-pure-python">Generating UUIDs in pure&nbsp;python</h2>
+<p>The uuid generation can also be done with pure python, like this. It works with all databases, but might be slower. Use it with <code>migrations.RunPython()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">gen_uuid</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+    <span class="n">DataLayer</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">&quot;umap&quot;</span><span class="p">,</span> <span class="s2">&quot;DataLayer&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">DataLayer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update_fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uuid&quot;</span><span class="p">])</span>
+</code></pre></div>
+
+<h2 id="getting-the-constraint-name">Getting the constraint&nbsp;name</h2>
+<p>One of the things that took me some time is to have a way to get the constraint name before removing it. I wanted to do this with the Django <span class="caps">ORM</span>, but I didn&#8217;t find how. So here is how in plain <span class="caps">SQL</span>. This only works with PostgreSQL,&nbsp;though.</p>
+<div class="highlight"><pre><span></span><code><span class="n">migrations</span><span class="o">.</span><span class="n">RunSQL</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">DO $$</span>
+<span class="s2">BEGIN</span>
+<span class="s2">    EXECUTE &#39;ALTER TABLE umap_datalayer DROP CONSTRAINT &#39; || (</span>
+<span class="s2">        SELECT indexname</span>
+<span class="s2">        FROM pg_indexes</span>
+<span class="s2">        WHERE tablename = &#39;umap_datalayer&#39; AND indexname LIKE &#39;%pkey&#39;</span>
+<span class="s2">    );</span>
+<span class="s2">END $$;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">),</span>
 </code></pre></div>
         <p>
                 <a href="https://blog.notmyidea.org/tag/django.html">#django</a>

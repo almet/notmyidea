@@ -50,10 +50,10 @@ uMap - Alexis Métaireau        </title>
         <details>
             <summary>Stats</summary>
                 <div>
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    141% (246h / 175 prévues)
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    146% (256h / 175 prévues)
                 </div>
                 <ul>
-                    <li>246h rémunérées</li>
+                    <li>256h rémunérées</li>
                     <li>4h bénévoles</li>
                 </ul>
             <table>
@@ -67,8 +67,8 @@ uMap - Alexis Métaireau        </title>
                 <tbody>
                         <tr>
                             <td>2024/02</td>
-                            <td>47</td>
-                            <td>6.7</td>
+                            <td>57</td>
+                            <td>8.1</td>
                         </tr>
                         <tr>
                             <td>2024/01</td>
@@ -91,7 +91,10 @@ uMap - Alexis Métaireau        </title>
     </header>
     <article>
         <div id="vis"></div>
-        <h2 id="samedi-24-fevrier-2024">🗓️ Samedi 24 février&nbsp;2024</h2>
+        <h2 id="lundi-26-fevrier-2024">🗓️ Lundi 26 février&nbsp;2024</h2>
+<p>J&#8217;ai continué le passage vers les uuids pour les datalayers, le matin j&#8217;ai finalement trouvé un moyen de récupérer le nom de la contrainte, et l&#8217;après midi on a passé un peu de temps avec yohan pour faire de la migration de données pour les utilisateurs qui font un usage un peu détourné des datalayers (en les utilisant en&nbsp;remoteUrl).</p>
+<p>Weekly, et puis on a discuté avec David et Yohan de comment on pourrait faire évoluer le formbuilder dans le futur. Une des pistes serait de faire des forms un peu à la django, qui pourraient ensuite se rendre de manière automatique. On a discuté du fait de passer sur une formule <span class="caps">HTML</span> un peu plus directe (plutôt que de manipuler le <span class="caps">DOM</span> en JavaScript), mais pour le moment on reste la&nbsp;dessus.</p>
+<h2 id="samedi-24-fevrier-2024">🗓️ Samedi 24 février&nbsp;2024</h2>
 <p>J&#8217;ai suivi mon envie de creuser sur les <span class="caps">CRDT</span>, je sens qu&#8217;on est bientôt prêts pour
 pouvoir avancer sur le sujet, mais je manque d&#8217;une bonne compréhension des différentes
 libs, de ce qu&#8217;elles proposent (<span class="caps">API</span>), et de comment on va les&nbsp;utiliser.</p>
@@ -350,6 +353,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2024-02-26", "series": "Rémunéré", "count": 10},
+            {"date": "2024-02-26", "series": "Bénévole", "count": 0},
             {"date": "2024-02-24", "series": "Rémunéré", "count": 4},
             {"date": "2024-02-24", "series": "Bénévole", "count": 0},
             {"date": "2024-02-22", "series": "Rémunéré", "count": 10},
