@@ -5,11 +5,24 @@ template: worklog
 total_days: 25
 ---
 
+## Jeudi 29 Février 2024 (9h, 4/5)
+
+J'ai intégré les changements faits sur mes pull requests en cours, puis je suis passé sur la recherche d'un correctif pour les `Last-Modified` qui n'ont une résolution qu'à la seconde, ce qui peut poser souci dans certains cas, si il y a des éditions concurrentes.
+
+J'ai un peu challengé le fait d'utiliser des `Etag`, que je trouve plus élégants (et standards), mais pour le moment je suis parti sur une version avec des headers maison, en attendant qu'on se mette d'accord sur la marche à suivre. C'était intéressant de discuter de ça parce que ça m'a permis de découvrir quelques problèmes dans le code, concernant la gestion du "concurrency control".
+
+Les versions étaient générés à deux endroits différents (une fois avec la date de dernière mise à jour du fichier, le `mtime`) et une fois avec un appel à `time.time() * 1000` dans le code, ce qui peut expliquer pourquoi il y avait des ratés dans la réconciliation des versions. C'était chouette de demander de l'aide sur la fin de session, tout était en place pour débugger, mais j'avais le cerveau frit. A deux, on a trouvé facilement :-)
+
+C'était même doublement intéressant d'amener le sujet des `ETag` parce que ça permet de faire remonter le fait que Yohan n'est parfois pas à l'aise avec les changements vu que c'est qui fait la maintenance du site derrière. Un sujet intéressant à creuser je pense. Content de mettre la main dessus : -)
+
+On s'est rendu compte à la fin de la session que les tests étaient bons, mais que lorsque les édits arrivent exactement au même moment, il y a une race condition: une seule des deux requêtes peut être au courant que la première à été modifiée, et donc des éditions peuvent se perdre. On se dit que c'est très peu probable dans la réalité, alors on passe outre. Peu-être qu'on pourrait regarder du côté d'un lock sur une méthode specifique (avec des arguments specifiques). 
 ## Lundi 26 Février 2024 (10h, 5/5)
 
 J'ai continué le passage vers les uuids pour les datalayers, le matin j'ai finalement trouvé un moyen de récupérer le nom de la contrainte, et l'après midi on a passé un peu de temps avec yohan pour faire de la migration de données pour les utilisateurs qui font un usage un peu détourné des datalayers (en les utilisant en remoteUrl).
 
 Weekly, et puis on a discuté avec David et Yohan de comment on pourrait faire évoluer le formbuilder dans le futur. Une des pistes serait de faire des forms un peu à la django, qui pourraient ensuite se rendre de manière automatique. On a discuté du fait de passer sur une formule HTML un peu plus directe (plutôt que de manipuler le DOM en JavaScript), mais pour le moment on reste la dessus.
+
+Je continue le soir et je rends possible le fait d'appliquer les migrations dans l'autre sens. Je reprends doucement sur les différentes libs CRDT, l'idée étant de retravailler sur le code de démo que j'avais commencé en arrivant.
 
 ## Samedi 24 Février 2024 (4h, 5/5)
 
