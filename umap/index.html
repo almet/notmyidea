@@ -50,10 +50,10 @@ uMap - Alexis Métaireau        </title>
         <details>
             <summary>Stats</summary>
                 <div>
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    146% (256h / 175 prévues)
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    151% (265h / 175 prévues)
                 </div>
                 <ul>
-                    <li>256h rémunérées</li>
+                    <li>265h rémunérées</li>
                     <li>4h bénévoles</li>
                 </ul>
             <table>
@@ -67,8 +67,8 @@ uMap - Alexis Métaireau        </title>
                 <tbody>
                         <tr>
                             <td>2024/02</td>
-                            <td>57</td>
-                            <td>8.1</td>
+                            <td>66</td>
+                            <td>9.4</td>
                         </tr>
                         <tr>
                             <td>2024/01</td>
@@ -91,7 +91,13 @@ uMap - Alexis Métaireau        </title>
     </header>
     <article>
         <div id="vis"></div>
-        <h2 id="lundi-26-fevrier-2024">🗓️ Lundi 26 février&nbsp;2024</h2>
+        <h2 id="jeudi-29-fevrier-2024">🗓️ Jeudi 29 février&nbsp;2024</h2>
+<p>J&#8217;ai intégré les changements faits sur mes pull requests en cours, puis je suis passé sur la recherche d&#8217;un correctif pour les <code>Last-Modified</code> qui n&#8217;ont une résolution qu&#8217;à la seconde, ce qui peut poser souci dans certains cas, si il y a des éditions&nbsp;concurrentes.</p>
+<p>J&#8217;ai un peu challengé le fait d&#8217;utiliser des <code>Etag</code>, que je trouve plus élégants (et standards), mais pour le moment je suis parti sur une version avec des headers maison, en attendant qu&#8217;on se mette d&#8217;accord sur la marche à suivre. C&#8217;était intéressant de discuter de ça parce que ça m&#8217;a permis de découvrir quelques problèmes dans le code, concernant la gestion du &#8220;concurrency&nbsp;control&#8221;.</p>
+<p>Les versions étaient générés à deux endroits différents (une fois avec la date de dernière mise à jour du fichier, le <code>mtime</code>) et une fois avec un appel à <code>time.time() * 1000</code> dans le code, ce qui peut expliquer pourquoi il y avait des ratés dans la réconciliation des versions. C&#8217;était chouette de demander de l&#8217;aide sur la fin de session, tout était en place pour débugger, mais j&#8217;avais le cerveau frit. A deux, on a trouvé facilement&nbsp;:-)</p>
+<p>C&#8217;était même doublement intéressant d&#8217;amener le sujet des <code>ETag</code> parce que ça permet de faire remonter le fait que Yohan n&#8217;est parfois pas à l&#8217;aise avec les changements vu que c&#8217;est qui fait la maintenance du site derrière. Un sujet intéressant à creuser je pense. Content de mettre la main dessus :&nbsp;-)</p>
+<p>On s&#8217;est rendu compte à la fin de la session que les tests étaient bons, mais que lorsque les édits arrivent exactement au même moment, il y a une race condition: une seule des deux requêtes peut être au courant que la première à été modifiée, et donc des éditions peuvent se perdre. On se dit que c&#8217;est très peu probable dans la réalité, alors on passe outre. Peu-être qu&#8217;on pourrait regarder du côté d&#8217;un lock sur une méthode specifique (avec des arguments&nbsp;specifiques). </p>
+<h2 id="lundi-26-fevrier-2024">🗓️ Lundi 26 février&nbsp;2024</h2>
 <p>J&#8217;ai continué le passage vers les uuids pour les datalayers, le matin j&#8217;ai finalement trouvé un moyen de récupérer le nom de la contrainte, et l&#8217;après midi on a passé un peu de temps avec yohan pour faire de la migration de données pour les utilisateurs qui font un usage un peu détourné des datalayers (en les utilisant en&nbsp;remoteUrl).</p>
 <p>Weekly, et puis on a discuté avec David et Yohan de comment on pourrait faire évoluer le formbuilder dans le futur. Une des pistes serait de faire des forms un peu à la django, qui pourraient ensuite se rendre de manière automatique. On a discuté du fait de passer sur une formule <span class="caps">HTML</span> un peu plus directe (plutôt que de manipuler le <span class="caps">DOM</span> en JavaScript), mais pour le moment on reste la&nbsp;dessus.</p>
 <p>Je continue le soir et je rends possible le fait d&#8217;appliquer les migrations dans l&#8217;autre sens. Je reprends doucement sur les différentes libs <span class="caps">CRDT</span>, l&#8217;idée étant de retravailler sur le code de démo que j&#8217;avais commencé en&nbsp;arrivant.</p>
@@ -354,6 +360,8 @@ J&#8217;ai passé un peu plus de temps à comprendre en profondeur le code de me
         {
           "name": "table",
           "values": [
+            {"date": "2024-02-29", "series": "Rémunéré", "count": 9},
+            {"date": "2024-02-29", "series": "Bénévole", "count": 0},
             {"date": "2024-02-26", "series": "Rémunéré", "count": 10},
             {"date": "2024-02-26", "series": "Bénévole", "count": 0},
             {"date": "2024-02-24", "series": "Rémunéré", "count": 4},
