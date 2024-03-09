@@ -13,30 +13,41 @@
     {% endif %}
     <section class="section index">
         {% if category != "lectures" %}
-            <ul>
-                {% for year, year_articles in articles | groupby('date.year') | reverse %}
-                    <h2>{{ year }}</h2>
+            {% for year, year_articles in articles | groupby('date.year') | reverse %}
+                <h2>Articles de {{ year }}</h2>
+                <ul>
                     {% for article in year_articles %}
-                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title}}</a>{% if not loop.last %} · {% endif %}
+                        <li>
+                            <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a>
+                            {% for tag in article.tags %}<div class="tag">{{ tag }}</div>{% endfor %}
+                        </li>
                     {% endfor %}
-                {% endfor %}
-            </ul>
+                </ul>
+            {% endfor %}
         {% else %}
             {% for article in articles %}
-                <div class="book">
+                <div class="book-container">
                     {% if article.category == "Lectures" and article.isbn_cover %}
                         <div class="book-cover">
                             <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
                         </div>
                     {% endif %}
-                    <h1 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><small> <br /> par {{ article.author }}</small> </h1>
-                    {% if article.headline %}
-                        <p> <em>{{ article.headline }}</em> </p>
-                    {% endif %}
-                    <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+                    <div class="book">
+                        <h1 class="post-title">
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><small>
+                                <br />
+                            par {{ article.author }}</small>
+                        </h1>
+                        {% if article.headline %}
+                            <p>
+                                <em>{{ article.headline }}</em>
+                            </p>
+                        {% endif %}
+                        <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+                    </div>
                 </div>
                 <hr />
-        {% endfor %}
-    </section>
-{% endif %}
+            {% endfor %}
+        </section>
+    {% endif %}
 {% endblock %}

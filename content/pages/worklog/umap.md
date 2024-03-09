@@ -4,6 +4,25 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+## Vendredi 8 Mars 2024 (7h, 5/5)
+
+J'ai refais une passe rapide sur les PR en cours d'intégration, et j'en ai profité pour m'assurer que le merge des features entre les anciennes versions (sans ids) et les nouvelles (avec ids) vont pouvoir fonctionner. Je suis content de voir que c'était déjà prévu dans le code d'origine, ouf, une chose de moins à se soucier.
+
+Je continue l'article sur les CRDTs, et j'en vois bientôt le bout. Il me manque certaines données comme la consommation de bande passante que j'aimerai bien rajouter, il me semble que c'est pertinent. J'ai aussi envie de regarder d'un peu plus près le protocole de synchronisation avec Websocket, pour voir ce qui transite.
+
+## Jeudi 7 Mars 2024 (3h, 5/5)
+
+J'ai avancé sur l'article de blog sur les CRDTs, puis j'ai continué à travailler sur l'intégration d'automerge, puis de jsonjoy. J'ai bloqué sur certains petits trucs. L'équipe d'automerge est vraiment top et prompte à aider, je m'étais fait la réflexion il y a quelques temps déjà.
+
+Pur jsonjoy, c'est une autre paire de manche. Je n'arrive pas à comprendre ce qui ne fonctionne pas, j'ai fait une demande sur le github, on verra ou ça mène.
+
+## Mercredi 6 Mars 2024 (2h, 4/5)
+
+J'ai codé un prototype qui utilise Y.js pour faire de la synchro d'une carte leaflet assez basique. Ça fonctionne. J'ai pris des notes sur le fonctionnement pour l'article de blog de résumé.
+
+## Mardi 5 Mars 2024 (2h, 4/5)
+
+Je travaille depuis Barcelone cette semaine. J'ai fait une passe ce matin sur les pull request en attente, et j'ai fait quelques changements dessus, en intégrant les retours de David et Yohan.
 
 ## Jeudi 29 Février 2024 (9h, 4/5)
 

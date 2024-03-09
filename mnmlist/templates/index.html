@@ -1,36 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>
-        {% block pagetitle %}{% endblock %}
-    </h1>
-    {% if articles %}
-        {% for article in articles | rejectattr("category", "in", ['weeknotes']) | batch(10) | first %}
-            <section class="section index">
-                {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
-                {% for tag in article.tags %}
-                    <a class='tag' href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-                    {% if not loop.last %},{% endif %}
+    <article>
+        <p>
+            👋 <strong>Bienvenue par ici</strong>, je suis Alexis, un développeur intéressé par les
+            dynamiques collectives, les libertés numériques et la&nbsp;facilitation.
+        </p>
+        <p>
+            Vous retrouverez sur ce site <a href="/weeknotes">mes notes hebdomadaires</a>, quelques
+            <a href="/journal">billets de blog</a>, des <a href="/lectures">notes de lectures</a>, <a href="/code">des bouts
+                de code</a> et <a href="/ecriture">textes</a> que je veux garder quelque part. Bonne lecture&nbsp;!
+            </p>
+            <p>
+                Pour me contacter, envoyez-moi un email sur <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).
+            </p>
+            </article>
+            {% if articles %}
+            <hr />
+            <h2>Les derniers articles</h2>
+            <ul>
+                {% for article in articles[0:20] %}
+                    <li>
+                        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
+                        {% set category_description =  CATEGORIES_DESCRIPTION.get(article.category)[0] %}
+                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
+                    </li>
                 {% endfor %}
-                <h1>
-                    <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a>
-                </h1>
-                {% if article.headline %}
-                    {{ article.headline }}
-                {% else %}
-                    {{ article.summary }}
-                {% endif %}
-            </section>
-        {% endfor %}
-        <ul>
-            {% for article in articles[10:] %}
-                <li>
-                    <a href="{{ SITEURL }}/{{ article.url }}"
-                       rel="bookmark"
-                       title="Permalink to {{ article.title|striptags }}">{{
-                    article.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-{% endif %}
+            </ul>
+            <a href="archives.html">Voir tous les articles</a>
+            <hr />
+    {% endif %}
 {% endblock content %}

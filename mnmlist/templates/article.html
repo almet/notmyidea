@@ -3,22 +3,26 @@
 {% block content %}
     <header>
         {% if article.category == "Lectures" %}
-            {% if article.category == "Lectures" and article.isbn_cover %}
-                <div class="book-cover">
-                    <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+                <div class="book-container">
+                    <div class="book">
+                        <h1 class="post-title">
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><small>
+                                <br />
+                            par {{ article.author }}</small>
+                        </h1>
+                        {% if article.headline %}
+                            <p>
+                                <em>{{ article.headline }}</em>
+                            </p>
+                        {% endif %}
+                        <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+                    </div>
+                    {% if article.category == "Lectures" and article.isbn_cover %}
+                        <div class="book-cover">
+                            <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-            <h1 class="post-title">
-                {{ article.title }}<small>
-                <br />
-            par {{ article.author }}</small>
-        </h1>
-        {% if article.headline %}
-            <p>
-                <em>{{ article.headline }}</em>
-            </p>
-        {% endif %}
-        <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
     {% else %}
         <h1 class="post-title">{{ article.title }}</h1>
         {% if article.headline %}

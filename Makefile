@@ -10,6 +10,6 @@ regenerate:
 publish:
 	.v/bin/pelican -s publishconf.py
 	echo "blog.notmyidea.org" > output/CNAME
-	.v/bin/ghp-import -n output
-	git push origin gh-pages
+
+	rsync -qazP output/. notmyidea:blog.notmyidea.org/
 	git push

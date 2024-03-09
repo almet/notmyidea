@@ -1,5 +1,5 @@
 /*
-    Theme Name: mnmlist modified by leplatrem
+    Theme Name: mnmlist modified by almet
     Theme URI: http://mathieu.agopian.info/mnmlist/theme.html
     Description: Theme adapted from http://mnmlist.com/theme/ from Leo Babauta, a very clean minimalist theme, without comments, search, archives or other features.
     Author: Mathieu Agopian, Mathieu Leplatre, Alexis Métaireau
@@ -103,9 +103,14 @@ h4 {
 }
 
 time {
-  font-weight: bold;
   border-bottom: 1px solid;
-  padding-bottom: 10px;
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace; 
+}
+
+.book-container{
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  align-items: start;
 }
 
 img {
@@ -203,10 +208,18 @@ a:hover {
 }
 
 a.tag {
-  background-color: var(--highlight);
   border-radius: 5px;
   padding: 0 .1rem;
   text-decoration: none;
+}
+
+.tag {
+  border-radius: 5px;
+  padding: 0 .1rem;
+  font-size: 0.7em;
+  text-decoration: none;
+  display: inline-block;
+
 }
 
 a.tag:hover {
@@ -465,10 +478,11 @@ a[data-size='5'] {
 }
 
 .book-cover {
-  float: right;
-  padding-right: 1em;
   max-width: 128px;
   max-height: 192px;
+  margin: auto;
+  margin-top: 2em;
+  padding-right: 0.5em;
 }
 
 

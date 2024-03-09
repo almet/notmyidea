@@ -14,8 +14,7 @@ Voici quelques logiciels que j'ai initié, ou bien auxquels j'ai participé. Vou
 
 [Copanier](https://github.com/spiral-project/copanier) (2019-2024)
 : Un logiciel web créé en 2019, qui permet d'organiser des groupements
-d'achats. Ce logiciel à d'abord été écrit par [Yohan
-Boniface](https://yohanboniface.me/) et je l'ai ensuite repris et adapté à
+d'achats. J'ai repris et adapté le logiciel pour
 l'usage d'un groupement auquel je participe. ([codé en python](https://github.com/almet/copanier))
 
 [I Hate Money](http://ihatemoney.org) (2011-2023)
@@ -60,6 +59,52 @@ valeurs de coopération, de partage et de gastronomie. J'en suis parti à l'ét�
 d'un réseau d'associations « porteuses de projets en environnement ». Un bon
 moyen de rencontrer d'autres personnes animées par des valeurs collectivistes,
 et de chercher à s'organiser contre l'artificialisation du monde.
+
+---
+
+## 🌟 Valeurs et intérets
+
+Logiciel Libre
+: Je travaille pour et avec du logiciel libre depuis des années. C'est à la
+fois un plaisir et une évidence. J'ai pu rencontrer un état d'esprit et une
+culture d'ouverture dont j'aurais du mal à me passer !
+
+Coopération et médiation
+: J'aime travailler en collaboration avec d'autres personnes et trouver comment
+faire pour que nos interactions soient les plus saines possibles. La qualité
+des interactions m'intéresse autant que le travail en tant que tel. 
+
+Pragmatisme
+: Tendre vers la perfection veut aussi dire ne pas trop s'attarder sur
+certains détails. Parfois, « le mieux est l'ennemi du bien ».
+
+Bonne humeur
+: Parce qu'on a qu'une vie, alors autant se marrer :-) #yolo
+
+---
+
+## 🧑‍🔧Technologie
+
+Python
+: J'ai l'habitude d'utiliser le language [Python](https://python.org) au
+quotidien, il s'agit de mon couteau suisse. Je suis familier avec son écosystème
+et sa communauté.
+
+Linux
+: J'utilise [Linux](https://kernel.org/) en tant que système d'exploitation,
+ainsi que pour la gestion de mes serveurs. Je suis à l'aise avec les systèmes
+[Arch Linux](https://archlinux.org/) et [Debian](https://debian.org).
+
+Frontend
+: Bien que ça ne soit pas ma spécialité, j'ai pris beaucoup de plaisir
+à travailler avec le langage [Elm](https://elm-lang.org/), qui permet de
+travailler de manière sereine côté *front*, grace à un typage fort. J'ai surtout
+travaillé sur des petits projets. Je suis aussi à l'aise avec du HTML, du CSS ou du
+JavaScript.
+
+Administration Système
+: Je m'occupe de faire tourner quelques services pour des tiers et pour moi
+même. La maintenance des serveurs fait donc partie du lot :-)
 
 ---
 

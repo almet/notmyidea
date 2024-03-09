@@ -4,15 +4,16 @@
         <h1>Archives</h1>
     </header>
     <section id="content" class="body">
-        <dl>
             {% for year, articles in dates | groupby("date.year") | reverse %}
-                <dt>{{ year }}</dt>
-                {% for article in articles %}
-                    <dd>
-                        <a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a>
-                    </dd>
+            <h2>{{ year }}</h2>
+            <ul>
+                {% for article in articles[0:20] %}
+                    <li>
+                        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
+                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ CATEGORIES_DESCRIPTION.get(article.category)[0] }}: {{ article.title }}</a>
+                    </li>
                 {% endfor %}
+            </ul>
             {% endfor %}
-        </dl>
     </section>
 {% endblock %}

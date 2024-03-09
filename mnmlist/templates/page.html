@@ -1,7 +1,3 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} - {{ super() }}{% endblock %}
-{% block content %}
-    <header>
-    </header>
-    <article>{{ page.content }}</article>
-{% endblock %}
+{% block content %}<article>{{ page.content }}</article>{% endblock %}
