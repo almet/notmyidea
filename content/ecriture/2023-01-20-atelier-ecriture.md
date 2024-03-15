@@ -12,13 +12,13 @@ Jusqu'à retrouver ce qui fait geste. Une envie de lenteur, d'un autre rapport �
 
 Le murmure s'amplifie, en aller-retours — des vagues presque — et j'aime le contraste que ça me donne. La mise à distance que ça crée.
 
-Je vois les choses se détailler. Une rupture ou un décalage, une autre cynetique, une évolution.
+Je vois les choses se détailler. Une rupture ou un décalage, une autre cinétique, une évolution.
 
 Les vagues viennent à la rencontre des rochers, en essayant de briser leur inertie. L'eau les érode, et je me sens vivant. 
 
-« Ce qui me manque c'est l'élan ! »
+« Ce qui me manque, c'est l'élan ! »
 
-Je me lève et je me mets en mouvement. Sortir de mes projections — de mon cinéma presque — m'est étonnement facile, comme si j'avais trouvé un trait d'union, et retrouvé mon souffle.
+Je me lève et je me mets en mouvement. Sortir de mes projections — de mon cinéma presque — m'est étonnement facile, comme si j'avais trouvé un trait d'union et retrouvé mon souffle.
 
 ---
 

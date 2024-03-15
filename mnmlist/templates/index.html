@@ -1,32 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
+    <header>
+        <h1 class="post-title">{{ SITENAME }}</h1>
+    </header>
     <article>
         <p>
-            👋 <strong>Bienvenue par ici</strong>, je suis Alexis, un développeur intéressé par les
-            dynamiques collectives, les libertés numériques et la&nbsp;facilitation.
+            👋 <strong>Bienvenue par ici</strong>,
         </p>
         <p>
-            Vous retrouverez sur ce site <a href="/weeknotes">mes notes hebdomadaires</a>, quelques
-            <a href="/journal">billets de blog</a>, des <a href="/lectures">notes de lectures</a>, <a href="/code">des bouts
-                de code</a> et <a href="/ecriture">textes</a> que je veux garder quelque part. Bonne lecture&nbsp;!
+            Vous retrouverez sur ce bout de toile <a href="/weeknotes">mes notes hebdomadaires</a>, un
+            <a href="/journal">journal</a>, des <a href="/lectures">notes de lectures</a>, <a href="/code">des bouts
+                de code</a> et <a href="/ecriture">des textes</a> que je veux garder quelque part. Bonne lecture&nbsp;!
             </p>
             <p>
                 Pour me contacter, envoyez-moi un email sur <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).
             </p>
-            </article>
-            {% if articles %}
+        </article>
+        {% if articles %}
             <hr />
             <h2>Les derniers articles</h2>
-            <ul>
+            <ul class="items">
                 {% for article in articles[0:20] %}
-                    <li>
-                        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
-                        {% set category_description =  CATEGORIES_DESCRIPTION.get(article.category)[0] %}
+                    <li class="item">
+                        {% set category_description = CATEGORIES_DESCRIPTION.get(article.category)[0] %}
                         <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
+                        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
                     </li>
                 {% endfor %}
             </ul>
-            <a href="archives.html">Voir tous les articles</a>
+            Voir <a href="archives.html">toutes les archives</a>
             <hr />
-    {% endif %}
-{% endblock content %}
+        {% endif %}
+    {% endblock content %}

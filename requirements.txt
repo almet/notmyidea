@@ -4,3 +4,4 @@ datefinder
 typogrify
 ghp-import
 requests
+pelican-neighbors

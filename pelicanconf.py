@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
 PATH = "content"
-AUTHOR = ""
+AUTHOR = "Alexis"
 SITENAME = "Alexis Métaireau"
 THEME = "mnmlist"
-DISQUS_SITENAME = "notmyidea"
-DEFAULT_PAGINATION = 3
 STATIC_PATHS = ["images", "audio", "extra", "docs"]
-
+STYLESHEET_URL = "/theme/css/main.css"
 EXTRA_PATH_METADATA = {
     "extra/keybase.txt": {"path": "keybase.txt"},
     "extra/favicon.ico": {"path": "favicon.ico"},
@@ -31,8 +29,8 @@ TAG_FEED_ATOM = "feeds/tags/{slug}.atom.xml"
 DEFAULT_DATE_FORMAT = "%d %B %Y"
 LINKS = []
 
-PLUGIN_PATHS = ["."]
-PLUGINS = ["simplereader", "isbn_downloader"]
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["simplereader", "isbn_downloader", "neighbors"]
 
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
@@ -43,12 +41,16 @@ CATEGORY_SAVE_AS = "{slug}/index.html"
 CATEGORY_URL = "{slug}/"
 
 MENU = [
-    ("Journal", "/journal/index.html", "journal"),
-    ("Code, etc.", "/code/", "code"),
-    ("Notes hebdo", "/weeknotes/", "weeknotes"),
-    ("Lectures", "/lectures/", "lectures"),
-    ("Projets", "/projets.html", "projets"),
-    ("Écriture", "/ecriture", "ecriture"),
+    # ("Journal", "/journal/index.html", "journal"),
+    # ("Code", "/code/", "code"),
+    # ("Notes hebdo", "/weeknotes/", "weeknotes"),
+    # ("Lectures", "/lectures/", "lectures"),
+    # ("Projets", "/projets.html", "projets"),
+    # ("Écriture", "/ecriture", "ecriture"),
+]
+
+FOOTERITEMS = [
+    ("Pro", "/projets/"),
 ]
 
 CATEGORIES_DESCRIPTION = {
@@ -61,7 +63,7 @@ CATEGORIES_DESCRIPTION = {
         "Quelques notes prises au détour d'une lecture, plutôt pour ne pas les oublier et me remémorer le livre quand j'en ai besoin.",
     ),
     "code": (
-        "Code, etc.",
+        "Code",
         "Des bouts de trucs liés au code, que je trouve utiles de stocker quelque part (en anglais)",
     ),
     "journal": (

@@ -4,6 +4,39 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+## Mardi 12 Mars 2024 (7h, 5/5)
+
+Une bonne journée, passée majoritairement en pair prog avec Yohan. On a d'abord fait un point de synchro sur l'avancement général de la synchro, durant lequel on a plus ou moins décidé d'aller dans un premier temps vers la version simple de la synchronisation, en faisant en sorte que les clients écrasent les données des autres clients, avec le serveur qui s'occupe de faire le passe-plat.
+
+Ça laisse les CRDTs de côté pour le moment, l'objectif devenant donc d'avoir quelque chose de fonctionnel derrière un feature flag pour les gens qui ont envie de tester, au risque de renverser le café au milieu de la table. On verra ensuite en quoi les CRDTs sont utiles, si c'est le cas.
+
+Ensuite, je suis donc reparti sur ce que j'avais laissé de côté hier, à savoir le fait d'avoir des données en plus expliquées dans le schema, pour savoir ce qui va se rerendre. L'idée avec le schéma étant d'avoir quelque chose d'abstrait, on est parti sur une clé `impacts` qui permet de lister ce que chaque propriété impacte: l'ui, les données, etc.
+
+On a déroulé ce fil là ensuite, en repassant sur chacune des propriétés et en ajoutant celles qui manquaient. Un peu fastidieux, mais ça me donne une meilleure compréhension de certains bouts du code.
+
+Je me suis arrêté au moment ou on commençait à voir en quoi certaines propriétés des layers nécessitaient un comportement spécifique (par exemple le choropleth), affaire à suivre !
+## Lundi 11 Mars 2024 (8h, 5/5)
+
+J'ai fait un tour des pull requests en cours le matin, c'était chouette d'avoir un peu de bande passante pour faire le tour de ce qui avait été proposé et qui était en attente. J'ai ensuite continué la comparaison des différentes bibliothèques de CRDT, en cherchant à comprendre quelle était l'utilisation réseau.
+
+Une conversation avec Alex CC sur le discord d'Automerge m'a permis de mieux comprendre que le modèle implémenté par automerge-repo-websockets était en fait un modèle ou le serveur centralise (et donc fait tourner le CRDT) les flux, alors que je pensais que c'était les clients qui se relayaient les messages.
+
+On se fait un petit point de synchro avec David, ça faisait longtemps, c'était bien ! Je creuse sur les différentes manières d'implementer le flux de données, et de manière sur l'approche à prendre autour de cette synchronisation.
+
+Ça me pousse à questionner le choix du décentralisé: je me demande si il est réellement souhaitable, et ce qu'il nous apporterait, concrètement, vis à vis d'une approche plus traditionnelle avec le serveur au centre. Il va falloir trancher pour avancer.
+
+Weekly, durant laquelle on me demande de justifier les heures facturées qui étaient prévues mais un peu flottantes. Ça me poussera à être plus clair dans le futur.
+
+Après la weekly, je commence à implémenter les `propertyRenderer`, en essayant de les intégrer avec le nouveau concept de "schema" qui a été mergé recemment. L'idée étant d'avoir un seul endroit ou les propriétés sont définies, ainsi que leur comportement. Les propriétés pouvant appartenir à différents contextes (la carte, les layers, les features) il faut trouver comment représenter ce contexte sans trop ajouter de complexité, mais en restant flexible pour le futur. On part sur une clé `renderers` qui est un objet avec en clé les différents contextes:
+
+```js
+renderers: {
+	map: ['list', 'of', 'renderers']
+	features: ['list', 'of', 'renderers']
+}
+```
+
+Au passage, je me rends compte qu'il est possible de grandement simplifier le code qui s'occupe d'appeler les renderers, pour le mettre dans une fonction (à la python) plutôt que dans une classe. Après tout, il n'y a pas besoin d'avoir tout le contexte de la classe, uniquement de pouvoir appeler les méthodes pour se re-rendre.
 ## Vendredi 8 Mars 2024 (7h, 5/5)
 
 J'ai refais une passe rapide sur les PR en cours d'intégration, et j'en ai profité pour m'assurer que le merge des features entre les anciennes versions (sans ids) et les nouvelles (avec ids) vont pouvoir fonctionner. Je suis content de voir que c'était déjà prévu dans le code d'origine, ouf, une chose de moins à se soucier.

@@ -14,7 +14,7 @@
     <section class="section index">
         {% if category != "lectures" %}
             {% for year, year_articles in articles | groupby('date.year') | reverse %}
-                <h2>Articles de {{ year }}</h2>
+                <h2>En {{ year }}</h2>
                 <ul>
                     {% for article in year_articles %}
                         <li>
