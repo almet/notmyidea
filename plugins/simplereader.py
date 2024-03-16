@@ -111,6 +111,7 @@ class SimpleReader(MarkdownReader):
     def __init__(self, *args, **kwargs):
         super(SimpleReader, self).__init__(*args, **kwargs)
         self.settings["MARKDOWN"]["extensions"].append("markdown.extensions.toc")
+        self.settings["MARKDOWN"]["extension_configs"].update({'markdown.extensions.toc': {'toc_depth': 3}})
 
     def read(self, source_path):
         self._source_path = source_path

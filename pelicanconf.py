@@ -71,7 +71,7 @@ CATEGORIES_DESCRIPTION = {
         "Quelques réfléxions, bien souvent autour du monde du travail ou de la technologie.",
     ),
     "notes": (
-        "Carnet de notes",
+        "Notes",
         "Prises bien souvent en regardant une vidéo ou un article en ligne. Je les mets ici pour pouvoir les retrouver quand le besoin se fait sentir.",
     ),
     "ecriture": (

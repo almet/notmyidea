@@ -3,56 +3,45 @@
 {% block content %}
     <header>
         {% if article.category == "Lectures" %}
-            <div class="book-container">
-                <div class="book">
-                    <h1 class="post-title">
-                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><small>
-                            <br />
-                        par {{ article.author }}</small>
-                    </h1>
-                    {% if article.headline %}
-                        <p>
-                            <em>{{ article.headline }}</em>
-                        </p>
-                    {% endif %}
-                    <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
-                </div>
-                {% if article.category == "Lectures" and article.isbn_cover %}
-                    <div class="book-cover">
-                        <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
-                    </div>
-                {% endif %}
-            </div>
-        {% else %}
-            <h1 class="post-title">{{ article.title }}</h1>
-            <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-            <nav>
-                <ul class="navigation">
-                    {% if article.prev_article %}
-                        <li>
-                            <a href="{{ SITEURL }}/{{ article.prev_article.url }}"
-                               title="{{ article.prev_article.title }}">← Précédent</a>
-                        </li>
-                    {% endif %}
-                    <li>
-                        <a href="{{ SITEURL }}">Accueil</a>
-                    </li>
-                    {% if article.next_article %}
-                        <li>
-                            <a href="{{ SITEURL }}/{{ article.next_article.url }}"
-                               title="{{ article.next_article.title }}">Suivant →</a>
-                        </li>
-                    </ul>
-                </nav>
+            <h1 class="post-title">
+                {{ article.title }}<small>
+                <br />
+            de {{ article.author }}</small>
+        </h1>
+        <time datetime="{{ article.date.isoformat() }}">Lu en {{ article.date | strftime("%B %Y") }}</time>
+    {% else %}
+        <h1 class="post-title">{{ article.title }}</h1>
+        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+    {% endif %}
+    <nav>
+        <ul class="navigation">
+            {% if article.prev_article %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ article.prev_article.url }}"
+                       title="{{ article.prev_article.title }}">← Précédent</a>
+                </li>
             {% endif %}
-        </p>
-    </nav>
+            <li>
+                <a href="{{ SITEURL }}">Accueil</a>
+            </li>
+            {% if article.next_article %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ article.next_article.url }}"
+                       title="{{ article.next_article.title }}">Suivant →</a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
     {% if article.headline and article.category != "weeknotes" %}
         <p>
             <em>{{ article.headline }}</em>
         </p>
     {% endif %}
-{% endif %}
+    {% if article.isbn_cover %}
+        <div class="book-cover">
+            <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+        </div>
+    {% endif %}
 </header>
 <article>
     {{ article.content }}
@@ -65,5 +54,5 @@
             - Posté dans la catégorie <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
         </p>
     {% endif %}
-</article>
+    </article>
 {% endblock %}

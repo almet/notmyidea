@@ -4,6 +4,15 @@ save_as: umap/index.html
 template: worklog
 total_days: 25
 ---
+
+## Vendredi 15 Mars 2024 (4h, 5/5)
+
+J'ai terminé ([PR](https://github.com/umap-project/umap/pull/1692)) la séparation du rendering avec la mise à jour des données, en suivant la piste commencée mardi, puis j'ai passé un peu de temps à faire marcher json joy, suite aux retours du mainteneur. L'API générale me semble bien pour des gens qui utilisent des composants qui savent se re-rendre, mais quand on a besoin de savoir ce qui a été modifié dans le patch, il faut regarder la dedans à la main ce qui rends toute l'opération un peu plus précaire.
+
+Bon, j'ai réussi à faire marcher le tout c'est l'important ! J'en ai profité pour bouger le code de [leaflet-sync](https://gitlab.com/umap-project/leaflet-sync) dans l'organisation umap-project dans gitlab.
+
+Normalement, tout est en place pour qu'on puisse commencer à ajouter du websocket dans le mix, surement dans le courant de la semaine prochaine !
+
 ## Mardi 12 Mars 2024 (7h, 5/5)
 
 Une bonne journée, passée majoritairement en pair prog avec Yohan. On a d'abord fait un point de synchro sur l'avancement général de la synchro, durant lequel on a plus ou moins décidé d'aller dans un premier temps vers la version simple de la synchronisation, en faisant en sorte que les clients écrasent les données des autres clients, avec le serveur qui s'occupe de faire le passe-plat.
