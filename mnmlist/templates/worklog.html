@@ -31,16 +31,16 @@
                 <thead>
                     <tr>
                         <td>Mois</td>
-                        <td>Heures</td>
-                        <td>Jours</td>
+                        <td>Jours rémunérés</td>
+                        <td>Jours bénévoles</td>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for month, amount in page.metadata.worklog.payed_monthly.items() %}
+                    {% for month, hours in page.metadata.worklog.monthly_hours.items() %}
                         <tr>
                             <td>{{ month }}</td>
-                            <td>{{ amount }}</td>
-                            <td>{{ (amount / 7.0) | round(1) }}</td>
+                            <td>{{ (hours['payed'] / 7.0) | round(1) }}</td>
+                            <td>{{ (hours['volunteered'] / 7.0) | round(1) }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -1,20 +1,20 @@
-User-agent: ChatGPT-User
-Disallow: /
+user-agent: ChatGPT-User
+disallow: /
 
-User-agent: GPTBot
-Disallow: /
+user-agent: GPTBot
+disallow: /
 
-User-agent: Twitterbot
-Disallow: /
+user-agent: Twitterbot
+disallow: /
 
-User-agent: CCBot
-Disallow: /
+user-agent: CCBot
+disallow: /
 
-User-agent: Google-Extended
-Disallow: /
+user-agent: Google-Extended
+disallow: /
 
-User-agent: Omgilibot
-Disallow: /
+user-agent: Omgilibot
+disallow: /
 
-User-agent: FacebookBot
-Disallow: /
+user-agent: FacebookBot
+disallow: /

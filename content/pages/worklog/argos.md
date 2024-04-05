@@ -4,7 +4,11 @@ save_as: argos/index.html
 total_days: 8
 template: worklog
 ---
-## Jeudi 1 Février 2023 (0h, 1h bénévoles, 4/5)
+
+## Vendredi 5 Avril 2024 (0h, 3h bénévoles, 5/5)
+
+Je suis repassé sur le code, changé la manière dont le packaging était fait (on passe maintenant par hatch) puis documenté le processus de release.
+## Jeudi 1 Février 2024 (0h, 1h bénévoles, 4/5)
 
 Petite session de pair programming avec Luc, dans laquelle on discute de comment ajouter des tests avec pytest.
 On en profite pour faire un tour rapide des quelques requêtes de fusion en attente, et de tester que les migrations fonctionnent bien chez lui.

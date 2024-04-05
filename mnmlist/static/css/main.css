@@ -515,14 +515,10 @@ dd {
   padding-bottom: 0.5em;
 }
 
-.page-title {
-  flex: 0;
-}
-
 .item>time {
   flex: 1;
   text-align: right;
-  color: #acabab;
+  color: #797878;
   padding-left: 1em;
 }
 

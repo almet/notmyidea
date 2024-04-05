@@ -23,7 +23,7 @@
                 {% for article in articles[0:20] %}
                     <li class="item">
                         {% set category_description = CATEGORIES_DESCRIPTION.get(article.category)[0] %}
-                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
+                        <a href="{{ SITEURL }}/{{ article.url }}" class="page-title">{{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
                         <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
                     </li>
                 {% endfor %}

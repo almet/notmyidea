@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 PATH = "content"
-AUTHOR = "Alexis"
 SITENAME = "Alexis Métaireau"
+AUTHOR = ""
 THEME = "mnmlist"
 STATIC_PATHS = ["images", "audio", "extra", "docs"]
 STYLESHEET_URL = "/theme/css/main.css"

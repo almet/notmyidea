@@ -65,5 +65,7 @@ def neighbors(generator):
             set_neighbors(articles, next_name, prev_name)
 
 
+
+
 def register():
     signals.article_generator_finalized.connect(neighbors)

@@ -29,9 +29,9 @@
                     <a href="{{ SITEURL }}/{{ article.next_article.url }}"
                        title="{{ article.next_article.title }}">Suivant →</a>
                 </li>
+    {% endif %}
             </ul>
         </nav>
-    {% endif %}
     {% if article.headline and article.category != "weeknotes" %}
         <p>
             <em>{{ article.headline }}</em>

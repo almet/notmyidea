@@ -2,8 +2,63 @@
 title: uMap
 save_as: umap/index.html
 template: worklog
-total_days: 25
+total_days: 90
 ---
+## Mardi 05 Avril 2024 (4h)
+
+J'ai fait passer les tests sur la Pull Request en cours. Les tests ajoutés sur cette PR m'ont permis de detecter des bugs que j'avais introduit lors de la refactorisation des `utils`, content de les trouver 😅.
+
+Je fais un tour des différents outils qui permettent l'édition collaborative et je note les parcours qui y sont présents.
+
+Je continue ma réflexion autour de la propagation des changements locaux vers d'autres pairs: actuellement ces changements ne sont pas liés au format GeoJSON, et je me demande si cela serait possible. Ça aurait l'avantage de s'intégrer facilement avec d'autres outils qui utilisent ce format, et ça permettrait de résoudre le problème du chargement initial: ce ne serait plus les clients qui enverraient leur dernière version courante, mais le serveur qui compacterait les opérations en attente.
+
+## Lundi 01 Avril 2024 (5h, 5/5)
+
+J'ai relu, modifié puis envoyé la proposition pour les tuiles vectorielles pour uMap. J'ai ensuite discuté avec Vadims (de JSON Joy) de notre cas d'utilisation. Il semble ressortir qu'il serait quand même plus simple d'avoir un serveur qui est capable d'avoir une representation de l'état du document.
+
+Le serveur pourrait stocker les opérations (indéxées) qui lui sont envoyées, avec une vue de l'état du document, qui serait compacté de temps en temps. 
+
+On a évoqué le fait que ce serait aussi peut-être plus simple pour nous d'utiliser des Hybrid Logical Clocks (ts + logical time + userId), et de recoder un CRDT nous même. Il m'a parlé de museapp ([Metamuse podcast — Muse](https://museapp.com/podcast/)) qui semble avoir fait ça et qui en ont parlé dans un podcast.
+
+J'ai ensuite mergé les deux PR en attente sur les changement dans la suite de test, et rajouté quelques entrées dans le schema, qui ne prenait pas en compte les données à l'intérieur des layers (choropleth, etc.).
+## Jeudi 29 Mars 2024 (5h, 4/5)
+
+J'ai travaillé sur deux propositions de financement: une pour NLNet pour la quelle on propose d'ajouter les fonctionnalitézs de tuiles vectorielles, et l'autre pour Google Season of Docs ou on aimerait bien avoir quelqu'un qui nous aide à améliorer la documentation technique.
+
+J'ai aussi avancé sur la séparation des tests unitaires JS avec le reste, et ça passe !
+
+## Lundi 25 Mars 2024 (9h, 4/5)
+
+Le matin je travaille à faire passer les tests. J'ai pas mal bloqué sur le JSDom (encore), et la manière d'intégrer tout ça dans le contexte des tests. C'est plus clair maintenant, mais j'aurai aimé que ce soit plus simple dès le début.
+
+L'après midi à été utilisée à comprendre ce qui s'est passé lors de la mise en prod, le passage aux UUIDs étant moins simple que prévu, avec un cas limite qui arrive parce que la liste des fichiers à purger (les anciennes versions) mettait en tête de liste les nouveaux fichiers, qui utilisaient les UUIDs (en tout cas, dans certains cas). On a mis quelques heures a trouver ce qui se passait, à priori ça devrait être réparé.
+
+## Vendredi 22 Mars 2024 (4h, 3/5)
+
+On a fait un point avec Virgile autour du google season of docs, on se dit que ça pourrait être chouette de faire une proposition sur la partie documentation technique.
+J'enchaine avec un point sur une prochaine session NLNet, ou on aimerait proposer de faire des vector tiles. Je comprends mieux de quoi il s'agit, et je vois les futurs que ça ouvre pour uMap, entre autres avec le lien possible avec les données OSM.
+
+J'aimerai bien que ce soit une étape dans l'idée d'avoir un jour des cartes plus facilement accessibles hors ligne, et synchronisables. J'ai enchainé sur le fait de séparer les tests unitaires actuels, qui tournent dans un navigateur, du reste des tests. L'idée étant de les faire tourner dans un contexte de ligne de commande, pour s'intégrer avec le CI, entre autres.
+
+## Jeudi 21 Mars 2024 (6h, 3/5)
+
+J'ai passé une journée à écrire des tests, à la fois pour playwright (j'en ai profité pour découvrir qu'il était possible d'enregistrer sa session, et que le code soit produit pour moi derrière), et pour des tests unitaires JS. Je tire un peu la langue, c'est long et fastidieux, et je n'ai pas encore terminé. 
+
+## Lundi 18 Mars 2024 (6h, 5/5)
+
+Je commence à creuser sur l'intégration des websockets avec Django Channels, l'implication technique que ça pourrait avoir pour les personnes qui déploient, pour finalement changer d'approche en fin d'après-midi suite à une discussion avec David et Yohan, ce sera surement plus simple d'ajouter un serveur de manière séparée (au moins pour le moment) pour les personnes qui ont envie d'ajouter de la synchro.
+
+On s'est fait un moment de rétrospective, avec le format du conseil de famille, proposé par David. Je me suis senti faire équipe avec le reste des participant·es.
+
+Puis, un moment pour planifier les prochains développement. On discute de comment nommer les jalons dans notre outil de gestion des fonctionnalités. 
+
+## Dimanche 17 Mars 2024 (2h, 5/5)
+
+J'ai continué à améliorer l'article sur les CRDTs.
+
+## Samedi 16 Mars 2024 (2h, 5/5)
+
+J'ai refais une passe sur l'article sur les CRDTs, en changeant sa structure et en clarifiant certains aspects. On est pas loin d'un article prêt, j'aimerai bien refaire une dernière passe dessus pour que les "key takeaways" soient plus clairs (et moins nombreux).
 
 ## Vendredi 15 Mars 2024 (4h, 5/5)
 

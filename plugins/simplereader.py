@@ -6,6 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 from markdown.preprocessors import Preprocessor
+
 from pelican import signals
 from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
@@ -19,26 +20,26 @@ except Exception:
 class WorklogPreprocessor(Preprocessor):
     pattern = re.compile(
         r"""
-        (?:(\w+)\s+)?                 # Day name
-        (\d{1,2})\s+                  # Day number
-        ([\wéû]+)\s+                  # Month name
-        (\d{4})\s+                    # Year
+        (?:(\w+)\s+)?                   # Day name
+        (\d{1,2})\s+                    # Day number
+        ([\wéû]+)\s+                    # Month name
+        (\d{4})\s+                      # Year
         \(
-        (\d{1,2})h                    # Hours (mandatory)
-        (?:\s+facturées)?             # Optionally 'facturées', if not present, assume hours are 'facturées'
+        (\d{1,2})h                      # Hours (mandatory)
+        (?:\s+facturées)?               # Optionally 'facturées', if not present, assume hours are 'facturées'
         (?:,\s*(\d{1,2})h\s*bénévoles)? # Optionally 'volunteer hours 'bénévoles'
-        ,?                            # An optional comma
-        \s*                           # Optional whitespace
-        (?:fun\s+)?                   # Optionally 'fun' (text) followed by whitespace
-        (\d)/5                        # Happiness rating (mandatory, always present)
-        \)                            # Closing parenthesis
+        ,?                              # An optional comma
+        \s*                             # Optional whitespace
+        (?:fun\s+)?                     # Optionally 'fun' (text) followed by whitespace
+        (\d)/5                          # Happiness rating (mandatory, always present)
+        \)                              # Closing parenthesis
         """,
         re.VERBOSE | re.UNICODE,
     )
 
     def __init__(self, *args, **kwargs):
         self.data = {}
-        self.payed_monthly = defaultdict(int)
+        self.monthly_hours = defaultdict(lambda: defaultdict(int))
         super().__init__(*args, **kwargs)
 
     def run(self, lines):
@@ -58,7 +59,8 @@ class WorklogPreprocessor(Preprocessor):
                     happiness,
                 ) = match.groups()
 
-                volunteer_hours = int(volunteer_hours) if volunteer_hours else 0
+                volunteer_hours = int(
+                    volunteer_hours) if volunteer_hours else 0
                 payed_hours = int(payed_hours)
                 happiness = int(happiness)
                 date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
@@ -67,7 +69,9 @@ class WorklogPreprocessor(Preprocessor):
                     "volunteer_hours": volunteer_hours,
                     "happiness": happiness,
                 }
-                self.payed_monthly[date.strftime("%Y/%m")] += payed_hours
+                current_date = date.strftime("%Y/%m")
+                self.monthly_hours[current_date]['payed'] += payed_hours
+                self.monthly_hours[current_date]['volunteered'] += volunteer_hours
                 displayed_date = date.strftime("%A %d %B %Y")
 
                 # Replace the line with just the date
@@ -82,13 +86,14 @@ class WorklogPreprocessor(Preprocessor):
         This is run once, after everything has been parsed
         """
         payed_hours = sum([item["payed_hours"] for item in self.data.values()])
-        volunteer_hours = sum([item["volunteer_hours"] for item in self.data.values()])
+        volunteer_hours = sum([item["volunteer_hours"]
+                              for item in self.data.values()])
 
         data = dict(
             data=self.data,
             payed_hours=payed_hours,
             volunteer_hours=volunteer_hours,
-            payed_monthly=self.payed_monthly,
+            monthly_hours=self.monthly_hours,
             template="worklog",
         )
         if "total_days" in metadata:
@@ -110,8 +115,10 @@ class SimpleReader(MarkdownReader):
 
     def __init__(self, *args, **kwargs):
         super(SimpleReader, self).__init__(*args, **kwargs)
-        self.settings["MARKDOWN"]["extensions"].append("markdown.extensions.toc")
-        self.settings["MARKDOWN"]["extension_configs"].update({'markdown.extensions.toc': {'toc_depth': 3}})
+        self.settings["MARKDOWN"]["extensions"].append(
+            "markdown.extensions.toc")
+        self.settings["MARKDOWN"]["extension_configs"].update(
+            {'markdown.extensions.toc': {'toc_depth': 3}})
 
     def read(self, source_path):
         self._source_path = source_path
@@ -154,7 +161,8 @@ class SimpleReader(MarkdownReader):
 
         if "slug" not in metadata:
             metadata["slug"] = slugify(
-                metadata["title"], self.settings.get("SLUG_REGEX_SUBSTITUTIONS", [])
+                metadata["title"], self.settings.get(
+                    "SLUG_REGEX_SUBSTITUTIONS", [])
             )
 
         category = os.path.basename(
