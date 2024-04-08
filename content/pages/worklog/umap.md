@@ -4,7 +4,11 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
-## Mardi 05 Avril 2024 (4h)
+
+## Lundi 08 Avril 2024 (5h, 4/5)
+
+
+## Vendredi 05 Avril 2024 (4h, 4/5)
 
 J'ai fait passer les tests sur la Pull Request en cours. Les tests ajoutés sur cette PR m'ont permis de detecter des bugs que j'avais introduit lors de la refactorisation des `utils`, content de les trouver 😅.
 
@@ -21,6 +25,7 @@ Le serveur pourrait stocker les opérations (indéxées) qui lui sont envoyées,
 On a évoqué le fait que ce serait aussi peut-être plus simple pour nous d'utiliser des Hybrid Logical Clocks (ts + logical time + userId), et de recoder un CRDT nous même. Il m'a parlé de museapp ([Metamuse podcast — Muse](https://museapp.com/podcast/)) qui semble avoir fait ça et qui en ont parlé dans un podcast.
 
 J'ai ensuite mergé les deux PR en attente sur les changement dans la suite de test, et rajouté quelques entrées dans le schema, qui ne prenait pas en compte les données à l'intérieur des layers (choropleth, etc.).
+
 ## Jeudi 29 Mars 2024 (5h, 4/5)
 
 J'ai travaillé sur deux propositions de financement: une pour NLNet pour la quelle on propose d'ajouter les fonctionnalitézs de tuiles vectorielles, et l'autre pour Google Season of Docs ou on aimerait bien avoir quelqu'un qui nous aide à améliorer la documentation technique.
