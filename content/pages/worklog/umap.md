@@ -5,8 +5,42 @@ template: worklog
 total_days: 90
 ---
 
+## Vendredi 20 Avril 2024 (6h, 4/5)
+
+J'ai repris le travail que j'avais entammé en tant que « preuve de concept » pour l'intégrer dans une version plus mure. J'ai passé du temps à définir les étapes nécessaires pour arriver à avoir de la synchronisation temps réel, et j'ai déroulé. Je synchronise les propriétés des cartes, ainsi que les features (en tout cas les marqueurs).
+
+Je ne suis pas encore certain que ce soit utile de vérifier le format des messages sur le serveur, et j'ai envie de simplifier plusieurs bouts de code / d'architecture, par exemple ce sont les composants qui se déclarent « synchronisables » et je pense que ça pourrait être fait de manière plus explicite.
+
+## Jeudi 19 Avril 2024 (4h, 4/5)
+
+En écrivant les notes, je me rends compte que la raison pour laquelle les websockets ne sont pas same-origin avec notre domaine n'est pas que ça pourrait être hebergé sur un autre domaine, mais que wss:// et https:// ne semblent pas être considérés comme le même domaine. D'où [la pirouette nécessaire](https://websockets.readthedocs.io/en/stable/topics/authentication.html#cookie) (à base d'iframes) pour lier le cookie au bon domaine.
+
+Je me dis qu'une des options est que le serveur nous renvoie un token signé par le serveur, qui pourrait contenir les permissions qui sont données, dans le même esprit que des JWT.
+
+Je tombe sur une partie du code qui utilise du SHA1 pour les signatures, que je considérais comme insécure. En [creusant un peu](https://crypto.stackexchange.com/questions/845/what-is-wrong-with-using-sha1-in-digital-signatures-why-is-a-robust-hash-functi), je me rends compte que pour le moment, sha1 est considéré insécure, mais qu'il n'y a pas encore d'attaques connues dessus qui permettent d'utiliser du « second-pre-image », c'est à dire des signatures différentes de celles d'origine, mais qui sont aussi valides. On est bon pour ce coup là.
+
+## Mardi 17 Avril 2024 (6h, 3/5)
+
+J'avance sur un première implementation du serveur de websockets, avec l'idée de relayer les messages entre les clients. J'attaque par l'authentification des connections, qui est nécessaire pour éviter que des attaquants (potentiels) utilisent la connection websocket pour faire par exemple de l'élévation de privilèges (pour pouvoir éditer un layer auquel iels n'ont normalement pas accès). 
+
+Je passe du temps à lire les différents moyens de s'authentifier, et je commence une implémentation. J'en profite pour valider les entrées avec Pydantic.
+
+## Lundi 16 Avril 2024 (7h, 4/5)
+
+Une matinée passée à travailler sur de l'UX, en completant le document donné par Aurélie. Ça donne quelques idées c'est chouette.
+L'après midi, je me synchronise avec David, puis avec Yohan. Je merge la PR pour pouvoir faire du rendu « dynamique » (ce qui va permettre de faire du rendu depuis des évènements distants).
+
+## Vendredi 12 Avril 2024 (6h, 5/5)
+
+Je continue ma compréhension de ce qu'on pourrait techniquement faire pour supporter du hors-ligne. J'ai rédigé un bout de README pour un projet qui pourrait faire une sorte de K/V store pour des documents GeoJSON. Tout n'est pas encore clair, mais ça progresse.
+
 ## Lundi 08 Avril 2024 (5h, 4/5)
 
+Une après-midi à Grenoble avec Aurélie, on a passé du temps à creuser les aspects UX sur la collaboration temps réel, en faisant un persona et en prenant un cas concret d'utilisation. 
+
+Une réunion sur la documentation avec David, Aurélie, Framasoft et Antoine Riche. C'était chouette de pouvoir discuter clairement de leurs intentions sur le sujet. Ça me donne envie d'avancer, content que David prenne le sujet, on va surement partir sur notre propre documentation.
+
+J'ai passé du temps à lire la documentation sur les WebSockets en python, je comprends mieux comment faire du routing, et comment tout ça va passer à l'échelle.
 
 ## Vendredi 05 Avril 2024 (4h, 4/5)
 
