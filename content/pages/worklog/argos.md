@@ -5,6 +5,10 @@ total_days: 8
 template: worklog
 ---
 
+## Jeudi 25 Avril 2024 (0h, 1h bénévole, 5/5)
+
+Publication de la v0.1.0 de Argos en pair avec Luc.
+
 ## Vendredi 5 Avril 2024 (0h, 3h bénévoles, 5/5)
 
 Je suis repassé sur le code, changé la manière dont le packaging était fait (on passe maintenant par hatch) puis documenté le processus de release.

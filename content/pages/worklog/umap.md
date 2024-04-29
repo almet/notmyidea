@@ -5,9 +5,15 @@ template: worklog
 total_days: 90
 ---
 
+## Lundi 29 Avril 2024 (7h, 4/5)
+
+La reprise :-) J'ai fait une petite revue de code de ce qu'a proposé Yohan pour les règles de filtrage, et j'ai repris le travail sur la synchro. Laisser respirer entre plusieurs tentatives permet d'affiner. J'ai quelque chose qui fonctionne à peu près bien, minus les quelques cas qui ne sont pas encore couverts.
+
+Présentation du travail prévu par Sophie pour trouver de nouveaux débouchés pour l'instance ANCT, puis retrospective, au format conseil de famille. C'était bien, mais j'aurai voulu préciser la temporalité de la réunion en commençant.
+
 ## Vendredi 20 Avril 2024 (6h, 4/5)
 
-J'ai repris le travail que j'avais entammé en tant que « preuve de concept » pour l'intégrer dans une version plus mure. J'ai passé du temps à définir les étapes nécessaires pour arriver à avoir de la synchronisation temps réel, et j'ai déroulé. Je synchronise les propriétés des cartes, ainsi que les features (en tout cas les marqueurs).
+J'ai repris le travail que j'avais entamé en tant que « preuve de concept » pour l'intégrer dans une version plus mure. J'ai passé du temps à définir les étapes nécessaires pour arriver à avoir de la synchronisation temps réel, et j'ai déroulé. Je synchronise les propriétés des cartes, ainsi que les features (en tout cas les marqueurs).
 
 Je ne suis pas encore certain que ce soit utile de vérifier le format des messages sur le serveur, et j'ai envie de simplifier plusieurs bouts de code / d'architecture, par exemple ce sont les composants qui se déclarent « synchronisables » et je pense que ça pourrait être fait de manière plus explicite.
 
