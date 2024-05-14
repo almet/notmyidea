@@ -5,6 +5,62 @@ template: worklog
 total_days: 90
 ---
 
+## Vendredi 10 Mai 2024 (6h, 5/5)
+
+Une journée passée à comprendre comment fonctionne Fly.io pour pouvoir déployer dessus. On a fait une session de pair avec David, pendant laquelle on a réussi à faire tomber le truc en marche, en levant les différents bloquages qu'on découvrait au fil de l'eau. Ça marche presque !
+
+## Jeudi 09 Mai 2024 (7h, 3/5)
+
+J'ai ajouté une manière de vérifier que les messages entrants sont bien acceptables, pour éviter que n'importe quel message soit accepté.
+
+J'ai ajouté une propriété `belongsTo` dans le `SCHEMA`, qui contient une liste des sujets concernés (`map`, `datalayer` ou `feature`). 
+
+Ça m'a permis de me rendre compte de quelques pirouettes qui sont faites actuellement dans le code :
+
+1. pour `map` et les `datalayer`, les propriétés sont dans `.options.{property}` alors que pour les `features` elles sont dans `properties`.
+2. Pour les `features`, les propriétés sont contenues dans un *namespace* `_umap_options`.
+
+Je suis repassé sur **toutes** les options qui sont modifiables dans uMap, et fait quelques ajustements pour rendre tout fonctionnel. C'est très satisfaisant d'avancer :-)
+
+Je change la manière dont les settings sont gérés avec les variables d'environnement, et je déploie le tout avec docker, rejoint par david pour une petite session papote et durant laquelle on réussit à faire tourner avec la ligne suivante:
+
+```bash
+docker run --privileged --publish 8000:8000 -e "DATABASE_URL=postgis://alexis:@host.docker.internal:5432/umap" -e"SECRET_KEY=tralala" -e "WEBSOCKET_ENABLED=True" -it umap-ws
+```
+## Mercredi 08 Mai 2024 (7h, 5/5)
+
+L'import de données marche maintenant, ça à demandé quelques changements sur la manière dont les données étaient envoyées. Je suis content d'avoir une démo fonctionnelle. J'ai ensuite fait un peu de pair avec Yohan, pour changer la manière dont les évènements sont gérés.
+
+Je n'écoute plus les changements « au fil de l'eau », mais uniquement quand les données sont vraiment présentes. Par exemple, uniquement la position de fin lors d'un drag-n-drop est envoyée, ce qui est moins impressionnant, mais garde de la bande passante et du CPU pour autre chose.
+
+Je suis repassé ensuite sur certaines fonctionnalités accessibles avec les menus « clic droit » pour m'assurer que tout fonctionne comme prévu, et j'ai corrigé quelques bugs au passage.
+
+Chouette, ça avance :-)
+
+## Mardi 07 Mai 2024 (10h, 5/5)
+
+Je continue de faire marcher la PR en cours sur la synchro. Je suis dans des cas que je n'avais pas encore pris en compte, entre autre j'ai maintenant une meilleure compréhension de la manière dont les menus « clic droit » fonctionnent.
+
+Ça m'a permis de régler certains problèmes, et d'avoir un import quasi fonctionnel (les données manquent, je n'ai pour le moment que les géographies). J'ai fait des changements mineurs et:
+
+- Les websockets ne sont crées que lorsqu'on rentre dans le mode édition
+- il est possible de bouger les polygones et les lignes, alors que c'était cassé jusqu'ici
+
+En fin de journée, j'ai finalement réalisé que l'import ne prenait pas en compte les données (uniquement les géométries).
+
+## Lundi 06 Mai 2024 (7h, 5/5)
+
+Le matin, travail avec Aurélie sur l'UX pour la synchro, l'après midi présentation de la PR en cours avec David et Yohan, en sandwich avec la weekly.
+
+Je passe un peu de temps pour comprendre comment fonctionne Docker, et les Dockerfiles dans le cadre de uMap.
+
+On se pose quelques questions autour de la manière de faire de la gestion des permissions, et j'entrevois la possibilité de limiter les vérifications qui sont faite sur le serveur.
+## Mardi 30 Avril 2024 (6h, 5/5)
+
+J'ai continué le travail sur la PR en cours, en ajoutant plein de petits bouts qui manquaient pour que ce soit utilisable. On a maintenant un bouton pour démarrer la collaboration « temps réel », et des `settings` qui vont bien pour pouvoir configurer ça comme on veut. Pour le moment j'ai mis le bouton à un endroit comme un autre, mais ça pourra changer.
+
+J'ai pu me rendre compte de quelques parties qui ne fonctionnent pas encore, comme l'import de données.
+
 ## Lundi 29 Avril 2024 (7h, 4/5)
 
 La reprise :-) J'ai fait une petite revue de code de ce qu'a proposé Yohan pour les règles de filtrage, et j'ai repris le travail sur la synchro. Laisser respirer entre plusieurs tentatives permet d'affiner. J'ai quelque chose qui fonctionne à peu près bien, minus les quelques cas qui ne sont pas encore couverts.

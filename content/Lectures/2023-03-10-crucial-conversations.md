@@ -38,7 +38,7 @@ Le livre est divisé en trois parties :
 
 ### Choisir Son Sujet
 
-On a tendance à choisir les mauvais sujets de conversation, on a tendance à se foculaiser sur :
+On a tendance à choisir les mauvais sujets de conversation, on a tendance à se focaliser sur :
 
 - ce qui est facile (le sujet sur lequel on peut gagner)
 - les sujets récents, plutôt que ce qui est vraiment important.

@@ -5,7 +5,7 @@ total_days: 8
 template: worklog
 ---
 
-## Jeudi 25 Avril 2024 (0h, 1h bénévole, 5/5)
+## Jeudi 25 Avril 2024 (0h, 1h bénévoles, 5/5)
 
 Publication de la v0.1.0 de Argos en pair avec Luc.
 
