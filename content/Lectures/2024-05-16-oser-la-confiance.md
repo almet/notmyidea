@@ -1,7 +1,6 @@
 ---
 title: Oser la confiance
 author: Bertrand Martin, Vincent Lenhardt, Bruno Jarrosson
-status: draft
 ---
 
 On m'a conseillé ce livre, voici donc quelques notes. Je ne partais pas gagnant
@@ -50,7 +49,7 @@ désordre chaotique d'où pourra jaillir la vie, est-ce bien acceptable ?
 >
 > **Ces questions [...] sont des interrogations jamais closes comme des appels, des
 fenêtres toujours ouvertes vers un avenir meilleur. Elles dépendent [...] de nos
-convictions, mais aussi de nos limites et de nos peurs.
+convictions, mais aussi de nos limites et de nos peurs.**
 > 
 > Tenter d'y répondre, c'est accepter de se remettre en question et avancer,
 c'est un cheminement individuel et collectif où chaque pas assuré, chaque étape
@@ -194,7 +193,7 @@ les récupérations ou les manipulations dont ils peuvent être les objets ou le
 sujets et veiller, par un questionnement éthique [...]
 à ce que leur situation de pouvoir ne devienne pas le lieu où ils perdent un peu
 ou beaucoup de leur âme. [...] **La question permanente reste toujours posée: quelle est
-la vériftable finalité? Le bien commun, le service, ou l'égoïsme individuel** ou
+la véritable finalité? Le bien commun, le service, ou l'égoïsme individuel** ou
 celui d'une groupe mafieux ?
 
 ---

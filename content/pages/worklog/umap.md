@@ -4,6 +4,29 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+## Jeudi 16 Mai 2024 (7h, 4/5)
+
+De la revue de code, des tests, de la documentation, et un fix, après m'être rendu compte que l'algorithme de merge sur le serveur dupliquait des données en essayant lui aussi de fusionner les modifications, alors qu'elles étaient déjà à jour. La résolution du problème était simplement de le mettre au courant en propageant la version de référence.
+
+## Mercredi 15 Mai 2024 (8h, 5/5)
+
+Je rajoute des tests fonctionnels, et ça fonctionne !
+
+L'après-midi, je présente mon travail à Yohan et David et on discute des aspects liés, et de comment certains points (entre autres les permissions) seront gérés. Ce n'est pas encore clair, mais plusieurs propositions semblent avancer.
+
+## Mardi 14 Mai 2024 (5h, 5/5)
+
+- J'écris des tests puis change la manière dont les clés sont trouvées et mises à jour dans la méthode `updateObjectValue`, pour que ça utilise `reduce`.
+- Des test pour vérifier que le *dispatch* les messages entrants génère bien des erreurs quand c'est utile.
+- Une discussion avec Yohan sur notre manière de communiquer et les moments où ça génère du stress. C'était utile, et je suis content d'en avoir pris le temps.
+- Je fais tourner le serveur de WebSockets durant les tests et j'écris un scenario de test qui vérifie que la synchro fonctionne pour deux points.
+
+## Lundi 13 Mai 2024 (8h, 5/5)
+
+- J'ajoute le support de la synchro pour les *datalayers*, qui n'étaient pas en fait pris en compte lors de leur création ;
+- Je fais passer les tests existants, ce qui me permet de trouver quelques problèmes dans l'ordre dont certaines méthodes sont appelées.
+- J'en profite pour simplifier la base de code en ne gardant un updater que pour la carte, les *datalayers* et les *features*. (il n'y a plus besoin d'un updater par type de feature, le code est maintenant générique)
+- Je rajoute des tests pour les vues de génération des tokens
 
 ## Vendredi 10 Mai 2024 (6h, 5/5)
 
