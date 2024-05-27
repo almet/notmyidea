@@ -1,16 +1,15 @@
 ---
-title: Setting up GPG signing key for github
-tags: gpg, github
+title: Multiple identities and GPG keys for git
+tags: gpg, git
 ---
 
-I recently had to create a new GPG signing key and add it as a correct signature
-for my github account. Here is how I did, for future reference.
+I recently had to create a new identity and GPG signing key for my github profile. 
+Here is how I did, for future reference:
 
 ## Creating the key and exporting it
 
-I created the key in thunderbird, which I use for my mails. I did it directly
-there to avoid having to import it then, but I could also have generated it on
-the command line.
+I created the key in thunderbird, which I use for my emails. I did it directly
+there, but it's also possible to generate it directly on the command line.
 
 I had some trouble finding how to export the key from thunderbird, you actually
 have to open the OpenPGP key manager, select you key and then do "file/export",
@@ -39,22 +38,26 @@ sub   cv25519 2024-05-27 [E] [expire : 2027-05-27]
 
 ## Signing your commits
 
-There is [a comprehensive guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
-on how to do that, which basically tells you to:
+Add this section to you `.gitcommit` file:
+
+```ini
+[commit]
+	gpgsign = true
+```
+
+Which is also possible by entering this on the command line:
 
 
 ```bash
 git config --global commit.gpgsign true
-
 ```
 
 ## Using multiple identities dependening the git repo
 
-Because I have multiple identities I commit with, I had to change the identity
-used for a specific repository.
+So, I want to use only one github account, tied to different identities. 
 
-The way to do that was to have a different `.gitconfig` loaded depending on the
-repo being used. I put this in my `.gitconfig`:
+In your `.gitconfig`, you can load different configuration files depending on the
+repo being used using the `includeIf` key. Here's what my file look likes:
 
 ```ini
 [includeIf "gitdir:~/dev/**/.git"]
@@ -64,7 +67,7 @@ repo being used. I put this in my `.gitconfig`:
   	path = ~/.gitconfig-fpf
 ````
 
-And the `~/.gitconfig-fpf` file to be like:
+And the `~/.gitconfig-fpf` file:
 
 ```ini
 [user]
@@ -74,6 +77,6 @@ And the `~/.gitconfig-fpf` file to be like:
 
 ## Exporting the public PGP keys
 
-At some point, I needed to give github the public key associated with my private
+At some point, I also needed to give github the public key associated with my private
 key. As I'm using Thunderbird to store the keys, I asked it to export the public
 key.

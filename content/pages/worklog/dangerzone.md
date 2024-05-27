@@ -4,9 +4,12 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
-## Lundi 27 Mai 2024 ()
+## Lundi 27 Mai 2024 (7h, 4/5)
 
 - Created PGP keys for `alexis@freedom.press` and setup github to work with it.
+- Synced 1:1 with AlexP
+- Got a better understanding of how containers work on different OSes, what's the role of hyperkit, etc.
+- Triggered Debian builds on my machine, and continued the deep dive in Debian packages and stdeb to fix #780 (to have pyside6 newer versions work on our releases).
 
 ## Vendredi 24 Mai 2024 (5h, 5/5)
 
