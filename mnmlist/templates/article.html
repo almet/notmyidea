@@ -18,7 +18,7 @@
             {% if article.prev_article %}
                 <li>
                     <a href="{{ SITEURL }}/{{ article.prev_article.url }}"
-                       title="{{ article.prev_article.title }}">← Précédent</a>
+                       title="{{ article.prev_article.title | striptags }}">← Précédent</a>
                 </li>
             {% endif %}
             <li>
@@ -27,7 +27,7 @@
             {% if article.next_article %}
                 <li>
                     <a href="{{ SITEURL }}/{{ article.next_article.url }}"
-                       title="{{ article.next_article.title }}">Suivant →</a>
+                       title="{{ article.next_article.title | striptags }}">Suivant →</a>
                 </li>
     {% endif %}
             </ul>
