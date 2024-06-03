@@ -11,10 +11,15 @@ from pelican import signals
 from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
 
-try:
-    locale.setlocale(locale.LC_TIME, "fr_FR.UTF8")
-except Exception:
-    locale.setlocale(locale.LC_TIME, "fr_FR")
+
+def set_locale(dest):
+    try:
+        locale.setlocale(locale.LC_TIME, f"{dest}.UTF8")
+    except Exception:
+        locale.setlocale(locale.LC_TIME, f"{dest}")
+
+
+set_locale("fr_FR")
 
 
 class WorklogPreprocessor(Preprocessor):
@@ -43,6 +48,7 @@ class WorklogPreprocessor(Preprocessor):
         super().__init__(*args, **kwargs)
 
     def run(self, lines):
+        # set_locale('en_US')
         new_lines = []
         for line in lines:
             if line.startswith("##"):
@@ -78,6 +84,7 @@ class WorklogPreprocessor(Preprocessor):
                 new_lines.append(f"## 🗓️ {displayed_date}")
             else:
                 new_lines.append(line)
+        # set_locale('fr_FR')
         return new_lines
 
     def compute_data(self, metadata):
@@ -169,6 +176,7 @@ class SimpleReader(MarkdownReader):
             os.path.abspath(os.path.join(source_path, os.pardir))
         )
         metadata["category"] = self.process_metadata("category", category)
+
         return content, metadata
 
 

@@ -4,6 +4,25 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+
+## Lundi 03 Juin 2024 (6h, 5/5)
+
+- Trouvé une solution pour que le serveur websocket ne soit lancé que sur un seul worker lorsqu'on utilise pytest. Je me retrouvais dans une situation où le serveur websocket n'arrivait pas à se lancer de manière séparée. [Plus de détails ici](https://blog.notmyidea.org/start-a-process-when-using-pytest-xdist.html)
+- Une session avec David durant laquelle on parle des messages d'altertes qui sont affichés lorsqu'il y a conflit. Je me rends compte qu'il serait potentiellement intéressant de changer la manière dont l'algorythme de merge fonctionne, pour lui faire utiliser les `ids` qui ont été introduits sur les features. Ça nous permettrait sans doute d'être plus précis.
+
+
+## Vendredi 31 Mai 2024 (9h, 6/5)
+
+- Rebase la PR sur la synchro, et traité les points qui étaient en attente (il y en avait quelques uns !). Entre autres:
+- Rendu les settings pour la synchro plus compréhensibles en dissociant le « front » et le « back ».
+- Ajouté la possibilité de lancer le serveur websockets avec un commande django `umap run_websocket_server`
+- Modifié l'API pour synchroniser, qui est maintenant beaucoup plus compréhensible (`this.sync.update("key", "value)`)
+- Fait un point avec Yohan et David sur leurs avancées ces dernières semaines, dans lequel on a passé en revue les derniers bouts qui restaient à discuter sur la PR.
+
+J'ai très envie de merger, mais il me reste quelques petits trucs, entre autres que les tests ne passent pas pour le moment. J'ai l'impression que c'est peut-être du en partie à un rebase trop rapide, et au fait que l'outil que j'utilise pour lancer une commande en tant que fixture `pytest` ne semble pas fonctionner correctement.
+
+Je me demande si je ne vais pas tout simplement le faire à la main 🤔
+
 ## Jeudi 16 Mai 2024 (7h, 4/5)
 
 De la revue de code, des tests, de la documentation, et un fix, après m'être rendu compte que l'algorithme de merge sur le serveur dupliquait des données en essayant lui aussi de fusionner les modifications, alors qu'elles étaient déjà à jour. La résolution du problème était simplement de le mettre au courant en propageant la version de référence.

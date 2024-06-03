@@ -30,14 +30,14 @@
                 <thead>
                     <tr>
                         <td>Month</td>
-                        <td>Days</td>
+                        <td>Hours</td>
                     </tr>
                 </thead>
                 <tbody>
                     {% for month, hours in page.metadata.worklog.monthly_hours.items() %}
                         <tr>
                             <td>{{ month }}</td>
-                            <td>{{ (hours['payed'] / 7.0) | round(1) }}</td>
+                            <td>{{ hours['payed'] }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
