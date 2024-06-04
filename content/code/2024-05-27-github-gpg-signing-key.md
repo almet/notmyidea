@@ -65,7 +65,7 @@ repo being used using the `includeIf` key. Here's what my file look likes:
 
 [includeIf "gitdir:~/dev/fpf/**/.git"]
   	path = ~/.gitconfig-fpf
-````
+```
 
 And the `~/.gitconfig-fpf` file:
 

@@ -4,6 +4,14 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
+## Mardi 04 Juin 2024 (7h, 2/5)
+
+- Syncing w/ Alex this morning
+- Reviewed the pending pull requests
+- Pairing on a debugging session w/ Alex
+- Found out that pymupdf changed their package name from `fitz`to `pymupdf`, which is why the CI wasn't happy
+- Shooting myself in the foot by commiting files without wanting it
+
 ## Jeudi 30 Mai 2024 (8h, 4/5)
 
 - Reproducing the currently failing CI issues locally and finding out that it might be related to the way the inner image current state, as it seems to not contain the pymupdf python module.

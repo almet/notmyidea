@@ -9,6 +9,7 @@ total_days: 90
 
 - Trouvé une solution pour que le serveur websocket ne soit lancé que sur un seul worker lorsqu'on utilise pytest. Je me retrouvais dans une situation où le serveur websocket n'arrivait pas à se lancer de manière séparée. [Plus de détails ici](https://blog.notmyidea.org/start-a-process-when-using-pytest-xdist.html)
 - Une session avec David durant laquelle on parle des messages d'altertes qui sont affichés lorsqu'il y a conflit. Je me rends compte qu'il serait potentiellement intéressant de changer la manière dont l'algorythme de merge fonctionne, pour lui faire utiliser les `ids` qui ont été introduits sur les features. Ça nous permettrait sans doute d'être plus précis.
+- Êcrit un mail pour clarification avec NLNet sur le fait que les plans changent un peu de ce qui était prévu.
 
 
 ## Vendredi 31 Mai 2024 (9h, 6/5)
