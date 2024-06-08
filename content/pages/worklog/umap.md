@@ -5,6 +5,12 @@ template: worklog
 total_days: 90
 ---
 
+## Vendredi 07 Juin 2024 (2h, 5/5)
+
+- On se retrouve avec David pour échanger autour de ce qu'il traverse en ce moment.
+- On merge tous les trois ensemble le travail effectué jusqu'ici sur la collaboration temps réel. yay !
+- Je planifie les prochaines étapes pour la synchro
+
 ## Lundi 03 Juin 2024 (6h, 5/5)
 
 - Trouvé une solution pour que le serveur websocket ne soit lancé que sur un seul worker lorsqu'on utilise pytest. Je me retrouvais dans une situation où le serveur websocket n'arrivait pas à se lancer de manière séparée. [Plus de détails ici](https://blog.notmyidea.org/start-a-process-when-using-pytest-xdist.html)

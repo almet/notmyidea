@@ -4,13 +4,25 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
-## Mardi 04 Juin 2024 (7h, 2/5)
+## Jeudi 06 Juin 2024 (8h, 5/5)
+
+- Sync w/Alex, and planned what's next
+- Started writing a mechanism to check Docker Desktop updates (for Windows and MacOS), including some fun setting up mitm-proxy to reverse-engineer it)
+- Discussed gVisor specifics w/Alex, and provided feedback on the presentation
+- 1:1 with Harris
+- Attended the gVisor presentation, with lots of interesting questions :-)
+## Mercredi 05 Juin 2024 (6h, 5/5)
+
+- Installed `lima` and `colima` to try to circumvent the "podman in docker" limitation with Apple Silicon. Coming to the same conclusion: it doesn't work, unfortunately. Stated a discussion with podman folks. Let's see where it goes.
+- [Landed some "minor changes"](https://github.com/freedomofpress/dangerzone/pull/811) removing dead code, imports, and fixing some minor concerns in the code.
+- [Landed a PR](https://github.com/freedomofpress/dangerzone/pull/813) where we change the way fixtures are loaded by pytest, and fixes some tests. This makes it possible to run all tests in the same process, and removes the need for spawning multiple `pytest` commands.
+- Started looking at the "on host conversion" PR.
+## Mardi 04 Juin 2024 (8h, 2/5)
 
 - Syncing w/ Alex this morning
-- Reviewed the pending pull requests
 - Pairing on a debugging session w/ Alex
 - Found out that pymupdf changed their package name from `fitz`to `pymupdf`, which is why the CI wasn't happy
-- Shooting myself in the foot by commiting files without wanting it
+- Finished the PR on python version update
 
 ## Jeudi 30 Mai 2024 (8h, 4/5)
 
