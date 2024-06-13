@@ -5,6 +5,12 @@ template: worklog
 total_days: 90
 ---
 
+## Lundi 10 Juin 2024 (6h, 4/5)
+
+- Je rédige un article qui résume là où on en est pour la synchro
+- Je relis le code du sync engine et j'ai très envie de le simplifier, je fini par le faire et propose une pull request qui permet de virer certains concepts, pour simplifier de manière générale l'implémentation.
+- On se fait une rétrospective sur les 6 dernières semaines
+
 ## Vendredi 07 Juin 2024 (2h, 5/5)
 
 - On se retrouve avec David pour échanger autour de ce qu'il traverse en ce moment.

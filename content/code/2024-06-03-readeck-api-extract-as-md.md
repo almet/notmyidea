@@ -6,7 +6,7 @@ status: draft
 
 I've installed [readeck](https://readeck.org/en/) to track the articles I read,
 and I'm currently trying to make it a database for the quotes I do. Because
-there is a nice Firefox addon I hope it will be convenient to use.
+there is a nice Firefox add-on I hope it will be convenient to use.
 
 Readeck proposes an API to retrieve the data it stores, and I wanted to leverage
 it to build [my weeknotes](/weeknotes) citations.
@@ -37,7 +37,7 @@ Returns:
 ]
 ```
 
-From there, turning this to markdown was this [jq](https://jqlang.github.io/jq/manual/) filter:
+From there, turning this to Markdown was this [jq](https://jqlang.github.io/jq/manual/) filter:
 
 ```json
 .[] | "> \(.text) \n> \n> — [\(.bookmark_title)](\(.bookmark_url))\n"
@@ -54,7 +54,7 @@ Using `jq -r` to output as raw output, I get the quote I'm looking for:
 
 Because I write these notes every week, I'm only interested in the content of the last week.
 
-Here is how to get "last-week-date" on MacOS:
+Here is how to get "last-week-date" on macOS:
 
 ```bash
 date -v-7d +"%Y-%m-%d"
@@ -72,7 +72,6 @@ Putting it all together, I have the following line:
 
 curl -X GET "https://readeck.notmyidea.org/api/bookmarks/annotations" -H "accept: application/json" -H "authorization: Bearer <redacted>" \
 | jq -r --arg date $(date -v-7d +"%Y-%m-%d") \
- '.[] | select(.created > $date) | "> \\(.text) \\n> \\n> — [\\(.bookmark_title)](\\(.bookmark_url))\\n"'  
-```
+'.[] | select(.created > $date) | "> \\(.text) \\n> \\n> — [\\(.bookmark_title)](\\(.bookmark_url))\\n"'```
 
-I feel like a hairy monster, but an happy one.
+I feel like a hairy terminal monster, with smiling eyes.

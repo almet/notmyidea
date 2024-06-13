@@ -4,6 +4,47 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
+## Jeudi 13 Juin 2024 (8h, 5/5)
+
+- Extended session with w/ Alex where we prepared the next 0.7.0 release, trying to see how much effort each task would be.
+- Made some minor changes to the drag-n-drop PR
+- Follow-up discussion on an external contributor PR
+- Merged rowen's PR, thanks!
+- Biweekly dangerzone meeting, where we decided what'll go in the next release
+
+## Mercredi 12 Juin 2024 (12h, 5/5)
+
+- Read the Drag-n-drop PR (#752)and rebased it on latest main branch
+- Viewed Ron Deibert's / The Citizen Lab presentation
+- Prepared the work for tomorrow "sprint planning", by reading the issues that will probably go into it
+- Reviewed [Illegal chars filenames - Pull Request #834](https://github.com/freedomofpress/dangerzone/pull/834)
+- Installed the new machine (on arch in the end, I wanted to use ubuntu at first, but was discouraged by a few errors I couldn't debug easily)
+
+Tomorrow looks like:
+
+- Sprint planning
+- Read about alternatives to Docker Desktop on macOS and windows.
+
+- [ ] (2) Install Qubes
+- [x] (1) Review [Illegal chars filenames - Pull Request #834](https://github.com/freedomofpress/dangerzone/pull/834)
+
+- [ ] 
+Quite a long day today, but spent a lot of time installing arch on my new machine.
+
+## Mardi 11 Juin 2024 (7h, 5/5)
+
+- Sync w/ Alex in the morning
+- Described my plans for the Docker Desktop version check and user notification, followed up with some research on how the retrieved version is stored locally. I which this Docker Desktop was opensource to know where to look at.
+- Tried reproducing the CI errors locally on the PR rowen did, pushed a small fix (actually a revert from previous changes) on how the tests are run.
+- Proofread the work on gVisor and gVisor design docs another time
+
+Tomorrow will be:
+
+- Trying locally the drag-n-drop feature, reading the changes, rebasing and trying to make it trough.
+- Installing the Framework laptop I received today (to replace my Silicon m1 as a development machine).
+- Mapping the space of Docker Desktop alternatives on macOS.
+
+
 ## Jeudi 06 Juin 2024 (8h, 5/5)
 
 - Sync w/Alex, and planned what's next
@@ -11,12 +52,14 @@ template: worklog-en
 - Discussed gVisor specifics w/Alex, and provided feedback on the presentation
 - 1:1 with Harris
 - Attended the gVisor presentation, with lots of interesting questions :-)
+
 ## Mercredi 05 Juin 2024 (6h, 5/5)
 
 - Installed `lima` and `colima` to try to circumvent the "podman in docker" limitation with Apple Silicon. Coming to the same conclusion: it doesn't work, unfortunately. Stated a discussion with podman folks. Let's see where it goes.
 - [Landed some "minor changes"](https://github.com/freedomofpress/dangerzone/pull/811) removing dead code, imports, and fixing some minor concerns in the code.
 - [Landed a PR](https://github.com/freedomofpress/dangerzone/pull/813) where we change the way fixtures are loaded by pytest, and fixes some tests. This makes it possible to run all tests in the same process, and removes the need for spawning multiple `pytest` commands.
 - Started looking at the "on host conversion" PR.
+
 ## Mardi 04 Juin 2024 (8h, 2/5)
 
 - Syncing w/ Alex this morning
