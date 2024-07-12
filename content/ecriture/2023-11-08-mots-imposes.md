@@ -6,7 +6,6 @@ contraintes:
   - Liste de mots
   - Durée
 ---
-
 Cette période se rappelle parfois à moi comme un flashback. Comme une sorte de pastille temporelle, un trampoline qui me ramène vers mon enfance. Avec ses quelques écueils mais sans boire la tasse. Ou alors une petite tasse de café, tranquille, en terrasse. Loin des grandes vagues de l'atlantique.
 
 La petite moustache de cire se transforme bientôt en soupe, le liquide chaud prenant de plus en plus de place, s'étalant à l'horizontal d'une manière qu'on aurait voulu plus gracieuse. La forme droite vacille bientôt. Ce qui était un grand bâtiment, longiligne, droit et froid est maintenant un étrange lac visqueux et — disons le — moche. La bougie est ratatouille. Mais la flamme est toujours présente. Au final, on se demande qui nargue qui.

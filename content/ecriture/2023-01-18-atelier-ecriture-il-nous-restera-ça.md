@@ -1,5 +1,6 @@
 ---
 title: Il nous restera ça
+contraintes : utiliser « il nous restera ça », 30mn.
 ---
 
 Perdre pied. Vertige, écroulement et densité. Bruit, solidité, bloc. On s'y perdrait.
@@ -19,6 +20,3 @@ Des matinées, des silences et de la densité. Le temps passe, passera. Qui occu
 Écouter. Oiseaux, ballade et soleil. Silence, fluidité, ouverture. On s'y retrouverait.
 Il nous restera ça.
 
----
-
-Contraintes : utiliser « il nous restera ça », 30mn.

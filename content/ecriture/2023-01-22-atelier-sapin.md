@@ -1,5 +1,6 @@
 ---
 title: Sapins
+contraintes: <ul> <li>Thème : Sapin.</li> <li>Timer : 35mn. (20mn)</li> <li>Contrainte supplémentaire : ne pas effacer ses mots.</li> </ul>
 ---
 
 C'est d'abord son odeur qui m'arrive aux narines, une effluve de résine, un côté fruité, presque épicé. Une puissance aromatique qui vient en plusieurs temps, d'abord me chatouiller les narines, puis remplir mon espace olfactif jusqu'à ce que je ne sente plus rien d'autre. Entêtant.
@@ -19,12 +20,4 @@ Je me remets en marche, remets mon gilet sur mes frêles épaules et je me trouv
 Je suis content de la laisser derrière moi, même si je me souviendrais de son odeur, de ses formes et de ses couleurs.
 
 Derrière moi.
-
----
-
-Contraintes:
-
-- Thème : Sapin.
-- Timer : 35mn. (20mn)
-- Contrainte supplémentaire : ne pas effacer ses mots.
 

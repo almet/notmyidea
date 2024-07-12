@@ -1,9 +1,6 @@
-Phrases prises au pif dans trois livres différents:
-
-« Il s'était laissé emporter par le spectacle et les chocolats »
-« A vrai dire, je n'y gagnais guerre, car la peau du fou donnait plutôt une impression de fraicheur »
-« Il eut un grand et large sourire, qui exprimait toute l'étendue de sa satisfaction »
-
+---
+title: Il s'était laissé emporter
+contraintes: Phrases prises au pif dans trois livres différents: <ul><li>« Il s'était laissé emporter par le spectacle et les chocolats »</li><li>« A vrai dire, je n'y gagnais guerre, car la peau du fou donnait plutôt une impression de fraicheur »</li><li>« Il eut un grand et large sourire, qui exprimait toute l'étendue de sa satisfaction »</li></ul>
 ---
 
 Se tournant vers moi, avec sa tête d'ange et ses cheveux d'or, il eut un grand et large sourire, qui exprimait toute l'étendue de sa satisfaction. Je me demandais bien ce qu'il avait pu trouver de si génial dans la scène, pourtant banale et quasi quotidienne, de son père  qui ramassait et pliait le linge. Une vie de parent banale, voire un peu ennuyante, et si éloignée de ce que j'aurais voulu y trouver à l'origine.

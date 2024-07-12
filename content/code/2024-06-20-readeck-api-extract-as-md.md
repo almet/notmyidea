@@ -1,7 +1,6 @@
 ---
 title: Generating my weeknotes quotes with jq and readeck
 tags: readeck, jq, markdown
-status: draft
 ---
 
 I've installed [readeck](https://readeck.org/en/) to track the articles I read,
@@ -57,7 +56,14 @@ Because I write these notes every week, I'm only interested in the content of th
 Here is how to get "last-week-date" on macOS:
 
 ```bash
-date -v-7d +"%Y-%m-%d"
+set lastweek date -v-7d +"%Y-%m-%d"
+```
+
+And on linux:
+
+```bash
+set lastweek date -d "7 days ago" +"%Y-%m-%d"
+  
 ```
 
 And I can filter with:
@@ -72,6 +78,7 @@ Putting it all together, I have the following line:
 
 curl -X GET "https://readeck.notmyidea.org/api/bookmarks/annotations" -H "accept: application/json" -H "authorization: Bearer <redacted>" \
 | jq -r --arg date $(date -v-7d +"%Y-%m-%d") \
-'.[] | select(.created > $date) | "> \\(.text) \\n> \\n> — [\\(.bookmark_title)](\\(.bookmark_url))\\n"'```
+'.[] | select(.created > $date) | "> \\(.text) \\n> \\n> — [\\(.bookmark_title)](\\(.bookmark_url))\\n"'
+```
 
 I feel like a hairy terminal monster, with smiling eyes.

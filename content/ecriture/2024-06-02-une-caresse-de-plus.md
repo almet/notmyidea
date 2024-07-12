@@ -1,8 +1,9 @@
 ---
 title: Une caresse de plus
+contraintes: <p>Texte écrit lors d’un atelier d’écriture, avec les contraintes suivantes:</p> <ul> <li>🗺️ Écrire autour de la notion de territoire.</li> <li>🧱 Matériaux: <ul> <li>📖 Un extrait de « Zizi Cabane », de Bérangère Cournut</li> <li>👣 Une ballade le cahier à la main, dans la nature, pour se laisser inspirer. Avec la consigne d’écouter.</li> </ul></li> <li>⌛ 45mn de ballade, 30mn d’écriture</li> </ul>
 ---
 
- Le soleil sur ma nuque, une caresse de plus. Une goutte tombe sur la base de ma main pour que je lève la tête, rappel que nous ne possédons rien. Que nous sommes plus que ça.
+Le soleil sur ma nuque, une caresse de plus. Une goutte tombe sur la base de ma main pour que je lève la tête, rappel que nous ne possédons rien. Que nous sommes plus que ça.
 
 D'ici, je vois la lune. 
 
@@ -10,7 +11,7 @@ Les herbes hautes laissent place à un providentiel banc, tronc d'arbre couché.
 
 Son odeur. Délice.
 
-Je te le dis, Louise, à toi qui m'entoure désormais de partout, confortablement. J'aime imaginer que ces ilots de nature se maillent les uns aux autres, dans cette tresse désormais tienne.
+Je te le dis, Louise, à toi qui m'entoures désormais de partout, confortablement. J'aime imaginer que ces îlots de nature se maillent les uns aux autres, dans cette tresse désormais tienne.
 
 Dans tes yeux l'eau, noire, quasi impermanente. La mousse et les herbes hautes laissent place aux couleurs marron et rouille presque orangées, le soleil perçant le feuillage par endroit, taches de rousseur. 
 
@@ -26,12 +27,3 @@ Le soleil chauffe, à en plisser les yeux, et je me dépose sur l'arbre-pause, t
 
 Une caresse de plus.
 
----
-
-Texte écrit lors d'un atelier d'écriture, avec les contraintes suivantes:
-
-- 🗺️ Écrire autour de la notion de territoire. 
-- 🧱 Matériaux: 
-	- 📖 Un extrait de « Zizi Cabane », de Bérangère Cournut
-	- 👣 Une ballade le cahier à la main, dans la nature, pour se laisser inspirer. Avec la consigne d'écouter.
-- ⌛ 45mn de ballade, 30mn d'écriture

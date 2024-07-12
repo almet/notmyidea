@@ -1,5 +1,6 @@
 ---
 title: L'Élan
+contraintes :  <ul> <li>Faire un texte avec l’ensemble des mots suivants, 4 par 4 dans l’ordre.</li> <li>Parler à la première personne.</li> </ul>
 ---
 
 Il est 16h et je me pose enfin. Dehors, le temps d'une clope, seul. J'aime bien ce que le soleil fait derrière ma nuque. Un massage presque. Je ne savais pas que j'en avais besoin.
@@ -20,9 +21,3 @@ Les vagues viennent à la rencontre des rochers, en essayant de briser leur iner
 
 Je me lève et je me mets en mouvement. Sortir de mes projections — de mon cinéma presque — m'est étonnement facile, comme si j'avais trouvé un trait d'union et retrouvé mon souffle.
 
----
-
-Contraintes : 
-
-- Faire un texte avec l'ensemble des mots suivants, 4 par 4 dans l'ordre.
-- Parler à la première personne.
