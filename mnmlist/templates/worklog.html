@@ -1,98 +1,98 @@
-{% extends "page.html" %}
-{% block extra_head %}
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-{% endblock extra_head %}
-{% block content %}
-    <header>
-        <h1 class="post-title">{{ page.title }}</h1>
-        <details>
-            <summary>Stats</summary>
-            {% if "total_days" in page.metadata.keys() %}
-                {% set percentage = page.metadata.worklog['percentage'] %}
-                {% set total_blocks = 10 %}
-                {% set percentage_value = (percentage / 100.0) %}
-                {% set full_blocks = ((percentage_value * total_blocks) | round(0, 'floor') ) | int %}
-                {% set empty_blocks = total_blocks - full_blocks %}
-                <div>
-                    {# Display full blocks #}
-                    {% for i in range(full_blocks) %}▓{% endfor %}
-                    {# Display empty blocks #}
-                    {% for i in range(empty_blocks) %}░{% endfor %}
-                    {{ percentage }}% ({{ page.metadata.worklog['payed_hours'] }}h / {{ page.metadata.worklog['total_hours'] }} prévues)
-                </div>
-                <ul>
-                    <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
-                    <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
-                </ul>
-            {% endif %}
-            <table>
-                <thead>
-                    <tr>
-                        <td>Mois</td>
-                        <td>Jours rémunérés</td>
-                        <td>Jours bénévoles</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for month, hours in page.metadata.worklog.monthly_hours.items() %}
-                        <tr>
-                            <td>{{ month }}</td>
-                            <td>{{ (hours['payed'] / 7.0) | round(1) }}</td>
-                            <td>{{ (hours['volunteered'] / 7.0) | round(1) }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </details>
-    </header>
-    <article>
-        <div id="vis"></div>
-        {{ page.content }}
-    </article>
-    <script>
-    const spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 500,
-      "height": 200,
-      "data": 
-        {
-          "name": "table",
-          "values": [
-          {% for date, item in page.metadata.worklog.data.items() %}
-            {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}},
-            {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volunteer_hours'] }}},
-          {% endfor %}
-          ]
-        }
-      ,
-      "mark": "bar",
-      "encoding": {
-        "x": {
-          "timeUnit": {"unit": "", "utc": true},
-          "field": "date",
-          "axis": {"format": "%d/%m"},
-          "title": "Date"
-        },
-        "y": {
-          "aggregate": "sum",
-          "field": "count",
-          "title": "Heures",
-        },
-        "color": {
-          "field": "series",
-          "scale": {
-            "domain": ["Bénévole", "Rémunéré"],
-            "range": ["#e7ba52", "#1f77b4"]
-          }
-        }
-      }
-    };
+{% extends "page.html" %} {% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+{% endblock extra_head %} {% block content %}
+<header>
+  <figure>
+    <h1 class="post-title">Journal {{ page.title }}</h1>
+    <figcaption>
+      {% if "total_days" in page.metadata.keys() %} {% set percentage =
+      page.metadata.worklog['percentage'] %} {% set total_blocks = 10 %} {% set
+      percentage_value = (percentage / 100.0) %} {% set full_blocks =
+      ((percentage_value * total_blocks) | round(0, 'floor') ) | int %} {% set
+      empty_blocks = total_blocks - full_blocks %}
+      <div>
+        {# Display full blocks #} {% for i in range(full_blocks) %}▓{% endfor %}
+        {# Display empty blocks #} {% for i in range(empty_blocks) %}░{% endfor
+        %} {{ percentage }}%
+      </div>
+      {% endif %}
+    </figcaption>
+  </figure>
+  <details>
+    <summary>Stats</summary>
+    <ul>
+      <li>{{ page.metadata.worklog['total_hours'] }}h prévues</li>
+      <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
+      <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <td>Mois</td>
+          <td>Jours rémunérés</td>
+          <td>Jours bénévoles</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for month, hours in page.metadata.worklog.monthly_hours.items() %}
+        <tr>
+          <td>{{ month }}</td>
+          <td>{{ (hours['payed'] / 7.0) | round(1) }}</td>
+          <td>{{ (hours['volunteered'] / 7.0) | round(1) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </details>
+</header>
+<article>
+  <div id="vis"></div>
+  {{ page.content }}
+</article>
+<script>
+   const spec = {
+     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     "width": 500,
+     "height": 200,
+     "data":
+       {
+         "name": "table",
+         "values": [
+         {% for date, item in page.metadata.worklog.data.items() %}
+           {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}},
+           {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volunteer_hours'] }}},
+         {% endfor %}
+         ]
+       }
+     ,
+     "mark": "bar",
+     "encoding": {
+       "x": {
+         "timeUnit": {"unit": "", "utc": true},
+         "field": "date",
+         "axis": {"format": "%d/%m"},
+         "title": "Date"
+       },
+       "y": {
+         "aggregate": "sum",
+         "field": "count",
+         "title": "Heures",
+       },
+       "color": {
+         "field": "series",
+         "scale": {
+           "domain": ["Bénévole", "Rémunéré"],
+           "range": ["#e7ba52", "#1f77b4"]
+         }
+       }
+     }
+   };
 
-  	vegaEmbed("#vis", spec)
-    	// result.view provides access to the Vega View API
-      .then(result => console.log(result))
-      .catch(console.warn);
-    </script>
+  vegaEmbed("#vis", spec)
+   	// result.view provides access to the Vega View API
+     .then(result => console.log(result))
+     .catch(console.warn);
+</script>
 {% endblock content %}

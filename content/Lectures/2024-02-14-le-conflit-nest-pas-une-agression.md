@@ -5,6 +5,7 @@ headline:  Rhétorique de la souffrance, responsabilité collective et devoir de
 tags: conflit, agression, facilitation
 isbn: 9782490077489
 ---
+
 J'ai commencé ce livre en fin d'été, et je l'ai lu par petits morceaux. Pas que ce soit difficile à lire, mais plutôt parce que j'avais envie/besoin de lire et de relire certains passages qui faisaient écho à des situations que j'ai pu traverser, que ce soit dans le cadre pro ou ailleurs.
 
 Si je devais ne retenir qu'une chose de ce livre, ce serait le travail autour de « l'escalade du conflit ». Le propos principal de Sarah Schulmann me semble être qu'il est important de detecter et d'éviter les mécaniques d'escalade (du conflit vers l'agression), cette escalade pouvant être une distraction pour éviter de discuter réellement des problèmes.
@@ -20,13 +21,13 @@ Quelques morceaux choisis:
 > 
 > — page 25.
 
----
+___
 
 > Et si l'autre personne mettait le doigt sur quelque chose que je n'étais pas en mesure d'exprimer toute seule ? **Est-ce que ça me mettrait en colère ou est-ce que je refuserais de voir la réalité ? Plutôt que de me livrer à l'introspection, est-ce que je trouverais une manière de l'accuser ?** Et si elle m'aidait, au contraire, à reconnaître cette réalité ou à en prendre conscience ?
 
 Je trouve intéressante la manière dont les choses sont posées. L'idée étant de permettre à tout·e un·e chacun·e de mieux se connaitre, et de prendre conscience de nos fonctionnements construits pour pouvoir les dépasser.
 
----
+___
 
 > **le refus de communiquer à toujours été la cause principale des accusations mensongères car il permet de nourrir toutes sortes de fantasmes négatifs à propos de l'autre**, surtout dans les domaines symboliquement chargés tels que la sexualité, l'amour, la communauté, la famille, les ressources matérielles, les identités de groupe, le genre, le pouvoir, le capital social et la violence.
 > Refuser catégoriquement d'adresser la parole à quelqu'un est un acte de destruction aussi étrange qu'immature; personne n'en sort gagnant.
@@ -37,7 +38,7 @@ Je trouve intéressante la manière dont les choses sont posées. L'idée étant
 
 D'où l'importance de réussir à faire la différence entre un ressenti et un fantasme. J'apprécie ce que « projeter des fantasmes négatifs » apporte comme compréhension. Dans ces cas là, peut-être qu'on parle a nos peurs plutôt qu'a notre interlocuteur·ice. 😮‍💨
 
----
+___
 
 > Aujourd'hui, le caractère réducteur des slogans publicitaires est également appliqué à des domaines très sérieux tels que les droits humains ou la sécurité. Ces messages ne sont plus seulement destinés à vendre du liquide vaisselle, mais par exemple à aider les femmes à se protéger contre la violence masculine. Cependant, leur manque de subtilité peut également contribuer à renforcer le déni sur ces questions. **Le désaccord est un terrain complexe dont nous devons pourtant embrasser les nuances si nous voulons agir de manière constructive, avec honnêteté et sincérité.**
 
@@ -72,7 +73,7 @@ Je me demande comment réussir à dépasser ça. L'obéissance n'étant bien sur
 
 Je ne connaissais pas cette distinction entre d'un côté la honte et de l'autre la culpabilité, et de ce que ça montre des différents *styles* qui peuvent être adoptés lorsque le stress s'en mêle. Je me demande quand même si l'explication n'est pas un peu simpliste (même si elle m'arrange bien 🫢).
 
----
+___
 ## Elements déclancheurs
 
 > les situations vécues comme des éléments déclencheur sont des formes de réaction qui s'avère déterminantes dans l'amalgame entre un conflit et une agression. De manière générale dans la vie, nous sommes amenés à réagir en permanence. Nous ne nous rendons pas compte de la plupart de nos réactions car elles sont proportionnelles aux stimuli qui les ont provoqués. **Une réaction disproportionnée se démarque parce qu'elle est démesurée au regard de ce qui est réellement en train de se passer**.
@@ -91,7 +92,7 @@ Je ne connaissais pas cette distinction entre d'un côté la honte et de l'autre
 
 Ah, la la.
 
----
+___
 
 Il y a toute un chapitre ou l'autrice parle de différentes approches (psychologie, psychiatrie moderne et pop psychologie) qui convergent vers les mêmes conclusions concernant la définition d'une réaction et ses conséquences. (j'ai formaté le texte pour le rendre plus lisible)
 
@@ -112,12 +113,12 @@ Il y a toute un chapitre ou l'autrice parle de différentes approches (psycholog
 >  
 >  — page 189
 
----
+___
 
 En guise de conclusion :
 
  > D'une certaine manière, on pourrait résumer la chose par « se sentir mieux » versus « aller mieux ». Refouler des informations (sur nous-mêmes, sur nos amis), créer des bouc-émissaires de sorte à nous détourner de nos problèmes, exclure afin d'unifier un collectif et de créer une identité de groupe : **tous ces mécanismes aident les gens à se sentir mieux, parce qu'ils leur permet de se sentir supérieurs**. Or la seule manière d'aller véritablement mieux et de nous confronter aux autres, de les regarder en face, de communiquer.
 
----
+___
  
  > Si nous appartenons à des groupes qui ne sont pas capables d'autocritique, et qui sanctionnent en conséquence la différence, nous nous joindrons à l'effort collectif qui revient à fuir, exclure et mépriser. **Mais si nous nous trouvons dans des groupes qui promeuvent l'acceptation, qui font en sorte de créer des conditions de communication, et qui reconnaissent que les gens sont porteurs de contradiction, nous serons capables de composer avec la nature réelle du conflit** : son caractère collectif, d'une part, et, d'autre part, le fait qu'il ne peut pas se régler en faisant usage de cruauté, en faisant courir des rumeurs, en promulguant des lois, où on emprisonna des gens, en envahissant et en occupant leur territoire.

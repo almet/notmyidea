@@ -4,6 +4,41 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+## Vendredi 04 Juillet 2024 (7h, 5/5)
+
+On se fait une session de pair avec Yohan le matin, continuée l'aprem, durant laquelle on a avancé des cas offline, et de comment réconcilier les messages manquants.
+
+David nous rejoint en fin d'aprèm. Une bonne session !
+
+## Jeudi 04 Juillet 2024 (10h, 5/5)
+
+Je reprends le travail sur les messages échangés entre le serveur et les clients, pour trouver un moyen de récupérer les informations qui dates d'avant le "join". Je réussis finalement à trouver un moyen d'utiliser Pydantic comme je le veux, pour parser un message et avoir en retour différents objets, créés dynamiquement, en fonction du type de message.
+
+Je réussis à envoyer l'ensemble des messages d'un client de l'autre côté, et ça s'affiche !
+## Lundi 24 Juin 2024 (7h, 5/5)
+
+Un bug remonté par un utilisateur me fait me rendre compte d'un impensé dans le code, et en tirant le fil, je trouve quelques bugs assez génants. Je les corrige.
+
+Une discussion sur la gouvernance, qui débouche sur l'idée d'essayer d'avoir plus de clarté sur notre manière de nous organiser collectivement. Content devoir ce sujet pris en compte, et avancer.
+
+On pair-prog avec David, et c'est aussi l'occasion de discuter ensemble.
+
+## Lundi 17 Juin 2024 (5h, 5/5)
+
+Je commence par décrire ce que je compte faire pour avoir les idées un peu plus
+claires, puis j'enchaine sur l'implémentation de la sauvegarde des messages, du
+HLC et du protocole de discussion avec le serveur.
+
+Au passage, je me rends compte que le nombre de messages générés par le
+`FormBuilder` est bien trop important, et qu'il faudrait plutôt utiliser
+l'évènement `onBlur` pour éviter d'envoyer des messages à chaque modification
+d'un `input`.
+
+Le serveur à maintenant la possibilité de gérer différents types de messages, et
+j'en suis au moment où je fais la selection du pair pour que celui ci envoie ses
+messages de l'autre côté. Il me reste à demander côté client, puis à recevoir la
+le message et à y répondre, pour enfin récupérer la liste des opérations et les
+appliquer localement.
 
 ## Lundi 10 Juin 2024 (6h, 4/5)
 

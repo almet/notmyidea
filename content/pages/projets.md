@@ -1,7 +1,10 @@
 ---
 save_as: projets/index.html
 slug: projets
+subtitle: À propos
 ---
+
+# Alexis Métaireau
 
 ## 🌟 Valeurs et intérets
 
@@ -30,7 +33,10 @@ J'ai pu <del>jouer avec</del> travailler sur plusieurs projets au fil des année
 
 Voici quelques logiciels auxquels j'ai participé. Vous pouvez aussi aller faire un tour sur mes dépots publics ([Github](https://github.com/almet) ou [Gitlab](https://gitlab.com/almet))
 
-🗺️ [uMap](https://umap-project.org) (2023-2024)
+⚠️ [Dangerzone](https://dangerzone.rocks) (2024-*)
+: Un logiciel pour transformer des documents potentiellement dangereux en documents sûrs, pour le compte de la foundation américaine pour la libérté de la presse ([Freedom of the Press Foundation](https://freedom.press))
+
+🗺️ [uMap](https://umap-project.org) (2023-*)
 : Un logiciel de création de cartes pour le web. J'y travaille sur l'ajout de fonctionalités de collaboration, pour que plusieurs utilisateur·ices puissent voir les éditions des autres, en « temps réel ».
 
 🚨 [Argos](https://framasoft.frama.io/framaspace/argos/) (2023-2024)

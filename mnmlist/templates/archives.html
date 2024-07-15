@@ -1,19 +1,30 @@
-{% extends "base.html" %}
-{% block content %}
-    <header>
-        <h1>Archives</h1>
-    </header>
-    <section id="content" class="body">
-            {% for year, articles in dates | groupby("date.year") | reverse %}
-            <h2>{{ year }}</h2>
-            <ul>
-                {% for article in articles[0:20] %}
-                    <li>
-                        <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
-                        <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ CATEGORIES_DESCRIPTION.get(article.category)[0] }}: {{ article.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-            {% endfor %}
-    </section>
+{% extends "base.html" %} {% block content %}
+<header>
+  <figure>
+    <h1>Archives</h1>
+  </figure>
+</header>
+<article>
+  {% for year, y_articles in dates | groupby("date.year") | reverse %}
+  <h2>{{ year }}</h2>
+  <ul>
+    {% for month, m_articles in y_articles | groupby("date.month") | reverse %}
+    <h3>
+      {% if month == 1 %}Janvier{% elif month == 2 %}Février {% elif month == 3
+      %}Mars {% elif month == 4 %}Avril {% elif month == 5 %}Mai {% elif month
+      == 6 %}Juin {% elif month == 7 %}Juillet {% elif month == 8 %}Aout {% elif
+      month == 9 %}Septembre {% elif month == 10 %}Octobre {% elif month == 11
+      %}Novembre {% elif month == 12 %}Décembre {% endif %}
+    </h3>
+    {% for article in m_articles %}
+    <li>
+      <a href="{{ SITEURL }}/{{ article.url }}" id="page-title"
+        >{{ CATEGORIES_DESCRIPTION.get(article.category)[0] }}: {{ article.title
+        }}</a
+      >
+    </li>
+    {% endfor %} {% endfor %}
+  </ul>
+  {% endfor %}
+</article>
 {% endblock %}

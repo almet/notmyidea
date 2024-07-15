@@ -65,8 +65,7 @@ class WorklogPreprocessor(Preprocessor):
                     happiness,
                 ) = match.groups()
 
-                volunteer_hours = int(
-                    volunteer_hours) if volunteer_hours else 0
+                volunteer_hours = int(volunteer_hours) if volunteer_hours else 0
                 payed_hours = int(payed_hours)
                 happiness = int(happiness)
                 date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
@@ -76,8 +75,8 @@ class WorklogPreprocessor(Preprocessor):
                     "happiness": happiness,
                 }
                 current_date = date.strftime("%Y/%m")
-                self.monthly_hours[current_date]['payed'] += payed_hours
-                self.monthly_hours[current_date]['volunteered'] += volunteer_hours
+                self.monthly_hours[current_date]["payed"] += payed_hours
+                self.monthly_hours[current_date]["volunteered"] += volunteer_hours
                 displayed_date = date.strftime("%A %d %B %Y")
 
                 # Replace the line with just the date
@@ -93,8 +92,7 @@ class WorklogPreprocessor(Preprocessor):
         This is run once, after everything has been parsed
         """
         payed_hours = sum([item["payed_hours"] for item in self.data.values()])
-        volunteer_hours = sum([item["volunteer_hours"]
-                              for item in self.data.values()])
+        volunteer_hours = sum([item["volunteer_hours"] for item in self.data.values()])
 
         data = dict(
             data=self.data,
@@ -122,10 +120,10 @@ class SimpleReader(MarkdownReader):
 
     def __init__(self, *args, **kwargs):
         super(SimpleReader, self).__init__(*args, **kwargs)
-        self.settings["MARKDOWN"]["extensions"].append(
-            "markdown.extensions.toc")
+        self.settings["MARKDOWN"]["extensions"].append("markdown.extensions.toc")
         self.settings["MARKDOWN"]["extension_configs"].update(
-            {'markdown.extensions.toc': {'toc_depth': 3}})
+            {"markdown.extensions.toc": {"toc_depth": 3}}
+        )
 
     def read(self, source_path):
         self._source_path = source_path
@@ -168,8 +166,7 @@ class SimpleReader(MarkdownReader):
 
         if "slug" not in metadata:
             metadata["slug"] = slugify(
-                metadata["title"], self.settings.get(
-                    "SLUG_REGEX_SUBSTITUTIONS", [])
+                metadata["title"], self.settings.get("SLUG_REGEX_SUBSTITUTIONS", [])
             )
 
         category = os.path.basename(

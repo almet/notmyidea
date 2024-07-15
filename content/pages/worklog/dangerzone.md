@@ -4,6 +4,88 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
+## Jeudi 11 Juillet 2024 (5h, 5/5)
+
+- Update the REALEASE.md file with notes taken during the release
+- Check how to run Dangerzone with Colima / explore the situation and give feedback to a user trying to make things work
+- DZ biweekly meeting
+
+## Mercredi 10 Juillet 2024 (8h, 5/5)
+
+- We released 0.7.0, finally :-)
+
+## Mardi 09 Juillet 2024 (8h, 5/5)
+
+- Rebuilt all the Linux targeted distributions for the 0.7.0 release with the latest fixes, updated the pull requests on {apt,yum}-tools-prod repositories.
+- Some poking around with L_ee to ensure the Windows virtualbox machine has access to the SmartCard.
+- Rebuilt the Windows .msi
+- Started thinking about what could be automated in our setup
+
+## Lundi 08 Juillet 2024 (8h, 5/5)
+
+- Sync up with a_pyrgio on the next steps for the release (when the mac mini will be back again).
+- Documented myself on certificate transparency, and on how / if we should put trust in the Github releases pages for Dangerzone. I started an issue about that on the DZ repository.
+- Discussed a bit with A_da about how the infra is setup and how we should use github PAT
+- Read a bit about the latest SSL exploit, I didn't realized it was that problematic.
+
+## Mardi 02 Juillet 2024 (6h, 5/5)
+
+- 0.7.0 is almost there. Everything is signed and ready. Let's wait the green lights.
+  
+  We finished the last steps for the release. Building and signing everything, by pairing together most of the day with Alex_P.
+- I now know how to juggle with three different keyboard layouts !
+
+## Lundi 01 Juillet 2024 (6h, 5/5)
+
+- QA on my windows machine, and then
+- Hopping to the windows VM to do the build and sign. Session with Alex_P where we did some debugging
+- Reviewed a PR about adding timeouts on kill commands
+
+## Jeudi 27 Juin 2024 (8h, 5/5)
+
+- Today way mostly QAing for the 0.7.0 release, which is lining up.
+- And we merged the drag-n-drop feature!
+- Biweekly meeting, we discussed about how to deal with security problems when maintainers aren't around, and what's next for the redesign :-)
+
+## Mercredi 26 Juin 2024 (6h, 4/5)
+
+- Understanding how the mac minis are working, starting drafting a release there ;
+- Reviewing Alex_P PR about using custom seccomp profiles on some specific Docker Desktop versions (see above)
+- Started bumping python to 3.12 for Windows and macOS buildd, finding some bumps in the road.
+
+
+## Mardi 25 Juin 2024 (8h, 5/5)
+
+- Sync with AlexP on the upcoming 0.7.0 release
+- Debugged a seccomp filter related bug with runc old versions on silicon mac + Docker Desktop w/ AlexP
+- Started drafting a solution for it
+- Changelog-related discussions
+- Attended the XZ postmortem meeting
+
+## Jeudi 20 Juin 2024 (8h, 5/5)
+
+- Started the 0.7.0 release
+	- Updated dependencies
+	- Removed support for Fedora 38
+	- Started writing the CHANGELOG
+- Synced w/ Alex
+## Mercredi 19 Juin 2024 (8h, 4/5)
+
+- Merged the two PRs for testing packages for fedora and debian
+- Found out an issue with line endings on windows, when building the docker image
+- 1:1 Discussion with M_icah
+- Got access to the release machines, and found some way to circumvent the network at my workplace being tempered.
+
+## Mardi 18 Juin 2024 (7h, 5/5)
+
+- Fixing the CI for .deb testing
+- Installing a windows machine to check current work on drag-n-drop there
+- Started working on a PR for CI checking fedora packages
+
+## Vendredi 14 Juin 2024 (6h, 4/5)
+
+- Added CI for testing the built debian images are working properly. 
+- Some more work on the drag-n-drop feature, it's now passing the CI tests and is working everywhere I tried.
 ## Jeudi 13 Juin 2024 (8h, 5/5)
 
 - Extended session with w/ Alex where we prepared the next 0.7.0 release, trying to see how much effort each task would be.
@@ -24,12 +106,6 @@ Tomorrow looks like:
 
 - Sprint planning
 - Read about alternatives to Docker Desktop on macOS and windows.
-
-- [ ] (2) Install Qubes
-- [x] (1) Review [Illegal chars filenames - Pull Request #834](https://github.com/freedomofpress/dangerzone/pull/834)
-
-- [ ] 
-Quite a long day today, but spent a lot of time installing arch on my new machine.
 
 ## Mardi 11 Juin 2024 (7h, 5/5)
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 PATH = "content"
-SITENAME = "Alexis Métaireau"
+SITENAME = "(not my) ideas"
 AUTHOR = ""
 THEME = "mnmlist"
 STATIC_PATHS = ["images", "audio", "extra", "docs"]
@@ -14,9 +14,10 @@ EXTRA_PATH_METADATA = {
     "extra/apple-touch-icon.png": {"path": "apple-touch-icon.png"},
     "extra/favicon-16x16.png": {"path": "favicon-16x16.png"},
     "extra/favicon-32x32.png": {"path": "favicon-32x32.png"},
-    "extra/favicon-32x32.png": {"path": "favicon-32x32.png"},
     "extra/robots.txt": {"path": "robots.txt"},
 }
+
+FORMATTED_FIELDS = "contraintes"
 
 SITEURL = ""
 RELATIVE_URLS = True

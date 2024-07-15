@@ -1,9 +1,10 @@
 ---
 save_as: resume/index.html
 slug: resume
-title: Alexis Métaireau / Resume
+title: Alexis Métaireau
 ---
-# Alexis Métaireau - Resume
+
+Here is a resume.
 
 ---
 

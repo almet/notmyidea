@@ -1,3 +1,27 @@
-{% extends "index.html" %}
-{% block title %}{{ tag }} - {{ super() }}{% endblock %}
-{% block pagetitle %}Tag « {{ tag }} »{% endblock %}
+{% extends "base.html" %} {% block title %}Tag {{ tag.name }} - {{ super() }}{%
+endblock %} {% block content %}
+<header class="tag">
+  <figure>
+    <h1 class="post-title">{{ tag }}</h1>
+    <figcaption>
+      <a id="feed" href="{{ SITEURL }}/feeds/tags/{{ tag.slug }}.atom.xml">
+        Flux RSS <img src="{{ SITEURL }}/theme/rss.svg" />
+      </a>
+    </figcaption>
+  </figure>
+</header>
+<article class="{{ category }}">
+  <ul>
+    {% for article in articles %}
+    <li>
+      <a href="{{ SITEURL }}/{{ article.url }}" id="page-title"
+        >{{ article.title }}</a
+      >
+      {% for tag in article.tags %}
+      <div class="tag">{{ tag }}</div>
+      {% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+</article>
+{% endblock %}

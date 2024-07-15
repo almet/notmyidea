@@ -1,7 +1,7 @@
 ---
 title: Micropolitiques des groupes
 author: David Vercauteren
-headline: Une livre qui vise à créer une culture des précédents dans les collectifs (militants). Plusieurs chapitres et un découpage par sujets. A relire au fur et à mesure des expériences.
+headline: Un livre qui vise à créer une culture des précédents dans les collectifs (militants). Plusieurs chapitres et un découpage par sujets. A relire au fur et à mesure des expériences.
 isbn: 9782354801786
 ---
 ## Artifices
