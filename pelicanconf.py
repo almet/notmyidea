@@ -31,7 +31,11 @@ DEFAULT_DATE_FORMAT = "%d %B %Y"
 LINKS = []
 
 PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["simplereader", "isbn_downloader", "neighbors"]
+PLUGINS = [
+    "simplereader",
+    "isbn_downloader",
+    "neighbors",
+]
 
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
@@ -58,25 +62,31 @@ CATEGORIES_DESCRIPTION = {
     "weeknotes": (
         "Notes hebdo",
         "Chaque semaine, je fais un petit résumé de ce qui s'est passé. Cela m'aide à garder le fil de mes idées et de mes différents projets. Un bon moyen de faire une pause et d'observer la semaine sous un autre angle.",
+        "📝",
     ),
     "lectures": (
         "Notes de lecture",
         "Quelques notes prises au détour d'une lecture, plutôt pour ne pas les oublier et me remémorer le livre quand j'en ai besoin.",
+        "📖",
     ),
     "code": (
         "Code",
         "Des bouts de trucs liés au code, que je trouve utiles de stocker quelque part (en anglais)",
+        "🧑‍💻",
     ),
     "journal": (
         "Journal",
         "Quelques réfléxions, bien souvent autour du monde du travail ou de la technologie.",
+        "📘",
     ),
     "notes": (
         "Notes",
         "Prises bien souvent en regardant une vidéo ou un article en ligne. Je les mets ici pour pouvoir les retrouver quand le besoin se fait sentir.",
+        "",
     ),
-    "ecriture": (
-        "Écriture",
-        "Textes rédigés lors d'ateliers d'écriture",
-    ),
+    "ecriture": ("Écriture", "Textes rédigés lors d'ateliers d'écriture", "✍️"),
 }
+
+HOMEPAGE_EXCLUDED_CATEGORIES = [
+    "weeknotes",
+]

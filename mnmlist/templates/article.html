@@ -1,73 +1,79 @@
-{% extends "base.html" %} {% block title %}{{ article.title }} - {{ super() }}{%
-endblock %} {% block content %} {% set lectures = (article.category ==
-"Lectures") %}
-<header class="{{ article.category }}">
-  <figure>
-    <h1 class="post-title">{{ article.title }}</h1>
-    <figcaption>
-      {% if lectures %} Lu en {{ article.date | strftime("%B %Y") }} {% else %}
-      {{ article.locale_date }} {% endif %}
-    </figcaption>
-  </figure>
-  <nav>
-    <ul class="navigation">
-      {% if article.prev_article_in_category %}
-      <li>
-        <a
-          href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}"
-          title="{{ article.prev_article_in_category.title | striptags }}"
-          >← Précédent</a
-        >
-      </li>
+{% extends "base.html" %}
+{% block title %}
+  {{ article.title }} - {{ super() }}{%
+  endblock %}
+  {% block content %}
+    {% set lectures = (article.category ==
+        "Lectures") %}
+    <header class="{{ article.category }}">
+      <figure>
+        <h1 class="post-title">{{ article.title }}</h1>
+        <figcaption>
+          {% if lectures %}
+            Lu en {{ article.date | strftime("%B %Y") }}
+          {% else %}
+            {{ article.locale_date }}
+          {% endif %}
+        </figcaption>
+      </figure>
+      <nav>
+        <ul class="navigation">
+          {% if article.prev_article_in_category %}
+            <li>
+              <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}"
+                 title="{{ article.prev_article_in_category.title | striptags }}">← Précédent</a>
+            </li>
+          {% endif %}
+          <li>
+            <a href="{{ SITEURL }}">Accueil</a>
+          </li>
+          {% if article.next_article_in_category %}
+            <li>
+              <a href="{{ SITEURL }}/{{ article.next_article_in_category.url }}"
+                 title="{{ article.next_article_in_category.title | striptags }}">Suivant →</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <article class="{{ article.category }}">
+      {% if lectures %}
+        <p>{% if article.isbn_cover %}</p>
+          <div class="book-cover">
+            <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
+          </div>
+        {% endif %}
+        <p>Un livre de {{ article.author }}</p>
+        {% if article.headline %}
+          <p>
+            <em>{{ article.headline }}</em>
+          </p>
+        {% endif %}
+        <hr />
       {% endif %}
-      <li>
-        <a href="{{ SITEURL }}">Accueil</a>
-      </li>
-      {% if article.next_article_in_category %}
-      <li>
-        <a
-          href="{{ SITEURL }}/{{ article.next_article_in_category.url }}"
-          title="{{ article.next_article_in_category.title | striptags }}"
-          >Suivant →</a
-        >
-      </li>
-      {% endif %}
-    </ul>
-  </nav>
-</header>
-<article class="{{ article.category }}">
-  {% if lectures %}
-  <p>{% if article.isbn_cover %}</p>
-
-  <div class="book-cover">
-    <img src="{{ SITEURL }}/{{ article.isbn_cover }}" />
-  </div>
-  {% endif %}
-  <p>de {{ article.author }}</p>
-  {% if article.headline %}
-  <p><em>{{ article.headline }}</em></p>
-  {% endif %}
-  <hr />
-  {% endif %} {{ article.content }}
-</article>
-{% if article.contraintes or article.tags %} {% if article.contraintes %}
-<details>
-  <summary>+ d'infos sur ce texte (au risque de casser la magie)…</summary>
-  {% endif %}
-  <section class="more">
-    {% if article.contraintes %}
-    <h2>Contraintes</h2>
-    {{ article.contraintes }} {% endif %} {% if article.tags %}
-    <p>
-      {% for tag in article.tags %}
-      <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>
-      {% if not loop.last %},{% endif %} {% endfor %} - Posté dans la catégorie
-      <a href="{{ SITEURL }}/{{ article.category.url }}"
-        >{{ article.category }}</a
-      >
-    </p>
+      {{ article.content }}
+    </article>
+    {% if article.contraintes or article.tags %}
+      {% if article.contraintes %}
+        <details>
+          <summary>+ d'infos sur ce texte (au risque de casser la magie)…</summary>
+        {% endif %}
+        <section class="more">
+          {% if article.contraintes %}
+            <h2>Contraintes</h2>
+            {{ article.contraintes }}
+          {% endif %}
+          {% if article.tags %}
+            <p>
+              {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>
+                {% if not loop.last %},{% endif %}
+              {% endfor %}
+              - Posté dans la catégorie
+              <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+            </p>
+          {% endif %}
+        </section>
+        {% if article.contraintes %}</details>{% endif %}
     {% endif %}
-  </section>
-  {% if article.contraintes %}
-</details>
-{% endif %} {% endif %} {% endblock %}
+  {% endblock %}

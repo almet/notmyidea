@@ -1,65 +1,62 @@
-{% extends "base.html" %} {% block content %}
-<header>
-  <figure>
-    <h1 class="post-title">{{ SITENAME }}</h1>
-    <figcaption>Carnets web d'Alexis M</figcaption>
-  </figure>
-</header>
-<article>
-  <p>👋 <strong>Bienvenue</strong></p>
-  <p>
-    Si vous êtes ici, c'est sûrement que vous vous êtes perdus lors d'une
-    exploration, au détour d'un clic, et que vous essayez d'en savoir plus.
-  </p>
-  <p>
-    Ici, je range (enfin, j'essaye) certains bouts de réflexion et des notes que
-    je veux garder dans un coin. Vous pouvez trouver:
-  </p>
-  <ul>
-    <li>
-      <a href="/ecriture">Des écrits</a>, poésie et fiction, souvent au format
-      court.
-    </li>
-    <li>
-      <a href="/lectures">Des notes de lecture</a>, sur differents bouquins,
-      pour pouvoir retrouver certains passages et alimenter des discussions.
-    </li>
-    <li>
-      <a href="/code">Des bouts de code</a>, astuces et autres découvertes
-      autour du développement logiciel, que je veux garder et/ou partager.
-    </li>
-    <li>
-      <a href="/weeknotes">Mes notes hebdo</a>, une sorte de journal de mes
-      activités pro, avec une tentative de prise de recul sur les semaines
-      passées.
-    </li>
-  </ul>
-  <p>
-    Aussi, <a href="/projets">une présentation</a>, parce que bon, ça se fait
-    pas de pas se présenter.
-  </p>
-  <p>
-    Si vous voulez me contacter, envoyez-moi un email sur
-    <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).
-  </p>
-</article>
-{% if articles %}
-<hr />
-<h2>Les derniers articles</h2>
-<ul class="items">
-  {% for article in articles[0:20] %}
-  <li class="item">
-    {% set category_description =
-    CATEGORIES_DESCRIPTION.get(article.category)[0] %}
-    <a href="{{ SITEURL }}/{{ article.url }}" class="page-title"
-      >{{ category_description }}: {{
-      article.title.replace(category_description, "") }}</a
-    >
-    <time datetime="{{ article.date.isoformat() }}"
-      >{{ article.date.strftime("%Y-%m-%d") }}</time
-    >
-  </li>
-  {% endfor %}
-</ul>
-Voir <a href="archives.html">toutes les archives</a>
-{% endif %} {% endblock content %}
+{% extends "base.html" %}
+{% block content %}
+  <header>
+    <figure>
+      <h1 class="post-title">{{ SITENAME }}</h1>
+      <figcaption>Carnets web d'Alexis M</figcaption>
+    </figure>
+  </header>
+  <article>
+    <p>
+      👋 <strong>Bienvenue</strong>
+    </p>
+    <p>
+      Ici, je range (enfin, j'essaye) certains bouts de réflexion et des notes que
+      je veux garder dans un coin. Vous pouvez trouver:
+    </p>
+    <ul>
+      <li>
+        <a class="link-ecriture" href="/ecriture">Des écrits</a>, poésie et fiction, souvent au format
+        court.
+      </li>
+      <li>
+        <a class="link-lectures" href="/lectures">Des notes de lecture</a>, sur differents bouquins,
+        pour pouvoir retrouver certains passages et alimenter des discussions.
+      </li>
+      <li>
+        <a class="link-code" href="/code">Des bouts de code</a>, astuces et autres découvertes
+        autour du développement logiciel, que je veux garder et/ou partager.
+      </li>
+      <li>
+        <a class="link-weeknotes" href="/weeknotes">Mes notes hebdo</a>, une sorte de journal de mes
+        activités pro, avec une tentative de prise de recul sur les semaines
+        passées.
+      </li>
+    </ul>
+    <p>
+      Aussi, voici <a href="/projets">une courte présentation</a> si on ne se connaît pas déjà.
+    </p>
+    <p>
+      Si vous voulez me contacter, envoyez-moi un email sur
+      <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).
+    </p>
+  </article>
+  {% if articles %}
+    <hr />
+    <div id="articles">
+      <h2>Les derniers articles</h2>
+      <ul class="items">
+        {% set articles_in_categories = articles | rejectattr('category', 'in', HOMEPAGE_EXCLUDED_CATEGORIES) | list %}
+        {% set limited_articles = articles_in_categories[:20] %}
+        {% for article in limited_articles %}
+          <li class="item link-{{ article.category }}">
+            {% set category_description = CATEGORIES_DESCRIPTION.get(article.category)[0] %}
+            <a href="{{ SITEURL }}/{{ article.url }}" class="page-title">{{ category_icon }} {{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
+            <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+      Voir <a href="archives.html">toutes les archives</a>
+    </div>
+  {% endif %}
+{% endblock content %}

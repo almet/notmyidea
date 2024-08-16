@@ -26,9 +26,79 @@
   --highlight: hsla(200, 13%, 76%, 0.15);
   --highlight-hover: hsl(165, 16%, 59%);
   --link-color: hsl(9, 100%, 64%);
-  --link-color-menu: hsl(9, 100%, 64%);
+  --general-heading-color: var(--link-color);
   --headers-color: hsl(0, 0%, 0%);
-  --headers-background-color: hsl(9, 100%, 64%);
+  --headers-color-secondary: hsla(0, 0%, 0%, 0.463);
+  --color-lectures: hsl(65, 80%, 45%);
+  --color-code: hsl(28, 90%, 50%);
+  --color-ecriture: hsl(180, 70%, 40%);
+  --color-journal: hsl(317, 80%, 45%);
+  --color-weeknotes: hsl(270, 30%, 50%);
+}
+
+.link-lectures, .lectures {
+  --item-color: var(--color-lectures);
+  --link-color: var(--color-lectures);
+  --general-heading-color: var(--color-lectures);
+  --quote-bg-color: hsl(65, 100%, 98%);
+  --quote-bold-color: hsla(65, 80%, 45%, 0.3);
+}
+
+.link-code, .code {
+  --item-color: var(--color-code);
+  --link-color: var(--color-code);
+  --general-heading-color: var(--color-code);
+}
+
+.link-ecriture, .ecriture {
+  --item-color: var(--color-ecriture);
+  --link-color: var(--color-ecriture);
+  --general-heading-color: var(--color-ecriture);
+}
+
+.link-journal, .journal {
+  --item-color: var(--color-journal);
+  --link-color: var(--color-journal);
+  --general-heading-color: var(--color-journal);
+}
+
+.link-weeknotes, .weeknotes {
+  --item-color: var(--color-weeknotes);
+  --link-color: var(--color-weeknotes);
+  --general-heading-color: var(--color-weeknotes);
+  --quote-bg-color: hsl(270, 100%, 98%);
+  --quote-bold-color: hsla(270, 80%, 45%, 0.3);
+}
+
+.items > .item {
+  padding-left: 1em;
+  border-left-width: 1em;
+  border-left: solid;
+  border-left-color: var(--item-color);
+}
+
+.items {
+  position: relative;
+  list-style-type: none;
+}
+
+.items h3 {
+  margin-top: 10px;
+  position: absolute;
+  left: -100px;
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  color: var(--headers-color-secondary);
+  display: none; /* Hide by default */
+}
+
+/* Show month labels when screen is wide enough */
+@media (min-width: 1100px) {
+  .items h3 {
+    display: block;
+    text-align: right;
+  }
 }
 
 @font-face {
@@ -252,17 +322,18 @@ pre {
   padding: 10px;
 }
 
-.ecriture {
+/* .ecriture {
   font-family: "Caveat";
   font-size: 1.5em;
-}
+} */
 
 header {
   display: inline-block;
   width: 100%;
-  word-break: keep-all;
+  word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  hyphens: auto;
 
   h1 {
     margin-bottom: 30px;
@@ -277,19 +348,14 @@ header {
 
     h1 {
       min-height: 2em;
-      font-size: clamp(5rem, 6rem, 6rem);
+      font-size: clamp(5rem, 5rem, 5rem);
       margin-bottom: 0px;
-      text-shadow: 10px 1px 3px var(--link-color);
+      text-shadow: 10px 1px 3px var(--general-heading-color);
       font-weight: bold;
       padding: 0.5em;
       color: var(--headers-color);
-      background: repeating-linear-gradient(
-        45deg,
-        var(--link-color) 0px,
-        var(--link-color) 3px,
-        transparent 2px,
-        transparent 9px
-      );
+      border: 1px var(--border-color) solid;
+      
       margin-bottom: 0px;
       text-align: center;
     }
@@ -361,7 +427,7 @@ section.index h1 {
     padding-left: 10px;
     padding-right: 10px;
 
-    text-decoration-color: var(--link-color-menu);
+    text-decoration-color: var(--link-color);
     /*text-decoration-thickness: unset;*/
   }
 
@@ -370,12 +436,12 @@ section.index h1 {
   }
 
   a:hover {
-    color: var(--link-color-menu);
+    color: var(--link-color);
   }
 
   a.main {
     color: #fff;
-    background-color: var(--link-color-menu);
+    background-color: var(--link-color);
   }
 
   a.selected {
@@ -393,7 +459,7 @@ article,
   h2,
   h3,
   h4 {
-    border-left: 0.6em var(--headers-background-color) solid;
+    border-left: 0.6em var(--link-color) solid;
     padding-left: 1em;
   }
 
@@ -602,17 +668,8 @@ dd {
   float: left;
 }
 
-.items {
+#articles .items {
   padding-left: 0px;
-
-  @media screen and (max-width: 600px) {
-    padding-left: 5px;
-    .item::before {
-      content: "→";
-      position: absolute;
-      left: 5px;
-    }
-  }
 }
 
 .item {

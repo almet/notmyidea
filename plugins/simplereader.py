@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 from markdown.preprocessors import Preprocessor
-
+from markdown_include.include import MarkdownInclude
 from pelican import signals
 from pelican.readers import Markdown, MarkdownReader, pelican_open
 from pelican.utils import get_date, slugify
@@ -121,6 +121,10 @@ class SimpleReader(MarkdownReader):
     def __init__(self, *args, **kwargs):
         super(SimpleReader, self).__init__(*args, **kwargs)
         self.settings["MARKDOWN"]["extensions"].append("markdown.extensions.toc")
+        self.settings["MARKDOWN"]["extensions"].append(
+            MarkdownInclude({"base_path": self.settings["PATH"]})
+        )
+
         self.settings["MARKDOWN"]["extension_configs"].update(
             {"markdown.extensions.toc": {"toc_depth": 3}}
         )

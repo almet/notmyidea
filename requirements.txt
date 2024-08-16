@@ -5,3 +5,4 @@ typogrify
 ghp-import
 requests
 pelican-neighbors
+markdown-include
