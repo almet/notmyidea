@@ -4,6 +4,11 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+## Mardi 27 Août 2024 (3h, 5/5)
+
+- Discussions avec David et Yohan sur la manière de s'organiser pour le futur sur umap.
+- Catch-up pour savoir ce qui s'est passé cet été
+- Discussions autour de la manière dont les metadonnées vont être stockées
 ## Vendredi 04 Juillet 2024 (7h, 5/5)
 
 On se fait une session de pair avec Yohan le matin, continuée l'aprem, durant laquelle on a avancé des cas offline, et de comment réconcilier les messages manquants.

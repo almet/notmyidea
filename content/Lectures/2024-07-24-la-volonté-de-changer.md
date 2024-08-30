@@ -1,10 +1,9 @@
 ---
 title: La volonté de changer
 author: bell hooks
-status: draft
 ---
 
-*Ce ne sont ici "que" des notes de lecture : je n'ai aucune prétention de vouloir résumer la pensée de bell hooks dans cet article.*
+*Ce ne sont ici "que" des notes de lecture : je n'ai évidemment aucune prétention de vouloir résumer la pensée de bell hooks ici.*
 
 J'ai d'abord lu les derniers chapitres sur l'intégrité au printemps 2023, suite a une recommendation autour de la relation de soin au travail (merci David), pour continuer la lecture quand j'ai appris que le livre avait été traduit en Français (merci Yohan).
 

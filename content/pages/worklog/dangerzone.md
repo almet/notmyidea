@@ -4,9 +4,38 @@ save_as: dangerzone/index.html
 template: worklog-en
 ---
 
+## Vendredi 30 Août 2024 (4h, 5/5)
+
+- Some discussion with the securedrop team about how to integrate with DZ in order to print images.
+- Fixed the wrong container runtime detection on Linux, displaying the error log inside dangerzone, see https://github.com/freedomofpress/dangerzone/pull/906
+## Jeudi 29 Août 2024 (6h, 5/5)
+
+- Research and discussions about java CVEs
+- [PR](https://github.com/freedomofpress/dangerzone/pull/905) fixing exceptions getting thrown when encountering invalid desktop entries
+- Started looking at [212](https://github.com/freedomofpress/dangerzone/issues/212) - wrong container runtime detection on linux
+
+## Mercredi 28 Août 2024 (5h, 5/5)
+
+- PR on the removal of stdeb in favor of dpkg-buildpackage : https://github.com/freedomofpress/dangerzone/pull/901
+- PR for updating our container image build process when installing PyMuPDF musl wheels, which aren't provided for ARM : https://github.com/freedomofpress/dangerzone/pull/902
+- Checked tests are passing for Fedora 40 (everything seems fine), since they fail on the CI
+- 
+## Mardi 27 Août 2024 (6h, 4/5)
+
+- Read about Debian packaging to get a better understand of how things work, and started removing `stdeb` in favor of more vanilla debian packaging. (Got some help from Kunal along the way, thanks!)
+- Started investigating why the CI is currently failing for Fedora 40.
+- Attended the all-staff meeting
+
+## Lundi 26 Août 2024 (10h, 3/5)
+
+- Catchup on Slack / GH issues and docs that were written when I was away.
+- Read and added small comments to the gVisor article to come on the blog
+- Ran the security scan on our latest image and dig a bit on some CVEs
+- Trying to understand why `.deb` packages aren't building for trixie see [Pull Request #900](https://github.com/freedomofpress/dangerzone/pull/900)
+
 ## Jeudi 11 Juillet 2024 (5h, 5/5)
 
-- Update the REALEASE.md file with notes taken during the release
+- Update the `RELEASE.md` file with notes taken during the release
 - Check how to run Dangerzone with Colima / explore the situation and give feedback to a user trying to make things work
 - DZ biweekly meeting
 
