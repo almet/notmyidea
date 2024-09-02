@@ -6,6 +6,14 @@ subtitle: À propos
 
 # Alexis Métaireau
 
+Je suis un développeur qui affectionne particulièrement le logiciel libre et sa
+culture. Je pense que nos outils techniques peuvent être des lieux d'emancipation, 
+au lieu d'être des lieux de dépossession.
+
+En paralèle de mes activités de développeur, mon histoire personnelle m'a
+amenée à me questionner sur le bien-être dans les collectifs à visée
+auto-gestionnaire, je me forme donc à la gestion de conflits.
+
 ## 🌟 Valeurs et intérets
 
 Logiciel Libre

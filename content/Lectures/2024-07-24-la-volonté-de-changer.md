@@ -3,7 +3,7 @@ title: La volonté de changer
 author: bell hooks
 ---
 
-*Ce ne sont ici "que" des notes de lecture : je n'ai évidemment aucune prétention de vouloir résumer la pensée de bell hooks ici.*
+*Disclaimer: ce ne sont ici "que" mes notes de lecture. Aucune prétention à vouloir résumer la pensée de bell hooks.*
 
 J'ai d'abord lu les derniers chapitres sur l'intégrité au printemps 2023, suite a une recommendation autour de la relation de soin au travail (merci David), pour continuer la lecture quand j'ai appris que le livre avait été traduit en Français (merci Yohan).
 
@@ -130,9 +130,9 @@ Sur le sujet :
 
 La colère, pour elle·eux c'est aussi ne plus croire dans la capacité des autres à nous comprendre. Je l'entends comme quelque part une sorte de « manque d'amour » accordé aux autres, une création de l'altérité, peut être pour en faire un des points l'escalade du conflit, comme nommé dans le livre de Sarah Schulmann [Le conflit n'est pas une agression](https://blog.notmyidea.org/le-conflit-nest-pas-une-agression.html) ?
 
-J'ai un peu de mal avec ce passage, ma culture me faisant voir aussi la colère comme une manière de réagir face à l'injustice. Et j'ai du mal à la voir quelque part balayée ici.
+J'ai un peu de mal avec ce passage : ma culture (en partie juive Tunisienne) me faisant aussi voir la colère comme une manière de réagir face à l'injustice, j'ai du mal à la voir quelque part balayée ici. J'ai encore du mal à y voir réellement clair sur le sujet: d'un côté je pense réellement que la colère comme moyen d'expression est autorisé pour les hommes sous un régime patriarcal, et que c'est un problème puisque c'est aussi une manière de masquer autre chose; de l'autre la colère est un moyen d'expression légitime dans la culture du côté de ma mère, pour qui s'enerver, s'engeuler, pleurer puis se réconcilier est un moyen habituel de gérer les conflits.
 
-Peut-être un travail en cours chez moi :-)
+Je relie ça à des réflexions autour de l'identité hégémonique Française et de son rapport à la colère. Ça me donne envie de creuser le sujet pour gagner en nuance et en analyse. Le signe d'un travail en cours chez moi, j'imagine :-)
 
 ## Intégrité et autocritique
 
