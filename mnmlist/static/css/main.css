@@ -348,27 +348,43 @@ header {
 
     h1 {
       min-height: 2em;
-      font-size: clamp(5rem, 5rem, 5rem);
-      margin-bottom: 0px;
-      text-shadow: 10px 1px 3px var(--general-heading-color);
+      font-size: clamp(3rem, 5vw, 5rem);
+      margin-bottom: 20px;
       font-weight: bold;
       padding: 0.5em;
-      color: var(--headers-color);
-      border: 1px var(--border-color) solid;
-      
-      margin-bottom: 0px;
       text-align: center;
-    }
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        var(--color-lectures) 20%,
+        var(--color-code) 20% 40%,
+        var(--color-ecriture) 40% 60%,
+        var(--color-journal) 60% 80%,
+        var(--color-weeknotes) 80%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 
+        2px 2px 0 rgba(0,0,0,0.1),
+        -2px -2px 0 rgba(255,255,255,0.1);
+
+        del {
+          text-decoration: line-through;
+          color: #555;
+        }
+      }
   }
 
   figcaption {
-    top: -4rem;
-    right: 1rem;
+    top: -6rem;
+    right: 3em;
     position: relative;
     background: white;
     float: right;
     font-size: 1.3em;
     padding: 3px;
+    color: grey;
   }
 
   @media screen and (max-width: 600px) {
@@ -453,7 +469,7 @@ section.index h1 {
   }
 }
 
-article,
+article :not(.weeknotes),
 .index {
   h1,
   h2,
@@ -483,6 +499,7 @@ article,
     }
   }
 }
+
 
 .more {
   color: var(--reverse-text-color);
@@ -719,3 +736,14 @@ nav {
     transparent 0
   );
 }
+
+.weeknotes ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+
+  li {
+    padding: 2px
+  }
+}
+

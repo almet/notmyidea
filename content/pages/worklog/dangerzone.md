@@ -8,6 +8,7 @@ template: worklog-en
 
 - Some discussion with the securedrop team about how to integrate with DZ in order to print images.
 - Fixed the wrong container runtime detection on Linux, displaying the error log inside dangerzone, see https://github.com/freedomofpress/dangerzone/pull/906
+
 ## Jeudi 29 Août 2024 (6h, 5/5)
 
 - Research and discussions about java CVEs

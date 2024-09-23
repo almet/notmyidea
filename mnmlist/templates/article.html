@@ -12,7 +12,11 @@
           {% if lectures %}
             Lu en {{ article.date | strftime("%B %Y") }}
           {% else %}
+            {% if article.lang == "fr" %}
             {{ article.locale_date }}
+            {% else %}
+            {{ article.date | strftime("%Y-%m-%d")}}
+            {% endif %}
           {% endif %}
         </figcaption>
       </figure>
@@ -21,16 +25,20 @@
           {% if article.prev_article_in_category %}
             <li>
               <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}"
-                 title="{{ article.prev_article_in_category.title | striptags }}">← Précédent</a>
+                 title="{{ article.prev_article_in_category.title | striptags }}">←
+                {% if article.lang == "fr" %}Précédent{% else %}Previous{% endif %}</a>
             </li>
           {% endif %}
           <li>
-            <a href="{{ SITEURL }}">Accueil</a>
+            <a href="{{ SITEURL }}">
+                {% if article.lang == "fr" %}Accueil{% else %}Home{% endif %}</a>
+            </a>
           </li>
           {% if article.next_article_in_category %}
             <li>
               <a href="{{ SITEURL }}/{{ article.next_article_in_category.url }}"
-                 title="{{ article.next_article_in_category.title | striptags }}">Suivant →</a>
+                 title="{{ article.next_article_in_category.title | striptags }}">
+                {% if article.lang == "fr" %}Suivant{% else %}Next{% endif %}</a> →</a>
             </li>
           {% endif %}
         </ul>
@@ -69,7 +77,7 @@
                 <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>
                 {% if not loop.last %},{% endif %}
               {% endfor %}
-              - Posté dans la catégorie
+              - {% if article.lang == "fr" %}Posté dans la catégorie{% else %}In{% endif %} 
               <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
             </p>
           {% endif %}

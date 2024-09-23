@@ -2,13 +2,15 @@
 <header class="{{ category }}">
   <figure>
     {% if category in CATEGORIES_DESCRIPTION.keys() %}
-    <h1 class="post-title">{{ CATEGORIES_DESCRIPTION[category][0] }}</h1>
+    {% set cat = CATEGORIES_DESCRIPTION[category] %}
+    <h1 class="post-title">{{ cat[0] }}</h1>
     <figcaption>
       <a id="feed" href="{{ SITEURL }}/feeds/{{ category.slug }}.atom.xml">
-        Flux RSS <img src="{{ SITEURL }}/theme/rss.svg" />
+        {% if cat[3] == "fr" %}Flux RSS{% else %}Feed{% endif %}
+        <img src="{{ SITEURL }}/theme/rss.svg" />
       </a>
     </figcaption>
-    <p>{{ CATEGORIES_DESCRIPTION[category][1] }}</p>
+    <p>{{ cat[2] }} {{ cat[1] }}</p>
     {% else %}
     <h1>{{ category }}</h1>
     {% endif %}
@@ -21,7 +23,7 @@
     {% for article in year_articles %}
     <li>
       <a href="{{ SITEURL }}/{{ article.url }}" id="page-title"
-        >{{ article.title }}</a
+        >{{ article.title | replace('Notes hebdo', '')}}</a
       >
       {% if article.category == "Lectures" %}de {{article.author}}{% endif %} {%
       for tag in article.tags %}

@@ -1,7 +1,18 @@
 ---
-save_as: about.html
+save_as: about/index.html
 slug: about
 ---
+# About me
+
+👋 **Welcome here**, I'm Alexis, a software developer interested by collectives,
+digital freedom and conflict resolution.
+
+I mostly publish here in French, but some articles are in English. You can
+find here [weekly notes](/weeknotes) (fr), some journal entries (sometimes in english, sometimes in french), 
+[reading notes](/lectures), [bits of code](/code) and [some writing](/ecriture)
+
+---
+
 # À propos
 
 👋 **Bienvenue par ici**, je suis Alexis, un développeur intéressé par les

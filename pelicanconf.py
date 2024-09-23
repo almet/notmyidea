@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 PATH = "content"
-SITENAME = "(not my) ideas"
+SITENAME = "(not) my ideas"
 AUTHOR = ""
 THEME = "mnmlist"
 STATIC_PATHS = ["images", "audio", "extra", "docs"]
@@ -42,8 +42,15 @@ CACHE_DOMAIN = "/cache/"
 TYPOGRIFY = True
 INDEX_SAVE_AS = "index.html"
 
+# URL configuration
+
 CATEGORY_SAVE_AS = "{slug}/index.html"
 CATEGORY_URL = "{slug}/"
+
+ARTICLE_URL = '{slug}.html'
+
+ARTICLE_LANG_URL = '{slug}.html'
+ARTICLE_LANG_SAVE_AS = '{slug}.html'
 
 MENU = [
     # ("Journal", "/journal/index.html", "journal"),
@@ -63,28 +70,33 @@ CATEGORIES_DESCRIPTION = {
         "Notes hebdo",
         "Chaque semaine, je fais un petit résumé de ce qui s'est passé. Cela m'aide à garder le fil de mes idées et de mes différents projets. Un bon moyen de faire une pause et d'observer la semaine sous un autre angle.",
         "📝",
+        "fr",
     ),
     "lectures": (
         "Notes de lecture",
         "Quelques notes prises au détour d'une lecture, plutôt pour ne pas les oublier et me remémorer le livre quand j'en ai besoin.",
         "📖",
+        "fr",
     ),
     "code": (
         "Code",
-        "Des bouts de trucs liés au code, que je trouve utiles de stocker quelque part (en anglais)",
+        "Code-related stuff I learned, which I believe are worth sharing",
         "🧑‍💻",
+        "en",
     ),
     "journal": (
         "Journal",
         "Quelques réfléxions, bien souvent autour du monde du travail ou de la technologie.",
         "📘",
+        "fr",
     ),
     "notes": (
         "Notes",
         "Prises bien souvent en regardant une vidéo ou un article en ligne. Je les mets ici pour pouvoir les retrouver quand le besoin se fait sentir.",
         "",
+        "fr",
     ),
-    "ecriture": ("Écriture", "Textes rédigés lors d'ateliers d'écriture", "✍️"),
+    "ecriture": ("Écriture", "Textes rédigés lors d'ateliers d'écriture", "✍️", "fr"),
 }
 
 HOMEPAGE_EXCLUDED_CATEGORIES = [

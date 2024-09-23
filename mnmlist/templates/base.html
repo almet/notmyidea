@@ -31,7 +31,14 @@
   <body>
     <div id="content">
       {% if page_name != "index" and not article %}
-      <a href="/">Aller à l'accueil</a>
+        {% if category and category in CATEGORIES_DESCRIPTION.keys() %}
+        {% set cat = CATEGORIES_DESCRIPTION[category] %}
+          {% if cat[3] == "fr" %}
+          <a href="/">Aller à l'accueil</a>
+          {% else %}
+          <a href="/">Go back home</a>
+          {% endif %}
+        {% endif %}
       {% endif %} {% block content %}{% endblock %}
       <hr />
       <footer>
