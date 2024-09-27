@@ -3,7 +3,75 @@ title: dangerzone
 save_as: dangerzone/index.html
 template: worklog-en
 ---
+## Mercredi 18 Septembre 2024 ()
 
+- Merged #906 - Fix wrong container runtime detection on Linux
+- Changed the caching strategy for the Github actions, now we have a `build-dev --sync` flag to pull / build / push to the ghcr if needed, the PR is now ready for review
+- Started looking back at how to make colima work on OSX, currently failing due to compatibility issues with gVisor wanting to write to /tmp
+
+## Mardi 17 Septembre 2024 (8h, 4/5)
+
+- Continued working on the migration to Github Actions, it's now working, probably some polishing tomorrow. Build times are down to 9mn!
+- Read some user research about DZ
+- Minor changes to the PR to show an error to the end users when there is a containerd misconfiguration.
+
+## Lundi 16 Septembre 2024 (8h, 3/5)
+
+- Continued the migration to Github Actions, now using the GHCR and more caching.
+- Sync with Alex and plan for the rest of the week
+- Debugging on some issues opened by end users
+
+## Jeudi 12 Septembre 2024 (8h, 4/5)
+
+- I did work on migrating our CI to Github (from CircleCI), and spent some time changing what's being cached. It still needs some more work, probably will happen next week.
+- Did some review of the tasks in the next milestone, took the opportunity to close some issues in the repo.
+## Mercredi 11 Septembre 2024 (5h, 5/5)
+
+- Updated the "remove stdeb" branch and merged it https://github.com/freedomofpress/dangerzone/pull/901
+- Updated the runtime detection and error displaying PR https://github.com/freedomofpress/dangerzone/pull/906
+
+## Mardi 10 Septembre 2024 (7h, 5/5)
+
+- Proofread the gVisor x Dangerzone article, did some editing and changes to the overall diagram.
+- Changed the architecture to "any" for the debian packages
+- Merged various PRs, now that the CI is green again (https://github.com/freedomofpress/dangerzone/pull/905, https://github.com/freedomofpress/dangerzone/pull/902, https://github.com/freedomofpress/dangerzone/pull/915, https://github.com/freedomofpress/dangerzone/pull/904)
+- 1:1 with Harris
+## Lundi 09 Septembre 2024 (8h, 5/5)
+
+- Quick tour of the 0.8.0 issues, comments when appropriate to move the items forward;
+- Follow-up on the libexpat CVE that we detected this weekend and that G iulio had a look at (thanks again)
+- Sync w/ Alex on what are the next steps
+- Debugging session with Alex to find out why our CI was failing on CircleCI runners. Turns out to be a problem with the AWS patched kernel (or maybe something that changed in Linux 5.x), anyway updating the runners was the solution. It kept us wondering for a few hours.
+## Vendredi 06 Septembre 2024 (8h, 5/5)
+
+- Doing another pass the the pull requests on the repo, updating them wrt to comments and new findings after a fresh read ;
+- Pushed some changes on the branch which removes stdeb in favor of more modern debian packaging tools ;
+- Opened a few issues as follow ups
+- Finding that there actually is a tool to [automate migrating from circle CI to github actions](https://docs.github.com/en/actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-circleci-with-github-actions-importer), gave it a try.
+## Jeudi 05 Septembre 2024 (8h, 5/5)
+
+- Updated multiple PRs following Alex's review  
+- In depth discussion about how to handle CVEs in the future, and how to ship separated container updates in the future  
+- Started moving the dev_scripts data out of dz git repository  
+- Updated the debian packaging branch with recent developments.  
+- DZ Biweekly meeting (thanks again G_iulio for joining) (edited)
+
+## Mercredi 04 Septembre 2024 (4h, 4/5)
+
+- 1:1 w/ Erik
+- Discussion about how we should handle CVEs with Alex
+- Getting some more understanding of Debian packaging, more specifically on how to make it skip some specific folders
+
+## Mardi 03 Septembre 2024 (5h, 3/5)
+
+- Debian packaging, answering to various issues.
+
+## Lundi 02 Septembre 2024 (7h, 4/5)
+
+- Sync point with Alex where we covered a wide range of topics (on-host conversion, security and docker images distribution, how should we organize ourselves?)
+- Discussion about how dangerzone can be used with colima
+- Minor changes to the my PR fixing how the runtime is detected on Linux
+- Currently ~~fighting with~~ working on using Github Workflow / Actions rather than Circle CI.
 ## Vendredi 30 Août 2024 (4h, 5/5)
 
 - Some discussion with the securedrop team about how to integrate with DZ in order to print images.

@@ -189,3 +189,59 @@ And create the volumes with the cli:
 fly volume create umap_data -r iad -n2
 fly deploy
 ```
+
+## The final file
+
+Here is the final `fly.toml` file I came up with:
+
+```toml
+app = "umap"
+console_command = "umap shell"
+primary_region = "iad"
+
+[build]
+dockerfile = "Dockerfile"
+
+[env]
+SITE_URL = "https://umap-dev.notmyidea.org"
+UMAP_ALLOW_ANONYMOUS = "True"
+WEBSOCKET_ENABLED = "True"
+WEBSOCKET_HOST = "0.0.0.0"
+WEBSOCKET_URI = "wss://umap-dev.notmyidea.org:8001"
+
+[[mounts]]
+destination = "/srv/umap/uploads"
+source = "umap_data"
+
+[processes]
+django = "/srv/umap/docker/entrypoint.sh"
+ws = "/venv/bin/python /venv/lib/python3.11/site-packages/umap/ws.py"
+
+[[services]]
+internal_port = 8_000
+processes = [ "django" ]
+protocol = "tcp"
+
+  [[services.ports]]
+  force_https = true
+  handlers = [ "http" ]
+  port = 80
+
+  [[services.ports]]
+  handlers = [ "http", "tls" ]
+  port = 443
+
+[[services]]
+internal_port = 8_001
+processes = [ "ws" ]
+protocol = "tcp"
+
+  [[services.ports]]
+  handlers = [ "tls" ]
+  port = 8_001
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory = "1gb"  
+```

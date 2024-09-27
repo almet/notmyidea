@@ -4,6 +4,63 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+## Vendredi 27 Septembre 2024 (7h)
+
+Je trouve une manière de faire le déploiement avec uWsgi pour le serveur de websockets.
+
+Une session de débug avec David, pendant laquelle on trouve plusieurs problèmes, dont un qui crée des connections websocket en cascade, puisque les clients rejouent en boucle les opérations de modification du statut `syncEnabled` de la carte.
+
+On en profite pour changer le nommage de certaines méthodes, ça faisait longtemps que ça me titillait.
+
+J'en profite pour noter les quelques problèmes qui arrivent en lien avec les layers, dont la création est effectuée par le serveur, ce qui génère quelques soucis au niveau client, lorsque les layers ne sont pas sauvegardés et qu'on commence à faire des opérations dessus.
+
+Je boucle en commençant une branche `display-connected-peers` qui permet de montrer les pairs qui sont actuellement connectés.
+
+## Jeudi 26 Septembre 2024 (10h)
+
+Je simplifie le code pour la gestion des opérations dans la PR en cours, puis je me renseigne sur la manière dont il est possible de s'intégrer avec Django Channels, et si ça à du sens.
+
+On se fait une session de discussion avec David, puis un tour du propriétaire suivi d'une session de debug, pour se rendre compte que `makeFeature` ne passe pas sync=false en paramètre.
+
+Je déploie sur fly.io :-) 
+
+## Mercredi 25 Septembre 2024 (6h, 3/5)
+
+Je travaille sur le lien entre les opérations `update` et `upsert`. Le fait de gérer les cas "offline" nécessite de traiter le conflit qui existe entre les deux, pour éviter que des opérations `upsert` (qui sont envoyés à chaque modification d'une géométrie d'une feature) n'écrasent d'autres opérations arrivées depuis concernant la même feature par exemple.
+
+Cela nécessiterait de faire la distinction entre la création d'une feature et sa modification. On utilise actuellement les événements de `Leaflet.Editable`, qui ne font pas la différence entre les deux.
+
+J'ai pris le temps de transposer cette compréhension dans des tests fonctionnels pour `Operation.isLocalOperationNewer`.
+
+## Mardi 24 Septembre 2024 (9h, 4/5)
+
+- J'ai écris un test fonctionnel pour playwright, pour m'assurer que les pairs qui rejoignent une session d'édition après les autres puissent récupérer les infos qui leurs manquent.
+- J'ai trouvé un bug, et je ne comprenais pas du tout ce qui le provoquait. Il semblerait que ce soit lié aux changements liés à l'ajout des cercles proportionnels. Une fois ce type de layer utilisé, il est impossible d'ajouter de nouveaux points sur la carte.
+- J'ai compacté les changements et mis à jour la pull request.
+- Réunion bi-hebdo avec David et Sophie.
+- Commencé à rajouter des tests pour la logique de `isLocalOperationNewer`, je pense que ça va être important d'avoir quelque chose qui marche bien ici, parce que c'est cette fonction qui décide d'appliquer ou non les changements qui viennent de l'extérieur.
+
+## Lundi 23 Septembre 2024 (9h, 5/5)
+
+- J'ai pris le temps de faire un tour des changements effectués ces derniers mois,
+- J'ai lu les propositions de Yohan pour faire évoluer le schema des fichiers stockés sur disque (geoJSON).
+- J'ai testé que le sync fonctionnait bien avec les ajouts récents, entre autres pour les cercles proportionnels aux valeurs.
+- J'ai `rebase` ma branche de travail par dessus les modifications qui ont eu lieu ces derniers mois.
+- J'ai écris des tests pour la classe de HybridLogicalClock
+- J'ai retravaillé le protocole d'échange de données entre le client et le serveur, pour que le code soit plus simple à comprendre.
+
+## Mardi 10 Septembre 2024 (1h, 3/5)
+
+- Weekly
+
+## Lundi 09 Septembre 2024 (2h, 4/5)
+
+- Retrospective
+
+## Mercredi 04 Septembre 2024 (1h, 5/5)
+
+- Pad to discuss and then answered to NLNet email on the umap vector tiles
+
 ## Mardi 27 Août 2024 (3h, 5/5)
 
 - Discussions avec David et Yohan sur la manière de s'organiser pour le futur sur umap.
