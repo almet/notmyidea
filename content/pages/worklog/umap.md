@@ -4,7 +4,7 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
-## Vendredi 27 Septembre 2024 (7h)
+## Vendredi 27 Septembre 2024 (7h, 5/5)
 
 Je trouve une manière de faire le déploiement avec uWsgi pour le serveur de websockets.
 
@@ -16,7 +16,7 @@ J'en profite pour noter les quelques problèmes qui arrivent en lien avec les la
 
 Je boucle en commençant une branche `display-connected-peers` qui permet de montrer les pairs qui sont actuellement connectés.
 
-## Jeudi 26 Septembre 2024 (10h)
+## Jeudi 26 Septembre 2024 (10h, 3/5)
 
 Je simplifie le code pour la gestion des opérations dans la PR en cours, puis je me renseigne sur la manière dont il est possible de s'intégrer avec Django Channels, et si ça à du sens.
 

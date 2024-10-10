@@ -3,7 +3,23 @@ title: dangerzone
 save_as: dangerzone/index.html
 template: worklog-en
 ---
-## Mercredi 18 Septembre 2024 ()
+## Lundi 30 Septembre 2024 (7h, 4/5)
+
+- Sync with @a_pyrgio about last week
+- Review the 0.7.1 hotfix, updated commits, and created assets via our mac minis (.dmg for silicon, .deb and fedora 39,40 rpms). Tested the hotfix on an Apple M1 machine, it works.
+- Updated the "migrate to CI branch" according to @a_pyrgio comments
+## Jeudi 19 Septembre 2024 (8h, 4/5)
+
+- Some debugging on colima, gVisor is not able to run there (yet)
+- Proposed a fix to use our seccomp policy for all container techs, which makes Orbstack work
+- Tried Podman Desktop on OSX, and with a few changes on the detection side, it works.
+- Short appointment with G_race
+- Added the current date in the hash of the dz dev containers
+- Had a quick look at the CSS for the DZ blogpost
+- 1:1 with Harris
+- DZ team meeting
+
+## Mercredi 18 Septembre 2024 (8h, 4/5)
 
 - Merged #906 - Fix wrong container runtime detection on Linux
 - Changed the caching strategy for the Github actions, now we have a `build-dev --sync` flag to pull / build / push to the ghcr if needed, the PR is now ready for review
