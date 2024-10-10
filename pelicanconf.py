@@ -39,7 +39,7 @@ PLUGINS = [
 
 CACHE_OUTPUT_DIRECTORY = "cache"
 CACHE_DOMAIN = "/cache/"
-TYPOGRIFY = True
+TYPOGRIFY = False
 INDEX_SAVE_AS = "index.html"
 
 # URL configuration

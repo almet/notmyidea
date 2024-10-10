@@ -4,6 +4,7 @@ save_as: umap/index.html
 template: worklog
 total_days: 90
 ---
+
 ## Vendredi 27 Septembre 2024 (7h, 5/5)
 
 Je trouve une manière de faire le déploiement avec uWsgi pour le serveur de websockets.
@@ -21,6 +22,8 @@ Je boucle en commençant une branche `display-connected-peers` qui permet de mon
 Je simplifie le code pour la gestion des opérations dans la PR en cours, puis je me renseigne sur la manière dont il est possible de s'intégrer avec Django Channels, et si ça à du sens.
 
 On se fait une session de discussion avec David, puis un tour du propriétaire suivi d'une session de debug, pour se rendre compte que `makeFeature` ne passe pas sync=false en paramètre.
+
+On a en direct la réponse de NLNet pour le financement pour les tuiles vectorielles, qui est accepté !
 
 Je déploie sur fly.io :-) 
 

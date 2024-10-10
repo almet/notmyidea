@@ -4,12 +4,17 @@ slug: about
 ---
 # About me
 
-👋 **Welcome here**, I'm Alexis, a software developer interested by collectives,
-digital freedom and conflict resolution.
+👋 **Welcome here**, I'm Alexis,
 
-I mostly publish here in French, but some articles are in English. You can
-find here [weekly notes](/weeknotes) (fr), some journal entries (sometimes in english, sometimes in french), 
-[reading notes](/lectures), [bits of code](/code) and [some writing](/ecriture)
+I am a software engineer interested by digital freedom and privacy.
+
+I'm also exploring how to run and participate to healthy collectives via listening and conflict-resolution techniques.
+
+I mostly publish here in French, but some articles are in English. 
+
+You can find here [weekly notes](/weeknotes) (fr), some journal entries (sometimes in english, sometimes in french), 
+[reading notes (fr)](/lectures), [bits of code (en)](/code) and [some writing (fr)](/ecriture)
+
 
 ---
 

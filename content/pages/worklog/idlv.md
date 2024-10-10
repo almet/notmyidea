@@ -7,6 +7,26 @@ template: worklog
 
 Transformation d'un site web depuis hugo vers ghost.
 
+## 8 Octobre 2024 (1h, 4/5)
+
+Mise à jour de ghost suite à [une faille de sécurité](https://github.com/TryGhost/Ghost/security/advisories/GHSA-78x2-cwp9-5j42). Ce n'était pas si simple, parce que ghost veut absolument nous simplifier la vie et au final nous la rends plus compliquée 🧰
+
+J'ai du :
+
+- Changer la version de node qui était utilisée par défaut dans le script `ghost`:
+ ```
+  vim ~/.npm-packages/lib/node_modules/ghost-cli/bin/ghost
+  ```
+- Modifier les checks qu'il faisait pour s'assurer qu'il y avait assez d'espace disque libre, parce que ça bloquait
+```
+vim ~/.npm-packages/lib/node_modules/ghost-cli/lib/commands/doctor/checks/free-space.js
+```
+- lancer `ghost upgrade`
+- relancer le worker dans l'interface d'admin
+- ???
+- PROFIT !
+
+J'en ai profité pour faire la migration des services vers l'infrastructure logicielle 2024
 ## 12 Janvier 2023 (1h, 4/5)
 
 Changement de la pagination par défaut. J'ai mis du temps à trouver ou était le bon réglage, mais c'était très simple une fois trouvé. Je m'attendais à trouver l'information dans l'admin, mais cela fait partie des réglages du thème.
