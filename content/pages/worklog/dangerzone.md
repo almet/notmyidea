@@ -3,7 +3,30 @@ title: dangerzone
 save_as: dangerzone/index.html
 template: worklog-en
 ---
+## Jeudi 17 Octobre 2024 (8h, 5/5)
 
+Merge-day today :-)
+
+- We finally merged the on-host conversion PR! Good work by A_pyrgio on this one. Happy to have it incorporated in time for the 0.8.0 release in the next few weeks: https://github.com/freedomofpress/dangerzone/pull/748
+- Automating the closing of stale issues with the `needs info` tag after some inactivity: https://github.com/freedomofpress/dangerzone/pull/955
+- Rebased and merged a PR catching installation errors (and other podman/docker errors) and displaying them in the UI to help gather feedback from users when things go wrong: https://github.com/freedomofpress/dangerzone/pull/952
+- Small reviews: https://github.com/freedomofpress/dangerzone/pull/958.
+- Rebased the PR adding a `--debug` flag to `dangerzone-cli`. Running with gVisor in debug mode seem to block, not sure if it's related to the on-host conversion or some work I did in there. Will investigate later on.
+- Investigated the signing situation on Windows
+- Did some more investigation on the relationship between App Armor and flags passed to the container runtime. Commented about that on https://github.com/freedomofpress/dangerzone/issues/865
+- Biweekly meeting, planning for 0.8.0 release and discussions on indep. container updates / container signing.
+
+## Jeudi 10 Octobre 2024 (9h, 5/5)
+
+I continued to work on adding tests for the container installation failure, and it turns out I want to do it in two ways: 1) check that errors are displayed when `.install()` returns `False` or raises an exception and 2) check that return values are what they should be.
+
+Then, we debugged why colima isn't working on MacOS, and it turns out to be apparmor-related. We found out that dangerzone was working with an older colima version, where the VM was using alpine, and not ubuntu, so no apparmor in there. We proposed a solution to the user. It was a productive session.
+
+We continued discussing a bit with Alex on different matters, and one of them was about how to use the python's `logging` utility while in the imports. We finally decided the added complexity to handle this right wasn't worth the added value of it.
+
+I also attended Giulio "braindump" session, where he explained how TUF and Sigstore work. My takeaway is that TUF can be seen as a kind of framework to decide how to validate new certs, and how to make it possible for the end users to have some sort of canary: if there are no updates, there is a problem somehow.
+
+Sigstore is basically a way to a) have a proof that you are the owner of a {Google, Github} account, issuing certificates for this and b) sign and publish information related to artifacts you want to publish. There is an observatory inside it, to publish what's going on, following the same principles as Google CT for TLS certificates.
 ## Mercredi 09 Octobre 2024 (8h, 5/5)
 
 I've reviewed the work done by Alex on the on host conversion, which spawned some interesting discussions about how to deal with our scripts generally speaking, covered by [#946](https://github.com/freedomofpress/dangerzone/issues/946) . I tested the branch locally on a M1 mac and it works well 🎉
