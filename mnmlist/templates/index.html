@@ -1,42 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-  <header>
-    <figure>
-      <h1 class="post-title"><del>not</del> my ideas</h1>
-    </figure>
-  </header>
   <article>
-
-    <p>👋 <strong>Welcome here</strong>, I'm Alexis,</p>
-    <p>I am a software engineer interested by digital freedom and privacy.</p>
-    <p>I'm also a fellow human, exploring how to participate to healthy collectives via listening and conflict-resolution techniques.</p>
-    <p>I mostly publish here in French, but some stuff is in English. You can find here <a class="link-journal" href="/journal">journal entries (fr)</a>,
-    <a class="link-lectures" href="/lectures">reading notes (fr)</a> and some stuff related to <a class="link-code" href="/code">software engineering (en)</a>. Also, some <a class="link-ecriture" href="/ecriture">writing (fr)</a></p>
-    <hr>
-    <p>👋 <strong>Bienvenue par ici</strong>, je suis Alexis, un développeur intéressé par les
-    dynamiques collectives, les libertés numériques et la facilitation.</p>
-    <p>Vous retrouverez sur ce site quelques
-    <a href="/journal" class="link-journal">billets de blog</a>, des <a href="/lectures" class="link-lectures">notes de lectures</a>, <a class="link-code" href="/code">des bouts
-    de code</a> et <a href="/ecriture" class="link-textes">des textes</a> que je veux garder quelque part. Bonne lecture !</p>
-    <p>Pour me contacter, envoyez-moi un email sur <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).</p>
-
+    <translated-text>
+        <div slot="fr">
+          <p>👋 <strong>Bienvenue par ici</strong>, je suis Alexis, un développeur intéressé par les
+          dynamiques collectives et les libertés numériques.</p>
+          <p>J'aime aussi explorer comment participer à des pratiques collectives, via la résolution de conflit et l'écoute.</p>
+          <p>Vous retrouverez sur ce site quelques
+          <a href="/journal" class="link-journal">billets de blog</a>, des <a href="/lectures" class="link-lectures">notes de lectures</a>, <a class="link-code" href="/code">des bouts
+          de code</a> et <a href="/ecriture" class="link-textes">des textes</a> que je veux garder quelque part. Bonne lecture !</p>
+          <p>Pour me contacter, envoyez-moi un email sur <code>alexis@</code> ce domaine (en enlevant <code>blog.</code>).</p>
+        </div>
+        <div slot="en">
+          <p>👋 <strong>Welcome here</strong>, I'm Alexis Métaireau, a software engineer interested by digital freedom and privacy.</p>
+          <p>I'm also a fellow human, exploring how to participate to healthy collectives via listening and conflict-resolution techniques.</p>
+          <p>I mostly publish here in French, but some stuff is in English. You can find here <a class="link-journal" href="/journal">journal entries (fr)</a>,
+          <a class="link-lectures" href="/lectures">reading notes (fr)</a> and some stuff related to <a class="link-code" href="/code">software engineering (en)</a>. Also, some <a class="link-ecriture" href="/ecriture">writing (fr)</a></p>
+          <p>To contact me, send me an email on <code>alexis@</code> this domain (without <code>blog.</code>).</p>
+        </div>
+    </translated-text>
   </article>
   {% if articles %}
     <hr />
     <div id="articles">
-      <h2>Les derniers articles / Last articles</h2>
-      <ul class="items">
-        {% set articles_in_categories = articles | rejectattr('category', 'in', HOMEPAGE_EXCLUDED_CATEGORIES) | list %}
-        {% set limited_articles = articles_in_categories[:20] %}
-        {% for article in limited_articles %}
+      <filtered-articles>
+          {% set articles_in_categories = articles | rejectattr('category', 'in', HOMEPAGE_EXCLUDED_CATEGORIES) | list %}
+          {% set limited_articles = articles_in_categories[:20] %}
+          {% for article in articles_in_categories %}
           <li class="item link-{{ article.category }}">
-            {% set category_description = CATEGORIES_DESCRIPTION.get(article.category)[0] %}
-            <a href="{{ SITEURL }}/{{ article.url }}" class="page-title">{{ category_icon }} {{ category_description }}: {{ article.title.replace(category_description, "") }}</a>
-            <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
+              {% set category_description = CATEGORIES_DESCRIPTION.get(article.category)[0] or "" %}
+              <a href="{{ SITEURL }}/{{ article.url }}" class="page-title">
+                  {{ category_icon }} {{ category_description }}: {{ article.title.replace(category_description, "") }}
+              </a>
+              <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime("%Y-%m-%d") }}</time>
           </li>
-        {% endfor %}
-      </ul>
-      <a href="archives.html">Archives</a>
+          {% endfor %}
+      </filtered-articles>
     </div>
   {% endif %}
 {% endblock content %}
