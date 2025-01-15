@@ -6,7 +6,7 @@ Une de mes préférées :-)
 - 1 œuf
 - 25g de sucre
 - 50g poudre d'amande
-- Une pate ([sucrée](/pate-sucree) ou feuilletée)
+- Une pate ([sucrée](/pate-sucree.html) ou feuilletée)
 
 ---
 
