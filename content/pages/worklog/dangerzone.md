@@ -5,18 +5,243 @@ template: worklog-en
 ---
 
 
-## Jeudi 17 Octobre 2024 (8h, 5/5)
+## Mardi 24 Décembre 2024 (6h, 3/5)
 
-Merge-day today :-)
+The release
 
-- We finally merged the on-host conversion PR! Good work by A_pyrgio on this one. Happy to have it incorporated in time for the 0.8.0 release in the next few weeks: https://github.com/freedomofpress/dangerzone/pull/748
-- Automating the closing of stale issues with the `needs info` tag after some inactivity: https://github.com/freedomofpress/dangerzone/pull/955
+## Lundi 23 Décembre 2024 (4h, 3/5)
+
+Found a security issue in Dangerzone via our security scans, we published a new
+0.8.1 release. At the wrong time, but we've managed to keep things fast, and
+release in one day where in the past we had to take way longer for this.
+
+## Jeudi 19 Décembre 2024 (7h, 5/5)
+
+- Moving our packages pyproject.toml to the new PEP 508 format, and use `uv` on it. Not completely there yet, but it's able to install and build, I'm expecting to hit some issues with packaging on macOS, windows and Linux, so that's the missing step right now.
+- Discussing with Alex on ICU, trying to understand some of the missing pieces. It's not completely clear clear, but it's better than before. Bundles everywhere!
+- Meeting with A_lex, A_da and G_iulio on ICU, it was very interesting to have their point of view and general "approval"
+- Quick 1:1 with Alex, wrapping up for the year.
+
+## Mercredi 18 Décembre 2024 (7h, 4/5)
+
+- Quick sync with a_pyrgio
+- Quick pairing session on blocked tests and blocked io for stderr
+- Two PRs about these two, one for a `--debug` flag that can get debug information from gVisor, and the other one about checking Docker Desktop version.
+## Mardi 17 Décembre 2024 (6h, 5/5)
+
+- Opened issues about Independent Container Updates in our repository, summarizing where we are at, proposed a meeting with A_da and G_iulio about it. [Here is the main issue, if you want to follow along](https://github.com/freedomofpress/dangerzone/issues/1006)
+- 1:1 with Harris
+- Tour of the open PRs, merging what could be. (We now have ruff support!)
+
+## Lundi 16 Décembre 2024 (8h, 5/5)
+
+- Sync point with Alex this morning, where we discussed the overall state of ICU (Idependent Container Updates)
+- Some more discussions about sigstore. Agreed upon the signing and attestation story about Sigstore
+- Started porting our packaging to the PEP 508, as a first step to replace `poetry` with `uv`. Will continue tomorrow.
+## Jeudi 12 Décembre 2024 (6h, 3/5)
+
+Continued looking at the documentation for sigstore in order to have a better understanding of how it works, with the goal in mind to be able to generate Sigstore's bundles attached to container registries myself, without having to use GH Actions (that will prove useful when building the images on our own infra). 
+
+We synced with Alex, as we're getting both pieces of the overall context that's needed to understand how it works. I've been able to create attestations locally and add them to a container registry, but cosign follows its own signing scheme (when attaching the info to the container registries), rather than following sigstore's bundles. It's about the same place as yesterday, but with better understanding of how things work.
+
+Updated the ruff PR, waiting for the CI to be green before merging.
+## Mercredi 11 Décembre 2024 (9h, 4/5)
+
+Trying to have image verification working for both GHA attestations and signature done via the cosign client.  
+It turns out that there are differences between signing / verifying container images and doing the same with attestations.Mainly, this means reading documentation around sigstore, the different specs and trying to get the whole picture. Not there yet, but making progress !
+
+## Mardi 10 Décembre 2024 (4h, 5/5)
+
+- Had a quick look at how python-sigstore is organised, to see if it would be possible to use our own certificate to verify sigstore bundles.
+- Documented the HTTP requests and Accept headers needed to interact with the container registry in order to get the attestations / bundles to verify.
+- Final review of the work by Alex on image references and using pydoit to paralellize the generation of the release assets.
+- 1:1 with Harris
+- Started using cosign (rather than a Github Action) to create attestations
+
+## Lundi 09 Décembre 2024 (9h, 4/5)
+
+- We synced this morning with Alex, focusing on what's next for the Independent container update effort.
+- We discussed quickly about [an exploit](https://github.com/ultralytics/ultralytics/issues/18027) that was used to poison the Github actions cache. Interesting because we're on the verge of trusting Github at some point for our build process, so this gives us some more weight to wait on this until we reach reproducibility.
+- I did another round of reviews (ruff integration from an external contributor, the change of how we refer to our images, integration of pydoit to help the release process)
+- Integrated a few comments from H_arris in the blog platform, which is now able to detect the last published version from the posts metadata.
+- Consolidated our findings from last week in [a script able to get the attestation from the container registry](https://gist.github.com/almet/de10e2b258df5a666c94fbb91be7e315#file-registry_client-py-L8) with python and requests.
+
+## Jeudi 05 Décembre 2024 (7h, 4/5)
+
+Discussions and implementation around Independent Container Updates with Alex, find a way to do the HTTP calls ourselves rather than relying on an external tool to interact with the container registry.
+Team meeting, with E_than around :slightly_smiling_face:
+
+## Mercredi 04 Décembre 2024 (7h, 4/5)
+
+No notes taken
+
+## Mardi 03 Décembre 2024 (8h, 4/5)
+
+- Finally understood why Podman Desktop wasn't working as a drop-in replacement for Docker Desktop on macOS, as it was not mounting the volumes properly.
+- Reviewed Alex's work where image IDs are changing from IDs to tags.
+- 1:1 discussion with Harris
+- Some discussion with Giulio about Webcat, to get some more understanding around the project
+- Continuation of the work checking the Podman Desktop version and displaying a warning to the users when that happens.
+
+## Lundi 02 Décembre 2024 (7h, 4/5)
+
+- Sync with Alex
+- Some more research on ICU (Indep. Container Updates)
+- Progress on checking the version of Docker Desktop and mentionning it to the user
+- Review of ruff format / lint as a replacement to black / isort
+
+## Jeudi 28 Novembre 2024 (7h, 5/5)
+
+- [An exploration](https://freedomofpress.slack.com/archives/C03FVBEFA86/p1732807630508179?thread_ts=1732525206.464909&cid=C03FVBEFA86) on signing container images and verifying them
+- The beginning of adding checks for minimum Docker Desktop version on macOS and Windows
+- Some discussion with Tails devs to see if they would like to give us a hand on Debian integration
+- Listening to [Bonobo's Animal Magic album](https://www.youtube.com/watch?v=clsczmHXf9U). It's still magic.
+## Mercredi 27 Novembre 2024 (7h, 4/5)
+
+- Looking at the needed changes to bump our runners to `ubuntu-24`
+- Finish a PR for the Dangerzone.rocks website, making it find the latest released version automatically and generate links for the releases automatically
+- Started playing with independent container updates: created a GH action to release container images, generate, sign with cosign and upload to the ghcr. Currently the digests generated on the runner differ from the ones of the container registry, and that's where I left it.
+- Took some time to organize the project issues and fit them in the next `0.9.0` release
+
+## Mardi 26 Novembre 2024 (7h, 4/5)
+
+- Checked the situation of the VFS driver on Debian, to see if we are missing something.
+- Updated the release instructions so they're clearer and easier to reproduce
+- Updated `apt-tools-prod` to use podman rather than docker, since that's what we're now using
+- Proposed a change to the issue templates so the docker/podman info is included more often
+- Update all the PRs that were pending and getting a bit out of date
+- Applied changes to the "check changelog entry" PR, which should make it easier to populate changelog with each PR.
+- Merged the "drop fedora 39 support" PR
+- Removed the container scan on mac silicon for now, since it's not working well
+- Investigated a bit on this subject to understand why colima isn't able to run on our silicon mac runners.
+
+Mainly tidying and some post 0.8.0 stuff. Tomorrow I want to change the way we generate the release notes on the blog (it's still missing one small thing).
+
+## Lundi 25 Novembre 2024 (5h, 4/5)
+
+- Refining a bit the proposal about independent container updates;
+- Meeting with Alex, synchronizing, talking about general directions for the project, redefining a bit how we organize during our syncs
+- Had a look at the FOSDEM devrooms to see where it would make more sense to answer an RFP
+- Organizing myself for the rest of the week, the goal being to finish post 0.8.0 pending tasks
+- Debug macOS runners not doing parameter expansion the same way as other shells, and also trying to install docker on the macOS runners to do some more CI there.
+
+## Jeudi 21 Novembre 2024 (7h, 2/5)
+
+- Merged a few more post-release fixes
+- Discussed with Alexis about independent container updates, how we can use Sigstore. Probably we will reach to our security experts within FPF with more questions.
+- Dangerzone biweekly meeting, where we met Leila!
+## Mercredi 20 Novembre 2024 (7h, 3/5)
+
+-   Rebased and merged a few PR that were waiting for me: [https://github.com/freedomofpress/dangerzone/pull/975](https://github.com/freedomofpress/dangerzone/pull/975), [https://github.com/freedomofpress/dangerzone/pull/961](https://github.com/freedomofpress/dangerzone/pull/961) [https://github.com/freedomofpress/dangerzone/pull/994](https://github.com/freedomofpress/dangerzone/pull/994) [https://github.com/freedomofpress/dangerzone/pull/959](https://github.com/freedomofpress/dangerzone/pull/959)
+- Reviewed some work by Alex, his document on GH merge queues
+- We had a meeting on this. It looks promising, and we need to decide on our trust model on GH
+## Mardi 19 Novembre 2024 (7h, 3/5)
+
+- Sync up with Alex on what happened last week while I was out
+- Reviewing all notifications and acting on them.
+- Updated PRs, reviewed some that were pending, and trying to get everything that's in the pipes closer to the exit side.
+- All-staff meeting, with a dropping connection just when I needed it ![:wink:](https://a.slack-edge.com/production-standard-emoji-assets/14.0/google-medium/1f609@2x.png)
+
+## Lundi 11 Novembre 2024 (3h, 5/5)
+
+Created a stats dashboard for dangerzone.
+
+# Jeudi 07 Novembre 2024 (7h, 4/5)
+
+Post release stuff.
+
+## Mercredi 06 Novembre 2024 (7h, 4/5)
+
+We released DZ 0.8.0, after fixing some issues with it, rebuilt the container image and the .deb files, signed and published everything.
+
+I've started doing some post-release tasks, which should help us in the long run.
+## Mardi 05 Novembre 2024 (7h, 4/5)
+
+- We really close to releasing Dangerzone 0.8.0. We have built and pushed all the required artifacts, and sent a PR for our website.
+- .... but we are investigating a last minute issue with old Podman versions
+- 1:1 with Harris
+- 1:1 with Erik
+
+It was a bit hard to continue facing problems when we wanted to "just release", and that really build a motivation for me to streamline the whole process.
+
+## Lundi 04 Novembre 2024 (7h, 3/5)
+
+Today was mostly release-related: Sync with Alex + Preparation of the release, hit again some "out of space" issues, but we're almost there.
+
+## Jeudi 31 Octobre 2024 (8h, 4/5)
+
+Today was mainly some QA on different platforms, testing that the next 0.8.0 release works on Ubuntu, Silicon macOS. I've hit a few issues down the road, the mac mini was full and I didn't figured why it wasn't working out directly.
+
+My general feeling is that it takes too much time on repetitive tasks. I would like to find ways to streamline the whole process.
+
+Then, the DZ Biweekly meeting. I have a feeling that things aren't really smooth between Alex and I, and I would like to ensure that 
+
+## Mercredi 30 Octobre 2024 (4h, 3/5)
+
+- Prepared the CHANGELOG
+- Reviewed some PRs by a_pyrgio
+- Started QA on Debian and derivatives
+
+## Mardi 29 Octobre 2024 (9h, 5/5)
+
+- Sync with Alex about the upcoming 0.8.0 release
+- Updated the deprecation warning message for ubuntu focal users
+- Wrote release notes + a small script to gather them.
+- Found out via user feedback that our CI isn't actually running the produced .exe files on windows. Trying to update the CI accordingly.
+- Started to have a look at how to "attest" our artifacts on Github, using sigstore.
+
+## Lundi 28 Octobre 2024 (11h, 5/5)
+
+- Catchup on last week work
+- Adding a deprecation warning for Ubuntu Focal users, asking them to upgrade their system to continue using Dangerzone
+- Continue research on independent container updates.
+- Removed the duplication of the action runs on the Github CI. We now only run on PRs
+- Publish artifacts built in the CI (.msi, .app, .deb and .rpms). Not signed for now.
+
+## Jeudi 17 Octobre 2024 (9h, 4/5)
+
+Merge-day :-)
+
+- We finally merged the on-host conversion PR! Nice work by A_pyrgio. Happy to have it incorporated in time for the 0.8.0 release in the next few weeks: https://github.com/freedomofpress/dangerzone/pull/748
+- Automating the closing of stale issues with the needs info tag after some inactivity: https://github.com/freedomofpress/dangerzone/pull/955
 - Rebased and merged a PR catching installation errors (and other podman/docker errors) and displaying them in the UI to help gather feedback from users when things go wrong: https://github.com/freedomofpress/dangerzone/pull/952
 - Small reviews: https://github.com/freedomofpress/dangerzone/pull/958.
-- Rebased the PR adding a `--debug` flag to `dangerzone-cli`. Running with gVisor in debug mode seem to block, not sure if it's related to the on-host conversion or some work I did in there. Will investigate later on.
-- Investigated the signing situation on Windows
-- Did some more investigation on the relationship between App Armor and flags passed to the container runtime. Commented about that on https://github.com/freedomofpress/dangerzone/issues/865
-- Biweekly meeting, planning for 0.8.0 release and discussions on indep. container updates / container signing.
+- Rebased the PR adding a --debug flag to dangerzone-cli. Running with gVisor in debug mode seem to block, not sure if it's related to the on-host conversion or some work I did in there. Will investigate later on.
+
+
+
+## Mercredi 16 Octobre 2024 (6h, 4/5)
+
+- Sync with Alex
+- Published the Ubuntu 24.10 package
+- Continued exploring the possibilities for signing container images. The fact we're using podman and/or docker on different platforms doesn't make it easy, as the two have different ways to sign / verify.
+
+## Mardi 15 Octobre 2024 (6h, 5/5)
+
+- Reviewed PRs for F41 and Ubuntu 24.10 support
+- Changed the approach to testing the container installation failures. It's more reliable now and easier to think about. Submitted a PR for it.
+- Proposed a change to close automatically stale issues with a specific `need-info` tag
+
+## Lundi 14 Octobre 2024 (9h, 3/5)
+
+We've started with a sync point with Alex, where we discussed the next items on the table. We found out that there are new releases out for Fedora 41 and Ubuntu 24.10, and they will need to be supported on the next 0.8.0 release.
+
+As spinoffs of this discussion, I've had a look at how distrowatch could provide us RSS feeds for when new beta/RC releases are out, but the feeds doesn't seem to be that customisable, unfortunately. 
+
+I also created an issue about moving from argparse to click and from urllib to requests, as it seem it will allow for more uniformisation.
+
+I've had a look at all the open issues. I wanted to do it for quite some time but never manage to find the time. It's good to now see what are a few blind spots, and seeing that the whole project can fit in my head.
+
+Also built the package for ubuntu 24.10, and updated our CI to reflect this. Unfortunately it's not currently working (that's expected).
+
+Summary:
+
+- Sync with Alex on the tasks on the table + a few discussion points.
+- Built a .deb file for ubuntu 24.10, to find out it's not working out of the box.
+- Started having a look at why it's failing, and updating our CI to test for this platform.
+- Had a look at all the issues in the repo. I wanted to do this since quite some time. Happy to see it fits in my head nicely, made a few comments on my way.
+- Pushed a PR for #193 (Error detection and display)
+
 
 ## Jeudi 10 Octobre 2024 (9h, 5/5)
 
@@ -29,6 +254,7 @@ We continued discussing a bit with Alex on different matters, and one of them wa
 I also attended Giulio "braindump" session, where he explained how TUF and Sigstore work. My takeaway is that TUF can be seen as a kind of framework to decide how to validate new certs, and how to make it possible for the end users to have some sort of canary: if there are no updates, there is a problem somehow.
 
 Sigstore is basically a way to a) have a proof that you are the owner of a {Google, Github} account, issuing certificates for this and b) sign and publish information related to artifacts you want to publish. There is an observatory inside it, to publish what's going on, following the same principles as Google CT for TLS certificates.
+
 ## Mercredi 09 Octobre 2024 (8h, 5/5)
 
 I've reviewed the work done by Alex on the on host conversion, which spawned some interesting discussions about how to deal with our scripts generally speaking, covered by [#946](https://github.com/freedomofpress/dangerzone/issues/946) . I tested the branch locally on a M1 mac and it works well 🎉
@@ -94,7 +320,13 @@ Started reviewing the onhost conversion PR Alex proposed. Will resume tomorrow o
 - Did some reviewing on the preparation of the on host conversion PR
 - Team meeting !
 
-## Lundi 30 Septembre 2024 (7h, 4/5)
+## Mardi 01 Octobre 2024 (7h, 4/5)
+
+- Release of the DZ 0.7.1 hotfix release, announcements etc. with Alex!
+- Attended Trevor's brownbag presentation on the history of FPF
+- Updated the "move to GHA" branch
+
+## Lundi 30 Septembre 2024 (8h, 4/5)
 
 - Sync with @a_pyrgio about last week
 - Review the 0.7.1 hotfix, updated commits, and created assets via our mac minis (.dmg for silicon, .deb and fedora 39,40 rpms). Tested the hotfix on an Apple M1 machine, it works.
@@ -110,8 +342,6 @@ Started reviewing the onhost conversion PR Alex proposed. Will resume tomorrow o
 - Had a quick look at the CSS for the DZ blogpost
 - 1:1 with Harris
 - DZ team meeting
-
-
 ## Mercredi 18 Septembre 2024 (8h, 4/5)
 
 - Merged #906 - Fix wrong container runtime detection on Linux
@@ -417,4 +647,3 @@ What I did today (a lot of reading, some meetings):
 - I'm discovering how everything is structured. I find out about [yum-tools-prod](https://github.com/freedomofpress/yum-tools-prod) and [apt-tools-prod](https://github.com/freedomofpress/apt-tools-prod)
 - I'm reading the [Code of Conduct](https://github.com/freedomofpress/.github/blob/main/CODE_OF_CONDUCT.md). It's nice to see this is though of, and well phrased.
 - I'm reading the [meeting notes](https://github.com/freedomofpress/dangerzone/wiki/Meeting-Notes) and clicked on some issues to see what's worked-on at the moment ([Explore how to Simplify Save Options · Issue #427 · freedomofpress/dangerzone · GitHub](https://github.com/freedomofpress/dangerzone/issues/427))
-- 

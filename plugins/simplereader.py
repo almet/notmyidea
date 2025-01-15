@@ -65,8 +65,7 @@ class WorklogPreprocessor(Preprocessor):
                     happiness,
                 ) = match.groups()
 
-                volunteer_hours = int(
-                    volunteer_hours) if volunteer_hours else 0
+                volunteer_hours = int(volunteer_hours) if volunteer_hours else 0
                 payed_hours = int(payed_hours)
                 happiness = int(happiness)
                 date = datetime.strptime(f"{day} {month} {year}", "%d %B %Y")
@@ -93,8 +92,7 @@ class WorklogPreprocessor(Preprocessor):
         This is run once, after everything has been parsed
         """
         payed_hours = sum([item["payed_hours"] for item in self.data.values()])
-        volunteer_hours = sum([item["volunteer_hours"]
-                              for item in self.data.values()])
+        volunteer_hours = sum([item["volunteer_hours"] for item in self.data.values()])
 
         data = dict(
             data=self.data,
@@ -122,8 +120,7 @@ class SimpleReader(MarkdownReader):
 
     def __init__(self, *args, **kwargs):
         super(SimpleReader, self).__init__(*args, **kwargs)
-        self.settings["MARKDOWN"]["extensions"].append(
-            "markdown.extensions.toc")
+        self.settings["MARKDOWN"]["extensions"].append("markdown.extensions.toc")
         self.settings["MARKDOWN"]["extensions"].append(
             MarkdownInclude({"base_path": self.settings["PATH"]})
         )
@@ -171,16 +168,23 @@ class SimpleReader(MarkdownReader):
         if len(parts) > 3:
             metadata["date"] = get_date("-".join(parts[:3]))
 
-        if "slug" not in metadata:
-            metadata["slug"] = slugify(
-                metadata["title"], self.settings.get(
-                    "SLUG_REGEX_SUBSTITUTIONS", [])
-            )
-
         category = os.path.basename(
             os.path.abspath(os.path.join(source_path, os.pardir))
         )
+
+        if category in ("Desserts", "Lactofermentation", "recettes"):
+            category = "recettes"
+            if not metadata.get("date"):
+                metadata["date"] = get_date("2024-05-02")
+
+            metadata["title"] = Path(source_path).stem
+
         metadata["category"] = self.process_metadata("category", category)
+
+        if "slug" not in metadata:
+            metadata["slug"] = slugify(
+                metadata["title"], self.settings.get("SLUG_REGEX_SUBSTITUTIONS", [])
+            )
 
         try:
             lang = self.settings["CATEGORIES_DESCRIPTION"].get(category)[3]

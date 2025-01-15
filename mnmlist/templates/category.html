@@ -1,8 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <header class="{{ category }}">
   <figure>
-    {% if category in CATEGORIES_DESCRIPTION.keys() %}
-    {% set cat = CATEGORIES_DESCRIPTION[category] %}
+    {% if category in CATEGORIES_DESCRIPTION.keys() %} {% set cat =
+    CATEGORIES_DESCRIPTION[category] %}
     <h1 class="post-title">{{ cat[0] }}</h1>
     <figcaption>
       <a id="feed" href="{{ SITEURL }}/feeds/{{ category.slug }}.atom.xml">

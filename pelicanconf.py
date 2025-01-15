@@ -47,10 +47,10 @@ INDEX_SAVE_AS = "index.html"
 CATEGORY_SAVE_AS = "{slug}/index.html"
 CATEGORY_URL = "{slug}/"
 
-ARTICLE_URL = '{slug}.html'
+ARTICLE_URL = "{slug}.html"
 
-ARTICLE_LANG_URL = '{slug}.html'
-ARTICLE_LANG_SAVE_AS = '{slug}.html'
+ARTICLE_LANG_URL = "{slug}.html"
+ARTICLE_LANG_SAVE_AS = "{slug}.html"
 
 MENU = [
     # ("Journal", "/journal/index.html", "journal"),
@@ -97,6 +97,7 @@ CATEGORIES_DESCRIPTION = {
         "fr",
     ),
     "ecriture": ("Écriture", "Textes rédigés lors d'ateliers d'écriture", "✍️", "fr"),
+    "recettes": ("Recettes", "Bah oui!", "", "fr"),
 }
 
 HOMEPAGE_EXCLUDED_CATEGORIES = [

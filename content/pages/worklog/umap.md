@@ -2,9 +2,80 @@
 title: uMap
 save_as: umap/index.html
 template: worklog
-total_days: 90
+total_days: 78
 ---
+Total prévu sur uMap pour moi = 90 jours (y compris le mécénat de Scopyleft)
+NLNet = 40 000€ = 62 jours
+Fait = 87 jours.
 
+MAIS: pas terminé le travail, il manque:
+
+a. Scale things up:
+- Throttling: frequency of sync: ability to send messages by batches
+- Handle running multiple processes to handle more load, distribute the load on different WebSocket workers.
+- Deal with maximum number of peers connected (what happens when the limit is met?)
+b. Handle security:
+- Find a mechanism to revoke permissions when the owner changes them
+- Deal with an evil client sending messages to an elevated client.
+- Process external security review
+
+Ce qui représente 8000€ restant à payer de la part de NLNet pour:
+8000€ = 12 jours (en moins)
+
+- Actuellement: 61h de « non payé » = 5 664€ (à la fin de cette semaine) = 9j
+
+Deux sujets:
+
+- Comment est-ce qu'on termine ma « mission » ?
+- Des sous ont été mis de côté (par Scopyleft ? Par David ?) plus tôt, qu'il n'a pas consommé, et il proposait de les utiliser ici.
+
+
+
+
+
+
+
+## Mardi 12 Novembre 2024 (3h, 5/5)
+
+## Mercredi 13 Novembre 2024 (8h, 5/5)
+## Jeudi 14 Novembre 2024 (7h, 5/5)
+
+## Vendredi 15 Novembre 2024 (7h, 5/5)
+
+## Vendredi 25 Octobre 2024 (6h, 2/5)
+
+Je continue le boulot sur la reconection des websockets, pour pouvoir afficher un dialogue quand on est déconnecté. Je teste et ça semble fonctionner, plutôt.
+
+Je fais un test rapide sur le fait que le debounce peut fonctionner, c'est une première approche mais ça montre que déjà ce sera possible. J'aimerai bien cibler un peu plus pour que uniquement les modifications liées aux mêmes *properties* passent par debounce.
+
+Le manque de motivation suite au sujet conflictuel de la veille (non réellement traité) et au fait que je me sens seul pour travailler sur ce projet de manière générale. Le stress aussi arrivant avec le fait que c'est bientôt la fin du temps prévu et disponible pour avancer.
+
+## Jeudi 24 Octobre 2024 (6h, 1/5)
+
+Dans la matinée, on discute avec Yohan, sur la manière de faire des reviews, et sur les interconnections avec la motivation de participer au projet. Je suis assez frustré par le questionnement de mes propositions et la forme que ça prends. On décide que Yohan prendra le lead sur les changements qu'il demande pour la gestion des layers.
+
+L'après-midi, la motivation est à la baisse, je propose une manière de faire en sorte que les websockets se reconnectent automatiquement.
+
+## Mercredi 23 Octobre 2024 (9h, 5/5)
+
+Je change d'approche pour la gestion des layers, et j'utiliseune approche qui permet de stocker le futur UUID, avant qu'il soit envoyé sur le serveur, je passe du temps à débugger les tests pour finalement me rendre comptes des cas limites.
+
+On discute de l'approche en commentaires interposés, et je commence en parallèle à travailler sur la reconnection des websockets.
+
+## Mardi 22 Octobre 2024 (9h, 4/5)
+
+Je commence par débugger des tests fonctionnels qui ne marchaient pas sur ma branche, parce que je ne vérifiais pas que `options.*` pouvait être envoyé dans le fonction qui vérifiait que le champ était bien dans le schema. Les tests passent. Je merge.
+
+J’enchaîne sur la gestion des layers, et je change la manière dont ils sont enregistrés sur le serveur. Je fais un changement qui permet aux clients de specifier l'UUID lors de la sauvegarde. Certains tests ne passent pas, et c'est compréhensible, il manque encore un peu de travail. J'ai cru à un moment qu'il était normal que les layers ne soit pas demandés par requête spécifique, mais un appel avec Yohan me dit que c'est autre chose.
+
+Biweekly de synchro, il faut que je prenne mes billets de train :-)
+## Lundi 21 Octobre 2024 (6h, 5/5)
+
+La reprise sur uMap. C'est l'avant dernière semaine. Je fais un tour des changements faits depuis la dernière fois, et je fait des modifications sur la PR qui permet d'afficher le nombre de pairs connectés.
+
+On a une discussion avec Yohan sur la manière de rendre des données de titre et visibilité, qui est actuellement faite en dehors du `map.render()`. On se dit que ça peut être pas mal de passer par là si possible.
+
+Je fais une revue du code qui permet d'ajouter le support de asgi. J'organise aussi un peu la semaine, en terme de tâches à faire. Demain, j'aimerai bien changer la manière dont la synchronisation des layers fonctionne, en proposant d'inverser l'assignation des UUIDs pour que ce soit le client qui s'en occupe, en tout cas qui puisse suggérer les modifications au serveur.
 ## Vendredi 27 Septembre 2024 (7h, 5/5)
 
 Je trouve une manière de faire le déploiement avec uWsgi pour le serveur de websockets.

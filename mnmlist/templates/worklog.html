@@ -24,7 +24,7 @@
     <summary>Stats</summary>
     <ul>
       <li>{{ page.metadata.worklog['total_hours'] }}h prévues</li>
-      <li>{{ page.metadata.worklog['payed_hours'] }}h rémunérées</li>
+      <li>{{ page.metadata.worklog['payed_hours'] }}h faites</li>
       <li>{{ page.metadata.worklog['volunteer_hours'] }}h bénévoles</li>
     </ul>
     <table>
@@ -61,33 +61,54 @@
          "name": "table",
          "values": [
          {% for date, item in page.metadata.worklog.data.items() %}
-           {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}},
-           {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volunteer_hours'] }}},
+           {"date": "{{ date }}", "series": "Rémunéré", "count": {{ item['payed_hours'] }}, "happiness": {{ item['happiness'] }}},
+           {"date": "{{ date }}", "series": "Bénévole", "count": {{ item['volunteer_hours'] }}, "happiness": {{ item['happiness'] }}},
          {% endfor %}
          ]
        }
      ,
-     "mark": "bar",
-     "encoding": {
-       "x": {
-         "timeUnit": {"unit": "", "utc": true},
-         "field": "date",
-         "axis": {"format": "%d/%m"},
-         "title": "Date"
+     "layer": [
+       {
+         "mark": "bar",
+         "encoding": {
+           "x": {
+             "timeUnit": {"unit": "", "utc": true},
+             "field": "date",
+             "axis": {"format": "%d/%m"},
+             "title": "Date"
+           },
+           "y": {
+             "aggregate": "sum",
+             "field": "count",
+             "title": "Heures"
+           },
+           "color": {
+             "field": "series",
+             "scale": {
+               "domain": ["Bénévole", "Rémunéré"],
+               "range": ["#e7ba52", "#1f77b4"]
+             }
+           }
+         }
        },
-       "y": {
-         "aggregate": "sum",
-         "field": "count",
-         "title": "Heures",
-       },
-       "color": {
-         "field": "series",
-         "scale": {
-           "domain": ["Bénévole", "Rémunéré"],
-           "range": ["#e7ba52", "#1f77b4"]
+       {
+         "mark": "line",
+         "encoding": {
+           "x": {
+             "timeUnit": {"unit": "", "utc": true},
+             "field": "date"
+           },
+           "y": {
+             "field": "happiness",
+             "title": "Happiness",
+             "scale": {"reverse": true}  // Reverse only the y-axis for happiness
+           },
+           "color": {
+             "value": "green"
+           }
          }
        }
-     }
+     ]
    };
 
   vegaEmbed("#vis", spec)

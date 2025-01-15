@@ -4,10 +4,6 @@ slug: resume
 title: Alexis Métaireau
 ---
 
-Here is a resume.
-
----
-
 | **Email**   | [alexis@notmyidea.org](mailto:alexis@notmyidea.org)                                                           |
 | ----------- | ------------------------------------------------------------------------------------------------------------- |
 | **Code**    | [https://github.com/almet](https://github.com/almet) and [https://gitlab.com/almet](https://gitlab.com/almet) |
@@ -24,39 +20,54 @@ Here is a resume.
 
 ## Projects
 
-- #### 🗺️ [uMap](https://umap-project.org) (2023-2024)
+#### ⚠ [Dangerzone](https://dangerzone.rocks) (2024-2025)
+
+  A tool to convert potentially unsafe documents into safe ones. For the [Freedom of the Press Foundation](https://freedom.press)
+
+#### 🗺️ [uMap](https://umap-project.org) (2023-2024)
+
   Collaborative web-based map creation tool. Working on real-time collaborative features.
   
-- #### 🚨 [Argos](https://framasoft.frama.io/framaspace/argos/) (2023-2024)
+#### 🚨 [Argos](https://framasoft.frama.io/framaspace/argos/) (2023-2024)
+
   Web supervision software and status board created for the [Framasoft Association](https://framasoft.org).
 
-- #### 🧶 [Jacquard Pattern Generator](https://bekeko.notmyidea.org/) (2022)
+#### 🧶 [Jacquard Pattern Generator](https://bekeko.notmyidea.org/) (2022)
+
   Tool for designing knitting patterns. Simplifies color and pattern choices for hand-crafted projects. ([Coded in Elm](https://github.com/almet/bekeko))
 
-- #### 🙌 [Copanier](https://github.com/spiral-project/copanier) (2019-2024)
+#### 🙌 [Copanier](https://github.com/spiral-project/copanier) (2019-2024)
+
   Web software to facilitate group purchases, modified for a co-op. ([Coded in Python](https://github.com/almet/copanier))
 
-- #### 💸 [I Hate Money](http://ihatemoney.org) (2011-2023)
+#### 💸 [I Hate Money](http://ihatemoney.org) (2011-2023)
+
   Expense management web service for groups. Maintains an open instance at [ihatemoney.org](https://ihatemoney.org). ([Coded in Python+Flask](https://github.com/spiral-project/ihatemoney))
 
-- #### 🔄 [Kinto](https://github.com/kinto/kinto) (2012-2015)
+#### 🔄 [Kinto](https://github.com/kinto/kinto) (2012-2015)
+
   Generic backend for web applications, initiated at Mozilla. Used for data synchronization in Firefox. ([Coded in Python+Pyramid](https://github.com/Kinto/kinto))
 
-- #### ✍️ [Pelican](http://getpelican.com) (2010-2017)
+#### ✍️ [Pelican](http://getpelican.com) (2010-2017)
+
   Written a static site generator for transforming Markdown files into easily hosted websites. Used by projects like the [Linux Kernel](https://www.kernel.org/pelican.html) and [Debian](https://bits.debian.org/pages/about.html). ([Coded in Python](https://github.com/getpelican/pelican))
 
 ## Professional Experience
 
-- #### Independent Developer (Since 2023)
+#### Independent Developer (Since 2023)
+
   Contractor for different projects. [Blog](https://blog.notmyidea.org)
 
-- #### Co-founder, [Brasserie du Vieux Singe](https://www.vieuxsinge.com/) (2017 - 2023)
+#### Co-founder, [Brasserie du Vieux Singe](https://www.vieuxsinge.com/) (2017 - 2023)
+
   Established an organic craft brewery promoting cooperation. Transitioned out in the summer of 2023 to return to development.
 
-- #### Engineer, [Mozilla](https://mozilla.org) (2011 - 2016)
+#### Engineer, [Mozilla](https://mozilla.org) (2011 - 2016)
+
   Part of the "Services" team working on user data, encryption, scaling sites like addons.mozilla.com, and data synchronization.
 
-- #### [Le Grappe](https://www.reseaugrappe.org/) (2007 - 2012)
+#### [Le Grappe](https://www.reseaugrappe.org/) (2007 - 2012)
+
   Co-created and engaged in managing a network of environmental project organizations during student years, fostering collectivist values.
 
 ## Technical Skills

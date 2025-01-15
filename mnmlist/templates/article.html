@@ -9,6 +9,9 @@
       <figure>
         <h1 class="post-title">{{ article.title }}</h1>
         <figcaption>
+          {% if article.subtitle %}
+            {{ article.subtitle }},
+          {% endif %}
           {% if lectures %}
             Lu en {{ article.date | strftime("%B %Y") }}
           {% else %}
